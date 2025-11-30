@@ -1,0 +1,3912 @@
+Performance improvement using Eigen
+
+This is required in order to support RISC-V.
+
+Upstream-Status: Backport [https://github.com/ros-navigation/navigation2/commit/a33e8d2bef0984c3eef8a03c7f05dc69704225c7]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 19ccd85a32dcf6b27b8e371cd40cd7230651f104 Mon Sep 17 00:00:00 2001
+From: Ayush Singh <64409716+Ayush1285@users.noreply.github.com>
+Date: Thu, 16 Jan 2025 04:47:49 +0530
+Subject: [PATCH] 45-50% performance improvement in MPPI controller using Eigen
+ library for computation. (#4621)
+
+* Initial commit
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Corrected to Eigen Array
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* updated motion model with eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Replaced xtensor with eigen in Optimizer, NoiseGenerator and all Util files
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* updated critics with Eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* optimized Eigen::Array implementation
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* added comment
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Updated path align critic and velocity deadband critic with Eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Updated cost critic and constraint critic with eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Updated utils test with Eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Reverted unnecessary changes and fixed static instance in Noise generator
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* changes std::abs to fabs, clamp to min-max
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Converted tests to Eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Complete conversion from xtensor to Eigen
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* fixed few review comments
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed linters and few review comments
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed mis-merge of AckermannReversingTest
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* fixed gtest assertion
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed optimizer_unit_tests and related issues
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed all the unit tests and critic tests, all unit tests passing locally
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* fixed few review comments
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed CostCritic issue and added test for shiftColumn method
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Added test for new functions
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Removed compiler flags
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* updated test to check first and last columns
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Addressed few review comments
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Changed the obstacle critic implementation to the original way. Updated optimizer_benchmark test with critics and params
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed bugs
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed linter
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Added clamp util function
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed bug
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed review comments: Added utils::clamp method
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixing strided trajectory columns
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* fixed lint error
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed merge
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed optimizer benchmark with latest api changes
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* fixed build error
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+* Fixed new util_test
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+
+---------
+
+Signed-off-by: Ayush1285 <ayush.singhftw@gmail.com>
+Signed-off-by: RBT22 <rozgonyibalint@gmail.com>
+---
+ nav2_mppi_controller/CMakeLists.txt           |  46 +---
+ .../benchmark/controller_benchmark.cpp        |   7 +-
+ .../benchmark/optimizer_benchmark.cpp         |  33 +--
+ .../nav2_mppi_controller/critic_data.hpp      |  11 +-
+ .../nav2_mppi_controller/critic_manager.hpp   |   7 -
+ .../models/control_sequence.hpp               |  19 +-
+ .../nav2_mppi_controller/models/path.hpp      |  19 +-
+ .../nav2_mppi_controller/models/state.hpp     |  32 ++-
+ .../models/trajectories.hpp                   |  20 +-
+ .../nav2_mppi_controller/motion_models.hpp    |  83 ++++---
+ .../nav2_mppi_controller/optimizer.hpp        |  19 +-
+ .../tools/noise_generator.hpp                 |  22 +-
+ .../tools/trajectory_visualizer.hpp           |  11 +-
+ .../nav2_mppi_controller/tools/utils.hpp      | 144 +++++++++---
+ nav2_mppi_controller/package.xml              |   4 +-
+ .../src/critics/constraint_critic.cpp         |  61 ++---
+ .../src/critics/cost_critic.cpp               |  40 ++--
+ .../src/critics/goal_angle_critic.cpp         |  13 +-
+ .../src/critics/goal_critic.cpp               |  18 +-
+ .../src/critics/obstacles_critic.cpp          |  31 ++-
+ .../src/critics/path_align_critic.cpp         |  41 ++--
+ .../src/critics/path_angle_critic.cpp         |  58 +++--
+ .../src/critics/path_follow_critic.cpp        |  18 +-
+ .../src/critics/prefer_forward_critic.cpp     |  14 +-
+ .../src/critics/twirling_critic.cpp           |   7 +-
+ .../src/critics/velocity_deadband_critic.cpp  |  54 ++---
+ nav2_mppi_controller/src/noise_generator.cpp  |  37 ++-
+ nav2_mppi_controller/src/optimizer.cpp        | 213 ++++++++++--------
+ .../src/trajectory_visualizer.cpp             |  15 +-
+ nav2_mppi_controller/test/CMakeLists.txt      |   6 -
+ .../test/critic_manager_test.cpp              |   2 +-
+ nav2_mppi_controller/test/critics_tests.cpp   | 167 +++++++-------
+ nav2_mppi_controller/test/models_test.cpp     |  78 +++----
+ .../test/motion_model_tests.cpp               | 111 ++++-----
+ .../test/noise_generator_test.cpp             |  32 +--
+ .../test/optimizer_smoke_test.cpp             |   4 -
+ .../test/optimizer_unit_tests.cpp             | 118 +++++-----
+ .../test/trajectory_visualizer_tests.cpp      |  16 +-
+ nav2_mppi_controller/test/utils/utils.hpp     |  10 +-
+ nav2_mppi_controller/test/utils_test.cpp      | 183 ++++++++++++---
+ 40 files changed, 952 insertions(+), 872 deletions(-)
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -1,23 +1,7 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(nav2_mppi_controller)
+ 
+-add_definitions(-DXTENSOR_ENABLE_XSIMD)
+-add_definitions(-DXTENSOR_USE_XSIMD)
+-
+-set(XTENSOR_USE_TBB 0)
+-set(XTENSOR_USE_OPENMP 0)
+-set(XTENSOR_USE_XSIMD 1)
+-
+-# set(XTENSOR_DEFAULT_LAYOUT column_major)  # row_major, column_major
+-# set(XTENSOR_DEFAULT_TRAVERSAL row_major)  # row_major, column_major
+-
+ find_package(ament_cmake REQUIRED)
+-find_package(xsimd REQUIRED)
+-find_package(xtensor REQUIRED)
+-
+-include_directories(
+-  include
+-)
+ 
+ set(dependencies_pkgs
+   rclcpp
+@@ -33,40 +17,32 @@ set(dependencies_pkgs
+   tf2_geometry_msgs
+   tf2_eigen
+   tf2_ros
++  Eigen3
+ )
+ 
+ foreach(pkg IN LISTS dependencies_pkgs)
+   find_package(${pkg} REQUIRED)
+ endforeach()
+ 
++include_directories(
++  include
++  ${EIGEN3_INCLUDE_DIR}
++)
++
++include_directories(
++  include
++)
++
+ nav2_package()
+ 
+ include(CheckCXXCompilerFlag)
+ 
+-check_cxx_compiler_flag("-mno-avx512f" COMPILER_SUPPORTS_AVX512)
+-check_cxx_compiler_flag("-msse4.2" COMPILER_SUPPORTS_SSE4)
+-check_cxx_compiler_flag("-mavx2" COMPILER_SUPPORTS_AVX2)
+ check_cxx_compiler_flag("-mfma" COMPILER_SUPPORTS_FMA)
+ 
+-if(COMPILER_SUPPORTS_AVX512)
+-  add_compile_options(-mno-avx512f)
+-endif()
+-
+-if(COMPILER_SUPPORTS_SSE4)
+-  add_compile_options(-msse4.2)
+-endif()
+-
+-if(COMPILER_SUPPORTS_AVX2)
+-  add_compile_options(-mavx2)
+-endif()
+-
+ if(COMPILER_SUPPORTS_FMA)
+   add_compile_options(-mfma)
+ endif()
+ 
+-# If building one the same hardware to be deployed on, try `-march=native`!
+-add_compile_options(-O3 -finline-limit=10000000 -ffp-contract=fast -ffast-math -mtune=generic)
+-
+ add_library(mppi_controller SHARED
+   src/controller.cpp
+   src/optimizer.cpp
+@@ -94,12 +70,12 @@ add_library(mppi_critics SHARED
+ set(libraries mppi_controller mppi_critics)
+ 
+ foreach(lib IN LISTS libraries)
+-  target_compile_options(${lib} PUBLIC -fconcepts)
+-  target_include_directories(${lib} PUBLIC ${xsimd_INCLUDE_DIRS})  #  ${OpenMP_INCLUDE_DIRS}
+-  target_link_libraries(${lib} xtensor xtensor::optimize xtensor::use_xsimd)
+   ament_target_dependencies(${lib} ${dependencies_pkgs})
+ endforeach()
+ 
++target_compile_options(mppi_controller PUBLIC -O3)
++target_compile_options(mppi_critics PUBLIC -fconcepts -O3)
++
+ install(TARGETS mppi_controller mppi_critics
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+@@ -116,7 +92,7 @@ if(BUILD_TESTING)
+   set(ament_cmake_copyright_FOUND TRUE)
+   ament_lint_auto_find_test_dependencies()
+   add_subdirectory(test)
+-  # add_subdirectory(benchmark)
++  add_subdirectory(benchmark)
+ endif()
+ 
+ ament_export_libraries(${libraries})
+Index: git/benchmark/controller_benchmark.cpp
+===================================================================
+--- git.orig/benchmark/controller_benchmark.cpp
++++ git/benchmark/controller_benchmark.cpp
+@@ -13,6 +13,9 @@
+ // limitations under the License.
+ 
+ #include <benchmark/benchmark.h>
++
++#include <Eigen/Dense>
++
+ #include <string>
+ 
+ #include <geometry_msgs/msg/pose_stamped.hpp>
+@@ -24,10 +27,6 @@
+ #include <nav2_costmap_2d/costmap_2d_ros.hpp>
+ #include <nav2_core/goal_checker.hpp>
+ 
+-#include <xtensor/xarray.hpp>
+-#include <xtensor/xio.hpp>
+-#include <xtensor/xview.hpp>
+-
+ #include "nav2_mppi_controller/motion_models.hpp"
+ #include "nav2_mppi_controller/controller.hpp"
+ 
+Index: git/benchmark/optimizer_benchmark.cpp
+===================================================================
+--- git.orig/benchmark/optimizer_benchmark.cpp
++++ git/benchmark/optimizer_benchmark.cpp
+@@ -13,6 +13,9 @@
+ // limitations under the License.
+ 
+ #include <benchmark/benchmark.h>
++
++#include <Eigen/Dense>
++
+ #include <string>
+ 
+ #include "gtest/gtest.h"
+@@ -25,10 +28,6 @@
+ #include <nav2_costmap_2d/costmap_2d_ros.hpp>
+ #include <nav2_core/goal_checker.hpp>
+ 
+-#include <xtensor/xarray.hpp>
+-#include <xtensor/xio.hpp>
+-#include <xtensor/xview.hpp>
+-
+ #include "nav2_mppi_controller/optimizer.hpp"
+ #include "nav2_mppi_controller/motion_models.hpp"
+ 
+@@ -49,8 +48,8 @@ void prepareAndRunBenchmark(
+   bool consider_footprint, std::string motion_model,
+   std::vector<std::string> critics, benchmark::State & state)
+ {
+-  int batch_size = 300;
+-  int time_steps = 12;
++  int batch_size = 2000;
++  int time_steps = 56;
+   unsigned int path_points = 50u;
+   int iteration_count = 2;
+   double lookahead_distance = 10.0;
+@@ -89,7 +88,7 @@ void prepareAndRunBenchmark(
+   nav2_core::GoalChecker * dummy_goal_checker{nullptr};
+ 
+   for (auto _ : state) {
+-    optimizer->evalControl(pose, velocity, path, dummy_goal_checker);
++    optimizer->evalControl(pose, velocity, path, path.poses.back().pose, dummy_goal_checker);
+   }
+ }
+ 
+@@ -97,8 +96,9 @@ static void BM_DiffDrivePointFootprint(b
+ {
+   bool consider_footprint = true;
+   std::string motion_model = "DiffDrive";
+-  std::vector<std::string> critics = {{"GoalCritic"}, {"GoalAngleCritic"}, {"ObstaclesCritic"},
+-    {"PathAngleCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}};
++  std::vector<std::string> critics = {{"ConstraintCritic"}, {"CostCritic"}, {"GoalCritic"},
++    {"GoalAngleCritic"}, {"PathAlignCritic"}, {"PathFollowCritic"}, {"PathAngleCritic"},
++    {"PreferForwardCritic"}};
+ 
+   prepareAndRunBenchmark(consider_footprint, motion_model, critics, state);
+ }
+@@ -107,19 +107,20 @@ static void BM_DiffDrive(benchmark::Stat
+ {
+   bool consider_footprint = true;
+   std::string motion_model = "DiffDrive";
+-  std::vector<std::string> critics = {{"GoalCritic"}, {"GoalAngleCritic"}, {"ObstaclesCritic"},
+-    {"PathAngleCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}};
++  std::vector<std::string> critics = {{"ConstraintCritic"}, {"CostCritic"}, {"GoalCritic"},
++    {"GoalAngleCritic"}, {"PathAlignCritic"}, {"PathFollowCritic"}, {"PathAngleCritic"},
++    {"PreferForwardCritic"}};
+ 
+   prepareAndRunBenchmark(consider_footprint, motion_model, critics, state);
+ }
+ 
+-
+ static void BM_Omni(benchmark::State & state)
+ {
+   bool consider_footprint = true;
+   std::string motion_model = "Omni";
+-  std::vector<std::string> critics = {{"GoalCritic"}, {"GoalAngleCritic"}, {"ObstaclesCritic"},
+-    {"TwirlingCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}};
++  std::vector<std::string> critics = {{"ConstraintCritic"}, {"CostCritic"}, {"GoalCritic"},
++    {"GoalAngleCritic"}, {"PathAlignCritic"}, {"PathFollowCritic"}, {"PathAngleCritic"},
++    {"PreferForwardCritic"}};
+ 
+   prepareAndRunBenchmark(consider_footprint, motion_model, critics, state);
+ }
+@@ -128,8 +129,9 @@ static void BM_Ackermann(benchmark::Stat
+ {
+   bool consider_footprint = true;
+   std::string motion_model = "Ackermann";
+-  std::vector<std::string> critics = {{"GoalCritic"}, {"GoalAngleCritic"}, {"ObstaclesCritic"},
+-    {"PathAngleCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}};
++  std::vector<std::string> critics = {{"ConstraintCritic"}, {"CostCritic"}, {"GoalCritic"},
++    {"GoalAngleCritic"}, {"PathAlignCritic"}, {"PathFollowCritic"}, {"PathAngleCritic"},
++    {"PreferForwardCritic"}};
+ 
+   prepareAndRunBenchmark(consider_footprint, motion_model, critics, state);
+ }
+Index: git/include/nav2_mppi_controller/critic_data.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/critic_data.hpp
++++ git/include/nav2_mppi_controller/critic_data.hpp
+@@ -15,16 +15,11 @@
+ #ifndef NAV2_MPPI_CONTROLLER__CRITIC_DATA_HPP_
+ #define NAV2_MPPI_CONTROLLER__CRITIC_DATA_HPP_
+ 
++#include <Eigen/Dense>
++
+ #include <memory>
+ #include <vector>
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#pragma GCC diagnostic pop
+-
+ #include "geometry_msgs/msg/pose_stamped.hpp"
+ #include "nav2_core/goal_checker.hpp"
+ #include "nav2_mppi_controller/models/state.hpp"
+@@ -48,7 +43,7 @@ struct CriticData
+   const models::Path & path;
+   const geometry_msgs::msg::Pose & goal;
+ 
+-  xt::xtensor<float, 1> & costs;
++  Eigen::ArrayXf & costs;
+   float & model_dt;
+ 
+   bool fail_flag;
+Index: git/include/nav2_mppi_controller/critic_manager.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/critic_manager.hpp
++++ git/include/nav2_mppi_controller/critic_manager.hpp
+@@ -20,13 +20,6 @@
+ #include <vector>
+ #include <pluginlib/class_loader.hpp>
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#pragma GCC diagnostic pop
+-
+ #include "geometry_msgs/msg/twist.hpp"
+ #include "geometry_msgs/msg/twist_stamped.hpp"
+ 
+Index: git/include/nav2_mppi_controller/models/control_sequence.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/models/control_sequence.hpp
++++ git/include/nav2_mppi_controller/models/control_sequence.hpp
+@@ -15,12 +15,7 @@
+ #ifndef NAV2_MPPI_CONTROLLER__MODELS__CONTROL_SEQUENCE_HPP_
+ #define NAV2_MPPI_CONTROLLER__MODELS__CONTROL_SEQUENCE_HPP_
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#pragma GCC diagnostic pop
++#include <Eigen/Dense>
+ 
+ namespace mppi::models
+ {
+@@ -40,15 +35,15 @@ struct Control
+  */
+ struct ControlSequence
+ {
+-  xt::xtensor<float, 1> vx;
+-  xt::xtensor<float, 1> vy;
+-  xt::xtensor<float, 1> wz;
++  Eigen::ArrayXf vx;
++  Eigen::ArrayXf vy;
++  Eigen::ArrayXf wz;
+ 
+   void reset(unsigned int time_steps)
+   {
+-    vx = xt::zeros<float>({time_steps});
+-    vy = xt::zeros<float>({time_steps});
+-    wz = xt::zeros<float>({time_steps});
++    vx.setZero(time_steps);
++    vy.setZero(time_steps);
++    wz.setZero(time_steps);
+   }
+ };
+ 
+Index: git/include/nav2_mppi_controller/models/path.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/models/path.hpp
++++ git/include/nav2_mppi_controller/models/path.hpp
+@@ -15,12 +15,7 @@
+ #ifndef NAV2_MPPI_CONTROLLER__MODELS__PATH_HPP_
+ #define NAV2_MPPI_CONTROLLER__MODELS__PATH_HPP_
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#pragma GCC diagnostic pop
++#include <Eigen/Dense>
+ 
+ namespace mppi::models
+ {
+@@ -31,18 +26,18 @@ namespace mppi::models
+  */
+ struct Path
+ {
+-  xt::xtensor<float, 1> x;
+-  xt::xtensor<float, 1> y;
+-  xt::xtensor<float, 1> yaws;
++  Eigen::ArrayXf x;
++  Eigen::ArrayXf y;
++  Eigen::ArrayXf yaws;
+ 
+   /**
+     * @brief Reset path data
+     */
+   void reset(unsigned int size)
+   {
+-    x = xt::zeros<float>({size});
+-    y = xt::zeros<float>({size});
+-    yaws = xt::zeros<float>({size});
++    x.setZero(size);
++    y.setZero(size);
++    yaws.setZero(size);
+   }
+ };
+ 
+Index: git/include/nav2_mppi_controller/models/state.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/models/state.hpp
++++ git/include/nav2_mppi_controller/models/state.hpp
+@@ -15,16 +15,12 @@
+ #ifndef NAV2_MPPI_CONTROLLER__MODELS__STATE_HPP_
+ #define NAV2_MPPI_CONTROLLER__MODELS__STATE_HPP_
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#pragma GCC diagnostic pop
++#include <Eigen/Dense>
+ 
+ #include <geometry_msgs/msg/pose_stamped.hpp>
+ #include <geometry_msgs/msg/twist.hpp>
+ 
++
+ namespace mppi::models
+ {
+ 
+@@ -34,13 +30,13 @@ namespace mppi::models
+  */
+ struct State
+ {
+-  xt::xtensor<float, 2> vx;
+-  xt::xtensor<float, 2> vy;
+-  xt::xtensor<float, 2> wz;
+-
+-  xt::xtensor<float, 2> cvx;
+-  xt::xtensor<float, 2> cvy;
+-  xt::xtensor<float, 2> cwz;
++  Eigen::ArrayXXf vx;
++  Eigen::ArrayXXf vy;
++  Eigen::ArrayXXf wz;
++
++  Eigen::ArrayXXf cvx;
++  Eigen::ArrayXXf cvy;
++  Eigen::ArrayXXf cwz;
+ 
+   geometry_msgs::msg::PoseStamped pose;
+   geometry_msgs::msg::Twist speed;
+@@ -50,13 +46,13 @@ struct State
+     */
+   void reset(unsigned int batch_size, unsigned int time_steps)
+   {
+-    vx = xt::zeros<float>({batch_size, time_steps});
+-    vy = xt::zeros<float>({batch_size, time_steps});
+-    wz = xt::zeros<float>({batch_size, time_steps});
+-
+-    cvx = xt::zeros<float>({batch_size, time_steps});
+-    cvy = xt::zeros<float>({batch_size, time_steps});
+-    cwz = xt::zeros<float>({batch_size, time_steps});
++    vx.setZero(batch_size, time_steps);
++    vy.setZero(batch_size, time_steps);
++    wz.setZero(batch_size, time_steps);
++
++    cvx.setZero(batch_size, time_steps);
++    cvy.setZero(batch_size, time_steps);
++    cwz.setZero(batch_size, time_steps);
+   }
+ };
+ }  // namespace mppi::models
+Index: git/include/nav2_mppi_controller/models/trajectories.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/models/trajectories.hpp
++++ git/include/nav2_mppi_controller/models/trajectories.hpp
+@@ -15,13 +15,7 @@
+ #ifndef NAV2_MPPI_CONTROLLER__MODELS__TRAJECTORIES_HPP_
+ #define NAV2_MPPI_CONTROLLER__MODELS__TRAJECTORIES_HPP_
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#include <xtensor/xview.hpp>
+-#pragma GCC diagnostic pop
++#include <Eigen/Dense>
+ 
+ namespace mppi::models
+ {
+@@ -32,18 +26,18 @@ namespace mppi::models
+  */
+ struct Trajectories
+ {
+-  xt::xtensor<float, 2> x;
+-  xt::xtensor<float, 2> y;
+-  xt::xtensor<float, 2> yaws;
++  Eigen::ArrayXXf x;
++  Eigen::ArrayXXf y;
++  Eigen::ArrayXXf yaws;
+ 
+   /**
+     * @brief Reset state data
+     */
+   void reset(unsigned int batch_size, unsigned int time_steps)
+   {
+-    x = xt::zeros<float>({batch_size, time_steps});
+-    y = xt::zeros<float>({batch_size, time_steps});
+-    yaws = xt::zeros<float>({batch_size, time_steps});
++    x.setZero(batch_size, time_steps);
++    y.setZero(batch_size, time_steps);
++    yaws.setZero(batch_size, time_steps);
+   }
+ };
+ 
+Index: git/include/nav2_mppi_controller/motion_models.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/motion_models.hpp
++++ git/include/nav2_mppi_controller/motion_models.hpp
+@@ -15,28 +15,28 @@
+ #ifndef NAV2_MPPI_CONTROLLER__MOTION_MODELS_HPP_
+ #define NAV2_MPPI_CONTROLLER__MOTION_MODELS_HPP_
+ 
++#include <Eigen/Dense>
++
+ #include <cstdint>
+ #include <string>
++#include <algorithm>
+ 
+ #include "nav2_mppi_controller/models/control_sequence.hpp"
+ #include "nav2_mppi_controller/models/state.hpp"
+ #include "nav2_mppi_controller/models/constraints.hpp"
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xmath.hpp>
+-#include <xtensor/xmasked_view.hpp>
+-#include <xtensor/xview.hpp>
+-#include <xtensor/xnoalias.hpp>
+-#pragma GCC diagnostic pop
+-
+ #include "nav2_mppi_controller/tools/parameters_handler.hpp"
+ 
+ namespace mppi
+ {
+ 
++// Forward declaration of utils method, since utils.hpp can't be included here due
++// to recursive inclusion.
++namespace utils
++{
++float clamp(const float lower_bound, const float upper_bound, const float input);
++}
++
+ /**
+  * @class mppi::MotionModel
+  * @brief Abstract motion model for modeling a vehicle
+@@ -71,42 +71,34 @@ public:
+    */
+   virtual void predict(models::State & state)
+   {
+-    // Previously completed via tensor views, but found to be 10x slower
+-    // using namespace xt::placeholders;  // NOLINT
+-    // xt::noalias(xt::view(state.vx, xt::all(), xt::range(1, _))) =
+-    //   xt::noalias(xt::view(state.cvx, xt::all(), xt::range(0, -1)));
+-    // xt::noalias(xt::view(state.wz, xt::all(), xt::range(1, _))) =
+-    //   xt::noalias(xt::view(state.cwz, xt::all(), xt::range(0, -1)));
+-    // if (isHolonomic()) {
+-    //   xt::noalias(xt::view(state.vy, xt::all(), xt::range(1, _))) =
+-    //     xt::noalias(xt::view(state.cvy, xt::all(), xt::range(0, -1)));
+-    // }
+-
+     const bool is_holo = isHolonomic();
+     float max_delta_vx = model_dt_ * control_constraints_.ax_max;
+     float min_delta_vx = model_dt_ * control_constraints_.ax_min;
+     float max_delta_vy = model_dt_ * control_constraints_.ay_max;
+     float max_delta_wz = model_dt_ * control_constraints_.az_max;
+-    for (unsigned int i = 0; i != state.vx.shape(0); i++) {
+-      float vx_last = state.vx(i, 0);
+-      float vy_last = state.vy(i, 0);
+-      float wz_last = state.wz(i, 0);
+-      for (unsigned int j = 1; j != state.vx.shape(1); j++) {
+-        float & cvx_curr = state.cvx(i, j - 1);
+-        cvx_curr = std::clamp(cvx_curr, vx_last + min_delta_vx, vx_last + max_delta_vx);
+-        state.vx(i, j) = cvx_curr;
+-        vx_last = cvx_curr;
+-
+-        float & cwz_curr = state.cwz(i, j - 1);
+-        cwz_curr = std::clamp(cwz_curr, wz_last - max_delta_wz, wz_last + max_delta_wz);
+-        state.wz(i, j) = cwz_curr;
+-        wz_last = cwz_curr;
++
++    unsigned int n_rows = state.vx.rows();
++    unsigned int n_cols = state.vx.cols();
++
++    // Default layout in eigen is column-major, hence accessing elements in
++    // column-major fashion to utilize L1 cache as much as possible
++    for (unsigned int i = 1; i != n_cols; i++) {
++      for (unsigned int j = 0; j != n_rows; j++) {
++        float vx_last = state.vx(j, i - 1);
++        float & cvx_curr = state.cvx(j, i - 1);
++        cvx_curr = utils::clamp(vx_last + min_delta_vx, vx_last + max_delta_vx, cvx_curr);
++        state.vx(j, i) = cvx_curr;
++
++        float wz_last = state.wz(j, i - 1);
++        float & cwz_curr = state.cwz(j, i - 1);
++        cwz_curr = utils::clamp(wz_last - max_delta_wz, wz_last + max_delta_wz, cwz_curr);
++        state.wz(j, i) = cwz_curr;
+ 
+         if (is_holo) {
+-          float & cvy_curr = state.cvy(i, j - 1);
+-          cvy_curr = std::clamp(cvy_curr, vy_last - max_delta_vy, vy_last + max_delta_vy);
+-          state.vy(i, j) = cvy_curr;
+-          vy_last = cvy_curr;
++          float vy_last = state.vy(j, i - 1);
++          float & cvy_curr = state.cvy(j, i - 1);
++          cvy_curr = utils::clamp(vy_last - max_delta_vy, vy_last + max_delta_vy, cvy_curr);
++          state.vy(j, i) = cvy_curr;
+         }
+       }
+     }
+@@ -161,11 +153,14 @@ public:
+    */
+   void applyConstraints(models::ControlSequence & control_sequence) override
+   {
+-    auto & vx = control_sequence.vx;
+-    auto & wz = control_sequence.wz;
+-
+-    auto view = xt::masked_view(wz, (xt::fabs(vx) / xt::fabs(wz)) < min_turning_r_);
+-    view = xt::sign(wz) * xt::fabs(vx) / min_turning_r_;
++    const auto vx_ptr = control_sequence.vx.data();
++    auto wz_ptr = control_sequence.wz.data();
++    int steps = control_sequence.vx.size();
++    for(int i = 0; i < steps; i++) {
++      float wz_constrained = fabs(*(vx_ptr + i) / min_turning_r_);
++      float & wz_curr = *(wz_ptr + i);
++      wz_curr = utils::clamp(-1 * wz_constrained, wz_constrained, wz_curr);
++    }
+   }
+ 
+   /**
+Index: git/include/nav2_mppi_controller/optimizer.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/optimizer.hpp
++++ git/include/nav2_mppi_controller/optimizer.hpp
+@@ -15,17 +15,11 @@
+ #ifndef NAV2_MPPI_CONTROLLER__OPTIMIZER_HPP_
+ #define NAV2_MPPI_CONTROLLER__OPTIMIZER_HPP_
+ 
++#include <Eigen/Dense>
++
+ #include <string>
+ #include <memory>
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#include <xtensor/xview.hpp>
+-#pragma GCC diagnostic pop
+-
+ #include "rclcpp_lifecycle/lifecycle_node.hpp"
+ 
+ #include "nav2_costmap_2d/costmap_2d_ros.hpp"
+@@ -90,6 +84,7 @@ public:
+    * @param robot_pose Pose of the robot at given time
+    * @param robot_speed Speed of the robot at given time
+    * @param plan Path plan to track
++   * @param goal Given Goal pose to reach.
+    * @param goal_checker Object to check if goal is completed
+    * @return TwistStamped of the MPPI control
+    */
+@@ -108,7 +103,7 @@ public:
+    * @brief Get the optimal trajectory for a cycle for visualization
+    * @return Optimal trajectory
+    */
+-  xt::xtensor<float, 2> getOptimizedTrajectory();
++  Eigen::ArrayXXf getOptimizedTrajectory();
+ 
+   /**
+    * @brief Set the maximum speed based on the speed limits callback
+@@ -203,8 +198,8 @@ protected:
+    * @param state fill state
+    */
+   void integrateStateVelocities(
+-    xt::xtensor<float, 2> & trajectories,
+-    const xt::xtensor<float, 2> & state) const;
++    Eigen::Array<float, Eigen::Dynamic, 3> & trajectories,
++    const Eigen::ArrayXXf & state) const;
+ 
+   /**
+    * @brief Update control sequence with state controls weighted by costs
+@@ -258,7 +253,7 @@ protected:
+   models::Trajectories generated_trajectories_;
+   models::Path path_;
+   geometry_msgs::msg::Pose goal_;
+-  xt::xtensor<float, 1> costs_;
++  Eigen::ArrayXf costs_;
+ 
+   CriticData critics_data_ = {
+     state_, generated_trajectories_, path_, goal_,
+Index: git/include/nav2_mppi_controller/tools/noise_generator.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/tools/noise_generator.hpp
++++ git/include/nav2_mppi_controller/tools/noise_generator.hpp
+@@ -15,19 +15,14 @@
+ #ifndef NAV2_MPPI_CONTROLLER__TOOLS__NOISE_GENERATOR_HPP_
+ #define NAV2_MPPI_CONTROLLER__TOOLS__NOISE_GENERATOR_HPP_
+ 
++#include <Eigen/Dense>
++
+ #include <string>
+ #include <memory>
+ #include <thread>
+ #include <mutex>
+ #include <condition_variable>
+-
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#include <xtensor/xview.hpp>
+-#pragma GCC diagnostic pop
++#include <random>
+ 
+ #include "nav2_mppi_controller/models/optimizer_settings.hpp"
+ #include "nav2_mppi_controller/tools/parameters_handler.hpp"
+@@ -99,9 +94,14 @@ protected:
+    */
+   void generateNoisedControls();
+ 
+-  xt::xtensor<float, 2> noises_vx_;
+-  xt::xtensor<float, 2> noises_vy_;
+-  xt::xtensor<float, 2> noises_wz_;
++  Eigen::ArrayXXf noises_vx_;
++  Eigen::ArrayXXf noises_vy_;
++  Eigen::ArrayXXf noises_wz_;
++
++  std::default_random_engine generator_;
++  std::normal_distribution<float> ndistribution_vx_;
++  std::normal_distribution<float> ndistribution_wz_;
++  std::normal_distribution<float> ndistribution_vy_;
+ 
+   mppi::models::OptimizerSettings settings_;
+   bool is_holonomic_;
+Index: git/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
++++ git/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
+@@ -15,16 +15,11 @@
+ #ifndef NAV2_MPPI_CONTROLLER__TOOLS__TRAJECTORY_VISUALIZER_HPP_
+ #define NAV2_MPPI_CONTROLLER__TOOLS__TRAJECTORY_VISUALIZER_HPP_
+ 
++#include <Eigen/Dense>
++
+ #include <memory>
+ #include <string>
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xtensor.hpp>
+-#pragma GCC diagnostic pop
+-
+ #include "nav_msgs/msg/path.hpp"
+ #include "rclcpp/rclcpp.hpp"
+ #include "rclcpp_lifecycle/lifecycle_node.hpp"
+@@ -80,7 +75,7 @@ public:
+     * @param trajectory Optimal trajectory
+     */
+   void add(
+-    const xt::xtensor<float, 2> & trajectory, const std::string & marker_namespace,
++    const Eigen::ArrayXXf & trajectory, const std::string & marker_namespace,
+     const builtin_interfaces::msg::Time & cmd_stamp);
+ 
+   /**
+Index: git/include/nav2_mppi_controller/tools/utils.hpp
+===================================================================
+--- git.orig/include/nav2_mppi_controller/tools/utils.hpp
++++ git/include/nav2_mppi_controller/tools/utils.hpp
+@@ -16,6 +16,8 @@
+ #ifndef NAV2_MPPI_CONTROLLER__TOOLS__UTILS_HPP_
+ #define NAV2_MPPI_CONTROLLER__TOOLS__UTILS_HPP_
+ 
++#include <Eigen/Dense>
++
+ #include <algorithm>
+ #include <chrono>
+ #include <string>
+@@ -23,17 +25,6 @@
+ #include <memory>
+ #include <vector>
+ 
+-// xtensor creates warnings that needs to be ignored as we are building with -Werror
+-#pragma GCC diagnostic push
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+-#include <xtensor/xarray.hpp>
+-#include <xtensor/xnorm.hpp>
+-#include <xtensor/xmath.hpp>
+-#include <xtensor/xview.hpp>
+-#pragma GCC diagnostic pop
+-
+ #include "angles/angles.h"
+ 
+ #include "tf2/utils.h"
+@@ -60,8 +51,6 @@
+ 
+ namespace mppi::utils
+ {
+-using xt::evaluation_strategy::immediate;
+-
+ /**
+  * @brief Convert data into pose
+  * @param x X position
+@@ -267,8 +256,10 @@ inline bool withinPositionGoalTolerance(
+ template<typename T>
+ auto normalize_angles(const T & angles)
+ {
+-  auto theta = xt::eval(xt::fmod(angles + M_PIF, 2.0f * M_PIF));
+-  return xt::eval(xt::where(theta < 0.0f, theta + M_PIF, theta - M_PIF));
++  return (angles + M_PIF).unaryExpr([&](const float x) {
++             float remainder = std::fmod(x, 2.0f * M_PIF);
++             return remainder < 0.0f ? remainder + M_PIF : remainder - M_PIF;
++             });
+ }
+ 
+ /**
+@@ -300,21 +291,23 @@ auto shortest_angular_distance(
+  */
+ inline size_t findPathFurthestReachedPoint(const CriticData & data)
+ {
+-  const auto traj_x = xt::view(data.trajectories.x, xt::all(), -1, xt::newaxis());
+-  const auto traj_y = xt::view(data.trajectories.y, xt::all(), -1, xt::newaxis());
++  int traj_cols = data.trajectories.x.cols();
++  const auto traj_x = data.trajectories.x.col(traj_cols - 1);
++  const auto traj_y = data.trajectories.y.col(traj_cols - 1);
+ 
+-  const auto dx = data.path.x - traj_x;
+-  const auto dy = data.path.y - traj_y;
++  const auto dx = (data.path.x.transpose()).replicate(traj_x.rows(), 1).colwise() - traj_x;
++  const auto dy = (data.path.y.transpose()).replicate(traj_y.rows(), 1).colwise() - traj_y;
+ 
+   const auto dists = dx * dx + dy * dy;
+ 
+-  size_t max_id_by_trajectories = 0, min_id_by_path = 0;
++  int max_id_by_trajectories = 0, min_id_by_path = 0;
+   float min_distance_by_path = std::numeric_limits<float>::max();
+-
+-  for (size_t i = 0; i < dists.shape(0); i++) {
++  size_t n_rows = dists.rows();
++  size_t n_cols = dists.cols();
++  for (size_t i = 0; i != n_rows; i++) {
+     min_id_by_path = 0;
+     min_distance_by_path = std::numeric_limits<float>::max();
+-    for (size_t j = max_id_by_trajectories; j < dists.shape(1); j++) {
++    for (size_t j = max_id_by_trajectories; j != n_cols; j++) {
+       const float cur_dist = dists(i, j);
+       if (cur_dist < min_distance_by_path) {
+         min_distance_by_path = cur_dist;
+@@ -347,7 +340,7 @@ inline void findPathCosts(
+ {
+   auto * costmap = costmap_ros->getCostmap();
+   unsigned int map_x, map_y;
+-  const size_t path_segments_count = data.path.x.shape(0) - 1;
++  const size_t path_segments_count = data.path.x.size() - 1;
+   data.path_pts_valid = std::vector<bool>(path_segments_count, false);
+   const bool tracking_unknown = costmap_ros->getLayeredCostmap()->isTrackingUnknown();
+   for (unsigned int idx = 0; idx < path_segments_count; idx++) {
+@@ -449,21 +442,22 @@ inline void savitskyGolayFilter(
+   const models::OptimizerSettings & settings)
+ {
+   // Savitzky-Golay Quadratic, 9-point Coefficients
+-  xt::xarray<float> filter = {-21.0, 14.0, 39.0, 54.0, 59.0, 54.0, 39.0, 14.0, -21.0};
+-  filter /= 231.0;
++  Eigen::Array<float, 9, 1> filter = {-21.0f, 14.0f, 39.0f, 54.0f, 59.0f, 54.0f, 39.0f, 14.0f,
++    -21.0f};
++  filter /= 231.0f;
+ 
+   // Too short to smooth meaningfully
+-  const unsigned int num_sequences = control_sequence.vx.shape(0) - 1;
++  const unsigned int num_sequences = control_sequence.vx.size() - 1;
+   if (num_sequences < 20) {
+     return;
+   }
+ 
+-  auto applyFilter = [&](const xt::xarray<float> & data) -> float {
+-      return xt::sum(data * filter, {0}, immediate)();
++  auto applyFilter = [&](const Eigen::Array<float, 9, 1> & data) -> float {
++      return (data * filter).eval().sum();
+     };
+ 
+   auto applyFilterOverAxis =
+-    [&](xt::xtensor<float, 1> & sequence, const xt::xtensor<float, 1> & initial_sequence,
++    [&](Eigen::ArrayXf & sequence, const Eigen::ArrayXf & initial_sequence,
+     const float hist_0, const float hist_1, const float hist_2, const float hist_3) -> void
+     {
+       float pt_m4 = hist_0;
+@@ -603,6 +597,96 @@ struct Pose2D
+   float x, y, theta;
+ };
+ 
++/**
++ * @brief Shift the columns of a 2D Eigen Array or scalar values of
++ *    1D Eigen Array by 1 place.
++ * @param e Eigen Array
++ * @param direction direction in which Array will be shifted.
++ *     1 for shift in right direction and -1 for left direction.
++ */
++inline void shiftColumnsByOnePlace(Eigen::Ref<Eigen::ArrayXXf> e, int direction)
++{
++  int size = e.size();
++  if(size == 1) {return;}
++  if(abs(direction) != 1) {
++    throw std::logic_error("Invalid direction, only 1 and -1 are valid values.");
++  }
++
++  if((e.cols() == 1 || e.rows() == 1) && size > 1) {
++    auto start_ptr = direction == 1 ? e.data() + size - 2 : e.data() + 1;
++    auto end_ptr = direction == 1 ? e.data() : e.data() + size - 1;
++    while(start_ptr != end_ptr) {
++      *(start_ptr + direction) = *start_ptr;
++      start_ptr -= direction;
++    }
++    *(start_ptr + direction) = *start_ptr;
++  } else {
++    auto start_ptr = direction == 1 ? e.data() + size - 2 * e.rows() : e.data() + e.rows();
++    auto end_ptr = direction == 1 ? e.data() : e.data() + size - e.rows();
++    auto span = e.rows();
++    while(start_ptr != end_ptr) {
++      std::copy(start_ptr, start_ptr + span, start_ptr + direction * span);
++      start_ptr -= (direction * span);
++    }
++    std::copy(start_ptr, start_ptr + span, start_ptr + direction * span);
++  }
++}
++
++/**
++ * @brief Normalize the yaws between points on the basis of final yaw angle
++ *    of the trajectory.
++ * @param last_yaws Final yaw angles of the trajectories.
++ * @param yaw_between_points Yaw angles calculated between x and y co-ordinates of the trajectories.
++ * @return Normalized yaw between points.
++ */
++inline auto normalize_yaws_between_points(
++  const Eigen::Ref<const Eigen::ArrayXf> & last_yaws,
++  const Eigen::Ref<const Eigen::ArrayXf> & yaw_between_points)
++{
++  Eigen::ArrayXf yaws = utils::shortest_angular_distance(
++          last_yaws, yaw_between_points).abs();
++  int size = yaws.size();
++  Eigen::ArrayXf yaws_between_points_corrected(size);
++  for(int i = 0; i != size; i++) {
++    const float & yaw_between_point = yaw_between_points[i];
++    yaws_between_points_corrected[i] = yaws[i] < M_PIF_2 ?
++      yaw_between_point : angles::normalize_angle(yaw_between_point + M_PIF);
++  }
++  return yaws_between_points_corrected;
++}
++
++/**
++ * @brief Normalize the yaws between points on the basis of goal angle.
++ * @param goal_yaw Goal yaw angle.
++ * @param yaw_between_points Yaw angles calculated between x and y co-ordinates of the trajectories.
++ * @return Normalized yaw between points
++ */
++inline auto normalize_yaws_between_points(
++  const float goal_yaw, const Eigen::Ref<const Eigen::ArrayXf> & yaw_between_points)
++{
++  int size = yaw_between_points.size();
++  Eigen::ArrayXf yaws_between_points_corrected(size);
++  for(int i = 0; i != size; i++) {
++    const float & yaw_between_point = yaw_between_points[i];
++    yaws_between_points_corrected[i] = fabs(
++      angles::normalize_angle(yaw_between_point - goal_yaw)) < M_PIF_2 ?
++      yaw_between_point : angles::normalize_angle(yaw_between_point + M_PIF);
++  }
++  return yaws_between_points_corrected;
++}
++
++/**
++ * @brief Clamps the input between the given lower and upper bounds.
++ * @param lower_bound Lower bound.
++ * @param upper_bound Upper bound.
++ * @return Clamped output.
++ */
++inline float clamp(
++  const float lower_bound, const float upper_bound, const float input)
++{
++  return std::min(upper_bound, std::max(input, lower_bound));
++}
++
+ }  // namespace mppi::utils
+ 
+ #endif  // NAV2_MPPI_CONTROLLER__TOOLS__UTILS_HPP_
+Index: git/package.xml
+===================================================================
+--- git.orig/package.xml
++++ git/package.xml
+@@ -28,7 +28,8 @@
+   <depend>xtensor</depend>
+   <depend>libomp-dev</depend>
+   <depend>benchmark</depend>
+-  <depend>xsimd</depend>
++  <depend>eigen3_cmake_module</depend>
++  <depend>eigen</depend>
+ 
+   <test_depend>ament_lint_auto</test_depend>
+   <test_depend>ament_lint_common</test_depend>
+Index: git/src/critics/constraint_critic.cpp
+===================================================================
+--- git.orig/src/critics/constraint_critic.cpp
++++ git/src/critics/constraint_critic.cpp
+@@ -40,8 +40,6 @@ void ConstraintCritic::initialize()
+ 
+ void ConstraintCritic::score(CriticData & data)
+ {
+-  using xt::evaluation_strategy::immediate;
+-
+   if (!enabled_) {
+     return;
+   }
+@@ -50,18 +48,11 @@ void ConstraintCritic::score(CriticData
+   auto diff = dynamic_cast<DiffDriveMotionModel *>(data.motion_model.get());
+   if (diff != nullptr) {
+     if (power_ > 1u) {
+-      data.costs += xt::pow(
+-        xt::sum(
+-          (std::move(
+-            xt::maximum(data.state.vx - max_vel_, 0.0f) +
+-            xt::maximum(min_vel_ - data.state.vx, 0.0f))) *
+-          data.model_dt, {1}, immediate) * weight_, power_);
++      data.costs += (((((data.state.vx - max_vel_).max(0.0f) + (min_vel_ - data.state.vx).
++        max(0.0f)) * data.model_dt).rowwise().sum().eval()) * weight_).pow(power_).eval();
+     } else {
+-      data.costs += xt::sum(
+-        (std::move(
+-          xt::maximum(data.state.vx - max_vel_, 0.0f) +
+-          xt::maximum(min_vel_ - data.state.vx, 0.0f))) *
+-        data.model_dt, {1}, immediate) * weight_;
++      data.costs += (((((data.state.vx - max_vel_).max(0.0f) + (min_vel_ - data.state.vx).
++        max(0.0f)) * data.model_dt).rowwise().sum().eval()) * weight_).eval();
+     }
+     return;
+   }
+@@ -69,21 +60,19 @@ void ConstraintCritic::score(CriticData
+   // Omnidirectional motion model
+   auto omni = dynamic_cast<OmniMotionModel *>(data.motion_model.get());
+   if (omni != nullptr) {
+-    auto sgn = xt::eval(xt::where(data.state.vx > 0.0f, 1.0f, -1.0f));
+-    auto vel_total = sgn * xt::hypot(data.state.vx, data.state.vy);
++    auto & vx = data.state.vx;
++    unsigned int n_rows = data.state.vx.rows();
++    unsigned int n_cols = data.state.vx.cols();
++    Eigen::ArrayXXf sgn(n_rows, n_cols);
++    sgn = vx.unaryExpr([](const float x){return copysignf(1.0f, x);});
++
++    auto vel_total = sgn * (data.state.vx.square() + data.state.vy.square()).sqrt();
+     if (power_ > 1u) {
+-      data.costs += xt::pow(
+-        xt::sum(
+-          (std::move(
+-            xt::maximum(vel_total - max_vel_, 0.0f) +
+-            xt::maximum(min_vel_ - vel_total, 0.0f))) *
+-          data.model_dt, {1}, immediate) * weight_, power_);
++      data.costs += ((((vel_total - max_vel_).max(0.0f) + (min_vel_ - vel_total).
++        max(0.0f)) * data.model_dt).rowwise().sum().eval() * weight_).pow(power_).eval();
+     } else {
+-      data.costs += xt::sum(
+-        (std::move(
+-          xt::maximum(vel_total - max_vel_, 0.0f) +
+-          xt::maximum(min_vel_ - vel_total, 0.0f))) *
+-        data.model_dt, {1}, immediate) * weight_;
++      data.costs += ((((vel_total - max_vel_).max(0.0f) + (min_vel_ - vel_total).
++        max(0.0f)) * data.model_dt).rowwise().sum().eval() * weight_).eval();
+     }
+     return;
+   }
+@@ -93,21 +82,15 @@ void ConstraintCritic::score(CriticData
+   if (acker != nullptr) {
+     auto & vx = data.state.vx;
+     auto & wz = data.state.wz;
+-    auto out_of_turning_rad_motion = xt::maximum(
+-      acker->getMinTurningRadius() - (xt::fabs(vx) / xt::fabs(wz)), 0.0f);
++    float min_turning_rad = acker->getMinTurningRadius();
++    auto out_of_turning_rad_motion = (min_turning_rad - (vx.abs() / wz.abs())).max(0.0f);
+     if (power_ > 1u) {
+-      data.costs += xt::pow(
+-        xt::sum(
+-          (std::move(
+-            xt::maximum(data.state.vx - max_vel_, 0.0f) +
+-            xt::maximum(min_vel_ - data.state.vx, 0.0f) + out_of_turning_rad_motion)) *
+-          data.model_dt, {1}, immediate) * weight_, power_);
++      data.costs += ((((vx - max_vel_).max(0.0f) + (min_vel_ - vx).max(0.0f) +
++        out_of_turning_rad_motion) * data.model_dt).rowwise().sum().eval() *
++        weight_).pow(power_).eval();
+     } else {
+-      data.costs += xt::sum(
+-        (std::move(
+-          xt::maximum(data.state.vx - max_vel_, 0.0f) +
+-          xt::maximum(min_vel_ - data.state.vx, 0.0f) + out_of_turning_rad_motion)) *
+-        data.model_dt, {1}, immediate) * weight_;
++      data.costs += ((((vx - max_vel_).max(0.0f) + (min_vel_ - vx).max(0.0f) +
++        out_of_turning_rad_motion) * data.model_dt).rowwise().sum().eval() * weight_).eval();
+     }
+     return;
+   }
+Index: git/src/critics/cost_critic.cpp
+===================================================================
+--- git.orig/src/critics/cost_critic.cpp
++++ git/src/critics/cost_critic.cpp
+@@ -96,8 +96,6 @@ float CostCritic::findCircumscribedCost(
+ 
+ void CostCritic::score(CriticData & data)
+ {
+-  using xt::evaluation_strategy::immediate;
+-  using xt::placeholders::_;
+   if (!enabled_) {
+     return;
+   }
+@@ -122,24 +120,30 @@ void CostCritic::score(CriticData & data
+     near_goal = true;
+   }
+ 
+-  auto && repulsive_cost = xt::xtensor<float, 1>::from_shape({data.costs.shape(0)});
++  Eigen::ArrayXf repulsive_cost(data.costs.rows());
++  repulsive_cost.setZero();
+   bool all_trajectories_collide = true;
+ 
+-  const size_t traj_len = floor(data.trajectories.x.shape(1) / trajectory_point_step_);
+-  const auto traj_x =
+-    xt::view(data.trajectories.x, xt::all(), xt::range(0, _, trajectory_point_step_));
+-  const auto traj_y =
+-    xt::view(data.trajectories.y, xt::all(), xt::range(0, _, trajectory_point_step_));
+-  const auto traj_yaw = xt::view(
+-    data.trajectories.yaws, xt::all(), xt::range(0, _, trajectory_point_step_));
++  int strided_traj_cols = floor((data.trajectories.x.cols() - 1) / trajectory_point_step_) + 1;
++  int strided_traj_rows = data.trajectories.x.rows();
++  int outer_stride = strided_traj_rows * trajectory_point_step_;
++
++  const auto traj_x = Eigen::Map<const Eigen::ArrayXXf, 0,
++      Eigen::Stride<-1, -1>>(data.trajectories.x.data(), strided_traj_rows, strided_traj_cols,
++      Eigen::Stride<-1, -1>(outer_stride, 1));
++  const auto traj_y = Eigen::Map<const Eigen::ArrayXXf, 0,
++      Eigen::Stride<-1, -1>>(data.trajectories.y.data(), strided_traj_rows, strided_traj_cols,
++      Eigen::Stride<-1, -1>(outer_stride, 1));
++  const auto traj_yaw = Eigen::Map<const Eigen::ArrayXXf, 0,
++      Eigen::Stride<-1, -1>>(data.trajectories.yaws.data(), strided_traj_rows, strided_traj_cols,
++      Eigen::Stride<-1, -1>(outer_stride, 1));
+ 
+-  for (size_t i = 0; i < data.trajectories.x.shape(0); ++i) {
++  for (int i = 0; i < strided_traj_rows; ++i) {
+     bool trajectory_collide = false;
+     float pose_cost = 0.0f;
+-    float & traj_cost = repulsive_cost[i];
+-    traj_cost = 0.0f;
++    float & traj_cost = repulsive_cost(i);
+ 
+-    for (size_t j = 0; j < traj_len; j++) {
++    for (int j = 0; j < strided_traj_cols; j++) {
+       float Tx = traj_x(i, j);
+       float Ty = traj_y(i, j);
+       unsigned int x_i = 0u, y_i = 0u;
+@@ -182,10 +186,10 @@ void CostCritic::score(CriticData & data
+   }
+ 
+   if (power_ > 1u) {
+-    data.costs += xt::pow(
+-      (std::move(repulsive_cost) * (weight_ / static_cast<float>(traj_len))), power_);
++    data.costs += (repulsive_cost *
++      (weight_ / static_cast<float>(strided_traj_cols))).pow(power_);
+   } else {
+-    data.costs += std::move(repulsive_cost) * (weight_ / static_cast<float>(traj_len));
++    data.costs += repulsive_cost * (weight_ / static_cast<float>(strided_traj_cols));
+   }
+ 
+   data.fail_flag = all_trajectories_collide;
+Index: git/src/critics/goal_angle_critic.cpp
+===================================================================
+--- git.orig/src/critics/goal_angle_critic.cpp
++++ git/src/critics/goal_angle_critic.cpp
+@@ -41,16 +41,15 @@ void GoalAngleCritic::score(CriticData &
+     return;
+   }
+ 
+-  const auto goal_idx = data.path.x.shape(0) - 1;
++  const auto goal_idx = data.path.x.size() - 1;
+   const float goal_yaw = data.path.yaws(goal_idx);
+ 
+-  if (power_ > 1u) {
+-    data.costs += xt::pow(
+-      xt::mean(xt::fabs(utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw)), {1}) *
+-      weight_, power_);
++  if(power_ > 1u) {
++    data.costs += (((utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw).abs()).
++      rowwise().mean()) * weight_).pow(power_).eval();
+   } else {
+-    data.costs += xt::mean(
+-      xt::fabs(utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw)), {1}) * weight_;
++    data.costs += (((utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw).abs()).
++      rowwise().mean()) * weight_).eval();
+   }
+ }
+ 
+Index: git/src/critics/goal_critic.cpp
+===================================================================
+--- git.orig/src/critics/goal_critic.cpp
++++ git/src/critics/goal_critic.cpp
+@@ -18,7 +18,6 @@
+ namespace mppi::critics
+ {
+ 
+-using xt::evaluation_strategy::immediate;
+ 
+ void GoalCritic::initialize()
+ {
+@@ -44,18 +43,15 @@ void GoalCritic::score(CriticData & data
+   const auto & goal_x = data.goal.position.x;
+   const auto & goal_y = data.goal.position.y;
+ 
+-  const auto traj_x = xt::view(data.trajectories.x, xt::all(), xt::all());
+-  const auto traj_y = xt::view(data.trajectories.y, xt::all(), xt::all());
++  const auto delta_x = data.trajectories.x - goal_x;
++  const auto delta_y = data.trajectories.y - goal_y;
+ 
+-  if (power_ > 1u) {
+-    data.costs += xt::pow(
+-      xt::mean(
+-        xt::hypot(traj_x - goal_x, traj_y - goal_y),
+-        {1}, immediate) * weight_, power_);
++  if(power_ > 1u) {
++    data.costs += (((delta_x.square() + delta_y.square()).sqrt()).rowwise().mean() *
++      weight_).pow(power_);
+   } else {
+-    data.costs += xt::mean(
+-      xt::hypot(traj_x - goal_x, traj_y - goal_y),
+-      {1}, immediate) * weight_;
++    data.costs += (((delta_x.square() + delta_y.square()).sqrt()).rowwise().mean() *
++      weight_).eval();
+   }
+ }
+ 
+Index: git/src/critics/obstacles_critic.cpp
+===================================================================
+--- git.orig/src/critics/obstacles_critic.cpp
++++ git/src/critics/obstacles_critic.cpp
+@@ -104,7 +104,6 @@ float ObstaclesCritic::distanceToObstacl
+ 
+ void ObstaclesCritic::score(CriticData & data)
+ {
+-  using xt::evaluation_strategy::immediate;
+   if (!enabled_) {
+     return;
+   }
+@@ -120,20 +119,22 @@ void ObstaclesCritic::score(CriticData &
+     near_goal = true;
+   }
+ 
+-  auto && raw_cost = xt::xtensor<float, 1>::from_shape({data.costs.shape(0)});
+-  auto && repulsive_cost = xt::xtensor<float, 1>::from_shape({data.costs.shape(0)});
++  Eigen::ArrayXf raw_cost = Eigen::ArrayXf::Zero(data.costs.size());
++  Eigen::ArrayXf repulsive_cost = Eigen::ArrayXf::Zero(data.costs.size());
+ 
+-  const size_t traj_len = data.trajectories.x.shape(1);
++  const unsigned int traj_len = data.trajectories.x.cols();
++  const unsigned int batch_size = data.trajectories.x.rows();
+   bool all_trajectories_collide = true;
+-  for (size_t i = 0; i < data.trajectories.x.shape(0); ++i) {
++
++  for(unsigned int i = 0; i != batch_size; i++) {
+     bool trajectory_collide = false;
+     float traj_cost = 0.0f;
+     const auto & traj = data.trajectories;
+     CollisionCost pose_cost;
+-    raw_cost[i] = 0.0f;
+-    repulsive_cost[i] = 0.0f;
++    raw_cost(i) = 0.0f;
++    repulsive_cost(i) = 0.0f;
+ 
+-    for (size_t j = 0; j < traj_len; j++) {
++    for(unsigned int j = 0; j != traj_len; j++) {
+       pose_cost = costAtPose(traj.x(i, j), traj.y(i, j), traj.yaws(i, j));
+       if (pose_cost.cost < 1.0f) {continue;}  // In free space
+ 
+@@ -161,22 +162,18 @@ void ObstaclesCritic::score(CriticData &
+     }
+ 
+     if (!trajectory_collide) {all_trajectories_collide = false;}
+-    raw_cost[i] = trajectory_collide ? collision_cost_ : traj_cost;
++    raw_cost(i) = trajectory_collide ? collision_cost_ : traj_cost;
+   }
+ 
+   // Normalize repulsive cost by trajectory length & lowest score to not overweight importance
+   // This is a preferential cost, not collision cost, to be tuned relative to desired behaviors
+-  auto && repulsive_cost_normalized =
+-    (repulsive_cost - xt::amin(repulsive_cost, immediate)) / traj_len;
++  auto repulsive_cost_normalized = (repulsive_cost - repulsive_cost.minCoeff()) / traj_len;
+ 
+   if (power_ > 1u) {
+-    data.costs += xt::pow(
+-      (critical_weight_ * raw_cost) +
+-      (repulsion_weight_ * repulsive_cost_normalized),
+-      power_);
++    data.costs +=
++      ((critical_weight_ * raw_cost) + (repulsion_weight_ * repulsive_cost_normalized)).pow(power_);
+   } else {
+-    data.costs += (critical_weight_ * raw_cost) +
+-      (repulsion_weight_ * repulsive_cost_normalized);
++    data.costs += (critical_weight_ * raw_cost) + (repulsion_weight_ * repulsive_cost_normalized);
+   }
+ 
+   data.fail_flag = all_trajectories_collide;
+Index: git/src/critics/path_align_critic.cpp
+===================================================================
+--- git.orig/src/critics/path_align_critic.cpp
++++ git/src/critics/path_align_critic.cpp
+@@ -17,9 +17,6 @@
+ namespace mppi::critics
+ {
+ 
+-using namespace xt::placeholders;  // NOLINT
+-using xt::evaluation_strategy::immediate;
+-
+ void PathAlignCritic::initialize()
+ {
+   auto getParam = parameters_handler_->getParamGetter(name_);
+@@ -69,8 +66,9 @@ void PathAlignCritic::score(CriticData &
+     }
+   }
+ 
+-  const size_t batch_size = data.trajectories.x.shape(0);
+-  auto && cost = xt::xtensor<float, 1>::from_shape({data.costs.shape(0)});
++  const size_t batch_size = data.trajectories.x.rows();
++  Eigen::ArrayXf cost(data.costs.rows());
++  cost.setZero();
+ 
+   // Find integrated distance in the path
+   std::vector<float> path_integrated_distances(path_segments_count, 0.0f);
+@@ -98,17 +96,20 @@ void PathAlignCritic::score(CriticData &
+   unsigned int path_pt = 0u;
+   float traj_integrated_distance = 0.0f;
+ 
++  int strided_traj_rows = data.trajectories.x.rows();
++  int strided_traj_cols = floor((data.trajectories.x.cols() - 1) / trajectory_point_step_) + 1;
++  int outer_stride = strided_traj_rows * trajectory_point_step_;
+   // Get strided trajectory information
+-  const auto T_x = xt::view(
+-    data.trajectories.x, xt::all(),
+-    xt::range(0, _, trajectory_point_step_));
+-  const auto T_y = xt::view(
+-    data.trajectories.y, xt::all(),
+-    xt::range(0, _, trajectory_point_step_));
+-  const auto T_yaw = xt::view(
+-    data.trajectories.yaws, xt::all(),
+-    xt::range(0, _, trajectory_point_step_));
+-  const auto traj_sampled_size = T_x.shape(1);
++  const auto T_x = Eigen::Map<const Eigen::ArrayXXf, 0,
++      Eigen::Stride<-1, -1>>(data.trajectories.x.data(),
++      strided_traj_rows, strided_traj_cols, Eigen::Stride<-1, -1>(outer_stride, 1));
++  const auto T_y = Eigen::Map<const Eigen::ArrayXXf, 0,
++      Eigen::Stride<-1, -1>>(data.trajectories.y.data(),
++      strided_traj_rows, strided_traj_cols, Eigen::Stride<-1, -1>(outer_stride, 1));
++  const auto T_yaw = Eigen::Map<const Eigen::ArrayXXf, 0,
++      Eigen::Stride<-1, -1>>(data.trajectories.yaws.data(), strided_traj_rows, strided_traj_cols,
++      Eigen::Stride<-1, -1>(outer_stride, 1));
++  const auto traj_sampled_size = T_x.cols();
+ 
+   for (size_t t = 0; t < batch_size; ++t) {
+     summed_path_dist = 0.0f;
+@@ -117,7 +118,7 @@ void PathAlignCritic::score(CriticData &
+     path_pt = 0u;
+     float Tx_m1 = T_x(t, 0);
+     float Ty_m1 = T_y(t, 0);
+-    for (size_t p = 1; p < traj_sampled_size; p++) {
++    for (int p = 1; p < traj_sampled_size; p++) {
+       const float Tx = T_x(t, p);
+       const float Ty = T_y(t, p);
+       dx = Tx - Tx_m1;
+@@ -144,16 +145,16 @@ void PathAlignCritic::score(CriticData &
+       }
+     }
+     if (num_samples > 0u) {
+-      cost[t] = summed_path_dist / static_cast<float>(num_samples);
++      cost(t) = summed_path_dist / static_cast<float>(num_samples);
+     } else {
+-      cost[t] = 0.0f;
++      cost(t) = 0.0f;
+     }
+   }
+ 
+   if (power_ > 1u) {
+-    data.costs += xt::pow(std::move(cost) * weight_, power_);
++    data.costs += (cost * weight_).pow(power_).eval();
+   } else {
+-    data.costs += std::move(cost) * weight_;
++    data.costs += (cost * weight_).eval();
+   }
+ }
+ 
+Index: git/src/critics/path_angle_critic.cpp
+===================================================================
+--- git.orig/src/critics/path_angle_critic.cpp
++++ git/src/critics/path_angle_critic.cpp
+@@ -20,8 +20,6 @@
+ namespace mppi::critics
+ {
+ 
+-using xt::evaluation_strategy::immediate;
+-
+ void PathAngleCritic::initialize()
+ {
+   auto getParentParam = parameters_handler_->getParamGetter(parent_name_);
+@@ -71,7 +69,8 @@ void PathAngleCritic::score(CriticData &
+ 
+   utils::setPathFurthestPointIfNotSet(data);
+   auto offseted_idx = std::min(
+-    *data.furthest_reached_path_point + offset_from_furthest_, data.path.x.shape(0) - 1);
++    *data.furthest_reached_path_point + offset_from_furthest_,
++      static_cast<size_t>(data.path.x.size()) - 1);
+ 
+   const float goal_x = data.path.x(offseted_idx);
+   const float goal_y = data.path.y(offseted_idx);
+@@ -98,55 +97,50 @@ void PathAngleCritic::score(CriticData &
+       throw nav2_core::ControllerException("Invalid path angle mode!");
+   }
+ 
+-  auto yaws_between_points = xt::atan2(
+-    goal_y - xt::view(data.trajectories.y, xt::all(), -1),
+-    goal_x - xt::view(data.trajectories.x, xt::all(), -1));
++  int last_idx = data.trajectories.y.cols() - 1;
++  auto diff_y = goal_y - data.trajectories.y.col(last_idx);
++  auto diff_x = goal_x - data.trajectories.x.col(last_idx);
++  auto yaws_between_points = diff_y.binaryExpr(
++    diff_x, [&](const float & y, const float & x){return atan2f(y, x);}).eval();
+ 
+   switch (mode_) {
+     case PathAngleMode::FORWARD_PREFERENCE:
+       {
+-        auto yaws =
+-          xt::fabs(
+-          utils::shortest_angular_distance(
+-            xt::view(data.trajectories.yaws, xt::all(), -1), yaws_between_points));
++        auto last_yaws = data.trajectories.yaws.col(last_idx);
++        auto yaws = utils::shortest_angular_distance(
++          last_yaws, yaws_between_points).abs();
+         if (power_ > 1u) {
+-          data.costs += xt::pow(std::move(yaws) * weight_, power_);
++          data.costs += (yaws * weight_).pow(power_);
+         } else {
+-          data.costs += std::move(yaws) * weight_;
++          data.costs += yaws * weight_;
+         }
+         return;
+       }
+     case PathAngleMode::NO_DIRECTIONAL_PREFERENCE:
+       {
+-        auto yaws =
+-          xt::fabs(
+-          utils::shortest_angular_distance(
+-            xt::view(data.trajectories.yaws, xt::all(), -1), yaws_between_points));
+-        const auto yaws_between_points_corrected = xt::where(
+-          yaws < M_PIF_2, yaws_between_points,
+-          utils::normalize_angles(yaws_between_points + M_PIF));
+-        const auto corrected_yaws = xt::fabs(
+-          utils::shortest_angular_distance(
+-            xt::view(data.trajectories.yaws, xt::all(), -1), yaws_between_points_corrected));
++        auto last_yaws = data.trajectories.yaws.col(last_idx);
++        auto yaws_between_points_corrected = utils::normalize_yaws_between_points(last_yaws,
++          yaws_between_points);
++        auto corrected_yaws = utils::shortest_angular_distance(
++          last_yaws, yaws_between_points_corrected).abs();
+         if (power_ > 1u) {
+-          data.costs += xt::pow(std::move(corrected_yaws) * weight_, power_);
++          data.costs += (corrected_yaws * weight_).pow(power_);
+         } else {
+-          data.costs += std::move(corrected_yaws) * weight_;
++          data.costs += corrected_yaws * weight_;
+         }
+         return;
+       }
+     case PathAngleMode::CONSIDER_FEASIBLE_PATH_ORIENTATIONS:
+       {
+-        const auto yaws_between_points_corrected = xt::where(
+-          xt::fabs(utils::shortest_angular_distance(yaws_between_points, goal_yaw)) < M_PIF_2,
+-          yaws_between_points, utils::normalize_angles(yaws_between_points + M_PIF));
+-        const auto corrected_yaws = xt::fabs(
+-          utils::shortest_angular_distance(
+-            xt::view(data.trajectories.yaws, xt::all(), -1), yaws_between_points_corrected));
++        auto last_yaws = data.trajectories.yaws.col(last_idx);
++        auto yaws_between_points_corrected = utils::normalize_yaws_between_points(goal_yaw,
++          yaws_between_points);
++        auto corrected_yaws = utils::shortest_angular_distance(
++          last_yaws, yaws_between_points_corrected).abs();
+         if (power_ > 1u) {
+-          data.costs += xt::pow(std::move(corrected_yaws) * weight_, power_);
++          data.costs += (corrected_yaws * weight_).pow(power_);
+         } else {
+-          data.costs += std::move(corrected_yaws) * weight_;
++          data.costs += corrected_yaws * weight_;
+         }
+         return;
+       }
+Index: git/src/critics/path_follow_critic.cpp
+===================================================================
+--- git.orig/src/critics/path_follow_critic.cpp
++++ git/src/critics/path_follow_critic.cpp
+@@ -14,8 +14,7 @@
+ 
+ #include "nav2_mppi_controller/critics/path_follow_critic.hpp"
+ 
+-#include <xtensor/xmath.hpp>
+-#include <xtensor/xsort.hpp>
++#include <Eigen/Dense>
+ 
+ namespace mppi::critics
+ {
+@@ -34,7 +33,7 @@ void PathFollowCritic::initialize()
+ 
+ void PathFollowCritic::score(CriticData & data)
+ {
+-  if (!enabled_ || data.path.x.shape(0) < 2 ||
++  if (!enabled_ || data.path.x.size() < 2 ||
+     utils::withinPositionGoalTolerance(threshold_to_consider_, data.state.pose.pose, data.goal))
+   {
+     return;
+@@ -42,7 +41,7 @@ void PathFollowCritic::score(CriticData
+ 
+   utils::setPathFurthestPointIfNotSet(data);
+   utils::setPathCostsIfNotSet(data, costmap_ros_);
+-  const size_t path_size = data.path.x.shape(0) - 1;
++  const size_t path_size = data.path.x.size() - 1;
+ 
+   auto offseted_idx = std::min(
+     *data.furthest_reached_path_point + offset_from_furthest_, path_size);
+@@ -60,13 +59,16 @@ void PathFollowCritic::score(CriticData
+   const auto path_x = data.path.x(offseted_idx);
+   const auto path_y = data.path.y(offseted_idx);
+ 
+-  const auto last_x = xt::view(data.trajectories.x, xt::all(), -1);
+-  const auto last_y = xt::view(data.trajectories.y, xt::all(), -1);
++  const int && rightmost_idx = data.trajectories.x.cols() - 1;
++  const auto last_x = data.trajectories.x.col(rightmost_idx);
++  const auto last_y = data.trajectories.y.col(rightmost_idx);
+ 
++  const auto delta_x = last_x - path_x;
++  const auto delta_y = last_y - path_y;
+   if (power_ > 1u) {
+-    data.costs += xt::pow(weight_ * std::move(xt::hypot(last_x - path_x, last_y - path_y)), power_);
++    data.costs += (((delta_x.square() + delta_y.square()).sqrt()) * weight_).pow(power_);
+   } else {
+-    data.costs += weight_ * std::move(xt::hypot(last_x - path_x, last_y - path_y));
++    data.costs += ((delta_x.square() + delta_y.square()).sqrt()) * weight_;
+   }
+ }
+ 
+Index: git/src/critics/prefer_forward_critic.cpp
+===================================================================
+--- git.orig/src/critics/prefer_forward_critic.cpp
++++ git/src/critics/prefer_forward_critic.cpp
+@@ -14,6 +14,8 @@
+ 
+ #include "nav2_mppi_controller/critics/prefer_forward_critic.hpp"
+ 
++#include <Eigen/Dense>
++
+ namespace mppi::critics
+ {
+ 
+@@ -32,7 +34,6 @@ void PreferForwardCritic::initialize()
+ 
+ void PreferForwardCritic::score(CriticData & data)
+ {
+-  using xt::evaluation_strategy::immediate;
+   if (!enabled_ || utils::withinPositionGoalTolerance(
+       threshold_to_consider_, data.state.pose.pose, data.goal))
+   {
+@@ -40,13 +41,12 @@ void PreferForwardCritic::score(CriticDa
+   }
+ 
+   if (power_ > 1u) {
+-    data.costs += xt::pow(
+-      xt::sum(
+-        std::move(
+-          xt::maximum(-data.state.vx, 0)) * data.model_dt, {1}, immediate) * weight_, power_);
++    data.costs += (
++      (data.state.vx.unaryExpr([&](const float & x){return std::max(-x, 0.0f);}) *
++      data.model_dt).rowwise().sum() * weight_).pow(power_);
+   } else {
+-    data.costs += xt::sum(
+-      std::move(xt::maximum(-data.state.vx, 0)) * data.model_dt, {1}, immediate) * weight_;
++    data.costs += (data.state.vx.unaryExpr([&](const float & x){return std::max(-x, 0.0f);}) *
++      data.model_dt).rowwise().sum() * weight_;
+   }
+ }
+ 
+Index: git/src/critics/twirling_critic.cpp
+===================================================================
+--- git.orig/src/critics/twirling_critic.cpp
++++ git/src/critics/twirling_critic.cpp
+@@ -14,6 +14,8 @@
+ 
+ #include "nav2_mppi_controller/critics/twirling_critic.hpp"
+ 
++#include <Eigen/Dense>
++
+ namespace mppi::critics
+ {
+ 
+@@ -30,7 +32,6 @@ void TwirlingCritic::initialize()
+ 
+ void TwirlingCritic::score(CriticData & data)
+ {
+-  using xt::evaluation_strategy::immediate;
+   if (!enabled_ ||
+     utils::withinPositionGoalTolerance(data.goal_checker, data.state.pose.pose, data.goal))
+   {
+@@ -38,9 +39,9 @@ void TwirlingCritic::score(CriticData &
+   }
+ 
+   if (power_ > 1u) {
+-    data.costs += xt::pow(xt::mean(xt::fabs(data.state.wz), {1}, immediate) * weight_, power_);
++    data.costs += ((data.state.wz.abs().rowwise().mean()) * weight_).pow(power_).eval();
+   } else {
+-    data.costs += xt::mean(xt::fabs(data.state.wz), {1}, immediate) * weight_;
++    data.costs += ((data.state.wz.abs().rowwise().mean()) * weight_).eval();
+   }
+ }
+ 
+Index: git/src/critics/velocity_deadband_critic.cpp
+===================================================================
+--- git.orig/src/critics/velocity_deadband_critic.cpp
++++ git/src/critics/velocity_deadband_critic.cpp
+@@ -40,59 +40,33 @@ void VelocityDeadbandCritic::initialize(
+ 
+ void VelocityDeadbandCritic::score(CriticData & data)
+ {
+-  using xt::evaluation_strategy::immediate;
+-
+   if (!enabled_) {
+     return;
+   }
+ 
+-  auto & vx = data.state.vx;
+-  auto & wz = data.state.wz;
+-
+   if (data.motion_model->isHolonomic()) {
+-    auto & vy = data.state.vy;
+     if (power_ > 1u) {
+-      data.costs += xt::pow(
+-        xt::sum(
+-          std::move(
+-            xt::maximum(fabs(deadband_velocities_.at(0)) - xt::fabs(vx), 0) +
+-            xt::maximum(fabs(deadband_velocities_.at(1)) - xt::fabs(vy), 0) +
+-            xt::maximum(fabs(deadband_velocities_.at(2)) - xt::fabs(wz), 0)) *
+-          data.model_dt,
+-          {1}, immediate) *
+-        weight_,
+-        power_);
++      data.costs += ((((fabs(deadband_velocities_[0]) - data.state.vx.abs()).max(0.0f) +
++        (fabs(deadband_velocities_[1]) - data.state.vy.abs()).max(0.0f) +
++        (fabs(deadband_velocities_[2]) - data.state.wz.abs()).max(0.0f)) *
++        data.model_dt).rowwise().sum() * weight_).pow(power_).eval();
+     } else {
+-      data.costs += xt::sum(
+-        (std::move(
+-          xt::maximum(fabs(deadband_velocities_.at(0)) - xt::fabs(vx), 0) +
+-          xt::maximum(fabs(deadband_velocities_.at(1)) - xt::fabs(vy), 0) +
+-          xt::maximum(fabs(deadband_velocities_.at(2)) - xt::fabs(wz), 0))) *
+-        data.model_dt,
+-        {1}, immediate) *
+-        weight_;
++      data.costs += ((((fabs(deadband_velocities_[0]) - data.state.vx.abs()).max(0.0f) +
++        (fabs(deadband_velocities_[1]) - data.state.vy.abs()).max(0.0f) +
++        (fabs(deadband_velocities_[2]) - data.state.wz.abs()).max(0.0f)) *
++        data.model_dt).rowwise().sum() * weight_).eval();
+     }
+     return;
+   }
+ 
+   if (power_ > 1u) {
+-    data.costs += xt::pow(
+-      xt::sum(
+-        std::move(
+-          xt::maximum(fabs(deadband_velocities_.at(0)) - xt::fabs(vx), 0) +
+-          xt::maximum(fabs(deadband_velocities_.at(2)) - xt::fabs(wz), 0)) *
+-        data.model_dt,
+-        {1}, immediate) *
+-      weight_,
+-      power_);
++    data.costs += ((((fabs(deadband_velocities_[0]) - data.state.vx.abs()).max(0.0f) +
++      (fabs(deadband_velocities_[2]) - data.state.wz.abs()).max(0.0f)) *
++      data.model_dt).rowwise().sum() * weight_).pow(power_).eval();
+   } else {
+-    data.costs += xt::sum(
+-      (std::move(
+-        xt::maximum(fabs(deadband_velocities_.at(0)) - xt::fabs(vx), 0) +
+-        xt::maximum(fabs(deadband_velocities_.at(2)) - xt::fabs(wz), 0))) *
+-      data.model_dt,
+-      {1}, immediate) *
+-      weight_;
++    data.costs += ((((fabs(deadband_velocities_[0]) - data.state.vx.abs()).max(0.0f) +
++      (fabs(deadband_velocities_[2]) - data.state.wz.abs()).max(0.0f)) *
++      data.model_dt).rowwise().sum() * weight_).eval();
+   }
+   return;
+ }
+Index: git/src/noise_generator.cpp
+===================================================================
+--- git.orig/src/noise_generator.cpp
++++ git/src/noise_generator.cpp
+@@ -16,9 +16,6 @@
+ 
+ #include <memory>
+ #include <mutex>
+-#include <xtensor/xmath.hpp>
+-#include <xtensor/xrandom.hpp>
+-#include <xtensor/xnoalias.hpp>
+ 
+ namespace mppi
+ {
+@@ -31,6 +28,10 @@ void NoiseGenerator::initialize(
+   is_holonomic_ = is_holonomic;
+   active_ = true;
+ 
++  ndistribution_vx_ = std::normal_distribution(0.0f, settings_.sampling_std.vx);
++  ndistribution_vy_ = std::normal_distribution(0.0f, settings_.sampling_std.vy);
++  ndistribution_wz_ = std::normal_distribution(0.0f, settings_.sampling_std.wz);
++
+   auto getParam = param_handler->getParamGetter(name);
+   getParam(regenerate_noises_, "regenerate_noises", false);
+ 
+@@ -68,9 +69,9 @@ void NoiseGenerator::setNoisedControls(
+ {
+   std::unique_lock<std::mutex> guard(noise_lock_);
+ 
+-  xt::noalias(state.cvx) = control_sequence.vx + noises_vx_;
+-  xt::noalias(state.cvy) = control_sequence.vy + noises_vy_;
+-  xt::noalias(state.cwz) = control_sequence.wz + noises_wz_;
++  state.cvx = noises_vx_.rowwise() + control_sequence.vx.transpose();
++  state.cvy = noises_vy_.rowwise() + control_sequence.vy.transpose();
++  state.cwz = noises_wz_.rowwise() + control_sequence.wz.transpose();
+ }
+ 
+ void NoiseGenerator::reset(mppi::models::OptimizerSettings & settings, bool is_holonomic)
+@@ -81,9 +82,9 @@ void NoiseGenerator::reset(mppi::models:
+   // Recompute the noises on reset, initialization, and fallback
+   {
+     std::unique_lock<std::mutex> guard(noise_lock_);
+-    xt::noalias(noises_vx_) = xt::zeros<float>({settings_.batch_size, settings_.time_steps});
+-    xt::noalias(noises_vy_) = xt::zeros<float>({settings_.batch_size, settings_.time_steps});
+-    xt::noalias(noises_wz_) = xt::zeros<float>({settings_.batch_size, settings_.time_steps});
++    noises_vx_.setZero(settings_.batch_size, settings_.time_steps);
++    noises_vy_.setZero(settings_.batch_size, settings_.time_steps);
++    noises_wz_.setZero(settings_.batch_size, settings_.time_steps);
+     ready_ = true;
+   }
+ 
+@@ -107,17 +108,13 @@ void NoiseGenerator::noiseThread()
+ void NoiseGenerator::generateNoisedControls()
+ {
+   auto & s = settings_;
+-
+-  xt::noalias(noises_vx_) = xt::random::randn<float>(
+-    {s.batch_size, s.time_steps}, 0.0f,
+-    s.sampling_std.vx);
+-  xt::noalias(noises_wz_) = xt::random::randn<float>(
+-    {s.batch_size, s.time_steps}, 0.0f,
+-    s.sampling_std.wz);
+-  if (is_holonomic_) {
+-    xt::noalias(noises_vy_) = xt::random::randn<float>(
+-      {s.batch_size, s.time_steps}, 0.0f,
+-      s.sampling_std.vy);
++  noises_vx_ = Eigen::ArrayXXf::NullaryExpr(
++    s.batch_size, s.time_steps, [&] () {return ndistribution_vx_(generator_);});
++  noises_wz_ = Eigen::ArrayXXf::NullaryExpr(
++    s.batch_size, s.time_steps, [&] () {return ndistribution_wz_(generator_);});
++  if(is_holonomic_) {
++    noises_vy_ = Eigen::ArrayXXf::NullaryExpr(
++      s.batch_size, s.time_steps, [&] () {return ndistribution_vy_(generator_);});
+   }
+ }
+ 
+Index: git/src/optimizer.cpp
+===================================================================
+--- git.orig/src/optimizer.cpp
++++ git/src/optimizer.cpp
+@@ -20,9 +20,7 @@
+ #include <string>
+ #include <vector>
+ #include <cmath>
+-#include <xtensor/xmath.hpp>
+-#include <xtensor/xrandom.hpp>
+-#include <xtensor/xnoalias.hpp>
++#include <chrono>
+ 
+ #include "nav2_core/controller_exceptions.hpp"
+ #include "nav2_costmap_2d/costmap_filters/filter_values.hpp"
+@@ -30,9 +28,6 @@
+ namespace mppi
+ {
+ 
+-using namespace xt::placeholders;  // NOLINT
+-using xt::evaluation_strategy::immediate;
+-
+ void Optimizer::initialize(
+   rclcpp_lifecycle::LifecycleNode::WeakPtr parent, const std::string & name,
+   std::shared_ptr<nav2_costmap_2d::Costmap2DROS> costmap_ros,
+@@ -86,7 +81,7 @@ void Optimizer::getParams()
+   getParam(s.sampling_std.wz, "wz_std", 0.4f);
+   getParam(s.retry_attempt_limit, "retry_attempt_limit", 1);
+ 
+-  s.base_constraints.ax_max = std::abs(s.base_constraints.ax_max);
++  s.base_constraints.ax_max = fabs(s.base_constraints.ax_max);
+   if (s.base_constraints.ax_min > 0.0) {
+     s.base_constraints.ax_min = -1.0 * s.base_constraints.ax_min;
+     RCLCPP_WARN(
+@@ -97,6 +92,7 @@ void Optimizer::getParams()
+   getParam(motion_model_name, "motion_model", std::string("DiffDrive"));
+ 
+   s.constraints = s.base_constraints;
++
+   setMotionModel(motion_model_name);
+   parameters_handler_->addPostCallback([this]() {reset();});
+ 
+@@ -137,7 +133,7 @@ void Optimizer::reset()
+ 
+   settings_.constraints = settings_.base_constraints;
+ 
+-  costs_ = xt::zeros<float>({settings_.batch_size});
++  costs_.setZero(settings_.batch_size);
+   generated_trajectories_.reset(settings_.batch_size, settings_.time_steps);
+ 
+   noise_generator_.reset(settings_, isHolonomic());
+@@ -210,7 +206,7 @@ void Optimizer::prepare(
+   state_.pose = robot_pose;
+   state_.speed = robot_speed;
+   path_ = utils::toTensor(plan);
+-  costs_.fill(0.0f);
++  costs_.setZero();
+   goal_ = goal;
+ 
+   critics_data_.fail_flag = false;
+@@ -222,22 +218,15 @@ void Optimizer::prepare(
+ 
+ void Optimizer::shiftControlSequence()
+ {
+-  using namespace xt::placeholders;  // NOLINT
+-  control_sequence_.vx = xt::roll(control_sequence_.vx, -1);
+-  control_sequence_.wz = xt::roll(control_sequence_.wz, -1);
+-
+-
+-  xt::view(control_sequence_.vx, -1) =
+-    xt::view(control_sequence_.vx, -2);
+-
+-  xt::view(control_sequence_.wz, -1) =
+-    xt::view(control_sequence_.wz, -2);
+-
++  auto size = control_sequence_.vx.size();
++  utils::shiftColumnsByOnePlace(control_sequence_.vx, -1);
++  utils::shiftColumnsByOnePlace(control_sequence_.wz, -1);
++  control_sequence_.vx(size - 1) = control_sequence_.vx(size - 2);
++  control_sequence_.wz(size - 1) = control_sequence_.wz(size - 2);
+ 
+   if (isHolonomic()) {
+-    control_sequence_.vy = xt::roll(control_sequence_.vy, -1);
+-    xt::view(control_sequence_.vy, -1) =
+-      xt::view(control_sequence_.vy, -2);
++    utils::shiftColumnsByOnePlace(control_sequence_.vy, -1);
++    control_sequence_.vy(size - 1) = control_sequence_.vy(size - 2);
+   }
+ }
+ 
+@@ -253,32 +242,35 @@ void Optimizer::applyControlSequenceCons
+ {
+   auto & s = settings_;
+ 
+-  if (isHolonomic()) {
+-    control_sequence_.vy = xt::clip(control_sequence_.vy, -s.constraints.vy, s.constraints.vy);
+-  }
+-
+-  control_sequence_.vx = xt::clip(control_sequence_.vx, s.constraints.vx_min, s.constraints.vx_max);
+-  control_sequence_.wz = xt::clip(control_sequence_.wz, -s.constraints.wz, s.constraints.wz);
+-
+   float max_delta_vx = s.model_dt * s.constraints.ax_max;
+   float min_delta_vx = s.model_dt * s.constraints.ax_min;
+   float max_delta_vy = s.model_dt * s.constraints.ay_max;
+   float max_delta_wz = s.model_dt * s.constraints.az_max;
+-  float vx_last = control_sequence_.vx(0);
+-  float vy_last = control_sequence_.vy(0);
+-  float wz_last = control_sequence_.wz(0);
+-  for (unsigned int i = 1; i != control_sequence_.vx.shape(0); i++) {
++  float vx_last = utils::clamp(s.constraints.vx_min, s.constraints.vx_max, control_sequence_.vx(0));
++  float wz_last = utils::clamp(-s.constraints.wz, s.constraints.wz, control_sequence_.wz(0));
++  control_sequence_.vx(0) = vx_last;
++  control_sequence_.wz(0) = wz_last;
++  float vy_last = 0;
++  if (isHolonomic()) {
++    vy_last = utils::clamp(-s.constraints.vy, s.constraints.vy, control_sequence_.vy(0));
++    control_sequence_.vy(0) = vy_last;
++  }
++
++  for (unsigned int i = 1; i != control_sequence_.vx.size(); i++) {
+     float & vx_curr = control_sequence_.vx(i);
+-    vx_curr = std::clamp(vx_curr, vx_last + min_delta_vx, vx_last + max_delta_vx);
++    vx_curr = utils::clamp(s.constraints.vx_min, s.constraints.vx_max, vx_curr);
++    vx_curr = utils::clamp(vx_last + min_delta_vx, vx_last + max_delta_vx, vx_curr);
+     vx_last = vx_curr;
+ 
+     float & wz_curr = control_sequence_.wz(i);
+-    wz_curr = std::clamp(wz_curr, wz_last - max_delta_wz, wz_last + max_delta_wz);
++    wz_curr = utils::clamp(-s.constraints.wz, s.constraints.wz, wz_curr);
++    wz_curr = utils::clamp(wz_last - max_delta_wz, wz_last + max_delta_wz, wz_curr);
+     wz_last = wz_curr;
+ 
+     if (isHolonomic()) {
+       float & vy_curr = control_sequence_.vy(i);
+-      vy_curr = std::clamp(vy_curr, vy_last - max_delta_vy, vy_last + max_delta_vy);
++      vy_curr = utils::clamp(-s.constraints.vy, s.constraints.vy, vy_curr);
++      vy_curr = utils::clamp(vy_last - max_delta_vy, vy_last + max_delta_vy, vy_curr);
+       vy_last = vy_curr;
+     }
+   }
+@@ -296,11 +288,11 @@ void Optimizer::updateStateVelocities(
+ void Optimizer::updateInitialStateVelocities(
+   models::State & state) const
+ {
+-  xt::noalias(xt::view(state.vx, xt::all(), 0)) = static_cast<float>(state.speed.linear.x);
+-  xt::noalias(xt::view(state.wz, xt::all(), 0)) = static_cast<float>(state.speed.angular.z);
++  state.vx.col(0) = static_cast<float>(state.speed.linear.x);
++  state.wz.col(0) = static_cast<float>(state.speed.angular.z);
+ 
+   if (isHolonomic()) {
+-    xt::noalias(xt::view(state.vy, xt::all(), 0)) = static_cast<float>(state.speed.linear.y);
++    state.vy.col(0) = static_cast<float>(state.speed.linear.y);
+   }
+ }
+ 
+@@ -311,36 +303,56 @@ void Optimizer::propagateStateVelocities
+ }
+ 
+ void Optimizer::integrateStateVelocities(
+-  xt::xtensor<float, 2> & trajectory,
+-  const xt::xtensor<float, 2> & sequence) const
++  Eigen::Array<float, Eigen::Dynamic, 3> & trajectory,
++  const Eigen::ArrayXXf & sequence) const
+ {
+   float initial_yaw = static_cast<float>(tf2::getYaw(state_.pose.pose.orientation));
+ 
+-  const auto vx = xt::view(sequence, xt::all(), 0);
+-  const auto wz = xt::view(sequence, xt::all(), 1);
++  const auto vx = sequence.col(0);
++  const auto wz = sequence.col(1);
+ 
+-  auto traj_x = xt::view(trajectory, xt::all(), 0);
+-  auto traj_y = xt::view(trajectory, xt::all(), 1);
+-  auto traj_yaws = xt::view(trajectory, xt::all(), 2);
+-
+-  xt::noalias(traj_yaws) = xt::cumsum(wz * settings_.model_dt, 0) + initial_yaw;
+-
+-  auto yaw_cos = xt::roll(xt::eval(xt::cos(traj_yaws)), 1);
+-  auto yaw_sin = xt::roll(xt::eval(xt::sin(traj_yaws)), 1);
+-  xt::view(yaw_cos, 0) = cosf(initial_yaw);
+-  xt::view(yaw_sin, 0) = sinf(initial_yaw);
++  auto traj_x = trajectory.col(0);
++  auto traj_y = trajectory.col(1);
++  auto traj_yaws = trajectory.col(2);
++
++  size_t n_size = traj_yaws.size();
++
++  traj_yaws(0) = wz(0) * settings_.model_dt + initial_yaw;
++  float last_yaw = traj_yaws(0);
++  for(size_t i = 1; i != n_size; i++) {
++    float & curr_yaw = traj_yaws(i);
++    curr_yaw = last_yaw + wz(i) * settings_.model_dt;
++    last_yaw = curr_yaw;
++  }
++
++  Eigen::ArrayXf yaw_cos = traj_yaws.cos();
++  Eigen::ArrayXf yaw_sin = traj_yaws.sin();
++  utils::shiftColumnsByOnePlace(yaw_cos, 1);
++  utils::shiftColumnsByOnePlace(yaw_sin, 1);
++  yaw_cos(0) = cosf(initial_yaw);
++  yaw_sin(0) = sinf(initial_yaw);
+ 
+-  auto && dx = xt::eval(vx * yaw_cos);
+-  auto && dy = xt::eval(vx * yaw_sin);
++  auto dx = (vx * yaw_cos).eval();
++  auto dy = (vx * yaw_sin).eval();
+ 
+   if (isHolonomic()) {
+-    const auto vy = xt::view(sequence, xt::all(), 2);
+-    dx = dx - vy * yaw_sin;
+-    dy = dy + vy * yaw_cos;
++    auto vy = sequence.col(2);
++    dx = (dx - vy * yaw_sin).eval();
++    dy = (dy + vy * yaw_cos).eval();
++  }
++
++  traj_x(0) = state_.pose.pose.position.x + dx(0) * settings_.model_dt;
++  traj_y(0) = state_.pose.pose.position.y + dy(0) * settings_.model_dt;
++  float last_x = traj_x(0);
++  float last_y = traj_y(0);
++  for(unsigned int i = 1; i != n_size; i++) {
++    float & curr_x = traj_x(i);
++    float & curr_y = traj_y(i);
++    curr_x = last_x + dx(i) * settings_.model_dt;
++    curr_y = last_y + dy(i) * settings_.model_dt;
++    last_x = curr_x;
++    last_y = curr_y;
+   }
+-
+-  xt::noalias(traj_x) = state_.pose.pose.position.x + xt::cumsum(dx * settings_.model_dt, 0);
+-  xt::noalias(traj_y) = state_.pose.pose.position.y + xt::cumsum(dy * settings_.model_dt, 0);
+ }
+ 
+ void Optimizer::integrateStateVelocities(
+@@ -348,77 +360,79 @@ void Optimizer::integrateStateVelocities
+   const models::State & state) const
+ {
+   const float initial_yaw = static_cast<float>(tf2::getYaw(state.pose.pose.orientation));
++  const unsigned int n_cols = trajectories.yaws.cols();
+ 
+-  xt::noalias(trajectories.yaws) =
+-    xt::cumsum(state.wz * settings_.model_dt, {1}) + initial_yaw;
++  trajectories.yaws.col(0) = state.wz.col(0) * settings_.model_dt + initial_yaw;
++  for(unsigned int i = 1; i != n_cols; i++) {
++    trajectories.yaws.col(i) = trajectories.yaws.col(i - 1) + state.wz.col(i) * settings_.model_dt;
++  }
++
++  Eigen::ArrayXXf yaw_cos = trajectories.yaws.cos();
++  Eigen::ArrayXXf yaw_sin = trajectories.yaws.sin();
++  utils::shiftColumnsByOnePlace(yaw_cos, 1);
++  utils::shiftColumnsByOnePlace(yaw_sin, 1);
++  yaw_cos.col(0) = cosf(initial_yaw);
++  yaw_sin.col(0) = sinf(initial_yaw);
+ 
+-  auto yaw_cos = xt::roll(xt::eval(xt::cos(trajectories.yaws)), 1, 1);
+-  auto yaw_sin = xt::roll(xt::eval(xt::sin(trajectories.yaws)), 1, 1);
+-  xt::view(yaw_cos, xt::all(), 0) = cosf(initial_yaw);
+-  xt::view(yaw_sin, xt::all(), 0) = sinf(initial_yaw);
+-
+-  auto && dx = xt::eval(state.vx * yaw_cos);
+-  auto && dy = xt::eval(state.vx * yaw_sin);
++  auto dx = (state.vx * yaw_cos).eval();
++  auto dy = (state.vx * yaw_sin).eval();
+ 
+   if (isHolonomic()) {
+     dx = dx - state.vy * yaw_sin;
+     dy = dy + state.vy * yaw_cos;
+   }
+ 
+-  xt::noalias(trajectories.x) = state.pose.pose.position.x +
+-    xt::cumsum(dx * settings_.model_dt, {1});
+-  xt::noalias(trajectories.y) = state.pose.pose.position.y +
+-    xt::cumsum(dy * settings_.model_dt, {1});
++  trajectories.x.col(0) = dx.col(0) * settings_.model_dt + state.pose.pose.position.x;
++  trajectories.y.col(0) = dy.col(0) * settings_.model_dt + state.pose.pose.position.y;
++  for(unsigned int i = 1; i != n_cols; i++) {
++    trajectories.x.col(i) = trajectories.x.col(i - 1) + dx.col(i) * settings_.model_dt;
++    trajectories.y.col(i) = trajectories.y.col(i - 1) + dy.col(i) * settings_.model_dt;
++  }
+ }
+ 
+-xt::xtensor<float, 2> Optimizer::getOptimizedTrajectory()
++Eigen::ArrayXXf Optimizer::getOptimizedTrajectory()
+ {
+   const bool is_holo = isHolonomic();
+-  auto && sequence =
+-    xt::xtensor<float, 2>::from_shape({settings_.time_steps, is_holo ? 3u : 2u});
+-  auto && trajectories = xt::xtensor<float, 2>::from_shape({settings_.time_steps, 3});
++  Eigen::ArrayXXf sequence = Eigen::ArrayXXf(settings_.time_steps, is_holo ? 3 : 2);
++  Eigen::Array<float, Eigen::Dynamic, 3> trajectories =
++    Eigen::Array<float, Eigen::Dynamic, 3>(settings_.time_steps, 3);
+ 
+-  xt::noalias(xt::view(sequence, xt::all(), 0)) = control_sequence_.vx;
+-  xt::noalias(xt::view(sequence, xt::all(), 1)) = control_sequence_.wz;
++  sequence.col(0) = control_sequence_.vx;
++  sequence.col(1) = control_sequence_.wz;
+ 
+   if (is_holo) {
+-    xt::noalias(xt::view(sequence, xt::all(), 2)) = control_sequence_.vy;
++    sequence.col(2) = control_sequence_.vy;
+   }
+ 
+   integrateStateVelocities(trajectories, sequence);
+-  return std::move(trajectories);
++  return trajectories;
+ }
+ 
+ void Optimizer::updateControlSequence()
+ {
+   const bool is_holo = isHolonomic();
+   auto & s = settings_;
+-  auto bounded_noises_vx = state_.cvx - control_sequence_.vx;
+-  auto bounded_noises_wz = state_.cwz - control_sequence_.wz;
+-  xt::noalias(costs_) +=
+-    s.gamma / powf(s.sampling_std.vx, 2) * xt::sum(
+-    xt::view(control_sequence_.vx, xt::newaxis(), xt::all()) * bounded_noises_vx, 1, immediate);
+-  xt::noalias(costs_) +=
+-    s.gamma / powf(s.sampling_std.wz, 2) * xt::sum(
+-    xt::view(control_sequence_.wz, xt::newaxis(), xt::all()) * bounded_noises_wz, 1, immediate);
+ 
++  auto bounded_noises_vx = state_.cvx.rowwise() - control_sequence_.vx.transpose();
++  auto bounded_noises_wz = state_.cwz.rowwise() - control_sequence_.wz.transpose();
++  costs_ += (s.gamma / powf(s.sampling_std.vx, 2) *
++    (bounded_noises_vx.rowwise() * control_sequence_.vx.transpose()).rowwise().sum()).eval();
++  costs_ += (s.gamma / powf(s.sampling_std.wz, 2) *
++    (bounded_noises_wz.rowwise() * control_sequence_.wz.transpose()).rowwise().sum()).eval();
+   if (is_holo) {
+-    auto bounded_noises_vy = state_.cvy - control_sequence_.vy;
+-    xt::noalias(costs_) +=
+-      s.gamma / powf(s.sampling_std.vy, 2) * xt::sum(
+-      xt::view(control_sequence_.vy, xt::newaxis(), xt::all()) * bounded_noises_vy,
+-      1, immediate);
++    auto bounded_noises_vy = state_.cvy.rowwise() - control_sequence_.vy.transpose();
++    costs_ += (s.gamma / powf(s.sampling_std.vy, 2) *
++      (bounded_noises_vy.rowwise() * control_sequence_.vy.transpose()).rowwise().sum()).eval();
+   }
+ 
+-  auto && costs_normalized = costs_ - xt::amin(costs_, immediate);
+-  auto && exponents = xt::eval(xt::exp(-1 / settings_.temperature * costs_normalized));
+-  auto && softmaxes = xt::eval(exponents / xt::sum(exponents, immediate));
+-  auto && softmaxes_extened = xt::eval(xt::view(softmaxes, xt::all(), xt::newaxis()));
++  auto costs_normalized = costs_ - costs_.minCoeff();
++  auto exponents = ((-1 / settings_.temperature * costs_normalized).exp()).eval();
++  auto softmaxes = (exponents / exponents.sum()).eval();
+ 
+-  xt::noalias(control_sequence_.vx) = xt::sum(state_.cvx * softmaxes_extened, 0, immediate);
+-  xt::noalias(control_sequence_.wz) = xt::sum(state_.cwz * softmaxes_extened, 0, immediate);
++  control_sequence_.vx = (state_.cvx.colwise() * softmaxes).colwise().sum();
++  control_sequence_.wz = (state_.cwz.colwise() * softmaxes).colwise().sum();
+   if (is_holo) {
+-    xt::noalias(control_sequence_.vy) = xt::sum(state_.cvy * softmaxes_extened, 0, immediate);
++    control_sequence_.vy = (state_.cvy.colwise() * softmaxes).colwise().sum();
+   }
+ 
+   applyControlSequenceConstraints();
+Index: git/src/trajectory_visualizer.cpp
+===================================================================
+--- git.orig/src/trajectory_visualizer.cpp
++++ git/src/trajectory_visualizer.cpp
+@@ -61,11 +61,11 @@ void TrajectoryVisualizer::on_deactivate
+ }
+ 
+ void TrajectoryVisualizer::add(
+-  const xt::xtensor<float, 2> & trajectory,
++  const Eigen::ArrayXXf & trajectory,
+   const std::string & marker_namespace,
+   const builtin_interfaces::msg::Time & cmd_stamp)
+ {
+-  auto & size = trajectory.shape()[0];
++  size_t size = trajectory.rows();
+   if (!size) {
+     return;
+   }
+@@ -105,12 +105,13 @@ void TrajectoryVisualizer::add(
+ void TrajectoryVisualizer::add(
+   const models::Trajectories & trajectories, const std::string & marker_namespace)
+ {
+-  auto & shape = trajectories.x.shape();
+-  const float shape_1 = static_cast<float>(shape[1]);
+-  points_->markers.reserve(floor(shape[0] / trajectory_step_) * floor(shape[1] * time_step_));
++  size_t n_rows = trajectories.x.rows();
++  size_t n_cols = trajectories.x.cols();
++  const float shape_1 = static_cast<float>(n_cols);
++  points_->markers.reserve(floor(n_rows / trajectory_step_) * floor(n_cols * time_step_));
+ 
+-  for (size_t i = 0; i < shape[0]; i += trajectory_step_) {
+-    for (size_t j = 0; j < shape[1]; j += time_step_) {
++  for (size_t i = 0; i < n_rows; i += trajectory_step_) {
++    for (size_t j = 0; j < n_cols; j += time_step_) {
+       const float j_flt = static_cast<float>(j);
+       float blue_component = 1.0f - j_flt / shape_1;
+       float green_component = j_flt / shape_1;
+Index: git/test/critic_manager_test.cpp
+===================================================================
+--- git.orig/test/critic_manager_test.cpp
++++ git/test/critic_manager_test.cpp
+@@ -118,7 +118,7 @@ TEST(CriticManagerTests, BasicCriticOper
+   models::Trajectories generated_trajectories;
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs;
++  Eigen::ArrayXf costs;
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt, false, nullptr, nullptr,
+Index: git/test/critics_tests.cpp
+===================================================================
+--- git.orig/test/critics_tests.cpp
++++ git/test/critics_tests.cpp
+@@ -15,6 +15,7 @@
+ 
+ #include <chrono>
+ #include <thread>
++#include <random>
+ 
+ #include "gtest/gtest.h"
+ #include "rclcpp/rclcpp.hpp"
+@@ -40,7 +41,6 @@
+ using namespace mppi;  // NOLINT
+ using namespace mppi::critics;  // NOLINT
+ using namespace mppi::utils;  // NOLINT
+-using xt::evaluation_strategy::immediate;
+ 
+ class PathAngleCriticWrapper : public PathAngleCritic
+ {
+@@ -67,11 +67,15 @@ TEST(CriticTests, ConstraintsCritic)
+   costmap_ros->on_configure(lstate);
+ 
+   models::State state;
++  // provide velocities in constraints, should not have any costs
++  state.vx = 0.40 * Eigen::ArrayXXf::Ones(1000, 30);
++  state.vy = Eigen::ArrayXXf::Zero(1000, 30);
++  state.wz = Eigen::ArrayXXf::Ones(1000, 30);
+   models::ControlSequence control_sequence;
+   models::Trajectories generated_trajectories;
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -88,43 +92,36 @@ TEST(CriticTests, ConstraintsCritic)
+   EXPECT_TRUE(critic.getMinVelConstraint() < 0.0);
+ 
+   // Scoring testing
+-
+-  // provide velocities in constraints, should not have any costs
+-  state.vx = 0.40 * xt::ones<float>({1000, 30});
+-  state.vy = xt::zeros<float>({1000, 30});
+-  state.wz = xt::ones<float>({1000, 30});
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0, 1e-6);
+ 
+   // provide out of maximum velocity constraint
+-  auto last_batch_traj_in_full = xt::view(state.vx, -1, xt::all());
+-  last_batch_traj_in_full = 0.60 * xt::ones<float>({30});
++  state.vx.row(999).setConstant(0.60f);
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0);
++  EXPECT_GT(costs.sum(), 0);
+   // 4.0 weight * 0.1 model_dt * 0.1 error introduced * 30 timesteps = 1.2
+   EXPECT_NEAR(costs(999), 1.2, 0.01);
+-  costs = xt::zeros<float>({1000});
++  costs.setZero();
+ 
+   // provide out of minimum velocity constraint
+-  auto first_batch_traj_in_full = xt::view(state.vx, 1, xt::all());
+-  first_batch_traj_in_full = -0.45 * xt::ones<float>({30});
++  state.vx.row(1).setConstant(-0.45f);
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0);
++  EXPECT_GT(costs.sum(), 0);
+   // 4.0 weight * 0.1 model_dt * 0.1 error introduced * 30 timesteps = 1.2
+   EXPECT_NEAR(costs(1), 1.2, 0.01);
+-  costs = xt::zeros<float>({1000});
++  costs.setZero();
+ 
+   // Now with ackermann, all in constraint so no costs to score
+-  state.vx = 0.40 * xt::ones<float>({1000, 30});
+-  state.wz = 1.5 * xt::ones<float>({1000, 30});
++  state.vx.setConstant(0.40f);
++  state.wz.setConstant(1.5f);
+   data.motion_model = std::make_shared<AckermannMotionModel>(&param_handler, node->get_name());
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0, 1e-6);
+ 
+   // Now violating the ackermann constraints
+-  state.wz = 2.5 * xt::ones<float>({1000, 30});
++  state.wz.setConstant(2.5f);
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0);
++  EXPECT_GT(costs.sum(), 0);
+   // 4.0 weight * 0.1 model_dt * (0.2 - 0.4/2.5) * 30 timesteps = 0.48
+   EXPECT_NEAR(costs(1), 0.48, 0.01);
+ }
+@@ -145,7 +142,8 @@ TEST(CriticTests, GoalAngleCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(10);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -163,23 +161,22 @@ TEST(CriticTests, GoalAngleCritic)
+ 
+   // provide state poses and path too far from `threshold_to_consider` to consider
+   state.pose.pose.position.x = 1.0;
+-  path.reset(10);
+   path.x(9) = 10.0;
+   path.y(9) = 0.0;
+   path.yaws(9) = 3.14;
+   goal.position.x = 10.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0, 1e-6);
+ 
+   // Lets move it even closer, just to be sure it still doesn't trigger
+   state.pose.pose.position.x = 9.2;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0, 1e-6);
+ 
+   // provide state pose and path below `threshold_to_consider` to consider
+   state.pose.pose.position.x = 9.7;
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0);
++  EXPECT_GT(costs.sum(), 0);
+   EXPECT_NEAR(costs(0), 9.42, 0.02);  // (3.14 - 0.0) * 3.0 weight
+ }
+ 
+@@ -199,7 +196,8 @@ TEST(CriticTests, GoalCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(10);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -217,14 +215,13 @@ TEST(CriticTests, GoalCritic)
+ 
+   // provide state poses and path far, should not trigger
+   state.pose.pose.position.x = 1.0;
+-  path.reset(10);
+   path.x(9) = 10.0;
+   path.y(9) = 0.0;
+   goal.position.x = 10.0;
+   critic.score(data);
+   EXPECT_NEAR(costs(2), 0.0, 1e-6);  // (0 * 5.0 weight
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);  // Should all be 0 * 1000
+-  costs = xt::zeros<float>({1000});
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);  // Should all be 0 * 1000
++  costs.setZero();
+ 
+   // provide state pose and path close
+   path.x(9) = 0.5;
+@@ -232,7 +229,7 @@ TEST(CriticTests, GoalCritic)
+   goal.position.x = 0.5;
+   critic.score(data);
+   EXPECT_NEAR(costs(2), 2.5, 1e-6);  // (sqrt(10.0 * 10.0) * 5.0 weight
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 2500.0, 1e-6);  // should be 2.5 * 1000
++  EXPECT_NEAR(costs.sum(), 2500.0, 1e-3);  // should be 2.5 * 1000
+ }
+ 
+ TEST(CriticTests, PathAngleCritic)
+@@ -252,7 +249,8 @@ TEST(CriticTests, PathAngleCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(10);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -272,11 +270,10 @@ TEST(CriticTests, PathAngleCritic)
+   // provide state poses and path close, within pose tolerance so won't do anything
+   state.pose.pose.position.x = 0.0;
+   state.pose.pose.position.y = 0.0;
+-  path.reset(10);
+   path.x(9) = 0.15;
+   goal.position.x = 0.15;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close but outside of tol. with less than PI/2 angular diff.
+   path.x(9) = 0.95;
+@@ -285,60 +282,60 @@ TEST(CriticTests, PathAngleCritic)
+   path.x(6) = 1.0;  // angle between path point and pose = 0 < max_angle_to_furthest_
+   path.y(6) = 0.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = -1.0;  // angle between path point and pose > max_angle_to_furthest_
+   path.y(6) = 4.0;
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0.0);
++  EXPECT_GT(costs.sum(), 0.0);
+   EXPECT_NEAR(costs(0), 3.9947, 1e-2);  // atan2(4,-1) [1.81] * 2.2 weight
+ 
+   // Set mode to no directional preferences + reset costs
+   critic.setMode(1);
+-  costs = xt::zeros<float>({1000});
++  costs.setZero();
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = 1.0;  // angle between path point and pose < max_angle_to_furthest_
+   path.y(6) = 0.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = -1.0;  // angle between path pt and pose < max_angle_to_furthest_ IF non-directional
+   path.y(6) = 0.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = -1.0;  // angle between path point and pose < max_angle_to_furthest_
+   path.y(6) = 4.0;
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0.0);
++  EXPECT_GT(costs.sum(), 0.0);
+   // should use reverse orientation as the closer angle in no dir preference mode
+   EXPECT_NEAR(costs(0), 2.9167, 1e-2);
+ 
+   // Set mode to consider path directionality + reset costs
+   critic.setMode(2);
+-  costs = xt::zeros<float>({1000});
++  costs.setZero();
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = 1.0;  // angle between path point and pose < max_angle_to_furthest_
+   path.y(6) = 0.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = -1.0;  // angle between path pt and pose < max_angle_to_furthest_ IF non-directional
+   path.y(6) = 0.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close but outside of tol. with more than PI/2 angular diff.
+   path.x(6) = -1.0;  // angle between path point and pose < max_angle_to_furthest_
+   path.y(6) = 4.0;
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0.0);
++  EXPECT_GT(costs.sum(), 0.0);
+   // should use reverse orientation as the closer angle in no dir preference mode
+   EXPECT_NEAR(costs(0), 2.9167, 1e-2);
+ 
+@@ -370,7 +367,8 @@ TEST(CriticTests, PreferForwardCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(10);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -389,23 +387,22 @@ TEST(CriticTests, PreferForwardCritic)
+ 
+   // provide state poses and path far away, not within positional tolerances
+   state.pose.pose.position.x = 1.0;
+-  path.reset(10);
+   path.x(9) = 10.0;
+   goal.position.x = 10.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0f, 1e-6f);
++  EXPECT_NEAR(costs.sum(), 0.0f, 1e-6f);
+ 
+   // provide state pose and path close to trigger behavior but with all forward motion
+   path.x(9) = 0.15;
+   goal.position.x = 0.15;
+-  state.vx = xt::ones<float>({1000, 30});
++  state.vx.setOnes();
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0f, 1e-6f);
++  EXPECT_NEAR(costs.sum(), 0.0f, 1e-6f);
+ 
+   // provide state pose and path close to trigger behavior but with all reverse motion
+-  state.vx = -1.0 * xt::ones<float>({1000, 30});
++  state.vx.setConstant(-1.0f);
+   critic.score(data);
+-  EXPECT_GT(xt::sum(costs, immediate)(), 0.0f);
++  EXPECT_GT(costs.sum(), 0.0f);
+   EXPECT_NEAR(costs(0), 15.0f, 1e-3f);  // 1.0 * 0.1 model_dt * 5.0 weight * 30 length
+ }
+ 
+@@ -426,7 +423,8 @@ TEST(CriticTests, TwirlingCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(10);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -446,30 +444,30 @@ TEST(CriticTests, TwirlingCritic)
+ 
+   // provide state poses and path far away, not within positional tolerances
+   state.pose.pose.position.x = 1.0;
+-  path.reset(10);
+   path.x(9) = 10.0;
+   goal.position.x = 10.0;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path close to trigger behavior but with no angular variation
+   path.x(9) = 0.15;
+   goal.position.x = 0.15;
+-  state.wz = xt::zeros<float>({1000, 30});
++  state.wz.setZero();
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // Provide nearby with some motion
+-  auto traj_view = xt::view(state.wz, 0, xt::all());
+-  traj_view = 10.0;
++  state.wz.row(0).setConstant(10.0f);
+   critic.score(data);
+   EXPECT_NEAR(costs(0), 100.0, 1e-6);  // (mean(10.0) * 10.0 weight
+-  costs = xt::zeros<float>({1000});
++  costs.setZero();
+ 
+   // Now try again with some wiggling noise
+-  traj_view = xt::random::randn<float>({30}, 0.0, 0.5);
++  std::mt19937 engine;
++  std::normal_distribution<float> normal_dist = std::normal_distribution(0.0f, 0.5f);
++  state.wz.row(0) = Eigen::ArrayXf::NullaryExpr(30, [&] () {return normal_dist(engine);});
+   critic.score(data);
+-  EXPECT_NEAR(costs(0), 3.3, 4e-1);  // (mean of noise with mu=0, sigma=0.5 * 10.0 weight
++  EXPECT_NEAR(costs(0), 2.581, 4e-1);  // (mean of noise with mu=0, sigma=0.5 * 10.0 weight
+ }
+ 
+ TEST(CriticTests, PathFollowCritic)
+@@ -489,7 +487,8 @@ TEST(CriticTests, PathFollowCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(6);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -509,18 +508,17 @@ TEST(CriticTests, PathFollowCritic)
+ 
+   // provide state poses and goal close within positional tolerances
+   state.pose.pose.position.x = 2.0;
+-  path.reset(6);
+   path.x(5) = 1.8;
+   goal.position.x = 1.8;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path far enough to enable
+   // pose differential is (0, 0) and (0.15, 0)
+   path.x(5) = 0.15;
+   goal.position.x = 0.15;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 750.0, 1e-2);  // 0.15 * 5 weight * 1000
++  EXPECT_NEAR(costs.sum(), 750.0, 1e-2);  // 0.15 * 5 weight * 1000
+ }
+ 
+ TEST(CriticTests, PathAlignCritic)
+@@ -540,7 +538,8 @@ TEST(CriticTests, PathAlignCritic)
+   generated_trajectories.reset(1000, 30);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  path.reset(10);
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -560,18 +559,17 @@ TEST(CriticTests, PathAlignCritic)
+ 
+   // provide state poses and path close within positional tolerances
+   state.pose.pose.position.x = 1.0;
+-  path.reset(10);
+   path.x(9) = 0.85;
+   goal.position.x = 0.85;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path far enough to enable
+   // but data furthest point reached is 0 and offset default is 20, so returns
+   path.x(9) = 0.15;
+   goal.position.x = 0.15;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path far enough to enable, with data to pass condition
+   // but with empty trajectories and paths, should still be zero
+@@ -579,7 +577,7 @@ TEST(CriticTests, PathAlignCritic)
+   path.x(9) = 0.15;
+   goal.position.x = 0.15;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ 
+   // provide state pose and path far enough to enable, with data to pass condition
+   // and with a valid path to pass invalid path condition
+@@ -609,10 +607,10 @@ TEST(CriticTests, PathAlignCritic)
+   path.x(20) = 0.9;
+   path.x(21) = 0.9;
+   goal.position.x = 0.9;
+-  generated_trajectories.x = 0.66 * xt::ones<float>({1000, 30});
++  generated_trajectories.x.setConstant(0.66f);
+   critic.score(data);
+   // 0.66 * 1000 * 10 weight * 6 num pts eval / 6 normalization term
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 6600.0, 1e-2);
++  EXPECT_NEAR(costs.sum(), 6600.0, 1e-2);
+ 
+   // provide state pose and path far enough to enable, with data to pass condition
+   // but path is blocked in collision
+@@ -625,12 +623,12 @@ TEST(CriticTests, PathAlignCritic)
+   }
+ 
+   data.path_pts_valid.reset();  // Recompute on new path
+-  costs = xt::zeros<float>({1000});
+-  path.x = 1.5 * xt::ones<float>({22});
+-  path.y = 1.5 * xt::ones<float>({22});
++  costs.setZero();
++  path.x.setConstant(1.5f);
++  path.y.setConstant(1.5f);
+   goal.position.x = 1.5;
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0.0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0.0, 1e-6);
+ }
+ 
+ TEST(CriticTests, VelocityDeadbandCritic)
+@@ -647,11 +645,12 @@ TEST(CriticTests, VelocityDeadbandCritic
+   costmap_ros->on_configure(lstate);
+ 
+   models::State state;
++  state.reset(1000, 30);
+   models::ControlSequence control_sequence;
+   models::Trajectories generated_trajectories;
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs = xt::zeros<float>({1000});
++  Eigen::ArrayXf costs = Eigen::ArrayXf::Zero(1000);
+   float model_dt = 0.1;
+   CriticData data =
+   {state, generated_trajectories, path, goal, costs, model_dt,
+@@ -668,16 +667,16 @@ TEST(CriticTests, VelocityDeadbandCritic
+   // Scoring testing
+ 
+   // provide velocities out of deadband bounds, should not have any costs
+-  state.vx = 0.80 * xt::ones<float>({1000, 30});
+-  state.vy = 0.60 * xt::ones<float>({1000, 30});
+-  state.wz = 0.80 * xt::ones<float>({1000, 30});
++  state.vx.setConstant(0.80f);
++  state.vy.setConstant(0.60f);
++  state.wz.setConstant(0.80f);
+   critic.score(data);
+-  EXPECT_NEAR(xt::sum(costs, immediate)(), 0, 1e-6);
++  EXPECT_NEAR(costs.sum(), 0, 1e-6);
+ 
+   // Test cost value
+-  state.vx = 0.01 * xt::ones<float>({1000, 30});
+-  state.vy = 0.02 * xt::ones<float>({1000, 30});
+-  state.wz = 0.021 * xt::ones<float>({1000, 30});
++  state.vx.setConstant(0.01f);
++  state.vy.setConstant(0.02f);
++  state.wz.setConstant(0.021f);
+   critic.score(data);
+   // 35.0 weight * 0.1 model_dt * (0.07 + 0.06 + 0.059) * 30 timesteps = 56.7
+   EXPECT_NEAR(costs(1), 19.845, 0.01);
+Index: git/test/models_test.cpp
+===================================================================
+--- git.orig/test/models_test.cpp
++++ git/test/models_test.cpp
+@@ -35,9 +35,9 @@ TEST(ModelsTest, ControlSequenceTest)
+ {
+   // populate the object
+   ControlSequence sequence;
+-  sequence.vx = xt::ones<float>({10});
+-  sequence.vy = xt::ones<float>({10});
+-  sequence.wz = xt::ones<float>({10});
++  sequence.vx = Eigen::ArrayXf::Ones(10);
++  sequence.vy = Eigen::ArrayXf::Ones(10);
++  sequence.wz = Eigen::ArrayXf::Ones(10);
+ 
+   // Show you can get contents
+   EXPECT_EQ(sequence.vx(4), 1);
+@@ -50,18 +50,18 @@ TEST(ModelsTest, ControlSequenceTest)
+   EXPECT_EQ(sequence.vx(4), 0);
+   EXPECT_EQ(sequence.vy(4), 0);
+   EXPECT_EQ(sequence.wz(4), 0);
+-  EXPECT_EQ(sequence.vx.shape(0), 20u);
+-  EXPECT_EQ(sequence.vy.shape(0), 20u);
+-  EXPECT_EQ(sequence.wz.shape(0), 20u);
++  EXPECT_EQ(sequence.vx.rows(), 20);
++  EXPECT_EQ(sequence.vy.rows(), 20);
++  EXPECT_EQ(sequence.wz.rows(), 20);
+ }
+ 
+ TEST(ModelsTest, PathTest)
+ {
+   // populate the object
+   Path path;
+-  path.x = xt::ones<float>({10});
+-  path.y = xt::ones<float>({10});
+-  path.yaws = xt::ones<float>({10});
++  path.x = Eigen::ArrayXf::Ones(10);
++  path.y = Eigen::ArrayXf::Ones(10);
++  path.yaws = Eigen::ArrayXf::Ones(10);
+ 
+   // Show you can get contents
+   EXPECT_EQ(path.x(4), 1);
+@@ -74,21 +74,21 @@ TEST(ModelsTest, PathTest)
+   EXPECT_EQ(path.x(4), 0);
+   EXPECT_EQ(path.y(4), 0);
+   EXPECT_EQ(path.yaws(4), 0);
+-  EXPECT_EQ(path.x.shape(0), 20u);
+-  EXPECT_EQ(path.y.shape(0), 20u);
+-  EXPECT_EQ(path.yaws.shape(0), 20u);
++  EXPECT_EQ(path.x.rows(), 20);
++  EXPECT_EQ(path.y.rows(), 20);
++  EXPECT_EQ(path.yaws.rows(), 20);
+ }
+ 
+ TEST(ModelsTest, StateTest)
+ {
+   // populate the object
+   State state;
+-  state.vx = xt::ones<float>({10, 10});
+-  state.vy = xt::ones<float>({10, 10});
+-  state.wz = xt::ones<float>({10, 10});
+-  state.cvx = xt::ones<float>({10, 10});
+-  state.cvy = xt::ones<float>({10, 10});
+-  state.cwz = xt::ones<float>({10, 10});
++  state.vx = Eigen::ArrayXXf::Ones(10, 10);
++  state.vy = Eigen::ArrayXXf::Ones(10, 10);
++  state.wz = Eigen::ArrayXXf::Ones(10, 10);
++  state.cvx = Eigen::ArrayXXf::Ones(10, 10);
++  state.cvy = Eigen::ArrayXXf::Ones(10, 10);
++  state.cwz = Eigen::ArrayXXf::Ones(10, 10);
+ 
+   // Show you can get contents
+   EXPECT_EQ(state.cvx(4), 1);
+@@ -107,27 +107,27 @@ TEST(ModelsTest, StateTest)
+   EXPECT_EQ(state.vx(4), 0);
+   EXPECT_EQ(state.vy(4), 0);
+   EXPECT_EQ(state.wz(4), 0);
+-  EXPECT_EQ(state.cvx.shape(0), 20u);
+-  EXPECT_EQ(state.cvy.shape(0), 20u);
+-  EXPECT_EQ(state.cwz.shape(0), 20u);
+-  EXPECT_EQ(state.cvx.shape(1), 40u);
+-  EXPECT_EQ(state.cvy.shape(1), 40u);
+-  EXPECT_EQ(state.cwz.shape(1), 40u);
+-  EXPECT_EQ(state.vx.shape(0), 20u);
+-  EXPECT_EQ(state.vy.shape(0), 20u);
+-  EXPECT_EQ(state.wz.shape(0), 20u);
+-  EXPECT_EQ(state.vx.shape(1), 40u);
+-  EXPECT_EQ(state.vy.shape(1), 40u);
+-  EXPECT_EQ(state.wz.shape(1), 40u);
++  EXPECT_EQ(state.cvx.rows(), 20);
++  EXPECT_EQ(state.cvy.rows(), 20);
++  EXPECT_EQ(state.cwz.rows(), 20);
++  EXPECT_EQ(state.cvx.cols(), 40);
++  EXPECT_EQ(state.cvy.cols(), 40);
++  EXPECT_EQ(state.cwz.cols(), 40);
++  EXPECT_EQ(state.vx.rows(), 20);
++  EXPECT_EQ(state.vy.rows(), 20);
++  EXPECT_EQ(state.wz.rows(), 20);
++  EXPECT_EQ(state.vx.cols(), 40);
++  EXPECT_EQ(state.vy.cols(), 40);
++  EXPECT_EQ(state.wz.cols(), 40);
+ }
+ 
+ TEST(ModelsTest, TrajectoriesTest)
+ {
+   // populate the object
+   Trajectories trajectories;
+-  trajectories.x = xt::ones<float>({10, 10});
+-  trajectories.y = xt::ones<float>({10, 10});
+-  trajectories.yaws = xt::ones<float>({10, 10});
++  trajectories.x = Eigen::ArrayXXf::Ones(10, 10);
++  trajectories.y = Eigen::ArrayXXf::Ones(10, 10);
++  trajectories.yaws = Eigen::ArrayXXf::Ones(10, 10);
+ 
+   // Show you can get contents
+   EXPECT_EQ(trajectories.x(4), 1);
+@@ -140,10 +140,10 @@ TEST(ModelsTest, TrajectoriesTest)
+   EXPECT_EQ(trajectories.x(4), 0);
+   EXPECT_EQ(trajectories.y(4), 0);
+   EXPECT_EQ(trajectories.yaws(4), 0);
+-  EXPECT_EQ(trajectories.x.shape(0), 20u);
+-  EXPECT_EQ(trajectories.y.shape(0), 20u);
+-  EXPECT_EQ(trajectories.yaws.shape(0), 20u);
+-  EXPECT_EQ(trajectories.x.shape(1), 40u);
+-  EXPECT_EQ(trajectories.y.shape(1), 40u);
+-  EXPECT_EQ(trajectories.yaws.shape(1), 40u);
++  EXPECT_EQ(trajectories.x.rows(), 20);
++  EXPECT_EQ(trajectories.y.rows(), 20);
++  EXPECT_EQ(trajectories.yaws.rows(), 20);
++  EXPECT_EQ(trajectories.x.cols(), 40);
++  EXPECT_EQ(trajectories.y.cols(), 40);
++  EXPECT_EQ(trajectories.yaws.cols(), 40);
+ }
+Index: git/test/motion_model_tests.cpp
+===================================================================
+--- git.orig/test/motion_model_tests.cpp
++++ git/test/motion_model_tests.cpp
+@@ -20,6 +20,7 @@
+ #include "nav2_mppi_controller/motion_models.hpp"
+ #include "nav2_mppi_controller/models/state.hpp"
+ #include "nav2_mppi_controller/models/control_sequence.hpp"
++#include "nav2_mppi_controller/tools/utils.hpp"
+ 
+ // Tests motion models
+ 
+@@ -45,31 +46,31 @@ TEST(MotionModelTests, DiffDriveTest)
+     std::make_unique<DiffDriveMotionModel>();
+ 
+   // Check that predict properly populates the trajectory velocities with the control velocities
+-  state.cvx = 10 * xt::ones<float>({batches, timesteps});
+-  state.cvy = 5 * xt::ones<float>({batches, timesteps});
+-  state.cwz = 1 * xt::ones<float>({batches, timesteps});
++  state.cvx = 10 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cvy = 5 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cwz = 1 * Eigen::ArrayXXf::Ones(batches, timesteps);
+ 
+   // Manually set state index 0 from initial conditions which would be the speed of the robot
+-  xt::view(state.vx, xt::all(), 0) = 10;
+-  xt::view(state.wz, xt::all(), 0) = 1;
++  state.vx.col(0) = 10;
++  state.wz.col(0) = 1;
+ 
+   model->predict(state);
+ 
+-  EXPECT_EQ(state.vx, state.cvx);
+-  EXPECT_EQ(state.vy, xt::zeros<float>({batches, timesteps}));  // non-holonomic
+-  EXPECT_EQ(state.wz, state.cwz);
++  EXPECT_TRUE(state.vx.isApprox(state.cvx));
++  EXPECT_TRUE(state.vy.isApprox(Eigen::ArrayXXf::Zero(batches, timesteps)));  // non-holonomic
++  EXPECT_TRUE(state.wz.isApprox(state.cwz));
+ 
+   // Check that application of constraints are empty for Diff Drive
+-  for (unsigned int i = 0; i != control_sequence.vx.shape(0); i++) {
++  for (unsigned int i = 0; i != control_sequence.vx.rows(); i++) {
+     control_sequence.vx(i) = i * i * i;
+     control_sequence.wz(i) = i * i * i;
+   }
+ 
+   models::ControlSequence initial_control_sequence = control_sequence;
+   model->applyConstraints(control_sequence);
+-  EXPECT_EQ(initial_control_sequence.vx, control_sequence.vx);
+-  EXPECT_EQ(initial_control_sequence.vy, control_sequence.vy);
+-  EXPECT_EQ(initial_control_sequence.wz, control_sequence.wz);
++  EXPECT_TRUE(initial_control_sequence.vx.isApprox(control_sequence.vx));
++  EXPECT_TRUE(initial_control_sequence.vy.isApprox(control_sequence.vy));
++  EXPECT_TRUE(initial_control_sequence.wz.isApprox(control_sequence.wz));
+ 
+   // Check that Diff Drive is properly non-holonomic
+   EXPECT_EQ(model->isHolonomic(), false);
+@@ -90,23 +91,23 @@ TEST(MotionModelTests, OmniTest)
+     std::make_unique<OmniMotionModel>();
+ 
+   // Check that predict properly populates the trajectory velocities with the control velocities
+-  state.cvx = 10 * xt::ones<float>({batches, timesteps});
+-  state.cvy = 5 * xt::ones<float>({batches, timesteps});
+-  state.cwz = 1 * xt::ones<float>({batches, timesteps});
++  state.cvx = 10 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cvy = 5 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cwz = 1 * Eigen::ArrayXXf::Ones(batches, timesteps);
+ 
+   // Manually set state index 0 from initial conditions which would be the speed of the robot
+-  xt::view(state.vx, xt::all(), 0) = 10;
+-  xt::view(state.vy, xt::all(), 0) = 5;
+-  xt::view(state.wz, xt::all(), 0) = 1;
++  state.vx.col(0) = 10;
++  state.vy.col(0) = 5;
++  state.wz.col(0) = 1;
+ 
+   model->predict(state);
+ 
+-  EXPECT_EQ(state.vx, state.cvx);
+-  EXPECT_EQ(state.vy, state.cvy);  // holonomic
+-  EXPECT_EQ(state.wz, state.cwz);
++  EXPECT_TRUE(state.vx.isApprox(state.cvx));
++  EXPECT_TRUE(state.vy.isApprox(state.cvy));  // holonomic
++  EXPECT_TRUE(state.wz.isApprox(state.cwz));
+ 
+   // Check that application of constraints are empty for Omni Drive
+-  for (unsigned int i = 0; i != control_sequence.vx.shape(0); i++) {
++  for (unsigned int i = 0; i != control_sequence.vx.rows(); i++) {
+     control_sequence.vx(i) = i * i * i;
+     control_sequence.vy(i) = i * i * i;
+     control_sequence.wz(i) = i * i * i;
+@@ -114,9 +115,9 @@ TEST(MotionModelTests, OmniTest)
+ 
+   models::ControlSequence initial_control_sequence = control_sequence;
+   model->applyConstraints(control_sequence);
+-  EXPECT_EQ(initial_control_sequence.vx, control_sequence.vx);
+-  EXPECT_EQ(initial_control_sequence.vy, control_sequence.vy);
+-  EXPECT_EQ(initial_control_sequence.wz, control_sequence.wz);
++  EXPECT_TRUE(initial_control_sequence.vx.isApprox(control_sequence.vx));
++  EXPECT_TRUE(initial_control_sequence.vy.isApprox(control_sequence.vy));
++  EXPECT_TRUE(initial_control_sequence.wz.isApprox(control_sequence.wz));
+ 
+   // Check that Omni Drive is properly holonomic
+   EXPECT_EQ(model->isHolonomic(), true);
+@@ -139,22 +140,22 @@ TEST(MotionModelTests, AckermannTest)
+     std::make_unique<AckermannMotionModel>(&param_handler, node->get_name());
+ 
+   // Check that predict properly populates the trajectory velocities with the control velocities
+-  state.cvx = 10 * xt::ones<float>({batches, timesteps});
+-  state.cvy = 5 * xt::ones<float>({batches, timesteps});
+-  state.cwz = 1 * xt::ones<float>({batches, timesteps});
++  state.cvx = 10 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cvy = 5 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cwz = 1 * Eigen::ArrayXXf::Ones(batches, timesteps);
+ 
+   // Manually set state index 0 from initial conditions which would be the speed of the robot
+-  xt::view(state.vx, xt::all(), 0) = 10;
+-  xt::view(state.wz, xt::all(), 0) = 1;
++  state.vx.col(0) = 10;
++  state.wz.col(0) = 1;
+ 
+   model->predict(state);
+ 
+-  EXPECT_EQ(state.vx, state.cvx);
+-  EXPECT_EQ(state.vy, xt::zeros<float>({batches, timesteps}));  // non-holonomic
+-  EXPECT_EQ(state.wz, state.cwz);
++  EXPECT_TRUE(state.vx.isApprox(state.cvx));
++  EXPECT_TRUE(state.vy.isApprox(Eigen::ArrayXXf::Zero(batches, timesteps)));  // non-holonomic
++  EXPECT_TRUE(state.wz.isApprox(state.cwz));
+ 
+   // Check that application of constraints are non-empty for Ackermann Drive
+-  for (unsigned int i = 0; i != control_sequence.vx.shape(0); i++) {
++  for (unsigned int i = 0; i != control_sequence.vx.rows(); i++) {
+     control_sequence.vx(i) = i * i * i;
+     control_sequence.wz(i) = i * i * i * i;
+   }
+@@ -162,15 +163,15 @@ TEST(MotionModelTests, AckermannTest)
+   models::ControlSequence initial_control_sequence = control_sequence;
+   model->applyConstraints(control_sequence);
+   // VX equal since this doesn't change, the WZ is reduced if breaking the constraint
+-  EXPECT_EQ(initial_control_sequence.vx, control_sequence.vx);
+-  EXPECT_NE(initial_control_sequence.wz, control_sequence.wz);
+-  for (unsigned int i = 1; i != control_sequence.wz.shape(0); i++) {
++  EXPECT_TRUE(initial_control_sequence.vx.isApprox(control_sequence.vx));
++  EXPECT_FALSE(initial_control_sequence.wz.isApprox(control_sequence.wz));
++  for (unsigned int i = 1; i != control_sequence.wz.rows(); i++) {
+     EXPECT_GT(control_sequence.wz(i), 0.0);
+   }
+ 
+   // Now, check the specifics of the minimum curvature constraint
+   EXPECT_NEAR(model->getMinTurningRadius(), 0.2, 1e-6);
+-  for (unsigned int i = 1; i != control_sequence.vx.shape(0); i++) {
++  for (unsigned int i = 1; i != control_sequence.vx.rows(); i++) {
+     EXPECT_TRUE(fabs(control_sequence.vx(i)) / fabs(control_sequence.wz(i)) >= 0.2);
+   }
+ 
+@@ -197,22 +198,22 @@ TEST(MotionModelTests, AckermannReversin
+     std::make_unique<AckermannMotionModel>(&param_handler, node->get_name());
+ 
+   // Check that predict properly populates the trajectory velocities with the control velocities
+-  state.cvx = 10 * xt::ones<float>({batches, timesteps});
+-  state.cvy = 5 * xt::ones<float>({batches, timesteps});
+-  state.cwz = 1 * xt::ones<float>({batches, timesteps});
++  state.cvx = 10 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cvy = 5 * Eigen::ArrayXXf::Ones(batches, timesteps);
++  state.cwz = 1 * Eigen::ArrayXXf::Ones(batches, timesteps);
+ 
+   // Manually set state index 0 from initial conditions which would be the speed of the robot
+-  xt::view(state.vx, xt::all(), 0) = 10;
+-  xt::view(state.wz, xt::all(), 0) = 1;
++  state.vx.col(0) = 10;
++  state.wz.col(0) = 1;
+ 
+   model->predict(state);
+ 
+-  EXPECT_EQ(state.vx, state.cvx);
+-  EXPECT_EQ(state.vy, xt::zeros<float>({batches, timesteps}));  // non-holonomic
+-  EXPECT_EQ(state.wz, state.cwz);
++  EXPECT_TRUE(state.vx.isApprox(state.cvx));
++  EXPECT_TRUE(state.vy.isApprox(Eigen::ArrayXXf::Zero(batches, timesteps)));  // non-holonomic
++  EXPECT_TRUE(state.wz.isApprox(state.cwz));
+ 
+   // Check that application of constraints are non-empty for Ackermann Drive
+-  for (unsigned int i = 0; i != control_sequence.vx.shape(0); i++) {
++  for (unsigned int i = 0; i != control_sequence.vx.rows(); i++) {
+     float idx = static_cast<float>(i);
+     control_sequence.vx(i) = -idx * idx * idx;  // now reversing
+     control_sequence.wz(i) = idx * idx * idx * idx;
+@@ -221,14 +222,14 @@ TEST(MotionModelTests, AckermannReversin
+   models::ControlSequence initial_control_sequence = control_sequence;
+   model->applyConstraints(control_sequence);
+   // VX equal since this doesn't change, the WZ is reduced if breaking the constraint
+-  EXPECT_EQ(initial_control_sequence.vx, control_sequence.vx);
+-  EXPECT_NE(initial_control_sequence.wz, control_sequence.wz);
+-  for (unsigned int i = 1; i != control_sequence.wz.shape(0); i++) {
++  EXPECT_TRUE(initial_control_sequence.vx.isApprox(control_sequence.vx));
++  EXPECT_FALSE(initial_control_sequence.wz.isApprox(control_sequence.wz));
++  for (unsigned int i = 1; i != control_sequence.wz.rows(); i++) {
+     EXPECT_GT(control_sequence.wz(i), 0.0);
+   }
+ 
+   // Repeat with negative rotation direction
+-  for (unsigned int i = 0; i != control_sequence2.vx.shape(0); i++) {
++  for (unsigned int i = 0; i != control_sequence2.vx.rows(); i++) {
+     float idx = static_cast<float>(i);
+     control_sequence2.vx(i) = -idx * idx * idx;  // now reversing
+     control_sequence2.wz(i) = -idx * idx * idx * idx;
+@@ -237,15 +238,15 @@ TEST(MotionModelTests, AckermannReversin
+   models::ControlSequence initial_control_sequence2 = control_sequence2;
+   model->applyConstraints(control_sequence2);
+   // VX equal since this doesn't change, the WZ is reduced if breaking the constraint
+-  EXPECT_EQ(initial_control_sequence2.vx, control_sequence2.vx);
+-  EXPECT_NE(initial_control_sequence2.wz, control_sequence2.wz);
+-  for (unsigned int i = 1; i != control_sequence2.wz.shape(0); i++) {
++  EXPECT_TRUE(initial_control_sequence2.vx.isApprox(control_sequence2.vx));
++  EXPECT_FALSE(initial_control_sequence2.wz.isApprox(control_sequence2.wz));
++  for (unsigned int i = 1; i != control_sequence2.wz.rows(); i++) {
+     EXPECT_LT(control_sequence2.wz(i), 0.0);
+   }
+ 
+   // Now, check the specifics of the minimum curvature constraint
+   EXPECT_NEAR(model->getMinTurningRadius(), 0.2, 1e-6);
+-  for (unsigned int i = 1; i != control_sequence2.vx.shape(0); i++) {
++  for (unsigned int i = 1; i != control_sequence2.vx.rows(); i++) {
+     EXPECT_TRUE(fabs(control_sequence2.vx(i)) / fabs(control_sequence2.wz(i)) >= 0.2);
+   }
+ 
+Index: git/test/noise_generator_test.cpp
+===================================================================
+--- git.orig/test/noise_generator_test.cpp
++++ git/test/noise_generator_test.cpp
+@@ -70,7 +70,7 @@ TEST(NoiseGeneratorTest, NoiseGeneratorM
+   // Populate a potential control sequence
+   mppi::models::ControlSequence control_sequence;
+   control_sequence.reset(25);
+-  for (unsigned int i = 0; i != control_sequence.vx.shape(0); i++) {
++  for (unsigned int i = 0; i != control_sequence.vx.rows(); i++) {
+     control_sequence.vx(i) = i;
+     control_sequence.vy(i) = i;
+     control_sequence.wz(i) = i;
+@@ -86,9 +86,9 @@ TEST(NoiseGeneratorTest, NoiseGeneratorM
+   EXPECT_EQ(state.cvx(0), 0);
+   EXPECT_EQ(state.cvy(0), 0);
+   EXPECT_EQ(state.cwz(0), 0);
+-  EXPECT_EQ(state.cvx(9), 9);
+-  EXPECT_EQ(state.cvy(9), 9);
+-  EXPECT_EQ(state.cwz(9), 9);
++  EXPECT_EQ(state.cvx(0, 9), 9);
++  EXPECT_EQ(state.cvy(0, 9), 9);
++  EXPECT_EQ(state.cwz(0, 9), 9);
+ 
+   // Request an update with noise requested
+   generator.generateNextNoises();
+@@ -97,16 +97,16 @@ TEST(NoiseGeneratorTest, NoiseGeneratorM
+   EXPECT_NE(state.cvx(0), 0);
+   EXPECT_EQ(state.cvy(0), 0);  // Not populated in non-holonomic
+   EXPECT_NE(state.cwz(0), 0);
+-  EXPECT_NE(state.cvx(9), 9);
+-  EXPECT_EQ(state.cvy(9), 9);  // Not populated in non-holonomic
+-  EXPECT_NE(state.cwz(9), 9);
++  EXPECT_NE(state.cvx(0, 9), 9);
++  EXPECT_EQ(state.cvy(0, 9), 9);  // Not populated in non-holonomic
++  EXPECT_NE(state.cwz(0, 9), 9);
+ 
+   EXPECT_NEAR(state.cvx(0), 0, 0.3);
+   EXPECT_NEAR(state.cvy(0), 0, 0.3);
+   EXPECT_NEAR(state.cwz(0), 0, 0.3);
+-  EXPECT_NEAR(state.cvx(9), 9, 0.3);
+-  EXPECT_NEAR(state.cvy(9), 9, 0.3);
+-  EXPECT_NEAR(state.cwz(9), 9, 0.3);
++  EXPECT_NEAR(state.cvx(0, 9), 9, 0.3);
++  EXPECT_NEAR(state.cvy(0, 9), 9, 0.3);
++  EXPECT_NEAR(state.cwz(0, 9), 9, 0.3);
+ 
+   // Test holonomic setting
+   generator.reset(settings, true);  // Now holonomically
+@@ -116,16 +116,16 @@ TEST(NoiseGeneratorTest, NoiseGeneratorM
+   EXPECT_NE(state.cvx(0), 0);
+   EXPECT_NE(state.cvy(0), 0);  // Now populated in non-holonomic
+   EXPECT_NE(state.cwz(0), 0);
+-  EXPECT_NE(state.cvx(9), 9);
+-  EXPECT_NE(state.cvy(9), 9);  // Now populated in non-holonomic
+-  EXPECT_NE(state.cwz(9), 9);
++  EXPECT_NE(state.cvx(0, 9), 9);
++  EXPECT_NE(state.cvy(0, 9), 9);  // Now populated in non-holonomic
++  EXPECT_NE(state.cwz(0, 9), 9);
+ 
+   EXPECT_NEAR(state.cvx(0), 0, 0.3);
+   EXPECT_NEAR(state.cvy(0), 0, 0.3);
+   EXPECT_NEAR(state.cwz(0), 0, 0.3);
+-  EXPECT_NEAR(state.cvx(9), 9, 0.3);
+-  EXPECT_NEAR(state.cvy(9), 9, 0.3);
+-  EXPECT_NEAR(state.cwz(9), 9, 0.3);
++  EXPECT_NEAR(state.cvx(0, 9), 9, 0.3);
++  EXPECT_NEAR(state.cvy(0, 9), 9, 0.3);
++  EXPECT_NEAR(state.cwz(0, 9), 9, 0.3);
+ 
+   generator.shutdown();
+ }
+Index: git/test/optimizer_smoke_test.cpp
+===================================================================
+--- git.orig/test/optimizer_smoke_test.cpp
++++ git/test/optimizer_smoke_test.cpp
+@@ -22,10 +22,6 @@
+ #include <nav2_costmap_2d/costmap_2d_ros.hpp>
+ #include <nav2_core/goal_checker.hpp>
+ 
+-#include <xtensor/xarray.hpp>
+-#include <xtensor/xio.hpp>
+-#include <xtensor/xview.hpp>
+-
+ #include "nav2_mppi_controller/optimizer.hpp"
+ #include "nav2_mppi_controller/tools/parameters_handler.hpp"
+ #include "nav2_mppi_controller/motion_models.hpp"
+Index: git/test/optimizer_unit_tests.cpp
+===================================================================
+--- git.orig/test/optimizer_unit_tests.cpp
++++ git/test/optimizer_unit_tests.cpp
+@@ -32,7 +32,6 @@ RosLockGuard g_rclcpp;
+ using namespace mppi;  // NOLINT
+ using namespace mppi::critics;  // NOLINT
+ using namespace mppi::utils;  // NOLINT
+-using xt::evaluation_strategy::immediate;
+ 
+ class OptimizerTester : public Optimizer
+ {
+@@ -96,23 +95,23 @@ public:
+ 
+   void fillOptimizerWithGarbage()
+   {
+-    state_.vx = 0.43432 * xt::ones<float>({1000, 10});
+-    control_sequence_.vx = 342.0 * xt::ones<float>({30});
++    state_.vx = 0.43432 * Eigen::ArrayXXf::Ones(1000, 10);
++    control_sequence_.vx = 342.0 * Eigen::ArrayXf::Ones(30);
+     control_history_[0] = {43, 5646, 32432};
+-    costs_ = 5.32 * xt::ones<float>({56453});
+-    generated_trajectories_.x = 432.234 * xt::ones<float>({7865, 1});
++    costs_ = 5.32 * Eigen::ArrayXf::Ones(56453);
++    generated_trajectories_.x = 432.234 * Eigen::ArrayXf::Ones(7865);
+   }
+ 
+   void testReset()
+   {
+     reset();
+ 
+-    EXPECT_EQ(state_.vx, xt::zeros<float>({1000, 50}));
+-    EXPECT_EQ(control_sequence_.vx, xt::zeros<float>({50}));
++    EXPECT_TRUE(state_.vx.isApproxToConstant(0.0f));
++    EXPECT_TRUE(control_sequence_.vx.isApproxToConstant(0.0f));
+     EXPECT_EQ(control_history_[0].vx, 0.0);
+     EXPECT_EQ(control_history_[0].vy, 0.0);
+-    EXPECT_NEAR(xt::sum(costs_, immediate)(), 0, 1e-6);
+-    EXPECT_EQ(generated_trajectories_.x, xt::zeros<float>({1000, 50}));
++    EXPECT_NEAR(costs_.sum(), 0, 1e-6);
++    EXPECT_TRUE(generated_trajectories_.x.isApproxToConstant(0.0f));
+   }
+ 
+   bool fallbackWrapper(bool fail)
+@@ -130,14 +129,14 @@ public:
+     prepare(robot_pose, robot_speed, plan, goal, goal_checker);
+ 
+     EXPECT_EQ(critics_data_.goal_checker, nullptr);
+-    EXPECT_NEAR(xt::sum(costs_, immediate)(), 0, 1e-6);  // should be reset
++    EXPECT_NEAR(costs_.sum(), 0, 1e-6);  // should be reset
+     EXPECT_FALSE(critics_data_.fail_flag);  // should be reset
+     EXPECT_FALSE(critics_data_.motion_model->isHolonomic());  // object is valid + diff drive
+     EXPECT_FALSE(critics_data_.furthest_reached_path_point.has_value());  // val is not set
+     EXPECT_FALSE(critics_data_.path_pts_valid.has_value());  // val is not set
+     EXPECT_EQ(state_.pose.pose.position.x, 999);
+     EXPECT_EQ(state_.speed.linear.y, 4.0);
+-    EXPECT_EQ(path_.x.shape(0), 17u);
++    EXPECT_EQ(path_.x.rows(), 17);
+   }
+ 
+   void shiftControlSequenceWrapper()
+@@ -174,9 +173,9 @@ public:
+     state.speed.linear.x = 5.0;
+     state.speed.linear.y = 1.0;
+     state.speed.angular.z = 6.0;
+-    state.cvx = 0.75 * xt::ones<float>({1000, 50});
+-    state.cvy = 0.5 * xt::ones<float>({1000, 50});
+-    state.cwz = 0.1 * xt::ones<float>({1000, 50});
++    state.cvx = 0.75 * Eigen::ArrayXXf::Ones(1000, 50);
++    state.cvy = 0.5 * Eigen::ArrayXXf::Ones(1000, 50);
++    state.cwz = 0.1 * Eigen::ArrayXXf::Ones(1000, 50);
+     updateInitialStateVelocities(state);
+     EXPECT_NEAR(state.vx(0, 0), 5.0, 1e-6);
+     EXPECT_NEAR(state.vy(0, 0), 1.0, 1e-6);
+@@ -200,9 +199,9 @@ public:
+     state.speed.linear.x = -5.0;
+     state.speed.linear.y = -1.0;
+     state.speed.angular.z = -6.0;
+-    state.cvx = -0.75 * xt::ones<float>({1000, 50});
+-    state.cvy = -0.5 * xt::ones<float>({1000, 50});
+-    state.cwz = -0.1 * xt::ones<float>({1000, 50});
++    state.cvx = -0.75 * Eigen::ArrayXXf::Ones(1000, 50);
++    state.cvy = -0.5 * Eigen::ArrayXXf::Ones(1000, 50);
++    state.cwz = -0.1 * Eigen::ArrayXXf::Ones(1000, 50);
+     updateStateVelocities(state);
+     EXPECT_NEAR(state.vx(0, 0), -5.0, 1e-6);
+     EXPECT_NEAR(state.vy(0, 0), -1.0, 1e-6);
+@@ -248,9 +247,9 @@ TEST(OptimizerTests, BasicInitializedFun
+   // Should be empty of size batches x time steps
+   // and tests getting set params: time_steps, batch_size, controller_frequency
+   auto trajs = optimizer_tester.getGeneratedTrajectories();
+-  EXPECT_EQ(trajs.x.shape(0), 1000u);
+-  EXPECT_EQ(trajs.x.shape(1), 50u);
+-  EXPECT_EQ(trajs.x, xt::zeros<float>({1000, 50}));
++  EXPECT_EQ(trajs.x.rows(), 1000);
++  EXPECT_EQ(trajs.x.cols(), 50);
++  EXPECT_TRUE(trajs.x.isApproxToConstant(0.0f));
+ 
+   optimizer_tester.resetMotionModel();
+   optimizer_tester.testSetOmniModel();
+@@ -258,8 +257,8 @@ TEST(OptimizerTests, BasicInitializedFun
+   EXPECT_EQ(traj(5, 0), 0.0);  // x
+   EXPECT_EQ(traj(5, 1), 0.0);  // y
+   EXPECT_EQ(traj(5, 2), 0.0);  // yaw
+-  EXPECT_EQ(traj.shape(0), 50u);
+-  EXPECT_EQ(traj.shape(1), 3u);
++  EXPECT_EQ(traj.rows(), 50);
++  EXPECT_EQ(traj.cols(), 3);
+ 
+   optimizer_tester.reset();
+   optimizer_tester.shutdown();
+@@ -498,31 +497,31 @@ TEST(OptimizerTests, applyControlSequenc
+   auto & sequence = optimizer_tester.grabControlSequence();
+ 
+   // Test boundary of limits
+-  sequence.vx = xt::ones<float>({50});
+-  sequence.vy = 0.75 * xt::ones<float>({50});
+-  sequence.wz = 2.0 * xt::ones<float>({50});
++  sequence.vx = Eigen::ArrayXf::Ones(50);
++  sequence.vy = 0.75 * Eigen::ArrayXf::Ones(50);
++  sequence.wz = 2.0 * Eigen::ArrayXf::Ones(50);
+   optimizer_tester.applyControlSequenceConstraintsWrapper();
+-  EXPECT_EQ(sequence.vx, xt::ones<float>({50}));
+-  EXPECT_EQ(sequence.vy, 0.75 * xt::ones<float>({50}));
+-  EXPECT_EQ(sequence.wz, 2.0 * xt::ones<float>({50}));
++  EXPECT_TRUE(sequence.vx.isApproxToConstant(1.0f));
++  EXPECT_TRUE(sequence.vy.isApproxToConstant(0.75f));
++  EXPECT_TRUE(sequence.wz.isApproxToConstant(2.0f));
+ 
+   // Test breaking limits sets to maximum
+-  sequence.vx = 5.0 * xt::ones<float>({50});
+-  sequence.vy = 5.0 * xt::ones<float>({50});
+-  sequence.wz = 5.0 * xt::ones<float>({50});
++  sequence.vx = 5.0 * Eigen::ArrayXf::Ones(50);
++  sequence.vy = 5.0 * Eigen::ArrayXf::Ones(50);
++  sequence.wz = 5.0 * Eigen::ArrayXf::Ones(50);
+   optimizer_tester.applyControlSequenceConstraintsWrapper();
+-  EXPECT_EQ(sequence.vx, xt::ones<float>({50}));
+-  EXPECT_EQ(sequence.vy, 0.75 * xt::ones<float>({50}));
+-  EXPECT_EQ(sequence.wz, 2.0 * xt::ones<float>({50}));
++  EXPECT_TRUE(sequence.vx.isApproxToConstant(1.0f));
++  EXPECT_TRUE(sequence.vy.isApproxToConstant(0.75f));
++  EXPECT_TRUE(sequence.wz.isApproxToConstant(2.0f));
+ 
+   // Test breaking limits sets to minimum
+-  sequence.vx = -5.0 * xt::ones<float>({50});
+-  sequence.vy = -5.0 * xt::ones<float>({50});
+-  sequence.wz = -5.0 * xt::ones<float>({50});
++  sequence.vx = -5.0 * Eigen::ArrayXf::Ones(50);
++  sequence.vy = -5.0 * Eigen::ArrayXf::Ones(50);
++  sequence.wz = -5.0 * Eigen::ArrayXf::Ones(50);
+   optimizer_tester.applyControlSequenceConstraintsWrapper();
+-  EXPECT_EQ(sequence.vx, -1.0 * xt::ones<float>({50}));
+-  EXPECT_EQ(sequence.vy, -0.75 * xt::ones<float>({50}));
+-  EXPECT_EQ(sequence.wz, -2.0 * xt::ones<float>({50}));
++  EXPECT_TRUE(sequence.vx.isApproxToConstant(-1.0f));
++  EXPECT_TRUE(sequence.vy.isApproxToConstant(-0.75f));
++  EXPECT_TRUE(sequence.wz.isApproxToConstant(-2.0f));
+ }
+ 
+ TEST(OptimizerTests, updateStateVelocitiesTests)
+@@ -574,9 +573,9 @@ TEST(OptimizerTests, getControlFromSeque
+ 
+   // Test conversion of control sequence into a Twist command to execute
+   auto & sequence = optimizer_tester.grabControlSequence();
+-  sequence.vx = 0.25 * xt::ones<float>({10});
+-  sequence.vy = 0.5 * xt::ones<float>({10});
+-  sequence.wz = 0.1 * xt::ones<float>({10});
++  sequence.vx = 0.25 * Eigen::ArrayXf::Ones(10);
++  sequence.vy = 0.5 * Eigen::ArrayXf::Ones(10);
++  sequence.wz = 0.1 * Eigen::ArrayXf::Ones(10);
+ 
+   auto diff_t = optimizer_tester.getControlFromSequenceAsTwistWrapper();
+   EXPECT_NEAR(diff_t.twist.linear.x, 0.25, 1e-6);
+@@ -615,39 +614,38 @@ TEST(OptimizerTests, integrateStateVeloc
+   models::State state;
+   state.reset(1000, 50);
+   models::Trajectories traj;
+-  state.vx = 0.1 * xt::ones<float>({1000, 50});
+-  xt::view(state.vx, xt::all(), 0) = xt::zeros<float>({1000});
+-  state.vy = xt::zeros<float>({1000, 50});
+-  state.wz = xt::zeros<float>({1000, 50});
+-
++  traj.reset(1000, 50);
++  state.vx = 0.1 * Eigen::ArrayXXf::Ones(1000, 50);
++  state.vx.col(0) = Eigen::ArrayXf::Zero(1000);
++  state.vy = Eigen::ArrayXXf::Zero(1000, 50);
++  state.wz = Eigen::ArrayXXf::Zero(1000, 50);
+   optimizer_tester.integrateStateVelocitiesWrapper(traj, state);
+-  EXPECT_EQ(traj.y, xt::zeros<float>({1000, 50}));
+-  EXPECT_EQ(traj.yaws, xt::zeros<float>({1000, 50}));
+-  for (unsigned int i = 0; i != traj.x.shape(1); i++) {
++  EXPECT_TRUE(traj.y.isApproxToConstant(0.0f));
++  EXPECT_TRUE(traj.yaws.isApproxToConstant(0.0f));
++  for (unsigned int i = 0; i != traj.x.cols(); i++) {
+     EXPECT_NEAR(traj.x(1, i), i * 0.1 /*vel*/ * 0.1 /*dt*/, 1e-3);
+   }
+ 
+   // Give it a bit of a more complex trajectory to crunch
+-  state.vy = 0.2 * xt::ones<float>({1000, 50});
+-  xt::view(state.vy, xt::all(), 0) = xt::zeros<float>({1000});
++  state.vy = 0.2 * Eigen::ArrayXXf::Ones(1000, 50);
++  state.vy.col(0) = Eigen::ArrayXf::Zero(1000);
+   optimizer_tester.integrateStateVelocitiesWrapper(traj, state);
+ 
+-  EXPECT_EQ(traj.yaws, xt::zeros<float>({1000, 50}));
+-  for (unsigned int i = 0; i != traj.x.shape(1); i++) {
++  EXPECT_TRUE(traj.yaws.isApproxToConstant(0.0f));
++  for (unsigned int i = 0; i != traj.x.cols(); i++) {
+     EXPECT_NEAR(traj.x(1, i), i * 0.1 /*vel*/ * 0.1 /*dt*/, 1e-3);
+     EXPECT_NEAR(traj.y(1, i), i * 0.2 /*vel*/ * 0.1 /*dt*/, 1e-3);
+   }
+ 
+   // Lets add some angular motion to the mix
+-  state.vy = xt::zeros<float>({1000, 50});
+-  state.wz = 0.2 * xt::ones<float>({1000, 50});
+-  xt::view(state.wz, xt::all(), 0) = xt::zeros<float>({1000});
++  state.vy = Eigen::ArrayXXf::Zero(1000, 50);
++  state.wz = 0.2 * Eigen::ArrayXXf::Ones(1000, 50);
++  state.wz.col(0) = Eigen::ArrayXf::Zero(1000);
+   optimizer_tester.integrateStateVelocitiesWrapper(traj, state);
+ 
+   float x = 0;
+   float y = 0;
+-  for (unsigned int i = 1; i != traj.x.shape(1); i++) {
+-    std::cout << i << std::endl;
++  for (unsigned int i = 1; i != traj.x.cols(); i++) {
+     x += (0.1 /*vx*/ * cosf(0.2 /*wz*/ * 0.1 /*model_dt*/ * (i - 1))) * 0.1 /*model_dt*/;
+     y += (0.1 /*vx*/ * sinf(0.2 /*wz*/ * 0.1 /*model_dt*/ * (i - 1))) * 0.1 /*model_dt*/;
+ 
+Index: git/test/trajectory_visualizer_tests.cpp
+===================================================================
+--- git.orig/test/trajectory_visualizer_tests.cpp
++++ git/test/trajectory_visualizer_tests.cpp
+@@ -77,7 +77,7 @@ TEST(TrajectoryVisualizerTests, VisOptim
+     [&](const visualization_msgs::msg::MarkerArray msg) {recieved_msg = msg;});
+ 
+   // optimal_trajectory empty, should fail to publish
+-  xt::xtensor<float, 2> optimal_trajectory;
++  Eigen::ArrayXXf optimal_trajectory;
+   TrajectoryVisualizer vis;
+   vis.on_configure(node, "my_name", "fkmap", parameters_handler.get());
+   vis.on_activate();
+@@ -90,7 +90,7 @@ TEST(TrajectoryVisualizerTests, VisOptim
+   EXPECT_EQ(recieved_msg.markers.size(), 0u);
+ 
+   // Now populated with content, should publish
+-  optimal_trajectory = xt::ones<float>({20, 2});
++  optimal_trajectory = Eigen::ArrayXXf::Ones(20, 2);
+   vis.add(optimal_trajectory, "Optimal Trajectory", bogus_stamp);
+   vis.visualize(bogus_path);
+ 
+@@ -139,9 +139,9 @@ TEST(TrajectoryVisualizerTests, VisCandi
+     [&](const visualization_msgs::msg::MarkerArray msg) {recieved_msg = msg;});
+ 
+   models::Trajectories candidate_trajectories;
+-  candidate_trajectories.x = xt::ones<float>({200, 12});
+-  candidate_trajectories.y = xt::ones<float>({200, 12});
+-  candidate_trajectories.yaws = xt::ones<float>({200, 12});
++  candidate_trajectories.x = Eigen::ArrayXXf::Ones(200, 12);
++  candidate_trajectories.y = Eigen::ArrayXXf::Ones(200, 12);
++  candidate_trajectories.yaws = Eigen::ArrayXXf::Ones(200, 12);
+ 
+   TrajectoryVisualizer vis;
+   vis.on_configure(node, "my_name", "fkmap", parameters_handler.get());
+@@ -169,7 +169,7 @@ TEST(TrajectoryVisualizerTests, VisOptim
+     [&](const nav_msgs::msg::Path msg) {recieved_path = msg;});
+ 
+   // optimal_trajectory empty, should fail to publish
+-  xt::xtensor<float, 2> optimal_trajectory;
++  Eigen::ArrayXXf optimal_trajectory;
+   TrajectoryVisualizer vis;
+   vis.on_configure(node, "my_name", "fkmap", parameters_handler.get());
+   vis.on_activate();
+@@ -181,8 +181,8 @@ TEST(TrajectoryVisualizerTests, VisOptim
+   EXPECT_EQ(recieved_path.poses.size(), 0u);
+ 
+   // Now populated with content, should publish
+-  optimal_trajectory.resize({20, 2});
+-  for (unsigned int i = 0; i != optimal_trajectory.shape()[0] - 1; i++) {
++  optimal_trajectory.resize(20, 2);
++  for (unsigned int i = 0; i != optimal_trajectory.rows() - 1; i++) {
+     optimal_trajectory(i, 0) = static_cast<float>(i);
+     optimal_trajectory(i, 1) = static_cast<float>(i);
+   }
+Index: git/test/utils/utils.hpp
+===================================================================
+--- git.orig/test/utils/utils.hpp
++++ git/test/utils/utils.hpp
+@@ -84,7 +84,7 @@ void printMap(const nav2_costmap_2d::Cos
+ /**
+  * Print costmap with trajectory and goal point to stdout.
+  * @param costmap map to be printed.
+- * @param trajectory trajectory container (xt::tensor) to be printed.
++ * @param trajectory trajectory container (Eigen::Array) to be printed.
+  * @param goal_point goal point to be printed.
+  */
+ template<typename TTrajectory>
+@@ -109,7 +109,7 @@ void printMapWithTrajectoryAndGoal(
+   // add trajectory on map
+   unsigned int point_mx = 0;
+   unsigned int point_my = 0;
+-  for (size_t i = 0; i < trajectory.shape()[0]; ++i) {
++  for (size_t i = 0; i < trajectory.rows(); ++i) {
+     costmap2d.worldToMap(trajectory(i, 0), trajectory(i, 1), point_mx, point_my);
+     costmap2d.setCost(point_mx, point_my, trajectory_cost);
+   }
+@@ -171,7 +171,7 @@ void addObstacle(nav2_costmap_2d::Costma
+ 
+ /**
+  * Check the trajectory for collisions with obstacles on the map.
+- * @param trajectory trajectory container (xt::tensor) to be checked.
++ * @param trajectory trajectory container (Eigen::Array) to be checked.
+  * @param costmap costmap with obstacles
+  * @return true - if the trajectory crosses an obstacle on the map, false - if
+  * not
+@@ -182,7 +182,7 @@ bool inCollision(const TTrajectory & tra
+   unsigned int point_mx = 0;
+   unsigned int point_my = 0;
+ 
+-  for (size_t i = 0; i < trajectory.shape(0); ++i) {
++  for (size_t i = 0; i < trajectory.rows(); ++i) {
+     costmap.worldToMap(trajectory(i, 0), trajectory(i, 1), point_mx, point_my);
+     auto cost_ = costmap.getCost(point_mx, point_my);
+     if (cost_ > nav2_costmap_2d::FREE_SPACE || cost_ == nav2_costmap_2d::NO_INFORMATION) {
+@@ -237,7 +237,7 @@ bool isGoalReached(
+     };
+   // clang-format on
+ 
+-  for (size_t i = 0; i < trajectory.shape(0); ++i) {
++  for (size_t i = 0; i < trajectory.rows(); ++i) {
+     costmap.worldToMap(trajectory(i, 0), trajectory(i, 1), trajectory_j, trajectory_i);
+     if (match_near(trajectory_i, trajectory_j)) {
+       return true;
+Index: git/test/utils_test.cpp
+===================================================================
+--- git.orig/test/utils_test.cpp
++++ git/test/utils_test.cpp
+@@ -14,11 +14,7 @@
+ 
+ #include <chrono>
+ #include <thread>
+-
+-#pragma GCC diagnostic ignored "-Warray-bounds"
+-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+-#include <xtensor/xrandom.hpp>
+-#pragma GCC diagnostic pop
++#include <random>
+ 
+ #include "gtest/gtest.h"
+ #include "rclcpp/rclcpp.hpp"
+@@ -120,9 +116,9 @@ TEST(UtilsTests, ConversionTests)
+   models::Path path_t = toTensor(path);
+ 
+   // Check population is correct
+-  EXPECT_EQ(path_t.x.shape(0), 5u);
+-  EXPECT_EQ(path_t.y.shape(0), 5u);
+-  EXPECT_EQ(path_t.yaws.shape(0), 5u);
++  EXPECT_EQ(path_t.x.rows(), 5u);
++  EXPECT_EQ(path_t.y.rows(), 5u);
++  EXPECT_EQ(path_t.yaws.rows(), 5u);
+   EXPECT_EQ(path_t.x(2), 5);
+   EXPECT_EQ(path_t.y(2), 50);
+   EXPECT_NEAR(path_t.yaws(2), 0.0, 1e-6);
+@@ -145,7 +141,7 @@ TEST(UtilsTests, WithTolTests)
+   state.pose.pose = pose;
+   models::Trajectories generated_trajectories;
+   models::Path path_critic;
+-  xt::xtensor<float, 1> costs;
++  Eigen::ArrayXf costs;
+   float model_dt;
+   CriticData data = {
+     state, generated_trajectories, path_critic, goal,
+@@ -181,25 +177,27 @@ TEST(UtilsTests, WithTolTests)
+ TEST(UtilsTests, AnglesTests)
+ {
+   // Test angle normalization by creating insane angles
+-  xt::xtensor<float, 1> angles, zero_angles;
+-  angles = xt::ones<float>({100});
+-  for (unsigned int i = 0; i != angles.shape(0); i++) {
++  Eigen::ArrayXf angles(100);
++  angles.setConstant(1.0f);
++
++  for (unsigned int i = 0; i != angles.size(); i++) {
+     angles(i) = i * i;
+     if (i % 2 == 0) {
+       angles(i) *= -1;
+     }
+   }
+ 
+-  auto norm_ang = normalize_angles(angles);
+-  for (unsigned int i = 0; i != norm_ang.shape(0); i++) {
+-    EXPECT_TRUE((norm_ang(i) >= -M_PI) && (norm_ang(i) <= M_PI));
++  auto norm_ang = normalize_angles(angles).eval();
++  for (unsigned int i = 0; i != norm_ang.size(); i++) {
++    EXPECT_TRUE((norm_ang(i) >= -M_PIF) && (norm_ang(i) <= M_PIF));
+   }
+ 
+   // Test shortest angular distance
+-  zero_angles = xt::zeros<float>({100});
+-  auto ang_dist = shortest_angular_distance(angles, zero_angles);
+-  for (unsigned int i = 0; i != ang_dist.shape(0); i++) {
+-    EXPECT_TRUE((ang_dist(i) >= -M_PI) && (ang_dist(i) <= M_PI));
++  Eigen::ArrayXf zero_angles(100);
++  zero_angles.setZero();
++  auto ang_dist = shortest_angular_distance(angles, zero_angles).eval();
++  for (unsigned int i = 0; i != ang_dist.size(); i++) {
++    EXPECT_TRUE((ang_dist(i) >= -M_PIF) && (ang_dist(i) <= M_PIF));
+   }
+ 
+   // Test point-pose angle
+@@ -233,9 +231,11 @@ TEST(UtilsTests, FurthestAndClosestReach
+ {
+   models::State state;
+   models::Trajectories generated_trajectories;
++  generated_trajectories.reset(100, 2);
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs;
++  path.reset(10);
++  Eigen::ArrayXf costs;
+   float model_dt = 0.1;
+ 
+   CriticData data =
+@@ -255,9 +255,9 @@ TEST(UtilsTests, FurthestAndClosestReach
+   EXPECT_EQ(data2.furthest_reached_path_point, 0);
+ 
+   // Test the actual computation of the path point reached
+-  generated_trajectories.x = xt::ones<float>({100, 2});
+-  generated_trajectories.y = xt::zeros<float>({100, 2});
+-  generated_trajectories.yaws = xt::zeros<float>({100, 2});
++  generated_trajectories.x = Eigen::ArrayXXf::Ones(100, 2);
++  generated_trajectories.y = Eigen::ArrayXXf::Zero(100, 2);
++  generated_trajectories.yaws = Eigen::ArrayXXf::Zero(100, 2);
+ 
+   nav_msgs::msg::Path plan;
+   plan.poses.resize(10);
+@@ -270,7 +270,7 @@ TEST(UtilsTests, FurthestAndClosestReach
+   CriticData data3 =
+   {state, generated_trajectories, path, goal, costs, model_dt, false, nullptr, nullptr,
+     std::nullopt, std::nullopt};  /// Caution, keep references
+-  EXPECT_EQ(findPathFurthestReachedPoint(data3), 5u);
++  EXPECT_EQ(findPathFurthestReachedPoint(data3), 5);
+ }
+ 
+ TEST(UtilsTests, findPathCosts)
+@@ -279,7 +279,8 @@ TEST(UtilsTests, findPathCosts)
+   models::Trajectories generated_trajectories;
+   models::Path path;
+   geometry_msgs::msg::Pose goal;
+-  xt::xtensor<float, 1> costs;
++  path.reset(50);
++  Eigen::ArrayXf costs;
+   float model_dt = 0.1;
+ 
+   CriticData data =
+@@ -316,7 +317,6 @@ TEST(UtilsTests, findPathCosts)
+     }
+   }
+ 
+-  path.reset(50);
+   path.x(1) = 999999999;  // OFF COSTMAP
+   path.y(1) = 999999999;
+   path.x(10) = 1.5;  // IN LETHAL
+@@ -327,7 +327,7 @@ TEST(UtilsTests, findPathCosts)
+   // This should be evaluated and have real outputs now
+   setPathCostsIfNotSet(data3, costmap_ros);
+   EXPECT_TRUE(data3.path_pts_valid.has_value());
+-  for (unsigned int i = 0; i != path.x.shape(0) - 1; i++) {
++  for (unsigned int i = 0; i != path.x.size() - 1; i++) {
+     if (i == 1 || i == 10) {
+       EXPECT_FALSE((*data3.path_pts_valid)[i]);
+     } else {
+@@ -339,12 +339,15 @@ TEST(UtilsTests, findPathCosts)
+ TEST(UtilsTests, SmootherTest)
+ {
+   models::ControlSequence noisey_sequence, sequence_init;
+-  noisey_sequence.vx = 0.2 * xt::ones<float>({30});
+-  noisey_sequence.vy = 0.0 * xt::ones<float>({30});
+-  noisey_sequence.wz = 0.3 * xt::ones<float>({30});
++  noisey_sequence.vx = 0.2 * Eigen::ArrayXf::Ones(30);
++  noisey_sequence.vy = 0.0 * Eigen::ArrayXf::Ones(30);
++  noisey_sequence.wz = 0.3 * Eigen::ArrayXf::Ones(30);
+ 
+   // Make the sequence noisy
+-  auto noises = xt::random::randn<float>({30}, 0.0, 0.2);
++  std::mt19937 engine;
++  std::normal_distribution<float> normal_dist = std::normal_distribution(0.0f, 0.2f);
++  auto noises = Eigen::ArrayXf::NullaryExpr(
++    30, [&] () {return normal_dist(engine);});
+   noisey_sequence.vx += noises;
+   noisey_sequence.vy += noises;
+   noisey_sequence.wz += noises;
+@@ -382,7 +385,7 @@ TEST(UtilsTests, SmootherTest)
+ 
+   // Check that path is smoother
+   float smoothed_val{0}, original_val{0};
+-  for (unsigned int i = 1; i != noisey_sequence.vx.shape(0) - 1; i++) {
++  for (unsigned int i = 1; i != noisey_sequence.vx.size() - 1; i++) {
+     smoothed_val += fabs(noisey_sequence.vx(i) - 0.2);
+     smoothed_val += fabs(noisey_sequence.vy(i) - 0.0);
+     smoothed_val += fabs(noisey_sequence.wz(i) - 0.3);
+@@ -457,3 +460,119 @@ TEST(UtilsTests, RemovePosesAfterPathInv
+   EXPECT_EQ(path.poses.size(), 11u);
+   EXPECT_EQ(path.poses.back().pose.position.x, 10);
+ }
++
++TEST(UtilsTests, ShiftColumnsByOnePlaceTest)
++{
++  // Try with scalar value
++  Eigen::ArrayXf scalar_val(1);
++  scalar_val(0) = 5;
++  utils::shiftColumnsByOnePlace(scalar_val, 1);
++  EXPECT_EQ(scalar_val.size(), 1);
++  EXPECT_EQ(scalar_val(0), 5);
++
++  // Try with one dimensional array, shift right
++  Eigen::ArrayXf array_1d(4);
++  array_1d << 1, 2, 3, 4;
++  utils::shiftColumnsByOnePlace(array_1d, 1);
++  EXPECT_EQ(array_1d.size(), 4);
++  EXPECT_EQ(array_1d(0), 1);
++  EXPECT_EQ(array_1d(1), 1);
++  EXPECT_EQ(array_1d(2), 2);
++  EXPECT_EQ(array_1d(3), 3);
++
++  // Try with one dimensional array, shift left
++  array_1d(1) = 5;
++  utils::shiftColumnsByOnePlace(array_1d, -1);
++  EXPECT_EQ(array_1d.size(), 4);
++  EXPECT_EQ(array_1d(0), 5);
++  EXPECT_EQ(array_1d(1), 2);
++  EXPECT_EQ(array_1d(2), 3);
++  EXPECT_EQ(array_1d(2), 3);
++
++  // Try with two dimensional array, shift right
++  // 1 2 3 4        1 1 2 3
++  // 5 6 7 8    ->  5 5 6 7
++  // 9 10 11 12     9 9 10 11
++  Eigen::ArrayXXf array_2d(3, 4);
++  array_2d << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
++  utils::shiftColumnsByOnePlace(array_2d, 1);
++  EXPECT_EQ(array_2d.rows(), 3);
++  EXPECT_EQ(array_2d.cols(), 4);
++  EXPECT_EQ(array_2d(0, 0), 1);
++  EXPECT_EQ(array_2d(1, 0), 5);
++  EXPECT_EQ(array_2d(2, 0), 9);
++  EXPECT_EQ(array_2d(0, 1), 1);
++  EXPECT_EQ(array_2d(1, 1), 5);
++  EXPECT_EQ(array_2d(2, 1), 9);
++  EXPECT_EQ(array_2d(0, 2), 2);
++  EXPECT_EQ(array_2d(1, 2), 6);
++  EXPECT_EQ(array_2d(2, 2), 10);
++  EXPECT_EQ(array_2d(0, 3), 3);
++  EXPECT_EQ(array_2d(1, 3), 7);
++  EXPECT_EQ(array_2d(2, 3), 11);
++
++  array_2d.col(0).setZero();
++
++  // Try with two dimensional array, shift left
++  // 0 1 2 3      1 2 3 3
++  // 0 5 6 7   -> 5 6 7 7
++  // 0 9 10 11    9 10 11 11
++  utils::shiftColumnsByOnePlace(array_2d, -1);
++  EXPECT_EQ(array_2d.rows(), 3);
++  EXPECT_EQ(array_2d.cols(), 4);
++  EXPECT_EQ(array_2d(0, 0), 1);
++  EXPECT_EQ(array_2d(1, 0), 5);
++  EXPECT_EQ(array_2d(2, 0), 9);
++  EXPECT_EQ(array_2d(0, 1), 2);
++  EXPECT_EQ(array_2d(1, 1), 6);
++  EXPECT_EQ(array_2d(2, 1), 10);
++  EXPECT_EQ(array_2d(0, 2), 3);
++  EXPECT_EQ(array_2d(1, 2), 7);
++  EXPECT_EQ(array_2d(2, 2), 11);
++  EXPECT_EQ(array_2d(0, 3), 3);
++  EXPECT_EQ(array_2d(1, 3), 7);
++  EXPECT_EQ(array_2d(2, 3), 11);
++
++  // Try with invalid direction value.
++  EXPECT_THROW(utils::shiftColumnsByOnePlace(array_2d, -2), std::logic_error);
++}
++
++TEST(UtilsTests, NormalizeYawsBetweenPointsTest)
++{
++  Eigen::ArrayXf last_yaws(10);
++  last_yaws.setZero();
++
++  Eigen::ArrayXf yaw_between_points(10);
++  yaw_between_points.setZero(10);
++
++  // Try with both angles 0
++  Eigen::ArrayXf yaws_between_points_corrected = utils::normalize_yaws_between_points(last_yaws,
++    yaw_between_points);
++  EXPECT_TRUE(yaws_between_points_corrected.isApprox(yaw_between_points));
++
++  // Try with yaw between points as pi/4
++  yaw_between_points.setConstant(M_PIF_2 / 2);
++  yaws_between_points_corrected = utils::normalize_yaws_between_points(last_yaws,
++    yaw_between_points);
++  EXPECT_TRUE(yaws_between_points_corrected.isApprox(yaw_between_points));
++
++  // Try with yaw between points as pi/2
++  yaw_between_points.setConstant(M_PIF_2);
++  yaws_between_points_corrected = utils::normalize_yaws_between_points(last_yaws,
++    yaw_between_points);
++  EXPECT_TRUE(yaws_between_points_corrected.isApprox(yaw_between_points));
++
++  // Try with a few yaw betweem points  more than pi/2
++  yaw_between_points[1] = 1.2 * M_PIF_2;
++  yaws_between_points_corrected = utils::normalize_yaws_between_points(last_yaws,
++    yaw_between_points);
++  EXPECT_NEAR(yaws_between_points_corrected[1], -0.8 * M_PIF_2, 1e-3);
++  EXPECT_NEAR(yaws_between_points_corrected[0], yaw_between_points[0], 1e-3);
++  EXPECT_NEAR(yaws_between_points_corrected[9], yaw_between_points[9], 1e-3);
++
++  // Try with goal angle 0
++  float goal_angle = 0;
++  yaws_between_points_corrected = utils::normalize_yaws_between_points(goal_angle,
++    yaw_between_points);
++  EXPECT_NEAR(yaws_between_points_corrected[1], -0.8 * M_PIF_2, 1e-3);
++}
