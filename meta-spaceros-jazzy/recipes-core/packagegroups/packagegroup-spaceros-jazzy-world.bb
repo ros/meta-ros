@@ -10,6 +10,7 @@ PACKAGES = "${PN}"
 
 RDEPENDS:${PN} = "\
     packagegroup-spaceros-jazzy-core \
+    packagegroup-spaceros-jazzy-demos \
     packagegroup-spaceros-jazzy-moveit2 \
     packagegroup-spaceros-jazzy-nav2 \
 "
