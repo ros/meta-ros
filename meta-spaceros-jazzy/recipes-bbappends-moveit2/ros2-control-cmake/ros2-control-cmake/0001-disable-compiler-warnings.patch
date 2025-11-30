@@ -1,0 +1,50 @@
+Index: git/cmake/ros2_control.cmake
+===================================================================
+--- git.orig/cmake/ros2_control.cmake
++++ git/cmake/ros2_control.cmake
+@@ -34,20 +34,6 @@ endmacro()
+ # set compiler options depending on detected compiler
+ macro(set_compiler_options)
+   if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-    add_compile_options(
+-      -Wall -Wextra -Wpedantic
+-      -Wshadow -Wconversion -Wold-style-cast
+-      -Werror=conversion
+-      -Werror=format
+-      -Werror=missing-braces
+-      -Werror=overflow
+-      -Werror=return-type
+-      -Werror=shadow
+-      -Werror=sign-compare
+-      -Werror=unused-but-set-variable
+-      -Werror=unused-variable
+-    )
+-    message(STATUS "Compiler warnings enabled for ${CMAKE_CXX_COMPILER_ID}")
+ 
+     # https://docs.ros.org/en/rolling/How-To-Guides/Ament-CMake-Documentation.html#compiler-and-linker-options
+     if(NOT CMAKE_C_STANDARD)
+@@ -59,24 +45,6 @@ macro(set_compiler_options)
+ 
+     set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ 
+-    # Extract major version if g++ is used
+-    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+-      extract_gcc_version()
+-      if(DEFINED GCC_MAJOR_VERSION AND GCC_MAJOR_VERSION GREATER 10)
+-        # GCC 11 introduced -Werror=range-loop-construct
+-        add_compile_options(-Werror=range-loop-construct)
+-      endif()
+-    endif()
+-
+-    if(CMAKE_CXX_COMPILER_ID MATCHES "(Clang)")
+-      add_compile_options(
+-        -Wshadow-all
+-        -Werror=shadow-all
+-        -Wthread-safety
+-        -Wno-unused-const-variable  # for gmock
+-        -Wno-gnu-zero-variadic-macro-arguments  # deactivate for pal_statistics
+-      )
+-    endif()
+   endif()
+ endmacro()
+ 
