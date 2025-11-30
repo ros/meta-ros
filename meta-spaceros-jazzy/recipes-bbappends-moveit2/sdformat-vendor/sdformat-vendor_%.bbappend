@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Wind River Systems, Inc.
+
 ROS_BUILD_DEPENDS:remove = "sdformat14"
 ROS_BUILD_DEPENDS:append = " sdformat"
 
