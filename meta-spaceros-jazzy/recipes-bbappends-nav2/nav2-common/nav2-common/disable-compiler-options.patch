@@ -1,0 +1,22 @@
+Disable compiler options
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/cmake/nav2_package.cmake
+===================================================================
+--- git.orig/cmake/nav2_package.cmake
++++ git/cmake/nav2_package.cmake
+@@ -36,11 +36,6 @@ macro(nav2_package)
+     endif()
+   endif()
+ 
+-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -Wdeprecated -fPIC -Wshadow -Wnull-dereference)
+-    add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>")
+-  endif()
+-
+   option(COVERAGE_ENABLED "Enable code coverage" FALSE)
+   if(COVERAGE_ENABLED)
+     add_compile_options(--coverage)
