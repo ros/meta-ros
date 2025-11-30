@@ -49,7 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/image_common"
 SRC_URI = "git://github.com/ros2-gbp/image_common-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "33ac7a7ef989e9151eb89eb7cfc1f8d662aae402"
-S = "${WORKDIR}/git/image_common"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

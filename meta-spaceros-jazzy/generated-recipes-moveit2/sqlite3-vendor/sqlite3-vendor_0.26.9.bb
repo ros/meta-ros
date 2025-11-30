@@ -48,7 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/sqlite3_vendor"
 SRC_URI = "git://github.com/ros2-gbp/rosbag2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "91c21f8465b545d19132e16da0c24c64c7697654"
-S = "${WORKDIR}/git/sqlite3_vendor"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

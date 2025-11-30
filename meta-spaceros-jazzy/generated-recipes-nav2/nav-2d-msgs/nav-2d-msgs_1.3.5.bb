@@ -54,7 +54,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nav_2d_msgs"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "c9e857a0a7258516be6fddc66b57250475923136"
-S = "${WORKDIR}/git/nav_2d_msgs"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

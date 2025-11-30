@@ -58,7 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/camera_calibration_parsers"
 SRC_URI = "git://github.com/ros2-gbp/image_common-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "116dc270a80ab1228c8edfe1aee7919a1dd31a49"
-S = "${WORKDIR}/git/camera_calibration_parsers"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -69,7 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/point_cloud_transport"
 SRC_URI = "git://github.com/ros2-gbp/point_cloud_transport-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "4c1ccaf15f86364a6dd6f8c1f41d3d8efa9ff988"
-S = "${WORKDIR}/git/point_cloud_transport"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

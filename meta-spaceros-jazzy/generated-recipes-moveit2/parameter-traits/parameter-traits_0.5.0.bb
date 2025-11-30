@@ -63,7 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/parameter_traits"
 SRC_URI = "git://github.com/ros2-gbp/generate_parameter_library-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "b499d6df7e606e9e79090c6eece0e40a5ba6c7e4"
-S = "${WORKDIR}/git/parameter_traits"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

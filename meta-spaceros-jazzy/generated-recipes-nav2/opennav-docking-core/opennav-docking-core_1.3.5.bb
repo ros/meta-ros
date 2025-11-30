@@ -61,7 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/opennav_docking_core"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "1e3220c2144d21eb7ee367757e0a7182cdc0b6f6"
-S = "${WORKDIR}/git/opennav_docking_core"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

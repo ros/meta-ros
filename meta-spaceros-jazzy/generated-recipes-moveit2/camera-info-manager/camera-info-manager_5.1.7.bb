@@ -72,7 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/camera_info_manager"
 SRC_URI = "git://github.com/ros2-gbp/image_common-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "ea03dc79eccc8ed76d7d46f2edcb17897de92dcc"
-S = "${WORKDIR}/git/camera_info_manager"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

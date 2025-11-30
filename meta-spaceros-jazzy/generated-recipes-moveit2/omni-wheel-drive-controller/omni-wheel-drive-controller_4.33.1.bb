@@ -90,7 +90,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/omni_wheel_drive_controller"
 SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "d9fbcbce1ec7d40a757cfe566d95e6532169a2de"
-S = "${WORKDIR}/git/omni_wheel_drive_controller"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

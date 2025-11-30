@@ -91,7 +91,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nav2_waypoint_follower"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "4bcfdf85d10f47b2b4bcbe70396760cca2179cac"
-S = "${WORKDIR}/git/nav2_waypoint_follower"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

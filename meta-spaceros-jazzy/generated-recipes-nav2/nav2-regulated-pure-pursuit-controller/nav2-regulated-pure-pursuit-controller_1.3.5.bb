@@ -81,7 +81,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nav2_regulated_pure_pursuit_controller"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "17296a5ef16a1593900a5217228599128d815282"
-S = "${WORKDIR}/git/nav2_regulated_pure_pursuit_controller"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
