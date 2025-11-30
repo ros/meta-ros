@@ -1,0 +1,44 @@
+From 54ad810d1d66a5c0940261f98fcf348cb04151d2 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 15 Oct 2021 03:33:01 -0700
+Subject: [PATCH] FindPython.cmake: install_python(): Allow to set different
+ interpreter than PYTHON_EXEC
+
+* in cross-compilation of these demo scripts the python interpreter in
+  PYTHON_EXEC could be something like:
+  /jenkins/mjansa/build/ros/webos-rolling-dunfell/tmp-glibc/hosttools/python3
+  which we definitely don't want to end in shebang inside script installed
+  on target MACHINE
+
+* allow to set INSTALL_PYTHON_SHEBANG to change it to e.g. '/usr/bin/env python3'
+  which will be available on target
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeModules/FindPython.cmake | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeModules/FindPython.cmake b/CMakeModules/FindPython.cmake
+index 44ad5c3a..44ac253c 100644
+--- a/CMakeModules/FindPython.cmake
++++ b/CMakeModules/FindPython.cmake
+@@ -204,10 +204,16 @@ endmacro(find_boost_numpy)
+ macro(install_python)
+     if (PYTHON_FOUND)
+         cmake_parse_arguments(install_python "" "DESTINATION;COMPONENT;RENAME" "PROGRAMS" "${ARGN}")
++        if (INSTALL_PYTHON_SHEBANG)
++            set(install_python_shebang "#!${INSTALL_PYTHON_SHEBANG}")
++        else()
++            set(install_python_shebang "#!${PYTHON_EXEC}")
++        endif()
+         foreach(script ${install_python_PROGRAMS})
+             file(READ ${script} _contents)
+-            string(REPLACE "#!/usr/bin/env python" "#!${PYTHON_EXEC}" _fixed "${_contents}")
++            string(REPLACE "#!/usr/bin/env python" "${install_python_shebang}" _fixed "${_contents}")
+             get_filename_component(_realscript "${script}" NAME)
++            message(INFO "Changing the shebang in ${PROJECT_BINARY_DIR}/${install_python_DESTINATION}/${_realscript} from '#!/usr/bin/env python' to '${install_python_shebang}'")
+             file(WRITE "${PROJECT_BINARY_DIR}/${install_python_DESTINATION}/${_realscript}" "${_fixed}")
+             install(PROGRAMS "${PROJECT_BINARY_DIR}/${install_python_DESTINATION}/${_realscript}"
+                 DESTINATION "${install_python_DESTINATION}"
