@@ -62,7 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rcl_logging.git;${ROS_BRANCH};protocol=https"
 SRCREV = "727920c2592be6deb6983f0fe1b57cbc929cbb70"
-S = "${WORKDIR}/git/rcl_logging_spdlog"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rcl_logging_spdlog"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

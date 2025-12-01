@@ -61,7 +61,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/orocos_kdl_vendor.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f2457baafbdb6873b2c023e31781474417acb9de"
-S = "${WORKDIR}/git/python_orocos_kdl_vendor"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/python_orocos_kdl_vendor"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

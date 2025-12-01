@@ -47,7 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/octomap"
 SRC_URI = "git://github.com/ros2-gbp/octomap-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "895657943d1ba59b781d1c1da097dab12568b016"
-S = "${WORKDIR}/git/octomap"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/octomap"
 
 ROS_BUILD_TYPE = "cmake"
 

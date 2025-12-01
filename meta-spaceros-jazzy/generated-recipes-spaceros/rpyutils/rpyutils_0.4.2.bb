@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rpyutils.git;${ROS_BRANCH};protocol=https"
 SRCREV = "973dbcc0a0a18299d840d089e47372d569264c31"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

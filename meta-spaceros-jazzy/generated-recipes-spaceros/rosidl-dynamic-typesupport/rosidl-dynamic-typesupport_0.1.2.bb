@@ -51,7 +51,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rosidl_dynamic_typesupport.git;${ROS_BRANCH};protocol=https"
 SRCREV = "cb8c54d12c678daa70410bb0626ed8626f561e45"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -42,7 +42,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros/ros_environment.git;${ROS_BRANCH};protocol=https"
 SRCREV = "700bc3fe477cbe64cf50863968a4fbee2833ecff"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

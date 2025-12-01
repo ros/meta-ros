@@ -46,7 +46,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/mimick_vendor.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f04f4052f96dbe0f2d1397a0c844b4d65a15567f"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

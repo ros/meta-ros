@@ -72,7 +72,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rclcpp.git;${ROS_BRANCH};protocol=https"
 SRCREV = "525a41818866ca44aa7418393fe5f94732ab3831"
-S = "${WORKDIR}/git/rclcpp_action"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rclcpp_action"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

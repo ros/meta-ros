@@ -70,7 +70,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rosidl_typesupport.git;${ROS_BRANCH};protocol=https"
 SRCREV = "dc851e02da9301718c22bf22bda7398fb41d4754"
-S = "${WORKDIR}/git/rosidl_typesupport_cpp"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rosidl_typesupport_cpp"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

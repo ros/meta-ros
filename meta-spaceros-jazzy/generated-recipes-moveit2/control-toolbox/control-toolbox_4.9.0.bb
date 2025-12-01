@@ -89,7 +89,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/control_toolbox"
 SRC_URI = "git://github.com/ros2-gbp/control_toolbox-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "7ee1b76902434b1e85dbd2afa4ddea50f4b461ed"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

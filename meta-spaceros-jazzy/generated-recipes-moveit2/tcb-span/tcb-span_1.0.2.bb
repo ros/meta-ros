@@ -43,7 +43,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/tcb_span"
 SRC_URI = "git://github.com/ros2-gbp/cpp_polyfills-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8995fcd50c0d65df37a701dac05b1d29f7db167e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

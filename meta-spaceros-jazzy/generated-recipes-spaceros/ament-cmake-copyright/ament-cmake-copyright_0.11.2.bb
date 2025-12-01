@@ -49,7 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=spaceros"
 SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
 SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${WORKDIR}/git/ament_cmake_copyright"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_cmake_copyright"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

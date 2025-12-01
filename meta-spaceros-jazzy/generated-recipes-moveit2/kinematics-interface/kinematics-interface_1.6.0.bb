@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/kinematics_interface"
 SRC_URI = "git://github.com/ros2-gbp/kinematics_interface-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "c3e33ad6287a085cbf47d4c3a5b6a4d12ff3ca8e"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

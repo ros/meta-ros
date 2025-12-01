@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros-tooling/libstatistics_collector.git;${ROS_BRANCH};protocol=https"
 SRCREV = "150e1b0e1fbf920a97e4319f98eaf02be27fa892"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

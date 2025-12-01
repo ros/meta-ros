@@ -85,7 +85,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rosidl_python.git;${ROS_BRANCH};protocol=https"
 SRCREV = "fe4e01f2007d3451bf73c0cb334b96a7de759ef2"
-S = "${WORKDIR}/git/rosidl_generator_py"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rosidl_generator_py"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -42,7 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/moveit_resources_panda_description"
 SRC_URI = "git://github.com/ros2-gbp/moveit_resources-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f9a9be53ff7e3ef63bde91489c4f9067ea8e6abf"
-S = "${WORKDIR}/git/moveit_resources_panda_description"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/moveit_resources_panda_description"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

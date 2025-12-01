@@ -47,7 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/common_interfaces.git;${ROS_BRANCH};protocol=https"
 SRCREV = "137e97dc5ec724b78cdbaa3b89927c3c29f81f02"
-S = "${WORKDIR}/git/std_srvs"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/std_srvs"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -55,7 +55,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=releases/0.10.x"
 SRC_URI = "git://github.com/eclipse-cyclonedds/cyclonedds.git;${ROS_BRANCH};protocol=https"
 SRCREV = "2cdd114cbd18340c606573b4cc8dc20cc161ec5a"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

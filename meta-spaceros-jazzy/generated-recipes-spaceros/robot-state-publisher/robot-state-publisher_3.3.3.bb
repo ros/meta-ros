@@ -84,7 +84,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros/robot_state_publisher.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e0f77e62457ae01f8dbf3b5c4cc62d15fa36dfad"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

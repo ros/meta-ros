@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/filters"
 SRC_URI = "git://github.com/ros2-gbp/filters-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e2b22c58148b8140819ae6309c7cef505a22f009"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

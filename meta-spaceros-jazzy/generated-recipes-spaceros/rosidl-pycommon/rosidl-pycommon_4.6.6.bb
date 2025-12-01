@@ -47,7 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rosidl.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e195b27ae62ea4de7b97fa3a7f984812c73fef34"
-S = "${WORKDIR}/git/rosidl_pycommon"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rosidl_pycommon"
 
 ROS_BUILD_TYPE = "ament_python"
 

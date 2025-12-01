@@ -45,7 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ament/ament_cmake.git;${ROS_BRANCH};protocol=https"
 SRCREV = "a7661587ad05def9b22ad9108059255a72d3b1df"
-S = "${WORKDIR}/git/ament_cmake_export_interfaces"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_cmake_export_interfaces"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

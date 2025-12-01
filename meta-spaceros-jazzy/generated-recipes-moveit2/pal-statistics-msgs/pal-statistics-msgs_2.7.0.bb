@@ -53,7 +53,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/pal_statistics_msgs"
 SRC_URI = "git://github.com/ros2-gbp/pal_statistics-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "1017d7e4c0738cebdda066e1ff4d298a17b80c80"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

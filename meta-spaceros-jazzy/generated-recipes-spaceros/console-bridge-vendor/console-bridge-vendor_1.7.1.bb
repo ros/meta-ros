@@ -56,7 +56,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/console_bridge_vendor.git;${ROS_BRANCH};protocol=https"
 SRCREV = "abb96a9e044e3ba4ecc4679eeb5de9f656737a76"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

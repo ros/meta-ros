@@ -42,7 +42,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/moveit_resources_fanuc_description"
 SRC_URI = "git://github.com/ros2-gbp/moveit_resources-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "d96564c168b96b1aef682e56577be2ca0987bfb2"
-S = "${WORKDIR}/git/moveit_resources_fanuc_description"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/moveit_resources_fanuc_description"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

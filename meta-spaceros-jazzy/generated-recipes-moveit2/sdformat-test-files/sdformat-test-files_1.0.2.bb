@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=debian/jazzy/noble/sdformat_test_files"
 SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8c299f750f424fdc4c3f0f040c8f9cf222b0299d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

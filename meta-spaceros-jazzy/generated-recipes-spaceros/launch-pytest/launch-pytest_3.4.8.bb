@@ -51,7 +51,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/launch.git;${ROS_BRANCH};protocol=https"
 SRCREV = "91c9bd581fb1d2cf75cce8655fea76f715a43934"
-S = "${WORKDIR}/git/launch_pytest"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/launch_pytest"
 
 ROS_BUILD_TYPE = "ament_python"
 

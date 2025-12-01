@@ -61,7 +61,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rcutils.git;${ROS_BRANCH};protocol=https"
 SRCREV = "1dc204778811fd1b0e3932cb03fbe9e6a9f4f122"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

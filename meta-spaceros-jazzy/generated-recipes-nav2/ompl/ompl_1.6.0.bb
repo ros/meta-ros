@@ -54,7 +54,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/ompl"
 SRC_URI = "git://github.com/ros2-gbp/ompl-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

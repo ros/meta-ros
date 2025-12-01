@@ -57,7 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/ros2_tracing.git;${ROS_BRANCH};protocol=https"
 SRCREV = "7dc6fa50062125484a3a7d18b215b3bc59712092"
-S = "${WORKDIR}/git/lttngpy"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lttngpy"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

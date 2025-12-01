@@ -60,7 +60,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros/class_loader.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8bad929bd8b2777b8d2b6eff7227b2c5f325b11d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

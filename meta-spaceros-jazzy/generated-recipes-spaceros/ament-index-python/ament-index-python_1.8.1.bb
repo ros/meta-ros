@@ -45,7 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ament/ament_index.git;${ROS_BRANCH};protocol=https"
 SRCREV = "0ed743ad9e3b583d975ffcde0b57de8a0b1204ae"
-S = "${WORKDIR}/git/ament_index_python"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_index_python"
 
 ROS_BUILD_TYPE = "ament_python"
 

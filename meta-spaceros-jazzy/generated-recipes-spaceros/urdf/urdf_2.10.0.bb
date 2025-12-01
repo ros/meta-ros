@@ -68,7 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/urdf.git;${ROS_BRANCH};protocol=https"
 SRCREV = "4c8b7611d736f49c75517c9f7a621679689bac38"
-S = "${WORKDIR}/git/urdf"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/urdf"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

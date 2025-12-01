@@ -63,7 +63,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/python_qt_binding"
 SRC_URI = "git://github.com/ros2-gbp/python_qt_binding-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "809e3ff93fc15507cac7a4853eaca9f118f363d4"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

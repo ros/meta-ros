@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/eigen3_cmake_module.git;${ROS_BRANCH};protocol=https"
 SRCREV = "b5d2b9b155e43ad9cbe251ec3de7ec462b6e8ba2"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

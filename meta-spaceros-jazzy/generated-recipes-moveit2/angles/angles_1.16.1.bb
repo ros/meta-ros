@@ -59,7 +59,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/angles"
 SRC_URI = "git://github.com/ros2-gbp/angles-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8f7f7dbe0a35df450f4ac8d2f02de62f7cdc7464"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

@@ -52,7 +52,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ament/uncrustify_vendor.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e3492bf8846c36e8686a11f2af45f361be8a790b"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

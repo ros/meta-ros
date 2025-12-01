@@ -119,7 +119,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rviz_default_plugins"
 SRC_URI = "git://github.com/ros2-gbp/rviz-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f57212d2574cea688e2dcbd3352ab9be93203fa6"
-S = "${WORKDIR}/git/rviz_default_plugins"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rviz_default_plugins"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

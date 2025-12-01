@@ -47,7 +47,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/python_cmake_module.git;${ROS_BRANCH};protocol=https"
 SRCREV = "25a28a647061476c78dd6d46eeac87a9bc5db888"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

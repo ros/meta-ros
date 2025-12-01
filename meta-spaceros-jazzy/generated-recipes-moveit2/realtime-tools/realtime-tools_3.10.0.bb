@@ -68,7 +68,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/realtime_tools"
 SRC_URI = "git://github.com/ros2-gbp/realtime_tools-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "2e7229f8ac4ed5e2f59381042391837044860311"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

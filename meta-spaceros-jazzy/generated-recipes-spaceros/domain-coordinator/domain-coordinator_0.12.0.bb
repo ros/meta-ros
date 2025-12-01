@@ -45,7 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/ament_cmake_ros.git;${ROS_BRANCH};protocol=https"
 SRCREV = "15f835d0e31354c4ac958a32b5f1caa4246596a5"
-S = "${WORKDIR}/git/domain_coordinator"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/domain_coordinator"
 
 ROS_BUILD_TYPE = "ament_python"
 

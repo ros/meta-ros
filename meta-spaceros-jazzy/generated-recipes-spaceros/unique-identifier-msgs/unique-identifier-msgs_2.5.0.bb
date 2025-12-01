@@ -48,7 +48,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/unique_identifier_msgs.git;${ROS_BRANCH};protocol=https"
 SRCREV = "ced22ce6e0d197357b27157f35107f5b7173b272"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

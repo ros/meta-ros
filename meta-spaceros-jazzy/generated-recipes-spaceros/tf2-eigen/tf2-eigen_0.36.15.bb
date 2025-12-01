@@ -60,7 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/geometry2.git;${ROS_BRANCH};protocol=https"
 SRCREV = "ef97ae6e36a2ab3d0377d937a6b452b3a3bc789c"
-S = "${WORKDIR}/git/tf2_eigen"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/tf2_eigen"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

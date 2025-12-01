@@ -62,7 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rcl.git;${ROS_BRANCH};protocol=https"
 SRCREV = "d1832c576f16da1cc35d03a4f1fac4e2e0ca9182"
-S = "${WORKDIR}/git/rcl_lifecycle"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rcl_lifecycle"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

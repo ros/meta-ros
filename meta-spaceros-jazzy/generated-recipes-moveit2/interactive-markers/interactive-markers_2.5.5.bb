@@ -77,7 +77,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/interactive_markers"
 SRC_URI = "git://github.com/ros2-gbp/interactive_markers-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "7437e7bd24f4f1eb15f2d6401d5fa7a5e3307562"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

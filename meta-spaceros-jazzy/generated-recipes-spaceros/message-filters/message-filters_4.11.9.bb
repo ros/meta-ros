@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/message_filters.git;${ROS_BRANCH};protocol=https"
 SRCREV = "3f22bcc6489f4e16ef911194b7b4eb6eb8e81da8"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

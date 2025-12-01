@@ -44,7 +44,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/urdfdom_py"
 SRC_URI = "git://github.com/ros2-gbp/urdfdom_py-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "691b53d7cea6d00fed623d8273f8914d94de760c"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

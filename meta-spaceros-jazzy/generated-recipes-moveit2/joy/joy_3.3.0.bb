@@ -64,7 +64,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/joy"
 SRC_URI = "git://github.com/ros2-gbp/joystick_drivers-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "67a9a49bc8f5af4f3bb4631169fb4364ec3bbb42"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

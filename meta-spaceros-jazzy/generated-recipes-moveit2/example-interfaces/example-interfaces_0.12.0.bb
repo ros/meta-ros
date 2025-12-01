@@ -45,7 +45,6 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/example_interfaces"
 SRC_URI = "git://github.com/ros2-gbp/example_interfaces-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "7b504cc01ddad6288771bb716451c6f4f7f6c51d"
-S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

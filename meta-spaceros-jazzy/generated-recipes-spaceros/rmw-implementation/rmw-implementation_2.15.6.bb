@@ -68,7 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rmw_implementation.git;${ROS_BRANCH};protocol=https"
 SRCREV = "23fe893a860545da06ec98d0a22fdc8554d5c0ac"
-S = "${WORKDIR}/git/rmw_implementation"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rmw_implementation"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
