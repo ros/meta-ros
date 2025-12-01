@@ -1,0 +1,38 @@
+Upstream-Status: Backport [https://github.com/ros2/ros2_tracing/commit/0775968b84729fabfeef9a88ed33373d587ba0df]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 0775968b84729fabfeef9a88ed33373d587ba0df Mon Sep 17 00:00:00 2001
+From: "mergify[bot]" <37929162+mergify[bot]@users.noreply.github.com>
+Date: Tue, 30 Sep 2025 13:07:59 -0700
+Subject: [PATCH] [Fix] compile fail (#194) (#215)
+
+(cherry picked from commit e175cde407a2da7fab2a75890cdb9d0e626cc73b)
+
+Signed-off-by: mosfet80 <10235105+mosfet80@users.noreply.github.com>
+Co-authored-by: mosfet80 <10235105+mosfet80@users.noreply.github.com>
+---
+ lttngpy/src/lttngpy/channel.cpp | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/lttngpy/src/lttngpy/channel.cpp b/lttngpy/src/lttngpy/channel.cpp
+index 1402f318..e07792fc 100644
+--- a/src/lttngpy/channel.cpp
++++ b/src/lttngpy/channel.cpp
+@@ -12,12 +12,15 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Include lttng-error.h before channel.h, otherwise lttng_error_code isn't known
++// TODO(mosfet80): order it alphabetically once liblttng-ctl 2.14+ is fixed:
++// https://review.lttng.org/c/lttng-tools/+/15165
++#include <lttng/lttng-error.h>
+ #include <lttng/channel.h>
+ #include <lttng/constant.h>
+ #include <lttng/domain.h>
+ #include <lttng/event.h>
+ #include <lttng/handle.h>
+-#include <lttng/lttng-error.h>
+ 
+ #include <optional>
+ #include <string>
