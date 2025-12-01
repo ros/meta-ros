@@ -8,7 +8,6 @@ SRC_URI = "git://github.com/ros2/Mimick.git;protocol=https;branch=ros2 \
 PV = "0.3.0"
 SRCREV = "1e138b0e13da99278453dc96af954890d9f48348"
 
-S = "${WORKDIR}/git"
 
 inherit cmake
 

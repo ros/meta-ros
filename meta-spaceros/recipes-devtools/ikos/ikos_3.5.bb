@@ -9,7 +9,6 @@ SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https;branch=master \
 PV = "3.5"
 SRCREV = "1d98c65d282554ffb6997dba67b0f8e41e22e169"
 
-S = "${WORKDIR}/git"
 
 # NOTE: unable to map the following CMake package dependencies: GMP FrontendLLVM Doxygen LLVM Clang APRON Core SQLite3 TBB AR
 DEPENDS = "\

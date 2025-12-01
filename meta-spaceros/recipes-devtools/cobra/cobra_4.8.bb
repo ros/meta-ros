@@ -12,7 +12,6 @@ SRCREV = "5af7230ecf29a6c9b46ff1bdd60c5d9e51d032db"
 
 DEPENDS = "bison-native"
 
-S = "${WORKDIR}/git"
 B = "${S}"
 
 # EXTRA_OEMAKE = "CC='${CC}' CFLAGS='${CFLAGS}' LDFLAGS='${LDFLAGS}'"
