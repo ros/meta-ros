@@ -1,3 +1,9 @@
+Disable compiler warnings
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 Index: git/cmake/ros2_control.cmake
 ===================================================================
 --- git.orig/cmake/ros2_control.cmake
