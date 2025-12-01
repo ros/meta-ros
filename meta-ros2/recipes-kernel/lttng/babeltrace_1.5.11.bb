@@ -13,8 +13,6 @@ SRC_URI = "git://git.efficios.com/babeltrace.git;branch=stable-1.5;protocol=http
 SRCREV = "91c00f70884887ff5c4849a8e3d47e311a22ba9d"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>1(\.\d+)+)$"
 
-S = "${WORKDIR}/git"
-
 inherit autotools pkgconfig ptest
 
 PACKAGECONFIG ??= "python3"
