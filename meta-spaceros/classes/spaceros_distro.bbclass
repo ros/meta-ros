@@ -2,7 +2,12 @@
 # Copyright (c) 2025 Wind River Systems, Inc.
 
 # inherit ros_distro
-# inherit ros_opt_prefix
+
+# Set to match SPACEROS_DIR in space-ros/space-ros/Earthfile
+ros_base_prefix = "/opt/ros/spaceros"
+
+inherit ros_opt_prefix
+
 inherit ros2_distro
 
 # Place metadata unique to Space ROS distros here.
