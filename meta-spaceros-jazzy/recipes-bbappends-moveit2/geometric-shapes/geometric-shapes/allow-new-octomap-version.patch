@@ -1,3 +1,9 @@
+Relax required octomap version
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index c0b0ed0..c874ef7 100644
 --- a/CMakeLists.txt
