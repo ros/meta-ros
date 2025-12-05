@@ -174,8 +174,6 @@ libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcurl-dev:
 - ${ROS_UNRESOLVED_DEP-libcurl-dev}
-libcurl_vendor:
-- ${ROS_UNRESOLVED_DEP-libcurl-vendor}
 libdbus-dev:
 - dbus@openembedded-core
 libdraco-dev:
@@ -264,6 +262,8 @@ libopenni2-dev:
 - openni2@meta-ros2
 libopenscenegraph:
 - openscenegraph@meta-ros2
+liborocos-kdl:
+- orocos-kdl@meta-ros1-noetic
 liborocos-kdl-dev:
 - orocos-kdl@meta-ros1-noetic
 libpaho-mqtt-dev:
@@ -394,6 +394,8 @@ libyaml:
 - libyaml@openembedded-core
 libyaml-dev:
 - libyaml@openembedded-core
+libyuv-dev:
+- ${ROS_UNRESOLVED_DEP-libyuv-dev}
 libzip-dev:
 - libzip@meta-oe
 libzmq3-dev:
@@ -462,6 +464,8 @@ python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
 - babeltrace@openembedded-core
+python3-boto3:
+- python3-boto3@meta-ros-common
 python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
@@ -470,6 +474,8 @@ python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros-common
+python3-cbor2:
+- ${ROS_UNRESOLVED_DEP-python3-cbor2}
 python3-click:
 - python3-click@openembedded-core
 python3-collada:
@@ -510,8 +516,6 @@ python3-flake8-comprehensions:
 - python3-flake8-comprehensions@meta-ros-common
 python3-flake8-deprecated:
 - ${ROS_UNRESOLVED_DEP-python3-flake8-deprecated}
-python3-flake8-docstrings:
-- python3-flake8-docstrings@meta-ros-common
 python3-flake8-import-order:
 - python3-flake8-import-order@meta-ros-common
 python3-flake8-quotes:
@@ -536,6 +540,8 @@ python3-jinja2:
 - python3-jinja2@openembedded-core
 python3-jsonschema:
 - python3-jsonschema@openembedded-core
+python3-junitparser:
+- ${ROS_UNRESOLVED_DEP-python3-junitparser}
 python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lxml:
@@ -558,6 +564,8 @@ python3-numpy:
 - python3-numpy@openembedded-core
 python3-opencv:
 - opencv@meta-oe
+python3-osrf-pycommon:
+- ${ROS_UNRESOLVED_DEP-python3-osrf-pycommon}
 python3-packaging:
 - python3-packaging@openembedded-core
 python3-paho-mqtt:
@@ -590,6 +598,8 @@ python3-pykdl:
 - python3-pykdl@meta-ros1-noetic
 python3-pyproj:
 - python3-pyproj@meta-python
+python3-pyqt5:
+- python3-pyqt5@meta-qt5
 python3-pyqt5.qtwebengine:
 - ${PYTHON_PN}-pyqt5@meta-qt5
 python3-pytest:
@@ -630,6 +640,8 @@ python3-smbus:
 - python3-smbus@meta-python
 python3-sphinx:
 - python3-sphinx@openembedded-core
+python3-termcolor:
+- python3-termcolor@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
@@ -642,8 +654,12 @@ python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:
 - python3-typeguard@meta-python
+python3-types-pyyaml:
+- ${ROS_UNRESOLVED_DEP-python3-types-pyyaml}
 python3-typing-extensions:
 - python3-typing-extensions@openembedded-core
+python3-ujson:
+- ${ROS_UNRESOLVED_DEP-python3-ujson}
 python3-unidiff:
 - python3-unidiff@meta-python
 python3-uvicorn:
@@ -658,6 +674,8 @@ python3-waitress:
 - python3-waitress@meta-python
 python3-websocket:
 - python3-websocket-client@meta-python
+python3-websockets:
+- python3-websockets@openembedded-core
 python3-wheel:
 - python3-wheel@openembedded-core
 python3-whichcraft:
