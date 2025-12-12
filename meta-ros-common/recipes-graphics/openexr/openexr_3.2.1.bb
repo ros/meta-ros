@@ -11,7 +11,6 @@ DEPENDS += " \
     doxygen \
     libdeflate \
     imath \
-    clang-native \
 "
 
 inherit cmake python3-dir python3native pkgconfig
