@@ -18,7 +18,6 @@ DEPENDS = " \
 "
 
 PACKAGECONFIG ??= " \
-    openmp \
     tests \
 "
 
