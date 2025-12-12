@@ -12,14 +12,16 @@ S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 
-DEPENDS = "hdf5 lz4 openmp"
+DEPENDS = "hdf5 lz4"
+
+PACKAGECONFIG ??= ""
+PACKAGECONFIG[openmp] = "-DUSE_OPENMP=ON,-DUSE_OPENMP=OFF,openmp"
 
 # Prevent it finding python
 EXTRA_OECMAKE = "\
     -DBUILD_MATLAB_BINDINGS=OFF \
     -DBUILD_PYTHON_BINDINGS=OFF \
     -DUSE_MPI=ON \
-    -DUSE_OPENMP=ON \
     -DBUILD_TESTS=ON \
     -DBUILD_CUDA_LIB=OFF \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
