@@ -1,0 +1,32 @@
+From 96bb47af36a09120894625a825ad0e4cc4993078 Mon Sep 17 00:00:00 2001
+From: Christian Kohn <chris.kohn@amd.com>
+Date: Fri, 12 Dec 2025 00:16:57 -0700
+Subject: [PATCH] Fix compilation issue due to missing define
+
+| /tmp/work/cortexa72-cortexa53-amd-linux/gz-gui8/8.4.0/git/src/plugins/minimal_scene/EngineToQtInterface.cc: In member function 'GLuint gz::gui::plugins::EngineToQtInterface::TextureId(gz::rendering::v8::CameraPtr&)':
+| /tmp/work/cortexa72-cortexa53-amd-linux/gz-gui8/8.4.0/git/src/plugins/minimal_scene/EngineToQtInterface.cc:179:7: error: 'GL_UNSIGNED_INT_8_8_8_8_REV' was not declared in this scope; did you mean 'GL_UNSIGNED_INT_5_9_9_9_REV'?
+|   179 |       GL_UNSIGNED_INT_8_8_8_8_REV, this->dataPtr->fallbackImage->Data());
+|       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+|       |       GL_UNSIGNED_INT_5_9_9_9_REV
+
+Signed-off-by: Christian Kohn <chris.kohn@amd.com>
+---
+ src/plugins/minimal_scene/EngineToQtInterface.cc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/plugins/minimal_scene/EngineToQtInterface.cc b/src/plugins/minimal_scene/EngineToQtInterface.cc
+index 380f881f..3fac1499 100644
+--- a/src/plugins/minimal_scene/EngineToQtInterface.cc
++++ b/src/plugins/minimal_scene/EngineToQtInterface.cc
+@@ -23,6 +23,8 @@
+ 
+ #include <QOpenGLExtraFunctions>
+ 
++#define GL_UNSIGNED_INT_8_8_8_8_REV 0x8367
++
+ // clang-format off
+ namespace gz
+ {
+-- 
+2.34.1
+
