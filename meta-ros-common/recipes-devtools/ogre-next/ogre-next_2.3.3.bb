@@ -36,7 +36,7 @@ DEPENDS = " \
     libxrandr \
     rapidjson \
     renderdoc \
-    mesa \
+    virtual/mesa \
     poco \
     shaderc \
     tbb \
