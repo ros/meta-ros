@@ -10,3 +10,9 @@ SRC_URI += "file://0001-CMakeLists-remove-all-ament_vendor-calls.patch"
 # libxaw is empty, the library is installed in libxaw6 and libxaw7 packages
 # and ogre should get runtime dependency automatically through shlibs
 RDEPENDS:${PN}:remove = "libxaw"
+
+# Replace mesa with virtual/mesa
+ROS_BUILD_DEPENDS:remove = "mesa"
+ROS_BUILD_DEPENDS:append = "virtual/mesa"
+ROS_EXPORT_DEPENDS:remove = "mesa"
+ROS_EXPORT_DEPENDS:append = "virtual/mesa"
