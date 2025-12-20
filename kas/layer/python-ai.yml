@@ -6,6 +6,10 @@ repos:
     url: "https://github.com/zboszor/meta-python-ai"
     path: "layers/meta-python-ai"
 
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/meta-virtualization"
+    path: "layers/meta-virtualizaton"
+
 local_conf_header:
   python-ai: |
     FORTRAN:forcevariable = ",fortran"
