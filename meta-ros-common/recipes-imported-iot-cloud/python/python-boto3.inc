@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2ee41112a44fe7014dce33e26468ba93"
 SRC_URI[sha256sum] = "b9c930982891229fe32c670c940835e4d5afcb52f60a5e512de8e5cba409900b"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-botocore \
-    ${PYTHON_PN}-jmespath \
-    ${PYTHON_PN}-s3transfer \
+    python3-botocore \
+    python3-jmespath \
+    python3-s3transfer \
 "
 
 inherit pypi

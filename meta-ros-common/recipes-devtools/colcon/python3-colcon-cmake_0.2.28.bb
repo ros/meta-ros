@@ -9,9 +9,9 @@ SRC_URI[sha256sum] = "5e910890148d9d3c7f82f5c0e97904478e0e0bf156b786729099ead73d
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-colcon-core \
-    ${PYTHON_PN}-colcon-library-path \
-    ${PYTHON_PN}-colcon-test-result \
+    python3-colcon-core \
+    python3-colcon-library-path \
+    python3-colcon-test-result \
 "
 
 BBCLASSEXTEND += "nativesdk"

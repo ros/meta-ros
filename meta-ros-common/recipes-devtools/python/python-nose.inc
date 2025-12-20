@@ -13,7 +13,7 @@ SRC_URI += "file://0001-fix-manpage-install-dir.patch"
 inherit pypi
 
 RDEPENDS:${PN} = "\
-  ${PYTHON_PN}-unittest \
+  python3-unittest \
   "
 
 BBCLASSEXTEND = "native nativesdk"
