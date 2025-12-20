@@ -11,4 +11,4 @@ inherit setuptools3 pypi
 BBCLASSEXTEND = "native nativesdk"
 
 DEPENDS = "python3-pip-native python3-wheel-native"
-RDEPENDS:${PN} = "${PYTHON_PN}-future ${PYTHON_PN}-lxml"
+RDEPENDS:${PN} = "python3-future python3-lxml"

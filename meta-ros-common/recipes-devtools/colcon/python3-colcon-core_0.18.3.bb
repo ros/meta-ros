@@ -13,15 +13,15 @@ inherit pypi setuptools3
 # See: https://github.com/colcon/colcon-core/blob/master/setup.cfg
 RDEPENDS:${PN} += "\
     ${PYTHON_PN}-coloredlogs \
-    ${PYTHON_PN}-distlib \
-    ${PYTHON_PN}-empy \
-    ${PYTHON_PN}-packaging \
+    python3-distlib \
+    python3-empy \
+    python3-packaging \
 "
 
 # The pytest dependencies are optional:
-# ${PYTHON_PN}-pytest
-# ${PYTHON_PN}-pytest-cov
-# ${PYTHON_PN}-pytest-repeat
-# ${PYTHON_PN}-pytest-rerunfailures
+# python3-pytest
+# python3-pytest-cov
+# python3-pytest-repeat
+# python3-pytest-rerunfailures
 
 BBCLASSEXTEND = "native nativesdk"

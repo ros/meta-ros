@@ -4,13 +4,13 @@ SECTION = "devel/python"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-DEPENDS = "${PYTHON_PN}-pip ${PYTHON_PN}-pbr"
+DEPENDS = "python3-pip python3-pbr"
 
 SRC_URI[sha256sum] = "64cf1ee26d1cde3c73c6d7d107f835fed7c6a2904aef9eac223d57ad800c43fa"
 
 inherit pypi
 
 # RDEPENDS:default:
-RDEPENDS:${PN} += "${PYTHON_PN}-pbr"
+RDEPENDS:${PN} += "python3-pbr"
 
 BBCLASSEXTEND += "native"

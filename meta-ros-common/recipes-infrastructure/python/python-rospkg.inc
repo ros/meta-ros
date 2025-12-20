@@ -9,6 +9,6 @@ ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/ros-infrastructure/rospkg;${ROS_BRANCH};protocol=https"
 
 
-RDEPENDS:${PN} += "${PYTHON_PN}-xml ${PYTHON_PN}-rosdep ${PYTHON_PN}-distro"
+RDEPENDS:${PN} += "python3-xml python3-rosdep python3-distro"
 
 BBCLASSEXTEND = "native"
