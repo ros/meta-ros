@@ -1,0 +1,29 @@
+
+Fix pkgconfig installation directory
+
+Packages which use gz-cmake3 will fail to install when
+building cross-platform and CMAKE_INSTALL_PREFIX is set.
+
+This happens because pkgconfig_install_dir uses
+CMAKE_INSTALL_FULL_LIBDIR/pkgconfig which is an absolute path.
+
+We should use CMAKE_INSTALL_LIBDIR instead so that it is a
+relative path and CMAKE_INSTALL_PREFIX can be used.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/cmake/GzPackaging.cmake b/cmake/GzPackaging.cmake
+index f3a8ae0..4a2b633 100644
+--- a/cmake/GzPackaging.cmake
++++ b/cmake/GzPackaging.cmake
+@@ -227,7 +227,7 @@ function(_gz_create_pkgconfig)
+
+   install(
+     FILES ${pkgconfig_output}
+-    DESTINATION ${pkgconfig_install_dir}
++    DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
+     COMPONENT pkgconfig)
+
+ endfunction()
