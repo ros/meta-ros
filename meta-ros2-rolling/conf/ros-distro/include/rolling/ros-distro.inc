@@ -90,8 +90,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-generator-type-description-native \
     rosidl-parser-native \
     rosidl-runtime-c-native \
-    rosidl-runtime-c-native \
-    rosidl-runtime-cpp-native \
     rosidl-runtime-cpp-native \
     rosidl-typesupport-c-native \
     rosidl-typesupport-cpp-native \
