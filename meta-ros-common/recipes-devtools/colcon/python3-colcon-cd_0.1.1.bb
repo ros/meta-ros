@@ -9,8 +9,8 @@ SRC_URI[sha256sum] = "379ef4d9f4bb3557d48ea25230ec5d749e83bb2814319e5a1d5ba5810d
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-colcon-core \
-    ${PYTHON_PN}-colcon-package-information \
+    python3-colcon-core \
+    python3-colcon-package-information \
 "
 
 FILES:${PN} += "\

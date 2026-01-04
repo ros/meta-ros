@@ -1,0 +1,83 @@
+From d8b20c9c838321327fb43a07481bf3a78e4257ed Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Sun, 4 Jan 2026 18:20:43 +0100
+Subject: [PATCH] WIP: fetch the schema with wget and not with xmllint
+
+xmllint does not support the fetching of the XSD schema over http.
+
+TODO: for now this only fixes the xmllint over ament-xmllint for the python tests of ROS
+
+Upstream-Status: Pending [WIP]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ ament_xmllint/main.py | 29 +++++++++++++++++++++++------
+ 1 file changed, 23 insertions(+), 6 deletions(-)
+
+diff --git a/ament_xmllint/main.py b/ament_xmllint/main.py
+index e1a27a7a0..bf1b3532f 100755
+--- a/ament_xmllint/main.py
++++ b/ament_xmllint/main.py
+@@ -72,6 +72,10 @@ def main(argv=sys.argv[1:]):
+     if not xmllint_bin:
+         return "Could not find 'xmllint' executable"
+ 
++    wget_bin = shutil.which('wget')
++    if not wget_bin:
++        return "Could not find 'wget' executable"
++
+     report = []
+ 
+     # invoke xmllint on all files
+@@ -85,7 +89,8 @@ def main(argv=sys.argv[1:]):
+         except SAXParseException:
+             pass
+ 
+-        cmd = [xmllint_bin, '--noout', filename]
++        cmd_wget = [wget_bin, '-q']
++        cmd_xmllint = [xmllint_bin, '--noout', filename]
+         # choose validation options based on handler information
+         for attributes in handler.xml_model_attributes:
+             schematypens = attributes.get('schematypens')
+@@ -94,21 +99,33 @@ def main(argv=sys.argv[1:]):
+                 continue
+             # check for XML schema
+             if schematypens == 'http://www.w3.org/2001/XMLSchema':
+-                cmd += ['--schema', href]
++                tmp_f = os.path.join("/tmp/", href.split('/')[-1])
++                cmd_wget += ['-O', tmp_f, href]
++                cmd_xmllint += ['--schema', tmp_f]
+             # check for RelaxNG
+             elif schematypens == 'http://relaxng.org/ns/structure/1.0':
+-                cmd += ['--relaxng', href]
++                cmd_xmllint += ['--relaxng', href]
+             # check for Schematron
+             elif schematypens == 'http://purl.oclc.org/dsdl/schematron':
+-                cmd += ['--schematron', href]
++                cmd_xmllint += ['--schematron', href]
+         if 'xsi:noNamespaceSchemaLocation' in handler.root_attributes:
+-            cmd += [
++            cmd_xmllint += [
+                 '--schema',
+                 handler.root_attributes['xsi:noNamespaceSchemaLocation']]
+ 
++        # fetch
++        try:
++            subprocess.check_output(
++                cmd_wget, cwd=os.path.dirname(filename), stderr=subprocess.STDOUT)
++        except subprocess.CalledProcessError as e:
++            errors = e.output.decode()
++        else:
++            errors = None
++
++        # execute
+         try:
+             subprocess.check_output(
+-                cmd, cwd=os.path.dirname(filename), stderr=subprocess.STDOUT)
++                cmd_xmllint, cwd=os.path.dirname(filename), stderr=subprocess.STDOUT)
+         except subprocess.CalledProcessError as e:
+             errors = e.output.decode()
+         else:
+-- 
+2.43.0
+

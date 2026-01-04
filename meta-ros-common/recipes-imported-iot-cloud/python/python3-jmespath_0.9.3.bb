@@ -2,7 +2,7 @@ inherit pypi setuptools3 update-alternatives
 require python-jmespath.inc
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-stringold \
+    python3-stringold \
 "
 
 ALTERNATIVE:${PN} = "jmespath"
