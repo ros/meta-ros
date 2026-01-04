@@ -91,6 +91,7 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     rosidl-parser-native \
     rosidl-runtime-c-native \
     rosidl-runtime-cpp-native \
+    rosidl-runtime-py-native \
     rosidl-typesupport-c-native \
     rosidl-typesupport-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
