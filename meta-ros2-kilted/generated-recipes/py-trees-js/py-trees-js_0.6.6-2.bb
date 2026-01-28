@@ -17,7 +17,7 @@ ROS_CN = "py_trees_js"
 ROS_BPN = "py_trees_js"
 
 ROS_BUILD_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
+    ${ROS_UNRESOLVED_DEP-pyqt5-dev-tools} \
     python3-setuptools \
     qttools \
 "
@@ -29,7 +29,6 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${PYTHON_PN}-pyqt5 \
     python3-pyqt5 \
 "
 
