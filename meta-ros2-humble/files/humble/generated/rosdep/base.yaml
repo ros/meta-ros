@@ -1319,6 +1319,16 @@ fxload:
   fedora: [fxload]
   nixos: [fxload]
   ubuntu: [fxload]
+fzf:
+  alpine: [fzf]
+  arch: [fzf]
+  debian: [fzf]
+  fedora: [fzf]
+  gentoo: [app-shells/fzf]
+  nixos: [fzf]
+  opensuse: [fzf]
+  rhel: [fzf]
+  ubuntu: [fzf]
 g++-10:
   debian:
     bullseye: [g++-10]
@@ -2596,10 +2606,14 @@ konsole:
   nixos: [plasma5Packages.konsole]
   ubuntu: [konsole]
 language-pack-de:
-  fedora: [filesystem]
+  debian: null
+  fedora: [glibc-langpack-de]
+  rhel: [glibc-langpack-de]
   ubuntu: [language-pack-de]
 language-pack-en:
-  fedora: [filesystem]
+  debian: []
+  fedora: [glibc-langpack-en]
+  rhel: [glibc-langpack-en]
   ubuntu: [language-pack-en]
 lcov:
   arch: [lcov]
@@ -3391,6 +3405,20 @@ libcereal-dev:
   gentoo: [dev-libs/cereal]
   openembedded: [libcereal@meta-oe]
   ubuntu: [libcereal-dev]
+libceres:
+  debian:
+    bookworm: [libceres3]
+    bullseye: [libceres1]
+    trixie: [libceres4t64]
+  fedora: [ceres-solver]
+  opensuse:
+    leap: [libceres3]
+    tumbleweed: [libceres4]
+  rhel: [ceres-solver]
+  ubuntu:
+    focal: null
+    jammy: [libceres2]
+    noble: [libceres4t64]
 libceres-dev:
   arch: [ceres-solver]
   debian: [libceres-dev]
@@ -3533,6 +3561,7 @@ libcxxopts-dev:
     '*': [cxxopts]
     '15.2': null
   osx: [cxxopts]
+  rhel: [cxxopts-devel]
   ubuntu:
     '*': [libcxxopts-dev]
     focal: null
@@ -4302,10 +4331,7 @@ libgrpc:
   ubuntu: [libgrpc++-dev]
 libgsl:
   arch: [gsl]
-  debian:
-    buster: [libgsl-dev]
-    stretch: [libgsl-dev]
-    wheezy: [libgsl0-dev]
+  debian: [libgsl-dev]
   fedora: [gsl-devel]
   gentoo: [sci-libs/gsl]
   macports: [gsl]
@@ -4617,6 +4643,17 @@ libjpeg:
   rhel: [libjpeg-turbo-devel]
   slackware: [libjpeg-turbo]
   ubuntu: [libjpeg-dev]
+libjson-c-dev:
+  alpine: [json-c-dev]
+  arch: [json-c]
+  debian: [libjson-c-dev]
+  fedora: [json-c-devel]
+  gentoo: ['dev-libs/json-c:0']
+  nixos: [json-c]
+  openembedded: [jsoncpp@meta-oe]
+  opensuse: [libjson-c-devel]
+  rhel: [json-c-devel]
+  ubuntu: [libjson-c-dev]
 libjson-glib:
   arch: [json-glib]
   debian: [libjson-glib-dev]
@@ -4836,6 +4873,17 @@ libmlpack-dev:
   debian: [libmlpack-dev]
   fedora: [mlpack-devel]
   ubuntu: [libmlpack-dev]
+libmm-glib-dev:
+  debian: [libmm-glib-dev]
+  fedora: [ModemManager-glib-devel]
+  rhel: [ModemManager-glib-devel]
+  ubuntu: [libmm-glib-dev]
+libmm-glib0:
+  debian: [libmm-glib0]
+  fedora: [ModemManager-glib]
+  opensuse: [libmm-glib0]
+  rhel: [ModemManager-glib]
+  ubuntu: [libmm-glib0]
 libmnl-dev:
   alpine: [libmnl-dev]
   arch: [libmnl]
@@ -4970,6 +5018,16 @@ libnanopb-dev:
   ubuntu:
     '*': [libnanopb-dev]
     bionic: null
+libnanovdb-dev:
+  debian: [libnanovdb-dev]
+  fedora:
+    '*': [openvdb-nanovdb-devel]
+    '41': null
+    '42': null
+  ubuntu:
+    '*': [libnanovdb-dev]
+    'focal': null
+    'jammy': null
 libncurses:
   arch: [ncurses]
   debian: [libncurses6]
@@ -6115,6 +6173,11 @@ libqt5-core:
     '*': [libqt5core5t64]
     focal: [libqt5core5a]
     jammy: [libqt5core5a]
+libqt5-datavisualization-dev:
+  debian: [libqt5datavisualization5-dev]
+  opensuse: [libQt5DataVisualization5-devel]
+  rhel: [qt5-qtdatavis3d-devel]
+  ubuntu: [libqt5datavisualization5-dev]
 libqt5-gstreamer-dev:
   debian: [libqt5gstreamer-dev]
   ubuntu: [libqt5gstreamer-dev]
@@ -6396,6 +6459,7 @@ libqt6gui6t64:
   arch: [qt6-base]
   debian: [libqt6gui6]
   fedora: [qt6-qtbase-gui]
+  nixos: [qt6.qtbase]
   rhel:
     '*': [qt6-qtbase-gui]
     '8': null
@@ -6403,6 +6467,19 @@ libqt6gui6t64:
     '*': [libqt6gui6t64]
     'focal': null
     'jammy': [libqt6gui6]
+libqt6opengl6t64:
+  alpine: [qt6-qtbase]
+  arch: [qt6-base]
+  debian: [libqt6opengl6]
+  fedora: [qt6-qtbase]
+  nixos: [qt6.qtbase]
+  rhel:
+    '*': [qt6-qtbase]
+    '8': null
+  ubuntu:
+    '*': [libqt6opengl6t64]
+    'focal': null
+    'jammy': [libqt6opengl6]
 libqt6statemachine6:
   arch: [qt6-scxml]
   debian: [libqt6statemachine6]
@@ -6418,6 +6495,7 @@ libqt6svg6:
   debian: [libqt6svg6]
   fedora: [qt6-qtsvg]
   gentoo: ['dev-qt/qtsvg:6']
+  nixos: [qt6.qtsvg]
   openembedded: [qtsvg@meta-qt6]
   rhel:
     '*': [qt6-qtsvg-devel]
@@ -6428,6 +6506,8 @@ libqt6svg6:
 libqt6widgets6t64:
   arch: [qt6-base]
   debian: [libqt6widgets6]
+  fedora: [qt6-qtbase-gui]
+  nixos: [qt6.qtbase]
   rhel:
     '*': [qt6-qtbase]
     '8': null
@@ -7279,6 +7359,7 @@ libxcursor-dev:
   fedora: [libXcursor-devel]
   nixos: [xorg.libXcursor]
   openembedded: [libxcursor@openembedded-core]
+  rhel: [libXcursor-devel]
   ubuntu: [libxcursor-dev]
 libxenomai-dev:
   debian:
@@ -7320,6 +7401,7 @@ libxinerama-dev:
   gentoo: [x11-libs/libXinerama]
   nixos: [xorg.libXinerama]
   openembedded: [libxinerama@openembedded-core]
+  rhel: [libXinerama-devel]
   ubuntu: [libxinerama-dev]
 libxkbcommon-dev:
   arch: [libxkbcommon]
@@ -7674,16 +7756,16 @@ lua5.2-dev:
 lz4:
   alpine: [lz4-dev]
   arch: [lz4]
-  debian: [liblz4-dev]
-  fedora: [lz4-devel]
+  debian: [liblz4-dev, lz4]
+  fedora: [lz4-devel, lz4]
   freebsd: [liblz4]
   gentoo: [app-arch/lz4]
   nixos: [lz4]
   openembedded: [lz4@openembedded-core]
-  opensuse: [liblz4-devel]
-  rhel: [lz4-devel]
+  opensuse: [liblz4-devel, lz4]
+  rhel: [lz4-devel, lz4]
   slackware: [lz4]
-  ubuntu: [liblz4-dev]
+  ubuntu: [liblz4-dev, lz4]
 m2r:
   alpine:
     pip:
@@ -7806,6 +7888,12 @@ mkdocs-bootswatch:
   gentoo: [dev-python/mkdocs-bootswatch]
   ubuntu:
     bionic: [mkdocs-bootswatch]
+modemmanager:
+  debian: [modemmanager]
+  fedora: [ModemManager]
+  opensuse: [ModemManager]
+  rhel: [ModemManager]
+  ubuntu: [modemmanager]
 mongodb:
   gentoo: [dev-db/mongodb]
   nixos: [mongodb]
@@ -7919,6 +8007,7 @@ nanobind-dev:
       pip:
         packages: [nanobind]
   freebsd: [nanobind]
+  nixos: [python3Packages.nanobind]
   ubuntu:
     '*': [nanobind-dev]
     focal:
@@ -8449,6 +8538,7 @@ procps:
   gentoo: [sys-process/procps]
   nixos: [procps]
   openembedded: [procps@openembedded-core]
+  rhel: [procps-ng]
   ubuntu: [procps]
 proj:
   arch: [proj]
@@ -8710,6 +8800,7 @@ qml6-module-qt-labs-folderlistmodel:
   arch: [qt6-declarative]
   debian: [qml6-module-qt-labs-folderlistmodel]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8720,16 +8811,29 @@ qml6-module-qt-labs-platform:
   arch: [qt6-declarative]
   debian: [qml6-module-qt-labs-platform]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
   ubuntu:
     '*': [qml6-module-qt-labs-platform]
     'focal': null
+qml6-module-qt-labs-qmlmodels:
+  arch: [qt6-declarative]
+  debian: [qml6-module-qt-labs-qmlmodels]
+  fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
+  rhel:
+    '*': [qt6-qtdeclarative]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qt-labs-qmlmodels]
+    'focal': null
 qml6-module-qt-labs-settings:
   arch: [qt6-declarative]
   debian: [qml6-module-qt-labs-settings]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8740,6 +8844,7 @@ qml6-module-qt5compat-graphicaleffects:
   arch: [qt6-declarative]
   debian: [qml6-module-qt5compat-graphicaleffects]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8750,6 +8855,7 @@ qml6-module-qtcharts:
   arch: [qt6-declarative]
   debian: [qml6-module-qtcharts]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8760,16 +8866,29 @@ qml6-module-qtcore:
   arch: [qt6-declarative]
   debian: [qml6-module-qtcore]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
   ubuntu:
     '*': [qml6-module-qtcore]
     'focal': null
+qml6-module-qtmultimedia:
+  arch: [qt6-declarative, qt6-multimedia]
+  debian: [qml6-module-qtmultimedia]
+  fedora: [qt6-qtdeclarative, qt6-qtmultimedia]
+  nixos: [qt6.qtdeclarative, qt6.qtmultimedia]
+  rhel:
+    '*': [qt6-qtdeclarative, qt6-qtmultimedia]
+    '8': null
+  ubuntu:
+    '*': [qml6-module-qtmultimedia]
+    'focal': null
 qml6-module-qtpositioning:
   arch: [qt6-declarative]
   debian: [qml6-module-qtpositioning]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8780,6 +8899,7 @@ qml6-module-qtqml:
   arch: [qt6-declarative]
   debian: [qml6-module-qtqml]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8790,6 +8910,7 @@ qml6-module-qtqml-models:
   arch: [qt6-declarative]
   debian: [qml6-module-qtqml-models]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8800,6 +8921,7 @@ qml6-module-qtqml-workerscript:
   arch: [qt6-declarative]
   debian: [qml6-module-qtqml-workerscript]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8810,7 +8932,7 @@ qml6-module-qtquick:
   arch: [qt6-declarative]
   debian: [qml6-module-qtquick]
   fedora: [qt6-qtdeclarative]
-  nixos: [qt6.qtquickcontrols]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8821,6 +8943,7 @@ qml6-module-qtquick-controls:
   arch: [qt6-declarative]
   debian: [qml6-module-qtquick-controls]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8831,6 +8954,7 @@ qml6-module-qtquick-dialogs:
   arch: [qt6-declarative]
   debian: [qml6-module-qtquick-dialogs]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8841,6 +8965,7 @@ qml6-module-qtquick-layouts:
   arch: [qt6-declarative]
   debian: [qml6-module-qtquick-layouts]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8851,6 +8976,7 @@ qml6-module-qtquick-templates:
   arch: [qt6-declarative]
   debian: [qml6-module-qtquick-templates]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8861,6 +8987,7 @@ qml6-module-qtquick-window:
   arch: [qt6-declarative]
   debian: [qml6-module-qtquick-window]
   fedora: [qt6-qtdeclarative]
+  nixos: [qt6.qtdeclarative]
   rhel:
     '*': [qt6-qtdeclarative]
     '8': null
@@ -8923,6 +9050,7 @@ qt6-5compat-dev:
   debian: [qt6-5compat-dev]
   fedora: [qt6-qt5compat]
   gentoo: ['dev-qt/qt5compat:6']
+  nixos: [qt6.qt5compat]
   openembedded: [qt5compat@meta-qt6]
   rhel:
     '*': [qt6-qt5compat-devel]
@@ -8955,6 +9083,7 @@ qt6-base-private-dev:
   debian: [qt6-base-private-dev]
   fedora: [qt6-qtbase-private-devel]
   gentoo: ['dev-qt/qtbase:6']
+  nixos: [qt6.qtbase]
   openembedded: [qtbase@meta-qt6]
   rhel:
     '*': [qt6-qtbase-private-devel]
@@ -8993,6 +9122,7 @@ qt6-declarative-private-dev:
   debian: [qt6-declarative-private-dev]
   fedora: [qt6-qtdeclarative-devel]
   gentoo: ['dev-qt/qtdeclarative:6']
+  nixos: [qt6.qtdeclarative]
   openembedded: [qtdeclarative@meta-qt6]
   rhel:
     '*': [qt6-qtdeclarative-private-devel]
@@ -9025,6 +9155,21 @@ qt6-scxml-dev:
   ubuntu:
     '*': [qt6-scxml-dev]
     'focal': null
+qt6-svg-dev:
+  alpine: [qt6-qtsvg-dev]
+  arch: [qt6-svg]
+  debian: [qt6-svg-dev]
+  fedora: [qt6-qtsvg-devel]
+  gentoo: ['dev-qt/qtsvg:6']
+  nixos: [qt6.qtsvg]
+  openembedded: [qtsvg@meta-qt6]
+  rhel:
+    '*': [qt6-qtsvg-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-svg-dev]
+    'focal': null
+    'jammy': null
 qtbase5-dev:
   alpine: [qt5-qtbase-dev]
   arch: [qt5-base]
@@ -9583,6 +9728,16 @@ sshpass:
   gentoo: [net-misc/sshpass]
   nixos: [sshpass]
   ubuntu: [sshpass]
+stm32flash:
+  alpine: [stm32flash]
+  debian: [stm32flash]
+  gentoo: [dev-embedded/stm32flash]
+  nixos: [stm32flash]
+  opensuse: [stm32flash]
+  osx:
+    homebrew:
+      packages: [stm32flash]
+  ubuntu: [stm32flash]
 stress:
   arch: [stress]
   debian: [stress]
