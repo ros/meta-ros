@@ -4,7 +4,7 @@ LICENSE = "BSD-2-Clause & BSD-3-Clause & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f9c9b64e6293fa51cd808f54fa1733d9 \
                     file://data/mjcf/openai/LICENSE.md;md5=b7fcc920c21836f90e2ba40fd8fad0a7"
 
-SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.14 \
+SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=main \
            file://python3-fixes.patch \
            file://fix-pkgconfig-cflags.patch \
            file://remove-buildpath.patch \
