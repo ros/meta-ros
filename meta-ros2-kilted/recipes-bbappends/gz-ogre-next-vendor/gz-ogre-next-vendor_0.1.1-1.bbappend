@@ -4,8 +4,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://use-system-ogre-next.patch"
 
-DEPENDS += "ogre-next"
-
-# libxaw is empty, the library is installed in libxaw6 and libxaw7 packages
-# and ogre should get runtime dependency automatically through shlibs
-RDEPENDS:${PN}:remove = "libxaw"
+# Replace dependencies to use ogre-next instead of building it
+ROS_BUILD_DEPENDS = "gz-cmake-vendor ogre-next"
+ROS_EXEC_DEPENDS = ""
+ROS_EXPORT_DEPENDS = ""
