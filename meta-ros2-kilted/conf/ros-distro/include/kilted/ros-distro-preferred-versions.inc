@@ -32,7 +32,7 @@ PREFERRED_VERSION_gz-rendering9 = "9.5.0"
 PREFERRED_VERSION_gz-sensors9 = "9.2.0"
 PREFERRED_VERSION_gz-sim9 = "9.1.0"
 PREFERRED_VERSION_gz-tools2 = "2.0.3"
-PREFERRED_VERSION_gz-transport14 = "14.0.1"
+PREFERRED_VERSION_gz-transport14 = "14.2.0"
 PREFERRED_VERSION_gz-utils3 = "3.1.1"
 
 PREFERRED_VERSION_ogre-next = "2.3.3"
