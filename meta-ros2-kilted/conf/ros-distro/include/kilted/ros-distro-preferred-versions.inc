@@ -20,7 +20,7 @@ PREFERRED_VERSION_python3-gast = "0.6.0"
 PREFERRED_VERSION_dartsim = "6.13.2"
 
 PREFERRED_VERSION_gz-cmake4 = "4.1.1"
-PREFERRED_VERSION_gz-common6 = "6.1.0"
+PREFERRED_VERSION_gz-common6 = "6.2.1"
 PREFERRED_VERSION_gz-fuel_tools10 = "10.1.0"
 PREFERRED_VERSION_gz-gui9 = "9.0.2"
 PREFERRED_VERSION_gz-launch8 = "8.0.1"
