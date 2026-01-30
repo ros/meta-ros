@@ -120,6 +120,8 @@ iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 jupyter-notebook:
 - ${ROS_UNRESOLVED_DEP-jupyter-notebook}
+language-pack-en:
+- ${ROS_UNRESOLVED_DEP-language-pack-en}
 lcov:
 - lcov@meta-oe
 libabsl-dev:
@@ -128,6 +130,8 @@ libadwaita-dev:
 - libadwaita@openembedded-core
 libatomic:
 - gcc-runtime@openembedded-core
+libavahi-client-dev:
+- ${ROS_UNRESOLVED_DEP-libavahi-client-dev}
 libavdevice-dev:
 - ffmpeg@openembedded-core
 libblosc-dev:
@@ -196,6 +200,8 @@ libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcurl-dev:
 - ${ROS_UNRESOLVED_DEP-libcurl-dev}
+libcxxopts-dev:
+- ${ROS_UNRESOLVED_DEP-libcxxopts-dev}
 libdbus-dev:
 - dbus@openembedded-core
 libdraco-dev:
@@ -204,6 +210,8 @@ libdw-dev:
 - elfutils@openembedded-core
 libepoxy-dev:
 - libepoxy@openembedded-core
+libexpected-dev:
+- ${ROS_UNRESOLVED_DEP-libexpected-dev}
 libfcl:
 - fcl@meta-ros-common
 libfcl-dev:
@@ -240,6 +248,8 @@ libgpiod-dev:
 - libgpiod@meta-oe
 libgps:
 - gpsd@meta-oe
+libgsl:
+- gsl@meta-oe
 libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
@@ -252,6 +262,8 @@ libicu-dev:
 - ${ROS_UNRESOLVED_DEP-libicu-dev}
 libjpeg:
 - jpeg@openembedded-core
+libjson-c-dev:
+- jsoncpp@meta-oe
 libjsoncpp:
 - jsoncpp@meta-oe
 libjsoncpp-dev:
@@ -298,6 +310,8 @@ libopenscenegraph:
 - openscenegraph@meta-ros2
 libopenvdb-dev:
 - ${ROS_UNRESOLVED_DEP-libopenvdb-dev}
+liborocos-kdl:
+- orocos-kdl@meta-ros1-noetic
 liborocos-kdl-dev:
 - orocos-kdl@meta-ros1-noetic
 libpaho-mqtt-dev:
@@ -358,6 +372,14 @@ libqt5-widgets:
 - qtbase@meta-qt5
 libqt5x11extras5-dev:
 - qtx11extras@meta-qt5
+libqt6-core:
+- qtbase@meta-qt6
+libqt6-multimedia:
+- ${ROS_UNRESOLVED_DEP-libqt6-multimedia}
+libqt6-qml:
+- qtdeclarative@meta-qt6
+libqt6-quick:
+- qtdeclarative@meta-qt6
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
 libreadline:
@@ -414,8 +436,12 @@ libxaw:
 - libxaw@meta-oe
 libxcb-randr0-dev:
 - ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev}
+libxcursor-dev:
+- libxcursor@openembedded-core
 libxi-dev:
 - libxi@openembedded-core
+libxinerama-dev:
+- libxinerama@openembedded-core
 libxkbcommon-dev:
 - libxkbcommon@openembedded-core
 libxml2:
@@ -434,6 +460,8 @@ libyaml:
 - libyaml@openembedded-core
 libyaml-dev:
 - libyaml@openembedded-core
+libyuv-dev:
+- ${ROS_UNRESOLVED_DEP-libyuv-dev}
 libzip-dev:
 - libzip@meta-oe
 libzmq3-dev:
@@ -454,6 +482,8 @@ matio:
 - ${ROS_UNRESOLVED_DEP-matio}
 meson:
 - ${ROS_UNRESOLVED_DEP-meson}
+muparser:
+- muparser@meta-qt5-extra
 nanobind-dev:
 - ${ROS_UNRESOLVED_DEP-nanobind-dev}
 network-manager:
@@ -474,6 +504,8 @@ pkg-config:
 - pkgconfig@openembedded-core
 portaudio19-dev:
 - portaudio-v19@meta-oe
+procps:
+- procps@openembedded-core
 proj:
 - proj@meta-oe
 protobuf:
@@ -489,12 +521,14 @@ pydocstyle:
 pyflakes3:
 - ${PYTHON_PN}-pyflakes@meta-ros-common
 pyqt5-dev-tools:
-- ${PYTHON_PN}-pyqt5@meta-qt5
+- ${ROS_UNRESOLVED_DEP-pyqt5-dev-tools}
 python-argparse: []
 python3:
 - python3@openembedded-core
 python3-antlr4:
 - ${ROS_UNRESOLVED_DEP-python3-antlr4}
+python3-apt:
+- ${ROS_UNRESOLVED_DEP-python3-apt}
 python3-argcomplete:
 - python3-argcomplete@meta-python
 python3-attrs:
@@ -503,6 +537,8 @@ python3-autobahn:
 - python3-autobahn@meta-python
 python3-babeltrace:
 - babeltrace@openembedded-core
+python3-boto3:
+- python3-boto3@meta-ros-common
 python3-bson:
 - python3-pymongo@meta-python
 python3-cairo:
@@ -511,6 +547,8 @@ python3-catkin-pkg:
 - python3-catkin-pkg@meta-ros-common
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros-common
+python3-cbor2:
+- ${ROS_UNRESOLVED_DEP-python3-cbor2}
 python3-click:
 - python3-click@openembedded-core
 python3-collada:
@@ -536,7 +574,7 @@ python3-empy:
 python3-expiringdict:
 - ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fastapi:
-- ${ROS_UNRESOLVED_DEP-python3-fastapi}
+- python3-fastapi@meta-python
 python3-filelock:
 - python3-filelock@meta-python
 python3-fiona:
@@ -565,8 +603,6 @@ python3-gi-cairo:
 - ${ROS_UNRESOLVED_DEP-python3-gi-cairo}
 python3-git:
 - python3-git@openembedded-core
-python3-h5py:
-- python3-h5py@meta-python
 python3-httpx:
 - python3-httpx@meta-python
 python3-img2pdf:
@@ -575,14 +611,20 @@ python3-importlib-metadata:
 - python3-importlib-metadata@meta-python
 python3-importlib-resources:
 - python3@openembedded-core
+python3-inflection:
+- ${ROS_UNRESOLVED_DEP-python3-inflection}
 python3-jinja2:
 - python3-jinja2@openembedded-core
 python3-jsonschema:
 - python3-jsonschema@openembedded-core
+python3-junitparser:
+- ${ROS_UNRESOLVED_DEP-python3-junitparser}
 python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lxml:
 - python3-lxml@openembedded-core
+python3-marisa:
+- ${ROS_UNRESOLVED_DEP-python3-marisa}
 python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
@@ -591,6 +633,8 @@ python3-msgpack:
 - python3-msgpack@meta-python
 python3-msgpack-numpy:
 - ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy}
+python3-multipledispatch:
+- ${ROS_UNRESOLVED_DEP-python3-multipledispatch}
 python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
@@ -601,6 +645,8 @@ python3-ntplib:
 - python3-ntplib@meta-python
 python3-numpy:
 - python3-numpy@openembedded-core
+python3-openai-pip:
+- ${ROS_UNRESOLVED_DEP-python3-openai-pip}
 python3-opencv:
 - opencv@meta-oe
 python3-packaging:
@@ -639,8 +685,10 @@ python3-pykdl:
 - python3-pykdl@meta-ros1-noetic
 python3-pyproj:
 - python3-pyproj@meta-python
+python3-pyqt5:
+- python3-pyqt5@meta-qt5
 python3-pyqt5.qtwebengine:
-- ${PYTHON_PN}-pyqt5@meta-qt5
+- python3-pyqt5@meta-qt5
 python3-pytest:
 - python3-pytest@openembedded-core
 python3-pytest-cov:
@@ -677,10 +725,14 @@ python3-shapely:
 - python3-shapely@meta-ros2
 python3-smbus:
 - python3-smbus@meta-python
+python3-smbus2:
+- ${ROS_UNRESOLVED_DEP-python3-smbus2}
 python3-sphinx:
 - python3-sphinx@openembedded-core
 python3-tabulate:
 - python3-tabulate@meta-python
+python3-termcolor:
+- python3-termcolor@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
@@ -695,12 +747,18 @@ python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:
 - python3-typeguard@meta-python
+python3-typing-extensions:
+- python3-typing-extensions@openembedded-core
+python3-ujson:
+- ${ROS_UNRESOLVED_DEP-python3-ujson}
 python3-unidiff:
 - python3-unidiff@meta-python
 python3-uvicorn:
 - ${ROS_UNRESOLVED_DEP-python3-uvicorn}
 python3-uvloop:
 - python3-uvloop@meta-ros2
+python3-validators:
+- ${ROS_UNRESOLVED_DEP-python3-validators}
 python3-vcstool:
 - python3-vcstool@meta-ros-common
 python3-venv:
@@ -711,6 +769,8 @@ python3-watchdog:
 - python3-watchdog@meta-python
 python3-websocket:
 - python3-websocket-client@meta-python
+python3-websockets:
+- python3-websockets@openembedded-core
 python3-wheel:
 - python3-wheel@openembedded-core
 python3-whichcraft:
@@ -749,8 +809,18 @@ qml-module-qtquick-window2:
 - ${ROS_UNRESOLVED_DEP-qml-module-qtquick-window2}
 qml-module-qtquick2:
 - ${ROS_UNRESOLVED_DEP-qml-module-qtquick2}
+qml6-module-qtqml-workerscript:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtqml-workerscript}
+qml6-module-qtquick:
+- ${ROS_UNRESOLVED_DEP-qml6-module-qtquick}
 qt5-qmake:
 - qtbase@meta-qt5
+qt6-base-dev:
+- qtbase@meta-qt6
+qt6-declarative-dev:
+- qtdeclarative@meta-qt6
+qt6-multimedia-dev:
+- qtmultimedia@meta-qt6
 qtbase5-dev:
 - qtbase@meta-qt5
 qtdeclarative5-dev:
