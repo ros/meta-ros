@@ -1,0 +1,45 @@
+Don't install vendored backward files
+
+Upstream-Status: Backport [https://github.com/gazebosim/gz-sim/commit/ec4ba795d059f4810903e02029d372d48b31aac1]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From ec4ba795d059f4810903e02029d372d48b31aac1 Mon Sep 17 00:00:00 2001
+From: Steve Peters <scpeters@openrobotics.org>
+Date: Fri, 28 Mar 2025 15:56:13 -0700
+Subject: [PATCH] Don't install vendored backward files
+
+Signed-off-by: Steve Peters <scpeters@openrobotics.org>
+---
+ test/backward_vendor/backward-cpp/CMakeLists.txt | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/test/backward_vendor/backward-cpp/CMakeLists.txt b/test/backward_vendor/backward-cpp/CMakeLists.txt
+index 9a4791193a..667fa34666 100644
+--- a/test/backward_vendor/backward-cpp/CMakeLists.txt
++++ b/test/backward_vendor/backward-cpp/CMakeLists.txt
+@@ -115,16 +115,16 @@ set_target_properties(backward PROPERTIES EXPORT_NAME Backward)
+ target_link_libraries(backward PUBLIC Backward::Interface)
+ add_library(Backward::Backward ALIAS backward)
+ 
+-install(
+-    FILES "backward.hpp"
+-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+-)
+-install(
+-    FILES "BackwardConfig.cmake"
+-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+-)
+ # check if Backward is being used as a top-level project or included as a subproject
+ if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
++    install(
++        FILES "backward.hpp"
++        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
++    )
++    install(
++        FILES "BackwardConfig.cmake"
++        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
++    )
+     # export the targets (note that exporting backward_object does not make sense)
+     install(TARGETS backward_interface backward EXPORT BackwardTargets)
+     # install a CMake file for the exported targets

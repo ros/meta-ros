@@ -6,7 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa \
                     file://src/systems/elevator/vender/metapushkin/LICENSE;md5=ed0f22fa6f2ee0a77567130e0e8c8d15 \
                     file://test/gtest_vendor/LICENSE;md5=cbbd27594afd089daa160d3a16dd515a"
 
-SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim8"
+SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim8 \
+           file://do-not-install-vendored-backward-files.patch"
 
 SRCREV = "4684b525e951bfbf12349e119a5ec90a99ae1a04"
 
