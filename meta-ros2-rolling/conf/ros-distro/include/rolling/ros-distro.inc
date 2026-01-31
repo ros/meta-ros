@@ -472,3 +472,5 @@ ROS_UNRESOLVED_DEP-libc++-dev = "libcxx"
 # Needed by ntrip-client-node which refers to libcurl-vendor
 # However libcurl-vendor has been removed from the ROS index
 ROS_UNRESOLVED_DEP-libcurl-vendor = "curl"
+
+ROS_UNRESOLVED_DEP-python3-osrf-pycommon = "python3-osrf-pycommon"
