@@ -4,6 +4,7 @@ ROS_BUILD_DEPENDS += " \
     fastcdr \
     rcutils \
     rosidl-runtime-c \
+    rosidl-generator-py \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
     rosidl-typesupport-fastrtps-c \
