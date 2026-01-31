@@ -11,6 +11,7 @@ ROS_BUILDTOOL_DEPENDS += "\
 # target).
 ROS_BUILD_DEPENDS += "\
     fastcdr \
+    rosidl-generator-py \
     rosidl-typesupport-c \
     rosidl-typesupport-cpp \
     rosidl-typesupport-fastrtps-c \
