@@ -9,9 +9,9 @@ Index: git/src/cpp/CMakeLists.txt
 ===================================================================
 --- git.orig/src/cpp/CMakeLists.txt
 +++ git/src/cpp/CMakeLists.txt
-@@ -506,7 +506,7 @@ target_link_libraries(${PROJECT_NAME}
-     fastcdr
-     foonathan_memory
+@@ -173,7 +173,7 @@ target_link_libraries(${PROJECT_NAME}
+     PRIVATE
+     eProsima_atomic
      ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS}
 -    ${TINYXML2_LIBRARY}
 +    tinyxml2
