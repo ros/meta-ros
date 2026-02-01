@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/coin-or/Cbc.git;protocol=https;branch=master"
 PV = "2.10.12+git"
 SRCREV = "a5f28a33fc4ee170fe51b3706c0400660b3f2f65"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "coinor-buildtools-native coinutils coinor-osi coinor-cgl coinor-clp"
 
 inherit autotools pkgconfig
