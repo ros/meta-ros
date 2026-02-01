@@ -5,8 +5,6 @@ SRC_URI = "git://github.com/astrand/xclip;protocol=https;branch=master"
 
 SRCREV = "2c3b811002b35d3be7f39cc1145dd06bdb32e31c"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "libxmu libx11"
 
 inherit autotools-brokensep
