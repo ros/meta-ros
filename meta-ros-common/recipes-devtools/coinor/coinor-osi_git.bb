@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/coin-or/Osi.git;protocol=https;branch=master"
 PV = "0.108.11+git"
 SRCREV = "cb16146c414843076e397370d051a168b7c9215d"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "coinor-buildtools-native coinutils"
 
 inherit autotools pkgconfig
