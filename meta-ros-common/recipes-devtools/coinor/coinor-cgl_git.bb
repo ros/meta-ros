@@ -8,7 +8,6 @@ SRCREV = "581c780d8fcda5e02f3c8ef2975bc6804555fa41"
 DEPENDS = "coinor-buildtools-native coinutils coinor-osi coinor-clp"
 
 PV = "0.60.9+git"
-S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 
