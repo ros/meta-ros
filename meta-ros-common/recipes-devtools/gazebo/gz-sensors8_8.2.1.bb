@@ -29,7 +29,7 @@ EXTRA_OECMAKE += " \
 
 do_install:append() {
     # Remove references to the build directory in the Doxygen tagfile
-    sed -i -e "s:${S}::g" ${D}${datadir}/gz/gz-sensors8/gz-sensors8.tag.xml
+    sed -i -e "s:${UNPACKDIR}::g" ${D}${datadir}/gz/gz-sensors8/gz-sensors8.tag.xml
 }
 
 FILES:${PN} += "${datadir}/gz/gz-sensors8"
