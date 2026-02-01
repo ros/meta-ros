@@ -39,7 +39,7 @@ DEPENDS = " \
 
 do_install:append() {
     # Remove references to the build directory in the Doxygen tagfile
-    sed -i -e "s:${S}::g" ${D}${datadir}/ignition/ignition-common4/ignition-common4.tag.xml
+    sed -i -e "s:${UNPACKDIR}::g" ${D}${datadir}/ignition/ignition-common4/ignition-common4.tag.xml
 }
 
 FILES:${PN} += " \
