@@ -11,8 +11,6 @@ SRC_URI = "git://github.com/AcademySoftwareFoundation/openvdb.git;protocol=https
 
 SRCREV = "166946c0365b16da7b2114e37f1187ab5ecd0916"
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "imath tbb log4cplus blosc zlib"
 
 inherit cmake pkgconfig
