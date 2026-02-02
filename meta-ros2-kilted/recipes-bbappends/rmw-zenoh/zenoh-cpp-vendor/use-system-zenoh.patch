@@ -32,7 +32,7 @@ Index: zenoh-cpp-vendor-0.6.1-1/CMakeLists.txt
 +find_package(zenohcxx)
 +
  ament_vendor(zenoh_cpp_vendor
-+  SATISFIED zenoh_FOUND
++  SATISFIED zenohcxx_FOUND
    VCS_URL https://github.com/eclipse-zenoh/zenoh-cpp
    VCS_VERSION 868fdad0e7418e8f8cb96e94c89a3aed05905e63
    CMAKE_ARGS
