@@ -1,0 +1,12 @@
+header:
+  version: 14
+
+repos:
+  virtualization:
+    url: "https://git.yoctoproject.org/meta-virtualization"
+    path: "layers/meta-virtualization"
+
+local_conf_header:
+  virtualization: |
+    # Set DISTRO_FEATURES to enable latent features in meta-virtualization
+    DISTRO_FEATURES:append = " virtualization"
