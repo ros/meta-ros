@@ -6,6 +6,7 @@ header:
     - kas/layer/realsense.yml
     - kas/layer/python-ai.yml
     - kas/layer/qt5.yml
+    - kas/layer/virtualization.yml
     - kas/layer/zenoh.yml
 
 local_conf_header:
