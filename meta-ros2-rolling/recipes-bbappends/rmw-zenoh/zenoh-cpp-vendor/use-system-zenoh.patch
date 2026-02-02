@@ -1,6 +1,6 @@
 Use system-provided zenoh packages
 
-Upstream-Status: Inappropriate [oe specific]
+Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 ---
@@ -35,7 +35,7 @@ Index: zenoh-cpp-vendor-0.9.1-1/CMakeLists.txt
 +find_package(zenohcxx)
 +
  ament_vendor(zenoh_cpp_vendor
-+  SATISFIED zenoh_FOUND
++  SATISFIED zenohcxx_FOUND
    VCS_URL https://github.com/eclipse-zenoh/zenoh-cpp
    VCS_VERSION 05533d20db70ffc1d53a0e07f39caa999e82febd
    CMAKE_ARGS
