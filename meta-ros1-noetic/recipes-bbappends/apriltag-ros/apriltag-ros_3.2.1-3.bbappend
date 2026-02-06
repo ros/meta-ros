@@ -16,3 +16,11 @@ RDEPENDS:${PN}:append:class-target:webos = " ${VIRTUAL-RUNTIME_bash}"
 RDEPENDS:${PN}:remove:class-target:webos = "${@oe.utils.conditional('WEBOS_PREFERRED_PROVIDER_FOR_BASH', 'busybox', 'bash', '', d)}"
 
 inherit pkgconfig
+
+# tf2/convert.h is intentionally obsolete and triggers a warning (fatal under -Werror)
+do_configure:append() {
+    sed -i \
+      -e 's#<tf2/convert.h>#<tf2/convert.hpp>#g' \
+      ${S}/src/pose_estimation.cpp \
+      ${S}/src/conversion.cpp
+}
