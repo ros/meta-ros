@@ -1,0 +1,81 @@
+# Recipe created by mash
+#
+# Copyright (c) 2025 Open Source Robotics Foundation, Inc.
+
+inherit ros_distro_jazzy
+inherit mash_generated
+
+DESCRIPTION = "Small lib to transform sensor_msgs with tf. Most notably, PointCloud2"
+AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
+ROS_AUTHOR = "Vincent Rabaud"
+HOMEPAGE = "http://www.ros.org/wiki/tf2_ros"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
+
+ROS_CN = "geometry2"
+ROS_BPN = "tf2_sensor_msgs"
+
+ROS_BUILD_DEPENDS = "\
+    libeigen\
+    geometry-msgs\
+    sensor-msgs\
+    tf2\
+    tf2-ros\
+"
+
+ROS_BUILDTOOL_DEPENDS = "\
+    ament-cmake-native\
+    eigen3-cmake-module-native\
+    python-cmake-module-native\
+"
+
+ROS_EXPORT_DEPENDS = "\
+    libeigen\
+    geometry-msgs\
+    sensor-msgs\
+    tf2\
+    tf2-ros\
+"
+
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
+    eigen3-cmake-module-native\
+"
+
+ROS_EXEC_DEPENDS = "\
+    python3-numpy\
+    sensor-msgs-py\
+    std-msgs\
+    tf2-ros-py\
+    geometry-msgs\
+    sensor-msgs\
+    tf2\
+    tf2-ros\
+"
+
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = "\
+    ament-cmake-gtest\
+    ament-cmake-pytest\
+    ament-lint-auto\
+    ament-lint-common\
+    rclcpp\
+    tf2-geometry-msgs\
+"
+
+DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
+# Bitbake doesn't support the "export" concept, so build them as if we needed
+# them to build this package (even though we actually don't) so that they're
+# guaranteed to have been staged should this package appear in another's
+# DEPENDS.
+DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
+
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ros2/geometry2.git;${ROS_BRANCH};protocol=https"
+SRCREV = "ea6cb75cb545536c133c46c24d10901a7b9b23da"
+S = "${WORKDIR}/git/tf2_sensor_msgs"
+
+ROS_BUILD_TYPE = "ament_cmake"
+
+inherit ros_${ROS_BUILD_TYPE}

@@ -2,7 +2,7 @@
 # General configuration settings that are dependent on ROS_DISTRO.
 #
 # Copyright (c) 2020-2021 LG Electronics, Inc.
-# Copyright (c) 2025 Wind River Systems, Inc.
+# Copyright (c) 2025-2026 Wind River Systems, Inc.
 
 ROS_DISTRO_CODENAME = "Jazzy Jalisco"
 
@@ -13,7 +13,7 @@ ROS_VERSION = "2"
 # DO NOT OVERRIDE ROS_PYTHON_VERSION
 ROS_PYTHON_VERSION = "3"
 
-SPACEROS_RELEASE = "jazzy-2025.10.0"
+SPACEROS_RELEASE = "jazzy-2026.01.0"
 
 # The platform release that the metadata for this ROS distro targets. This determines the versions of the platform packages that
 # OE must provide. It must be one of the values of ROS_DISTRO_RELEASE_PLATFORMS (which is set in
