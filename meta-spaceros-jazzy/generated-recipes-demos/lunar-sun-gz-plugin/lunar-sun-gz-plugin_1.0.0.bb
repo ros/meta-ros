@@ -5,22 +5,22 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Gazebo worlds and ROS2 launch descriptions for Curiosity Mars Demo"
-AUTHOR = "franklinselva <franklinselva10@gmail.com>"
+DESCRIPTION = "Plugins for dynamic sun in lunar world"
+AUTHOR = "Munir Azme <munir.azme@elementrobotics.space>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "GPL"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=bb69307f9a8566360ce04a9b7e6a00b7"
 
 ROS_CN = "demos"
-ROS_BPN = "curiosity_gazebo"
+ROS_BPN = "lunar_sun_gz_plugin"
 
 ROS_BUILD_DEPENDS = "\
-    control-msgs\
-    curiosity-description\
-    rclcpp\
-    ament-cmake\
-    ament-cmake-python\
-    ros-gz\
+    gz-plugin2\
+    gz-sim7\
+    gz-plugin\
+    gz-sim6\
+    gz-plugin\
+    gz-sim6\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
@@ -28,32 +28,33 @@ ROS_BUILDTOOL_DEPENDS = "\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    control-msgs\
-    curiosity-description\
-    rclcpp\
-    ament-cmake\
-    ament-cmake-python\
-    ros-gz\
+    gz-plugin2\
+    gz-sim7\
+    gz-plugin\
+    gz-sim6\
+    gz-plugin\
+    gz-sim6\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    gz-ros2-control\
-    ros2-control\
-    ros2-controllers\
-    control-msgs\
-    curiosity-description\
-    rclcpp\
-    ament-cmake\
-    ament-cmake-python\
-    ros-gz\
+    gz-plugin2\
+    gz-sim7\
+    gz-plugin\
+    gz-sim6\
+    gz-plugin\
+    gz-sim6\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
     ament-lint-auto\
-    ament-lint-common\
+    ament-cmake-copyright\
+    ament-cmake-cpplint\
+    ament-cmake-lint-cmake\
+    ament-cmake-uncrustify\
+    ament-cmake-xmllint\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -68,7 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "93fa3a1361dc983fca2b8cb2524492648df4adcb"
-S = "${WORKDIR}/git/curiosity_rover/curiosity_gazebo"
+S = "${WORKDIR}/git/lunar_terrain/lunar_sun_gz_plugin"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

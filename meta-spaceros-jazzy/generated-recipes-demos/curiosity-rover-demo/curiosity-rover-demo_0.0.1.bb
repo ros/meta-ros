@@ -68,7 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
-SRCREV = "acf369b3fa1c8a64ff40b649b80c5540a6fac970"
+SRCREV = "93fa3a1361dc983fca2b8cb2524492648df4adcb"
 S = "${WORKDIR}/git/racs2_demos_on_spaceros/curiosity_rover_demo"
 
 ROS_BUILD_TYPE = "ament_cmake"
