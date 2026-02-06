@@ -5,15 +5,15 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Fanuc Resources used for MoveIt testing"
-AUTHOR = "Dave Coleman <dave@dav.ee>"
-ROS_AUTHOR = "Ioan Sucan <isucan@willowgarage.edu>"
-HOMEPAGE = "http://moveit.ros.org"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+DESCRIPTION = "C++11/14/17 std::expected with functional-style extensions"
+AUTHOR = "Tyler Weaver <maybe@tylerjw.dev>"
+ROS_AUTHOR = "Sy Brand"
+HOMEPAGE = "https://github.com/TartanLlama/expected"
+LICENSE = "CC0-1.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=6f5d8ed55114879c1a229533f1b5b91d"
 
-ROS_CN = "moveit_resources_fanuc_description"
-ROS_BPN = "moveit_resources_fanuc_description"
+ROS_CN = "tl_expected"
+ROS_BPN = "tl_expected"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -39,9 +39,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/moveit_resources_fanuc_description"
-SRC_URI = "git://github.com/ros2-gbp/moveit_resources-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "d96564c168b96b1aef682e56577be2ca0987bfb2"
+ROS_BRANCH ?= "branch=release/jazzy/tl_expected"
+SRC_URI = "git://github.com/ros2-gbp/cpp_polyfills-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "81e77bffb60577329c4fba864a2f048f56000ab7"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

@@ -1,0 +1,82 @@
+# Recipe created by mash
+#
+# Copyright (c) 2025 Open Source Robotics Foundation, Inc.
+
+inherit ros_distro_jazzy
+inherit mash_generated
+
+DESCRIPTION = "Library which provides the 3D rendering functionality in rviz."
+AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
+ROS_AUTHOR = "Dave Hershberger"
+HOMEPAGE = "https://github.com/ros2/rviz/blob/ros2/README.md"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
+
+ROS_CN = "rviz_rendering"
+ROS_BPN = "rviz_rendering"
+
+ROS_BUILD_DEPENDS = "\
+    ament-index-cpp\
+    libeigen\
+    qtbase\
+    resource-retriever\
+    rviz-assimp-vendor\
+    rviz-ogre-vendor\
+"
+
+ROS_BUILDTOOL_DEPENDS = "\
+    ament-cmake-ros-native\
+    eigen3-cmake-module-native\
+"
+
+ROS_EXPORT_DEPENDS = "\
+    libeigen\
+    qtbase\
+    rviz-ogre-vendor\
+"
+
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
+    eigen3-cmake-module-native\
+"
+
+ROS_EXEC_DEPENDS = "\
+    ament-index-cpp\
+    qtbase\
+    qtbase\
+    qtbase\
+    qtbase\
+    resource-retriever\
+    rviz-assimp-vendor\
+    rviz-ogre-vendor\
+"
+
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = "\
+    ament-cmake-cppcheck\
+    ament-cmake-cpplint\
+    ament-cmake-gtest\
+    ament-cmake-gmock\
+    ament-cmake-lint-cmake\
+    ament-cmake-uncrustify\
+    ament-cmake-xmllint\
+    ament-lint-auto\
+    rviz-assimp-vendor\
+"
+
+DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
+# Bitbake doesn't support the "export" concept, so build them as if we needed
+# them to build this package (even though we actually don't) so that they're
+# guaranteed to have been staged should this package appear in another's
+# DEPENDS.
+DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
+
+ROS_BRANCH ?= "branch=release/jazzy/rviz_rendering"
+SRC_URI = "git://github.com/ros2-gbp/rviz-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "9f44730e6f6df38eb88cda3eae08b81d64959e2d"
+S = "${WORKDIR}/git"
+
+ROS_BUILD_TYPE = "ament_cmake"
+
+inherit ros_${ROS_BUILD_TYPE}

@@ -5,15 +5,14 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Fanuc Resources used for MoveIt testing"
-AUTHOR = "Dave Coleman <dave@dav.ee>"
-ROS_AUTHOR = "Ioan Sucan <isucan@willowgarage.edu>"
-HOMEPAGE = "http://moveit.ros.org"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+DESCRIPTION = "Implementation of C++20's std::span"
+AUTHOR = "Tyler Weaver <maybe@tylerjw.dev>"
+HOMEPAGE = "https://github.com/tcbrindle/span"
+LICENSE = "BSL-1.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=6465d32b33c70d59e05ded7303b6c46c"
 
-ROS_CN = "moveit_resources_fanuc_description"
-ROS_BPN = "moveit_resources_fanuc_description"
+ROS_CN = "tcb_span"
+ROS_BPN = "tcb_span"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -28,7 +27,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = "\
+    ament-cmake-gtest\
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed
@@ -39,9 +40,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/moveit_resources_fanuc_description"
-SRC_URI = "git://github.com/ros2-gbp/moveit_resources-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "d96564c168b96b1aef682e56577be2ca0987bfb2"
+ROS_BRANCH ?= "branch=release/jazzy/tcb_span"
+SRC_URI = "git://github.com/ros2-gbp/cpp_polyfills-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "b99863afd24b78413edb2d71a0584b131b4632e3"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

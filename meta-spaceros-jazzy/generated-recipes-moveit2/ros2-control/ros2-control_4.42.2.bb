@@ -5,15 +5,14 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Fanuc Resources used for MoveIt testing"
-AUTHOR = "Dave Coleman <dave@dav.ee>"
-ROS_AUTHOR = "Ioan Sucan <isucan@willowgarage.edu>"
-HOMEPAGE = "http://moveit.ros.org"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+DESCRIPTION = "Metapackage for ROS2 control related packages"
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+HOMEPAGE = "https://control.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "moveit_resources_fanuc_description"
-ROS_BPN = "moveit_resources_fanuc_description"
+ROS_CN = "ros2_control"
+ROS_BPN = "ros2_control"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -25,7 +24,16 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = "\
+    controller-interface\
+    controller-manager\
+    controller-manager-msgs\
+    hardware-interface\
+    joint-limits\
+    ros2-control-test-assets\
+    ros2controlcli\
+    transmission-interface\
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -39,9 +47,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/moveit_resources_fanuc_description"
-SRC_URI = "git://github.com/ros2-gbp/moveit_resources-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "d96564c168b96b1aef682e56577be2ca0987bfb2"
+ROS_BRANCH ?= "branch=release/jazzy/ros2_control"
+SRC_URI = "git://github.com/ros2-gbp/ros2_control-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "ec26275b6f96490f9607f9200065f82359514983"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

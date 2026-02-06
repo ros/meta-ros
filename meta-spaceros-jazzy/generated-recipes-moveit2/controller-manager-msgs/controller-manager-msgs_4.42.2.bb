@@ -5,33 +5,42 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The OctoMap library implements a 3D occupancy grid mapping approach, providing data structures and mapping algorithms in C++. The map implementation is based on an octree. See\
-    http://octomap.github.io for details.\
-"
-AUTHOR = "Armin Hornung <armin@hornung.io>"
-ROS_AUTHOR = "Kai M. Wurm <wurm@informatik.uni-freiburg.de>"
-HOMEPAGE = "http://octomap.github.io"
+DESCRIPTION = "Messages and services for the controller manager."
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+ROS_AUTHOR = "Stuart Glaser <sglaser@willowgarage.com>"
+HOMEPAGE = "http://ros.org/wiki/controller_manager_msgs"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "octomap"
-ROS_BPN = "octomap"
+ROS_CN = "controller_manager_msgs"
+ROS_BPN = "controller_manager_msgs"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = "\
+    builtin-interfaces\
+    lifecycle-msgs\
+    std-msgs\
+"
 
 ROS_BUILDTOOL_DEPENDS = "\
-    cmake-native\
+    ament-cmake-native\
+    rosidl-default-generators-native\
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = "\
+    builtin-interfaces\
+    lifecycle-msgs\
+    std-msgs\
+    rosidl-default-runtime\
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = "\
+    ament-lint-common\
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed
@@ -42,11 +51,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/octomap"
-SRC_URI = "git://github.com/ros2-gbp/octomap-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "895657943d1ba59b781d1c1da097dab12568b016"
+ROS_BRANCH ?= "branch=release/jazzy/controller_manager_msgs"
+SRC_URI = "git://github.com/ros2-gbp/ros2_control-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "af88044ba22dcd3faa3953836a51de9b81f0b58d"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
