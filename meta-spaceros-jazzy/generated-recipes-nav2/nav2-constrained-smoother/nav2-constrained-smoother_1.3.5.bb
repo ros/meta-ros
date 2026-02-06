@@ -76,7 +76,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nav2_constrained_smoother"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "aad59bf4cb8951391a71ecbfcbd8f46e2d1ecb4f"
-S = "${WORKDIR}/git/nav2_constrained_smoother"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

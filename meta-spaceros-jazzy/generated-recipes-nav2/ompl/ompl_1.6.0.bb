@@ -51,7 +51,7 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/ompl"
+ROS_BRANCH ?= "branch=rpm/jazzy/9/ompl"
 SRC_URI = "git://github.com/ros2-gbp/ompl-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "fda1cb4c5d644b8ea2932b45d35293cd62ff5dcd"
 S = "${WORKDIR}/git"
