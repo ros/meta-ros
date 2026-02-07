@@ -7,3 +7,5 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-set-compiler-options.patch"
+
+CXXFLAGS += "-Wno-error=shadow"

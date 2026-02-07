@@ -1,4 +1,7 @@
-Use pkg-config to find TinyXML2
+From 9a9c55199eb65c97f6b788f84be0219ce14b547f Mon Sep 17 00:00:00 2001
+From: Rob Woolley <rob.woolley@windriver.com>
+Date: Thu, 28 Aug 2025 07:48:11 -0700
+Subject: [PATCH] Use pkg-config to find TinyXML2
 
 This helps avoid absolute paths from being injected into the
 generated cmake files.
@@ -6,11 +9,14 @@ generated cmake files.
 Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ CMakeLists.txt | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-Index: git/CMakeLists.txt
-===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e10f7ec16..b250e3ecb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -13,8 +13,6 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
    rcpputils
    rcutils
@@ -31,14 +37,14 @@ Index: git/CMakeLists.txt
  foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
    find_package(${Dependency} REQUIRED)
  endforeach()
-@@ -49,9 +51,8 @@ target_link_libraries(hardware_interface
+@@ -48,9 +50,8 @@ target_link_libraries(hardware_interface PUBLIC
                        realtime_tools::realtime_tools
                        rcutils::rcutils
                        rcpputils::rcpputils
-+		      TinyXML2::TinyXML2
++                      tinyxml2
                        ${joint_limits_TARGETS}
 -                      ${TinyXML2_LIBRARIES}
 -                      ${tinyxml2_vendor_LIBRARIES}
- 		      ${pal_statistics_TARGETS}
- 		      ${pal_statistics_msgs_TARGETS}
+                       ${pal_statistics_LIBRARIES}
                        ${control_msgs_TARGETS}
+                       ${lifecycle_msgs_TARGETS}
