@@ -37,7 +37,7 @@ DEPENDS = " \
     libxrandr \
     rapidjson \
     renderdoc \
-    mesa \
+    virtual/mesa \
     poco \
     shaderc \
     tbb \
@@ -72,7 +72,7 @@ do_configure:append() {
     #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:720:9: error: 'PFNGLXSWAPINTERVALMESAPROC'
     #       was not declared in this scope; did you mean 'PFNGLXSWAPINTERVALEXTPROC'?
     #   git/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp:721:9: error: '_glXSwapInterval
-    rm ${S}/RenderSystems/GL3Plus/include/GL/glxext.h
+    rm -f ${S}/RenderSystems/GL3Plus/include/GL/glxext.h
 }
 
 FILES:${PN}-dev += "${libdir}/OGRE-Next/cmake ${libdir}/OGRE-Next/*${SOLIBSDEV}"
