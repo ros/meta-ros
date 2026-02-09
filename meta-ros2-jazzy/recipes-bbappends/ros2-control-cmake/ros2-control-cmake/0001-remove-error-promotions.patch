@@ -1,0 +1,30 @@
+From ad14f2c4ca5fec7976621ff73a3ebfbc64c7791f Mon Sep 17 00:00:00 2001
+From: Amelia Grace <agrace@bastiansolutions.com>
+Date: Wed, 7 Jan 2026 12:21:28 -0700
+Subject: [PATCH] remove error promotions
+
+Signed-off-by: Amelia Grace <agrace@bastiansolutions.com>
+---
+ cmake/ros2_control.cmake | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/cmake/ros2_control.cmake b/cmake/ros2_control.cmake
+index 4f9f757..3b417ee 100644
+--- a/cmake/ros2_control.cmake
++++ b/cmake/ros2_control.cmake
+@@ -37,15 +37,6 @@ macro(set_compiler_options)
+     add_compile_options(
+       -Wall -Wextra -Wpedantic
+       -Wshadow -Wconversion -Wold-style-cast
+-      -Werror=conversion
+-      -Werror=format
+-      -Werror=missing-braces
+-      -Werror=overflow
+-      -Werror=return-type
+-      -Werror=shadow
+-      -Werror=sign-compare
+-      -Werror=unused-but-set-variable
+-      -Werror=unused-variable
+     )
+     message(STATUS "Compiler warnings enabled for ${CMAKE_CXX_COMPILER_ID}")
+ 

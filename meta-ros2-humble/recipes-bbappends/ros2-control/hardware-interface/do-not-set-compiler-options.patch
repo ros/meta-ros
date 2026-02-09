@@ -1,25 +1,28 @@
-Do not set compiler options
+From 320385c93ea9b0d0e89a490221ab2ef078ad74bd Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Sat, 16 Aug 2025 17:07:42 -0700
+Subject: [PATCH] Do not set compiler options
 
 Upstream-Status: Pending
 
 Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 ---
- CMakeLists.txt | 5 -----
- 1 file changed, 5 deletions(-)
+ CMakeLists.txt | 4 ----
+ 1 file changed, 4 deletions(-)
 
-Index: git/CMakeLists.txt
-===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c66d6faf6..dcdae1461 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -1,10 +1,6 @@
- cmake_minimum_required(VERSION 3.5)
- project(hardware_interface)
+ cmake_minimum_required(VERSION 3.16)
+ project(hardware_interface LANGUAGES CXX)
  
--if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 -  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow)
 -endif()
 -
  set(THIS_PACKAGE_INCLUDE_DEPENDS
-     control_msgs
-     lifecycle_msgs
+   control_msgs
+   lifecycle_msgs
