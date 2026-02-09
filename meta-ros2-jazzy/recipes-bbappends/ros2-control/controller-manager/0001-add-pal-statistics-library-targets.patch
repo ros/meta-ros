@@ -9,18 +9,18 @@ Signed-off-by: Amelia Grace <agrace@bastiansolutions.com>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7f32ec115..115699e16 100644
+index 9c3e21865..cceeed1a7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -17,6 +17,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+@@ -14,6 +14,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   hardware_interface
    libstatistics_collector
-   generate_parameter_library
-   fmt
+   lifecycle_msgs
 +  pal_statistics
- )
- 
- find_package(ament_cmake REQUIRED)
-@@ -52,7 +53,9 @@ target_link_libraries(controller_manager PUBLIC
+   pluginlib
+   rclcpp
+   realtime_tools
+@@ -53,7 +54,9 @@ target_link_libraries(controller_manager PUBLIC
                        libstatistics_collector::libstatistics_collector
                        fmt::fmt
                        ${std_msgs_TARGETS}
