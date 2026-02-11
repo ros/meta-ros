@@ -1,0 +1,43 @@
+Upstream-Status: Backport [https://github.com/christianrauch/apriltag_ros/commit/5b73d4fd3eccdd0ccc6d17043f9f401ca04f6a40]
+
+Signed-off-by: Garrett Brown <garrett.brown@aclima.earth>
+
+From 5b73d4fd3eccdd0ccc6d17043f9f401ca04f6a40 Mon Sep 17 00:00:00 2001
+From: Christian Rauch <Rauch.Christian@gmx.de>
+Date: Sat, 6 Sep 2025 18:12:57 +0200
+Subject: [PATCH] update tf2 'convert' header
+
+---
+ src/conversion.cpp      | 2 +-
+ src/pose_estimation.cpp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/conversion.cpp b/src/conversion.cpp
+index b9b30a8..9b743ca 100644
+--- a/src/conversion.cpp
++++ b/src/conversion.cpp
+@@ -4,7 +4,7 @@
+ #include <geometry_msgs/msg/quaternion.hpp>
+ #include <geometry_msgs/msg/vector3.hpp>
+ #include <opencv2/core/mat.hpp>
+-#include <tf2/convert.h>
++#include <tf2/convert.hpp>
+ 
+ template<>
+ void tf2::convert(const Eigen::Quaterniond& eigen_quat, geometry_msgs::msg::Quaternion& msg_quat)
+diff --git a/src/pose_estimation.cpp b/src/pose_estimation.cpp
+index 35a9e11..3fb8446 100644
+--- a/src/pose_estimation.cpp
++++ b/src/pose_estimation.cpp
+@@ -3,7 +3,7 @@
+ #include <apriltag/apriltag_pose.h>
+ #include <apriltag/common/homography.h>
+ #include <opencv2/calib3d.hpp>
+-#include <tf2/convert.h>
++#include <tf2/convert.hpp>
+ 
+ 
+ geometry_msgs::msg::Transform
+-- 
+2.43.0
+
