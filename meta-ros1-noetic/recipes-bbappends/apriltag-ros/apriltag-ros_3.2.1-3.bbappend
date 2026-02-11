@@ -3,6 +3,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://fix.apriltag.include.flag.patch \
+    file://0001-update-tf2-convert-header.patch \
 "
 
 # ERROR: apriltag-ros-3.1.1-1-r0 do_package_qa: QA Issue: /opt/ros/melodic/lib/apriltag_ros/analyze_image contained in package apriltag-ros requires /bin/bash, but no providers found in RDEPENDS:apriltag-ros? [file-rdeps]
