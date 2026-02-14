@@ -1,0 +1,15 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/whinlatter.yml
+    - kas/ros2/rolling.yml
+    - kas/machine/raspberrypi4-64.yml
+    - kas/common.yml
+
+repos:
+  qt5:
+    branch: "master"
+  raspberrypi:
+    branch: "master"
+  zenoh:
+    branch: "master"

@@ -1,0 +1,13 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/whinlatter.yml
+    - kas/ros2/jazzy.yml
+    - kas/machine/qemux86-64.yml
+    - kas/common.yml
+
+repos:
+  qt5:
+    branch: "master"
+  zenoh:
+    branch: "master"
