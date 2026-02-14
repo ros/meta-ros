@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "whinlatter"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-5.3/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.3.1/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "8519978592483bb096ed5192fff7af6c887b799e"
+    commit: "dd10706cfafb5574b7cf316fca2300d166ef71b0"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +17,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.16"
-    commit: "720df1a53452983c1c832f624490e255cf389204"
+    commit: "663021740bc086bd959a8457ad9ddb6da52a8278"
     path: "layers/bitbake"
     layers:
       bitbake: "disabled"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "16cd5b1b8d06d979f4f191aa95133a90c843c03a"
+    commit: "d28d0a23615f4d91d125fdcd247a71245087dab3"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
