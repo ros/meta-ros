@@ -16,7 +16,7 @@ repos:
 
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
-    branch: "2.14"
+    branch: "2.16"
     commit: "720df1a53452983c1c832f624490e255cf389204"
     path: "layers/bitbake"
     layers:
