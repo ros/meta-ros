@@ -10,7 +10,7 @@ inherit pypi setuptools3
 
 # TODO: we might require some notification library.
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-colcon-core \
+    python3-colcon-core \
 "
 
 BBCLASSEXTEND += "nativesdk"
