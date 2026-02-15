@@ -883,3 +883,5 @@ SKIP_RECIPE[yosemite-valley] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', '
 BBMASK +=  "generated-recipes/fuse/fuse_0.4.2-1.bb"
 # And renamed fuse-doc to fuse-ros-doc to avoid conflict with PN-doc package created by fuse recipe
 BBMASK +=  "generated-recipes/fuse/fuse-doc_0.4.2-1.bb"
+
+BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
