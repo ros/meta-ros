@@ -1,0 +1,24 @@
+Disable compiler warnings
+
+Let OpenEmbedded set the compiler options
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index aea7317..caa2993 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,11 +3,6 @@ project(camera_ros)
+ 
+ set(CMAKE_CXX_STANDARD 20)
+ 
+-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+-  add_link_options("-Wl,-z,relro,-z,now,-z,defs")
+-endif()
+-
+ find_package(ament_cmake REQUIRED)
+ find_package(PkgConfig REQUIRED)
+ 
