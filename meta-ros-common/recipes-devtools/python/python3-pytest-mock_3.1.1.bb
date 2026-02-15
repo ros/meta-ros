@@ -7,6 +7,6 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=6;endline=9;md5=2a11afb59dbbc9a479
 
 SRC_URI[sha256sum] = "636e792f7dd9e2c80657e174c04bf7aa92672350090736d82e97e92ce8f68737"
 
-DEPENDS += "${PYTHON_PN}-setuptools-scm-native"
+DEPENDS += "python3-setuptools-scm-native"
 
 inherit pypi setuptools3
