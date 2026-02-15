@@ -1,0 +1,22 @@
+Disable compiler warnings
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 20bdedf..3340000 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,11 +4,6 @@ project(apriltag_ros)
+ 
+ set(CMAKE_CXX_STANDARD 14)
+ 
+-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  add_compile_options(-Werror -Wall -Wextra -Wpedantic)
+-  add_link_options("-Wl,-z,relro,-z,now,-z,defs")
+-endif()
+-
+ option(ASAN "use AddressSanitizer to detect memory issues" OFF)
+ 
+ if(ASAN)
