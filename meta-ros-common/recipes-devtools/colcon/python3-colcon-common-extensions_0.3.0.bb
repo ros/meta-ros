@@ -10,23 +10,23 @@ inherit pypi setuptools3
 
 # Incomplete list from: https://github.com/colcon/colcon-common-extensions/blob/master/setup.cfg
 # TODO: we might complete this once..
-# - add: ${PYTHON_PN}-colcon-notification
+# - add: python3-colcon-notification
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-colcon-bash \
-    ${PYTHON_PN}-colcon-cd \
-    ${PYTHON_PN}-colcon-cmake \
-    ${PYTHON_PN}-colcon-core \
-    ${PYTHON_PN}-colcon-defaults \
-    ${PYTHON_PN}-colcon-devtools \
-    ${PYTHON_PN}-colcon-library-path \
-    ${PYTHON_PN}-colcon-metadata \
-    ${PYTHON_PN}-colcon-output \
-    ${PYTHON_PN}-colcon-package-information \
-    ${PYTHON_PN}-colcon-package-selection \
-    ${PYTHON_PN}-colcon-parallel-executor \
-    ${PYTHON_PN}-colcon-recursive-crawl \
-    ${PYTHON_PN}-colcon-ros \
-    ${PYTHON_PN}-colcon-test-result \
+    python3-colcon-bash \
+    python3-colcon-cd \
+    python3-colcon-cmake \
+    python3-colcon-core \
+    python3-colcon-defaults \
+    python3-colcon-devtools \
+    python3-colcon-library-path \
+    python3-colcon-metadata \
+    python3-colcon-output \
+    python3-colcon-package-information \
+    python3-colcon-package-selection \
+    python3-colcon-parallel-executor \
+    python3-colcon-recursive-crawl \
+    python3-colcon-ros \
+    python3-colcon-test-result \
 "
 
 BBCLASSEXTEND += "nativesdk"
