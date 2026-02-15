@@ -9,14 +9,14 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=97c0bda20ad1d845c6369c0e47a1cd98"
 inherit pypi
 
 RDEPENDS:${PN} = " \
-    ${PYTHON_PN}-twisted \
-    ${PYTHON_PN}-zopeinterface \
-    ${PYTHON_PN}-py-ubjson \
-    ${PYTHON_PN}-cbor \
-    ${PYTHON_PN}-u-msgpack-python \
-    ${PYTHON_PN}-lz4 \
-    ${PYTHON_PN}-snappy \
-    ${PYTHON_PN}-pyopenssl \
-    ${PYTHON_PN}-txaio \
-    ${PYTHON_PN}-six \
+    python3-twisted \
+    python3-zopeinterface \
+    python3-py-ubjson \
+    python3-cbor \
+    python3-u-msgpack-python \
+    python3-lz4 \
+    python3-snappy \
+    python3-pyopenssl \
+    python3-txaio \
+    python3-six \
 "
