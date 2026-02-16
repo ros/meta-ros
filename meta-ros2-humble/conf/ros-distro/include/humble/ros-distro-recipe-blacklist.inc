@@ -201,3 +201,4 @@ SKIP_RECIPE[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', 
 SKIP_RECIPE[zenoh-bridge-dds] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['clang', 'cargo'], 'clang: depends on clang which requires meta-clang layer; cargo: depends on cargo which requires meta-rust layer (or oe-core[honister] or newer)', '', d)}"
 
 BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
+BBMASK += "meta-ros2-humble/recipes-bbappends/libcamera/libcamera_0.1.0-3.bbappend"
