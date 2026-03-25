@@ -1192,4 +1192,11 @@ def main():
         parser.print_help()
 
 if __name__ == '__main__':
-    main()
+    if __version__ != bb.__version__:
+        sys.exit("Bitbake core version and program version mismatch!")
+    try:
+        sys.exit(main())
+    except Exception:
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
