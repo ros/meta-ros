@@ -13,6 +13,9 @@
 import os
 import sys
 import warnings
+
+from version import REQUIRED_BBVERSION as __version__
+
 warnings.simplefilter("default")
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)),
@@ -26,8 +29,6 @@ from bb import cookerdata
 from bb.main import bitbake_main, BitBakeConfigParameters, BBMainException
 
 bb.utils.check_system_locale()
-
-__version__ = "2.16.0"
 
 if __name__ == "__main__":
     if __version__ != bb.__version__:
