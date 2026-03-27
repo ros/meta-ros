@@ -21,8 +21,12 @@ import sys
 import textwrap
 import time
 
-
-from version import REQUIRED_BBVERSION as __version__
+try:
+    # for bitbake-setup package
+    from bitbake_setup.version import REQUIRED_BBVERSION as __version__
+except ImportError:
+    # for bitbake-setup in the source tree
+    from version import REQUIRED_BBVERSION as __version__
 
 bindir = os.path.abspath(os.path.dirname(__file__))
 sys.path[0:0] = [os.path.join(os.path.dirname(bindir), 'lib')]
