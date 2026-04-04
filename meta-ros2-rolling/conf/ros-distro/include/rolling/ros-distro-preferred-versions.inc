@@ -12,7 +12,7 @@
 # The head of the tree should be used for rolling
 PREFERRED_VERSION_pcl = "1.14.1"
 
-PREFERRED_VERSION_sdformat = "15.3.0"
+PREFERRED_VERSION_sdformat = "16.0.1"
 
 # required for python3-scipy
 PREFERRED_VERSION_python3-gast = "0.6.0"
