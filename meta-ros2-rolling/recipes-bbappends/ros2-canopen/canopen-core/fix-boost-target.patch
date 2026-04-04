@@ -4,12 +4,14 @@ This is necessary because including Boost in the dependencies
 added by ament_target_dependencies has the side-effect of
 including a buildpath in the generated CMake files.
 
+Updated to remove Boost::system for Boost > 1.89
+
 Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 33eb0df3..4945bacf 100644
+index 33eb0df3..21e5b367 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -36,7 +36,6 @@ set(dependencies
@@ -26,7 +28,7 @@ index 33eb0df3..4945bacf 100644
    canopen_interfaces
 -  Boost
  )
-+target_link_libraries(node_canopen_driver Boost::system Boost::thread)
++target_link_libraries(node_canopen_driver Boost::thread)
  
  add_library(node_canopen_master
    SHARED
@@ -36,7 +38,7 @@ index 33eb0df3..4945bacf 100644
    canopen_interfaces
 -  Boost
  )
-+target_link_libraries(node_canopen_master Boost::system Boost::thread)
++target_link_libraries(node_canopen_master Boost::thread)
  
  
  add_library(device_container
@@ -44,8 +46,18 @@ index 33eb0df3..4945bacf 100644
  ament_target_dependencies(device_container_node
    ${dependencies}
  )
-+target_link_libraries(device_container_node Boost::system Boost::thread)
++target_link_libraries(device_container_node Boost::thread)
 +
  target_include_directories(device_container_node PUBLIC
    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
    "$<INSTALL_INTERFACE:include>"
+diff --git a/ConfigExtras.cmake b/ConfigExtras.cmake
+index 8f7786db..ab530631 100644
+--- a/ConfigExtras.cmake
++++ b/ConfigExtras.cmake
+@@ -12,4 +12,4 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+-find_package(Boost REQUIRED system thread)
++find_package(Boost REQUIRED thread)
