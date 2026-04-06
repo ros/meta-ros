@@ -1,0 +1,30 @@
+From: Chris Kohn <chris.kohn@amd.com>
+Subject: [PATCH] rosbag2_py: Fix pybind11 module extension suffix for cross-compilation
+
+When cross-compiling, pybind11 uses the native Python's extension suffix
+(e.g., .cpython-312-x86_64-linux-gnu.so) instead of the target
+architecture. This causes the generated modules to have incorrect names
+that Python cannot import on the target.
+
+Override PYTHON_MODULE_EXTENSION using PYTHON_SOABI (passed by Yocto via
+-DPYTHON_SOABI=cpython-312-aarch64-linux-gnu) when cross-compiling.
+
+AI-Generated: Claude claude-opus-4-6
+Signed-off-by: Chris Kohn <chris.kohn@amd.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,6 +35,12 @@ find_package(rosbag2_transport REQUIRED)
+ # Find python before pybind11
+ find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+
++# When cross-compiling, override the Python module extension suffix
++# The native Python returns x86_64-linux-gnu but we need aarch64-linux-gnu
++if(CMAKE_CROSSCOMPILING AND DEFINED PYTHON_SOABI)
++  set(PYTHON_MODULE_EXTENSION ".${PYTHON_SOABI}.so")
++endif()
++
+ find_package(pybind11_vendor REQUIRED)
+ find_package(pybind11 REQUIRED)
+
