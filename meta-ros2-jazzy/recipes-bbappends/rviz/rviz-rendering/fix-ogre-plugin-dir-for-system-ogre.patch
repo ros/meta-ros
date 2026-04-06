@@ -1,0 +1,62 @@
+From: Chris Kohn <chris.kohn@amd.com>
+Subject: [PATCH] rviz_rendering: Resolve OGRE plugin directory from cmake
+
+RVIZ_RENDERING_OGRE_PLUGIN_DIR is never set via compile definitions,
+defaulting to "not set!". The runtime setPluginDirectory() overrides
+it with a hardcoded vendor prefix path that does not exist when using
+the system OGRE package.
+
+Fix by passing OGRE_PLUGIN_DIR (set by find_package(OGRE) via the
+rviz_ogre_vendor cmake config) as a compile definition. At runtime,
+use the compile-time value if it was set, otherwise fall back to the
+existing ament_index vendor prefix behavior for backward compatibility.
+
+When cross-compiling, strip the sysroot prefix from the path so it is
+valid on the target.
+
+AI-Generated: Claude claude-opus-4-6
+Signed-off-by: Chris Kohn <chris.kohn@amd.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -125,6 +125,17 @@
+ # Causes the visibility macros to use dllexport rather than dllimport,
+ # which is appropriate when building the dll but not consuming it.
+ target_compile_definitions(rviz_rendering PRIVATE "RVIZ_RENDERING_BUILDING_LIBRARY")
++if(OGRE_PLUGIN_DIR)
++  # Strip the sysroot prefix when cross-compiling so the path is
++  # valid on the target (e.g., /usr/lib/OGRE/ not /path/to/sysroot/usr/lib/OGRE/)
++  set(_ogre_plugin_dir "${OGRE_PLUGIN_DIR}")
++  if(CMAKE_CROSSCOMPILING AND CMAKE_SYSROOT)
++    string(REPLACE "${CMAKE_SYSROOT}" "" _ogre_plugin_dir "${_ogre_plugin_dir}")
++  endif()
++  target_compile_definitions(rviz_rendering PRIVATE
++    "RVIZ_RENDERING_OGRE_PLUGIN_DIR=\"${_ogre_plugin_dir}/\""
++  )
++endif()
+
+ ament_export_dependencies(
+   Eigen3
+--- a/src/rviz_rendering/render_system.cpp
++++ b/src/rviz_rendering/render_system.cpp
+@@ -327,6 +327,12 @@
+ void
+ RenderSystem::setPluginDirectory()
+ {
++#ifdef RVIZ_RENDERING_OGRE_PLUGIN_DIR
++  // Use the OGRE plugin directory resolved at build time from the
++  // system OGRE package via find_package(OGRE)
++  set_ogre_plugin_directory(RVIZ_RENDERING_OGRE_PLUGIN_DIR);
++#else
++  // Fall back to the rviz_ogre_vendor prefix path
+   std::string content;
+   std::string prefix_path;
+   ament_index_cpp::get_resource("packages", "rviz_ogre_vendor", content, &prefix_path);
+@@ -335,6 +341,7 @@
+ #else
+   set_ogre_plugin_directory(prefix_path + "/opt/rviz_ogre_vendor/lib/OGRE/");
+ #endif
++#endif
+ }
+
+ void
