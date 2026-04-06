@@ -1,0 +1,75 @@
+From: Chris Kohn <chris.kohn@amd.com>
+Subject: [PATCH] sip_helper: Fix Python extension suffix for cross-compilation
+
+When cross-compiling, sipbuild queries the native Python interpreter for
+EXT_SUFFIX which returns the host architecture (e.g., x86_64-linux-gnu)
+instead of the target (e.g., aarch64-linux-gnu). This causes the
+generated .so files to have incorrect names that Python cannot import on
+the target.
+
+Use the PYTHON_SOABI CMake variable passed by the Yocto build system to
+construct the correct suffix. When the suffix differs from the host, the
+generated file is renamed after the build step.
+
+AI-Generated: Claude claude-opus-4-6
+Signed-off-by: Chris Kohn <chris.kohn@amd.com>
+
+diff --git a/cmake/sip_helper.cmake b/cmake/sip_helper.cmake
+--- a/cmake/sip_helper.cmake
++++ b/cmake/sip_helper.cmake
+@@ -53,11 +53,21 @@
+   message(STATUS "SIP binding generator version: ${SIP_VERSION}")
+ endif()
+ 
++# Get the host Python's extension suffix (used by pip/sipbuild)
+ execute_process(
+   COMMAND ${Python3_EXECUTABLE} -c "import sysconfig as c; print(c.get_config_var('EXT_SUFFIX'), end='')"
+-  OUTPUT_VARIABLE PYTHON_EXTENSION_MODULE_SUFFIX
++  OUTPUT_VARIABLE _HOST_PYTHON_EXT_SUFFIX
+   ERROR_QUIET)
+ 
++# When cross-compiling, use PYTHON_SOABI passed by the build system
++if(CMAKE_CROSSCOMPILING AND DEFINED PYTHON_SOABI)
++  set(PYTHON_EXTENSION_MODULE_SUFFIX ".${PYTHON_SOABI}.so")
++  set(_SIP_NEEDS_RENAME TRUE)
++else()
++  set(PYTHON_EXTENSION_MODULE_SUFFIX "${_HOST_PYTHON_EXT_SUFFIX}")
++  set(_SIP_NEEDS_RENAME FALSE)
++endif()
++
+ #
+ # Run the SIP generator and compile the generated code into a library.
+ #
+@@ -161,13 +171,25 @@
+             ${__PYTHON_QT_BINDING_SIP_HELPER_DIR}/pyproject.toml.in
+             ${sip_BINARY_DIR}/sip/pyproject.toml
+         )
+-        add_custom_command(
+-            OUTPUT ${sip_LIBRARY_DIR}/lib${PROJECT_NAME}${PYTHON_EXTENSION_MODULE_SUFFIX}
+-            COMMAND ${Python3_EXECUTABLE} -m pip install . --target ${sip_LIBRARY_DIR} --no-deps --no-build-isolation
+-            DEPENDS ${sip_SIP_CONFIGURE} ${SIP_FILE} ${sip_DEPENDS}
+-            WORKING_DIRECTORY ${sip_BINARY_DIR}/sip
+-            COMMENT "Running SIP-build generator for ${PROJECT_NAME} Python bindings..."
+-        )
++
++        if(_SIP_NEEDS_RENAME)
++          add_custom_command(
++              OUTPUT ${sip_LIBRARY_DIR}/lib${PROJECT_NAME}${PYTHON_EXTENSION_MODULE_SUFFIX}
++              COMMAND ${Python3_EXECUTABLE} -m pip install . --target ${sip_LIBRARY_DIR} --no-deps --no-build-isolation
++              COMMAND ${CMAKE_COMMAND} -E rename ${sip_LIBRARY_DIR}/lib${PROJECT_NAME}${_HOST_PYTHON_EXT_SUFFIX} ${sip_LIBRARY_DIR}/lib${PROJECT_NAME}${PYTHON_EXTENSION_MODULE_SUFFIX}
++              DEPENDS ${sip_SIP_CONFIGURE} ${SIP_FILE} ${sip_DEPENDS}
++              WORKING_DIRECTORY ${sip_BINARY_DIR}/sip
++              COMMENT "Running SIP-build generator for ${PROJECT_NAME} Python bindings..."
++          )
++        else()
++          add_custom_command(
++              OUTPUT ${sip_LIBRARY_DIR}/lib${PROJECT_NAME}${PYTHON_EXTENSION_MODULE_SUFFIX}
++              COMMAND ${Python3_EXECUTABLE} -m pip install . --target ${sip_LIBRARY_DIR} --no-deps --no-build-isolation
++              DEPENDS ${sip_SIP_CONFIGURE} ${SIP_FILE} ${sip_DEPENDS}
++              WORKING_DIRECTORY ${sip_BINARY_DIR}/sip
++              COMMENT "Running SIP-build generator for ${PROJECT_NAME} Python bindings..."
++          )
++        endif()
+     else()
+ 	add_custom_command(
+             OUTPUT ${SIP_BUILD_DIR}/Makefile
