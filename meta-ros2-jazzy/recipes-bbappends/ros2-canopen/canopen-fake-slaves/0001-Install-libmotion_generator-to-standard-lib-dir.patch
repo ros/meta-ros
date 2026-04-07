@@ -1,0 +1,28 @@
+From: Christian Kohn <chris.kohn@amd.com>
+Subject: [PATCH] Install libmotion_generator to standard lib dir
+
+The shared library was installed to lib/canopen_fake_slaves/ which is
+not in the runtime linker search path. Install it to lib/ instead so
+that cia402_slave_node can find it without requiring an RPATH.
+
+Upstream-Status: Pending
+
+AI-Generated: Claude Opus 4.6
+Signed-off-by: Christian Kohn <chris.kohn@amd.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1234567..abcdefg 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -60,7 +60,7 @@ target_link_libraries(
+ )
+ 
+ install(TARGETS motion_generator
+-DESTINATION lib/${PROJECT_NAME})
++DESTINATION lib)
+ 
+ install(TARGETS basic_slave_node
+   DESTINATION lib/${PROJECT_NAME})
