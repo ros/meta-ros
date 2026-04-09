@@ -1,8 +1,5 @@
 # Copyright (C) 2023 Avnet, Inc.  All rights reserved.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://fix_warning.patch"
-
 # | CMake Error in CMakeLists.txt:
 # |   Imported target "rclcpp::rclcpp" includes non-existent path
 # |
