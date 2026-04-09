@@ -48,9 +48,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libqt6gui6t64} \
-    ${ROS_UNRESOLVED_DEP-libqt6opengl6t64} \
-    ${ROS_UNRESOLVED_DEP-libqt6widgets6t64} \
     message-filters \
     pluginlib \
     qtbase \

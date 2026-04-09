@@ -32,11 +32,11 @@ cargo:
 catch2:
 - catch2@meta-oe
 clang:
-- clang@meta-clang
+- clang@openembedded-core
 clang-format:
-- clang@meta-clang
+- clang@openembedded-core
 clang-tidy:
-- clang@meta-clang
+- clang@openembedded-core
 cli11:
 - cli11@meta-oe
 cmake:
@@ -96,6 +96,8 @@ iwyu:
 - ${ROS_UNRESOLVED_DEP-iwyu}
 jupyter-notebook:
 - ${ROS_UNRESOLVED_DEP-jupyter-notebook}
+language-pack-en:
+- ${ROS_UNRESOLVED_DEP-language-pack-en}
 lcov:
 - lcov@meta-oe
 libabsl-dev:
@@ -167,11 +169,13 @@ libccd-dev:
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
-- clang@meta-clang
+- clang@openembedded-core
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
 libcurl-dev:
 - ${ROS_UNRESOLVED_DEP-libcurl-dev}
+libcxxopts-dev:
+- ${ROS_UNRESOLVED_DEP-libcxxopts-dev}
 libdbus-dev:
 - dbus@openembedded-core
 libdraco-dev:
@@ -182,6 +186,8 @@ libdwarf-dev:
 - libdwarf
 libepoxy-dev:
 - libepoxy@openembedded-core
+libexpected-dev:
+- ${ROS_UNRESOLVED_DEP-libexpected-dev}
 libfcl:
 - fcl@meta-ros-common
 libfcl-dev:
@@ -325,13 +331,13 @@ libqt6-qml:
 libqt6-quick:
 - qtdeclarative@meta-qt6
 libqt6gui6t64:
-- ${ROS_UNRESOLVED_DEP-libqt6gui6t64}
+- qtbase@meta-qt6
 libqt6opengl6t64:
-- ${ROS_UNRESOLVED_DEP-libqt6opengl6t64}
+- qtbase@meta-qt6
 libqt6svg6:
 - qtsvg@meta-qt6
 libqt6widgets6t64:
-- ${ROS_UNRESOLVED_DEP-libqt6widgets6t64}
+- qtbase@meta-qt6
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
 libserial-dev:
@@ -418,6 +424,8 @@ libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
 - zstd@openembedded-core
+linux-kernel-headers:
+- linux-libc-headers@openembedded-core
 lm-sensors:
 - lmsensors@meta-oe
 lttng-tools:
@@ -465,9 +473,9 @@ pybind11-json-dev:
 pybind11_json_vendor:
 - ${ROS_UNRESOLVED_DEP-pybind11-json-vendor}
 pydocstyle:
-- ${PYTHON_PN}-pydocstyle@meta-ros-common
+- python3-pydocstyle@meta-ros-common
 pyflakes3:
-- ${PYTHON_PN}-pyflakes@meta-ros-common
+- python3-pyflakes@meta-python
 pyqt5-dev-tools:
 - ${ROS_UNRESOLVED_DEP-pyqt5-dev-tools}
 python-argparse: []
@@ -492,7 +500,7 @@ python3-catkin-pkg:
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros-common
 python3-cbor2:
-- ${ROS_UNRESOLVED_DEP-python3-cbor2}
+- python3-cbor2@meta-python
 python3-click:
 - python3-click@openembedded-core
 python3-collada:
@@ -561,6 +569,8 @@ python3-lark-parser:
 - python3-lark-parser@meta-ros-common
 python3-lxml:
 - python3-lxml@openembedded-core
+python3-marisa:
+- ${ROS_UNRESOLVED_DEP-python3-marisa}
 python3-matplotlib:
 - python3-matplotlib@meta-python
 python3-mock:
@@ -671,6 +681,8 @@ python3-tornado:
 - python3-tornado@meta-python
 python3-tqdm:
 - python3-tqdm@meta-python
+python3-transforms3d:
+- ${ROS_UNRESOLVED_DEP-python3-transforms3d}
 python3-twisted:
 - python3-twisted@meta-python
 python3-typeguard:

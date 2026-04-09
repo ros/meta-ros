@@ -28,8 +28,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-cbor2} \
     ${ROS_UNRESOLVED_DEP-python3-ujson} \
+    python3-cbor2 \
     python3-numpy \
     python3-pillow \
     python3-pymongo \
