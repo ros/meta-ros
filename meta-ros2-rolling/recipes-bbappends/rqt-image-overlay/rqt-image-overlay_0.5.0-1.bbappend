@@ -8,4 +8,4 @@ ROS_BUILDTOOL_DEPENDS += "\
 #   SkippingbecauseOE_QMAKE_PATH_EXTERNAL_HOST_BINSisnotdefined
 # CMake Error at CMakeLists.txt:32 (qt5_wrap_cpp):
 #   Unknown CMake command "qt5_wrap_cpp".
-inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', 'qt6-cmake', '', d)}
