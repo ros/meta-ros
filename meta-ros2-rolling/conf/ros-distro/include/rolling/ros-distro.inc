@@ -430,3 +430,5 @@ ROS_UNRESOLVED_DEP-libc++-dev = "libcxx"
 ROS_UNRESOLVED_DEP-libcurl-vendor = "curl"
 
 ROS_UNRESOLVED_DEP-python3-osrf-pycommon = "python3-osrf-pycommon"
+
+ROS_UNRESOLVED_DEP-libqt6gui6t64 = "qtbase"
