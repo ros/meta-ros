@@ -10,3 +10,6 @@ ROS_BUILDTOOL_DEPENDS += "protobuf-native"
 EXTRA_OECMAKE += "\
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
 "
+
+ROS_BUILD_DEPENDS:remove = "libdwarf"
+ROS_EXEC_DEPENDS:remove = "libdwarf"
