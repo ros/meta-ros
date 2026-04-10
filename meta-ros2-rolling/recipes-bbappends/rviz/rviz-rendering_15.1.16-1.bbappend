@@ -10,4 +10,4 @@ ROS_BUILD_DEPENDS += "glew"
 # ...
 # CMake Error at CMakeLists.txt:65 (qt5_wrap_cpp):
 #   Unknown CMake command "qt5_wrap_cpp".
-inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 'cmake_qt5', d)}
+inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt6', 'pyqt6'], '', 'qt6-cmake', d)}
