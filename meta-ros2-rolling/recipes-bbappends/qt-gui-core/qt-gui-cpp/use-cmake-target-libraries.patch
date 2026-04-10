@@ -12,10 +12,10 @@ Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 Upstream-Status: Pending
 
-Index: git/src/qt_gui_cpp_sip/CMakeLists.txt
+Index: a/src/qt_gui_cpp_sip/CMakeLists.txt
 ===================================================================
---- git.orig/src/qt_gui_cpp_sip/CMakeLists.txt
-+++ git/src/qt_gui_cpp_sip/CMakeLists.txt
+--- a/src/qt_gui_cpp_sip/CMakeLists.txt
++++ b/src/qt_gui_cpp_sip/CMakeLists.txt
 @@ -55,8 +55,8 @@ find_package(Python3 REQUIRED COMPONENTS
 
  set(_qt_gui_cpp_sip_LIBRARIES
