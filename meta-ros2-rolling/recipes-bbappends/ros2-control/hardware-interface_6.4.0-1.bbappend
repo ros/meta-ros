@@ -7,4 +7,4 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-set-compiler-options.patch \
-            file://use-ament-target-dependencies.patch"
+            file://use-cmake-targets.patch"
