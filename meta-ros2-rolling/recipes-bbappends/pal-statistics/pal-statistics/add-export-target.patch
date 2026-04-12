@@ -37,10 +37,10 @@ index 2377719..476c02a 100644
 +    $<INSTALL_INTERFACE:include>
 +)
 +
-+ament_target_dependencies(${PROJECT_NAME}
-+  pal_statistics_msgs
-+  rclcpp
-+  rclcpp_lifecycle
++target_link_libraries(${PROJECT_NAME}
++  ${pal_statistics_msgs_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
 +)
 +
  if(WIN32)
