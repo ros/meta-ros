@@ -52,9 +52,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros4hri/human_description-release/archive/release/humble/human_description/2.0.2-1.tar.gz
+# matches with: https://github.com/ros2-gbp/human_description-release/archive/release/humble/human_description/2.0.2-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/human_description"
-SRC_URI = "git://github.com/ros4hri/human_description-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/human_description-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5fb50ef714fad0657acfe76e3f4e9554435d53df"
 
 ROS_BUILD_TYPE = "ament_cmake"

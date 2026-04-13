@@ -34,11 +34,11 @@ cargo:
 chrony:
 - chrony@meta-networking
 clang:
-- clang@meta-clang
+- clang@openembedded-core
 clang-format:
-- clang@meta-clang
+- clang@openembedded-core
 clang-tidy:
-- clang@meta-clang
+- clang@openembedded-core
 cli11:
 - cli11@meta-oe
 cmake:
@@ -68,6 +68,8 @@ dpkg:
 - dpkg@openembedded-core
 eigen:
 - libeigen@meta-oe
+embree:
+- ${ROS_UNRESOLVED_DEP-embree}
 ffmpeg:
 - ffmpeg@openembedded-core
 ffmpeg-dev:
@@ -88,6 +90,8 @@ geographiclib-tools:
 - geographiclib@meta-ros-common
 geos:
 - geos@meta-oe
+gfortran:
+- ${ROS_UNRESOLVED_DEP-gfortran}
 git:
 - git@openembedded-core
 glut:
@@ -106,6 +110,8 @@ gurumdds-3.0:
 - ${ROS_UNRESOLVED_DEP-gurumdds-3.0}
 gz-plugin:
 - ${ROS_UNRESOLVED_DEP-gz-plugin}
+gz-sensors6:
+- ${ROS_UNRESOLVED_DEP-gz-sensors6}
 gz-sim6:
 - ${ROS_UNRESOLVED_DEP-gz-sim6}
 hdf5-tools:
@@ -217,9 +223,11 @@ libccd-dev:
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
-- clang@meta-clang
+- clang@openembedded-core
 libconsole-bridge-dev:
 - console-bridge@meta-ros-common
+libcpp-httplib-dev:
+- ${ROS_UNRESOLVED_DEP-libcpp-httplib-dev}
 libcurl-dev:
 - ${ROS_UNRESOLVED_DEP-libcurl-dev}
 libdbus-dev:
@@ -230,6 +238,8 @@ libdraco-dev:
 - ${ROS_UNRESOLVED_DEP-libdraco-dev}
 libdw-dev:
 - elfutils@openembedded-core
+libexpected-dev:
+- ${ROS_UNRESOLVED_DEP-libexpected-dev}
 libfcl:
 - fcl@meta-ros-common
 libfcl-dev:
@@ -266,6 +276,8 @@ libgps:
 - gpsd@meta-oe
 libgrpc:
 - grpc@meta-oe
+libgsl:
+- gsl@meta-oe
 libgstreamer-plugins-base1.0-dev:
 - gstreamer1.0-plugins-base@openembedded-core
 libgstreamer1.0-dev:
@@ -304,10 +316,20 @@ libopen3d-dev:
 - ${ROS_UNRESOLVED_DEP-libopen3d-dev}
 libopenblas-dev:
 - openblas@meta-ros-common
+libopencv-core:
+- ${ROS_UNRESOLVED_DEP-libopencv-core}
 libopencv-dev:
 - opencv@meta-oe
+libopencv-highgui:
+- ${ROS_UNRESOLVED_DEP-libopencv-highgui}
+libopencv-imgcodecs:
+- ${ROS_UNRESOLVED_DEP-libopencv-imgcodecs}
+libopencv-imgproc:
+- ${ROS_UNRESOLVED_DEP-libopencv-imgproc}
 libopencv-imgproc-dev:
 - opencv@meta-oe
+libopencv-videoio:
+- ${ROS_UNRESOLVED_DEP-libopencv-videoio}
 libopenexr-dev:
 - openexr@meta-ros-common
 libopenni2-dev:
@@ -316,6 +338,8 @@ libopenscenegraph:
 - openscenegraph@meta-ros2
 libopus-dev:
 - libopus@meta-oe
+liborocos-kdl:
+- orocos-kdl@meta-ros1-noetic
 liborocos-kdl-dev:
 - orocos-kdl@meta-ros1-noetic
 libpaho-mqtt-dev:
@@ -396,6 +420,8 @@ libssl-dev:
 - openssl@openembedded-core
 libtheora:
 - libtheora@openembedded-core
+libtiff-dev:
+- tiff@openembedded-core
 libtins-dev:
 - ${ROS_UNRESOLVED_DEP-libtins-dev}
 libtool:
@@ -428,12 +454,8 @@ libx11-dev:
 - libx11@openembedded-core
 libxaw:
 - libxaw@meta-oe
-libxcursor-dev:
-- libxcursor@openembedded-core
 libxi-dev:
 - libxi@openembedded-core
-libxinerama-dev:
-- libxinerama@openembedded-core
 libxkbcommon-dev:
 - libxkbcommon@openembedded-core
 libxml2:
@@ -448,6 +470,8 @@ libxrandr:
 - libxrandr@openembedded-core
 libxxf86vm:
 - libxxf86vm@openembedded-core
+libzip-dev:
+- libzip@meta-oe
 libzmq3-dev:
 - zeromq@meta-oe
 libzstd-dev:
@@ -480,6 +504,8 @@ opengl:
 - mesa@openembedded-core
 openssl:
 - openssl@openembedded-core
+patchelf:
+- patchelf@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
 portaudio19-dev:
@@ -497,9 +523,9 @@ pugixml-dev:
 pybind11-dev:
 - python3-pybind11@meta-python
 pydocstyle:
-- ${PYTHON_PN}-pydocstyle@meta-ros-common
+- python3-pydocstyle@meta-ros-common
 pyflakes3:
-- ${PYTHON_PN}-pyflakes@meta-ros-common
+- python3-pyflakes@meta-python
 pyqt5-dev-tools:
 - ${ROS_UNRESOLVED_DEP-pyqt5-dev-tools}
 python-argparse: []
@@ -530,7 +556,7 @@ python3-catkin-pkg:
 python3-catkin-pkg-modules:
 - python3-catkin-pkg@meta-ros-common
 python3-cbor2:
-- ${ROS_UNRESOLVED_DEP-python3-cbor2}
+- python3-cbor2@meta-python
 python3-click:
 - python3-click@openembedded-core
 python3-collada:
@@ -820,6 +846,8 @@ swig:
 - swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
+tar:
+- tar@openembedded-core
 tbb:
 - tbb@meta-oe
 tinyxml:
@@ -864,5 +892,7 @@ yaml-cpp:
 - yaml-cpp@meta-ros-common
 zbar:
 - zbar@meta-oe
+zip:
+- zip@openembedded-core
 zlib:
 - zlib@openembedded-core
