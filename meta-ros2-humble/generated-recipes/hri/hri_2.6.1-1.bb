@@ -78,9 +78,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros4hri/libhri-release/archive/release/humble/hri/2.6.1-1.tar.gz
+# matches with: https://github.com/ros2-gbp/libhri-release/archive/release/humble/hri/2.6.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/hri"
-SRC_URI = "git://github.com/ros4hri/libhri-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/libhri-release;${ROS_BRANCH};protocol=https"
 SRCREV = "c79d736778c07869954c223d22eb8a7395108f67"
 S = "${WORKDIR}/git"
 
