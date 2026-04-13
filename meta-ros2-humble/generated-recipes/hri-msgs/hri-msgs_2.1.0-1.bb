@@ -51,9 +51,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros4hri/hri_msgs-release/archive/release/humble/hri_msgs/2.1.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/hri_msgs-release/archive/release/humble/hri_msgs/2.1.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/hri_msgs"
-SRC_URI = "git://github.com/ros4hri/hri_msgs-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/hri_msgs-release;${ROS_BRANCH};protocol=https"
 SRCREV = "ada143cbd4b40d4f7ca6151a317b8d147365f7bb"
 S = "${WORKDIR}/git"
 

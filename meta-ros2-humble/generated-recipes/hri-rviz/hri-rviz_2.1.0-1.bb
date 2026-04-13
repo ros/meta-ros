@@ -73,9 +73,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/ros4hri/hri_rviz-release/archive/release/humble/hri_rviz/2.1.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/hri_rviz-release/archive/release/humble/hri_rviz/2.1.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/hri_rviz"
-SRC_URI = "git://github.com/ros4hri/hri_rviz-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/hri_rviz-release;${ROS_BRANCH};protocol=https"
 SRCREV = "78c7a2f336335a109748772f33254e21261e4bd9"
 S = "${WORKDIR}/git"
 
