@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "whinlatter"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-5.3.2/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.3.3/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "21314665e198c1abe458d0bad5c4d14d4c3ad856"
+    commit: "ab57471acad7ce2a037480dc7b301104620f1ebf"
     path: "layers/openembedded-core"
     layers:
       meta:
