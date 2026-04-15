@@ -44,6 +44,7 @@ inherit ros_opt_prefix
 EXTRA_OECMAKE:prepend = "\
     -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix}' \
     -DDART_ENABLE_SIMD=OFF \
+    -DDART_TREAT_WARNINGS_AS_ERRORS=OFF \
 "
 
 CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder"
