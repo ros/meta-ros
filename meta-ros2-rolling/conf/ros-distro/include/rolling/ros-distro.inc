@@ -327,10 +327,6 @@ ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
 ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
 ROS_UNRESOLVED_DEP-wireless-tools = "wireless-tools"
 ROS_UNRESOLVED_DEP-warehouse-ros-mongo = "warehouse-ros-mongo"
-ROS_UNRESOLVED_DEP-clang-format = "clang"
-ROS_UNRESOLVED_DEP-clang-format-native = "clang-native"
-ROS_UNRESOLVED_DEP-clang-tidy = "clang"
-ROS_UNRESOLVED_DEP-clang-tidy-native = "clang-native"
 
 ROS_UNRESOLVED_DEP-ignition-fuel-tools7 = "ignition-fuel-tools7"
 
