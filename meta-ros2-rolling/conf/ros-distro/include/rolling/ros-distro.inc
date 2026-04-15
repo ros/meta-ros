@@ -324,7 +324,6 @@ ROS_UNRESOLVED_DEP-libopenni2-dev = "openni2"
 ROS_UNRESOLVED_DEP-libdraco-dev = "draco"
 ROS_UNRESOLVED_DEP-sdformat12 = "sdformat"
 
-ROS_UNRESOLVED_DEP-hdf5-tools-native = "hdf5-native"
 ROS_UNRESOLVED_DEP-libopenscenegraph = "openscenegraph"
 ROS_UNRESOLVED_DEP-wireless-tools = "wireless-tools"
 ROS_UNRESOLVED_DEP-warehouse-ros-mongo = "warehouse-ros-mongo"
