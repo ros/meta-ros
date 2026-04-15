@@ -590,7 +590,7 @@ clang:
   fedora: [clang]
   gentoo: [sys-devel/clang]
   nixos: [clang]
-  openembedded: [clang@meta-clang]
+  openembedded: [clang@openembedded-core]
   rhel:
     '*': [clang]
     '7': null
@@ -603,7 +603,7 @@ clang-format:
   freebsd: [llvm]
   gentoo: [sys-devel/clang]
   nixos: [clang]
-  openembedded: [clang@meta-clang]
+  openembedded: [clang@openembedded-core]
   opensuse: [clang]
   osx:
     homebrew:
@@ -620,7 +620,7 @@ clang-tidy:
   freebsd: [llvm]
   gentoo: [sys-devel/clang]
   nixos: [clang]
-  openembedded: [clang@meta-clang]
+  openembedded: [clang@openembedded-core]
   opensuse: [clang]
   rhel:
     '*': [clang-tools-extra]
@@ -634,6 +634,7 @@ clangd:
   fedora: [clang-tools-extra]
   gentoo: [sys-devel/clang]
   nixos: [clang]
+  openembedded: [clang@openembedded-core]
   opensuse: [clang]
   rhel: [clang-tools-extra]
   ubuntu: [clangd]
@@ -1059,6 +1060,14 @@ ethtool:
   opensuse: [ethtool]
   rhel: [ethtool]
   ubuntu: [ethtool]
+euslisp:
+  debian: [euslisp]
+  ubuntu:
+    jammy: [euslisp]
+euslisp-dev:
+  debian: [euslisp-dev]
+  ubuntu:
+    jammy: [euslisp-dev]
 exfat-fuse:
   debian: [exfat-fuse]
   gentoo: [sys-fs/fuse-exfat]
@@ -1817,6 +1826,16 @@ gstreamer1.0-libav:
   openembedded: [gstreamer1.0-libav@openembedded-core]
   opensuse: [gstreamer-plugins-libav]
   ubuntu: [gstreamer1.0-libav]
+gstreamer1.0-nice:
+  arch: [libnice]
+  debian: [gstreamer1.0-nice]
+  fedora: [libnice-gstreamer1]
+  gentoo: ['media-plugins/gst-plugins-libnice:1.0']
+  nixos: [gst_all_1.gst-plugins-bad]
+  openembedded: [gstreamer1.0-plugins-bad@openembedded-core]
+  opensuse: [gstreamer-libnice]
+  rhel: [libnice-gstreamer1]
+  ubuntu: [gstreamer1.0-nice]
 gstreamer1.0-plugins-bad:
   arch: [gst-plugins-bad]
   debian: [gstreamer1.0-plugins-bad]
@@ -2568,6 +2587,10 @@ jq:
   openembedded: [jq@meta-oe]
   rhel: [jq]
   ubuntu: [jq]
+jskeus:
+  debian: [jskeus]
+  ubuntu:
+    jammy: [jskeus]
 julius-voxforge:
   fedora: [julius-voxforge]
   ubuntu: [julius-voxforge]
@@ -3444,7 +3467,7 @@ libclang-dev:
   fedora: [clang-devel]
   gentoo: [sys-devel/clang]
   nixos: [clang]
-  openembedded: [clang@meta-clang]
+  openembedded: [clang@openembedded-core]
   rhel: [clang-devel]
   ubuntu: [libclang-dev]
 libcoin60-dev:
@@ -3501,6 +3524,7 @@ libcpp-httplib-dev:
     bullseye: null
   fedora: [cpp-httplib-devel]
   gentoo: [cpp-httplib]
+  nixos: [httplib]
   osx:
     homebrew:
       packages: [cpp-httplib]
@@ -3814,7 +3838,7 @@ libexpected-dev:
   debian: [libexpected-dev]
   fedora: [expected-devel]
   gentoo: [dev-cpp/expected]
-  nixos: [tl-expected]
+  nixos: [tl-expected-nixpkgs]
   osx:
     homebrew:
       packages: [tl-expected]
@@ -4197,6 +4221,7 @@ libglib-dev:
   gentoo: [dev-libs/glib]
   nixos: [glib]
   openembedded: [glib-2.0@openembedded-core]
+  rhel: [glib2-devel]
   ubuntu: [libglib2.0-dev, libglib2.0-dev-bin]
 libglm-dev:
   arch: [glm]
@@ -4227,13 +4252,13 @@ libgmock-dev:
   fedora: [gmock-devel]
   freebsd: [googlemock]
   gentoo: [dev-cpp/gtest]
-  nixos: [gmock]
+  nixos: [gtest]
   openembedded: [gtest@meta-oe]
-  opensuse: [gmock-devel]
+  opensuse: [gmock]
+  osx:
+    homebrew: [googletest]
   rhel: [gmock-devel]
-  ubuntu:
-    '*': [libgmock-dev]
-    bionic: null
+  ubuntu: [libgmock-dev]
 libgmp:
   arch: [gmp]
   debian: [libgmp-dev]
@@ -4399,6 +4424,18 @@ libgstrtspserver-1.0-dev:
   fedora: [gstreamer1-rtsp-server-devel]
   nixos: [gst_all_1.gst-rtsp-server]
   ubuntu: [libgstrtspserver-1.0-dev]
+libgtest-dev:
+  alpine: [gtest-dev]
+  arch: [gtest]
+  debian: [libgtest-dev]
+  fedora: [gtest-devel]
+  gentoo: [dev-cpp/gtest]
+  nixos: [gtest]
+  opensuse: [gtest]
+  osx:
+    homebrew: [googletest]
+  rhel: [gtest-devel]
+  ubuntu: [libgtest-dev]
 libgtkmm:
   arch: [gtkmm]
   debian: [libgtkmm-2.4-dev]
@@ -4650,7 +4687,7 @@ libjson-c-dev:
   debian: [libjson-c-dev]
   fedora: [json-c-devel]
   gentoo: ['dev-libs/json-c:0']
-  nixos: [json-c]
+  nixos: [json_c]
   openembedded: [jsoncpp@meta-oe]
   opensuse: [libjson-c-devel]
   rhel: [json-c-devel]
@@ -4804,6 +4841,24 @@ liblttng-ctl-dev:
   opensuse: [lttng-tools-devel]
   rhel: [lttng-tools-devel]
   ubuntu: [liblttng-ctl-dev]
+liblttng-ust:
+  alpine: [lttng-ust]
+  arch: [lttng-ust]
+  debian:
+    '*': [liblttng-ust1t64]
+    bookworm: [liblttng-ust1]
+    bullseye: [liblttng-ust0]
+  fedora: [lttng-ust]
+  freebsd: [lttng-ust]
+  gentoo: [dev-util/lttng-ust]
+  nixos: [lttng-ust]
+  openembedded: [lttng-ust@openembedded-core]
+  opensuse: [lttng-ust-devel]
+  rhel: [lttng-ust]
+  ubuntu:
+    '*': [liblttng-ust1t64]
+    focal: null
+    jammy: [liblttng-ust1]
 liblttng-ust-dev:
   arch: [lttng-ust]
   debian: [liblttng-ust-dev]
@@ -5238,6 +5293,24 @@ libopencv-contrib-dev:
   fedora: [opencv-contrib]
   gentoo: [media-libs/opencv]
   ubuntu: [libopencv-contrib-dev]
+libopencv-core:
+  debian:
+    bookworm: [libopencv-core406]
+    bullseye: [libopencv-core45]
+    trixie: [libopencv-core410]
+  fedora: [opencv-core]
+  nixos: [opencv]
+  rhel: [opencv-core]
+  ubuntu:
+    jammy: [libopencv-core4.5d]
+    noble: [libopencv-core406t64]
+    resolute: [libopencv-core410]
+libopencv-core-dev:
+  debian: [libopencv-core-dev]
+  fedora: [opencv-devel]
+  nixos: [opencv]
+  rhel: [opencv-devel]
+  ubuntu: [libopencv-core-dev]
 libopencv-dev:
   alpine: [opencv-dev]
   arch: [opencv]
@@ -5251,6 +5324,58 @@ libopencv-dev:
   opensuse: [opencv-devel]
   rhel: [opencv-devel]
   ubuntu: [libopencv-dev]
+libopencv-highgui:
+  debian:
+    '*': [libopencv-highgui410]
+    bookworm: [libopencv-highgui406]
+    bullseye: [libopencv-highgui4.5]
+  fedora: [opencv-highgui]
+  nixos: [opencv]
+  rhel:
+    '*': [opencv-highgui]
+    '8': [opencv-core]
+    '9': [opencv-core]
+  ubuntu:
+    '*': [libopencv-highgui410]
+    focal: null
+    jammy: [libopencv-highgui4.5d]
+    noble: [libopencv-highgui406t64]
+libopencv-imgcodecs:
+  debian:
+    bookworm: [libopencv-imgcodecs406]
+    bullseye: [libopencv-imgcodecs45]
+    trixie: [libopencv-imgcodecs410]
+  fedora: [opencv-imgcodecs]
+  nixos: [opencv]
+  rhel:
+    '*': [opencv-imgcodecs]
+    '8': [opencv-core]
+    '9': [opencv-core]
+  ubuntu:
+    jammy: [libopencv-imgcodecs4.5d]
+    noble: [libopencv-imgcodecs406t64]
+    resolute: [libopencv-imgcodecs410]
+libopencv-imgcodecs-dev:
+  debian: [libopencv-imgcodecs-dev]
+  fedora: [opencv-devel]
+  nixos: [opencv]
+  rhel: [opencv-devel]
+  ubuntu: [libopencv-imgcodecs-dev]
+libopencv-imgproc:
+  debian:
+    bookworm: [libopencv-imgproc406]
+    bullseye: [libopencv-imgproc45]
+    trixie: [libopencv-imgproc410]
+  fedora: [opencv-imgproc]
+  nixos: [opencv]
+  rhel:
+    '*': [opencv-imgproc]
+    '8': [opencv-core]
+    '9': [opencv-core]
+  ubuntu:
+    jammy: [libopencv-imgproc4.5d]
+    noble: [libopencv-imgproc406t64]
+    resolute: [libopencv-imgproc410]
 libopencv-imgproc-dev:
   arch: [opencv]
   debian: [libopencv-imgproc-dev]
@@ -5260,6 +5385,22 @@ libopencv-imgproc-dev:
   openembedded: [opencv@meta-oe]
   rhel: [opencv-devel]
   ubuntu: [libopencv-imgproc-dev]
+libopencv-videoio:
+  debian:
+    '*': [libopencv-videoio410]
+    bookworm: [libopencv-videoio406]
+    bullseye: [libopencv-videoio4.5]
+  fedora: [opencv-videoio]
+  nixos: [opencv]
+  rhel:
+    '*': [opencv-videoio]
+    '8': [opencv-core]
+    '9': [opencv-core]
+  ubuntu:
+    '*': [libopencv-videoio410]
+    focal: null
+    jammy: [libopencv-videoio4.5d]
+    noble: [libopencv-videoio406t64]
 libopenexr-dev:
   arch: [openexr]
   debian: [libopenexr-dev]
@@ -6444,6 +6585,27 @@ libqt6-quick:
   ubuntu:
     '*': [libqt6quick6]
     'focal': null
+libqt6-websockets:
+  alpine: [qt6-qtwebsockets]
+  arch: [qt6-websockets]
+  debian: [libqt6websockets6]
+  fedora: [qt6-qtwebsockets]
+  gentoo: ['dev-qt/qtwebsockets:6']
+  nixos: [qt6.qtwebsockets]
+  openembedded: [qtwebsockets@meta-qt6]
+  opensuse:
+    '*': [libQt6WebSockets6]
+    '15.2': null
+  osx:
+    homebrew:
+      packages: [qtwebsockets]
+  rhel:
+    '*': [qt6-qtwebsockets]
+    '8': null
+  slackware: [qt6]
+  ubuntu:
+    '*': [libqt6websockets6]
+    'focal': null
 libqt6bluetooth6:
   alpine: [qt6-qtconnectivity]
   arch: [qt6-connectivity]
@@ -6461,26 +6623,30 @@ libqt6gui6t64:
   debian: [libqt6gui6]
   fedora: [qt6-qtbase-gui]
   nixos: [qt6.qtbase]
+  openembedded: [qtbase@meta-qt6]
   rhel:
     '*': [qt6-qtbase-gui]
     '8': null
   ubuntu:
-    '*': [libqt6gui6t64]
+    '*': [libqt6gui6]
     'focal': null
     'jammy': [libqt6gui6]
+    'noble': [libqt6gui6t64]
 libqt6opengl6t64:
   alpine: [qt6-qtbase]
   arch: [qt6-base]
   debian: [libqt6opengl6]
   fedora: [qt6-qtbase]
   nixos: [qt6.qtbase]
+  openembedded: [qtbase@meta-qt6]
   rhel:
     '*': [qt6-qtbase]
     '8': null
   ubuntu:
-    '*': [libqt6opengl6t64]
+    '*': [libqt6opengl6]
     'focal': null
     'jammy': [libqt6opengl6]
+    'noble': [libqt6opengl6t64]
 libqt6statemachine6:
   arch: [qt6-scxml]
   debian: [libqt6statemachine6]
@@ -6509,13 +6675,15 @@ libqt6widgets6t64:
   debian: [libqt6widgets6]
   fedora: [qt6-qtbase-gui]
   nixos: [qt6.qtbase]
+  openembedded: [qtbase@meta-qt6]
   rhel:
     '*': [qt6-qtbase]
     '8': null
   ubuntu:
-    '*': [libqt6widgets6t64]
+    '*': [libqt6widgets6]
     'focal': null
     'jammy': [libqt6widgets6]
+    'noble': [libqt6widgets6t64]
 libqtgui4:
   debian: [libqtgui4]
   fedora: [qt-x11]
@@ -6737,6 +6905,28 @@ libsoundio-dev:
   macports: [libsoundio]
   nixos: [libsoundio]
   ubuntu: [libsoundio-dev]
+libsoup-3.0-dev:
+  alpine: [libsoup3-dev]
+  arch: [libsoup3]
+  debian: [libsoup-3.0-dev]
+  fedora: [libsoup3-devel]
+  gentoo: ['net-libs/libsoup:3.0']
+  nixos: [libsoup_3]
+  openembedded: [libsoup@openembedded-core]
+  opensuse:
+    '*': [libsoup-3.0-dev]
+    '15.2': null
+  osx:
+    homebrew:
+      packages: [libsoup]
+  rhel:
+    '*': [libsoup3]
+    '8': null
+    '9': null
+  slackware: [libsoup3]
+  ubuntu:
+    '*': [libsoup-3.0-dev]
+    'focal': null
 libsoup2-dev:
   alpine: [libsoup-dev]
   arch: [libsoup]
@@ -6768,7 +6958,7 @@ libspnav-dev:
   debian: [libspnav-dev, libx11-dev]
   fedora: [libspnav-devel, libX11-devel]
   gentoo: [dev-libs/libspnav]
-  nixos: [libspnav]
+  nixos: [libspnav, libx11]
   rhel: [libspnav-devel, libX11-devel]
   ubuntu: [libspnav-dev, libx11-dev]
 libsqlite3-dev:
@@ -6874,6 +7064,7 @@ libsystemd-dev:
   arch: [systemd-libs]
   debian: [libsystemd-dev]
   fedora: [systemd-devel]
+  nixos: [systemd]
   openembedded: [systemd@openembedded-core]
   ubuntu:
     '*': [libsystemd-dev]
@@ -7345,6 +7536,19 @@ libxaw:
   opensuse: [xorg-x11-devel]
   rhel: [libXaw-devel]
   ubuntu: [libxaw7-dev]
+libxcb-cursor0:
+  alpine: [xcb-util-cursor]
+  arch: [xcb-util-cursor]
+  debian: [libxcb-cursor0]
+  fedora: [xcb-util-cursor]
+  gentoo: [xcb-util-cursor]
+  nixos: [xcb-util-cursor-HEAD]
+  opensuse: [libxcb-cursor0]
+  osx:
+    homebrew:
+      packages: [xcb-util-cursor]
+  rhel: [xcb-util-cursor]
+  ubuntu: [libxcb-cursor0]
 libxcb-randr0-dev:
   alpine: [libxcb-dev]
   arch: [libxcb]
@@ -7635,6 +7839,7 @@ linux-kernel-headers:
   gentoo: [sys-kernel/linux-headers]
   nixos: [linuxHeaders]
   openembedded: [linux-libc-headers@openembedded-core]
+  rhel: [kernel-headers]
   ubuntu: [linux-libc-dev]
 llvm:
   arch: [llvm]
@@ -9171,6 +9376,47 @@ qt6-svg-dev:
     '*': [qt6-svg-dev]
     'focal': null
     'jammy': null
+qt6-tools-dev:
+  alpine: [qt6-qttools-dev]
+  arch: [qt6-tools]
+  debian:
+    '*': [qt6-tools-dev]
+    bullseye: null
+  fedora: [qt6-qttools-devel]
+  freebsd: [qt6-tools]
+  gentoo: ['dev-qt/qttools:6']
+  openembedded: [qttools@meta-qt6]
+  osx:
+    homebrew:
+      packages: [qttools]
+  rhel:
+    '*': [qt6-qttools-devel]
+    '8': null
+  ubuntu:
+    '*': [qt6-tools-dev]
+    focal: null
+qt6-websockets-dev:
+  alpine: [qt6-qtwebsockets-dev]
+  arch: [qt6-websockets]
+  debian: [qt6-websockets-dev]
+  fedora: [qt6-qtwebsockets-devel]
+  gentoo: ['dev-qt/qtwebsockets:6']
+  nixos: [qt6.qtwebsockets]
+  openembedded: [qtwebsockets@meta-qt6]
+  opensuse:
+    '*': [qt6-websockets-devel]
+    '15.2': null
+  osx:
+    homebrew:
+      packages: [qtwebsockets]
+  rhel:
+    '*': [qt6-qtwebsockets-devel]
+    '8': null
+  slackware: [qt6]
+  ubuntu:
+    '*': [qt6-websockets-dev]
+    'focal': null
+    'jammy': null
 qtbase5-dev:
   alpine: [qt5-qtbase-dev]
   arch: [qt5-base]
@@ -9382,6 +9628,15 @@ rti-connext-dds-7.3.0:
   nixos: []
   ubuntu:
     '*': [rti-connext-dds-7.3.0-ros]
+    focal: null
+    jammy: null
+rti-connext-dds-7.7.0:
+  debian:
+    '*': [rti-connext-dds-7.7.0-ros]
+    bookworm: null
+  nixos: []
+  ubuntu:
+    '*': [rti-connext-dds-7.7.0-ros]
     focal: null
     jammy: null
 rtklib:
@@ -10593,7 +10848,6 @@ yasm:
   fedora: [yasm]
   gentoo: [dev-lang/yasm]
   nixos: [yasm]
-  openembedded: [yasm@meta-oe]
   ubuntu: [yasm]
 zbar:
   arch: [zbar]
