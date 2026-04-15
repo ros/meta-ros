@@ -12,7 +12,7 @@
 # as documented in https://github.com/ros/meta-ros/pull/936
 PREFERRED_VERSION_pcl = "1.14.1"
 
-PREFERRED_VERSION_sdformat = "15.3.0"
+PREFERRED_VERSION_sdformat = "15.4.0"
 
 # required for python3-scipy
 PREFERRED_VERSION_python3-gast = "0.6.0"
@@ -20,7 +20,7 @@ PREFERRED_VERSION_python3-gast = "0.6.0"
 PREFERRED_VERSION_dartsim = "6.13.2"
 
 PREFERRED_VERSION_gz-cmake4 = "4.2.1"
-PREFERRED_VERSION_gz-common6 = "6.2.1"
+PREFERRED_VERSION_gz-common6 = "6.3.0"
 PREFERRED_VERSION_gz-fuel_tools10 = "10.1.0"
 PREFERRED_VERSION_gz-gui9 = "9.0.2"
 PREFERRED_VERSION_gz-launch8 = "8.0.1"
