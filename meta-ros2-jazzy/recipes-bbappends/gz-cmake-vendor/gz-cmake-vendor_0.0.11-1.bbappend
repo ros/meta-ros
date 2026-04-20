@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += "gz-cmake4"
+ROS_BUILD_DEPENDS += "gz-cmake3"
 
 # See CMakeLists.txt for details on why /usr/opt/gz_cmake_vendor/ is used
 FILES:${PN} += "${datadir}/gz/gz-cmake4/* \
