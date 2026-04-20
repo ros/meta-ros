@@ -10,3 +10,11 @@ do_install:append() {
 FC:remove = "-Wformat"
 FC:remove = "-Wformat-security"
 FC:remove = "-Werror=format-security"
+
+# Prevent lapack from building ILP64 when OpenBLAS is using LP64
+# Resolves link-time errors related to missing symbols with suffix '_64_'
+#   x86_64-oe-linux-ld: ../../lib/liblapack.so.3.12.0: undefined reference to `cdotc_64_'
+EXTRA_OECMAKE += "\
+  -DBUILD_INDEX64=OFF \
+  -DBUILD_INDEX64_EXT_API=OFF \
+"
