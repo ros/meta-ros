@@ -5,3 +5,8 @@ do_install:append() {
     sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${libdir}/cmake/${PN}-*/lapack-config.cmake
     sed -i -e "s#${RECIPE_SYSROOT}##g" ${D}${libdir}/cmake/${PN}-*/lapack-targets.cmake
 }
+
+# Remove flags which are added via TARGET_CC_ARCH but are not valid for Fortran (FC)
+FC:remove = "-Wformat"
+FC:remove = "-Wformat-security"
+FC:remove = "-Werror=format-security"
