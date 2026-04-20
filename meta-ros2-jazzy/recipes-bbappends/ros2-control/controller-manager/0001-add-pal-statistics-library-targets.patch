@@ -1,0 +1,33 @@
+From 44385e58d4d02a752432a7992be24980e639982e Mon Sep 17 00:00:00 2001
+From: Amelia Grace <agrace@bastiansolutions.com>
+Date: Fri, 23 Jan 2026 00:32:56 -0700
+Subject: [PATCH] add-pal-statistics-library-targets
+
+Signed-off-by: Amelia Grace <agrace@bastiansolutions.com>
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9c3e21865..cceeed1a7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,6 +14,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   hardware_interface
+   libstatistics_collector
+   lifecycle_msgs
++  pal_statistics
+   pluginlib
+   rclcpp
+   realtime_tools
+@@ -53,7 +54,9 @@ target_link_libraries(controller_manager PUBLIC
+                       libstatistics_collector::libstatistics_collector
+                       fmt::fmt
+                       ${std_msgs_TARGETS}
+-                      ${controller_manager_msgs_TARGETS})
++                      ${controller_manager_msgs_TARGETS}
++                      ${pal_statistics_LIBRARIES}
++                      )
+ 
+ add_executable(ros2_control_node src/ros2_control_node.cpp)
+ target_link_libraries(ros2_control_node PRIVATE

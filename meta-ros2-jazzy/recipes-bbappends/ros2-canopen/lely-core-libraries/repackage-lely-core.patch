@@ -2,7 +2,7 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -4,41 +4,15 @@ find_package(ament_cmake REQUIRED)
+@@ -4,41 +4,16 @@ find_package(ament_cmake REQUIRED)
  find_package(ament_cmake_python REQUIRED)
  set(python_version "python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}")
  
@@ -13,7 +13,7 @@ Index: git/CMakeLists.txt
 -  INSTALL_DIR "${CMAKE_INSTALL_PREFIX}"  # Installation prefix
 -  BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/build
 -  GIT_REPOSITORY https://gitlab.com/lely_industries/lely-core.git
--  GIT_TAG 7824cbb2ac08d091c4fa2fb397669b938de9e3f5
+-  GIT_TAG fb735b79cab5f0cdda45bc5087414d405ef8f3ab
 -  TIMEOUT 60
 -  #UPDATE step apply patch to fix dcf-tools install
 -  UPDATE_COMMAND
@@ -30,7 +30,7 @@ Index: git/CMakeLists.txt
 -
 -#INSTALL lely_core_libraries - execute make install
 -install(CODE "execute_process(COMMAND ${CMAKE_MAKE_PROGRAM} install VERBOSE=1 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/build)")
--
+ 
  set(lely_core_cmake_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
  include("cmake/lely_core_libraries-extras.cmake" NO_POLICY_SCOPE)
  

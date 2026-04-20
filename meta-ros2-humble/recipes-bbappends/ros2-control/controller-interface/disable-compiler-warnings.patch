@@ -16,13 +16,13 @@ Index: git/CMakeLists.txt
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
 @@ -1,10 +1,6 @@
- cmake_minimum_required(VERSION 3.5)
- project(controller_interface)
+ cmake_minimum_required(VERSION 3.16)
+ project(controller_interface LANGUAGES CXX)
  
--if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 -  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow)
 -endif()
 -
- find_package(ament_cmake REQUIRED)
- find_package(hardware_interface REQUIRED)
- find_package(rclcpp_lifecycle REQUIRED)
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   hardware_interface
+   rclcpp_lifecycle
