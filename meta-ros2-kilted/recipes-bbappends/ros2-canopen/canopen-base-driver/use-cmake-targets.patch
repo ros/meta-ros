@@ -1,0 +1,98 @@
+Use CMake Targets
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 47c26e03..e942dc11 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -41,9 +40,17 @@ target_include_directories(lely_driver_bridge PUBLIC
+   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include>)
+
+-ament_target_dependencies(
+-  lely_driver_bridge
+-  ${dependencies}
++target_link_libraries(lely_driver_bridge
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  lely_core_libraries::lely_core_libraries
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${yaml_cpp_vendor_TARGETS}
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
++  ${diagnostic_update_TARGETS}
+ )
+
+
+@@ -58,11 +65,17 @@ target_include_directories(node_canopen_base_driver PUBLIC
+
+ target_link_libraries(node_canopen_base_driver
+   lely_driver_bridge
+-)
+-
+-ament_target_dependencies(
+-  node_canopen_base_driver
+-  ${dependencies}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  lely_core_libraries::lely_core_libraries
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${yaml_cpp_vendor_TARGETS}
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
++  ${diagnostic_msgs_TARGETS}
++  ${diagnostic_update_TARGETS}
+ )
+ message(STATUS "node_canopen_base_driver: ${lely_core_libraries_LIBRARIES}")
+
+@@ -76,12 +89,18 @@ target_include_directories(lifecycle_base_driver PUBLIC
+   $<INSTALL_INTERFACE:include>)
+
+ target_link_libraries(lifecycle_base_driver
+-  node_canopen_base_driver
+   lely_driver_bridge
+-)
+-ament_target_dependencies(
+-  lifecycle_base_driver
+-  ${dependencies}
++  node_canopen_base_driver
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  lely_core_libraries::lely_core_libraries
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${yaml_cpp_vendor_TARGETS}
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
++  ${diagnostic_update_TARGETS}
+ )
+ # Causes the visibility macros to use dllexport rather than dllimport,
+ # which is appropriate when building the dll but not consuming it.
+@@ -106,9 +125,17 @@ target_link_libraries(base_driver
+   lely_driver_bridge
+ )
+
+-ament_target_dependencies(
+-  base_driver
+-  ${dependencies}
++target_link_libraries(base_driver
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  lely_core_libraries::lely_core_libraries
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${yaml_cpp_vendor_TARGETS}
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
++  ${diagnostic_update_TARGETS}
+ )
+
+ # Causes the visibility macros to use dllexport rather than dllimport,
