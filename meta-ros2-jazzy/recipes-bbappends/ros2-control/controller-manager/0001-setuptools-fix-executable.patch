@@ -1,3 +1,9 @@
+Explicitly set interpreter for entrypoint
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
 diff --git a/setup.cfg b/setup.cfg
 index ef02ee65..66c2850b 100644
 --- a/setup.cfg
