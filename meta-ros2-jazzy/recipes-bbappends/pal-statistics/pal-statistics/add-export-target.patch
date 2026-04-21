@@ -1,0 +1,84 @@
+pal_statistics: Add export target
+
+Export public include directories using ament targets so downstream
+packages do not rely on legacy *_INCLUDE_DIRS variables.
+
+This fixes CMake export file contamination with build or source
+directory paths, which breaks relocatable installs and violates
+some QA packaging policies.
+
+Upstream-Status: Pending
+Assisted-by: M365 Copilot:GPT-5-chat
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2377719..476c02a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,9 +14,28 @@ if(WIN32)
+   endif()
+ endif()
+
+-ament_auto_add_library(${PROJECT_NAME} SHARED
+-        src/pal_statistics_utils.cpp src/pal_statistics.cpp
+-        src/pal_statistics_macros.cpp src/registration_list.cpp)
++add_library(pal_statistics SHARED
++  src/pal_statistics_utils.cpp
++  src/pal_statistics.cpp
++  src/pal_statistics_macros.cpp
++  src/registration_list.cpp
++)
++
++add_library(pal_statistics::pal_statistics ALIAS pal_statistics)
++
++# Export proper, relocatable include directories for consumers
++target_include_directories(${PROJECT_NAME}
++  PUBLIC
++    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++    $<INSTALL_INTERFACE:include>
++)
++
++target_link_libraries(${PROJECT_NAME}
++  ${pal_statistics_msgs_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++)
++
+ if(WIN32)
+   target_link_libraries(${PROJECT_NAME}
+           Boost::boost
+@@ -48,7 +67,34 @@ endif()
+ # Install Python modules
+ ament_python_install_package(${PROJECT_NAME})
+
+-ament_export_dependencies(Boost)
++# Install public headers
++install(
++  DIRECTORY include/
++  DESTINATION include
++)
++
++install(
++  TARGETS pal_statistics
++  EXPORT pal_statisticsTargets
++  ARCHIVE DESTINATION lib
++  LIBRARY DESTINATION lib
++  RUNTIME DESTINATION bin
++)
++
++install(
++  EXPORT pal_statisticsTargets
++  NAMESPACE pal_statistics::
++  DESTINATION lib/cmake/pal_statistics
++)
++
++ament_export_targets(pal_statisticsTargets HAS_LIBRARY_TARGET)
++ament_export_include_directories(include)
++ament_export_dependencies(
++  rclcpp
++  rclcpp_lifecycle
++  pal_statistics_msgs
++  Boost
++)
+
+ if(ament_cmake_auto_VERSION VERSION_LESS "2.6.0")
+   ament_auto_package(USE_SCOPED_HEADER_INSTALL_DIR)
