@@ -1,0 +1,90 @@
+Use CMake Targets
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3ec6e208..bad5ff1d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -42,9 +42,17 @@ target_include_directories(lely_motion_controller_bridge PUBLIC
+   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include>)
+
+-ament_target_dependencies(
++target_link_libraries(
+   lely_motion_controller_bridge
+-  ${dependencies}
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  ${canopen_proxy_driver_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rclcpp_components_TARGETS}
++  ${sensor_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+
+
+@@ -59,10 +67,18 @@ target_include_directories(node_canopen_cia402_driver PUBLIC
+ target_link_libraries(node_canopen_cia402_driver
+   lely_motion_controller_bridge
+ )
+-ament_target_dependencies(
++target_link_libraries(
+   node_canopen_cia402_driver
+-  ${dependencies}
+
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  ${canopen_proxy_driver_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rclcpp_components_TARGETS}
++  ${sensor_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+
+ add_library(lifecycle_cia402_driver
+@@ -78,9 +94,17 @@ target_link_libraries(lifecycle_cia402_driver
+   node_canopen_cia402_driver
+   lely_motion_controller_bridge
+ )
+-ament_target_dependencies(
++target_link_libraries(
+   lifecycle_cia402_driver
+-  ${dependencies}
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  ${canopen_proxy_driver_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rclcpp_components_TARGETS}
++  ${sensor_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+ # Causes the visibility macros to use dllexport rather than dllimport,
+ # which is appropriate when building the dll but not consuming it.
+@@ -105,9 +129,17 @@ target_link_libraries(cia402_driver
+   lely_motion_controller_bridge
+ )
+
+-ament_target_dependencies(
++target_link_libraries(
+   cia402_driver
+-  ${dependencies}
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  ${canopen_proxy_driver_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rclcpp_components_TARGETS}
++  ${sensor_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+
+ # Causes the visibility macros to use dllexport rather than dllimport,
