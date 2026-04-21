@@ -1,13 +1,10 @@
-LICENSE = "LGPL-2.1-only & WxWindows-exception-3.1 & GPL-2.0-or-later"
+LICENSE = "OSGPL-1.0 & GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=1997b5e8aad6beab407654a49b4ac50c \
                     file://src/osgPlugins/3ds/lib3ds/COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
                     file://src/osgPlugins/lwo/COPYING;md5=dcf3c825659e82539645da41a7908589 \
                     file://src/osgPlugins/x/LICENSE;md5=84e0bc9b7ca6053d5e8c673021069d2a"
 
 SRC_URI = "git://github.com/openscenegraph/OpenSceneGraph.git;protocol=https;branch=OpenSceneGraph-3.6"
-
-# WxWindows-exception-3.1 is a valid SPDX identifier but bitbake does not recognize it
-ERROR_QA:remove = "license-exists"
 
 # Modify these as desired
 PV = "3.6.5+git${SRCPV}"
