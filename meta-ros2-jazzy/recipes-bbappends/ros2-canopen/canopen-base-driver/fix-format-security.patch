@@ -1,0 +1,25 @@
+Resolve format-security error
+
+Upstream-Status: Pending
+diff --git a/include/canopen_base_driver/lely_driver_bridge.hpp b/include/canopen_base_driver/lely_driver_bridge.hpp
+index 62b6f140..631e9f74 100644
+--- a/include/canopen_base_driver/lely_driver_bridge.hpp
++++ b/include/canopen_base_driver/lely_driver_bridge.hpp
+@@ -510,7 +510,7 @@ public:
+     }
+     catch (std::exception & e)
+     {
+-      RCLCPP_ERROR(rclcpp::get_logger(name_), e.what());
++      RCLCPP_ERROR(rclcpp::get_logger(name_), "%s", e.what());
+     }
+     return res;
+   }
+@@ -603,7 +603,7 @@ public:
+     }
+     catch (std::exception & e)
+     {
+-      RCLCPP_ERROR(rclcpp::get_logger(name_), e.what());
++      RCLCPP_ERROR(rclcpp::get_logger(name_), "%s", e.what());
+       res = false;
+     }
+     return res;
