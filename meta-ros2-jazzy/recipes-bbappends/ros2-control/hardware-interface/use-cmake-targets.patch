@@ -1,0 +1,34 @@
+Use CMake Targets
+
+The previous use of ${..._LIBRARIES} caused absolute paths in
+INTERFACE_LINK_LIBRARIES, triggering do_package_qa failures (buildpaths).
+
+Remove the explicit pal_statistics include directories.
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: hardware-interface-4.44.0-1/CMakeLists.txt
+===================================================================
+--- hardware-interface-4.44.0-1.orig/CMakeLists.txt
++++ hardware-interface-4.44.0-1/CMakeLists.txt
+@@ -38,7 +38,6 @@ target_compile_features(hardware_interfa
+ target_include_directories(hardware_interface PUBLIC
+   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include/hardware_interface>
+-  ${pal_statistics_INCLUDE_DIRS}
+ )
+ target_link_libraries(hardware_interface PUBLIC
+                       rclcpp::rclcpp
+@@ -49,9 +48,8 @@ target_link_libraries(hardware_interface
+                       rcutils::rcutils
+                       rcpputils::rcpputils
+                       ${joint_limits_TARGETS}
+-                      ${TinyXML2_LIBRARIES}
+-                      ${tinyxml2_vendor_LIBRARIES}
+-                      ${pal_statistics_LIBRARIES}
++                      tinyxml2::tinyxml2
++                      pal_statistics::pal_statistics
+                       ${control_msgs_TARGETS}
+                       ${lifecycle_msgs_TARGETS}
+                       fmt::fmt)
