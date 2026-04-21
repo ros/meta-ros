@@ -1,0 +1,54 @@
+Resolve format-security error
+
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+   56 |       rcutils_log_internal(&__rcutils_logging_location, severity, name, __VA_ARGS__); \                                                                                                                                                   |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \                                                                                                                                                                      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:753:35: note: in expansion of macro 'RCLCPP_LOG'
+  753 | #define RCLCPP_ERROR(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_ERROR, logger, __VA_ARGS__)                                                                                                                                             |                                   ^~~~~~~~~~
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+   56 |       rcutils_log_internal(&__rcutils_logging_location, severity, name, __VA_ARGS__); \                                                                                                                                                   |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \
+      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:753:35: note: in expansion of macro 'RCLCPP_LOG'
+  753 | #define RCLCPP_ERROR(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_ERROR, logger, __VA_ARGS__)
+      |                                   ^~~~~~~~~~
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+   56 |       rcutils_log_internal(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \
+      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:753:35: note: in expansion of macro 'RCLCPP_LOG'
+  753 | #define RCLCPP_ERROR(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_ERROR, logger, __VA_ARGS__)
+      |                                   ^~~~~~~~~~
+canopen-proxy-driver-0.2.13-1/include/canopen_proxy_driver/node_interfaces/node_canopen_proxy_driver_impl.hpp:326:7: note: in expansion of macro 'RCLCPP_ERROR'
+  326 |       RCLCPP_ERROR(this->node_->get_logger(), e.what());
+      |       ^~~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+diff --git a/include/canopen_proxy_driver/node_interfaces/node_canopen_proxy_driver_impl.hpp b/include/canopen_proxy_driver/node_interfaces/node_canopen_proxy_driver_impl.hpp
+index dde04899..5609605e 100644
+--- a/include/canopen_proxy_driver/node_interfaces/node_canopen_proxy_driver_impl.hpp
++++ b/include/canopen_proxy_driver/node_interfaces/node_canopen_proxy_driver_impl.hpp
+@@ -281,7 +281,7 @@ bool NodeCanopenProxyDriver<NODETYPE>::sdo_read(ros2_canopen::COData & data)
+     }
+     catch (std::exception & e)
+     {
+-      RCLCPP_ERROR(this->node_->get_logger(), e.what());
++      RCLCPP_ERROR(this->node_->get_logger(), "%s", e.what());
+       return false;
+     }
+     return true;
+@@ -323,7 +323,7 @@ bool NodeCanopenProxyDriver<NODETYPE>::sdo_write(ros2_canopen::COData & data)
+     }
+     catch (std::exception & e)
+     {
+-      RCLCPP_ERROR(this->node_->get_logger(), e.what());
++      RCLCPP_ERROR(this->node_->get_logger(), "%s", e.what());
+       return false;
+     }
+     return true;
