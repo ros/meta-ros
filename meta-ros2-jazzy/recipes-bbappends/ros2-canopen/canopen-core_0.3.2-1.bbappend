@@ -3,4 +3,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://remove-rclcpp-include-dir.patch \
             file://fix-boost-target.patch \
-            file://fix-format-security.patch"
+            file://fix-format-security.patch \
+            file://use-cmake-targets.patch"
