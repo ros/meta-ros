@@ -1,0 +1,73 @@
+Use upstream tl-expected
+
+The cpp_polyfills fork of tl-expected uses tl_expected as the CMake
+project name. That is being deprecated in favour of upstream.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 92ef5423..04eec40f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,7 +7,7 @@ find_package(fmt REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(rsl REQUIRED)
+ find_package(tcb_span REQUIRED)
+-find_package(tl_expected REQUIRED)
++find_package(tl-expected REQUIRED)
+ 
+ add_library(parameter_traits INTERFACE)
+ target_include_directories(parameter_traits INTERFACE
+@@ -20,7 +20,7 @@ target_link_libraries(parameter_traits
+     rclcpp::rclcpp
+     rsl::rsl
+     tcb_span::tcb_span
+-    tl_expected::tl_expected
++    tl::expected
+ )
+ 
+ install(
+@@ -37,5 +37,5 @@ install(
+ )
+ 
+ ament_export_targets(export_parameter_traits HAS_LIBRARY_TARGET)
+-ament_export_dependencies(fmt rclcpp rsl tcb_span tl_expected)
++ament_export_dependencies(fmt rclcpp rsl tcb_span tl-expected)
+ ament_package()
+diff --git a/include/parameter_traits/parameter_traits.hpp b/include/parameter_traits/parameter_traits.hpp
+index a62153dc..f75255cc 100644
+--- a/include/parameter_traits/parameter_traits.hpp
++++ b/include/parameter_traits/parameter_traits.hpp
+@@ -34,18 +34,18 @@
+ #include <vector>
+ 
+ #include <rsl/algorithm.hpp>
+-#include <tl_expected/expected.hpp>
++#include <tl/expected.hpp>
+ 
+ #ifndef SILENCE_DEPRECATION_WARNINGS
+ #ifdef _MSC_VER
+ #pragma message( \
+     "This header is obsolete, \
+   please include \"rsl/algorithm.hpp\" for rsl::contains and rsl::is_unique, \
+-  and \"tl_expected/expected.hpp\" for tl::expected.")
++  and \"tl/expected.hpp\" for tl::expected.")
+ #else
+ #warning This header is obsolete, \
+   please include "rsl/algorithm.hpp" for rsl::contains and rsl::is_unique, \
+-  and "tl_expected/expected.hpp" for tl::expected.
++  and "tl/expected.hpp" for tl::expected.
+ #endif
+ #endif
+ 
+@@ -53,7 +53,7 @@ namespace parameter_traits {
+ 
+ using Result
+     [[deprecated("Use tl::expected<void, std::string> for return instead. "
+-                 "`#include <tl_expected/expected.hpp>`.")]] =
++                 "`#include <tl/expected.hpp>`.")]] =
+         tl::expected<void, std::string>;
+ 
+ template <typename... Args>
