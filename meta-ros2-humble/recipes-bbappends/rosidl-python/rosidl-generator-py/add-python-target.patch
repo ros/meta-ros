@@ -1,0 +1,36 @@
+{humble} rosidl-generator-py: Explicitly set Python target
+
+Python 3.12+ started to be strict about separate of the embeddeing
+vs extension APIs. This means that the Python3::Python target
+must be explicitly added in order to ensure that necessary
+symbols be found at link time.
+
+This problem doesn't appear directly in rosidl-generator-py builds
+but when building packages like builtin-interfaces that use
+the tool themselves.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: rosidl-generator-py-0.14.6-1/cmake/rosidl_generator_py_generate_interfaces.cmake
+===================================================================
+--- rosidl-generator-py-0.14.6-1.orig/cmake/rosidl_generator_py_generate_interfaces.cmake
++++ rosidl-generator-py-0.14.6-1/cmake/rosidl_generator_py_generate_interfaces.cmake
+@@ -191,7 +191,7 @@ target_include_directories(${_target_nam
+   ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_py
+ )
+ 
+-target_link_libraries(${_target_name_lib} PRIVATE Python3::NumPy Python3::Module)
++target_link_libraries(${_target_name_lib} PRIVATE Python3::NumPy Python3::Module Python3::Python)
+ 
+ rosidl_get_typesupport_target(c_typesupport_target "${rosidl_generate_interfaces_TARGET}" "rosidl_typesupport_c")
+ target_link_libraries(${_target_name_lib} PRIVATE ${c_typesupport_target})
+@@ -233,6 +233,7 @@ foreach(_typesupport_impl ${_typesupport
+     ${_target_name_lib}
+     ${rosidl_generate_interfaces_TARGET}__${_typesupport_impl}
+     Python3::Module
++    Python3::Python
+   )
+ 
+   target_include_directories(${_target_name}
