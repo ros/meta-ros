@@ -7,6 +7,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 "
 
 inherit python3native
+inherit pkgconfig
 
 EXTRA_OECMAKE += " \
     -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc \
