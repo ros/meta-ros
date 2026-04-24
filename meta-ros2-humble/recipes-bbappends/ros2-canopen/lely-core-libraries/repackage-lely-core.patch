@@ -1,3 +1,7 @@
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Amelia Grace <agrace@bastiansolutions.com>
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
