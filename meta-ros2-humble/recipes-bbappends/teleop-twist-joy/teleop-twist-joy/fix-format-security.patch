@@ -1,0 +1,62 @@
+Resolve format-security error
+
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:79:18: error: format not a string literal and no format arguments [-Werror=format-security]
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:754:3: note: in expansion of macro 'RCUTILS_LOG_COND_NAMED'
+  754 |   RCUTILS_LOG_COND_NAMED( \                                                                                                                                                                                    |   ^~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:941:5: note: in expansion of macro 'RCUTILS_LOG_WARN_NAMED'
+  941 |     RCUTILS_LOG_WARN_NAMED( \                                                                                                                                                                                  |     ^~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:79:18: error: format not a string literal and no format arguments [-Werror=format-security]
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:754:3: note: in expansion of macro 'RCUTILS_LOG_COND_NAMED'
+  754 |   RCUTILS_LOG_COND_NAMED( \                                                                                                                                                                                    |   ^~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:941:5: note: in expansion of macro 'RCUTILS_LOG_WARN_NAMED'
+  941 |     RCUTILS_LOG_WARN_NAMED( \                                                                                                                                                                                  |     ^~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:79:18: error: format not a string literal and no format arguments [-Werror=format-security]
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rcutils/rcutils/logging_macros.h:754:3: note: in expansion of macro 'RCUTILS_LOG_COND_NAMED'
+  754 |   RCUTILS_LOG_COND_NAMED( \                                                                                                                                                                                    |   ^~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:941:5: note: in expansion of macro 'RCUTILS_LOG_WARN_NAMED'
+  941 |     RCUTILS_LOG_WARN_NAMED( \                                                                                                                                                                                  |     ^~~~~~~~~~~~~~~~~~~~~~
+teleop-twist-joy-2.4.8-1/src/teleop_twist_joy.cpp:229:11: note: in expansion of macro 'RCLCPP_WARN'
+  229 |           RCLCPP_WARN(this->get_logger(), result.reason.c_str());
+      |           ^~~~~~~~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/src/teleop_twist_joy.cpp
+===================================================================
+--- git.orig/src/teleop_twist_joy.cpp
++++ git/src/teleop_twist_joy.cpp
+@@ -206,7 +206,7 @@ TeleopTwistJoy::TeleopTwistJoy(const rcl
+         if (parameter.get_type() != rclcpp::ParameterType::PARAMETER_INTEGER)
+         {
+           result.reason = "Only integer values can be set for '" + parameter.get_name() + "'.";
+-          RCLCPP_WARN(this->get_logger(), result.reason.c_str());
++          RCLCPP_WARN(this->get_logger(), "%s", result.reason.c_str());
+           result.successful = false;
+           return result;
+         }
+@@ -216,7 +216,7 @@ TeleopTwistJoy::TeleopTwistJoy(const rcl
+         if (parameter.get_type() != rclcpp::ParameterType::PARAMETER_DOUBLE)
+         {
+           result.reason = "Only double values can be set for '" + parameter.get_name() + "'.";
+-          RCLCPP_WARN(this->get_logger(), result.reason.c_str());
++          RCLCPP_WARN(this->get_logger(), "%s", result.reason.c_str());
+           result.successful = false;
+           return result;
+         }
+@@ -226,7 +226,7 @@ TeleopTwistJoy::TeleopTwistJoy(const rcl
+         if (parameter.get_type() != rclcpp::ParameterType::PARAMETER_BOOL)
+         {
+           result.reason = "Only boolean values can be set for '" + parameter.get_name() + "'.";
+-          RCLCPP_WARN(this->get_logger(), result.reason.c_str());
++          RCLCPP_WARN(this->get_logger(), "%s", result.reason.c_str());
+           result.successful = false;
+           return result;
+         }
