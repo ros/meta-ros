@@ -1,0 +1,8 @@
+header:
+  version: 14
+
+repos:
+  qt6:
+    url: "https://code.qt.io/yocto/meta-qt6.git"
+    path: "layers/meta-qt6"
+    branch: "6.10.3"
