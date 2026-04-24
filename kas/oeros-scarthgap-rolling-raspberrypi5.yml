@@ -5,3 +5,4 @@ header:
     - kas/ros2/rolling.yml
     - kas/machine/raspberrypi5.yml
     - kas/common.yml
+    - kas/layer/qt6.yml

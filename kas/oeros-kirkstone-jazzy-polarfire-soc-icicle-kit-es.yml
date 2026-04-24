@@ -6,6 +6,7 @@ header:
     - kas/machine/polarfire-soc-icicle-kit-es.yml
     - kas/common.yml
     - kas/systemd.yml
+    - kas/layer/qt5.yml
 
 repos:
   polarfire:

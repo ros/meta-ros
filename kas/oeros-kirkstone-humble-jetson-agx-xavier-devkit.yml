@@ -5,6 +5,7 @@ header:
     - kas/ros2/humble.yml
     - kas/machine/jetson-agx-xavier-devkit.yml
     - kas/common.yml
+    - kas/layer/qt5.yml
 
 repos:
   python-ai:
