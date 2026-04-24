@@ -26,3 +26,6 @@ ROS_EXEC_DEPENDS += " \
     rosidl-typesupport-introspection-c \
     rosidl-typesupport-introspection-cpp \
 "
+
+# QA Issue: ... packages/canopen_interfaces/canopen_interfaces_s__rosidl_typesupport_introspection_c.cpython-314-x86_64-linux-gnu.so contained in package canopen-interfaces requires libpython3.14.so.1.0()(64bit), but no providers found in RDEPENDS:canopen-interfaces? [file-rdeps]
+RDEPENDS:${PN} += "libpython3"
