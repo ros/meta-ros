@@ -20,32 +20,42 @@ index 33eb0df3..4945bacf 100644
  )
  
  
-@@ -58,8 +57,8 @@ ament_target_dependencies(node_canopen_driver
+@@ -58,8 +57,8 @@ ament_target_dependencies(node_canopen_d
    lely_core_libraries
    yaml_cpp_vendor
    canopen_interfaces
 -  Boost
  )
-+target_link_libraries(node_canopen_driver Boost::system Boost::thread)
++target_link_libraries(node_canopen_driver Boost::thread)
  
  add_library(node_canopen_master
    SHARED
-@@ -79,8 +78,8 @@ ament_target_dependencies(node_canopen_master
+@@ -79,8 +78,8 @@ ament_target_dependencies(node_canopen_m
    lely_core_libraries
    yaml_cpp_vendor
    canopen_interfaces
 -  Boost
  )
-+target_link_libraries(node_canopen_master Boost::system Boost::thread)
++target_link_libraries(node_canopen_master Boost::thread)
  
  
  add_library(device_container
-@@ -121,6 +120,8 @@ target_link_libraries(device_container_node
+@@ -121,6 +120,8 @@ target_link_libraries(device_container_n
  ament_target_dependencies(device_container_node
    ${dependencies}
  )
-+target_link_libraries(device_container_node Boost::system Boost::thread)
++target_link_libraries(device_container_node Boost::thread)
 +
  target_include_directories(device_container_node PUBLIC
    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
    "$<INSTALL_INTERFACE:include>"
+diff --git git/ConfigExtras.cmake
+===================================================================
+--- a/ConfigExtras.cmake
++++ b/ConfigExtras.cmake
+@@ -12,4 +12,4 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+-find_package(Boost REQUIRED system thread)
++find_package(Boost REQUIRED thread)
