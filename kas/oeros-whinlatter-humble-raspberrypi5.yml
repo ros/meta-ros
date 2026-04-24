@@ -14,3 +14,4 @@ repos:
     branch: "master"
   zenoh:
     branch: "master"
+    commit: 1a3815e26f3c54f577651ca504e1bc49e731bf18
