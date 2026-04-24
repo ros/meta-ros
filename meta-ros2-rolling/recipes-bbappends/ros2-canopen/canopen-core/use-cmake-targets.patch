@@ -8,7 +8,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 33eb0df3..230f1979 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -51,14 +51,14 @@ target_include_directories(node_canopen_driver PUBLIC
+@@ -51,13 +51,13 @@ target_include_directories(node_canopen_
    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
    $<INSTALL_INTERFACE:include>
  )
@@ -28,8 +28,7 @@ index 33eb0df3..230f1979 100644
  target_link_libraries(node_canopen_driver Boost::thread)
  
  add_library(node_canopen_master
-   SHARED
-@@ -72,14 +72,14 @@ target_include_directories(node_canopen_master PUBLIC
+@@ -72,12 +71,12 @@ target_include_directories(node_canopen_
    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
    $<INSTALL_INTERFACE:include>
  )
@@ -48,9 +47,7 @@ index 33eb0df3..230f1979 100644
  )
  target_link_libraries(node_canopen_master Boost::thread)
  
- 
- add_library(device_container
-@@ -95,13 +95,13 @@ target_include_directories(device_container PUBLIC
+@@ -95,13 +94,13 @@ target_include_directories(device_contai
    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
    $<INSTALL_INTERFACE:include>
  )
@@ -71,7 +68,7 @@ index 33eb0df3..230f1979 100644
  )
  target_link_libraries(device_container
    node_canopen_master
-@@ -117,8 +117,14 @@ target_link_libraries(device_container_node
+@@ -117,8 +116,14 @@ target_link_libraries(device_container_n
    node_canopen_master
    node_canopen_driver
  )
