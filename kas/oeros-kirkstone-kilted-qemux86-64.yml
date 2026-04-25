@@ -1,0 +1,13 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/kirkstone.yml
+    - kas/ros2/kilted.yml
+    - kas/machine/qemux86-64.yml
+    - kas/common.yml
+    - kas/layer/qt5.yml
+
+repos:
+  zenoh:
+    layers:
+      meta-zenoh: "disabled"
