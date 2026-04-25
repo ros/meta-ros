@@ -8,8 +8,6 @@ header:
     - kas/layer/qt6.yml
 
 repos:
-  qt5:
-    branch: "master"
   raspberrypi:
     branch: "master"
   zenoh:
