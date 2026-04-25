@@ -9,6 +9,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa \
 SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim8 \
            file://do-not-install-vendored-backward-files-v2.patch"
 
+S = "${WORKDIR}/git"
+
 SRCREV = "1be3cc376fec778cc725b4eeea463245affa56d3"
 
 inherit cmake
