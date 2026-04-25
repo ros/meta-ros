@@ -11,7 +11,7 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -14,14 +14,26 @@ install(
+@@ -15,14 +15,26 @@ install(
  
  ament_python_install_package(cogen SKIP_COMPILE SCRIPTS_DESTINATION lib/cogen)
  
