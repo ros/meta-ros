@@ -5,7 +5,8 @@ SRC_URI = "git://github.com/TartanLlama/expected.git;protocol=https;branch=maste
 
 S = "${WORKDIR}/git"
 
-SRCREV = "v1.3.1"
+# Tag: v1.3.1
+SRCREV = "1770e3559f2f6ea4a5fb4f577ad22aeb30fbd8e4"
 
 inherit cmake
 
