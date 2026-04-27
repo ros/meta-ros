@@ -1,0 +1,54 @@
+Fix Format Security errors
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: compressed-depth-image-transport-2.5.4-1/src/codec.cpp
+===================================================================
+--- compressed-depth-image-transport-2.5.4-1.orig/src/codec.cpp
++++ compressed-depth-image-transport-2.5.4-1/src/codec.cpp
+@@ -99,7 +99,7 @@ sensor_msgs::msg::Image::SharedPtr decod
+       }
+       catch (cv::Exception& e)
+       {
+-        RCLCPP_ERROR(logger, e.what());
++        RCLCPP_ERROR(logger, "%s", e.what());
+         return sensor_msgs::msg::Image::SharedPtr();
+       }
+ 
+@@ -142,7 +142,7 @@ sensor_msgs::msg::Image::SharedPtr decod
+       }
+       catch (cv::Exception& e)
+       {
+-        RCLCPP_ERROR(logger, e.what());
++        RCLCPP_ERROR(logger, "%s", e.what());
+         return sensor_msgs::msg::Image::SharedPtr();
+       }
+ 
+@@ -207,7 +207,7 @@ sensor_msgs::msg::CompressedImage::Share
+     }
+     catch (cv_bridge::Exception& e)
+     {
+-      RCLCPP_ERROR(logger, e.what());
++      RCLCPP_ERROR(logger, "%s", e.what());
+       return sensor_msgs::msg::CompressedImage::SharedPtr();
+     }
+ 
+@@ -266,7 +266,7 @@ sensor_msgs::msg::CompressedImage::Share
+       }
+       catch (cv::Exception& e)
+       {
+-        RCLCPP_ERROR(logger, e.msg.c_str());
++        RCLCPP_ERROR(logger, "%s", e.msg.c_str());
+         return sensor_msgs::msg::CompressedImage::SharedPtr();
+       }
+     }
+@@ -282,7 +282,7 @@ sensor_msgs::msg::CompressedImage::Share
+     }
+     catch (Exception& e)
+     {
+-      RCLCPP_ERROR(logger, e.msg.c_str());
++      RCLCPP_ERROR(logger, "%s", e.msg.c_str());
+       return sensor_msgs::msg::CompressedImage::SharedPtr();
+     }
+ 
