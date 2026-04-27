@@ -5,7 +5,8 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 SRC_URI = "git://gitlab.com/lely_industries/lely-core.git;protocol=https;branch=v2.3 \
-    file://0001-fix-GCC-15-errors.patch"
+    file://0001-fix-GCC-15-errors.patch \
+    file://0001-Fix-dcf-tools.patch"
 
 SRCREV = "9e3267d26018f6f6babd50786f6ae2af89cc57ea"
 
@@ -15,7 +16,7 @@ inherit pkgconfig autotools setuptools3-base
 
 DEPENDS += "python3-setuptools-native python3-wheel-native"
 
-EXTRA_OECONF += " --disable-cython --disable-tests --disable-python2"
+EXTRA_OECONF += " --disable-cython --disable-tests"
 
 # include/lely/coapp/device.hpp:1003:3: error: 'virtual void lely::canopen::Device::OnWrite(uint16_t, uint8_t)' was hidden [-Werror=overloaded-virtual=]
 CXXFLAGS += "-Wno-error=overloaded-virtual"
@@ -161,30 +162,30 @@ FILES:liblely-util-dev = " \
 "
 
 FILES:python3-dcf-tools = " \
-    ${libdir}/python3*/dist-packages/dcf/*.py \
-    ${libdir}/python3*/dist-packages/dcfgen/data/ \
-    ${libdir}/python3*/dist-packages/dcfgen/*.py \
-    ${libdir}/python3*/dist-packages/dcf_tools-*.egg-info/ \
+    ${libdir}/python3*/site-packages/dcf/*.py \
+    ${libdir}/python3*/site-packages/dcfgen/data/ \
+    ${libdir}/python3*/site-packages/dcfgen/*.py \
+    ${libdir}/python3*/site-packages/dcf_tools-*.egg-info/ \
     ${bindir}/dcfchk \
     ${bindir}/dcfgen \
 "
 
 FILES:python3-lely-can-dev = " \
-    ${libdir}/python3*/dist-packages/lely_can/*.pxd \
+    ${libdir}/python3*/site-packages/lely_can/*.pxd \
 "
 
 FILES:python3-lely-can = " \
-    ${libdir}/python3*/dist-packages/lely_can/*.py \
-    ${libdir}/python3*/dist-packages/lely_can/*.so \
+    ${libdir}/python3*/site-packages/lely_can/*.py \
+    ${libdir}/python3*/site-packages/lely_can/*.so \
 "
 
 FILES:python3-lely-io-dev = " \
-    ${libdir}/python3*/dist-packages/lely_io/*.pxd \
+    ${libdir}/python3*/site-packages/lely_io/*.pxd \
 "
 
 FILES:python3-lely-io = " \
-    ${libdir}/python3*/dist-packages/lely_io/*.py \
-    ${libdir}/python3*/dist-packages/lely_io/*.so \
+    ${libdir}/python3*/site-packages/lely_io/*.py \
+    ${libdir}/python3*/site-packages/lely_io/*.so \
 "
 
 # QA Issue: lely-core: .../dcf2dev maximum shebang size exceeded, the maximum size is 128.
@@ -195,6 +196,12 @@ do_install:append() {
     sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/dcf2dev
     sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/dcfchk
     sed -i -e '1s|^#!.*|#!/usr/bin/env python3|' ${D}${bindir}/dcfgen
+
+    for FILE in ${D}${PYTHON_SITEPACKAGES_DIR}/dcf/*.py \
+                ${D}${PYTHON_SITEPACKAGES_DIR}/dcf2dev/*.py \
+                ${D}${PYTHON_SITEPACKAGES_DIR}/dcfgen/*.py; do \
+        nativepython3 -mcompileall -s ${D} $FILE; \
+    done
 }
 
 BBCLASSEXTEND = "native nativesdk"
