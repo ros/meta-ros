@@ -1,0 +1,31 @@
+Use upstream tl-expected
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -18,7 +18,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+     rclcpp_lifecycle
+     realtime_tools
+     rsl
+-    tl_expected
++    tl-expected
+     trajectory_msgs
+ )
+ 
+Index: git/include/joint_trajectory_controller/validate_jtc_parameters.hpp
+===================================================================
+--- git.orig/include/joint_trajectory_controller/validate_jtc_parameters.hpp
++++ git/include/joint_trajectory_controller/validate_jtc_parameters.hpp
+@@ -21,7 +21,7 @@
+ #include "parameter_traits/parameter_traits.hpp"
+ #include "rclcpp/parameter.hpp"
+ #include "rsl/algorithm.hpp"
+-#include "tl_expected/expected.hpp"
++#include "tl/expected.hpp"
+ 
+ namespace joint_trajectory_controller
+ {
