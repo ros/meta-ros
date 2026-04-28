@@ -1,0 +1,196 @@
+From: Chris Kohn <chris.kohn@amd.com>
+Subject: [PATCH] Add missing torque actual value object 0x6077 to cia402 EDS files
+
+The Cia402Driver unconditionally reads object 0x6077 via get_effort(),
+but 5 of the 6 cia402_slave.eds variants were missing this object.
+This caused a NULL pointer dereference in universal_get_value when
+the SDO read failed and the fallback dictionary lookup found no entry.
+
+Add [6077] (Torque Actual Value, INT16, ro) to the EDS files for
+cia402, cia402_diagnostics, cia402_lifecycle, cia402_namespaced_system,
+and cia402_system, matching the definition already present in
+robot_control/cia402_slave.eds.
+
+AI-Generated: Claude claude-opus-4-6
+Signed-off-by: Chris Kohn <chris.kohn@amd.com>
+
+diff --git a/config/cia402/cia402_slave.eds b/config/cia402/cia402_slave.eds
+index 24be3815..66c3a70f 100644
+--- a/config/cia402/cia402_slave.eds
++++ b/config/cia402/cia402_slave.eds
+@@ -41,7 +41,7 @@ SupportedObjects=3
+ SupportedObjects=0
+ 
+ [OptionalObjects]
+-SupportedObjects=67
++SupportedObjects=68
+ 1=0x1005
+ 2=0x1008
+ 3=0x1009
+@@ -109,6 +109,7 @@ SupportedObjects=67
+ 65=0x60FF
+ 66=0x6502
+ 67=0x67FF
++68=0x6077
+ 
+ [1000]
+ ParameterName=Device Type
+@@ -1205,6 +1206,14 @@ DataType=0x0004
+ AccessType=ro
+ PDOMapping=1
+ 
++[6077]
++ParameterName=Torque Actual Value 1
++ObjectType=0x07
++DataType=0x0003
++AccessType=ro
++DefaultValue=0x0
++PDOMapping=1
++
+ [607A]
+ ParameterName=Target Position 1
+ ObjectType=0x07
+diff --git a/config/cia402_diagnostics/cia402_slave.eds b/config/cia402_diagnostics/cia402_slave.eds
+index 24be3815..66c3a70f 100644
+--- a/config/cia402_diagnostics/cia402_slave.eds
++++ b/config/cia402_diagnostics/cia402_slave.eds
+@@ -41,7 +41,7 @@ SupportedObjects=3
+ SupportedObjects=0
+ 
+ [OptionalObjects]
+-SupportedObjects=67
++SupportedObjects=68
+ 1=0x1005
+ 2=0x1008
+ 3=0x1009
+@@ -109,6 +109,7 @@ SupportedObjects=67
+ 65=0x60FF
+ 66=0x6502
+ 67=0x67FF
++68=0x6077
+ 
+ [1000]
+ ParameterName=Device Type
+@@ -1205,6 +1206,14 @@ DataType=0x0004
+ AccessType=ro
+ PDOMapping=1
+ 
++[6077]
++ParameterName=Torque Actual Value 1
++ObjectType=0x07
++DataType=0x0003
++AccessType=ro
++DefaultValue=0x0
++PDOMapping=1
++
+ [607A]
+ ParameterName=Target Position 1
+ ObjectType=0x07
+diff --git a/config/cia402_lifecycle/cia402_slave.eds b/config/cia402_lifecycle/cia402_slave.eds
+index d30fa434..322cc5cd 100644
+--- a/config/cia402_lifecycle/cia402_slave.eds
++++ b/config/cia402_lifecycle/cia402_slave.eds
+@@ -41,7 +41,7 @@ SupportedObjects=3
+ SupportedObjects=0
+ 
+ [OptionalObjects]
+-SupportedObjects=67
++SupportedObjects=68
+ 1=0x1005
+ 2=0x1008
+ 3=0x1009
+@@ -109,6 +109,7 @@ SupportedObjects=67
+ 65=0x60FF
+ 66=0x6502
+ 67=0x67FF
++68=0x6077
+ 
+ [1000]
+ ParameterName=Device Type
+@@ -1206,6 +1207,14 @@ DataType=0x0004
+ AccessType=ro
+ PDOMapping=1
+ 
++[6077]
++ParameterName=Torque Actual Value 1
++ObjectType=0x07
++DataType=0x0003
++AccessType=ro
++DefaultValue=0x0
++PDOMapping=1
++
+ [607A]
+ ParameterName=Target Position 1
+ ObjectType=0x07
+diff --git a/config/cia402_namespaced_system/cia402_slave.eds b/config/cia402_namespaced_system/cia402_slave.eds
+index 24be3815..66c3a70f 100644
+--- a/config/cia402_namespaced_system/cia402_slave.eds
++++ b/config/cia402_namespaced_system/cia402_slave.eds
+@@ -41,7 +41,7 @@ SupportedObjects=3
+ SupportedObjects=0
+ 
+ [OptionalObjects]
+-SupportedObjects=67
++SupportedObjects=68
+ 1=0x1005
+ 2=0x1008
+ 3=0x1009
+@@ -109,6 +109,7 @@ SupportedObjects=67
+ 65=0x60FF
+ 66=0x6502
+ 67=0x67FF
++68=0x6077
+ 
+ [1000]
+ ParameterName=Device Type
+@@ -1205,6 +1206,14 @@ DataType=0x0004
+ AccessType=ro
+ PDOMapping=1
+ 
++[6077]
++ParameterName=Torque Actual Value 1
++ObjectType=0x07
++DataType=0x0003
++AccessType=ro
++DefaultValue=0x0
++PDOMapping=1
++
+ [607A]
+ ParameterName=Target Position 1
+ ObjectType=0x07
+diff --git a/config/cia402_system/cia402_slave.eds b/config/cia402_system/cia402_slave.eds
+index 24be3815..66c3a70f 100644
+--- a/config/cia402_system/cia402_slave.eds
++++ b/config/cia402_system/cia402_slave.eds
+@@ -41,7 +41,7 @@ SupportedObjects=3
+ SupportedObjects=0
+ 
+ [OptionalObjects]
+-SupportedObjects=67
++SupportedObjects=68
+ 1=0x1005
+ 2=0x1008
+ 3=0x1009
+@@ -109,6 +109,7 @@ SupportedObjects=67
+ 65=0x60FF
+ 66=0x6502
+ 67=0x67FF
++68=0x6077
+ 
+ [1000]
+ ParameterName=Device Type
+@@ -1205,6 +1206,14 @@ DataType=0x0004
+ AccessType=ro
+ PDOMapping=1
+ 
++[6077]
++ParameterName=Torque Actual Value 1
++ObjectType=0x07
++DataType=0x0003
++AccessType=ro
++DefaultValue=0x0
++PDOMapping=1
++
+ [607A]
+ ParameterName=Target Position 1
+ ObjectType=0x07
