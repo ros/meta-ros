@@ -11,15 +11,31 @@ SRC_URI = "git://github.com/mariusmuja/flann;${ROS_BRANCH};protocol=https"
 
 inherit cmake pkgconfig
 
-DEPENDS = "hdf5 lz4 openmp"
+DEPENDS = " \
+    hdf5 \
+    lz4 \
+"
+
+PACKAGECONFIG ??= " \
+    openmp \
+    tests \
+"
+
+# Default OpenMP provider
+PACKAGECONFIG[openmp] = "-DUSE_OPENMP=ON,-DUSE_OPENMP=OFF,openmp,"
+
+# Alternative OpenMP provider for distros that use GCC libgomp instead of the
+# openmp recipe
+PACKAGECONFIG[gomp] = "-DUSE_OPENMP=ON,-DUSE_OPENMP=OFF,gcc-runtime,libgomp"
+
+# Build the upstream test binaries
+PACKAGECONFIG[tests] = "-DBUILD_TESTS=ON,-DBUILD_TESTS=OFF,,"
 
 # Prevent it finding python
 EXTRA_OECMAKE = "\
     -DBUILD_MATLAB_BINDINGS=OFF \
     -DBUILD_PYTHON_BINDINGS=OFF \
     -DUSE_MPI=ON \
-    -DUSE_OPENMP=ON \
-    -DBUILD_TESTS=ON \
     -DBUILD_CUDA_LIB=OFF \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 "
