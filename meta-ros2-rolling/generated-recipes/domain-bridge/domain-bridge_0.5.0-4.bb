@@ -18,13 +18,13 @@ ROS_CN = "domain_bridge"
 ROS_BPN = "domain_bridge"
 
 ROS_BUILD_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-zstd-vendor} \
     rclcpp \
     rclcpp-components \
     rcutils \
     rosbag2-cpp \
     rosidl-typesupport-cpp \
     yaml-cpp \
-    zstd-vendor \
 "
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -33,18 +33,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 ROS_EXPORT_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-zstd-vendor} \
     rclcpp \
     rclcpp-components \
     rcutils \
     rosbag2-cpp \
     rosidl-typesupport-cpp \
     yaml-cpp \
-    zstd-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    ${ROS_UNRESOLVED_DEP-zstd-vendor} \
     rclcpp \
     rclcpp-components \
     rcutils \
@@ -52,7 +53,6 @@ ROS_EXEC_DEPENDS = " \
     rosidl-default-runtime \
     rosidl-typesupport-cpp \
     yaml-cpp \
-    zstd-vendor \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
