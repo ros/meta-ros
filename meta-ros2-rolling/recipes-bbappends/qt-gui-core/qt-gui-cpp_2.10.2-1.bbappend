@@ -3,6 +3,9 @@
 
 LICENSE = "BSD-3-Clause"
 
+# tag: release/lyrical/qt_gui_cpp/2.10.7-3
+SRCREV = "e5cde356eaf3783c8e3ed44923623792adef552d"
+
 # inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', 'qt6-qmake', '', d)}
 
 inherit python3targetconfig
