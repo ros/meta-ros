@@ -983,9 +983,6 @@ RDEPENDS:${PN}:remove = "as2-platform-dji-osdk"
 # novatel-oem7-driver needs libCommon.a from an SDK
 RDEPENDS:${PN}:remove = "novatel-oem7-driver"
 
-# usb-cam needs updating to the latest ffmpeg APIs
-RDEPENDS:${PN}:remove = "usb-cam"
-
 # spinnaker-camera-driver requires the spinnaker SDK
 RDEPENDS:${PN}:remove = "spinnaker-camera-driver"
 
