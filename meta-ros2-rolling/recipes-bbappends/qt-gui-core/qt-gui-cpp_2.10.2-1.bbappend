@@ -1,9 +1,6 @@
 # Copyright (c) 2020 LG Electronics, Inc.
 # Copyright (c) 2023-2024 Wind River Systems, Inc.
 
-include qt6-support.inc
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/qt_gui_cpp"
-
 LICENSE = "BSD-3-Clause"
 
 # inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', 'qt6-qmake', '', d)}
