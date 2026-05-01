@@ -1,0 +1,37 @@
+From 41805f7eb50f31e16839bb302df1bb5c6f30cb50 Mon Sep 17 00:00:00 2001
+From: Mitchell Pleune <mitchpleune@gmail.com>
+Date: Fri, 23 Aug 2024 09:58:56 -0400
+Subject: [PATCH 1/1] Remove deprecared avcodec_close()
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+From [docs](https://ffmpeg.org/doxygen/trunk/deprecated.html) see that
+this function call is not needed:
+
+"Do not use this function. Use avcodec_free_context() to destroy a codec
+context (either open or closed). Opening and closing a codec context
+multiple times is not supported anymore – use multiple codec contexts instead."
+
+avcodec_free_context is already called.
+
+Upstream-Status: Backport [https://github.com/ros-drivers/usb_cam/commit/41805f7eb50f31e16839bb302df1bb5c6f30cb50]
+---
+ include/usb_cam/formats/mjpeg.hpp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/include/usb_cam/formats/mjpeg.hpp b/include/usb_cam/formats/mjpeg.hpp
+index 2b40bb2..b8d87f7 100644
+--- a/include/usb_cam/formats/mjpeg.hpp
++++ b/include/usb_cam/formats/mjpeg.hpp
+@@ -164,7 +164,6 @@ public:
+       free(m_avoptions);
+     }
+     if (m_avcodec_context) {
+-      avcodec_close(m_avcodec_context);
+       avcodec_free_context(&m_avcodec_context);
+     }
+     if (m_avframe_device) {
+-- 
+2.47.3
+
