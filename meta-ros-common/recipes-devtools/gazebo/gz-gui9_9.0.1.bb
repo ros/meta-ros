@@ -30,7 +30,7 @@ DEPENDS = " \
     protobuf-native \
     libtinyxml2 \
     qtbase \
-    qtquickcontrols2 \
+    qtdeclarative \
 "
 DEPENDS:append:class-target = "xserver-xorg"
 
