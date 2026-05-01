@@ -1,0 +1,37 @@
+From 1d1970b1a88fb1be3b961073748879900d2b1a70 Mon Sep 17 00:00:00 2001
+From: Mitchell Pleune <mitchpleune@gmail.com>
+Date: Fri, 23 Aug 2024 10:12:33 -0400
+Subject: [PATCH 2/2] remove AV_PIX_FMT_XVMC
+
+This no longer exists in ffmpeg trunk. I see that is exists in older
+versions, such as 2.7. However, here it is not documented.
+
+There are simmilarly named and now document formats such as AV_PIX_FMT_XV30
+and AV_PIX_FMT_XV60, which should probably be supported instread, but I
+will not add these in this commit.
+
+Upstream-Status: Backport [https://github.com/ros-drivers/usb_cam/commit/1d1970b1a88fb1be3b961073748879900d2b1a70]
+---
+ include/usb_cam/formats/av_pixel_format_helper.hpp | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/include/usb_cam/formats/av_pixel_format_helper.hpp b/include/usb_cam/formats/av_pixel_format_helper.hpp
+index ad1792e..a8fa232 100644
+--- a/include/usb_cam/formats/av_pixel_format_helper.hpp
++++ b/include/usb_cam/formats/av_pixel_format_helper.hpp
+@@ -743,12 +743,6 @@ const std::unordered_map<std::string, AVPixelFormat> STR_2_AVPIXFMT = {
+                                                                       ///< 16-bit samples,
+                                                                       ///< big-endian
+ 
+-
+-  {stringify(AV_PIX_FMT_XVMC), AV_PIX_FMT_XVMC},                      ///< XVideo Motion
+-                                                                      ///< Acceleration via common
+-                                                                      ///< packet passing
+-
+-
+   {stringify(AV_PIX_FMT_YUV440P10LE), AV_PIX_FMT_YUV440P10LE},        ///< planar YUV 4:4:0,20bpp,
+                                                                       ///< (1 Cr & Cb sample per
+                                                                       ///< 1x2 Y samples),
+-- 
+2.47.3
+
