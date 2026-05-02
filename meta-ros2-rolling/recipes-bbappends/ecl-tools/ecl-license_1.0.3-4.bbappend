@@ -11,7 +11,7 @@
 # location.
 
 do_install:append () {
-    if [ "${LICENSE_CREATE_PACKAGE}" == "0" ]; then
+    if [ "${LICENSE_CREATE_PACKAGE}" = "0" ]; then
         rm ${D}/usr/share/licenses -Rf
     else
         install -m 755 -d ${D}${datadir}/licenses/${PN}        
