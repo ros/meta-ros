@@ -1,0 +1,87 @@
+Fix format-security
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/include/rosidl_typesupport_fastrtps_cpp/buffer_serialization.hpp b/include/rosidl_typesupport_fastrtps_cpp/buffer_serialization.hpp
+index 77d5fa7..adc86e2 100644
+--- a/include/rosidl_typesupport_fastrtps_cpp/buffer_serialization.hpp
++++ b/include/rosidl_typesupport_fastrtps_cpp/buffer_serialization.hpp
+@@ -137,7 +137,7 @@ inline void serialize_buffer_with_endpoint(
+ {
+   const std::string backend_type = buffer.get_backend_type();
+ 
+-  RCUTILS_LOG_INFO_NAMED("serialize_buffer_with_endpoint",
++  RCUTILS_LOG_INFO_NAMED("serialize_buffer_with_endpoint", "%s",
+     ("Serializing buffer (backend: " + backend_type + ")").c_str());
+ 
+   if (backend_type == "cpu") {
+@@ -171,7 +171,7 @@ inline void serialize_buffer_with_endpoint(
+   // nullptr means the backend cannot handle this endpoint — fall back to CPU wire format.
+   if (!descriptor) {
+     RCUTILS_LOG_INFO_NAMED(
+-      "serialize_buffer_with_endpoint", "Backend returned null descriptor, falling back to CPU");
++      "serialize_buffer_with_endpoint", "%s", "Backend returned null descriptor, falling back to CPU");
+     std::vector<T, Allocator> vec = buffer.to_vector();
+     cdr << vec;
+     return;
+@@ -182,7 +182,7 @@ inline void serialize_buffer_with_endpoint(
+   cdr << static_cast<uint32_t>(kBufferDescriptorMarker2);
+   cdr << backend_type;
+ 
+-  RCUTILS_LOG_INFO_NAMED("serialize_buffer_with_endpoint",
++  RCUTILS_LOG_INFO_NAMED("serialize_buffer_with_endpoint", "%s",
+     ("Serializing descriptor for backend: " + backend_type).c_str());
+ 
+   ser_it->second.serialize(cdr, descriptor, endpoint_info, serialization_context);
+@@ -198,7 +198,7 @@ inline bool deserialize_buffer_with_endpoint(
+   const rmw_topic_endpoint_info_t & endpoint_info,
+   const BufferSerializationContext & serialization_context)
+ {
+-  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "Starting buffer deserialization");
++  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "%s", "Starting buffer deserialization");
+ 
+   // Peek to disambiguate CPU vector bytes vs descriptor payload.
+   // Only read the second word when the first matches — an empty vector (uint32 length = 0)
+@@ -216,7 +216,7 @@ inline bool deserialize_buffer_with_endpoint(
+ 
+   if (!is_descriptor_path) {
+     RCUTILS_LOG_INFO_NAMED(
+-      "deserialize_buffer_with_endpoint", "Legacy vector path: deserializing std::vector");
++      "deserialize_buffer_with_endpoint", "%s", "Legacy vector path: deserializing std::vector");
+     cdr.set_state(original_state);
+     std::vector<T, Allocator> & storage = buffer;
+     cdr >> storage;
+@@ -225,7 +225,7 @@ inline bool deserialize_buffer_with_endpoint(
+ 
+   std::string backend_type;
+   cdr >> backend_type;
+-  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint",
++  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "%s",
+     (backend_type + " backend: deserializing descriptor").c_str());
+ 
+   auto ops_it = serialization_context.descriptor_ops.find(backend_type);
+@@ -241,11 +241,11 @@ inline bool deserialize_buffer_with_endpoint(
+   }
+ 
+   // Deserialize descriptor
+-  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "Deserializing descriptor");
++  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "%s", "Deserializing descriptor");
+   auto descriptor = ser_it->second.deserialize(cdr, endpoint_info, serialization_context);
+ 
+   // Create buffer implementation with endpoint awareness
+-  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "Creating buffer from descriptor");
++  RCUTILS_LOG_INFO_NAMED("deserialize_buffer_with_endpoint", "%s", "Creating buffer from descriptor");
+   auto impl_erased = ops_it->second.from_descriptor_with_endpoint(descriptor.get(), endpoint_info);
+ 
+   std::unique_ptr<rosidl::BufferImplBase<T>> typed_impl(
+@@ -366,7 +366,7 @@ inline Cdr & operator<<(Cdr & cdr, const rosidl::Buffer<T, Allocator> & buffer)
+     const std::vector<T, Allocator> & vec = buffer;
+     cdr << vec;
+   } else {
+-    RCUTILS_LOG_INFO_NAMED("Serialize Buffer<T>",
++    RCUTILS_LOG_INFO_NAMED("Serialize Buffer<T>", "%s",
+       ("Force-converting to CPU buffer for serialization (backend: " + backend_type + ")").c_str());
+     std::vector<T, Allocator> vec = buffer.to_vector();
+     cdr << vec;
