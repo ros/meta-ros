@@ -1,0 +1,74 @@
+From 032eb0201d3fe35872267c2e68b5f9ece22b3bea Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@oip.be>
+Date: Sun, 3 May 2026 19:02:55 +0200
+Subject: [PATCH 1/1] =?UTF-8?q?fuse-core:=20add=20missing=20boost=20add=5F?=
+ =?UTF-8?q?const=20include=20for=20Boost=20=E2=89=A5=201.89?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream Boost.Range requires explicit inclusion of
+<boost/type_traits/add_const.hpp> when using any_range.hpp.
+This fixes build failures with newer Boost/toolchains.
+
+Upstream-Status: Pending
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ include/fuse_core/graph.hpp             | 1 +
+ include/fuse_core/message_buffer.hpp    | 1 +
+ include/fuse_core/timestamp_manager.hpp | 1 +
+ include/fuse_core/transaction.hpp       | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/include/fuse_core/graph.hpp b/include/fuse_core/graph.hpp
+index a9f366c8..2e38a24d 100644
+--- a/include/fuse_core/graph.hpp
++++ b/include/fuse_core/graph.hpp
+@@ -46,6 +46,7 @@
+ #include <vector>
+ 
+ #include <boost/core/demangle.hpp>
++#include <boost/type_traits/add_const.hpp>
+ #include <boost/range/any_range.hpp>
+ #include <boost/serialization/access.hpp>
+ #include <boost/type_index/stl_type_index.hpp>
+diff --git a/include/fuse_core/message_buffer.hpp b/include/fuse_core/message_buffer.hpp
+index f05fc874..50b4ca62 100644
+--- a/include/fuse_core/message_buffer.hpp
++++ b/include/fuse_core/message_buffer.hpp
+@@ -37,6 +37,7 @@
+ #include <deque>
+ #include <utility>
+ 
++#include <boost/type_traits/add_const.hpp>
+ #include <boost/range/any_range.hpp>
+ #include <fuse_core/fuse_macros.hpp>
+ #include <rclcpp/duration.hpp>
+diff --git a/include/fuse_core/timestamp_manager.hpp b/include/fuse_core/timestamp_manager.hpp
+index 413ed6b9..f90292d7 100644
+--- a/include/fuse_core/timestamp_manager.hpp
++++ b/include/fuse_core/timestamp_manager.hpp
+@@ -38,6 +38,7 @@
+ #include <map>
+ #include <vector>
+ 
++#include <boost/type_traits/add_const.hpp>
+ #include <boost/range/any_range.hpp>
+ #include <fuse_core/constraint.hpp>
+ #include <fuse_core/fuse_macros.hpp>
+diff --git a/include/fuse_core/transaction.hpp b/include/fuse_core/transaction.hpp
+index 514536f4..f94e5050 100644
+--- a/include/fuse_core/transaction.hpp
++++ b/include/fuse_core/transaction.hpp
+@@ -40,6 +40,7 @@
+ #include <vector>
+ 
+ #include <boost/archive/binary_oarchive.hpp>
++#include <boost/type_traits/add_const.hpp>
+ #include <boost/range/any_range.hpp>
+ #include <boost/serialization/access.hpp>
+ #include <boost/serialization/set.hpp>
+-- 
+2.43.0
+
