@@ -5,6 +5,8 @@ we can do reproducibile builds while disconnected from the public Internet.
 
 This also uses existing recipes for TinyXML2 and nlohmann-json.
 
+Upstream-Status: Inappropriate [oe specific]
+
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 Index: git/CMakeLists.txt
