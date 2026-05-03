@@ -1,0 +1,58 @@
+SUMMARY = "DART: Dynamic Animation and Robotics Toolkit "
+HOMEPAGE = "https://github.com/dartsim/dart"
+LICENSE = "BSD-2-Clause & BSD-3-Clause & MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=7413f9690259504048a18c69eac91b4c \
+                    file://data/mjcf/openai/LICENSE.md;md5=b7fcc920c21836f90e2ba40fd8fad0a7"
+
+SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.16 \
+           file://python3-fixes.patch \
+           file://fix-pkgconfig-cflags.patch \
+           file://remove-buildpath.patch \
+"
+
+SRCREV = "5295704377b36251670681ea0e94cfab8e3fcfc9"
+
+
+DEPENDS = " \
+    assimp \
+    bullet \
+    doxygen-native \
+    fmt-native \
+    fcl \
+    freeglut \
+    googletest \
+    google-benchmark \
+    libccd \
+    libeigen \
+    libtinyxml2 \
+    ipopt \
+    nlopt \
+    octomap \
+    ode \
+    openscenegraph \
+    pagmo \
+    python3-requests \
+    python3-pytest \
+    urdfdom \
+    urdfdom-headers \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
+"
+
+
+inherit setuptools3 cmake pkgconfig
+
+inherit ros_opt_prefix
+EXTRA_OECMAKE:prepend = "\
+    -DCMAKE_PREFIX_PATH='${STAGING_DIR_HOST}${ros_prefix};${STAGING_DIR_HOST}${prefix}' \
+    -DDART_ENABLE_SIMD=OFF \
+    -DDART_TREAT_WARNINGS_AS_ERRORS=OFF \
+    -DDART_USE_SYSTEM_GOOGLETEST=ON \
+    -DDART_USE_SYSTEM_GOOGLEBENCHMARK=ON \
+"
+
+CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder  -Wno-error=cpp"
+
+FILES:${PN} += "${datadir}/dart"
+
+# ERROR: dartsim-6.13.2-r0 do_package_qa: QA Issue: File ... in package dartsim doesn't have GNU_HASH (didn't pass LDFLAGS?)
+INSANE_SKIP:${PN} += "ldflags"

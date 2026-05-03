@@ -1,0 +1,19 @@
+Use includedir to avoid host contamination
+
+The dart pkgconfig contains CMAKE_CXX_FLAGS which contains paths from the
+build host.  Set Cflags to includedir for a better default value.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/cmake/dart.pc.in b/cmake/dart.pc.in
+index 402c496c4298..31e0a80c5c4d 100644
+--- a/cmake/dart.pc.in
++++ b/cmake/dart.pc.in
+@@ -9,4 +9,4 @@ Description: @DART_PKG_DESC@
+ Version: @DART_VERSION@
+ Requires: @DART_PKG_EXTERNAL_DEPS@
+ Libs: -L${libdir} -ldart
+-Cflags: @CMAKE_CXX_FLAGS@
++Cflags: -I${includedir}
