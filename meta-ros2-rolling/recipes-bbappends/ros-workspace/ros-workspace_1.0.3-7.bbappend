@@ -16,4 +16,5 @@ SRC_URI:append = " file://0001-Set-cross-compile-prefix-to-CMAKE_INSTALL_PREFIX.
 
 do_install:append() {
     sed -i -e 's,${PYTHON},${bindir}/env python${ROS_PYTHON_VERSION},' ${D}${ros_prefix}/local_setup.sh
+    sed -i -e 's,${PYTHON},${bindir}/env python${ROS_PYTHON_VERSION},' ${D}${ros_prefix}/local_setup.fish
 }
