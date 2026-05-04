@@ -1,0 +1,49 @@
+Support non-desktop OpenGL
+
+The FindOpenGL.cmake module behaves differently depending on whether
+GLVND is present on the system.
+
+The OpenGL::OpenGL component is defined if the system is GLVND-based.
+
+The OpenGL::GL component is defined to the platform-specific
+OpenGL libraries.
+
+The virtual/opengl target may be set to targets other than liglvnd
+and older Yocto releases don't even provide the recipe.
+
+Since the use of the COMPONENTS OpenGL implies the use of GLVND
+this causes CMake to fail in those cases.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2c701478..7915d9ef 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -57,11 +57,19 @@ if (APPLE)
+     REQUIRED_BY ogre ogre2
+     PKGCONFIG gl)
+ else()
+-  gz_find_package(OpenGL REQUIRED
+-    COMPONENTS OpenGL
+-    OPTIONAL_COMPONENTS EGL
+-    REQUIRED_BY ogre ogre2
+-    PKGCONFIG gl)
++  if (OpenGL_GL_PREFERENCE STREQUAL "LEGACY" OR NOT GLVND_FOUND)
++    message(STATUS "Using legacy OpenGL detection")
++    gz_find_package(OpenGL REQUIRED
++      REQUIRED_BY ogre ogre2
++      PKGCONFIG gl)
++  else()
++    message(STATUS "Using GLVND OpenGL detection")
++    gz_find_package(OpenGL REQUIRED
++      COMPONENTS OpenGL
++      OPTIONAL_COMPONENTS EGL
++      REQUIRED_BY ogre ogre2
++      PKGCONFIG gl)
++  endif()
+ endif()
+ 
+ if (OpenGL_FOUND)
