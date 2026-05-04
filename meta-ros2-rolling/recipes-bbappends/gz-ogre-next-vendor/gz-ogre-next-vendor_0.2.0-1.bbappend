@@ -1,5 +1,7 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
+inherit pkgconfig
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://use-system-ogre-next.patch"
 
