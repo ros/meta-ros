@@ -454,3 +454,4 @@ ROS_UNRESOLVED_DEP-libopencv-imgproc = "opencv"
 ROS_UNRESOLVED_DEP-libopencv-videoio = "opencv"
 
 ROS_UNRESOLVED_DEP-python3-qt-bindings = "python3-pyqt6"
+ROS_UNRESOLVED_DEP-libgtest-dev-native = "gtest-native"
