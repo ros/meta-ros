@@ -252,7 +252,7 @@ ROS_UNRESOLVED_DEP-libyaml = "libyaml"
 ROS_UNRESOLVED_DEP-libyaml-dev = "libyaml"
 
 # Used by generated-recipes/ament-cmake/ament-cmake-vendor-package_2.3.0-1.bb
-ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstools-native"
+ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcs2l-native"
 
 # Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
 ROS_UNRESOLVED_DEP-python3-flake8-comprehensions = "python3-flake8-comprehensions"
@@ -293,8 +293,6 @@ ROS_UNRESOLVED_DEP-libopencv-imgproc-dev = "opencv"
 ROS_UNRESOLVED_DEP-libomp-dev = "openmp"
 
 # ROS_UNRESOLVED_DEP-libqt5-svg = "qtsvg"
-
-ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcstool-native"
 
 ROS_UNRESOLVED_DEP-libbluetooth = "bluez5"
 ROS_UNRESOLVED_DEP-libbluetooth-dev = "bluez5"
