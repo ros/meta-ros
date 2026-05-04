@@ -6,4 +6,5 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://disable-compiler-warnings.patch"
+SRC_URI += "file://disable-compiler-warnings.patch \
+            file://use-cmake-targets.patch"
