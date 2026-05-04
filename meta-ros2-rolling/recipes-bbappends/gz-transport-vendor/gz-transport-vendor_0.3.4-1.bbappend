@@ -3,7 +3,7 @@
 inherit pkgconfig
 
 ROS_BUILD_DEPENDS += "\
-    gz-transport14 \
+    gz-transport \
     protobuf \
 "
 

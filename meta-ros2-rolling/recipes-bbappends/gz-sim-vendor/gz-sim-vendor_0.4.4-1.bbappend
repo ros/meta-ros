@@ -5,7 +5,7 @@
 #   the location of your host Qt installation.
 inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', 'qt6-cmake', '', d)}
 
-ROS_BUILD_DEPENDS += "gz-sim9"
+ROS_BUILD_DEPENDS += "gz-sim"
 ROS_BUILDTOOL_DEPENDS += "protobuf-native"
 
 EXTRA_OECMAKE += "\

@@ -1,3 +1,3 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += "gz-physics8"
+ROS_BUILD_DEPENDS += "gz-physics"

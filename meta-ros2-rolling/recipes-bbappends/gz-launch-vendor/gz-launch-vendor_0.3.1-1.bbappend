@@ -1,7 +1,7 @@
 # Copyright (c) 2025 Wind River Systems, Inc.
 
 ROS_BUILD_DEPENDS += "\
-    gz-launch8 \
+    gz-launch \
     protobuf \
     protobuf-native \
 "
