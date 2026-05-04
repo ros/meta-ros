@@ -6,6 +6,7 @@ ROS_BUILDTOOL_DEPENDS += "\
     rosidl-default-generators-native \
 "
 
-# CMake Warning at TOPDIR/tmp-glibc/work/core2-64-oe-linux/rviz-imu-plugin/2.1.3-1-r0/recipe-sysroot/usr/lib/cmake/Qt5/Qt5Config.cmake:7 (message):
-#   SkippingbecauseOE_QMAKE_PATH_EXTERNAL_HOST_BINSisnotdefined                                                                                                                                                                             
-inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], '', 'cmake_qt5', d)}
+# This resolves the following error:
+#   To use a cross-compiled Qt, please set the QT_HOST_PATH cache variable to
+#   the location of your host Qt installation.
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', 'qt6-cmake', '', d)}
