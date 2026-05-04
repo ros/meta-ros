@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-ROS_BUILD_DEPENDS += "gz-rendering9"
+ROS_BUILD_DEPENDS += "gz-rendering"
 
 ROS_BUILDTOOL_DEPENDS += "cppcheck-native doxygen-native"
 
