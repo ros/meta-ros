@@ -452,3 +452,5 @@ ROS_UNRESOLVED_DEP-libopencv-highgui = "opencv"
 ROS_UNRESOLVED_DEP-libopencv-imgcodecs = "opencv"
 ROS_UNRESOLVED_DEP-libopencv-imgproc = "opencv"
 ROS_UNRESOLVED_DEP-libopencv-videoio = "opencv"
+
+ROS_UNRESOLVED_DEP-python3-qt-bindings = "python3-pyqt6"
