@@ -1,17 +1,39 @@
+Use system Ogre-Next 3.0.0
+
+The new Ogre-Next 3.0.0 release is trying to support Ogre and OgreNext
+being installed side-by-side:
+
+    https://ogrecave.github.io/ogre-next/api/3.0/_ogre30_changes.html
+
+Versions 3.0.0 and up require using the new GZOgreNext name:
+
+    https://github.com/gazebosim/gz-cmake/pull/468
+
 Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Index: git/CMakeLists.txt
+Index: gz-ogre-next-vendor-0.2.0-1/CMakeLists.txt
 ===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
-@@ -11,7 +11,10 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aar
-   set(EXTRA_CMAKE_FLAGS -DOGRE_SIMD_NEON:BOOL=FALSE  -DOGRE_SIMD_SSE2:BOOL=FALSE)
+--- gz-ogre-next-vendor-0.2.0-1.orig/CMakeLists.txt
++++ gz-ogre-next-vendor-0.2.0-1/CMakeLists.txt
+@@ -29,9 +29,8 @@ if(NOT $ENV{GZ_RELAX_VERSION_MATCH} STRE
+   set(VERSION_MATCH "")
  endif()
-
-+find_package(OGRE-Next)
-+
+ 
+-gz_find_package(GzOGRE2
+-  EXACT ${VERSION_MATCH}
+-  VERSION ${LIB_VER}
++gz_find_package(GzOGRENext
++  VERSION 3
+   COMPONENTS
+   HlmsPbs
+   HlmsUnlit
+@@ -49,7 +48,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aar
+ endif()
+ 
  ament_vendor(${PROJECT_NAME}
-+  SATISFIED OGRE-Next_FOUND
-   VCS_URL https://github.com/OGRECave/ogre-next.git
-   VCS_VERSION v2.3.3
+-SATISFIED ${OGRE2_FOUND}
++SATISFIED ${GzOGRENext_FOUND}
+ VCS_URL https://github.com/OGRECave/ogre-next.git
+   VCS_VERSION v${LIB_VER}
    CMAKE_ARGS
