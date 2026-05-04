@@ -12,4 +12,8 @@ inherit cmake
 
 EXTRA_OECMAKE = "-DEXPECTED_BUILD_TESTS=FALSE"
 
+# Header-only library — create empty base package for runtime
+# dependency satisfaction
+ALLOW_EMPTY:${PN} = "1"
+
 BBCLASSEXTEND = "native nativesdk"
