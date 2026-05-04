@@ -1,0 +1,82 @@
+Upstream-Status: Backport [https://github.com/ros-industrial/ros2_canopen/blob/master/lely_core_libraries/patches/0001-Fix-dcf-tools.patch]
+
+From 1fcc088cdf64bee181f1141077af01267cc224ad Mon Sep 17 00:00:00 2001
+From: Christoph Hellmann Santos <christoph.hellmann.santos@ipa.fraunhofer.de>
+Date: Tue, 27 Jun 2023 10:15:06 +0200
+Subject: [PATCH] Fix dcf-tools
+
+---
+ configure.ac                 | 10 +++-------
+ python/dcf-tools/Makefile.am | 23 +++++------------------
+ 2 files changed, 8 insertions(+), 25 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 1dd9410d..c274636b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -569,19 +569,15 @@ AC_ARG_ENABLE([python],
+ 	AS_HELP_STRING([--disable-python], [disable Python tools and bindings]))
+
+ AM_CONDITIONAL([HAVE_PYTHON2], [false])
+-AC_ARG_ENABLE([python2],
+-	AS_HELP_STRING([--disable-python2], [disable Python 2 tools and bindings]))
+-AS_IF([test "$enable_python" == "no"], [enable_python2=no])
+-AS_IF([test "$enable_python2" != "no"], [
+-	AX_CHECK_PYTHON([2], [AM_CONDITIONAL([HAVE_PYTHON2], [true])])
+-])
+
+ AM_CONDITIONAL([HAVE_PYTHON3], [false])
+ AC_ARG_ENABLE([python3],
+ 	AS_HELP_STRING([--disable-python3], [disable Python 3 tools and bindings]))
+ AS_IF([test "$enable_python" == "no"], [enable_python3=no])
+ AS_IF([test "$enable_python3" != "no"], [
+-	AX_CHECK_PYTHON([3], [AM_CONDITIONAL([HAVE_PYTHON3], [true])])
++	AM_PATH_PYTHON([3.3],, [:])
++	AC_SUBST(PYTHON3, "$PYTHON")
++	AM_CONDITIONAL([HAVE_PYTHON3], [test "$PYTHON" != :])
+ ])
+
+ AM_CONDITIONAL([NO_CYTHON], [false])
+diff --git a/python/dcf-tools/Makefile.am b/python/dcf-tools/Makefile.am
+index 9852c84a..dd5cdfa0 100644
+--- a/python/dcf-tools/Makefile.am
++++ b/python/dcf-tools/Makefile.am
+@@ -23,30 +23,17 @@ EXTRA_DIST += setup.py
+ build_base = $(realpath $(builddir))/build
+ dist_dir = $(realpath $(builddir))/dist
+
+-all-local: python-sdist python-bdist_wheel
+-
+ clean-local:
+ 	rm -rf $(build_base) $(dist_dir) $(srcdir)/*.egg-info $(builddir)/*.egg-info
+
+ install-exec-local: python-install
+
+-.PHONY: python-bdist_wheel
+-python-bdist_wheel:
+-if HAVE_PYTHON3
+-	@$(PYTHON3_ENV) $(PYTHON3) $(srcdir)/setup.py \
+-		bdist_wheel --dist-dir $(dist_dir)
+-endif
+-
+ .PHONY: python-install
+ python-install:
+ if HAVE_PYTHON3
+-	@$(PYTHON3_ENV) $(PYTHON3) $(srcdir)/setup.py \
+-		install --prefix $(DESTDIR)$(prefix) --root /
+-endif
+-
+-.PHONY: python-sdist
+-python-sdist:
+-if HAVE_PYTHON3
+-	@cd $(srcdir); $(PYTHON3_ENV) $(PYTHON3) setup.py \
+-		sdist --dist-dir $(dist_dir)
++	@cd $(srcdir) && $(PYTHON3_ENV) $(PYTHON3) setup.py \
++		egg_info build install --record install.log \
++		--install-scripts $(DESTDIR)$(prefix)/bin/ \
++		--install-lib $(DESTDIR)$(prefix)/lib/python$(PYTHON_VERSION)/site-packages/ \
++		--single-version-externally-managed
+ endif
+--
+2.34.1
+
