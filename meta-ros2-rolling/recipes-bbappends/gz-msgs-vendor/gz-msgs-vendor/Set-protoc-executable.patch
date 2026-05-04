@@ -4,10 +4,10 @@ Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
 +++ git/CMakeLists.txt
-@@ -43,6 +43,8 @@ ament_vendor(${LIB_NAME_UNDERSCORE}_vend
+@@ -54,6 +54,8 @@ ament_vendor(${LIB_NAME_UNDERSCORE}_vend
    SATISFIED ${${LIB_NAME_FULL}_FOUND}
    VCS_URL https://github.com/gazebosim/${GITHUB_NAME}.git
-   VCS_VERSION ${GITHUB_NAME}${LIB_VER_MAJOR}_${LIB_VER}${LIB_VER_SUFFIX}
+   VCS_VERSION ${LIB_VCS_VER}
 +  CMAKE_ARGS
 +    -DPROTOBUF_PROTOC_EXECUTABLE=${PROTOBUF_PROTOC_EXECUTABLE}
    GLOBAL_HOOK
