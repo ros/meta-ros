@@ -8,8 +8,8 @@ Index: git/CMakeLists.txt
  macro(build_mcap_vendor)
 -  include(FetchContent)
 -  fetchcontent_declare(mcap
--    URL https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v1.1.0.tar.gz
--    URL_HASH SHA1=3220ddd900d987575ae1066254dd97cdec877a26 # v1.1.0
+-    URL https://github.com/foxglove/mcap/archive/refs/tags/releases/cpp/v2.1.3.tar.gz
+-    URL_HASH SHA1=591ece619ebff5dfe5234d91c4ea8bb30053c872 # v2.1.3
 -  )
 -  fetchcontent_makeavailable(mcap)
 -
