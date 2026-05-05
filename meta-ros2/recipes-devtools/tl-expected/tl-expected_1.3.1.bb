@@ -12,3 +12,4 @@ inherit cmake
 
 EXTRA_OECMAKE = "-DEXPECTED_BUILD_TESTS=FALSE"
 
+BBCLASSEXTEND = "native nativesdk"
