@@ -1,3 +1,4 @@
-PN = "python3-osrf-pycommon"
+PACKAGES += "${PYTHON_PN}-${PN}"
 
-BBCLASSEXTEND = "native nativesdk"
+FILES:${PN} += "${datadir}/ament_index/resource_index/packages/osrf_pycommon"
+FILES:${PYTHON_PN}-${PN} = "${PYTHON_SITEPACKAGES_DIR}/*"
