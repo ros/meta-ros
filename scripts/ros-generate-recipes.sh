@@ -16,7 +16,10 @@
 #
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 
-readonly SCRIPT_NAME="ros-generate-recipes"
+# Include common script
+source "$(dirname "$0")/ros-generate-common.sh"
+
+readonly SCRIPT_NAME=$(basename "$0" | cut -d '.' -f1)
 readonly SCRIPT_VERSION="1.9.0"
 
 # Files under ros/rosdistro/rosdep that we care about. Keep in sync with setting in ros-generate-cache.sh .
@@ -47,21 +50,7 @@ if [ -z "$SUPERFLORE_GEN_OE_RECIPES" ]; then
 fi
 
 ROS_DISTRO=$1
-
-# Keep this block in sync with the one in ros-generate-cache.sh .
-case $ROS_DISTRO in
-    "melodic"|"noetic")
-        ROS_VERSION="1"
-        ;;
-
-    "dashing"|"eloquent"|"foxy"|"galactic"|"humble"|"iron"|"jazzy"|"kilted"|"rolling")
-        ROS_VERSION="2"
-        ;;
-
-    *)  echo "ABORT: Unrecognized ROS_DISTRO: $ROS_DISTRO"
-        exit 1
-        ;;
-esac
+ROS_VERSION=$(get_ros_version "$ROS_DISTRO")
 
 only_option=""
 if [ $# -gt 1 ]; then
@@ -128,22 +117,8 @@ if [ -z "$ROS_DISTRO_RELEASE_DATE" -o -z "$ROS_ROSDISTRO_COMMIT" -o -z "$ROS_ROS
     exit 1
 fi
 
-# Keep this block in sync with the one in ros-generate-cache.sh .
-case $ROS_DISTRO_RELEASE_DATE in
-    final|pre-release|[2-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9])
-        : OK
-        ;;
-
-    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'final' or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
-        exit 1
-        ;;
-esac
-
-# Keep this block in sync with the one in ros-generate-cache.sh .
-if [ -n "$(git status --porcelain=v1)" ]; then
-    echo "ABORT: Uncommitted modifications detected by Git -- perhaps invoke 'git reset --hard'?"
-    exit 1
-fi
+check_release_date $ROS_DISTRO_RELEASE_DATE
+detect_uncommitted_modifications
 
 abort=false
 [ -z "$ROSDEP_SOURCE_PATH" ] && ROSDEP_SOURCE_PATH="/etc/ros/rosdep/sources.list.d"
@@ -171,10 +146,7 @@ unset abort
 
 # Done checking things.
 
-# Keep this block in sync with the one in ros-generate-cache.sh .
-echo "Running 'rosdep update'"
-rosdep update || { echo "ABORT: 'rosdep update' failed"; exit 1; }
-echo "'rosdep update' finished"
+run_rosdep_update
 
 tmpdir=$(mktemp -t -d ros-generate-recipes-XXXXXXXX)
 trap "rm -rf $tmpdir" 0
