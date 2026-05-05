@@ -1,0 +1,49 @@
+Use upstream tl-expected
+
+The cpp_polyfills fork of tl-expected uses tl_expected as the CMake
+project name. That is being deprecated in favour of upstream.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: generate-parameter-library-0.8.0-1/cmake/generate_parameter_library.cmake
+===================================================================
+--- generate-parameter-library-0.8.0-1.orig/cmake/generate_parameter_library.cmake
++++ generate-parameter-library-0.8.0-1/cmake/generate_parameter_library.cmake
+@@ -97,10 +97,6 @@ macro(generate_parameter_library LIB_NAM
+     rsl::rsl
+     tcb_span::tcb_span
+     tl::expected
+-    # for backward compatibility
+-    # remove once this redirection is removed
+-    # https://github.com/PickNikRobotics/cpp_polyfills/pull/12
+-    tl_expected::tl_expected
+   )
+   install(DIRECTORY ${LIB_INCLUDE_DIR} DESTINATION include)
+   ament_export_dependencies(
+@@ -108,10 +104,6 @@ macro(generate_parameter_library LIB_NAM
+     # TODO(christophfroehlich): remove parameter_traits dependency after removal
+     parameter_traits
+     tl-expected
+-    # for backward compatibility
+-    # remove once this redirection is removed
+-    # https://github.com/PickNikRobotics/cpp_polyfills/pull/12
+-    tl_expected
+   )
+ endmacro()
+ 
+Index: generate-parameter-library-0.8.0-1/generate_parameter_library-extras.cmake
+===================================================================
+--- generate-parameter-library-0.8.0-1.orig/generate_parameter_library-extras.cmake
++++ generate-parameter-library-0.8.0-1/generate_parameter_library-extras.cmake
+@@ -33,9 +33,5 @@ find_package(rsl REQUIRED)
+ find_package(rclcpp_lifecycle REQUIRED)
+ find_package(tcb_span REQUIRED)
+ find_package(tl-expected REQUIRED)
+-# for backward compatibility
+-# remove once this redirection is removed
+-# https://github.com/PickNikRobotics/cpp_polyfills/pull/12
+-find_package(tl_expected REQUIRED)
+ 
+ include("${generate_parameter_library_DIR}/generate_parameter_library.cmake")
