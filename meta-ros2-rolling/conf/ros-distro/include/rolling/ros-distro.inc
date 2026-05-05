@@ -51,7 +51,6 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
     libstatistics-collector-native \
     libyaml-vendor-native \
     lifecycle-msgs-native \
-    osrf-pycommon-native \
     parameter-traits-native \
     pybind11-vendor-native \
     rcl-action-native \
@@ -500,3 +499,10 @@ ROS_UNRESOLVED_DEP-libgtest-dev-native = "gtest-native"
 ROS_UNRESOLVED_DEP-fzf = "fzf"
 
 ROS_UNRESOLVED_DEP-libexpected-dev = "tl-expected"
+
+ROS_UNRESOLVED_DEP-python3-graphviz = "python3-graphviz"
+ROS_UNRESOLVED_DEP-python3-smbus2 = "python3-smbus2"
+ROS_UNRESOLVED_DEP-python3-ujson = "python3-ujson"
+ROS_UNRESOLVED_DEP-python3-validators = "python3-validators"
+ROS_UNRESOLVED_DEP-rsyslog = "rsyslog"
+ROS_UNRESOLVED_DEP-zstd-vendor = "zstd"
