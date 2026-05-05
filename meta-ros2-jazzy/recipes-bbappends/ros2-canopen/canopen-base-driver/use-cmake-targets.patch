@@ -24,7 +24,7 @@ index 47c26e03..e942dc11 100644
 +  ${yaml_cpp_vendor_TARGETS}
 +  ${std_msgs_TARGETS}
 +  ${std_srvs_TARGETS}
-+  ${diagnostic_update_TARGETS}
++  ${diagnostic_updater_TARGETS}
  )
 
 
@@ -47,7 +47,7 @@ index 47c26e03..e942dc11 100644
 +  ${std_msgs_TARGETS}
 +  ${std_srvs_TARGETS}
 +  ${diagnostic_msgs_TARGETS}
-+  ${diagnostic_update_TARGETS}
++  ${diagnostic_updater_TARGETS}
  )
  message(STATUS "node_canopen_base_driver: ${lely_core_libraries_LIBRARIES}")
 
@@ -71,7 +71,7 @@ index 47c26e03..e942dc11 100644
 +  ${yaml_cpp_vendor_TARGETS}
 +  ${std_msgs_TARGETS}
 +  ${std_srvs_TARGETS}
-+  ${diagnostic_update_TARGETS}
++  ${diagnostic_updater_TARGETS}
  )
  # Causes the visibility macros to use dllexport rather than dllimport,
  # which is appropriate when building the dll but not consuming it.
@@ -92,7 +92,7 @@ index 47c26e03..e942dc11 100644
 +  ${yaml_cpp_vendor_TARGETS}
 +  ${std_msgs_TARGETS}
 +  ${std_srvs_TARGETS}
-+  ${diagnostic_update_TARGETS}
++  ${diagnostic_updater_TARGETS}
  )
 
  # Causes the visibility macros to use dllexport rather than dllimport,
