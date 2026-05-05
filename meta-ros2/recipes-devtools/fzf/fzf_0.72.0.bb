@@ -14,3 +14,5 @@ require ${BPN}-go-mods.inc
 GO_IMPORT = "github.com/junegunn/fzf"
 
 inherit go-mod go-mod-update-modules
+
+BBCLASSEXTEND = "native nativesdk"
