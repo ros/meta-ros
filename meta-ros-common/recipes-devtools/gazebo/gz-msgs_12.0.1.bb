@@ -5,6 +5,8 @@ SRC_URI += "file://override-generator-scripts.patch"
 
 SRCREV = "a5576425f1a3d9f736e6758005696aac32f93461"
 
+S = "${WORKDIR}/git"
+
 DEPENDS = "gz-cmake gz-math gz-tools gz-msgs-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
 EXTRA_OECMAKE += " \
