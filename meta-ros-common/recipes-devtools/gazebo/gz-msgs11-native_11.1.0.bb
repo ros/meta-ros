@@ -3,6 +3,8 @@ include gz-msgs11.inc
 
 SRCREV = "1f5f19e44faaaa8ece97903eb09b685b4640dea1"
 
+S = "${WORKDIR}/git"
+
 DEPENDS = "gz-cmake4-native gz-math8-native libtinyxml2-native protobuf-native"
 EXTRA_OECMAKE += "-DINSTALL_GZ_MSGS_GEN_EXECUTABLE:BOOL=ON"
 
