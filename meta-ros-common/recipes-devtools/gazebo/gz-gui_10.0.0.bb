@@ -7,6 +7,8 @@ SRC_URI = "git://github.com/gazebosim/gz-gui.git;protocol=https;branch=gz-gui10"
 
 SRCREV = "982993998efd8b5337578d8cd927d32818364532"
 
+S = "${WORKDIR}/git"
+
 inherit cmake
 
 # This resolves the following error:
