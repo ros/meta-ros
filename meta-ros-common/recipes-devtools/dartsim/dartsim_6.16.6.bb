@@ -10,6 +10,8 @@ SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=release-6.16 
            file://remove-buildpath.patch \
 "
 
+S = "${WORKDIR}/git"
+
 SRCREV = "5295704377b36251670681ea0e94cfab8e3fcfc9"
 
 
