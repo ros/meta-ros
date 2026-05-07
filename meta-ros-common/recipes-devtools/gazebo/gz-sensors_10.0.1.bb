@@ -6,6 +6,7 @@ SRC_URI = "git://github.com/gazebosim/gz-sensors.git;protocol=https;branch=gz-se
 
 SRCREV = "18c09c56df1d7c26b902a2d4b5b5481ceffdca4d"
 
+S = "${WORKDIR}/git"
 
 DEPENDS += " \
     cppcheck-native \
