@@ -7,6 +7,8 @@ SRC_URI = "git://github.com/gazebosim/gz-common.git;protocol=https;branch=gz-com
 
 SRCREV = "307a1bf465acad02941f4862bb9b84879b8cbb72"
 
+S = "${WORKDIR}/git"
+
 inherit cmake pkgconfig
 
 # CMake Error: TRY_RUN() invoked in cross-compiling mode, please set the following cache variables appropriately:
