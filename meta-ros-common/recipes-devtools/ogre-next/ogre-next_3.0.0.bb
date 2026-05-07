@@ -14,6 +14,8 @@ SRC_URI = "git://github.com/OGRECave/ogre-next.git;protocol=https;branch=master"
 
 SRCREV = "75643c3997f5b6d2aa1d7bd8400b9be6736d9908"
 
+S = "${WORKDIR}/git"
+
 inherit cmake features_check pkgconfig
 
 DEPENDS = " \
