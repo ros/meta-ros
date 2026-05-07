@@ -2,6 +2,8 @@
 
 include ignition-msgs8.inc
 
+S = "${WORKDIR}/git"
+
 DEPENDS = "ignition-cmake2 ignition-math6 libtinyxml2 protobuf protobuf-native ${PN}-native"
 
 EXTRA_OECMAKE += " -DINSTALL_IGN_MSGS_GEN_EXECUTABLE:BOOL=OFF -DIGN_MSGS_GEN_EXECUTABLE=${WORKDIR}/recipe-sysroot-native/usr/bin/ign_msgs_gen"
