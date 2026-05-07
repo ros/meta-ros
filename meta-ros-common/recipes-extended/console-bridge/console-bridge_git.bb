@@ -18,6 +18,8 @@ SRCREV = "81ec67f6daf3cd19ef506e00f02efb1645597b9c"
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "git://github.com/ros/console_bridge;${ROS_BRANCH};protocol=https"
 
+S = "${WORKDIR}/git"
+
 EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 inherit cmake
