@@ -7,6 +7,7 @@ SRC_URI = "git://github.com/gazebosim/gz-physics.git;protocol=https;branch=gz-ph
 
 SRCREV = "f170135f70315311b78626e62490942f99c772ad"
 
+S = "${WORKDIR}/git"
 
 DEPENDS += " \
     gz-cmake \
