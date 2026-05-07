@@ -1,0 +1,7 @@
+header:
+  version: 14
+
+repos:
+  lts-mixins:
+    url: "https://git.yoctoproject.org/meta-lts-mixins"
+    path: "layers/meta-lts-mixins"
