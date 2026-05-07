@@ -13,18 +13,18 @@ Releases and ROS Distros.  Releases and distros not shown in the table above
 can be presumed unsupported.
 
 
-| Yocto Release       |              | ROS1 Distros | ROS 2 Distros    |                 |              |
-| ---                 | ---          | ---          | ---              | ---             | ---          |
-|                     | *(Rolling)*  | **Noetic**   | **Humble (LTS)** | **Jazzy (LTS)** | **Kilted**   |
-|                     |              | May 2025     | May 2027         | May 2029        | Nov 2026     |
-| **Whinlatter**      | Dec 2026     | **May 2025** | **Dec 2026**     | **Dec 2026**    | **Dec 2026** |
-| Walnascar           | ~~Nov 2025~~ | ~~May 2025~~ | ~~Nov 2025~~     | ~~Nov 2025~~    | ~~Nov 2025~~ |
-| Styhead             | ~~May 2025~~ | ~~May 2025~~ | ~~May 2025~~     | ~~May 2025~~    | ~~May 2025~~ |
-| **Scarthgap (LTS)** | Apr 2028     | **May 2025** | **May 2027**     | **Apr 2028**    | **Dec 2026** |
-| Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~    | ~~Apr 2024~~ |
-| Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | ~~Nov 2023~~     | ~~Nov 2023~~    | ~~Nov 2023~~ |
-| Langdale            | ~~May 2023~~ | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~    | ~~May 2023~~ |
-| Kirkstone (LTS)     | ~~Apr 2026~~ | ~~May 2025~~ | ~~Apr 2026~~     | ~~Apr 2026~~    | ~~Dec 2026~~ |
+| Yocto Release       |              | ROS 2 Distros    |                 |              |
+| ---                 | ---          | ---              | ---             | ---          |
+|                     | *(Rolling)*  | **Humble (LTS)** | **Jazzy (LTS)** | **Kilted**   |
+|                     |              | May 2027         | May 2029        | Nov 2026     |
+| **Whinlatter**      | Dec 2026     | **Dec 2026**     | **Dec 2026**    | **Dec 2026** |
+| Walnascar           | ~~Nov 2025~~ | ~~Nov 2025~~     | ~~Nov 2025~~    | ~~Nov 2025~~ |
+| Styhead             | ~~May 2025~~ | ~~May 2025~~     | ~~May 2025~~    | ~~May 2025~~ |
+| **Scarthgap (LTS)** | Apr 2028     | **May 2027**     | **Apr 2028**    | **Dec 2026** |
+| Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~    | ~~Apr 2024~~ |
+| Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~     | ~~Nov 2023~~    | ~~Nov 2023~~ |
+| Langdale            | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~    | ~~May 2023~~ |
+| Kirkstone (LTS)     | ~~Apr 2026~~ | ~~Apr 2026~~     | ~~Apr 2026~~    | ~~Dec 2026~~ |
 
 
 
