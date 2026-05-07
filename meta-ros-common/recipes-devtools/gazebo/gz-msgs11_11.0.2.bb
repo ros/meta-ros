@@ -7,6 +7,8 @@ SRC_URI += "file://fix-compatibility-with-protobuf-v30.patch \
             file://update-protobuf-dep.patch \
             file://override-generator-scripts.patch"
 
+S = "${WORKDIR}/git"
+
 DEPENDS = "gz-cmake4 gz-math8 gz-tools2 gz-msgs11-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
 EXTRA_OECMAKE += " \
