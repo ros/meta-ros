@@ -3,6 +3,8 @@ include gz-msgs10.inc
 
 SRCREV = "3c0ca9455a9686d71c4d7819417e434ae1b47ad6"
 
+S = "${WORKDIR}/git"
+
 DEPENDS = "gz-math7 gz-cmake3 gz-utils2 gz-msgs10-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
 EXTRA_OECMAKE += " \
