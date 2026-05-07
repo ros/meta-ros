@@ -24,7 +24,7 @@ can be presumed unsupported.
 | Nanbield            | ~~Apr 2024~~ | ~~Apr 2024~~ | ~~Apr 2024~~     | ~~Apr 2024~~    | ~~Apr 2024~~ |
 | Mickledore          | ~~Nov 2023~~ | ~~Nov 2023~~ | ~~Nov 2023~~     | ~~Nov 2023~~    | ~~Nov 2023~~ |
 | Langdale            | ~~May 2023~~ | ~~May 2023~~ | ~~May 2023~~     | ~~May 2023~~    | ~~May 2023~~ |
-| **Kirkstone (LTS)** | Apr 2026     | **May 2025** | **Apr 2026**     | **Apr 2026**    | **Dec 2026** |
+| Kirkstone (LTS)     | ~~Apr 2026~~ | ~~May 2025~~ | ~~Apr 2026~~     | ~~Apr 2026~~    | ~~Dec 2026~~ |
 
 
 
