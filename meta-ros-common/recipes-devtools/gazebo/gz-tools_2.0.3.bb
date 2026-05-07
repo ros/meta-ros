@@ -8,6 +8,8 @@ SRC_URI = " \
 
 SRCREV = "c9ad7217c76ba434e0486842f8864d20c9cdfa32"
 
+S = "${WORKDIR}/git"
+
 inherit cmake pkgconfig
 
 EXTRA_OECMAKE = "-DUSE_SYSTEM_BACKWARDCPP:BOOL=ON"
