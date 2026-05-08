@@ -5,35 +5,34 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code using pyflakes and generate xUnit test\
-    result files.\
-"
-AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
+DESCRIPTION = "Generate a C header containing the version number of the package"
+AUTHOR = "Chris Lalancette <clalancette@gmail.com>"
+ROS_AUTHOR = "Michel Hidalgo <michel@ekumenlabs.com>"
 HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pyflakes"
+ROS_CN = "ament_cmake"
+ROS_BPN = "ament_cmake_gen_version_h"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = "\
+    ament-cmake-core-native\
+    ament-package-native\
+"
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = ""
-
-ROS_EXEC_DEPENDS = "\
-    python3-pyflakes\
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-core-native\
 "
+
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
-    ament-pycodestyle\
-    python3-pytest\
+    ament-cmake-gtest\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -45,11 +44,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${WORKDIR}/git/ament_pyflakes"
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ament/ament_cmake.git;${ROS_BRANCH};protocol=https"
+SRCREV = "5741cff5b9f83253bf3521bd8f44108fde3504ad"
+S = "${WORKDIR}/git/ament_cmake_gen_version_h"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

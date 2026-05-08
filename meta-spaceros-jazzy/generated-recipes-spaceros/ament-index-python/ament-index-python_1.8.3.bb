@@ -5,18 +5,15 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code using pyflakes and generate xUnit test\
-    result files.\
-"
-AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
+DESCRIPTION = "Python API to access the ament resource index."
+AUTHOR = "Dharini Dutia <dharini@openrobotics.org>"
+ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pyflakes"
+ROS_CN = "ament_index"
+ROS_BPN = "ament_index_python"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -26,13 +23,13 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = "\
-    python3-pyflakes\
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
-    ament-pycodestyle\
+    ament-copyright\
+    ament-flake8\
+    ament-pep257\
     python3-pytest\
 "
 
@@ -45,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${WORKDIR}/git/ament_pyflakes"
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ament/ament_index.git;${ROS_BRANCH};protocol=https"
+SRCREV = "e4cedf60ad57404e597fefcc0209169c11976fb1"
+S = "${WORKDIR}/git/ament_index_python"
 
 ROS_BUILD_TYPE = "ament_python"
 

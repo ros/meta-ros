@@ -28,7 +28,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
     ament-lint\
-    ${PYTHON_PN}-pydocstyle\
+    python3-pydocstyle\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

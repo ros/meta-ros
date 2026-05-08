@@ -5,35 +5,39 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code using pyflakes and generate xUnit test\
-    result files.\
-"
-AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
+DESCRIPTION = "A package containing some geometry related message definitions."
+AUTHOR = "Tully Foote <tfoote@openrobotics.org>"
+ROS_AUTHOR = "Geoffrey Biggs <geoff@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pyflakes"
+ROS_CN = "common_interfaces"
+ROS_BPN = "geometry_msgs"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = "\
+    std-msgs\
+"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = "\
+    ament-cmake-native\
+    rosidl-default-generators-native\
+"
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = "\
+    std-msgs\
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    python3-pyflakes\
+    rosidl-default-runtime\
+    std-msgs\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
-    ament-pycodestyle\
-    python3-pytest\
+    ament-lint-common\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -45,11 +49,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${WORKDIR}/git/ament_pyflakes"
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ros2/common_interfaces.git;${ROS_BRANCH};protocol=https"
+SRCREV = "81e2f6baa6eb9ac734d4c174dfd231b54d5fa1ef"
+S = "${WORKDIR}/git/geometry_msgs"
 
-ROS_BUILD_TYPE = "ament_python"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

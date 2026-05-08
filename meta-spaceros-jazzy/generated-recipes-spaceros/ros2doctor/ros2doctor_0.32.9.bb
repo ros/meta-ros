@@ -5,18 +5,15 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code using pyflakes and generate xUnit test\
-    result files.\
-"
+DESCRIPTION = "A command line tool to check potential issues in a ROS 2 system"
 AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
+ROS_AUTHOR = "Aditya Pande <aditya.pande@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pyflakes"
+ROS_CN = "ros2cli"
+ROS_BPN = "ros2doctor"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,13 +24,30 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    python3-pyflakes\
+    ament-index-python\
+    python3-catkin-pkg\
+    python3-psutil\
+    python3-importlib-metadata\
+    python3-rosdistro\
+    rclpy\
+    ros2cli\
+    ros-environment\
+    std-msgs\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
-    ament-pycodestyle\
+    ament-copyright\
+    ament-flake8\
+    ament-pep257\
+    ament-xmllint\
+    launch\
+    launch-ros\
+    launch-testing\
+    launch-testing-ros\
     python3-pytest\
+    python3-pytest-timeout\
+    std-msgs\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -45,10 +59,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${WORKDIR}/git/ament_pyflakes"
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ros2/ros2cli.git;${ROS_BRANCH};protocol=https"
+SRCREV = "d4ab31be491217e3ea4672a90a507dfbb04abefe"
+S = "${WORKDIR}/git/ros2doctor"
 
 ROS_BUILD_TYPE = "ament_python"
 
