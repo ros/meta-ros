@@ -5,29 +5,35 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Example SDFormat XML files for testing tools using hthis format."
-AUTHOR = "Shane Loretz <sloretz@osrfoundation.org>"
-ROS_AUTHOR = "Shane Loretz <sloretz@openrobotics.org>"
-HOMEPAGE = "https://github.com/ros/sdformat_test_files"
+DESCRIPTION = "Metapackage for ROS2 control related packages"
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+HOMEPAGE = "https://control.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "sdformat_test_files"
-ROS_BPN = "sdformat_test_files"
+ROS_CN = "ros2_control"
+ROS_BPN = "ros2_control"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = "\
-    cmake-native\
+    ament-cmake-native\
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = "\
-    cmake-native\
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = "\
+    controller-interface\
+    controller-manager\
+    controller-manager-msgs\
+    hardware-interface\
+    joint-limits\
+    ros2-control-test-assets\
+    ros2controlcli\
+    transmission-interface\
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -41,11 +47,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=rpm/jazzy/sdformat_test_files"
-SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "8c299f750f424fdc4c3f0f040c8f9cf222b0299d"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/ros2_control"
+SRC_URI = "git://github.com/ros2-gbp/ros2_control-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "d9a1312eb976c364bb6b1a4229d68d9abc4b8048"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

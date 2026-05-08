@@ -5,29 +5,33 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Example SDFormat XML files for testing tools using hthis format."
-AUTHOR = "Shane Loretz <sloretz@osrfoundation.org>"
-ROS_AUTHOR = "Shane Loretz <sloretz@openrobotics.org>"
-HOMEPAGE = "https://github.com/ros/sdformat_test_files"
+DESCRIPTION = "SQLite 3 vendor package"
+AUTHOR = "Michael Orlov <michael.orlov@apex.ai>"
+HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "sdformat_test_files"
-ROS_BPN = "sdformat_test_files"
+ROS_CN = "sqlite3_vendor"
+ROS_BPN = "sqlite3_vendor"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = "\
+    sqlite3\
+"
 
 ROS_BUILDTOOL_DEPENDS = "\
-    cmake-native\
+    ament-cmake-native\
+    ament-cmake-vendor-package-native\
 "
 
-ROS_EXPORT_DEPENDS = ""
-
-ROS_BUILDTOOL_EXPORT_DEPENDS = "\
-    cmake-native\
+ROS_EXPORT_DEPENDS = "\
+    sqlite3\
 "
 
-ROS_EXEC_DEPENDS = ""
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
+
+ROS_EXEC_DEPENDS = "\
+    sqlite3\
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""
@@ -41,11 +45,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=rpm/jazzy/sdformat_test_files"
-SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "8c299f750f424fdc4c3f0f040c8f9cf222b0299d"
+ROS_BRANCH ?= "branch=release/jazzy/sqlite3_vendor"
+SRC_URI = "git://github.com/ros2-gbp/rosbag2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "4642102744e37b21d0d6e5742e7d7a7399f7a8ab"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

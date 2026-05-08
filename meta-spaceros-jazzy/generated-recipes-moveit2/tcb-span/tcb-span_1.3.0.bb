@@ -5,32 +5,32 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Example SDFormat XML files for testing tools using hthis format."
-AUTHOR = "Shane Loretz <sloretz@osrfoundation.org>"
-ROS_AUTHOR = "Shane Loretz <sloretz@openrobotics.org>"
-HOMEPAGE = "https://github.com/ros/sdformat_test_files"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+DESCRIPTION = "Implementation of C++20's std::span"
+AUTHOR = "bmagyar <bence.magyar.robotics@gmail.com>"
+ROS_AUTHOR = "Tyler Weaver <maybe@tylerjw.dev>"
+HOMEPAGE = "https://github.com/tcbrindle/span"
+LICENSE = "BSL-1.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=6465d32b33c70d59e05ded7303b6c46c"
 
-ROS_CN = "sdformat_test_files"
-ROS_BPN = "sdformat_test_files"
+ROS_CN = "tcb_span"
+ROS_BPN = "tcb_span"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = "\
-    cmake-native\
+    ament-cmake-native\
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = "\
-    cmake-native\
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = "\
+    ament-cmake-gtest\
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed
@@ -41,11 +41,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=rpm/jazzy/sdformat_test_files"
-SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "8c299f750f424fdc4c3f0f040c8f9cf222b0299d"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/tcb_span"
+SRC_URI = "git://github.com/ros2-gbp/cpp_polyfills-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "861d3291435bdcf533e1f3c4ced786c1dcb557b4"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
