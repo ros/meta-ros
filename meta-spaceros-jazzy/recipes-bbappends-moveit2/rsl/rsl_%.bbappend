@@ -42,3 +42,7 @@ CXXFLAGS += "-Wno-error=sign-conversion -Wno-error=old-style-cast"
 # error declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidServiceNameError' [-Werror=shadow]
 CFLAGS += "-Wno-error=shadow"
 CXXFLAGS += "-Wno-error=shadow"
+
+ROS_BUILD_TYPE = "ament_cmake"
+
+inherit ros_${ROS_BUILD_TYPE}
