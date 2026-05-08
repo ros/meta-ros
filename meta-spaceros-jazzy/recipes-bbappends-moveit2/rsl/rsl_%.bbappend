@@ -2,6 +2,10 @@
 
 inherit python3native
 
+ROS_BUILD_DEPENDS += " \
+    tl-expected \
+"
+
 ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-native \
 "
