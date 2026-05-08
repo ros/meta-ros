@@ -30,6 +30,10 @@ FILES:${PN} += " \
     ${datadir}/sdformat14/* \
 "
 
+FILES:${PN}-dev += " \
+    ${libdir}/libsdformat14.so \
+"
+
 FILES:python3-${PN} += " \
     ${libdir}/python \
 "
