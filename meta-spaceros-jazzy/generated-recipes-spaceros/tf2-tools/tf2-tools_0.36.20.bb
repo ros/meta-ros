@@ -5,18 +5,15 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code against the style conventions in PEP 8 and\
-    generate xUnit test result files.\
-"
-AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
-HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+DESCRIPTION = "tf2_tools"
+AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
+ROS_AUTHOR = "Tully Foote <tfoote@osrfoundation.org>"
+HOMEPAGE = "http://www.ros.org/wiki/tf2_tools"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pep257"
+ROS_CN = "geometry2"
+ROS_BPN = "tf2_tools"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,13 +24,19 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ament-lint\
-    python3-pydocstyle\
+    graphviz\
+    python3-pyyaml\
+    rclpy\
+    tf2-msgs\
+    tf2-py\
+    tf2-ros-py\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
+    ament-copyright\
     ament-flake8\
+    ament-pep257\
     python3-pytest\
 "
 
@@ -46,10 +49,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_pep257"
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ros2/geometry2.git;${ROS_BRANCH};protocol=https"
+SRCREV = "f424ca3e3cbfc08950c7fe76101c90127af25eea"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/tf2_tools"
 
 ROS_BUILD_TYPE = "ament_python"
 

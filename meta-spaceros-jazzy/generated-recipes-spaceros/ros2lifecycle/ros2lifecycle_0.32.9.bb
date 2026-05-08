@@ -5,18 +5,15 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code against the style conventions in PEP 8 and\
-    generate xUnit test result files.\
-"
+DESCRIPTION = "The lifecycle command for ROS 2 command line tools."
 AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
+ROS_AUTHOR = "Aditya Pande <aditya.pande@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pep257"
+ROS_CN = "ros2cli"
+ROS_BPN = "ros2lifecycle"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -27,14 +24,26 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ament-lint\
-    python3-pydocstyle\
+    lifecycle-msgs\
+    rclpy\
+    ros2cli\
+    ros2node\
+    ros2service\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
+    ament-copyright\
     ament-flake8\
+    ament-pep257\
+    ament-xmllint\
+    launch\
+    launch-ros\
+    launch-testing\
+    launch-testing-ros\
     python3-pytest\
+    python3-pytest-timeout\
+    ros2lifecycle-test-fixtures\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -46,10 +55,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_pep257"
+ROS_BRANCH ?= "branch=jazzy"
+SRC_URI = "git://github.com/ros2/ros2cli.git;${ROS_BRANCH};protocol=https"
+SRCREV = "d4ab31be491217e3ea4672a90a507dfbb04abefe"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ros2lifecycle"
 
 ROS_BUILD_TYPE = "ament_python"
 

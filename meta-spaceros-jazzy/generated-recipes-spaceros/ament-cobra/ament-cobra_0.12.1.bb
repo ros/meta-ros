@@ -5,35 +5,36 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    The ability to check code against the style conventions in PEP 8 and\
-    generate xUnit test result files.\
-"
-AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-ROS_AUTHOR = "Dirk Thomas"
+DESCRIPTION = "ament_lint wrapper for the Cobra static analyzer."
+AUTHOR = "Ivan Perez <ivan.perezdominguez@nasa.gov>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_CN = "ament_lint"
-ROS_BPN = "ament_pep257"
+ROS_CN = "ament_cobra"
+ROS_BPN = "ament_cobra"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = "\
+    cobra-vendor\
+"
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = "\
+    cobra-vendor\
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ament-lint\
-    python3-pydocstyle\
+    cobra-vendor\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
+    ament-copyright\
     ament-flake8\
+    ament-pep257\
     python3-pytest\
 "
 
@@ -46,10 +47,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=spaceros"
-SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
-SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_pep257"
+ROS_BRANCH ?= "branch=main"
+SRC_URI = "git://github.com/ament/ament_cobra.git;${ROS_BRANCH};protocol=https"
+SRCREV = "101aa17b1f4e04d09533bb35271d808a13d1fee1"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_cobra"
 
 ROS_BUILD_TYPE = "ament_python"
 
