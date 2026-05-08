@@ -1,0 +1,38 @@
+Use upstream tl-expected
+
+The cpp_polyfills fork of tl-expected uses tl_expected as the CMake
+project name. That is being deprecated in favour of upstream.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/cmake/generate_parameter_library.cmake
+===================================================================
+--- git.orig/cmake/generate_parameter_library.cmake
++++ git/cmake/generate_parameter_library.cmake
+@@ -96,10 +96,10 @@ macro(generate_parameter_library LIB_NAM
+     rclcpp_lifecycle::rclcpp_lifecycle
+     rsl::rsl
+     tcb_span::tcb_span
+-    tl_expected::tl_expected
++    tl::expected
+   )
+   install(DIRECTORY ${LIB_INCLUDE_DIR} DESTINATION include)
+-  ament_export_dependencies(fmt parameter_traits rclcpp rclcpp_lifecycle rsl tcb_span tl_expected)
++  ament_export_dependencies(fmt parameter_traits rclcpp rclcpp_lifecycle rsl tcb_span tl-expected)
+ endmacro()
+ 
+ 
+Index: git/generate_parameter_library-extras.cmake
+===================================================================
+--- git.orig/generate_parameter_library-extras.cmake
++++ git/generate_parameter_library-extras.cmake
+@@ -32,6 +32,6 @@ find_package(rclcpp REQUIRED)
+ find_package(rsl REQUIRED)
+ find_package(rclcpp_lifecycle REQUIRED)
+ find_package(tcb_span REQUIRED)
+-find_package(tl_expected REQUIRED)
++find_package(tl-expected REQUIRED)
+ 
+ include("${generate_parameter_library_DIR}/generate_parameter_library.cmake")
