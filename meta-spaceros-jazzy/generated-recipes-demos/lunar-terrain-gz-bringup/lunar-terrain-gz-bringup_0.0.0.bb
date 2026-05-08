@@ -5,14 +5,14 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Simulation description for Curiosity Mars Rover"
-AUTHOR = "franklinselva <franklinselva10@gmail.com>"
+DESCRIPTION = "Bringup package for the lunar_terrain simulation in ROS 2"
+AUTHOR = "elero-3 <founders@elementrobotics.space>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "GPL"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "src"
-ROS_BPN = "curiosity_description"
+ROS_BPN = "lunar_terrain_gz_bringup"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -24,10 +24,28 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = "\
+    ament-index-python\
+    robot-state-publisher\
+    ros-gz-bridge\
+    ros-gz-image\
+    ros-gz-sim\
+    xacro\
+    tf2-ros\
+    leo-description\
+    lunar-terrain-gz-plugins\
+    leo-gz-plugins\
+    lunar-terrain-gz-worlds\
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
+    ament-lint-auto\
+    ament-cmake-black\
+    ament-cmake-copyright\
+    ament-cmake-lint-cmake\
+    ament-cmake-mypy\
+    ament-cmake-xmllint\
     ament-lint-auto\
     ament-lint-common\
 "
@@ -44,7 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "4657a2b8661da9ce16f258ce59bcde18f172e265"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/curiosity_rover/curiosity_description"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lunar_terrain/lunar_terrain_gz_bringup"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

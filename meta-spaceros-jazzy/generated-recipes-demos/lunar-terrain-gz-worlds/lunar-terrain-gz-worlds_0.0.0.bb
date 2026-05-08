@@ -5,26 +5,30 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Simulation description for Curiosity Mars Rover"
-AUTHOR = "franklinselva <franklinselva10@gmail.com>"
+DESCRIPTION = "Gazebo Worlds for Moon World Simulation using Ignition Gazebo"
+AUTHOR = "Element Robotics <founders@elementrobotics.space>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "GPL"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "src"
-ROS_BPN = "curiosity_description"
+ROS_BPN = "lunar_terrain_gz_worlds"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
+    ament-cmake-python-native\
 "
 
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = "\
+    ros-gz\
+    leo-description\
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
@@ -44,7 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "4657a2b8661da9ce16f258ce59bcde18f172e265"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/curiosity_rover/curiosity_description"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lunar_terrain/lunar_terrain_gz_worlds"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
