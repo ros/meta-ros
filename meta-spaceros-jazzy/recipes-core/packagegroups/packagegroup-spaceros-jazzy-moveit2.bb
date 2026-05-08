@@ -99,7 +99,6 @@ RDEPENDS:${PN} = "\
     steering-controllers-library\
     stomp\
     tcb-span\
-    tl-expected\
     topic-tools\
     topic-tools-interfaces\
     transmission-interface\
