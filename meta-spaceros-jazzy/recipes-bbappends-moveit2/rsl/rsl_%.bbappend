@@ -1,5 +1,7 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
+inherit python3native
+
 ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-native \
 "
