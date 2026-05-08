@@ -15,7 +15,7 @@ HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "demos"
+ROS_CN = "src"
 ROS_BPN = "trick_canadarm_moveit_config"
 
 ROS_BUILD_DEPENDS = ""
@@ -67,7 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
-SRCREV = "93fa3a1361dc983fca2b8cb2524492648df4adcb"
+SRCREV = "4657a2b8661da9ce16f258ce59bcde18f172e265"
 S = "${WORKDIR}/git/ros_trick/ros_src/trick_canadarm_moveit_config"
 
 ROS_BUILD_TYPE = "ament_cmake"

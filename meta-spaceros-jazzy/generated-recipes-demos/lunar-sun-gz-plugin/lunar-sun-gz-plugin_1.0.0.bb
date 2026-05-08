@@ -11,16 +11,12 @@ HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=bb69307f9a8566360ce04a9b7e6a00b7"
 
-ROS_CN = "demos"
+ROS_CN = "src"
 ROS_BPN = "lunar_sun_gz_plugin"
 
 ROS_BUILD_DEPENDS = "\
-    gz-plugin2\
-    gz-sim7\
-    gz-plugin\
-    gz-sim6\
-    gz-plugin\
-    gz-sim6\
+    gz-plugin-vendor\
+    gz-sim-vendor\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
@@ -28,23 +24,15 @@ ROS_BUILDTOOL_DEPENDS = "\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    gz-plugin2\
-    gz-sim7\
-    gz-plugin\
-    gz-sim6\
-    gz-plugin\
-    gz-sim6\
+    gz-plugin-vendor\
+    gz-sim-vendor\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    gz-plugin2\
-    gz-sim7\
-    gz-plugin\
-    gz-sim6\
-    gz-plugin\
-    gz-sim6\
+    gz-plugin-vendor\
+    gz-sim-vendor\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -68,7 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
-SRCREV = "93fa3a1361dc983fca2b8cb2524492648df4adcb"
+SRCREV = "4657a2b8661da9ce16f258ce59bcde18f172e265"
 S = "${WORKDIR}/git/lunar_terrain/lunar_sun_gz_plugin"
 
 ROS_BUILD_TYPE = "ament_cmake"
