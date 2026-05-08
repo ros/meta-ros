@@ -8,6 +8,8 @@ S = "${WORKDIR}/git"
 # tag: v1.3.1
 SRCREV = "1770e3559f2f6ea4a5fb4f577ad22aeb30fbd8e4"
 
+S = "${WORKDIR}/git"
+
 inherit cmake
 
 EXTRA_OECMAKE = "-DEXPECTED_BUILD_TESTS=FALSE"
