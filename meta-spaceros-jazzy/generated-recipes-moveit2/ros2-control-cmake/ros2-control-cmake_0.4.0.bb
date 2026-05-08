@@ -5,32 +5,33 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Example SDFormat XML files for testing tools using hthis format."
-AUTHOR = "Shane Loretz <sloretz@osrfoundation.org>"
-ROS_AUTHOR = "Shane Loretz <sloretz@openrobotics.org>"
-HOMEPAGE = "https://github.com/ros/sdformat_test_files"
+DESCRIPTION = "Provides CMake macros used by the ros2_control framework"
+AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
+ROS_AUTHOR = "Christoph Froehlich <christoph.froehlich@ait.ac.at>"
+HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "sdformat_test_files"
-ROS_BPN = "sdformat_test_files"
+ROS_CN = "ros2_control_cmake"
+ROS_BPN = "ros2_control_cmake"
 
 ROS_BUILD_DEPENDS = ""
 
 ROS_BUILDTOOL_DEPENDS = "\
-    cmake-native\
+    ament-cmake-native\
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = "\
-    cmake-native\
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = "\
+    ament-lint-auto\
+    ament-lint-common\
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we needed
@@ -41,10 +42,10 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=rpm/jazzy/sdformat_test_files"
-SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "8c299f750f424fdc4c3f0f040c8f9cf222b0299d"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/ros2_control_cmake"
+SRC_URI = "git://github.com/ros2-gbp/ros2_control_cmake-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "6bf6eb3c4c27fbf08cafae1e35f6142bda1e5bc9"
 
-ROS_BUILD_TYPE = "cmake"
+ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
