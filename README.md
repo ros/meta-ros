@@ -17,6 +17,7 @@ can be presumed unsupported.
 | ---                 | ---          | ---              | ---             | ---          |
 |                     | *(Rolling)*  | **Humble (LTS)** | **Jazzy (LTS)** | **Kilted**   |
 |                     |              | May 2027         | May 2029        | Nov 2026     |
+| **Wrynose**         | Apr 2030     | **May 2027**     | **May 2029**    | **Nov 2026** |
 | **Whinlatter**      | Dec 2026     | **Dec 2026**     | **Dec 2026**    | **Dec 2026** |
 | Walnascar           | ~~Nov 2025~~ | ~~Nov 2025~~     | ~~Nov 2025~~    | ~~Nov 2025~~ |
 | Styhead             | ~~May 2025~~ | ~~May 2025~~     | ~~May 2025~~    | ~~May 2025~~ |
