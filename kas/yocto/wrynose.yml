@@ -1,0 +1,51 @@
+header:
+  version: 14
+
+defaults:
+  repos:
+    branch: "wrynose"
+
+# https://downloads.yoctoproject.org/releases/yocto/yocto-6.0/RELEASENOTES
+repos:
+  openembedded-core:
+    url: "https://github.com/openembedded/openembedded-core.git"
+    commit: "42fa856a00ac16b2a7a83d7ecfa60a5be192b16c"
+    path: "layers/openembedded-core"
+    layers:
+      meta:
+
+  bitbake:
+    url: "https://github.com/openembedded/bitbake.git"
+    branch: "2.18"
+    commit: "33581c84f3a85008239acbd940501a35de48dc91"
+    path: "layers/bitbake"
+    layers:
+      bitbake: "disabled"
+
+  meta-yocto:
+    url: "https://git.yoctoproject.org/meta-yocto"
+    commit: "904846ae078ee20de073040ebb77c86e19250f56"
+    path: "layers/meta-yocto"
+    layers:
+      meta-poky:
+      meta-yocto-bsp:
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    commit: "420222862f5a6d95023b8f5f3b7e1808b2264ef9"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-filesystems:
+      meta-gnome:
+      meta-initramfs:
+      meta-multimedia:
+      meta-networking:
+      meta-oe:
+      meta-perl:
+      meta-python:
+      meta-webserver:
+      meta-xfce:
+
+local_conf_header:
+  distro: |
+    ERROR_QA:remove = "license-exists"
