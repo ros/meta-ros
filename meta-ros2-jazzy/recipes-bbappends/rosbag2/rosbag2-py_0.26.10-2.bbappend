@@ -5,4 +5,7 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-adapter \
 "
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://fix-pybind11-cross-compile-suffix.patch"
+
 INSANE_SKIP:${PN} += "already-stripped"

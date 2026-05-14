@@ -2,7 +2,10 @@
 
 LICENSE = "BSD-3-Clause"
 
-SRC_URI += "file://adding-sip5-integration.patch"
+SRC_URI += " \
+    file://adding-sip5-integration.patch \
+    file://fix-sip-helper-cross-compile-suffix.patch \
+"
 
 inherit python3targetconfig
 
