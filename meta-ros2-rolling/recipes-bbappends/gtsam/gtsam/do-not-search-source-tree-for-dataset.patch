@@ -1,24 +1,30 @@
-Do not search source tree for dataset
+From 53ed6e589302905059ce83ee5cc6db540d7a6bfe Mon Sep 17 00:00:00 2001
+From: Rob Woolley <rob.woolley@windriver.com>
+Date: Thu, 21 Nov 2024 11:40:27 -0800
+Subject: [PATCH] Do not search source tree for dataset
 
 Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+ gtsam/slam/dataset.cpp | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-Index: git/gtsam/slam/dataset.cpp
-===================================================================
---- git.orig/gtsam/slam/dataset.cpp
-+++ git/gtsam/slam/dataset.cpp
-@@ -64,7 +64,6 @@ string findExampleDataFile(const string
-   vector<string> rootsToSearch;
+diff --git a/gtsam/slam/dataset.cpp b/gtsam/slam/dataset.cpp
+index 91317ba..1bf51b0 100644
+--- a/gtsam/slam/dataset.cpp
++++ b/gtsam/slam/dataset.cpp
+@@ -72,7 +72,6 @@ std::string findExampleDataFile(const std::string &name) {
+   std::vector<std::string> rootsToSearch;
  
    // Constants below are defined by CMake, see gtsam/gtsam/CMakeLists.txt
 -  rootsToSearch.push_back(GTSAM_SOURCE_TREE_DATASET_DIR);
    rootsToSearch.push_back(GTSAM_INSTALLED_DATASET_DIR);
  
    // Search for filename as given, and with .graph and .txt extensions
-@@ -87,8 +86,7 @@ string findExampleDataFile(const string
+@@ -95,8 +94,7 @@ std::string findExampleDataFile(const std::string &name) {
    // If we did not return already, then we did not find the file
-   throw invalid_argument(
+   throw std::invalid_argument(
        "gtsam::findExampleDataFile could not find a matching "
 -      "file in\n" GTSAM_SOURCE_TREE_DATASET_DIR
 -      " or\n" GTSAM_INSTALLED_DATASET_DIR " named\n" +
