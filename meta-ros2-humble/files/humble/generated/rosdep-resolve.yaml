@@ -364,6 +364,8 @@ libpcl-segmentation:
 - pcl@meta-ros-common
 libpcl-surface:
 - pcl@meta-ros-common
+libpng++-dev:
+- ${ROS_UNRESOLVED_DEP-libpng++-dev}
 libpng-dev:
 - libpng@openembedded-core
 libpoco-dev:
@@ -418,6 +420,8 @@ libsqlite3-dev:
 - sqlite3@openembedded-core
 libssl-dev:
 - openssl@openembedded-core
+libsystemd-dev:
+- systemd@openembedded-core
 libtheora:
 - libtheora@openembedded-core
 libtiff-dev:
@@ -581,16 +585,12 @@ python3-distro:
 - python3-distro@meta-python
 python3-empy:
 - python3-empy@meta-ros-common
-python3-expiringdict:
-- ${ROS_UNRESOLVED_DEP-python3-expiringdict}
 python3-fiona:
 - python3-fiona@meta-ros2
 python3-flake8:
 - python3-flake8@meta-ros-common
 python3-flask:
 - python3-flask@meta-python
-python3-flask-socketio:
-- python3-flask-socketio@meta-python
 python3-future:
 - python3-future@meta-python
 python3-git:
@@ -775,8 +775,6 @@ python3-vcstool:
 - python3-vcstool@meta-ros-common
 python3-venv:
 - python3@openembedded-core
-python3-waitress:
-- python3-waitress@meta-python
 python3-watchdog:
 - python3-watchdog@meta-python
 python3-websocket:
