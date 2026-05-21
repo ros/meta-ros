@@ -54,11 +54,11 @@ case $ROS_DISTRO in
         ROS_VERSION="1"
         ;;
 
-    "dashing"|"eloquent"|"foxy"|"galactic"|"humble"|"iron"|"jazzy"|"kilted"|"lyrical"|"rolling")
+    "humble"|"jazzy"|"kilted"|"lyrical"|"rolling")
         ROS_VERSION="2"
         ;;
 
-    *)  echo "ABORT: Unrecognized ROS_DISTRO: $ROS_DISTRO"
+    *)  echo "ABORT: Unsupported ROS_DISTRO: $ROS_DISTRO"
         exit 1
         ;;
 esac
