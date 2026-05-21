@@ -1,0 +1,29 @@
+Use CMake Targets
+
+The previous use of ${..._LIBRARIES} caused absolute paths in
+INTERFACE_LINK_LIBRARIES, triggering do_package_qa failures (buildpaths).
+
+Remove the explicit pal_statistics include directories.
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c05c330dd..f49c90679 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,13 +28,12 @@ target_compile_features(controller_interface PUBLIC cxx_std_17)
+ target_include_directories(controller_interface PUBLIC
+   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include/controller_interface>
+-  ${pal_statistics_INCLUDE_DIRS}
+ )
+ target_link_libraries(controller_interface PUBLIC
+                       hardware_interface::hardware_interface
+                       rclcpp_lifecycle::rclcpp_lifecycle
+                       realtime_tools::realtime_tools
+-                      ${pal_statistics_LIBRARIES}
++                      pal_statistics::pal_statistics
+                       fmt::fmt)
+
+ if(BUILD_TESTING)

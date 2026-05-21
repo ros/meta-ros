@@ -1,0 +1,62 @@
+Add a libcamera CMake target
+
+This is used to avoid package QA warnings for buildpaths included
+in exported CMake files.
+
+Upstream-Status: Pending
+Signed-off by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index aea7317..7ed85a9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,6 +19,13 @@ foreach(PKGDEP IN LISTS PACKAGE_DEPENDENCIES)
+ endforeach()
+ pkg_check_modules(libcamera REQUIRED libcamera>=0.1)
+ 
++# Create an imported target for libcamera
++add_library(libcamera::libcamera INTERFACE IMPORTED)
++set_target_properties(libcamera::libcamera PROPERTIES
++  INTERFACE_INCLUDE_DIRECTORIES "${libcamera_INCLUDE_DIRS}"
++  INTERFACE_LINK_LIBRARIES "${libcamera_LINK_LIBRARIES}"
++)
++
+ # new param callbacks need at least 17.0.0
+ if(${rclcpp_VERSION} VERSION_GREATER_EQUAL "17")
+     add_compile_definitions(RCLCPP_HAS_PARAM_EXT_CB)
+@@ -44,10 +46,9 @@ add_library(utils OBJECT
+   src/format_mapping.cpp
+   src/pretty_print.cpp
+ )
+-target_include_directories(utils PUBLIC ${libcamera_INCLUDE_DIRS})
+-target_link_libraries(utils ${libcamera_LINK_LIBRARIES})
+ target_link_libraries(
+   utils
++  libcamera::libcamera
+   ${sensor_msgs_TARGETS}
+ )
+ set_property(TARGET utils PROPERTY POSITION_INDEPENDENT_CODE ON)
+@@ -62,10 +63,10 @@ add_library(param OBJECT
+     src/ParameterHandler.cpp
+     src/ParameterConflictHandler.cpp
+ )
+-target_include_directories(param PUBLIC ${libcamera_INCLUDE_DIRS})
+-target_link_libraries(param ${libcamera_LINK_LIBRARIES})
++
+ target_link_libraries(
+   param
++  libcamera::libcamera
+   rclcpp::rclcpp
+ )
+ set_property(TARGET param PROPERTY POSITION_INDEPENDENT_CODE ON)
+@@ -80,9 +81,7 @@ target_link_libraries(camera_component PUBLIC
+   camera_info_manager::camera_info_manager
+   cv_bridge::cv_bridge
+ )
+-target_include_directories(camera_component PUBLIC ${libcamera_INCLUDE_DIRS})
+-target_link_libraries(camera_component PUBLIC ${libcamera_LINK_LIBRARIES})
+-target_link_libraries(camera_component PRIVATE utils param)
++target_link_libraries(camera_component PUBLIC libcamera::libcamera PRIVATE utils param)
+ 
+ ament_export_targets(camera_componentTargets HAS_LIBRARY_TARGET)
+ ament_export_dependencies(${PACKAGE_DEPENDENCIES})

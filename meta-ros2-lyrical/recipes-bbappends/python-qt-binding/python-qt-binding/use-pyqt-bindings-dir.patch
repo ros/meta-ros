@@ -1,0 +1,25 @@
+Use PYQT_BINDINGS_DIR to set the default path
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/cmake/sip_helper.cmake b/cmake/sip_helper.cmake
+index acc8063..4f2348a 100644
+--- a/cmake/sip_helper.cmake
++++ b/cmake/sip_helper.cmake
+@@ -76,7 +76,13 @@ else()
+ endif()
+ 
+ # Find Qt's installed SIP files
+-__find_qt_sip_files(${python_qt_binding_QT_MAJOR_VERSION})
++if(IS_DIRECTORY ${PYQT_BINDINGS_DIR})
++    set(__PYQT_BINDINGS_DIR "${PYQT_BINDINGS_DIR}")
++    set(__PYQT_BINDINGS_FOUND TRUE)
++    message(STATUS "Found PyQt${python_qt_binding_QT_MAJOR_VERSION} SIP bindings at: ${__PYQT_BINDINGS_DIR}")
++else()
++    __find_qt_sip_files(${python_qt_binding_QT_MAJOR_VERSION})
++endif()
+ if(NOT __PYQT_BINDINGS_FOUND)
+     message(FATAL_ERROR "PyQt${python_qt_binding_QT_MAJOR_VERSION} SIP bindings are required but were not found.")
+ endif()

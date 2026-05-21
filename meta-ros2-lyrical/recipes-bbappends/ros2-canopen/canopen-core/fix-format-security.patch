@@ -1,0 +1,76 @@
+Resolve format-security error
+
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+   56 |       rcutils_log_internal(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \
+      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:753:35: note: in expansion of macro 'RCLCPP_LOG'
+  753 | #define RCLCPP_ERROR(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_ERROR, logger, __VA_ARGS__)
+      |                                   ^~~~~~~~~~
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+   56 |       rcutils_log_internal(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \
+      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:753:35: note: in expansion of macro 'RCLCPP_LOG'
+  753 | #define RCLCPP_ERROR(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_ERROR, logger, __VA_ARGS__)
+      |                                   ^~~~~~~~~~
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+   56 |       rcutils_log_internal(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \
+      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:485:34: note: in expansion of macro 'RCLCPP_LOG'
+  485 | #define RCLCPP_INFO(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_INFO, logger, __VA_ARGS__)
+      |                                  ^~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:48:5: note: in expansion of macro 'RCUTILS_LOG_NAMED'
+   48 |     RCUTILS_LOG_NAMED(severity, (logger).get_name(), __VA_ARGS__); \
+      |     ^~~~~~~~~~~~~~~~~
+/opt/ros/rolling/include/rclcpp/rclcpp/logging.hpp:753:35: note: in expansion of macro 'RCLCPP_LOG'
+  753 | #define RCLCPP_ERROR(logger, ...) RCLCPP_LOG(RCUTILS_LOG_SEVERITY_ERROR, logger, __VA_ARGS__)
+      |                                   ^~~~~~~~~~
+/opt/ros/rolling/include/rcutils/rcutils/logging_macros.h:56:27: error: format not a string literal and no format arguments [-Werror=format-security]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/include/canopen_core/node_interfaces/node_canopen_master.hpp b/include/canopen_core/node_interfaces/node_canopen_master.hpp
+index 29ec2375..b900ea25 100644
+--- a/include/canopen_core/node_interfaces/node_canopen_master.hpp
++++ b/include/canopen_core/node_interfaces/node_canopen_master.hpp
+@@ -235,7 +235,7 @@ public:
+         }
+         catch (const std::exception & e)
+         {
+-          RCLCPP_INFO(this->node_->get_logger(), e.what());
++          RCLCPP_INFO(this->node_->get_logger(), "%s", e.what());
+         }
+         RCLCPP_INFO(this->node_->get_logger(), "Canopen master loop stopped");
+       });
+diff --git a/src/device_container.cpp b/src/device_container.cpp
+index edfb7a35..722d3c29 100644
+--- a/src/device_container.cpp
++++ b/src/device_container.cpp
+@@ -101,7 +101,7 @@ bool DeviceContainer::load_component(
+               execption_string.append(" for device ");
+               execption_string.append(node_name);
+               execption_string.append(" is not a lifecycle driver while the master is.");
+-              RCLCPP_ERROR(this->get_logger(), execption_string.c_str());
++              RCLCPP_ERROR(this->get_logger(), "%s", execption_string.c_str());
+               throw DeviceContainerException(execption_string);
+             }
+             else
+@@ -121,7 +121,7 @@ bool DeviceContainer::load_component(
+               execption_string.append(" for device ");
+               execption_string.append(node_name);
+               execption_string.append(" is a lifecycle driver while the master is not.");
+-              RCLCPP_ERROR(this->get_logger(), execption_string.c_str());
++              RCLCPP_ERROR(this->get_logger(), "%s", execption_string.c_str());
+               throw DeviceContainerException(execption_string);
+             }
+             else

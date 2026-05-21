@@ -1,0 +1,20 @@
+Add C++ map to UDPPacketMerger
+
+This resolves this problem:
+
+sick-safetyscanners-base/1.0.2-1-r0/temp/log.do_compile:/ala-lpggp31/rwoolley/meta-ros-update/tmp-glibc/work/core2-64-oe-linux/sick-safetyscanners-base/1.0.2-1-r0/git/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h:87:8: error: 'map' in namespace 'std' does not name a template type
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
+index b14d925..6d50a6e 100644
+--- a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
++++ b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
+@@ -42,6 +42,7 @@
+ 
+ #include <algorithm>
+ #include <mutex>
++#include <map>
+ 
+ namespace sick {
+ namespace data_processing {
