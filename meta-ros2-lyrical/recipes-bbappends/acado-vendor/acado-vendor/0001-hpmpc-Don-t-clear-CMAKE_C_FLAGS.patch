@@ -1,0 +1,70 @@
+From bf1a1de4d9b3fed7a8b4316f892909264cf89f60 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Tue, 1 Jun 2021 00:19:40 -0700
+Subject: [PATCH] hpmpc: Don't clear CMAKE_C_FLAGS
+
+* we need those flags from
+  CMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/../toolchain.cmake
+
+  to set --sysroot as well as target -march/-mcpu etc, e.g. in this case:
+
+set( CMAKE_C_FLAGS " \
+-m32 \
+-march=core2 \
+-mtune=core2 \
+-msse3 \
+-mfpmath=sse \
+-fstack-protector-strong \
+-O2 \
+-D_FORTIFY_SOURCE=2 \
+-Wformat \
+-Wformat-security \
+-Werror=format-security \
+-Werror=return-type \
+--sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/acado-vendor/1.0.0-3-r0/recipe-sysroot \
+-O2 \
+-pipe \
+-g \
+-feliminate-unused-debug-types \
+-fmacro-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/acado-vendor/1.0.0-3-r0=/usr/src/debug/acado-vendor/1.0.0-3-r0 \
+-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/acado-vendor/1.0.0-3-r0=/usr/src/debug/acado-vendor/1.0.0-3-r0 \
+-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/acado-vendor/1.0.0-3-r0/recipe-sysroot= \
+-fdebug-prefix-map=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/acado-vendor/1.0.0-3-r0/recipe-sysroot-native= \
+-m32 \
+-march=core2 \
+-mtune=core2 \
+-msse3 \
+-mfpmath=sse \
+-fstack-protector-strong \
+-O2 \
+-D_FORTIFY_SOURCE=2 \
+-Wformat \
+-Wformat-security \
+-Werror=format-security \
+-Werror=return-type \
+--sysroot=/jenkins/mjansa/build/ros/webos-galactic-honister/tmp-glibc/work/qemux86-webos-linux/acado-vendor/1.0.0-3-r0/recipe-sysroot" \
+CACHE \
+STRING \
+"CFLAGS" \
+)
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 660d859..a786120 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,8 +36,6 @@ set(OS LINUX)
+ set(PREFIX /usr)
+ 
+ # clear compiler flags
+-set(CMAKE_C_FLAGS "")
+-
+ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -fPIC")
+ 
+ if(${USE_BLASFEO} MATCHES 1)

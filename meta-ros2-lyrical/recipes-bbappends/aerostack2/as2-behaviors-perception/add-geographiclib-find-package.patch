@@ -1,0 +1,19 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -26,6 +26,7 @@ set(PROJECT_DEPENDENCIES
+   as2_behavior
+   OpenCV
+   cv_bridge
++  GeographicLib
+ )
+ 
+ # Find dependencies
+@@ -58,4 +59,4 @@ endif()
+ 
+ ament_export_dependencies(${PROJECT_DEPENDENCIES})
+ 
+-ament_package()
+\ No newline at end of file
++ament_package()
