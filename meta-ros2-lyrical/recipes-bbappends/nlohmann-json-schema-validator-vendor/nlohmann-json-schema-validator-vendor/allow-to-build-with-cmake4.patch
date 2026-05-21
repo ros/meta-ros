@@ -1,0 +1,18 @@
+Allow to build with CMake 4+
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -70,6 +70,7 @@ macro(build_nlohmann_json_schema_validat
+       -DJSON_VALIDATOR_BUILD_TESTS:BOOL=OFF
+       -DJSON_VALIDATOR_BUILD_EXAMPLES:BOOL=OFF
+       -Dnlohmann_json_DIR=${nlohmann_json_DIR}
++      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+       ${cmake_configure_args}
+   )
+ 

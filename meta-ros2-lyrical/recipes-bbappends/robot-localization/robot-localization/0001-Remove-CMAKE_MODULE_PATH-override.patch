@@ -1,0 +1,26 @@
+From ad00ba33990aec4e9c5c95132150a42d8f50a38c Mon Sep 17 00:00:00 2001
+From: Stephen Street <stephen@redrocketcomputing.com>
+Date: Thu, 13 Feb 2025 19:00:43 -0800
+Subject: [PATCH] Remove CMAKE_MODULE_PATH override
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0da52ad..b95b648 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,9 +36,6 @@ find_package(tf2_geometry_msgs REQUIRED)
+ find_package(tf2_ros REQUIRED)
+ find_package(yaml_cpp_vendor REQUIRED)
+ find_package(yaml-cpp REQUIRED)
+-
+-# Geographiclib installs FindGeographicLib.cmake to this non-standard location
+-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "/usr/share/cmake/geographiclib/")
+ find_package(GeographicLib REQUIRED)
+ 
+ set(library_name rl_lib)

@@ -1,0 +1,35 @@
+From 742fed824fcea547cabb70fa54dd9344d26c5e80 Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Fri, 16 Apr 2021 05:14:03 -0700
+Subject: [PATCH] _confgen: install _confgen to be used in target cyclonedds
+ build
+
+* it is built by cyclonedds-native, but not installed so target cyclonedds was still failing with:
+  -- Found OpenSSL: /jenkins/mjansa/build/ros/webos-rolling-hardknott/tmp-glibc/work/raspberrypi4-webos-linux-gnueabi/cyclonedds/0.8.0-3-r0/recipe-sysroot/usr/lib/libcrypto.so (found version "1.1.1k")
+  -- Building with OpenSSL support
+  CMake Error at src/tools/_confgen/CMakeLists.txt:13 (find_program):
+    Could not find DDSCONF_EXECUTABLE using the following names: _confgen
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ src/tools/_confgen/CMakeLists.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/tools/_confgen/CMakeLists.txt b/src/tools/_confgen/CMakeLists.txt
+index 9df1b82..6ff2f79 100644
+--- a/src/tools/_confgen/CMakeLists.txt
++++ b/src/tools/_confgen/CMakeLists.txt
+@@ -97,6 +97,11 @@ if (NOT ${_confgen_hash_correct})
+     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+     VERBATIM
+   )
++  install(
++    TARGETS _confgen
++    DESTINATION "${CMAKE_INSTALL_BINDIR}"
++    COMPONENT dev
++  )
+ else()
+   add_custom_target(
+     _confgen

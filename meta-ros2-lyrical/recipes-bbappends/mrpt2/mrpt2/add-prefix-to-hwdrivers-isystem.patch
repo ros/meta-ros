@@ -1,0 +1,38 @@
+The pkg-config tool obtains a value of /usr/include for LIBAVCODEC_INCLUDEDIR 
+from libavcodec.pc.  We must add '=' as a prefix to the -I option so
+that the sysroot path used as the root directory.  Note that we have also
+converted -isystem to -I to avoid complications with reordering the list
+of include paths and #include_next.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/libs/hwdrivers/CMakeLists.txt b/libs/hwdrivers/CMakeLists.txt
+index 8e1a80ed..a79ada0c 100644
+--- a/libs/hwdrivers/CMakeLists.txt
++++ b/libs/hwdrivers/CMakeLists.txt
+@@ -205,19 +205,19 @@ endif()
+ if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_MRPT_HAS_FFMPEG_SYSTEM)
+ 	set(EXTRA_ISYSTEMS "")
+ 	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR} ")
++		set(EXTRA_ISYSTEMS "-I =${LIBAVCODEC_INCLUDEDIR} ")
+ 	endif()
+ 
+ 	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/ffmpeg")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/ffmpeg ")
++		set(EXTRA_ISYSTEMS "-I =${LIBAVCODEC_INCLUDEDIR}/ffmpeg ")
+ 	endif()
+ 
+ 	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/libavcodec")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/libavcodec ")
++		set(EXTRA_ISYSTEMS "-I =${LIBAVCODEC_INCLUDEDIR}/libavcodec ")
+ 	endif()
+ 
+ 	if(EXISTS "${LIBAVCODEC_INCLUDEDIR}/libavformat")
+-		set(EXTRA_ISYSTEMS "-isystem ${LIBAVCODEC_INCLUDEDIR}/libavformat ")
++		set(EXTRA_ISYSTEMS "-I =${LIBAVCODEC_INCLUDEDIR}/libavformat ")
+ 	endif()
+ 
+ 	if (NOT "${EXTRA_ISYSTEMS}" STREQUAL "")
