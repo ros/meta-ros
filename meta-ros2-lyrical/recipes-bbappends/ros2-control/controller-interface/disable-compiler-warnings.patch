@@ -1,0 +1,25 @@
+Disable compiler warnings
+
+The package should be compiled with the compiler options provided by
+the build system, not set by controller-interface.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 60b213cd5..3cb708ef9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.16)
+ project(controller_interface LANGUAGES CXX)
+ 
+ find_package(ros2_control_cmake REQUIRED)
+-set_compiler_options()
+ export_windows_symbols()
+ 
+ set(THIS_PACKAGE_INCLUDE_DEPENDS

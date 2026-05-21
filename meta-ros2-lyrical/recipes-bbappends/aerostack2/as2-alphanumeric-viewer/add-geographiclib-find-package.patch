@@ -1,0 +1,12 @@
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -22,6 +22,7 @@ set(PROJECT_DEPENDENCIES
+   std_msgs
+   geometry_msgs
+   sensor_msgs
++  GeographicLib
+ )
+ 
+ foreach(DEPENDENCY ${PROJECT_DEPENDENCIES})

@@ -1,0 +1,17 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c0296b9..8f51365 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -142,12 +142,6 @@ install(TARGETS
+ install(DIRECTORY include/
+   DESTINATION include
+ )
+-# I'd rather not install the sample .pcap data, but it seems that it needs to be
+-# installed for the tests to be able to find it...
+-install(DIRECTORY test/
+-  DESTINATION test
+-  FILES_MATCHING PATTERN "*.pcap"
+-)
+ 
+ ### Install Launch Files ###
+ install(DIRECTORY launch

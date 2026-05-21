@@ -1,0 +1,51 @@
+Upstream-Status: Pending
+
+Signed-off-by: Windel Bouwman <windel@windel.nl>
+
+From 3c219390cf625a8c838c42151f86098559030dfb Mon Sep 17 00:00:00 2001
+From: Windel Bouwman <windel@windel.nl>
+Date: Fri, 13 May 2022 13:44:09 +0200
+Subject: [PATCH] Use cmake Thread package to find proper threading library.
+
+---
+ utilite/CMakeLists.txt     | 2 +-
+ utilite/src/CMakeLists.txt | 5 ++---
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+Index: git/utilite/CMakeLists.txt
+===================================================================
+--- git.orig/utilite/CMakeLists.txt
++++ git/utilite/CMakeLists.txt
+@@ -2,7 +2,7 @@ SET(UTILITE_VERSION "0.3.0")
+ ADD_DEFINITIONS(-DUTILITE_VERSION="${UTILITE_VERSION}")
+ 
+ if(UNIX AND NOT ANDROID)
+-   FIND_PACKAGE(Pthreads REQUIRED)
++   FIND_PACKAGE(Threads REQUIRED)
+ ENDIF(UNIX AND NOT ANDROID)
+ 
+ ADD_SUBDIRECTORY( src )
+Index: git/utilite/src/CMakeLists.txt
+===================================================================
+--- git.orig/utilite/src/CMakeLists.txt
++++ git/utilite/src/CMakeLists.txt
+@@ -20,16 +20,16 @@ generate_export_header(rtabmap_utilite
+   BASE_NAME utilite)
+ 
+ target_include_directories(rtabmap_utilite PUBLIC 
+-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include;${CMAKE_CURRENT_BINARY_DIR}/include;${PTHREADS_INCLUDE_DIR}>"
++  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include;${CMAKE_CURRENT_BINARY_DIR}/include>"
+   "$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR};${PTHREADS_INCLUDE_DIR}>")
+ 
+ IF(MINGW)
+-    TARGET_LINK_LIBRARIES(rtabmap_utilite PRIVATE ${PTHREADS_LIBRARY} "-lpsapi")
++    TARGET_LINK_LIBRARIES(rtabmap_utilite Threads::Threads "-lpsapi")
+ ELSEIF(WIN32 OR MSVC)
+ 	FIND_LIBRARY(PSAPI_LIBRARIES NAMES psapi libpsapi.dll.a libpsapi.a libpsapi.lib )
+ 	TARGET_LINK_LIBRARIES(rtabmap_utilite PRIVATE ${PSAPI_LIBRARIES})
+ ELSE()
+-    TARGET_LINK_LIBRARIES(rtabmap_utilite PRIVATE ${PTHREADS_LIBRARY})
++    TARGET_LINK_LIBRARIES(rtabmap_utilite Threads::Threads)
+ ENDIF()
+ 
+ SET_TARGET_PROPERTIES(
