@@ -1,5 +1,8 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
+ROS_EXPORT_DEPENDS:remove = "cli11"
+ROS_EXEC_DEPENDS:remove = "cli11"
+
 ROS_BUILD_DEPENDS += "\
     protobuf \
     qtdeclarative \
