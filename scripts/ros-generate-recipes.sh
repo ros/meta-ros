@@ -54,7 +54,7 @@ case $ROS_DISTRO in
         ROS_VERSION="1"
         ;;
 
-    "dashing"|"eloquent"|"foxy"|"galactic"|"humble"|"iron"|"jazzy"|"kilted"|"rolling")
+    "dashing"|"eloquent"|"foxy"|"galactic"|"humble"|"iron"|"jazzy"|"kilted"|"lyrical"|"rolling")
         ROS_VERSION="2"
         ;;
 
