@@ -1,0 +1,20 @@
+Remove unnecessary files that are explicitly duplicated into /usr/share
+
+# ERROR: QA Issue: slam-toolbox: Files/directories were installed but not shipped in any package:
+#  /usr/share/solver_plugins.xml
+#  /usr/share/rviz_plugins.xml
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -221,10 +221,6 @@ install(DIRECTORY config
+   DESTINATION share/${PROJECT_NAME}
+ )
+ 
+-install(FILES solver_plugins.xml rviz_plugins.xml
+-  DESTINATION share
+-)
+-
+ ament_export_include_directories(include)
+ ament_export_libraries(${libraries} kartoSlamToolbox)
+ ament_export_dependencies(${dependencies})

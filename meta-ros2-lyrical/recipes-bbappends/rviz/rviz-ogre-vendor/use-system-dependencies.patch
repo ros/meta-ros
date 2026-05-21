@@ -1,0 +1,31 @@
+Use system dependencies
+
+Instead of making private vendor copies we should instead use
+the libraries provided by the system.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: rviz-ogre-vendor-15.1.15-1/CMakeLists.txt
+===================================================================
+--- rviz-ogre-vendor-15.1.15-1.orig/CMakeLists.txt
++++ rviz-ogre-vendor-15.1.15-1/CMakeLists.txt
+@@ -6,6 +6,9 @@ find_package(ament_cmake_vendor_package
+ 
+ option(RVIZ_OGRE_VENDOR_MANGLE_NAME_OF_LIBRARIES_USED_BY_RVIZ "If enabled, append a unique name to OgreMain, OgreOverlay and OgreGLSupport." FALSE)
+ 
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(OGRE REQUIRED OGRE)
++
+ set(OGRE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
+ if(MSVC)
+   set(OGRE_CXX_FLAGS "/wd4101 ${OGRE_CXX_FLAGS}")
+@@ -43,6 +46,7 @@ if(APPLE)
+ endif()
+ 
+ ament_vendor(ogre_vendor
++  SATISFIED ${OGRE_FOUND}
+   VCS_URL https://github.com/OGRECave/ogre.git
+   VCS_VERSION v1.12.10
+   CMAKE_ARGS
