@@ -1,0 +1,66 @@
+Use CMake Targets
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c8ee0603..42c6990c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -40,9 +40,16 @@ target_include_directories(node_canopen_proxy_driver PUBLIC
+   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include>)
+ 
+-ament_target_dependencies(
++target_link_libraries(
+   node_canopen_proxy_driver
+-  ${dependencies}
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+ 
+ add_library(lifecycle_proxy_driver
+@@ -57,9 +64,16 @@ target_include_directories(lifecycle_proxy_driver PUBLIC
+ target_link_libraries(lifecycle_proxy_driver
+   node_canopen_proxy_driver
+ )
+-ament_target_dependencies(
++target_link_libraries(
+   lifecycle_proxy_driver
+-  ${dependencies}
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+ # Causes the visibility macros to use dllexport rather than dllimport,
+ # which is appropriate when building the dll but not consuming it.
+@@ -83,9 +97,16 @@ target_link_libraries(proxy_driver
+   node_canopen_proxy_driver
+ )
+ 
+-ament_target_dependencies(
++target_link_libraries(
+   proxy_driver
+-  ${dependencies}
++  ${canopen_base_driver_TARGETS}
++  ${canopen_core_TARGETS}
++  ${canopen_interfaces_TARGETS}
++  rclcpp::rclcpp
++  ${rclcpp_components_TARGETS}
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${std_msgs_TARGETS}
++  ${std_srvs_TARGETS}
+ )
+ 
+ # Causes the visibility macros to use dllexport rather than dllimport,

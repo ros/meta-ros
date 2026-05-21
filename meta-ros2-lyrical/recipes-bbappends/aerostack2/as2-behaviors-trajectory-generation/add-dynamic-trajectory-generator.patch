@@ -1,0 +1,64 @@
+Disable cloning the git repository from FetchContent and use system
+libraries and include files for dynamic_trajectory_generator instead.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/generate_polynomial_trajectory_behavior/CMakeLists.txt
+===================================================================
+--- git.orig/generate_polynomial_trajectory_behavior/CMakeLists.txt
++++ git/generate_polynomial_trajectory_behavior/CMakeLists.txt
+@@ -1,20 +1,16 @@
+ set(EXECUTABLE_NAME generate_polynomial_trajectory_behavior)
+ 
+-# Download the dynamic_trajectory_generator from github
+-find_package(dynamic_trajectory_generator QUIET)
++add_library(dynamic_trajectory_generator STATIC IMPORTED)
++set_target_properties(dynamic_trajectory_generator PROPERTIES
++  IMPORTED_LOCATION ${DYNAMIC_TRAJECTORY_GENERATOR_LIBRARY}
++  INTERFACE_LINK_LIBRARIES dynamic_trajectory_generator
++)
+ 
+-if(${dynamic_trajectory_generator_FOUND})
+-  MESSAGE(STATUS "dynamic_trajectory_generator found")
+-else(${dynamic_trajectory_generator_FOUND})
+-  MESSAGE(STATUS "dynamic_trajectory_generator not found")
+-  include(FetchContent)
+-  FetchContent_Declare(
+-    dynamic_trajectory_generator
+-    GIT_REPOSITORY https://github.com/miferco97/dynamic_trajectory_generator.git
+-    GIT_TAG master
+-  )
+-  FetchContent_MakeAvailable(dynamic_trajectory_generator)
+-endif(${dynamic_trajectory_generator_FOUND})
++add_library(mav_trajectory_generation STATIC IMPORTED)
++set_target_properties(mav_trajectory_generation PROPERTIES
++  IMPORTED_LOCATION ${MAV_TRAJECTORY_GENERATION_LIBRARY}
++  INTERFACE_LINK_LIBRARIES mav_trajectory_generation
++)
+ 
+ # Find dependencies
+ set(EXECUTABLE_DEPENDENCIES
+@@ -33,6 +29,7 @@ include_directories(
+   include
+   include/${EXECUTABLE_NAME}
+   ${EIGEN3_INCLUDE_DIRS}
++  ${DYNAMIC_TRAJECTORY_GENERATOR_INCLUDE_DIRS}
+ )
+ 
+ set(SOURCE_CPP_FILES
+@@ -41,7 +38,7 @@ set(SOURCE_CPP_FILES
+ )
+ 
+ add_executable(${EXECUTABLE_NAME}_node ${SOURCE_CPP_FILES})
+-target_link_libraries(${EXECUTABLE_NAME}_node dynamic_trajectory_generator)
++target_link_libraries(${EXECUTABLE_NAME}_node dynamic_trajectory_generator mav_trajectory_generation)
+ ament_target_dependencies(${EXECUTABLE_NAME}_node ${PROJECT_DEPENDENCIES} ${EXECUTABLE_DEPENDENCIES})
+ 
+ install(DIRECTORY
+@@ -53,4 +50,4 @@ install(TARGETS
+   DESTINATION lib/${PROJECT_NAME})
+ 
+ ament_export_dependencies(${EXECUTABLE_DEPENDENCIES})
+-ament_export_include_directories(include)
+\ No newline at end of file
++ament_export_include_directories(include)
