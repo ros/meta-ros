@@ -6,7 +6,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 SRC_URI = "git://gitlab.com/lely_industries/lely-core.git;protocol=https;branch=v2.3 \
     file://0001-fix-GCC-15-errors.patch \
-    file://0001-Fix-dcf-tools.patch"
+    file://0001-Fix-dcf-tools.patch \
+    file://0001-fix-Patch-dcf2dev-for-Python-3.14.patch \
+    file://0002-fix-add-compatibility-for-python-3.9.patch"
 
 SRCREV = "9e3267d26018f6f6babd50786f6ae2af89cc57ea"
 

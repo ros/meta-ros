@@ -1,0 +1,64 @@
+fix: add compatibility for python <3.9
+
+Upstream-Status: Backport [https://gitlab.com/lely_industries/lely-core/-/merge_requests/150]
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 12976a8bc0900e44fb7fc25470f898bda4ab32bd Mon Sep 17 00:00:00 2001
+From: Maarten Kleijwegt <mkleijwegt@lely.com>
+Date: Thu, 5 Mar 2026 23:16:43 +0100
+Subject: [PATCH 2/2] fix: add compatibility for python <3.9
+
+---
+ python/dcf-tools/dcf2dev/cli.py | 5 ++++-
+ python/dcf-tools/dcfgen/cli.py  | 5 ++++-
+ python/dcf-tools/setup.py       | 2 +-
+ 3 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/python/dcf-tools/dcf2dev/cli.py b/python/dcf-tools/dcf2dev/cli.py
+index 01faffc8..0b4b3b49 100644
+--- a/python/dcf-tools/dcf2dev/cli.py
++++ b/python/dcf-tools/dcf2dev/cli.py
+@@ -2,7 +2,10 @@ import argparse
+ import contextlib
+ import em
+ import os
+-from importlib.resources import files
++try:
++    from importlib.resources import files
++except ImportError:
++    from importlib_resources import files
+ import sys
+ 
+ import dcf
+diff --git a/python/dcf-tools/dcfgen/cli.py b/python/dcf-tools/dcfgen/cli.py
+index 3e7dedb8..ebad8bcd 100644
+--- a/python/dcf-tools/dcfgen/cli.py
++++ b/python/dcf-tools/dcfgen/cli.py
+@@ -1,7 +1,10 @@
+ import argparse
+ import em
+ import os
+-from importlib.resources import files
++try:
++    from importlib.resources import files
++except ImportError:
++    from importlib_resources import files
+ import struct
+ import yaml
+ import warnings
+diff --git a/python/dcf-tools/setup.py b/python/dcf-tools/setup.py
+index df4def78..98330059 100644
+--- a/python/dcf-tools/setup.py
++++ b/python/dcf-tools/setup.py
+@@ -11,7 +11,7 @@ setup(
+             "dcfgen = dcfgen.cli:main",
+         ]
+     },
+-    install_requires=["PyYAML>=3.08", "empy>=3.3.2"],
++    install_requires=["PyYAML>=3.08", "empy>=3.3.2", 'importlib-resources; python_version < "3.9"'],
+     package_data={"": ["data/*"]},
+     author="J. S. Seldenthuis",
+     author_email="jseldenthuis@lely.com",
+-- 
+2.49.0
+

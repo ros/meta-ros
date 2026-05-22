@@ -1,0 +1,64 @@
+fix: Patch dcf2dev for Python 3.14
+
+Upstream-Status: Backport [https://gitlab.com/lely_industries/lely-core/-/merge_requests/150]
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From bc387e66290f64d357ff673c0082a2abe526635e Mon Sep 17 00:00:00 2001
+From: Maarten Kleijwegt <mkleijwegt@lely.com>
+Date: Thu, 5 Mar 2026 23:16:33 +0100
+Subject: [PATCH 1/2] fix: Patch dcf2dev for Python 3.14
+
+---
+ python/dcf-tools/dcf2dev/cli.py | 4 ++--
+ python/dcf-tools/dcfgen/cli.py  | 6 ++----
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/python/dcf-tools/dcf2dev/cli.py b/python/dcf-tools/dcf2dev/cli.py
+index 00df5ca8..01faffc8 100644
+--- a/python/dcf-tools/dcf2dev/cli.py
++++ b/python/dcf-tools/dcf2dev/cli.py
+@@ -2,7 +2,7 @@ import argparse
+ import contextlib
+ import em
+ import os
+-import pkg_resources
++from importlib.resources import files
+ import sys
+ 
+ import dcf
+@@ -80,7 +80,7 @@ def main():
+         }
+         interpreter = em.Interpreter(output=output, globals=params)
+         try:
+-            filename = pkg_resources.resource_filename(__name__, "data/" + filename)
++            filename = files(__name__).joinpath( "data/" + filename)
+             interpreter.file(open(filename))
+         finally:
+             interpreter.shutdown()
+diff --git a/python/dcf-tools/dcfgen/cli.py b/python/dcf-tools/dcfgen/cli.py
+index f487cfff..3e7dedb8 100644
+--- a/python/dcf-tools/dcfgen/cli.py
++++ b/python/dcf-tools/dcfgen/cli.py
+@@ -1,7 +1,7 @@
+ import argparse
+ import em
+ import os
+-import pkg_resources
++from importlib.resources import files
+ import struct
+ import yaml
+ import warnings
+@@ -418,9 +418,7 @@ class Master:
+             globals = {"master": self, "slaves": self.slaves, "remote_pdo": remote_pdo}
+             interpreter = em.Interpreter(output=output, globals=globals)
+             try:
+-                filename = pkg_resources.resource_filename(
+-                    __name__, "data/master.dcf.em"
+-                )
++                filename = files(__name__).joinpath("data/master.dcf.em")
+                 interpreter.file(open(filename))
+             finally:
+                 interpreter.shutdown()
+-- 
+2.49.0
+
