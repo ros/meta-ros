@@ -38,14 +38,14 @@ jobs:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: meta-ros
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.10' 
       - name: Check out superflore
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ros-infrastructure/superflore
           path: superflore
@@ -77,7 +77,7 @@ jobs:
       - name: Check 20-default.list
         run: cat ${ROSDEP_SOURCE_PATH}/20-default.list
       - name: Check out rosdistro
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ros/rosdistro
           path: rosdistro
