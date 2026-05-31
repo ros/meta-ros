@@ -245,9 +245,6 @@ ROS_UNRESOLVED_DEP-lttng-tools = "lttng-tools"
 # Used by generated-recipes/ament-cmake/ament-cmake-vendor-package_2.3.0-1.bb
 ROS_UNRESOLVED_DEP-python3-vcstool-native = "python3-vcs2l-native"
 
-# Used by generated-recipes/ament-lint/ament-flake8_0.16.0-1.bb
-ROS_UNRESOLVED_DEP-python3-flake8-comprehensions = "python3-flake8-comprehensions"
-
 ROS_UNRESOLVED_DEP-meson-native = "meson-native"
 
 # https://layers.openembedded.org/layerindex/recipe/120200/
