@@ -1,0 +1,34 @@
+From 594a2564518a23b35734a3165e07f9c96af4085e Mon Sep 17 00:00:00 2001
+From: Jaeyoon Jung <jaeyoon.jung@lge.com>
+Date: Tue, 23 Jun 2026 08:21:02 +0900
+Subject: [PATCH] cmake: use CMAKE_INSTALL_LIBDIR instead of 'lib'
+
+CMAKE_INSTALL_LIBDIR is a better choice than the hardcoded path 'lib'
+especially when building it in the multi-arch environment.
+
+Signed-off-by: Jaeyoon Jung <jaeyoon.jung@lge.com>
+---
+Upstream-Status: Submitted [https://github.com/yaml/libyaml/pull/336]
+
+ CMakeLists.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index df7c1b9..c5de0fb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,11 +17,13 @@ if(NOT DEFINED CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ endif()
+ 
++include(GNUInstallDirs)
++
+ #
+ # Install relative directories
+ #
+ if(NOT DEFINED INSTALL_LIB_DIR)
+-  set(INSTALL_LIB_DIR lib)
++  set(INSTALL_LIB_DIR ${CMAKE_INSTALL_LIBDIR})
+ endif()
+ if(NOT DEFINED INSTALL_BIN_DIR)
+   set(INSTALL_BIN_DIR bin)

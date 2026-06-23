@@ -10,7 +10,10 @@ LIC_FILES_CHKSUM = "file://License;md5=7bbd28caa69f81f5cd5f48647236663d"
 SRC_URI = "https://pyyaml.org/download/libyaml/yaml-${PV}.tar.gz"
 SRC_URI[sha256sum] = "c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4"
 
-SRC_URI += "file://0001-use-cmake.patch"
+SRC_URI += " \
+    file://0001-use-cmake.patch \
+    file://0002-cmake-use-CMAKE_INSTALL_LIBDIR-instead-of-lib.patch \
+"
 
 S = "${UNPACKDIR}/yaml-${PV}"
 
