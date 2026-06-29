@@ -1,0 +1,29 @@
+Remove 'system' component from Boost package (#61)
+
+Upstream-Status: Backport [https://github.com/moveit/warehouse_ros_sqlite/commit/c3847d5f3b001388ad11f2bfb62328d9be1921d1]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 0824e1d8d6f7d7b1e2555ce49ccb84a3d52d33dd Mon Sep 17 00:00:00 2001
+From: "Felix Exner (fexner)" <git@fexner.de>
+Date: Fri, 8 May 2026 13:17:37 +0200
+Subject: [PATCH] Remove 'system' component from Boost package (#61)
+
+According to https://www.boost.org/releases/1.89.0, the system library is header-only since Boost 1.69 and the corresponding cmake component has been dropped in 1.89.
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 048f00e..ce33c3c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,7 +8,7 @@ endif()
+ find_package(ament_cmake REQUIRED)
+ find_package(sqlite3_vendor REQUIRED)
+ find_package(SQLite3 REQUIRED)
+-find_package(Boost REQUIRED COMPONENTS filesystem system thread)
++find_package(Boost REQUIRED COMPONENTS filesystem thread)
+ find_package(class_loader REQUIRED)
+ find_package(OpenSSL REQUIRED)
+ find_package(rclcpp REQUIRED)
