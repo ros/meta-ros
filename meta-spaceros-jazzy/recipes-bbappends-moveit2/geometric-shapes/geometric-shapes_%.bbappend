@@ -4,7 +4,11 @@
 LICENSE = "BSD-3-Clause"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://allow-new-octomap-version.patch"
+SRC_URI += "file://0002-Fix-dependencies-262.patch\
+            file://0005-Fix-compiler-warnings.patch\
+            file://0006-Bump-minimum-cmake-version-265.patch\
+            file://0007-Remove-octomap-dependency.patch\
+"
 
 inherit pkgconfig
 

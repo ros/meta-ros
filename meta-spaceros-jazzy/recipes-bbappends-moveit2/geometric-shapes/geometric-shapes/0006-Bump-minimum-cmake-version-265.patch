@@ -1,0 +1,27 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From cd7a5b7714dbe45b0d56d634c86429b7b5811bd8 Mon Sep 17 00:00:00 2001
+From: mosfet80 <10235105+mosfet80@users.noreply.github.com>
+Date: Thu, 22 Jan 2026 08:47:35 +0100
+Subject: [PATCH 6/7] Bump minimum cmake version (#265)
+
+cmake version <3.10 is deprecated
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 445b836..abd0874 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.20)
+ project(geometric_shapes)
+ 
+ # Default to C++17
+-- 
+2.49.0
+
