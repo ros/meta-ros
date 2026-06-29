@@ -1,0 +1,28 @@
+Fix typo in `lexy::input_location` comparison
+
+Upstream-Status: Backport [https://github.com/foonathan/lexy/commit/e8eb4d67c4eb33e1476218c0374f68e198723526]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From e8eb4d67c4eb33e1476218c0374f68e198723526 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jonathan=20M=C3=BCller?= <git@foonathan.net>
+Date: Fri, 3 May 2024 09:37:51 -0600
+Subject: [PATCH] Fix typo in `lexy::input_location` comparison
+
+---
+ include/lexy/input_location.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: behaviortree-cpp-4.6.2/3rdparty/lexy/include/lexy/input_location.hpp
+===================================================================
+--- behaviortree-cpp-4.6.2.orig/3rdparty/lexy/include/lexy/input_location.hpp
++++ behaviortree-cpp-4.6.2/3rdparty/lexy/include/lexy/input_location.hpp
+@@ -162,7 +162,7 @@ public:
+     {
+         if (lhs._line_nr != rhs._line_nr)
+             return lhs._line_nr < rhs._line_nr;
+-        return lhs._column_nr < rhs._colum_nr;
++        return lhs._column_nr < rhs._column_nr;
+     }
+     friend constexpr bool operator<=(const input_location& lhs, const input_location& rhs)
+     {
