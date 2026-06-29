@@ -1,5 +1,9 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://switch-nav2-voxel_grid-to-use-modern-cmake-idioms.patch\
+            file://switch-nav2_amcl-to-use-modern-cmake-idioms.patch"
+
 ROS_BUILDTOOL_DEPENDS = " \
     rosidl-adapter-native \
     python3-numpy-native \

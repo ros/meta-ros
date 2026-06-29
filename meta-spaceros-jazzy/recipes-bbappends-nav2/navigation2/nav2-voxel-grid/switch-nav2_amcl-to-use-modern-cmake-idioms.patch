@@ -1,0 +1,69 @@
+Upstream-Status: Backport
+
+Patch filtered to only include changes to nav2_voxel_grid.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From ca1fce1afc5d51875c2a00e208f0a98be84b1db2 Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Mon, 29 Jul 2024 12:40:00 -0400
+Subject: [PATCH] Switch nav2_amcl to use modern CMake idioms. (#4564)
+
+This change is a little unusual in that it does rearrange
+the hierarchy of CMakeLists.txt files.  This is because
+the individual libraries (like map_lib) are used in some of
+the other libraries, and CMake was complaining about that.
+So I flattened the whole thing out and now build all of the
+libraries at the top-level.
+
+This PR also contains a couple of fixes to previous packages
+where I failed to properly export the include directory.
+
+Finally, this PR goes ahead and removes quite a bit of dead
+code from this package.  This has been dead for quite a while,
+so I think it makes sense to remove it at this point.
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ nav2_amcl/CMakeLists.txt                      | 171 ++++++++++++------
+ nav2_amcl/include/nav2_amcl/amcl_node.hpp     |  10 +-
+ nav2_amcl/include/nav2_amcl/angleutils.hpp    |   2 +-
+ .../differential_motion_model.hpp             |   6 +-
+ .../nav2_amcl/motion_model/motion_model.hpp   |   5 +-
+ .../motion_model/omni_motion_model.hpp        |   7 +-
+ .../include/nav2_amcl/sensors/laser/laser.hpp |   4 +-
+ nav2_amcl/package.xml                         |  23 ++-
+ nav2_amcl/src/amcl_node.cpp                   |  17 +-
+ nav2_amcl/src/map/CMakeLists.txt              |  13 --
+ nav2_amcl/src/map/map.c                       |   4 -
+ nav2_amcl/src/map/map_cspace.cpp              |   5 +-
+ nav2_amcl/src/map/map_range.c                 |   1 -
+ nav2_amcl/src/motion_model/CMakeLists.txt     |  16 --
+ .../differential_motion_model.cpp             |   4 +
+ .../src/motion_model/omni_motion_model.cpp    |   5 +
+ nav2_amcl/src/pf/CMakeLists.txt               |  25 ---
+ nav2_amcl/src/sensors/CMakeLists.txt          |  15 --
+ nav2_amcl/src/sensors/laser/laser.cpp         |   5 +-
+ .../sensors/laser/likelihood_field_model.cpp  |   4 +-
+ .../laser/likelihood_field_model_prob.cpp     |   5 +-
+ nav2_map_server/CMakeLists.txt                |   2 +-
+ nav2_voxel_grid/CMakeLists.txt                |   2 +-
+ 23 files changed, 166 insertions(+), 185 deletions(-)
+ delete mode 100644 nav2_amcl/src/map/CMakeLists.txt
+ delete mode 100644 nav2_amcl/src/motion_model/CMakeLists.txt
+ delete mode 100644 nav2_amcl/src/pf/CMakeLists.txt
+ delete mode 100644 nav2_amcl/src/sensors/CMakeLists.txt
+
+Index: nav2-voxel-grid-1.3.5/CMakeLists.txt
+===================================================================
+--- nav2-voxel-grid-1.3.5.orig/CMakeLists.txt
++++ nav2-voxel-grid-1.3.5/CMakeLists.txt
+@@ -43,7 +43,7 @@ if(BUILD_TESTING)
+ endif()
+ 
+ ament_export_dependencies(rclcpp)
+-ament_export_include_directories(include)
++ament_export_include_directories("include/${PROJECT_NAME}")
+ ament_export_libraries(voxel_grid)
+ ament_export_targets(voxel_grid)
+ 
