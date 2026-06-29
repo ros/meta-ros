@@ -1,0 +1,51 @@
+Use target_link_libraries for Boost
+
+This is necessary because including Boost in the dependencies
+added by ament_target_dependencies has the side-effect of
+including a buildpath in the generated CMake files.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 33eb0df3..4945bacf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,7 +36,6 @@ set(dependencies
+   rclcpp_components
+   rclcpp_lifecycle
+   yaml_cpp_vendor
+-  Boost
+ )
+ 
+ 
+@@ -58,8 +57,8 @@ ament_target_dependencies(node_canopen_driver
+   lely_core_libraries
+   yaml_cpp_vendor
+   canopen_interfaces
+-  Boost
+ )
++target_link_libraries(node_canopen_driver Boost::system Boost::thread)
+ 
+ add_library(node_canopen_master
+   SHARED
+@@ -79,8 +78,8 @@ ament_target_dependencies(node_canopen_master
+   lely_core_libraries
+   yaml_cpp_vendor
+   canopen_interfaces
+-  Boost
+ )
++target_link_libraries(node_canopen_master Boost::system Boost::thread)
+ 
+ 
+ add_library(device_container
+@@ -121,6 +120,8 @@ target_link_libraries(device_container_node
+ ament_target_dependencies(device_container_node
+   ${dependencies}
+ )
++target_link_libraries(device_container_node Boost::system Boost::thread)
++
+ target_include_directories(device_container_node PUBLIC
+   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+   "$<INSTALL_INTERFACE:include>"

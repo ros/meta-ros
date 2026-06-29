@@ -1,0 +1,87 @@
+Use Bitbake fetcher to retrieve dependencies
+
+We should use the bitbake fetcher to retrieve dependencies to ensure that
+we can do reproducibile builds while disconnected from the public Internet.
+
+This also uses existing recipes for TinyXML2 and nlohmann-json.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/CMakeLists.txt
+===================================================================
+--- git.orig/CMakeLists.txt
++++ git/CMakeLists.txt
+@@ -68,45 +68,15 @@ include(GNUInstallDirs)
+ 
+ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules ${CMAKE_MODULE_PATH})
+ 
+-include(FetchContent)
+-if(${CMAKE_VERSION} VERSION_LESS 3.14)
+-  macro(FetchContent_MakeAvailable NAME)
+-    FetchContent_GetProperties(${NAME})
+-    if(NOT ${NAME}_POPULATED)
+-      FetchContent_Populate(${NAME})
+-      add_subdirectory(${${NAME}_SOURCE_DIR} ${${NAME}_BINARY_DIR})
+-    endif(NOT ${NAME}_POPULATED)
+-  endmacro(FetchContent_MakeAvailable)
+-endif(${CMAKE_VERSION} VERSION_LESS 3.14)
+-
+ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+-FetchContent_Declare(json FETCHCONTENT_UPDATES_DISCONNECTED
+-  URL https://github.com/nlohmann/json/releases/download/v3.10.5/json.tar.xz
+-)
+-FetchContent_Declare(tinyxml2 FETCHCONTENT_UPDATES_DISCONNECTED
+-  GIT_REPOSITORY https://github.com/leethomason/tinyxml2.git
+-  GIT_TAG c2d30872e20621955ca7feb9168bad996d591a19
+-)
+-FetchContent_Declare(steering_functions FETCHCONTENT_UPDATES_DISCONNECTED
+-  GIT_REPOSITORY https://github.com/Fields2Cover/steering_functions.git
+-  GIT_TAG 33fc010017efa1ef2c8a2d4779fcda94b4b30d20
+-)
+-FetchContent_Declare(spline FETCHCONTENT_UPDATES_DISCONNECTED
+-  GIT_REPOSITORY https://github.com/Fields2Cover/spline.git
+-  GIT_TAG 1b5d4bad29082997076b264de84ca6d46c2ae6ab
+-)
+-FetchContent_Declare(matplotlib_cpp FETCHCONTENT_UPDATES_DISCONNECTED
+-  GIT_REPOSITORY https://github.com/Fields2Cover/matplotlib-cpp.git
+-  GIT_TAG 75c15d0c907a4b68bca5ef97032302bd14ccab8e
+-)
+-
+-FetchContent_MakeAvailable(
+-  json
+-  tinyxml2
+-  steering_functions
+-  spline
+-  matplotlib_cpp
+-)
++
++find_package(nlohmann_json REQUIRED)
++find_package(tinyxml2_vendor REQUIRED)
++find_package(TinyXML2 REQUIRED)
++
++add_subdirectory(steering_functions)
++add_subdirectory(spline)
++add_subdirectory(matplotlib-cpp)
+ 
+ find_package(GDAL 3.0 REQUIRED)
+ 
+@@ -221,9 +191,7 @@ set_target_properties(Fields2Cover
+ install(
+   TARGETS
+     Fields2Cover
+-    tinyxml2
+     steering_functions
+-    nlohmann_json
+   EXPORT Fields2Cover-targets
+   LIBRARY DESTINATION ${INSTALL_LIB_DIR}
+   ARCHIVE DESTINATION ${INSTALL_LIB_DIR}
+@@ -272,9 +240,7 @@ install(
+ export(
+   TARGETS
+     Fields2Cover
+-    tinyxml2
+     steering_functions
+-    nlohmann_json
+   FILE
+     Fields2Cover-${type}-Targets.cmake
+ )

@@ -1,0 +1,40 @@
+From 0e0a8aa961c1b8a123c7424a6afbd675dd6d1fad Mon Sep 17 00:00:00 2001
+From: Martin Jansa <martin.jansa@lge.com>
+Date: Thu, 5 Nov 2020 15:17:12 -0800
+Subject: [PATCH] CMakeLists.txt: fetch osqp with bitbake fetcher
+
+Upstream-Status: Pending
+
+Signed-off-by: Martin Jansa <martin.jansa@lge.com>
+---
+ CMakeLists.txt | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d9f4814..268e41b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,7 +11,6 @@ project(osqp_vendor)
+ endif()
+ 
+ macro(build_osqp)
+-  set(git_tag "v0.6.2")
+   set(extra_cmake_args)
+ 
+   get_property(multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+@@ -20,13 +19,8 @@ macro(build_osqp)
+   endif()
+ 
+   include(ExternalProject)
+-  externalproject_add(osqp-${git_tag}
+-    GIT_REPOSITORY https://github.com/osqp/osqp.git
+-    GIT_TAG ${git_tag}
+-    GIT_SHALLOW ON
+-    TIMEOUT 60
+-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+-    UPDATE_COMMAND ""
++  externalproject_add(osqp-upstream
++    SOURCE_DIR ${CMAKE_SOURCE_DIR}/osqp-upstream
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/osqp_install
+       ${extra_cmake_args}
