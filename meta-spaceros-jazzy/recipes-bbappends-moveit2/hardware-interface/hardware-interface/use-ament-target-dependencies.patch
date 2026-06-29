@@ -1,0 +1,35 @@
+Use ament target dependencies
+
+The previous use of ${..._LIBRARIES} and ${..._TARGETS} caused
+absolute paths in INTERFACE_LINK_LIBRARIES, triggering
+do_package_qa failures (buildpaths).
+
+This change:
+   - switches ROS dependencies to ament_target_dependencies()
+   - links non-ROS libraries (TinyXML2, fmt) via CMake targets
+   - removes use of ${pal_statistics_INCLUDE_DIRS}
+   - adds missing dependency on pal_statistics_msgs
+
+Upstream-Status: Pending
+Assisted-by: M365 Copilot:GPT-5-chat
+Signed-off by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: hardware-interface-4.45.1/CMakeLists.txt
+===================================================================
+--- hardware-interface-4.45.1.orig/CMakeLists.txt
++++ hardware-interface-4.45.1/CMakeLists.txt
+@@ -48,11 +48,11 @@ target_link_libraries(hardware_interface
+                       realtime_tools::realtime_tools
+                       rcutils::rcutils
+                       rcpputils::rcpputils
+-                      ${joint_limits_TARGETS}
++                      joint_limits::joint_limits
+                       tinyxml2::tinyxml2
+                       pal_statistics::pal_statistics
+-                      ${control_msgs_TARGETS}
+-                      ${lifecycle_msgs_TARGETS}
++                      control_msgs
++                      lifecycle_msgs
+                       fmt::fmt)
+ 
+ add_library(mock_components SHARED
