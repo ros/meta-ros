@@ -1,0 +1,35 @@
+Upstream-Status: Backport
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 4b40516f72f9a87166214b39a41fa58093cc1fe6 Mon Sep 17 00:00:00 2001
+From: mosfet80 <10235105+mosfet80@users.noreply.github.com>
+Date: Wed, 28 May 2025 07:46:53 +0200
+Subject: [PATCH 09/15] Modernize cmake (#50)
+
+- Increase minimum cmake version
+- Drop enforcement of C++14 standard (C++17 is default)
+---
+ CMakeLists.txt | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e0d6fc6..99a8807 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,11 +1,6 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.20)
+ project(random_numbers)
+ 
+-# Default to C++14
+-if(NOT CMAKE_CXX_STANDARD)
+-  set(CMAKE_CXX_STANDARD 14)
+-endif()
+-
+ find_package(ament_cmake REQUIRED)
+ find_package(Boost REQUIRED date_time random thread)
+ 
+-- 
+2.49.0
+
