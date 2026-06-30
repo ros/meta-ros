@@ -1,0 +1,12 @@
+header:
+  version: 14
+
+repos:
+  tasklogger:
+    url: "https://github.com/robwoolley/meta-tasklogger.git"
+    path: "layers/meta-tasklogger"
+    branch: "main"
+
+local_conf_header:
+  tasklogger: |
+    INHERIT += "tasklogger"
