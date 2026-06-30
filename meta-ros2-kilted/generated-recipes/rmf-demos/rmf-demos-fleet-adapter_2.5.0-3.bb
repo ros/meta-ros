@@ -26,7 +26,6 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-uvicorn} \
     launch-xml \
     python3-fastapi \
     python3-flask-socketio \
@@ -35,6 +34,7 @@ ROS_EXEC_DEPENDS = " \
     python3-pyproj \
     python3-pyyaml \
     python3-requests \
+    python3-uvicorn \
     rclpy \
     rmf-fleet-adapter-python \
     rmf-fleet-msgs \
