@@ -28,8 +28,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-openai-pip} \
-    ${ROS_UNRESOLVED_DEP-python3-validators} \
     curl \
+    python3-validators \
     ros2cli \
 "
 
