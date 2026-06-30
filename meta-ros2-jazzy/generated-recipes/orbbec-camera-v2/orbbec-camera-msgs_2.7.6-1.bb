@@ -47,9 +47,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/orbbec/orbbec_camera_v2-release/archive/release/jazzy/orbbec_camera_msgs/2.7.6-1.tar.gz
+# matches with: https://github.com/ros2-gbp/orbbec_camera_v2-release/archive/release/jazzy/orbbec_camera_msgs/2.7.6-1.tar.gz
 ROS_BRANCH ?= "branch=release/jazzy/orbbec_camera_msgs"
-SRC_URI = "git://github.com/orbbec/orbbec_camera_v2-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/orbbec_camera_v2-release;${ROS_BRANCH};protocol=https"
 SRCREV = "2386bb4b9e30d07fd3d3a0668f309796608c3364"
 S = "${WORKDIR}/git"
 

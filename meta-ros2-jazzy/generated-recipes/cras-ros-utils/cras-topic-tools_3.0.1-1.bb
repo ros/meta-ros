@@ -17,8 +17,8 @@ ROS_CN = "cras_ros_utils"
 ROS_BPN = "cras_topic_tools"
 
 ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libcxxopts-dev} \
     cras-cpp-common \
+    cxxopts \
     rclcpp \
     rclcpp-components \
     std-msgs \
