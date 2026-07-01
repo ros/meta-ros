@@ -1,0 +1,25 @@
+Reorder the include headers in OgreMathlibNEON
+
+OgreMathlibNEON needs the Array* function definitions from OgreArrayConfig.h
+
+OgreBooleanMask requires the vmovemaskq_u32 definition from OgreMathlibNEON.h.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ogre-next-3.0.0/OgreMain/src/Math/Array/NEON/Single/OgreMathlibNEON.cpp
+===================================================================
+--- ogre-next-3.0.0.orig/OgreMain/src/Math/Array/NEON/Single/OgreMathlibNEON.cpp
++++ ogre-next-3.0.0/OgreMain/src/Math/Array/NEON/Single/OgreMathlibNEON.cpp
+@@ -33,9 +33,9 @@ THE SOFTWARE.
+ #if __OGRE_HAVE_NEON
+ #    define __Mathlib_H__  // Needed to directly include OgreMathlibNEON
+ 
++#    include "Math/Array/OgreArrayConfig.h"
+ #    include "Math/Array/NEON/Single/OgreMathlibNEON.h"
+ #    include "Math/Array/NEON/Single/neon_mathfun.h"
+-#    include "Math/Array/OgreArrayConfig.h"
+ #    include "Math/Array/OgreBooleanMask.h"
+ 
+ namespace Ogre

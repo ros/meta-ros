@@ -1,0 +1,107 @@
+Refreshed for 3.0.0
+
+Upstream-Status: Submitted [https://github.com/OGRECave/ogre-next/issues/430]
+
+Authored-by: Mark Choi <bchoi@neubility.co.kr>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 480fb368e288f0a4e1c73f6b0a60f27743d5cb63 Mon Sep 17 00:00:00 2001
+From: bchoi <bchoi@neubility.co.kr>
+Date: Mon, 22 Jan 2024 16:22:31 +0900
+Subject: [PATCH] Fixed compile error
+
+---
+ .../Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp      |  2 +-
+ .../include/Math/Array/NEON/Single/OgreMathlibNEON.h   |  2 +-
+ OgreMain/src/OgreDefaultSceneQueries.cpp               |  2 +-
+ OgreMain/src/OgreMovableObject.cpp                     |  2 +-
+ Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt  |  6 ++++--
+ Tools/CmgenToCubemap/CMakeLists.txt                    | 10 +++++++++-
+ 6 files changed, 17 insertions(+), 7 deletions(-)
+
+Index: ogre-next-3.0.0/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp
+===================================================================
+--- ogre-next-3.0.0.orig/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp
++++ ogre-next-3.0.0/Components/Hlms/Pbs/src/Vct/OgreVctCascadedVoxelizer.cpp
+@@ -29,8 +29,8 @@ THE SOFTWARE.
+ #include "OgreStableHeaders.h"
+ 
+ #include "Vct/OgreVctCascadedVoxelizer.h"
+-
+ #include "Compositor/OgreCompositorManager2.h"
++#include "Math/Array/OgreMathlib.h"
+ #include "Math/Array/OgreBooleanMask.h"
+ #include "OgreItem.h"
+ #include "OgreSceneManager.h"
+Index: ogre-next-3.0.0/OgreMain/src/OgreDefaultSceneQueries.cpp
+===================================================================
+--- ogre-next-3.0.0.orig/OgreMain/src/OgreDefaultSceneQueries.cpp
++++ ogre-next-3.0.0/OgreMain/src/OgreDefaultSceneQueries.cpp
+@@ -520,7 +520,7 @@ namespace Ogre
+             {
+                 // For each volume test all planes and AND the dot product.
+                 // If one is false, then we dont intersect with this volume
+-                ArrayMaskR singleVolumeMask = CastIntToReal( Mathlib::SetAll( 0xffffffff ) );
++                ArrayMaskR singleVolumeMask = (ArrayMaskR) CastIntToReal( Mathlib::SetAll( 0xffffffff ) );
+                 ArrayReal dotResult;
+                 ArrayVector3 centerPlusFlippedHS;
+ 
+Index: ogre-next-3.0.0/OgreMain/src/OgreMovableObject.cpp
+===================================================================
+--- ogre-next-3.0.0.orig/OgreMain/src/OgreMovableObject.cpp
++++ ogre-next-3.0.0/OgreMain/src/OgreMovableObject.cpp
+@@ -503,7 +503,7 @@ namespace Ogre
+         }
+ 
+         const ArrayMaskR ignoreRenderingDistance =
+-            CastIntToReal( Mathlib::SetAll( lodCamera->getUseRenderingDistance() ? 0 : 0xffffffff ) );
++            (ArrayMaskR) CastIntToReal( Mathlib::SetAll( lodCamera->getUseRenderingDistance() ? 0 : 0xffffffff ) );
+ 
+         // TODO: Profile whether we should use XOR to flip the sign or simple multiplication.
+         // In theory xor is faster, but some archs have a penalty for switching between integer
+Index: ogre-next-3.0.0/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
+===================================================================
+--- ogre-next-3.0.0.orig/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
++++ ogre-next-3.0.0/Samples/2.0/ApiUsage/AnimationTagPoint/CMakeLists.txt
+@@ -11,12 +11,14 @@ macro( add_recursive dir retVal )
+ 	file( GLOB_RECURSE ${retVal} ${dir}/*.h ${dir}/*.cpp ${dir}/*.c )
+ endmacro()
+ 
++set(OGRE_LIBRARIES ${OGRE_LIBRARIES} OgreMain)
++
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+ 
+ add_recursive( ./ SOURCE_FILES )
+ 
+-ogre_add_executable(Sample_AnimationTagPoint WIN32 MACOSX_BUNDLE ${SOURCE_FILES} ${SAMPLE_COMMON_RESOURCES})
++ogre_add_executable(Sample_AnimationTagPoint ${SOURCE_FILES} ${SAMPLE_COMMON_RESOURCES})
+ 
+-target_link_libraries(Sample_AnimationTagPoint ${OGRE_LIBRARIES} ${OGRE_SAMPLES_LIBRARIES})
++target_link_libraries(Sample_AnimationTagPoint ${OGRE_SAMPLES_LIBRARIES} ${OGRE_LIBRARIES})
+ ogre_config_sample_lib(Sample_AnimationTagPoint)
+ ogre_config_sample_pkg(Sample_AnimationTagPoint)
+Index: ogre-next-3.0.0/Tools/CmgenToCubemap/CMakeLists.txt
+===================================================================
+--- ogre-next-3.0.0.orig/Tools/CmgenToCubemap/CMakeLists.txt
++++ ogre-next-3.0.0/Tools/CmgenToCubemap/CMakeLists.txt
+@@ -13,11 +13,19 @@ macro( add_recursive dir retVal )
+ 	file( GLOB_RECURSE ${retVal} ${dir}/*.h ${dir}/*.cpp ${dir}/*.c )
+ endmacro()
+ 
++find_package(JPEG REQUIRED)
++find_package(PNG REQUIRED)
++find_package(TIFF REQUIRED)
++find_package(ZLIB REQUIRED)
++
++set(PICTURE_LIBS ${JPEG} ${PNG} ${TIFF} ${ZLIB})
++set(OGRE_LIBRARIES ${OGRE_LIBRARIES} ${OGRE_NEXT}Main)
++
+ add_recursive( ./ SOURCE_FILES )
+ 
+ ogre_add_executable(OgreCmgenToCubemap ${SOURCE_FILES})
+ 
+-target_link_libraries(OgreCmgenToCubemap ${OGRE_LIBRARIES})
++target_link_libraries(OgreCmgenToCubemap ${OGRE_LIBRARIES} ${PICTURE_LIBS})
+ 
+ if (APPLE)
+     set_target_properties(OgreCmgenToCubemap PROPERTIES
