@@ -30,6 +30,7 @@ DEPENDS = " \
     libtinyxml2 \
     qtbase \
     qtdeclarative \
+    qtquickcontrols2 \
 "
 DEPENDS:append:class-target = "xserver-xorg"
 
