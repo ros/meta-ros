@@ -1,6 +1,6 @@
 Use the OGRE_NEXT variable to rename the libraries.
 
-This avoids a filesystem conflict between OGRE and OGRE-Next lirbaries
+This avoids a filesystem conflict between OGRE and OGRE-Next libraries
 
 Upstream-Status: Pending
 
