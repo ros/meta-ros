@@ -10,7 +10,14 @@ LIC_FILES_CHKSUM = "file://CMake/Templates/DemoLicense.rtf;md5=2711c49576d18cf78
                     file://Tools/MaterialEditor/wxscintilla_1.69.2/src/scintilla/License.txt;md5=d680acd8db69807fdfb587a342690eac\
 "
 
-SRC_URI = "git://github.com/OGRECave/ogre-next.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/OGRECave/ogre-next.git;protocol=https;branch=master \
+           file://ogremathlibneon-type-fix.patch \
+           file://0001-Fixed-compile-error-3.0.0.patch \
+           file://0002-Use_OGRE_NEXT_prefix_for_libraries.patch \
+           file://build-error-with-gcc15.patch \
+           file://ogremathlibneon-add-header.patch \
+           file://fix-ogremathlibneon-include-order.patch"
+
 
 SRCREV = "75643c3997f5b6d2aa1d7bd8400b9be6736d9908"
 

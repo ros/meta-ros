@@ -1,0 +1,21 @@
+Explicitly add vector intrinsics
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h b/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+index f8dd615fa0..b911ab80e3 100644
+--- a/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
++++ b/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+@@ -37,6 +37,10 @@ THE SOFTWARE.
+ 
+ #    include "OgrePrerequisites.h"
+ 
++#if defined(__ARM_NEON) || defined(__aarch64__)
++#include <arm_neon.h>
++#endif
++
+ namespace Ogre
+ {
+     // A few shortcut functions to emulate instructions included with SSE2 that NEON lacks.

@@ -1,0 +1,37 @@
+Use explicit type casting for modern GCC
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h b/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+index f8dd615fa0..845ac636d7 100644
+--- a/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
++++ b/OgreMain/include/Math/Array/NEON/Single/OgreMathlibNEON.h
+@@ -293,7 +293,7 @@ namespace Ogre
+         @return
+             r[i] = a[i] & b;
+         */
+-        static inline ArrayInt And( ArrayInt a, uint32 b ) { return vandq_s32( a, vdupq_n_u32( b ) ); }
++        static inline ArrayInt And( ArrayInt a, uint32 b ) { return vandq_s32( a, vreinterpretq_s32_u32( vdupq_n_u32( b ) ) ); }
+ 
+         /** Test if "a AND b" will result in non-zero, returning 0xffffffff on those cases
+         @remarks
+@@ -379,7 +379,7 @@ namespace Ogre
+ 
+         static inline ArrayReal SetAll( Real val ) { return vdupq_n_f32( val ); }
+ 
+-        static inline ArrayInt SetAll( uint32 val ) { return vdupq_n_u32( val ); }
++        static inline ArrayInt SetAll( uint32 val ) { return vreinterpretq_s32_u32 ( vdupq_n_u32( val ) ); }
+ 
+         static inline void Set( ArrayReal &_dst, Real val, size_t index )
+         {
+@@ -565,7 +565,7 @@ namespace Ogre
+             ArrayReal fStep0 = vrsqrteq_f32( f );
+             // Nuke NaN when f == 0
+             fStep0 =
+-                vreinterpretq_f32_u32( vandq_u32( vtstq_u32( f, f ), vreinterpretq_u32_f32( fStep0 ) ) );
++                vreinterpretq_f32_u32( vandq_u32( vtstq_u32( vreinterpretq_u32_f32( f ), vreinterpretq_u32_f32( f ) ), vreinterpretq_u32_f32( fStep0 ) ) );
+             // step fStep0 = 1 / sqrt(x)
+             const ArrayReal fStepParm0 = vmulq_f32( f, fStep0 );
+             const ArrayReal fStepResult0 = vrsqrtsq_f32( fStepParm0, fStep0 );
