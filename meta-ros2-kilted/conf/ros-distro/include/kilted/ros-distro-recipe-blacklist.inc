@@ -197,3 +197,4 @@ BBMASK += "generated-recipes/octomap/octomap_.*.bb"
 BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
 
 BBMASK += "generated-recipes/librealsense2/librealsense2_.*.bb"
+BBMASK += "generated-recipes/cpp-polyfills/tl-expected_.*.bb"
