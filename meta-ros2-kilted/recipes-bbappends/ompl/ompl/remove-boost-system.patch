@@ -1,0 +1,55 @@
+Remove the Boost::system component
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ompl-1.7.0-3/CMakeLists.txt
+===================================================================
+--- ompl-1.7.0-3.orig/CMakeLists.txt
++++ ompl-1.7.0-3/CMakeLists.txt
+@@ -47,7 +47,7 @@ set_package_properties(Boost PROPERTIES
+     URL "https://www.boost.org"
+     PURPOSE "Used throughout OMPL for data serialization, graphs, etc.")
+ set(Boost_USE_MULTITHREADED ON)
+-find_package(Boost 1.68 REQUIRED COMPONENTS serialization filesystem system program_options)
++find_package(Boost 1.68 REQUIRED COMPONENTS serialization filesystem program_options)
+ 
+ # on macOS we need to check whether to use libc++ or libstdc++ with clang++
+ if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
+Index: ompl-1.7.0-3/demos/CMakeLists.txt
+===================================================================
+--- ompl-1.7.0-3.orig/demos/CMakeLists.txt
++++ ompl-1.7.0-3/demos/CMakeLists.txt
+@@ -12,7 +12,6 @@ if (OMPL_BUILD_DEMOS)
+             ompl::ompl
+             Eigen3::Eigen
+             Boost::filesystem
+-            Boost::system
+             Boost::program_options)
+     endmacro(add_ompl_demo)
+ 
+Index: ompl-1.7.0-3/src/ompl/CMakeLists.txt
+===================================================================
+--- ompl-1.7.0-3.orig/src/ompl/CMakeLists.txt
++++ ompl-1.7.0-3/src/ompl/CMakeLists.txt
+@@ -44,7 +44,6 @@ target_link_libraries(ompl
+     PUBLIC
+         Boost::filesystem
+         Boost::serialization
+-        Boost::system
+         Eigen3::Eigen
+         "$<$<BOOL:${Threads_FOUND}>:Threads::Threads>"
+         "$<$<BOOL:${OMPL_HAVE_FLANN}>:flann::flann>"
+Index: ompl-1.7.0-3/CMakeModules/OMPLUtils.cmake
+===================================================================
+--- ompl-1.7.0-3.orig/CMakeModules/OMPLUtils.cmake
++++ ompl-1.7.0-3/CMakeModules/OMPLUtils.cmake
+@@ -5,7 +5,6 @@ macro(add_ompl_test test_name)
+     Boost::program_options
+     Boost::serialization
+     Boost::filesystem
+-    Boost::system
+     Boost::unit_test_framework)
+   add_test(NAME ${test_name} COMMAND $<TARGET_FILE:${test_name}>)
+ endmacro(add_ompl_test)
