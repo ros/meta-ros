@@ -44,9 +44,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/tiago_navigation-release/archive/release/humble/tiago_navigation/4.12.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/tiago_navigation-release/archive/release/humble/tiago_navigation/4.12.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/tiago_navigation"
-SRC_URI = "git://github.com/pal-gbp/tiago_navigation-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/tiago_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "289c7213e93f94dd5960d5e1dead6224c86355ad"
 S = "${WORKDIR}/git"
 

@@ -46,9 +46,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/tiago_navigation-release/archive/release/humble/tiago_laser_sensors/4.12.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/tiago_navigation-release/archive/release/humble/tiago_laser_sensors/4.12.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/tiago_laser_sensors"
-SRC_URI = "git://github.com/pal-gbp/tiago_navigation-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/tiago_navigation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "e354c9c56701dae008cfb69f059b38753ac5764f"
 S = "${WORKDIR}/git"
 

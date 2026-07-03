@@ -19,8 +19,8 @@ ROS_BPN = "caret_analyze"
 
 ROS_BUILD_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-colorcet} \
-    ${ROS_UNRESOLVED_DEP-python3-graphviz} \
     graphviz \
+    python3-graphviz \
     python3-setuptools \
 "
 
@@ -28,8 +28,8 @@ ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-colorcet} \
-    ${ROS_UNRESOLVED_DEP-python3-graphviz} \
     graphviz \
+    python3-graphviz \
     python3-setuptools \
 "
 
@@ -37,8 +37,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ${ROS_UNRESOLVED_DEP-python3-colorcet} \
-    ${ROS_UNRESOLVED_DEP-python3-graphviz} \
     graphviz \
+    python3-graphviz \
     python3-pyyaml \
     python3-setuptools \
     python3-tqdm \

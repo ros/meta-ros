@@ -43,9 +43,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/pal_navigation_cfg_public-release/archive/release/humble/pal_navigation_cfg_params/3.0.6-1.tar.gz
+# matches with: https://github.com/ros2-gbp/pal_navigation_cfg_public-release/archive/release/humble/pal_navigation_cfg_params/3.0.6-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/pal_navigation_cfg_params"
-SRC_URI = "git://github.com/pal-gbp/pal_navigation_cfg_public-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/pal_navigation_cfg_public-release;${ROS_BRANCH};protocol=https"
 SRCREV = "5cc4118e1f1c5493d7e9083d715f3cbf967a7b8f"
 S = "${WORKDIR}/git"
 

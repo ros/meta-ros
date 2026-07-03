@@ -70,9 +70,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/tiago_simulation-release/archive/release/humble/tiago_gazebo/4.10.1-1.tar.gz
+# matches with: https://github.com/ros2-gbp/tiago_simulation-release/archive/release/humble/tiago_gazebo/4.10.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/tiago_gazebo"
-SRC_URI = "git://github.com/pal-gbp/tiago_simulation-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/tiago_simulation-release;${ROS_BRANCH};protocol=https"
 SRCREV = "8f374608f4424c04248d0277bcd43e44317d120a"
 S = "${WORKDIR}/git"
 

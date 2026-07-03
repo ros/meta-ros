@@ -50,9 +50,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/talos_moveit_config-release/archive/release/humble/talos_moveit_config/2.0.4-1.tar.gz
+# matches with: https://github.com/ros2-gbp/talos_moveit_config-release/archive/release/humble/talos_moveit_config/2.0.4-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/talos_moveit_config"
-SRC_URI = "git://github.com/pal-gbp/talos_moveit_config-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/talos_moveit_config-release;${ROS_BRANCH};protocol=https"
 SRCREV = "61242af48638c0ee571c3d32eb2bbcf3d36bde57"
 S = "${WORKDIR}/git"
 
