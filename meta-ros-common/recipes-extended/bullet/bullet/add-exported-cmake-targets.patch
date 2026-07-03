@@ -34,7 +34,7 @@ in the default find_package(Bullet) (module) mode and does not define the
 namespaced targets. Downstream projects that want the imported targets must
 request config mode explicitly:
 
-    find_package(Bullet 3.27 CONFIG REQUIRED)
+    find_package(Bullet CONFIG REQUIRED)
     target_link_libraries(app Bullet::BulletDynamics Bullet::LinearMath)
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
