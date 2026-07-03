@@ -4,11 +4,9 @@ Upstream-Status: Inappropriate [oe-specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Index: ompl-1.7.0-3/CMakeLists.txt
-===================================================================
---- ompl-1.7.0-3.orig/CMakeLists.txt
-+++ ompl-1.7.0-3/CMakeLists.txt
-@@ -47,7 +47,7 @@ set_package_properties(Boost PROPERTIES
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -47,7 +47,7 @@
      URL "https://www.boost.org"
      PURPOSE "Used throughout OMPL for data serialization, graphs, etc.")
  set(Boost_USE_MULTITHREADED ON)
@@ -17,11 +15,9 @@ Index: ompl-1.7.0-3/CMakeLists.txt
  
  # on macOS we need to check whether to use libc++ or libstdc++ with clang++
  if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
-Index: ompl-1.7.0-3/demos/CMakeLists.txt
-===================================================================
---- ompl-1.7.0-3.orig/demos/CMakeLists.txt
-+++ ompl-1.7.0-3/demos/CMakeLists.txt
-@@ -12,7 +12,6 @@ if (OMPL_BUILD_DEMOS)
+--- a/demos/CMakeLists.txt
++++ b/demos/CMakeLists.txt
+@@ -12,7 +12,6 @@
              ompl::ompl
              Eigen3::Eigen
              Boost::filesystem
@@ -29,11 +25,9 @@ Index: ompl-1.7.0-3/demos/CMakeLists.txt
              Boost::program_options)
      endmacro(add_ompl_demo)
  
-Index: ompl-1.7.0-3/src/ompl/CMakeLists.txt
-===================================================================
---- ompl-1.7.0-3.orig/src/ompl/CMakeLists.txt
-+++ ompl-1.7.0-3/src/ompl/CMakeLists.txt
-@@ -44,7 +44,6 @@ target_link_libraries(ompl
+--- a/src/ompl/CMakeLists.txt
++++ b/src/ompl/CMakeLists.txt
+@@ -44,7 +44,6 @@
      PUBLIC
          Boost::filesystem
          Boost::serialization
@@ -41,11 +35,9 @@ Index: ompl-1.7.0-3/src/ompl/CMakeLists.txt
          Eigen3::Eigen
          "$<$<BOOL:${Threads_FOUND}>:Threads::Threads>"
          "$<$<BOOL:${OMPL_HAVE_FLANN}>:flann::flann>"
-Index: ompl-1.7.0-3/CMakeModules/OMPLUtils.cmake
-===================================================================
---- ompl-1.7.0-3.orig/CMakeModules/OMPLUtils.cmake
-+++ ompl-1.7.0-3/CMakeModules/OMPLUtils.cmake
-@@ -5,7 +5,6 @@ macro(add_ompl_test test_name)
+--- a/CMakeModules/OMPLUtils.cmake
++++ b/CMakeModules/OMPLUtils.cmake
+@@ -5,7 +5,6 @@
      Boost::program_options
      Boost::serialization
      Boost::filesystem
@@ -53,3 +45,21 @@ Index: ompl-1.7.0-3/CMakeModules/OMPLUtils.cmake
      Boost::unit_test_framework)
    add_test(NAME ${test_name} COMMAND $<TARGET_FILE:${test_name}>)
  endmacro(add_ompl_test)
+--- a/omplConfig.cmake.in
++++ b/omplConfig.cmake.in
+@@ -12,7 +12,7 @@
+ 
+ include ("${CMAKE_CURRENT_LIST_DIR}/omplExport.cmake" )
+ include(CMakeFindDependencyMacro)
+-set(_@PROJECT_NAME@_boost_components serialization filesystem system)
++set(_@PROJECT_NAME@_boost_components serialization filesystem)
+ find_dependency(Boost REQUIRED COMPONENTS ${_@PROJECT_NAME@_boost_components})
+ if(Boost_FOUND)
+     foreach(_comp ${_@PROJECT_NAME@_boost_components})
+@@ -101,4 +101,4 @@
+ set(OMPL_LIBRARY_DIRS "${OMPL_LIBRARY_DIRS}" CACHE STRING "Library path for OMPL and its dependencies - DEPRECATED")
+ 
+ include(FindPackageHandleStandardArgs)
+-find_package_handle_standard_args(ompl DEFAULT_MSG OMPL_INCLUDE_DIRS OMPL_LIBRARIES)
+\ No newline at end of file
++find_package_handle_standard_args(ompl DEFAULT_MSG OMPL_INCLUDE_DIRS OMPL_LIBRARIES)
