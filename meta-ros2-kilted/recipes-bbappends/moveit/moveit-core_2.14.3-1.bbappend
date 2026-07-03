@@ -1,6 +1,9 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2022-2023 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://drop-octomap-version-range.patch"
+
 ROS_BUILDTOOL_DEPENDS = " \
     rosidl-adapter-native \
     python3-numpy-native \
