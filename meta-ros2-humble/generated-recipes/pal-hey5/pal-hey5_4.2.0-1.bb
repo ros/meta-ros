@@ -43,9 +43,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/pal_hey5-release/archive/release/humble/pal_hey5/4.2.0-1.tar.gz
+# matches with: https://github.com/ros2-gbp/pal_hey5-release/archive/release/humble/pal_hey5/4.2.0-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/pal_hey5"
-SRC_URI = "git://github.com/pal-gbp/pal_hey5-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/pal_hey5-release;${ROS_BRANCH};protocol=https"
 SRCREV = "b2201ad931dc8138ba8ee8759b6fd4c45a34e657"
 
 ROS_BUILD_TYPE = "ament_cmake"

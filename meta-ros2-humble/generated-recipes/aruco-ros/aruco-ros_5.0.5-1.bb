@@ -77,9 +77,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/aruco_ros-release/archive/release/humble/aruco_ros/5.0.5-1.tar.gz
+# matches with: https://github.com/ros2-gbp/aruco_ros-release/archive/release/humble/aruco_ros/5.0.5-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/aruco_ros"
-SRC_URI = "git://github.com/pal-gbp/aruco_ros-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/aruco_ros-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1cb48821023017dc1bddd80173a04f9407d52040"
 
 ROS_BUILD_TYPE = "ament_cmake"
