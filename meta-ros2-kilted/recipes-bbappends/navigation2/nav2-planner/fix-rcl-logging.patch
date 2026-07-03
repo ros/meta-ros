@@ -1,0 +1,37 @@
+Add string literal to logging macros
+
+Upstream-Status: Pending
+
+logging_macros.h:81:27: error: format not a string literal and no format arguments [-Werror=format-security]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/src/planner_server.cpp
++++ b/src/planner_server.cpp
+@@ -499,7 +499,7 @@
+     action_server_poses_->terminate_current(result);
+   } catch (nav2_core::PlannerCancelled &) {
+     result->error_msg = "Goal was canceled. Canceling planning action.";
+-    RCLCPP_INFO(get_logger(), result->error_msg.c_str());
++    RCLCPP_INFO(get_logger(), "%s", result->error_msg.c_str());
+     action_server_poses_->terminate_all();
+   } catch (std::exception & ex) {
+     exceptionWarning(curr_start, curr_goal, goal->planner_id, ex, result->error_msg);
+@@ -599,7 +599,7 @@
+     action_server_pose_->terminate_current(result);
+   } catch (nav2_core::PlannerCancelled &) {
+     result->error_msg = "Goal was canceled. Canceling planning action.";
+-    RCLCPP_INFO(get_logger(), result->error_msg.c_str());
++    RCLCPP_INFO(get_logger(), "%s", result->error_msg.c_str());
+     action_server_pose_->terminate_all();
+   } catch (std::exception & ex) {
+     exceptionWarning(start, goal->goal, goal->planner_id, ex, result->error_msg);
+@@ -775,7 +775,7 @@
+      << ": \"" << ex.what() << "\"";
+ 
+   error_msg = ss.str();
+-  RCLCPP_WARN(get_logger(), error_msg.c_str());
++  RCLCPP_WARN(get_logger(), "%s", error_msg.c_str());
+ }
+ 
+ }  // namespace nav2_planner
