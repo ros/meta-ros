@@ -54,9 +54,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/talos_robot-release/archive/release/humble/talos_description/2.10.3-1.tar.gz
+# matches with: https://github.com/ros2-gbp/talos_robot-release/archive/release/humble/talos_description/2.10.3-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/talos_description"
-SRC_URI = "git://github.com/pal-gbp/talos_robot-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/talos_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4c0727a3a755a2456cf6c54fc344d0b1a8c49327"
 
 ROS_BUILD_TYPE = "ament_cmake"

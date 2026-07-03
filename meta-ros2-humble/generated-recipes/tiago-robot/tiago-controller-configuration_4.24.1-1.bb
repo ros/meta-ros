@@ -57,9 +57,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/pal-gbp/tiago_robot-release/archive/release/humble/tiago_controller_configuration/4.24.1-1.tar.gz
+# matches with: https://github.com/ros2-gbp/tiago_robot-release/archive/release/humble/tiago_controller_configuration/4.24.1-1.tar.gz
 ROS_BRANCH ?= "branch=release/humble/tiago_controller_configuration"
-SRC_URI = "git://github.com/pal-gbp/tiago_robot-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/ros2-gbp/tiago_robot-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7bc63fc5e6b80a8d6a8ec7f1ca33c287abd9eac8"
 
 ROS_BUILD_TYPE = "ament_cmake"
