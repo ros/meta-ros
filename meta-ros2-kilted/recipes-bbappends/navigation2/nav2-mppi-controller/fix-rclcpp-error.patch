@@ -1,0 +1,21 @@
+Fix RCLCPP_ERROR call
+
+logging_macros.h:81:27: error: format not a string literal and no format arguments [-Werror=format-security]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/parameters_handler.cpp b/src/parameters_handler.cpp
+index 4d540ef1c..5f881f4db 100644
+--- a/src/parameters_handler.cpp
++++ b/src/parameters_handler.cpp
+@@ -87,7 +87,7 @@ ParametersHandler::dynamicParamsCallback(
+   }
+ 
+   if (!result.successful) {
+-    RCLCPP_ERROR(logger_, result.reason.c_str());
++    RCLCPP_ERROR(logger_, "%s", result.reason.c_str());
+   }
+   return result;
+ }
