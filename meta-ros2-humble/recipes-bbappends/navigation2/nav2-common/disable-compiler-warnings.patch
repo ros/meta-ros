@@ -1,0 +1,21 @@
+Disable compiler warnings for navigation2
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: nav2-common-1.1.20-1/cmake/nav2_package.cmake
+===================================================================
+--- nav2-common-1.1.20-1.orig/cmake/nav2_package.cmake
++++ nav2-common-1.1.20-1/cmake/nav2_package.cmake
+@@ -32,10 +32,6 @@ macro(nav2_package)
+     set(CMAKE_CXX_STANDARD 17)
+   endif()
+ 
+-  if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -Wdeprecated -fPIC)
+-  endif()
+-
+   option(COVERAGE_ENABLED "Enable code coverage" FALSE)
+   if(COVERAGE_ENABLED)
+     add_compile_options(--coverage)
