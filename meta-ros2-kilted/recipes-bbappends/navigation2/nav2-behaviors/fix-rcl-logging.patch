@@ -1,0 +1,132 @@
+Add string literal to logging macros
+
+logging_macros.h:81:27: error: format not a string literal and no format arguments [-Werror=format-security]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/include/nav2_behaviors/timed_behavior.hpp
++++ b/include/nav2_behaviors/timed_behavior.hpp
+@@ -265,7 +265,7 @@
+         case Status::FAILED:
+           result->error_code = on_cycle_update_result.error_code;
+           result->error_msg = behavior_name_ + " failed:" + on_cycle_update_result.error_msg;
+-          RCLCPP_WARN(logger_, result->error_msg.c_str());
++          RCLCPP_WARN(logger_, "%s", result->error_msg.c_str());
+           result->total_elapsed_time = clock_->now() - start_time;
+           onActionCompletion(result);
+           action_server_->terminate_current(result);
+--- a/plugins/back_up.cpp
++++ b/plugins/back_up.cpp
+@@ -21,7 +21,7 @@
+ {
+   if (command->target.y != 0.0 || command->target.z != 0.0) {
+     std::string error_msg = "Backing up in Y and Z not supported, will only move in X.";
+-    RCLCPP_INFO(logger_, error_msg.c_str());
++    RCLCPP_INFO(logger_, "%s", error_msg.c_str());
+     return ResultStatus{Status::FAILED, BackUpActionResult::INVALID_INPUT, error_msg};
+   }
+ 
+@@ -38,7 +38,7 @@
+       transform_tolerance_))
+   {
+     std::string error_msg = "Initial robot pose is not available.";
+-    RCLCPP_ERROR(logger_, error_msg.c_str());
++    RCLCPP_ERROR(logger_, "%s", error_msg.c_str());
+     return ResultStatus{Status::FAILED, BackUpActionResult::TF_ERROR, error_msg};
+   }
+ 
+--- a/plugins/spin.cpp
++++ b/plugins/spin.cpp
+@@ -79,7 +79,7 @@
+       transform_tolerance_))
+   {
+     std::string error_msg = "Current robot pose is not available.";
+-    RCLCPP_ERROR(logger_, error_msg.c_str());
++    RCLCPP_ERROR(logger_, "%s", error_msg.c_str());
+     return ResultStatus{Status::FAILED, SpinActionResult::TF_ERROR, error_msg};
+   }
+ 
+@@ -104,7 +104,7 @@
+   if (time_remaining.seconds() < 0.0 && command_time_allowance_.seconds() > 0.0) {
+     stopRobot();
+     std::string error_msg = "Exceeded time allowance before reaching the Spin goal - Exiting Spin";
+-    RCLCPP_WARN(logger_, error_msg.c_str());
++    RCLCPP_WARN(logger_, "%s", error_msg.c_str());
+     return ResultStatus{Status::FAILED, SpinActionResult::TIMEOUT, error_msg};
+   }
+ 
+@@ -114,7 +114,7 @@
+       transform_tolerance_))
+   {
+     std::string error_msg = "Current robot pose is not available.";
+-    RCLCPP_ERROR(logger_, error_msg.c_str());
++    RCLCPP_ERROR(logger_, "%s", error_msg.c_str());
+     return ResultStatus{Status::FAILED, SpinActionResult::TF_ERROR, error_msg};
+   }
+ 
+@@ -153,7 +153,7 @@
+   if (!isCollisionFree(relative_yaw_, cmd_vel->twist, pose2d)) {
+     stopRobot();
+     std::string error_msg = "Collision Ahead - Exiting Spin";
+-    RCLCPP_WARN(logger_, error_msg.c_str());
++    RCLCPP_WARN(logger_, "%s", error_msg.c_str());
+     return ResultStatus{Status::FAILED, SpinActionResult::COLLISION_AHEAD, error_msg};
+   }
+ 
+--- a/include/nav2_behaviors/plugins/drive_on_heading.hpp
++++ b/include/nav2_behaviors/plugins/drive_on_heading.hpp
+@@ -66,14 +66,14 @@
+     std::string error_msg;
+     if (command->target.y != 0.0 || command->target.z != 0.0) {
+       error_msg = "DrivingOnHeading in Y and Z not supported, will only move in X.";
+-      RCLCPP_INFO(this->logger_, error_msg.c_str());
++      RCLCPP_INFO(this->logger_, "%s", error_msg.c_str());
+       return ResultStatus{Status::FAILED, ActionT::Result::INVALID_INPUT, error_msg};
+     }
+ 
+     // Ensure that both the speed and direction have the same sign
+     if (!((command->target.x > 0.0) == (command->speed > 0.0)) ) {
+       error_msg = "Speed and command sign did not match";
+-      RCLCPP_ERROR(this->logger_, error_msg.c_str());
++      RCLCPP_ERROR(this->logger_, "%s", error_msg.c_str());
+       return ResultStatus{Status::FAILED, ActionT::Result::INVALID_INPUT, error_msg};
+     }
+ 
+@@ -89,7 +89,7 @@
+         this->transform_tolerance_))
+     {
+       error_msg = "Initial robot pose is not available.";
+-      RCLCPP_ERROR(this->logger_, error_msg.c_str());
++      RCLCPP_ERROR(this->logger_, "%s", error_msg.c_str());
+       return ResultStatus{Status::FAILED, ActionT::Result::TF_ERROR, error_msg};
+     }
+ 
+@@ -107,7 +107,7 @@
+       this->stopRobot();
+       std::string error_msg =
+         "Exceeded time allowance before reaching the DriveOnHeading goal - Exiting DriveOnHeading";
+-      RCLCPP_WARN(this->logger_, error_msg.c_str());
++      RCLCPP_WARN(this->logger_, "%s", error_msg.c_str());
+       return ResultStatus{Status::FAILED, ActionT::Result::TIMEOUT, error_msg};
+     }
+ 
+@@ -117,7 +117,7 @@
+         this->transform_tolerance_))
+     {
+       std::string error_msg = "Current robot pose is not available.";
+-      RCLCPP_ERROR(this->logger_, error_msg.c_str());
++      RCLCPP_ERROR(this->logger_, "%s", error_msg.c_str());
+       return ResultStatus{Status::FAILED, ActionT::Result::TF_ERROR, error_msg};
+     }
+ 
+@@ -171,7 +171,7 @@
+     if (!isCollisionFree(distance, cmd_vel->twist, pose2d)) {
+       this->stopRobot();
+       std::string error_msg = "Collision Ahead - Exiting DriveOnHeading";
+-      RCLCPP_WARN(this->logger_, error_msg.c_str());
++      RCLCPP_WARN(this->logger_, "%s", error_msg.c_str());
+       return ResultStatus{Status::FAILED, ActionT::Result::COLLISION_AHEAD, error_msg};
+     }
+ 
