@@ -1,0 +1,13 @@
+Remove Boost::system
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/ConfigExtras.cmake
++++ b/ConfigExtras.cmake
+@@ -1,3 +1,3 @@
+ # Extras module needed for dependencies to find boost components
+
+-find_package(Boost REQUIRED program_options system)
++find_package(Boost REQUIRED program_options)
