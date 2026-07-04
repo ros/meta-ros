@@ -1,0 +1,18 @@
+Add Bullet dependency
+
+The moveit-core package exports Bullet as a dependency for
+collision_detection_bullet.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,6 +14,7 @@
+ find_package(pluginlib REQUIRED)
+ find_package(Eigen3 REQUIRED)
+ find_package(octomap REQUIRED)
++find_package(Bullet CONFIG REQUIRED)
+ find_package(geometric_shapes REQUIRED)
+ find_package(tf2_ros REQUIRED)
