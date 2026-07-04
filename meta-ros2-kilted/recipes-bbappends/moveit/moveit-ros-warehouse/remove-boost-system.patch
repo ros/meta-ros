@@ -1,0 +1,16 @@
+Remove Boost::system
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/ConfigExtras.cmake
++++ b/ConfigExtras.cmake
+@@ -4,7 +4,6 @@
+   Boost
+   REQUIRED
+   thread
+-  system
+   filesystem
+   regex
+   date_time
