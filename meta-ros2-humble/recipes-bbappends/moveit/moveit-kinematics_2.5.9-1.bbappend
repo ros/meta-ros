@@ -2,7 +2,8 @@
 # Copyright (c) 2023-2026 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://remove-boost-system.patch"
+SRC_URI += "file://remove-boost-system.patch \
+            file://add-bullet-dependency.patch"
  
 # moveit-ros-planning is in ROS_TEST_DEPENDS but CMake checks for that even
 # when building with tests disabled
