@@ -1,0 +1,25 @@
+Use CMake Targets
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -27,7 +27,6 @@
+ endif()
+
+ include_directories(ompl_interface/include)
+-include_directories(SYSTEM ${Boost_INCLUDE_DIRS} ${OMPL_INCLUDE_DIRS})
+
+ add_subdirectory(ompl_interface)
+
+@@ -40,7 +39,7 @@
+   INCLUDES
+   DESTINATION include/moveit_planners_ompl)
+ ament_export_targets(moveit_planners_omplTargets HAS_LIBRARY_TARGET)
+-ament_export_dependencies(moveit_core ompl)
++target_link_libraries(moveit_core::moveit_core INTERFACE ompl::ompl)
+
+ pluginlib_export_plugin_description_file(moveit_core
+                                          ompl_interface_plugin_description.xml)
