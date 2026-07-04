@@ -8,7 +8,9 @@ SRC_URI += "file://remove-boost-system.patch \
 do_install:append() {
     # Fix for QA warning [buildpaths]
     # Remove ${RECIPE_SYSROOT}/usr/include added by the Boost components
-    sed -i -e "s#${RECIPE_SYSROOT}${includedir};##g" ${D}${ros_datadir}/moveit_planners_ompl/cmake/moveit_planners_ompl/cmake/moveit_planners_omplTargetsExport.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir};##g" ${D}${ros_datadir}/moveit_planners_ompl/cmake/moveit_planners_omplTargetsExport.cmake
+    # Remove ${RECIPE_SYSROOT}/opt/ros/<DISTRO>/include added by ompl
+    sed -i -e "s#${RECIPE_SYSROOT}${ros_includedir}/ompl-[^;]*;##g" ${D}${ros_datadir}/moveit_planners_ompl/cmake/moveit_planners_omplTargetsExport.cmake
 }
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package moveit-planners-ompl contains symlink .so '/usr/lib/libmoveit_ompl_interface.so'
