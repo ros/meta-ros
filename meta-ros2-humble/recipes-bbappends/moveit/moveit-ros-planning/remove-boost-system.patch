@@ -1,0 +1,18 @@
+Remove Boost::system
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: moveit-ros-planning-2.5.9-1/ConfigExtras.cmake
+===================================================================
+--- moveit-ros-planning-2.5.9-1.orig/ConfigExtras.cmake
++++ moveit-ros-planning-2.5.9-1/ConfigExtras.cmake
+@@ -2,7 +2,6 @@
+ 
+ find_package(
+   Boost REQUIRED
+-  system
+   filesystem
+   date_time
+   program_options
