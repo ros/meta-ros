@@ -1,0 +1,89 @@
+Add string literal to logging macros
+
+logging_macros.h:81:27: error: format not a string literal and no format arguments [-Werror=format-security]
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/src/docking_server.cpp
++++ b/src/docking_server.cpp
+@@ -358,40 +358,40 @@
+     }
+   } catch (const tf2::TransformException & e) {
+     result->error_msg = std::string("Transform error: ") + e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::UNKNOWN;
+   } catch (opennav_docking_core::DockNotInDB & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::DOCK_NOT_IN_DB;
+   } catch (opennav_docking_core::DockNotValid & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::DOCK_NOT_VALID;
+   } catch (opennav_docking_core::FailedToStage & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::FAILED_TO_STAGE;
+   } catch (opennav_docking_core::FailedToDetectDock & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::FAILED_TO_DETECT_DOCK;
+   } catch (opennav_docking_core::FailedToControl & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::FAILED_TO_CONTROL;
+   } catch (opennav_docking_core::FailedToCharge & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::FAILED_TO_CHARGE;
+   } catch (opennav_docking_core::DockingException & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::UNKNOWN;
+   } catch (std::exception & e) {
+     result->error_code = DockRobot::Result::UNKNOWN;
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+   }
+ 
+   // Store dock state for later undocking and delete temp dock, if applicable
+@@ -774,23 +774,23 @@
+     }
+   } catch (const tf2::TransformException & e) {
+     result->error_msg = std::string("Transform error: ") + e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::UNKNOWN;
+   } catch (opennav_docking_core::DockNotValid & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::DOCK_NOT_VALID;
+   } catch (opennav_docking_core::FailedToControl & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::FAILED_TO_CONTROL;
+   } catch (opennav_docking_core::DockingException & e) {
+     result->error_msg = e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::UNKNOWN;
+   } catch (std::exception & e) {
+     result->error_msg = std::string("Internal error: ") + e.what();
+-    RCLCPP_ERROR(get_logger(), result->error_msg.c_str());
++    RCLCPP_ERROR(get_logger(), "%s", result->error_msg.c_str());
+     result->error_code = DockRobot::Result::UNKNOWN;
+   }
+ 
