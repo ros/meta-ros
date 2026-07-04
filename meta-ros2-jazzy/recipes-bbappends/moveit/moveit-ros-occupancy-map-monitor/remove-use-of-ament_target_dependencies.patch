@@ -1,0 +1,62 @@
+Remove use of ament_target_dependencies: Take 2 (#3726)
+
+Upstream-Status: Backport [https://github.com/moveit/moveit2/commit/dddf8f912c77115d417909e2a153498bf882a8ea]
+
+Authored-by: Nathan Brooks <nathanbrooks@picknik.ai>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,6 +17,8 @@
+ find_package(Bullet CONFIG REQUIRED)
+ find_package(geometric_shapes REQUIRED)
+ find_package(tf2_ros REQUIRED)
++find_package(rclcpp REQUIRED)
++find_package(Boost REQUIRED)
+
+ include_directories(include)
+ include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS} ${X11_INCLUDE_DIR})
+@@ -28,6 +30,7 @@
+     pluginlib
+     octomap
+     geometric_shapes
++    tf2_ros
+     Boost)
+
+ add_library(
+@@ -37,14 +40,29 @@
+ set_target_properties(
+   moveit_ros_occupancy_map_monitor
+   PROPERTIES VERSION "${moveit_ros_occupancy_map_monitor_VERSION}")
+-ament_target_dependencies(moveit_ros_occupancy_map_monitor
+-                          ${THIS_PACKAGE_INCLUDE_DEPENDS})
++target_link_libraries(
++  moveit_ros_occupancy_map_monitor
++  rclcpp::rclcpp
++  moveit_core::moveit_core
++  ${moveit_msgs_TARGETS}
++  pluginlib::pluginlib
++  octomap
++  geometric_shapes::geometric_shapes
++  tf2_ros::tf2_ros
++  Boost::headers)
+
+ add_executable(moveit_ros_occupancy_map_server src/occupancy_map_server.cpp)
+-ament_target_dependencies(moveit_ros_occupancy_map_server PUBLIC
+-                          ${THIS_PACKAGE_INCLUDE_DEPENDS})
+-target_link_libraries(moveit_ros_occupancy_map_server
+-                      PRIVATE moveit_ros_occupancy_map_monitor)
++target_link_libraries(
++  moveit_ros_occupancy_map_server
++  PRIVATE moveit_ros_occupancy_map_monitor
++          rclcpp::rclcpp
++          moveit_core::moveit_core
++          ${moveit_msgs_TARGETS}
++          pluginlib::pluginlib
++          octomap
++          geometric_shapes::geometric_shapes
++          tf2_ros::tf2_ros
++          Boost::headers)
+
+ install(
+   TARGETS moveit_ros_occupancy_map_monitor

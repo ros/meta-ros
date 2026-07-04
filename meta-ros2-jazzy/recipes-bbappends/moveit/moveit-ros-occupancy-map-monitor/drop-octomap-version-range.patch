@@ -1,0 +1,38 @@
+Upstream-Status: Backport [https://github.com/moveit/moveit2/commit/b8eb06c258f8f0f8103f3b887a3fe380c3f72f2a]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From b8eb06c258f8f0f8103f3b887a3fe380c3f72f2a Mon Sep 17 00:00:00 2001
+From: Nathan Brooks <nathanbrooks@picknik.ai>
+Date: Tue, 16 Jun 2026 07:44:16 -0600
+Subject: [PATCH] resolute: drop octomap version range (#3755)
+
+moveit2 already treats octomap like any other system dependency since
+PR #2881 (which switched moveit_core / moveit_ros/occupancy_map_monitor
+from <depend>octomap</depend> to <depend>liboctomap-dev</depend>). The
+1.9.7...<1.10.0 range in CMakeLists.txt was the leftover artifact of
+moveit/moveit2#2862's defensive workaround for an ABI skew that
+moveit2's own deps no longer create. The range also blocks moveit_core
+from configuring on Ubuntu Resolute, which ships liboctomap-dev 1.10.
+
+Drop the range entirely. find_package(octomap REQUIRED) matches the
+convention used by fcl, Eigen3, pluginlib, and the rest of moveit_core.
+
+Refs: moveit/moveit2#2862, moveit/moveit2#2881.
+---
+ moveit_core/CMakeLists.txt                      | 4 +---
+ moveit_ros/occupancy_map_monitor/CMakeLists.txt | 4 +---
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,9 +13,7 @@
+ find_package(moveit_msgs REQUIRED)
+ find_package(pluginlib REQUIRED)
+ find_package(Eigen3 REQUIRED)
+-# Enforce system version liboctomap-dev
+-# https://github.com/moveit/moveit2/issues/2862
+-find_package(octomap 1.9.7...<1.10.0 REQUIRED)
++find_package(octomap REQUIRED)
+ find_package(geometric_shapes REQUIRED)
+ find_package(tf2_ros REQUIRED)
