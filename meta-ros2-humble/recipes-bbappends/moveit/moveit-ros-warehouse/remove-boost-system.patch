@@ -1,0 +1,18 @@
+Remove Boost::system
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: moveit-ros-warehouse-2.5.9-1/ConfigExtras.cmake
+===================================================================
+--- moveit-ros-warehouse-2.5.9-1.orig/ConfigExtras.cmake
++++ moveit-ros-warehouse-2.5.9-1/ConfigExtras.cmake
+@@ -3,7 +3,6 @@
+ find_package(
+   Boost REQUIRED
+   thread
+-  system
+   filesystem
+   regex
+   date_time
