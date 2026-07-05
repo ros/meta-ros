@@ -7,3 +7,8 @@ SRC_URI += "file://remove-ament-target-dependencies.patch \
 ROS_BUILDTOOL_DEPENDS += " \
     generate-parameter-library-py-native \
 "
+
+do_install:append() {
+    # Fix for QA warning [buildpaths]
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir}#${includedir}#g" ${D}${ros_datadir}/pilz_industrial_motion_planner/cmake/pilz_industrial_motion_plannerTargetsExport.cmake
+}
