@@ -1,7 +1,8 @@
 # Copyright (c) 2023-2026 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://remove-ament-target-dependencies.patch"
+SRC_URI += "file://remove-ament-target-dependencies.patch \
+            file://add-bullet-dependency.patch"
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package moveit-ros-perception contains symlink .so '/usr/lib/libmoveit_pointcloud_octomap_updater_core.so'
 # non -dev/-dbg/nativesdk- package moveit-ros-perception contains symlink .so '/usr/lib/libmoveit_depth_image_octomap_updater_core.so'
