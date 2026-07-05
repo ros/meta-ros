@@ -24,11 +24,9 @@ Refs: moveit/moveit2#2862, moveit/moveit2#2881.
  moveit_ros/occupancy_map_monitor/CMakeLists.txt | 4 +---
  2 files changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 23fd387c3f..b6f5f2ad48 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -18,9 +18,7 @@ find_package(geometric_shapes REQUIRED)
+@@ -19,9 +19,7 @@
  find_package(geometry_msgs REQUIRED)
  find_package(kdl_parser REQUIRED)
  find_package(moveit_msgs REQUIRED)
@@ -37,5 +35,5 @@ index 23fd387c3f..b6f5f2ad48 100644
 -find_package(octomap 1.9.7...<1.10.0 REQUIRED)
 +find_package(octomap REQUIRED)
  find_package(octomap_msgs REQUIRED)
+ find_package(orocos_kdl REQUIRED)
  find_package(osqp REQUIRED)
- find_package(pluginlib REQUIRED)
