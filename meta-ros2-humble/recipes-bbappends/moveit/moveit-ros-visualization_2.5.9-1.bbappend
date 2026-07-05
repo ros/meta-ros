@@ -18,6 +18,12 @@ ROS_BUILDTOOL_DEPENDS += " \
 #   Unknown CMake command "qt5_wrap_ui".
 inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], '', 'cmake_qt5', d)}
 
+do_install:append() {
+    # Fix for QA warning [buildpaths]
+    # Remove ${RECIPE_SYSROOT}/usr/include added by the Boost components
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir};##g" ${D}${ros_datadir}/moveit_ros_visualization/cmake/moveit_ros_visualizationTargetsExport.cmake
+}
+
 # QA Issue: non -dev/-dbg/nativesdk- package moveit-ros-visualization contains symlink .so
 FILES:${PN}-dev += " \
     ${libdir}/libmoveit_motion_planning_rviz_plugin.so \
