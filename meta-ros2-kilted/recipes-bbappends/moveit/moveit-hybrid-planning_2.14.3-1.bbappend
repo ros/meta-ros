@@ -1,7 +1,7 @@
 # Copyright (c) 2023-2026 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-#SRC_URI += "file://remove-ament-target-dependencies.patch"
+SRC_URI += "file://remove-ament-target-dependencies.patch"
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package moveit-hybrid-planning contains symlink .so '/usr/lib/libforward_trajectory_plugin.so'
 # non -dev/-dbg/nativesdk- package moveit-hybrid-planning contains symlink .so '/usr/lib/libsingle_plan_execution_plugin.so'
