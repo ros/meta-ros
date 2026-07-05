@@ -1,7 +1,8 @@
 # Copyright (c) 2024-2026 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://remove-ament-target-dependencies.patch"
+SRC_URI += "file://remove-ament-target-dependencies.patch \
+            file://add-bullet-dependency.patch"
 
 ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-ros \
