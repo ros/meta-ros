@@ -23,3 +23,8 @@ do_configure:prepend() {
         ln -sf ${STAGING_LIBDIR}/libfreeglut-gles.so ${STAGING_LIBDIR}/libglut.so
     fi
 }
+
+do_install:append() {
+    # Fix for QA warning [buildpaths] for libGL and libGLU
+    sed -i -e "s#${RECIPE_SYSROOT}${libdir}#${libdir}#g" ${D}${ros_datadir}/moveit_ros_perception/cmake/moveit_ros_perceptionTargetsExport.cmake
+}
