@@ -1,0 +1,33 @@
+Fix missing fmt::join
+
+moveit-setup-framework-2.14.3-1/src/urdf_config.cpp:88:40: error: 'join' is not a member of 'fmt'; did you mean 'rcpputils::join'?
+
+Upstream-Status: Backport [https://github.com/moveit/moveit2/commit/b3c23c989ff45c66ec692a71535330b42be09879]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From b3c23c989ff45c66ec692a71535330b42be09879 Mon Sep 17 00:00:00 2001
+From: Dhruv Patel <dhruvpatel2991998@gmail.com>
+Date: Thu, 11 Dec 2025 23:03:56 +0100
+Subject: [PATCH] [macOS] Fix compilation and linking issues in MoveIt2 (#3631)
+
+---
+ .../pilz_industrial_motion_planner/CMakeLists.txt  | 14 ++++++++------
+ .../src/moveit/moveit_py_utils/CMakeLists.txt      |  2 ++
+ moveit_ros/perception/CMakeLists.txt               |  2 +-
+ .../perception/semantic_world/CMakeLists.txt       |  3 ++-
+ .../moveit_setup_framework/src/urdf_config.cpp     |  1 +
+ 5 files changed, 14 insertions(+), 8 deletions(-)
+
+diff --git moveit_setup_framework/src/urdf_config.cpp moveit_setup_framework/src/urdf_config.cpp
+index eab6823260..5d17cec951 100644
+--- moveit_setup_framework/src/urdf_config.cpp
++++ moveit_setup_framework/src/urdf_config.cpp
+@@ -36,6 +36,7 @@
+ #include <moveit_setup_framework/utilities.hpp>
+ #include <moveit/rdf_loader/rdf_loader.hpp>
+ #include <fmt/format.h>
++#include <fmt/ranges.h>
+ 
+ namespace moveit_setup
+ {
