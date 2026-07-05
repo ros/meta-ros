@@ -1,7 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://remove-boost-system.patch \
+SRC_URI += "file://remove-ament-target-dependencies.patch \
+            file://remove-boost-system.patch \
             file://add-bullet-dependency.patch"
 
 # ERROR: moveit-ros-planning-2.1.0-1-r0 do_package_qa: QA Issue:
