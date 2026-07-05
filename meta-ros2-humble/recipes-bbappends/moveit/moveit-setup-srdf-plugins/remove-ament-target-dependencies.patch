@@ -1,0 +1,260 @@
+Remove use of ament_target_dependencies Take 2
+
+Upstream-Status: Backport [https://github.com/moveit/moveit2/commit/dddf8f912c77115d417909e2a153498bf882a8ea]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From dddf8f912c77115d417909e2a153498bf882a8ea Mon Sep 17 00:00:00 2001
+From: Nathan Brooks <nathanbrooks@picknik.ai>
+Date: Mon, 15 Jun 2026 22:03:48 -0600
+Subject: [PATCH] Remove use of ament_target_dependencies: Take 2 (#3726)
+
+* Remove use of ament_target_dependencies
+
+ament_target_dependencies was deprecated and removed upstream
+(ament/ament_cmake#614). Replace it with explicit
+target_link_libraries(... NAMESPACE::TARGET) calls across the
+codebase, matching the ROS 2 Kilted-and-newer guidance.
+
+Two subtleties needed extra care:
+
+- ament_target_dependencies(... Boost ...) implicitly linked every
+  Boost component found by ConfigExtras.cmake (chrono, date_time,
+  filesystem, iostreams, program_options, regex, serialization,
+  system, thread). A bare target_link_libraries(... Boost::headers)
+  drops those compiled components and breaks any translation unit
+  that uses non-header-only Boost. Targets that need them now name
+  their components explicitly:
+  - moveit_test_utils: + Boost::regex
+    (robot_model_test_utils.cpp uses boost::split_regex / boost::regex)
+  - moveit_ompl_interface: + Boost::serialization
+    (detail/constraints_library.hpp uses boost::serialization::map)
+  - moveit_ros_benchmarks: + Boost::filesystem + Boost::regex
+    (BenchmarkExecutor.cpp uses both)
+
+- The random_numbers::random_numbers imported target was only added
+  upstream in moveit/random_numbers#47 (merged 2025-05-27, "[kilted]"),
+  so it doesn't exist on jazzy or humble and the CMake configure step
+  fails there. moveit_kdl_kinematics_plugin uses the variable form
+  ${random_numbers_LIBRARIES} with a matching
+  target_include_directories instead, so the build works across all
+  supported distros.
+
+Also add find_package(rviz2 REQUIRED) to moveit_ros_visualization so
+that rviz2_VERSION is available for the Qt5/Qt6 selection introduced
+in #3707, and resolve merge conflicts with that PR.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+* Address review feedback: fix Qt linking and drop redundant link deps
+
+Link the imported Qt targets (Qt${QT_VERSION_MAJOR}::Core/::Widgets)
+instead of the undefined ${QT_CORE}/${QT_WIDGETS} variables, remove a
+duplicate rviz_ogre_vendor::OgreMain, and drop redundant transitive
+dependencies (rmw_implementation, urdfdom_headers) already provided by
+rclcpp and urdfdom::urdf_parser.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+* Remove redundant Qt discovery in moveit_setup_framework
+
+The rviz2-version-based Qt selection already finds Qt before any rviz or
+moveit dependency, so the second find_package(Qt6) block was redundant and
+could pull in Qt6 even on the Qt5 path.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+* Address review feedback: export Qt dep, drop unused Boost in benchmarks
+
+Add Qt to moveit_setup_assistant's exported dependencies so downstream
+consumers of its targets resolve the Qt imported targets. Drop the unused
+Boost::regex/Boost::filesystem links (and their includes) from benchmarks,
+which uses std::regex/std::filesystem.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+* Address review feedback: link Boost::date_time, drop redundant class_loader
+
+Link Boost::date_time in moveit_ros_benchmarks and moveit_ompl_interface,
+which use boost::posix_time but only linked Boost::headers after the
+ament_target_dependencies(... Boost) removal (the old call pulled in all
+Boost components). The Boost::date_time imported target is already found
+via ConfigExtras.cmake / the top-level find_package.
+
+Drop the redundant class_loader::class_loader link from moveit_plan_execution
+and moveit_kinematics_plugin_loader; pluginlib::pluginlib already re-exports
+class_loader, and these targets only use the pluginlib wrapper
+(<pluginlib/class_loader.hpp>), not class_loader directly.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+* Address review feedback: export Qt Core/Widgets component packages
+
+ament_export_dependencies(Qt${QT_VERSION_MAJOR}) emits find_dependency(Qt6)
+in the package config, but find_package(Qt6) without COMPONENTS does not
+define the Qt6::Core / Qt6::Widgets imported targets that the exported
+targets link against. Downstream find_package(moveit_setup_framework) /
+find_package(moveit_setup_assistant) would then fail to resolve those
+targets.
+
+Export the standalone Qt${QT_VERSION_MAJOR}Core / Qt${QT_VERSION_MAJOR}Widgets
+packages instead, whose configs define Qt6::Core / Qt6::Widgets. The
+component find_package already sets Qt6Core_FOUND / Qt6Widgets_FOUND, so
+ament_export_dependencies accepts them.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+* Address review feedback: link/export tf2_ros where used in public headers
+
+moveit_robot_interaction and moveit_ros_occupancy_map_monitor use tf2_ros
+(tf2_ros::Buffer) in their public headers but only received it transitively.
+Link tf2_ros::tf2_ros (plus tf2/tf2_eigen, already used in robot_interaction's
+sources) explicitly and export it via THIS_PACKAGE_INCLUDE_DEPENDS so
+downstream consumers of those headers resolve the dependency. Also link
+tf2_ros into the occupancy_map_server executable, which uses
+tf2_ros::TransformListener/Buffer directly.
+
+Clarify the moveit_ros_move_group umbrella INTERFACE target comment: it
+exposes the capabilities API (moveit_move_group_capabilities_base);
+moveit_move_group_default_capabilities is a runtime pluginlib plugin and is
+intentionally excluded.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+* Link tf2_geometry_msgs via its imported target, not ${tf2_geometry_msgs_TARGETS}
+
+tf2_geometry_msgs is a plain C++ library package (not a rosidl interface
+package), exporting a single imported target tf2_geometry_msgs::tf2_geometry_msgs
+via ament_export_targets(). Linking that namespaced target is the idiomatic,
+documented form for a library, and it fails loudly if the target is ever
+missing -- whereas an undefined ${..._TARGETS} variable expands to empty and
+silently drops the dependency. The _TARGETS variable form is reserved for
+rosidl interface (msg/srv/action) packages, which generate multiple
+typesupport targets with no single aggregate target on all distros.
+
+No behavioral change: both forms resolve to the same target today.
+
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+---------
+
+Co-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+---
+ moveit_core/CMakeLists.txt                    |  37 ++-
+ .../collision_detection/CMakeLists.txt        |  22 +-
+ .../collision_detection_bullet/CMakeLists.txt |  45 ++--
+ .../collision_detection_fcl/CMakeLists.txt    |  29 ++-
+ .../collision_distance_field/CMakeLists.txt   |  23 +-
+ .../constraint_samplers/CMakeLists.txt        |  10 +-
+ moveit_core/distance_field/CMakeLists.txt     |  23 +-
+ moveit_core/dynamics_solver/CMakeLists.txt    |  11 +-
+ moveit_core/exceptions/CMakeLists.txt         |   5 +-
+ .../kinematic_constraints/CMakeLists.txt      |  24 +-
+ moveit_core/kinematics_base/CMakeLists.txt    |  16 +-
+ moveit_core/kinematics_metrics/CMakeLists.txt |   8 +-
+ .../online_signal_smoothing/CMakeLists.txt    |  36 +--
+ moveit_core/planning_interface/CMakeLists.txt |  13 +-
+ moveit_core/planning_scene/CMakeLists.txt     |  22 +-
+ moveit_core/robot_model/CMakeLists.txt        |  28 +-
+ moveit_core/robot_state/CMakeLists.txt        |  24 +-
+ moveit_core/robot_trajectory/CMakeLists.txt   |   8 +-
+ .../trajectory_processing/CMakeLists.txt      |  19 +-
+ moveit_core/transforms/CMakeLists.txt         |  19 +-
+ moveit_core/utils/CMakeLists.txt              |  31 +--
+ moveit_kinematics/CMakeLists.txt              |   7 +-
+ .../CMakeLists.txt                            |  11 +-
+ .../templates/CMakeLists.txt                  |  20 +-
+ .../kdl_kinematics_plugin/CMakeLists.txt      |  25 +-
+ .../srv_kinematics_plugin/CMakeLists.txt      |   7 +-
+ moveit_kinematics/test/CMakeLists.txt         |  12 +-
+ .../chomp/chomp_interface/CMakeLists.txt      |  17 +-
+ .../chomp/chomp_motion_planner/CMakeLists.txt |   5 +-
+ moveit_planners/ompl/CMakeLists.txt           |   8 +-
+ .../ompl/ompl_interface/CMakeLists.txt        |  79 +++---
+ .../CMakeLists.txt                            | 239 +++++++++++++++---
+ .../test/CMakeLists.txt                       |  24 +-
+ .../test/unit_tests/CMakeLists.txt            |  36 +--
+ .../CMakeLists.txt                            |  15 +-
+ moveit_planners/stomp/CMakeLists.txt          |  13 +-
+ moveit_planners/stomp/test/CMakeLists.txt     |   8 +-
+ .../CMakeLists.txt                            |  20 +-
+ .../CMakeLists.txt                            |  38 ++-
+ .../CMakeLists.txt                            |  10 +-
+ .../src/moveit/moveit_py_utils/CMakeLists.txt |   7 +-
+ moveit_ros/benchmarks/CMakeLists.txt          |  14 +-
+ .../benchmarks/src/BenchmarkExecutor.cpp      |   2 -
+ moveit_ros/hybrid_planning/CMakeLists.txt     |   7 +-
+ .../global_planner_component/CMakeLists.txt   |  16 +-
+ .../global_planner_plugins/CMakeLists.txt     |  16 +-
+ .../CMakeLists.txt                            |  18 +-
+ .../planner_logic_plugins/CMakeLists.txt      |  38 ++-
+ .../CMakeLists.txt                            |  16 +-
+ .../local_planner_component/CMakeLists.txt    |  18 +-
+ .../CMakeLists.txt                            |  15 +-
+ .../hybrid_planning/test/CMakeLists.txt       |  15 +-
+ moveit_ros/move_group/CMakeLists.txt          |  78 +++++-
+ moveit_ros/moveit_servo/CMakeLists.txt        | 189 ++++++++++++--
+ .../occupancy_map_monitor/CMakeLists.txt      |  30 ++-
+ moveit_ros/perception/CMakeLists.txt          |  10 +-
+ .../CMakeLists.txt                            |  45 ++--
+ .../lazy_free_space_updater/CMakeLists.txt    |   6 +-
+ .../perception/mesh_filter/CMakeLists.txt     |  12 +-
+ .../point_containment_filter/CMakeLists.txt   |   5 +-
+ .../pointcloud_octomap_updater/CMakeLists.txt |  44 ++--
+ .../perception/semantic_world/CMakeLists.txt  |  25 +-
+ moveit_ros/planning/CMakeLists.txt            |   9 +-
+ .../collision_plugin_loader/CMakeLists.txt    |   4 +-
+ .../CMakeLists.txt                            |   7 +-
+ .../kinematics_plugin_loader/CMakeLists.txt   |  13 +-
+ moveit_ros/planning/moveit_cpp/CMakeLists.txt |  10 +-
+ .../planning/plan_execution/CMakeLists.txt    |  12 +-
+ .../planning_components_tools/CMakeLists.txt  |  30 +--
+ .../planning/planning_pipeline/CMakeLists.txt |  19 +-
+ .../CMakeLists.txt                            |   8 +-
+ .../CMakeLists.txt                            |   9 +-
+ .../CMakeLists.txt                            |   9 +-
+ .../planning_scene_monitor/CMakeLists.txt     |  40 ++-
+ moveit_ros/planning/rdf_loader/CMakeLists.txt |   5 +-
+ .../robot_model_loader/CMakeLists.txt         |  13 +-
+ .../srdf_publisher_node/CMakeLists.txt        |   5 +-
+ .../CMakeLists.txt                            |  21 +-
+ moveit_ros/planning_interface/CMakeLists.txt  |  11 +-
+ .../CMakeLists.txt                            |   4 +-
+ .../move_group_interface/CMakeLists.txt       |  18 +-
+ .../planning_scene_interface/CMakeLists.txt   |   5 +-
+ moveit_ros/robot_interaction/CMakeLists.txt   |  30 ++-
+ moveit_ros/tests/CMakeLists.txt               |   2 +-
+ moveit_ros/trajectory_cache/CMakeLists.txt    |  60 ++++-
+ .../trajectory_cache/test/CMakeLists.txt      |  26 +-
+ moveit_ros/visualization/CMakeLists.txt       |   9 +-
+ .../CMakeLists.txt                            |  32 +--
+ .../planning_scene_rviz_plugin/CMakeLists.txt |  27 +-
+ .../robot_state_rviz_plugin/CMakeLists.txt    |  31 ++-
+ .../rviz_plugin_render_tools/CMakeLists.txt   |  20 +-
+ .../trajectory_rviz_plugin/CMakeLists.txt     |  30 ++-
+ moveit_ros/warehouse/CMakeLists.txt           |  45 ++--
+ .../moveit_setup_app_plugins/CMakeLists.txt   |  10 +-
+ .../moveit_setup_assistant/CMakeLists.txt     |  26 +-
+ .../moveit_setup_controllers/CMakeLists.txt   |   6 +-
+ .../moveit_setup_core_plugins/CMakeLists.txt  |  16 +-
+ .../moveit_setup_framework/CMakeLists.txt     |  30 ++-
+ .../moveit_setup_simulation/CMakeLists.txt    |   6 +-
+ .../moveit_setup_srdf_plugins/CMakeLists.txt  |   5 +-
+ 100 files changed, 1548 insertions(+), 788 deletions(-)
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -50,10 +50,9 @@
+   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include>
+ )
+-ament_target_dependencies(${PROJECT_NAME}
+-  moveit_setup_framework
+-  pluginlib
+-)
++target_link_libraries(
++  moveit_setup_srdf_plugins moveit_setup_framework::moveit_setup_framework
++  pluginlib::pluginlib)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_lint_auto REQUIRED)
