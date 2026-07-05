@@ -1,4 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+# Copyright (c) 2026 Wind River Systems, Inc.
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove-ament-target-dependencies.patch"
 
 # ERROR: moveit-ros-planning-interface-2.1.0-1-r0 do_package_qa: QA Issue:
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-ros-planning-interface path '/work/raspberrypi4-webos-linux-gnueabi/moveit-ros-planning-interface/2.1.0-1-r0/packages-split/moveit-ros-planning-interface/usr/lib/libmoveit_cpp.so'
