@@ -1,0 +1,12 @@
+Remove Boost::system
+
+Upstream-Status: Pending
+
+--- a/ConfigExtras.cmake
++++ b/ConfigExtras.cmake
+@@ -8,4 +8,4 @@
+   Boost REQUIRED
+   COMPONENTS date_time filesystem program_options
+              # ${BOOST_PYTHON_COMPONENT}
+-             system thread)
++             thread)
