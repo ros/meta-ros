@@ -11,3 +11,5 @@ S = "${WORKDIR}/git"
 inherit cmake
 
 DEPENDS = "xtl nlohmann-json tbb xsimd"
+
+EXTRA_OECMAKE += "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
