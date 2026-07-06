@@ -10,3 +10,5 @@ SRCREV = "44b56bbae2185ebf19e6f617ac5690344b9e35a4"
 inherit cmake
 
 DEPENDS = "xtl nlohmann-json tbb xsimd"
+
+EXTRA_OECMAKE += "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
