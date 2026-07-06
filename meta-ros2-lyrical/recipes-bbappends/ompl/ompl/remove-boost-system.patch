@@ -1,0 +1,65 @@
+Remove the Boost::system component
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -47,7 +47,7 @@
+     URL "https://www.boost.org"
+     PURPOSE "Used throughout OMPL for data serialization, graphs, etc.")
+ set(Boost_USE_MULTITHREADED ON)
+-find_package(Boost 1.68 REQUIRED COMPONENTS serialization filesystem system program_options)
++find_package(Boost 1.68 REQUIRED COMPONENTS serialization filesystem program_options)
+ 
+ # on macOS we need to check whether to use libc++ or libstdc++ with clang++
+ if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
+--- a/demos/CMakeLists.txt
++++ b/demos/CMakeLists.txt
+@@ -12,7 +12,6 @@
+             ompl::ompl
+             Eigen3::Eigen
+             Boost::filesystem
+-            Boost::system
+             Boost::program_options)
+     endmacro(add_ompl_demo)
+ 
+--- a/src/ompl/CMakeLists.txt
++++ b/src/ompl/CMakeLists.txt
+@@ -44,7 +44,6 @@
+     PUBLIC
+         Boost::filesystem
+         Boost::serialization
+-        Boost::system
+         Eigen3::Eigen
+         "$<$<BOOL:${Threads_FOUND}>:Threads::Threads>"
+         "$<$<BOOL:${OMPL_HAVE_FLANN}>:flann::flann>"
+--- a/CMakeModules/OMPLUtils.cmake
++++ b/CMakeModules/OMPLUtils.cmake
+@@ -5,7 +5,6 @@
+     Boost::program_options
+     Boost::serialization
+     Boost::filesystem
+-    Boost::system
+     Boost::unit_test_framework)
+   add_test(NAME ${test_name} COMMAND $<TARGET_FILE:${test_name}>)
+ endmacro(add_ompl_test)
+--- a/omplConfig.cmake.in
++++ b/omplConfig.cmake.in
+@@ -12,7 +12,7 @@
+ 
+ include ("${CMAKE_CURRENT_LIST_DIR}/omplExport.cmake" )
+ include(CMakeFindDependencyMacro)
+-set(_@PROJECT_NAME@_boost_components serialization filesystem system)
++set(_@PROJECT_NAME@_boost_components serialization filesystem)
+ find_dependency(Boost REQUIRED COMPONENTS ${_@PROJECT_NAME@_boost_components})
+ if(Boost_FOUND)
+     foreach(_comp ${_@PROJECT_NAME@_boost_components})
+@@ -101,4 +101,4 @@
+ set(OMPL_LIBRARY_DIRS "${OMPL_LIBRARY_DIRS}" CACHE STRING "Library path for OMPL and its dependencies - DEPRECATED")
+ 
+ include(FindPackageHandleStandardArgs)
+-find_package_handle_standard_args(ompl DEFAULT_MSG OMPL_INCLUDE_DIRS OMPL_LIBRARIES)
+\ No newline at end of file
++find_package_handle_standard_args(ompl DEFAULT_MSG OMPL_INCLUDE_DIRS OMPL_LIBRARIES)
