@@ -25,6 +25,14 @@ inherit ros_insane_dev_so
 DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
     chrpath --delete ${D}${ros_libdir}/*${SOLIBS}
+    # QA Issue: File /opt/ros/rolling/share/ompl/cmake/omplConfig.cmake in package ompl-dev contains reference to TMPDIR [buildpaths]
+    # QA Issue: File /opt/ros/rolling/lib/pkgconfig/ompl.pc in package ompl-dev contains reference to TMPDIR [buildpaths]
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir}/eigen3##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
+    sed -i -e "s#-I${RECIPE_SYSROOT}${includedir}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
 }
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
