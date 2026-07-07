@@ -1,0 +1,57 @@
+Remove octomap dependency
+
+Upstream-Status: Backport [https://github.com/moveit/geometric_shapes/commit/f40b5c48c4c1c609a8ade3039d26ae1dfdca4786]
+
+From f40b5c48c4c1c609a8ade3039d26ae1dfdca4786 Mon Sep 17 00:00:00 2001
+From: Felix Exner <feex@universal-robots.com>
+Date: Mon, 4 May 2026 11:07:13 +0200
+Subject: [PATCH] Remove octomap dependency
+
+The versioned dependency doesn't work out on the latest ubuntu release.
+However, since compatibility to libfcl-dev is mentioned in the comment:
+Octomap should be linked in as a transitive depencency from fcl. In
+fact, octomap isn't linked to the target, anyway, but fcl is. Looking at
+the built library it seems that it seems to be correctly linked against
+liboctomap.
+Since it's used a private link target (only used from within a CPP file
+and fcl being linked privately) it should be save to remove the
+dependency altogether, at least from my understanding.
+---
+ CMakeLists.txt | 4 ----
+ package.xml    | 1 -
+ 2 files changed, 5 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index abd0874..42fe0fb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -43,9 +43,6 @@ find_package(console_bridge REQUIRED)
+ find_package(console_bridge_vendor REQUIRED)
+ find_package(eigen_stl_containers REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+-# Enforce the system package version on Ubuntu jammy and noble which is also used by libfcl-dev
+-# The version is fixed to prevent ABI conflicts with ros-octomap
+-find_package(octomap 1.9.7...<1.10.0 REQUIRED)
+ find_package(QHULL REQUIRED)
+ find_package(random_numbers REQUIRED)
+ find_package(rclcpp REQUIRED)
+@@ -62,7 +59,6 @@ set(THIS_PACKAGE_EXPORT_DEPENDS
+   console_bridge_vendor
+   eigen_stl_containers
+   geometry_msgs
+-  octomap
+   random_numbers
+   rclcpp
+   resource_retriever
+diff --git a/package.xml b/package.xml
+index 5569333..3410a15 100644
+--- a/package.xml
++++ b/package.xml
+@@ -27,7 +27,6 @@
+   <depend>rclcpp</depend>
+   <depend>eigen_stl_containers</depend>
+   <depend>console_bridge_vendor</depend>
+-  <depend>liboctomap-dev</depend>
+   <depend>random_numbers</depend>
+   <depend>resource_retriever</depend>
+   <depend>shape_msgs</depend>
