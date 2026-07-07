@@ -1,0 +1,18 @@
+Set CMake policy version minimum
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: osqp-vendor-0.2.0-4/CMakeLists.txt
+===================================================================
+--- osqp-vendor-0.2.0-4.orig/CMakeLists.txt
++++ osqp-vendor-0.2.0-4/CMakeLists.txt
+@@ -23,6 +23,7 @@ macro(build_osqp)
+     SOURCE_DIR ${CMAKE_SOURCE_DIR}/osqp-upstream
+     CMAKE_ARGS
+       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/osqp_install
++      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+       ${extra_cmake_args}
+   )
+ 
