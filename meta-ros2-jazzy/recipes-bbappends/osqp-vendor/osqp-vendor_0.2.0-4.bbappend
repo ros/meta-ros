@@ -10,6 +10,7 @@ SRC_URI = " \
     file://set-cmake-policy-version-minimum.patch \
     git://github.com/oxfordcontrol/osqp.git;protocol=https;name=osqp;destsuffix=git/osqp-upstream;branch=master \
     git://github.com/oxfordcontrol/qdldl.git;protocol=https;name=qdldl;destsuffix=git/osqp-upstream/lin_sys/direct/qdldl/qdldl_sources;branch=master \
+    file://add-build-dir-include.patch \
 "
 SRCREV_release = "${SRCREV}"
 SRCREV_osqp = "f9fc23d3436e4b17dd2cb95f70cfa1f37d122c24"

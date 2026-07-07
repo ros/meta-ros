@@ -1,0 +1,35 @@
+Add the build directory include for qdldl_types.h and qdldl.h
+
+  osqp-upstream/lin_sys/direct/qdldl/qdldl_interface.h:9:10: fatal error: qdldl_types.h: No such file or directory
+  osqp-upstream/lin_sys/direct/qdldl/qdldl_sources/include/qdldl.h:28:10: fatal error: qdldl_types.h: No such file or directory
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: osqp-vendor-0.2.0-4/osqp-upstream/lin_sys/direct/CMakeLists.txt
+===================================================================
+--- osqp-vendor-0.2.0-4.orig/osqp-upstream/lin_sys/direct/CMakeLists.txt
++++ osqp-vendor-0.2.0-4/osqp-upstream/lin_sys/direct/CMakeLists.txt
+@@ -11,7 +11,8 @@ set(direct_linsys_solvers $<TARGET_OBJEC
+ # NB. The second directory is added because we need to include the "qdldl_types.h" file in "qdldl_interface.h"
+ set(direct_linsys_solvers_includes
+ 	"${CMAKE_CURRENT_SOURCE_DIR}/qdldl/"
+-	"${CMAKE_CURRENT_SOURCE_DIR}/qdldl/qdldl_sources/include")
++	"${CMAKE_CURRENT_SOURCE_DIR}/qdldl/qdldl_sources/include"
++	"${CMAKE_CURRENT_BINARY_DIR}/qdldl/qdldl_sources/include")
+ 
+ 
+ # Add other solvers if embedded option is false
+Index: osqp-vendor-0.2.0-4/osqp-upstream/lin_sys/direct/qdldl/CMakeLists.txt
+===================================================================
+--- osqp-vendor-0.2.0-4.orig/osqp-upstream/lin_sys/direct/qdldl/CMakeLists.txt
++++ osqp-vendor-0.2.0-4/osqp-upstream/lin_sys/direct/qdldl/CMakeLists.txt
+@@ -28,6 +28,7 @@ set(qdldl_interface_includes
+     ${CMAKE_CURRENT_SOURCE_DIR}
+     ${CMAKE_CURRENT_SOURCE_DIR}/amd/include
+     ${CMAKE_CURRENT_SOURCE_DIR}/qdldl_sources/include
++    ${CMAKE_CURRENT_BINARY_DIR}/qdldl_sources/include
+ )
+ 
+ set(qdldl_interface_src
