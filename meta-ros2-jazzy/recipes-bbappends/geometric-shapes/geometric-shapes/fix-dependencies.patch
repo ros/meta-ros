@@ -1,0 +1,152 @@
+Fix dependencies
+
+Upstream-Status: Backport [https://github.com/moveit/geometric_shapes/commit/5090e3f630f691c8b94bc93e9f0309c4938036c8]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 5090e3f630f691c8b94bc93e9f0309c4938036c8 Mon Sep 17 00:00:00 2001
+From: Robert Haschke <rhaschke@users.noreply.github.com>
+Date: Fri, 6 Jun 2025 13:20:29 +0200
+Subject: [PATCH] Fix dependencies (#262)
+
+* Remove deprecated ament_target_dependencies()
+* Cleanup dependencies: only tests depend on Boost::filesystem
+
+Co-authored-by: David V. Lu <davidvlu@gmail.com>
+---
+ CMakeLists.txt           | 23 ++++++++++++++++-------
+ cmake/ConfigExtras.cmake | 31 -------------------------------
+ test/CMakeLists.txt      | 14 ++++++++------
+ 3 files changed, 24 insertions(+), 44 deletions(-)
+ delete mode 100644 cmake/ConfigExtras.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8c46189d..3e701892 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -53,7 +53,6 @@ find_package(resource_retriever REQUIRED)
+ find_package(shape_msgs REQUIRED)
+ find_package(visualization_msgs REQUIRED)
+ find_package(fcl REQUIRED)
+-include(ConfigExtras)
+ 
+ set(THIS_PACKAGE_EXPORT_DEPENDS
+   eigen3_cmake_module
+@@ -90,15 +89,25 @@ target_compile_options(${PROJECT_NAME} PRIVATE ${PROJECT_COMPILE_OPTIONS})
+ target_include_directories(${PROJECT_NAME}
+     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+-ament_target_dependencies(${PROJECT_NAME} PUBLIC
+-  ${THIS_PACKAGE_EXPORT_DEPENDS}
+-)
+ # Private libraries that are not transitively needed by downstream projects
+-target_link_libraries(${PROJECT_NAME} PRIVATE assimp::assimp fcl ${QHULL_LIBRARIES})
++target_link_libraries(${PROJECT_NAME}
++  PRIVATE
++    assimp::assimp
++    fcl
++    ${QHULL_LIBRARIES}
++  PUBLIC
++    ${geometry_msgs_TARGETS}
++    ${shape_msgs_TARGETS}
++    ${visualization_msgs_TARGETS}
++    ${console_bridge_TARGETS}
++    eigen_stl_containers::eigen_stl_containers
++    random_numbers::random_numbers
++    rclcpp::rclcpp
++    resource_retriever::resource_retriever
++)
+ target_include_directories(${PROJECT_NAME} PRIVATE ${QHULL_INCLUDE_DIRS})
+ 
+ if(BUILD_TESTING)
+-  find_package(ament_cmake_gtest REQUIRED)
+   # Unit tests
+   add_subdirectory(test)
+ 
+@@ -120,4 +129,4 @@ install(DIRECTORY include/ DESTINATION include/${PROJECT_NAME})
+ ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ ament_export_dependencies(${THIS_PACKAGE_EXPORT_DEPENDS})
+ 
+-ament_package(CONFIG_EXTRAS "cmake/ConfigExtras.cmake")
++ament_package()
+diff --git a/cmake/ConfigExtras.cmake b/cmake/ConfigExtras.cmake
+deleted file mode 100644
+index d2af2366..00000000
+--- a/cmake/ConfigExtras.cmake
++++ /dev/null
+@@ -1,31 +0,0 @@
+-# Copyright 2021 Open Robotics
+-#
+-# Redistribution and use in source and binary forms, with or without
+-# modification, are permitted provided that the following conditions are met:
+-#
+-#    * Redistributions of source code must retain the above copyright
+-#      notice, this list of conditions and the following disclaimer.
+-#
+-#    * Redistributions in binary form must reproduce the above copyright
+-#      notice, this list of conditions and the following disclaimer in the
+-#      documentation and/or other materials provided with the distribution.
+-#
+-#    * Neither the name of the Open Robotics nor the names of its
+-#      contributors may be used to endorse or promote products derived from
+-#      this software without specific prior written permission.
+-#
+-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+-# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+-# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+-# POSSIBILITY OF SUCH DAMAGE.
+-
+-# Put find_package calls to packages with components so
+-# dependent packages can link against component libraries
+-find_package(Boost REQUIRED COMPONENTS filesystem)
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 8078111b..18160eae 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -1,3 +1,6 @@
++find_package(Boost REQUIRED COMPONENTS filesystem)
++find_package(ament_cmake_gtest REQUIRED)
++
+ file(TO_NATIVE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/resources" TEST_RESOURCES_DIR)
+ if(WIN32)
+     # Correct directory separator for Windows
+@@ -8,13 +11,12 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+ 
+ ament_add_gtest(test_basics test_basics.cpp)
+ target_link_libraries(test_basics ${PROJECT_NAME})
+-ament_target_dependencies(test_basics Eigen3)
+ 
+ ament_add_gtest(test_point_inclusion test_point_inclusion.cpp)
+-target_link_libraries(test_point_inclusion ${PROJECT_NAME})
++target_link_libraries(test_point_inclusion ${PROJECT_NAME} Boost::filesystem)
+ 
+ ament_add_gtest(test_bounding_sphere test_bounding_sphere.cpp)
+-target_link_libraries(test_bounding_sphere ${PROJECT_NAME})
++target_link_libraries(test_bounding_sphere ${PROJECT_NAME} Boost::filesystem)
+ 
+ ament_add_gtest(test_bounding_box test_bounding_box.cpp)
+ target_link_libraries(test_bounding_box ${PROJECT_NAME})
+@@ -26,13 +28,13 @@ ament_add_gtest(test_create_mesh test_create_mesh.cpp)
+ target_link_libraries(test_create_mesh ${PROJECT_NAME})
+ 
+ ament_add_gtest(test_loaded_meshes test_loaded_meshes.cpp)
+-target_link_libraries(test_loaded_meshes ${PROJECT_NAME})
++target_link_libraries(test_loaded_meshes ${PROJECT_NAME} Boost::filesystem)
+ 
+ ament_add_gtest(test_shapes test_shapes.cpp)
+ target_link_libraries(test_shapes ${PROJECT_NAME})
+ 
+ ament_add_gtest(test_ray_intersection test_ray_intersection.cpp)
+-target_link_libraries(test_ray_intersection ${PROJECT_NAME})
++target_link_libraries(test_ray_intersection ${PROJECT_NAME} Boost::filesystem)
+ 
+ ament_add_gtest(test_body_operations test_body_operations.cpp)
+-target_link_libraries(test_body_operations ${PROJECT_NAME})
++target_link_libraries(test_body_operations ${PROJECT_NAME} Boost::filesystem)
