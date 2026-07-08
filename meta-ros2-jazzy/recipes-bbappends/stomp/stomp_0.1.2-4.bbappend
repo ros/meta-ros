@@ -4,7 +4,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://remove_stomp_example.patch"
 
 ROS_BUILD_DEPENDS = " \
-    ros-industrial-cmake-boilerplate-native \
+    ros-industrial-cmake-boilerplate \
 "
 
 # ros_ament_cmake.bbclass does this automatically, but this recipe inherits just ros_cmake.bbclass
