@@ -12,7 +12,7 @@ ROS_BUILDTOOL_DEPENDS += " \
 #   SkippingbecauseOE_QMAKE_PATH_EXTERNAL_HOST_BINSisnotdefined
 # CMake Error at motion_planning_rviz_plugin/CMakeLists.txt:8 (qt5_wrap_ui):
 #   Unknown CMake command "qt5_wrap_ui".
-inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets'], '', 'cmake_qt5', d)}
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
 # QA Issue: non -dev/-dbg/nativesdk- package moveit-ros-visualization contains symlink .so
 FILES:${PN}-dev += " \
