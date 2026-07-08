@@ -1,0 +1,14 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: moveit-core-2.14.3-1/ConfigExtras.cmake
+===================================================================
+--- moveit-core-2.14.3-1.orig/ConfigExtras.cmake
++++ moveit-core-2.14.3-1/ConfigExtras.cmake
+@@ -10,5 +10,4 @@ find_package(
+   program_options
+   regex
+   serialization
+-  system
+   thread)

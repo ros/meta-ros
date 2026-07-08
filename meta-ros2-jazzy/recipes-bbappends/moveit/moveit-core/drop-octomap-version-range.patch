@@ -28,7 +28,7 @@ Index: moveit-core-2.12.4-1/CMakeLists.txt
 ===================================================================
 --- moveit-core-2.12.4-1.orig/CMakeLists.txt
 +++ moveit-core-2.12.4-1/CMakeLists.txt
-@@ -18,9 +18,7 @@ find_package(geometric_shapes REQUIRED)
+@@ -19,9 +19,7 @@
  find_package(geometry_msgs REQUIRED)
  find_package(kdl_parser REQUIRED)
  find_package(moveit_msgs REQUIRED)
@@ -37,5 +37,5 @@ Index: moveit-core-2.12.4-1/CMakeLists.txt
 -find_package(octomap 1.9.7...<1.10.0 REQUIRED)
 +find_package(octomap REQUIRED)
  find_package(octomap_msgs REQUIRED)
+ find_package(orocos_kdl REQUIRED)
  find_package(osqp REQUIRED)
- find_package(pluginlib REQUIRED)
