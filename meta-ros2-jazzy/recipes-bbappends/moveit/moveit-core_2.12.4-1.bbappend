@@ -2,7 +2,8 @@
 # Copyright (c) 2022-2023 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://drop-octomap-version-range.patch"
+SRC_URI += "file://drop-octomap-version-range.patch \
+            file://remove-boost-system.patch"
 
 ROS_BUILDTOOL_DEPENDS = " \
     rosidl-adapter-native \

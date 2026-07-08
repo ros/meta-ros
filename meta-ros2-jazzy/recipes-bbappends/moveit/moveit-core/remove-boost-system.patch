@@ -1,0 +1,14 @@
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: git/ConfigExtras.cmake
+===================================================================
+--- git.orig/ConfigExtras.cmake
++++ git/ConfigExtras.cmake
+@@ -10,5 +10,4 @@ find_package(
+   program_options
+   regex
+   serialization
+-  system
+   thread)
