@@ -1,0 +1,24 @@
+Remove buildpaths
+
+The include directories end up in nav2_rviz_pluginsExport.cmake which causes
+a buildpaths QA failure.
+
+Remove them as they are not required for build. The headers should be
+automatically provided through targets provided with target_link_libraries.
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -78,8 +78,8 @@
+ )
+ 
+ target_include_directories(${library_name} PUBLIC
+-  ${Qt5Widgets_INCLUDE_DIRS}
+-  ${OGRE_INCLUDE_DIRS}
++  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+ )
+ 
+ target_link_libraries(${library_name}
