@@ -4,6 +4,9 @@
 #   SkippingbecauseOE_QMAKE_PATH_EXTERNAL_HOST_BINSisnotdefined
 inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove-buildpaths.patch"
+
 # OgreAlignedAllocator.h:108:73: error: extra ';' [-Werror=pedantic]
 CXXFLAGS += "-Wno-error=pedantic"
 
