@@ -1,0 +1,23 @@
+Upstream-Status: Backport [https://github.com/moveit/random_numbers/commit/79d6089c8ab211c9148f203588a61d9c91c8c613]
+
+From 79d6089c8ab211c9148f203588a61d9c91c8c613 Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Sun, 22 Jun 2025 19:04:50 +0200
+Subject: [PATCH] Fix link to Boost::thread imported target (#52)
+
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b532d3b..3b10c7c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -12,6 +12,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
+     $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+ )
+ target_link_libraries(${PROJECT_NAME} PUBLIC Boost::random)
++target_link_libraries(${PROJECT_NAME} PRIVATE Boost::thread)
+ ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+
+ set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
