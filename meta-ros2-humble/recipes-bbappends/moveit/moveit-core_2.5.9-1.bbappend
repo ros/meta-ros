@@ -1,6 +1,11 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2022-2023 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove-ament-target-dependencies.patch \
+            file://remove-boost-system.patch \
+            file://use-bullet-cmake-target.patch"
+
 ROS_BUILDTOOL_DEPENDS = " \
     rosidl-adapter-native \
     python3-numpy-native \
