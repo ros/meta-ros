@@ -1,0 +1,105 @@
+Switch nav2_voxel_grid to use modern CMake idioms
+
+Upstream-Status: Backport [https://github.com/ros-navigation/navigation2/commit/f34ca63020feff92fd8d7d4382a273ef1dabc2bd]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From f34ca63020feff92fd8d7d4382a273ef1dabc2bd Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Wed, 24 Jul 2024 12:21:58 -0400
+Subject: [PATCH] Switch nav2_voxel_grid to use modern CMake idioms. (#4556)
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ nav2_voxel_grid/CMakeLists.txt                | 23 ++++++++++---------
+ .../include/nav2_voxel_grid/voxel_grid.hpp    |  4 +++-
+ nav2_voxel_grid/src/voxel_grid.cpp            |  3 +++
+ 3 files changed, 18 insertions(+), 12 deletions(-)
+
+diff --git nav2_voxel_grid/CMakeLists.txt nav2_voxel_grid/CMakeLists.txt
+index 4b88a87d86a..afd87f59aff 100644
+--- nav2_voxel_grid/CMakeLists.txt
++++ nav2_voxel_grid/CMakeLists.txt
+@@ -7,29 +7,26 @@ find_package(rclcpp REQUIRED)
+ 
+ nav2_package()
+ 
+-include_directories(
+-  include)
+-
+ add_library(voxel_grid SHARED
+   src/voxel_grid.cpp
+ )
+-
+-set(dependencies
+-  rclcpp
+-)
+-
+-ament_target_dependencies(voxel_grid
+-  ${dependencies}
++target_include_directories(voxel_grid
++  PUBLIC
++  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
++target_link_libraries(voxel_grid PUBLIC
++  rclcpp::rclcpp
+ )
+ 
+ install(TARGETS voxel_grid
++  EXPORT voxel_grid
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   RUNTIME DESTINATION bin
+ )
+ 
+ install(DIRECTORY include/
+-  DESTINATION include
++  DESTINATION include/${PROJECT_NAME}
+ )
+ 
+ if(BUILD_TESTING)
+@@ -39,11 +36,15 @@ if(BUILD_TESTING)
+   ament_lint_auto_find_test_dependencies()
+ 
+   find_package(ament_cmake_gtest REQUIRED)
++
++  ament_find_gtest()
++
+   add_subdirectory(test)
+ endif()
+ 
+ ament_export_dependencies(rclcpp)
+ ament_export_include_directories(include)
+ ament_export_libraries(voxel_grid)
++ament_export_targets(voxel_grid)
+ 
+ ament_package()
+diff --git nav2_voxel_grid/include/nav2_voxel_grid/voxel_grid.hpp nav2_voxel_grid/include/nav2_voxel_grid/voxel_grid.hpp
+index 07c391fff59..c537ff6cb7b 100644
+--- nav2_voxel_grid/include/nav2_voxel_grid/voxel_grid.hpp
++++ nav2_voxel_grid/include/nav2_voxel_grid/voxel_grid.hpp
+@@ -44,7 +44,9 @@
+ #include <math.h>
+ #include <limits.h>
+ #include <algorithm>
+-#include "rclcpp/rclcpp.hpp"
++
++#include <rclcpp/logger.hpp>
++#include <rclcpp/logging.hpp>
+ 
+ /**
+  * @class VoxelGrid
+diff --git nav2_voxel_grid/src/voxel_grid.cpp nav2_voxel_grid/src/voxel_grid.cpp
+index 44a63e2e31b..e4055448b38 100644
+--- nav2_voxel_grid/src/voxel_grid.cpp
++++ nav2_voxel_grid/src/voxel_grid.cpp
+@@ -36,6 +36,9 @@
+ *********************************************************************/
+ #include <nav2_voxel_grid/voxel_grid.hpp>
+ 
++#include <rclcpp/logger.hpp>
++#include <rclcpp/logging.hpp>
++
+ namespace nav2_voxel_grid
+ {
+ VoxelGrid::VoxelGrid(unsigned int size_x, unsigned int size_y, unsigned int size_z)
