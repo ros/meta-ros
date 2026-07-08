@@ -4,17 +4,11 @@ Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -27,7 +27,6 @@
- endif()
-
- include_directories(ompl_interface/include)
--include_directories(SYSTEM ${Boost_INCLUDE_DIRS} ${OMPL_INCLUDE_DIRS})
-
- add_subdirectory(ompl_interface)
-
-@@ -40,7 +39,7 @@
+Index: moveit-planners-ompl-2.12.4-1/CMakeLists.txt
+===================================================================
+--- moveit-planners-ompl-2.12.4-1.orig/CMakeLists.txt
++++ moveit-planners-ompl-2.12.4-1/CMakeLists.txt
+@@ -46,7 +46,7 @@ install(
    INCLUDES
    DESTINATION include/moveit_planners_ompl)
  ament_export_targets(moveit_planners_omplTargets HAS_LIBRARY_TARGET)
