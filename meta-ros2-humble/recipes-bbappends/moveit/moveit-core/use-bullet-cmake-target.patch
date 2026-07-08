@@ -1,0 +1,58 @@
+Use CMake target for Bullet
+
+This uses custom-made CMake targets for the Bullet physics libraries.
+
+This helps avoid buildpath QA errors in CMake files produced for Moveit2.
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: moveit-core-2.5.9-1/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/CMakeLists.txt
++++ moveit-core-2.5.9-1/CMakeLists.txt
+@@ -7,7 +7,7 @@ moveit_package()
+ 
+ find_package(ament_cmake REQUIRED)
+ find_package(angles REQUIRED)
+-find_package(Bullet 2.87 REQUIRED)
++find_package(Bullet 3.24 CONFIG REQUIRED)
+ find_package(common_interfaces REQUIRED)
+ find_package(eigen_stl_containers REQUIRED)
+ find_package(Eigen3 REQUIRED)
+Index: moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/collision_detection_bullet/CMakeLists.txt
++++ moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
+@@ -18,13 +18,11 @@ target_include_directories(
+   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+ set_target_properties(moveit_collision_detection_bullet
+                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-target_include_directories(moveit_collision_detection_bullet SYSTEM
+-                           PUBLIC ${BULLET_INCLUDE_DIRS})
+ target_link_libraries(
+   moveit_collision_detection_bullet
+   moveit_collision_detection
+   moveit_utils
+-  ${BULLET_LIBRARIES}
++  Bullet::BulletCollision
+   rclcpp::rclcpp
+   urdf::urdf
+   urdfdom::urdf_parser
+@@ -35,14 +33,12 @@ add_library(collision_detector_bullet_pl
+             src/collision_detector_bullet_plugin_loader.cpp)
+ set_target_properties(collision_detector_bullet_plugin
+                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-target_include_directories(collision_detector_bullet_plugin SYSTEM
+-                           PUBLIC ${BULLET_INCLUDE_DIRS})
+ target_link_libraries(
+   collision_detector_bullet_plugin
+   moveit_collision_detection_bullet
+   moveit_planning_scene
+   moveit_utils
+-  ${BULLET_LIBRARIES}
++  Bullet::BulletCollision
+   rclcpp::rclcpp
+   urdf::urdf
+   ${visualization_msgs_TARGETS}
