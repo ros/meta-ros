@@ -472,3 +472,4 @@ ROS_UNRESOLVED_DEP-libopencv-imgproc = "opencv"
 ROS_UNRESOLVED_DEP-libopencv-videoio = "opencv"
 
 ROS_UNRESOLVED_DEP-libexpected-dev = "tl-expected"
+ROS_UNRESOLVED_DEP-libnanoflann-dev = "nanoflann"
