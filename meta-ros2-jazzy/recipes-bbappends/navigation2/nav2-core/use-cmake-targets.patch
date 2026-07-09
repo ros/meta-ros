@@ -1,0 +1,77 @@
+Use CMake Targets
+
+Fix buildpaths QA errors by backporting selected CMake changes to
+use CMake targets.
+
+Upstream-Status: Backport [https://github.com/ros-navigation/navigation2/commit/a001bfc3c5fc4fdea026cb6599175fa7b429306c]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: nav2-core-1.3.11-1/CMakeLists.txt
+===================================================================
+--- nav2-core-1.3.11-1.orig/CMakeLists.txt
++++ nav2-core-1.3.11-1/CMakeLists.txt
+@@ -16,18 +16,30 @@ find_package(nav2_behavior_tree REQUIRED
+ 
+ nav2_package()
+ 
+-set(dependencies
+-  rclcpp
+-  rclcpp_lifecycle
+-  std_msgs
+-  geometry_msgs
+-  nav2_costmap_2d
+-  pluginlib
+-  visualization_msgs
+-  nav_msgs
+-  tf2_ros
+-  nav2_util
+-  nav2_behavior_tree
++add_library(nav2_core INTERFACE)
++target_include_directories(nav2_core
++  INTERFACE
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(nav2_core INTERFACE
++  ${geometry_msgs_TARGETS}
++  nav2_behavior_tree::nav2_behavior_tree
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_costmap_2d::nav2_costmap_2d_client
++  nav2_util::nav2_util_core
++  ${nav_msgs_TARGETS}
++  pluginlib::pluginlib
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  tf2_ros::tf2_ros
++)
++
++install(TARGETS nav2_core
++  EXPORT nav2_core
++  ARCHIVE DESTINATION lib
++  LIBRARY DESTINATION lib
++  RUNTIME DESTINATION bin
+ )
+ 
+ install(DIRECTORY include/
+@@ -41,7 +53,18 @@ if(BUILD_TESTING)
+   ament_lint_auto_find_test_dependencies()
+ endif()
+ 
+-ament_export_include_directories(include)
+-ament_export_dependencies(${dependencies})
++ament_export_include_directories(include/${PROJECT_NAME})
++ament_export_dependencies(
++  geometry_msgs
++  nav2_behavior_tree
++  nav2_costmap_2d
++  nav2_util
++  nav_msgs
++  pluginlib
++  rclcpp
++  rclcpp_lifecycle
++  tf2_ros
++)
++ament_export_targets(nav2_core)
+ 
+ ament_package()
