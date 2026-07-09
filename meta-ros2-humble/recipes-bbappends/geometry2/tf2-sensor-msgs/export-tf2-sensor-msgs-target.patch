@@ -1,0 +1,125 @@
+Export tf2 sensor msgs target
+
+Upstream-Status: Backport [https://github.com/ros2/geometry2/commit/2687a3543bf61481b06dcf37839c7e92bed85d2e]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 2687a3543bf61481b06dcf37839c7e92bed85d2e Mon Sep 17 00:00:00 2001
+From: Daisuke Nishimatsu <42202095+wep21@users.noreply.github.com>
+Date: Mon, 11 Jul 2022 21:55:10 +0900
+Subject: [PATCH] feat: export tf2 sensor msgs target (#536)
+
+* feat: export tf2 sensor msgs target
+
+Signed-off-by: Daisuke Nishimatsu <border_goldenmarket@yahoo.co.jp>
+---
+ tf2_sensor_msgs/CMakeLists.txt | 69 +++++++++++++++++++++++-----------
+ tf2_sensor_msgs/package.xml    |  2 +-
+ 2 files changed, 49 insertions(+), 22 deletions(-)
+
+Index: tf2-sensor-msgs-0.25.20-2/CMakeLists.txt
+===================================================================
+--- tf2-sensor-msgs-0.25.20-2.orig/CMakeLists.txt
++++ tf2-sensor-msgs-0.25.20-2/CMakeLists.txt
+@@ -9,25 +9,34 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX
+   add_compile_options(-Wall -Wextra -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual)
+ endif()
+ 
+-find_package(ament_cmake_auto REQUIRED)
+-set(required_dependencies
+-  "sensor_msgs"
+-  "tf2"
+-  "tf2_ros"
+-)
+-
+-ament_auto_find_build_dependencies(REQUIRED ${required_dependencies})
+-
+ find_package(eigen3_cmake_module REQUIRED)
+ find_package(Eigen3 REQUIRED)
+-
+-ament_export_dependencies(eigen3_cmake_module)
+-ament_export_dependencies(Eigen3)
+-ament_export_dependencies(tf2)
+-ament_export_dependencies(tf2_ros)
++find_package(geometry_msgs REQUIRED)
++find_package(sensor_msgs REQUIRED)
++find_package(tf2 REQUIRED)
++find_package(tf2_ros REQUIRED)
+ 
+ ament_python_install_package(${PROJECT_NAME})
+ 
++add_library(${PROJECT_NAME} INTERFACE)
++target_include_directories(${PROJECT_NAME} INTERFACE
++  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(${PROJECT_NAME} INTERFACE
++  ${geometry_msgs_TARGETS}
++  ${sensor_msgs_TARGETS}
++  tf2::tf2
++  tf2_ros::tf2_ros
++)
++
++if(TARGET Eigen3::Eigen)
++  # TODO(sloretz) require target to exist when https://github.com/ros2/choco-packages/issues/19 is addressed
++  target_link_libraries(${PROJECT_NAME} INTERFACE Eigen3::Eigen)
++else()
++  target_include_directories(${PROJECT_NAME} INTERFACE ${Eigen3_INCLUDE_DIRS})
++endif()
++
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
+   find_package(ament_lint_auto REQUIRED)
+@@ -44,14 +53,32 @@ if(BUILD_TESTING)
+   ament_add_gtest(test_tf2_sensor_msgs_cpp test/test_tf2_sensor_msgs.cpp)
+   if(TARGET test_tf2_sensor_msgs_cpp)
+     target_include_directories(test_tf2_sensor_msgs_cpp PUBLIC include)
+-    ament_target_dependencies(test_tf2_sensor_msgs_cpp
+-      "Eigen3"
+-      "rclcpp"
+-      "sensor_msgs"
+-      "tf2"
+-      "tf2_ros"
++    target_link_libraries(test_tf2_sensor_msgs_cpp
++      ${geometry_msgs_TARGETS}
++      ${sensor_msgs_TARGETS}
++      rclcpp::rclcpp
++      tf2::tf2
++      tf2_ros::tf2_ros
+     )
++    if(TARGET Eigen3::Eigen)
++      # TODO(sloretz) require target to exist when https://github.com/ros2/choco-packages/issues/19 is addressed
++      target_link_libraries(test_tf2_sensor_msgs_cpp Eigen3::Eigen)
++    else()
++      target_include_directories(test_tf2_sensor_msgs_cpp PUBLIC ${Eigen3_INCLUDE_DIRS})
++    endif()
+   endif()
+ endif()
+ 
+-ament_auto_package()
++install(TARGETS ${PROJECT_NAME} EXPORT export_${PROJECT_NAME})
++install(DIRECTORY include/ DESTINATION include/${PROJECT_NAME})
++
++ament_export_targets(export_${PROJECT_NAME})
++ament_export_dependencies(
++  "Eigen3"
++  "geometry_msgs"
++  "sensor_msgs"
++  "tf2"
++  "tf2_ros"
++)
++
++ament_package()
+Index: tf2-sensor-msgs-0.25.20-2/package.xml
+===================================================================
+--- tf2-sensor-msgs-0.25.20-2.orig/package.xml
++++ tf2-sensor-msgs-0.25.20-2/package.xml
+@@ -11,7 +11,7 @@
+   <author>Vincent Rabaud</author>
+   <author email="vincent.rabaud@gmail.com">Vincent Rabaud</author>
+ 
+-  <buildtool_depend>ament_cmake_auto</buildtool_depend>
++  <buildtool_depend>ament_cmake</buildtool_depend>
+   <buildtool_depend>eigen3_cmake_module</buildtool_depend>
+ 
+   <buildtool_export_depend>eigen3_cmake_module</buildtool_export_depend>
