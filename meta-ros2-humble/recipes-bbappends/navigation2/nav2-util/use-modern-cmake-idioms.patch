@@ -1,0 +1,413 @@
+Use modern CMake idioms
+
+Upstream-Status: Backport [https://github.com/ros-navigation/navigation2/commit/6026754da6d1fb2986b4c6be260ea8f500768a0e]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From 6026754da6d1fb2986b4c6be260ea8f500768a0e Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Wed, 19 Jun 2024 11:28:16 -0400
+Subject: [PATCH] Revamp nav2_util CMakeLists.txt to use modern idioms. (#4393)
+
+This commit does a number of things:
+
+1.  Switches to using target_link_libraries everywhere.
+This gives us finer-grained control over what dependencies
+are exported to downstream as public, or private.  In the
+particular case of nav2_util, this actually doesn't matter
+*too* much, but it will help for other packages.
+2.  Moves the include directory down one level to
+include/${PROJECT_NAME}, which is best practice in ROS 2
+since Humble.
+3.  Makes sure to export nav2_util as a CMake target, so
+downstream users of it can use that target.
+4.  Moves the base_footprint_publisher.hpp header file into
+the src directory, as it isn't functionality that an external
+project could use.
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ nav2_util/CMakeLists.txt                      | 59 +++++++++----------
+ .../include/nav2_util/lifecycle_node.hpp      |  1 +
+ nav2_util/package.xml                         | 30 ++++------
+ nav2_util/src/CMakeLists.txt                  | 39 +++++++-----
+ nav2_util/src/base_footprint_publisher.cpp    |  2 +-
+ .../base_footprint_publisher.hpp              |  6 +-
+ nav2_util/src/lifecycle_utils.cpp             | 19 +++---
+ nav2_util/src/string_utils.cpp                | 10 ++--
+ nav2_util/test/CMakeLists.txt                 | 39 +++++-------
+ .../test/test_base_footprint_publisher.cpp    |  2 +-
+ 10 files changed, 96 insertions(+), 111 deletions(-)
+ rename nav2_util/{include/nav2_util => src}/base_footprint_publisher.hpp (96%)
+
+Index: nav2-util-1.1.20-1/CMakeLists.txt
+===================================================================
+--- nav2-util-1.1.20-1.orig/CMakeLists.txt
++++ nav2-util-1.1.20-1/CMakeLists.txt
+@@ -2,62 +2,58 @@ cmake_minimum_required(VERSION 3.5)
+ project(nav2_util)
+ 
+ find_package(ament_cmake REQUIRED)
++find_package(bond REQUIRED)
++find_package(bondcpp REQUIRED)
++find_package(geometry_msgs REQUIRED)
++find_package(lifecycle_msgs REQUIRED)
+ find_package(nav2_common REQUIRED)
+ find_package(nav2_msgs REQUIRED)
+-find_package(tf2_ros REQUIRED)
+-find_package(tf2 REQUIRED)
+-find_package(tf2_geometry_msgs REQUIRED)
+-find_package(geometry_msgs REQUIRED)
+ find_package(nav_msgs REQUIRED)
++find_package(rcl_interfaces REQUIRED)
+ find_package(rclcpp REQUIRED)
+-find_package(lifecycle_msgs REQUIRED)
+ find_package(rclcpp_action REQUIRED)
+ find_package(rclcpp_lifecycle REQUIRED)
++find_package(std_msgs REQUIRED)
++find_package(tf2 REQUIRED)
+ find_package(tf2_geometry_msgs REQUIRED)
+-find_package(bondcpp REQUIRED)
+-find_package(bond REQUIRED)
+-find_package(action_msgs REQUIRED)
+-
+-set(dependencies
+-    nav2_msgs
+-    tf2_ros
+-    tf2
+-    tf2_geometry_msgs
+-    geometry_msgs
+-    nav_msgs
+-    rclcpp
+-    lifecycle_msgs
+-    rclcpp_action
+-    rclcpp_lifecycle
+-    bondcpp
+-    bond
+-    action_msgs
+-    rcl_interfaces
+-)
++find_package(tf2_msgs REQUIRED)
++find_package(tf2_ros REQUIRED)
+ 
+ nav2_package()
+ 
+-include_directories(include)
+-
+ set(library_name ${PROJECT_NAME}_core)
+ add_subdirectory(src)
+ 
+ install(DIRECTORY include/
+-  DESTINATION include/
++  DESTINATION include/${PROJECT_NAME}
+ )
+ 
+ if(BUILD_TESTING)
+   find_package(ament_lint_auto REQUIRED)
+   find_package(ament_cmake_pytest REQUIRED)
+-  find_package(launch_testing_ament_cmake REQUIRED)
+   ament_lint_auto_find_test_dependencies()
+ 
+   find_package(ament_cmake_gtest REQUIRED)
+   add_subdirectory(test)
+ endif()
+ 
+-ament_export_include_directories(include)
++ament_export_include_directories(include/${PROJECT_NAME})
+ ament_export_libraries(${library_name})
+-ament_export_dependencies(${dependencies})
++ament_export_dependencies(
++  bondcpp
++  geometry_msgs
++  lifecycle_msgs
++  nav2_msgs
++  nav_msgs
++  rcl_interfaces
++  rclcpp
++  rclcpp_action
++  rclcpp_lifecycle
++  std_msgs
++  tf2
++  tf2_geometry_msgs
++  tf2_ros
++)
++ament_export_targets(${library_name})
+ 
+ ament_package()
+Index: nav2-util-1.1.20-1/include/nav2_util/lifecycle_node.hpp
+===================================================================
+--- nav2-util-1.1.20-1.orig/include/nav2_util/lifecycle_node.hpp
++++ nav2-util-1.1.20-1/include/nav2_util/lifecycle_node.hpp
+@@ -19,6 +19,7 @@
+ #include <string>
+ #include <thread>
+ 
++#include "rcl_interfaces/msg/parameter_descriptor.hpp"
+ #include "nav2_util/node_thread.hpp"
+ #include "rclcpp_lifecycle/lifecycle_node.hpp"
+ #include "rclcpp/rclcpp.hpp"
+Index: nav2-util-1.1.20-1/package.xml
+===================================================================
+--- nav2-util-1.1.20-1.orig/package.xml
++++ nav2-util-1.1.20-1/package.xml
+@@ -10,37 +10,31 @@
+   <license>BSD-3-Clause</license>
+ 
+   <buildtool_depend>ament_cmake</buildtool_depend>
+-  <build_depend>libboost-program-options-dev</build_depend>
++
+   <depend>nav2_common</depend>
+ 
++  <depend>bond</depend>
++  <depend>bondcpp</depend>
++  <depend>builtin_interfaces</depend>
+   <depend>geometry_msgs</depend>
+-  <depend>rclcpp</depend>
++  <depend>lifecycle_msgs</depend>
+   <depend>nav2_msgs</depend>
+   <depend>nav_msgs</depend>
+-  <depend>tf2</depend>
+-  <depend>tf2_ros</depend>
+-  <depend>tf2_geometry_msgs</depend>
+-  <depend>lifecycle_msgs</depend>
+-  <depend>bondcpp</depend>
+-  <depend>bond</depend>
++  <depend>rcl_interfaces</depend>
++  <depend>rclcpp</depend>
+   <depend>rclcpp_action</depend>
+   <depend>rclcpp_lifecycle</depend>
+-  <depend>launch</depend>
+-  <depend>launch_testing_ament_cmake</depend>
+-  <depend>action_msgs</depend>
+-  <depend>rcl_interfaces</depend>
+-
+-  <exec_depend>libboost-program-options</exec_depend>
++  <depend>std_msgs</depend>
++  <depend>tf2</depend>
++  <depend>tf2_geometry_msgs</depend>
++  <depend>tf2_msgs</depend>
++  <depend>tf2_ros</depend>
+ 
+   <test_depend>ament_lint_common</test_depend>
+   <test_depend>ament_lint_auto</test_depend>
+   <test_depend>ament_cmake_gtest</test_depend>
+-  <test_depend>launch</test_depend>
+-  <test_depend>launch_testing_ament_cmake</test_depend>
+   <test_depend>std_srvs</test_depend>
+   <test_depend>test_msgs</test_depend>
+-  <test_depend>action_msgs</test_depend>
+-  <test_depend>launch_testing_ros</test_depend>
+   <test_depend>ament_cmake_pytest</test_depend>
+ 
+   <export>
+Index: nav2-util-1.1.20-1/src/CMakeLists.txt
+===================================================================
+--- nav2-util-1.1.20-1.orig/src/CMakeLists.txt
++++ nav2-util-1.1.20-1/src/CMakeLists.txt
+@@ -10,28 +10,36 @@ add_library(${library_name} SHARED
+   odometry_utils.cpp
+ )
+ 
+-ament_target_dependencies(${library_name}
+-  rclcpp
+-  nav2_msgs
+-  tf2
+-  tf2_ros
+-  nav_msgs
+-  geometry_msgs
+-  lifecycle_msgs
+-  rclcpp_lifecycle
+-  tf2_geometry_msgs
+-  bondcpp
++target_include_directories(${library_name}
++  PUBLIC
++  "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>"
++  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
++target_link_libraries(${library_name} PUBLIC
++  bondcpp::bondcpp
++  ${geometry_msgs_TARGETS}
++  ${lifecycle_msgs_TARGETS}
++  ${nav2_msgs_TARGETS}
++  ${nav_msgs_TARGETS}
++  ${rcl_interfaces_TARGETS}
++  rclcpp::rclcpp
++  rclcpp_action::rclcpp_action
++  rclcpp_lifecycle::rclcpp_lifecycle
++  tf2_ros::tf2_ros
++  tf2::tf2
++  ${tf2_geometry_msgs_TARGETS}
++)
++target_link_libraries(${library_name} PRIVATE
++  ${bond_TARGETS}
+ )
+ 
+ add_executable(lifecycle_bringup
+   lifecycle_bringup_commandline.cpp
+ )
+-target_link_libraries(lifecycle_bringup ${library_name})
+-
+-find_package(Boost REQUIRED COMPONENTS program_options)
++target_link_libraries(lifecycle_bringup PRIVATE ${library_name} rclcpp::rclcpp)
+ 
+ install(TARGETS
+   ${library_name}
++  EXPORT ${library_name}
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   RUNTIME DESTINATION bin
+Index: nav2-util-1.1.20-1/src/lifecycle_utils.cpp
+===================================================================
+--- nav2-util-1.1.20-1.orig/src/lifecycle_utils.cpp
++++ nav2-util-1.1.20-1/src/lifecycle_utils.cpp
+@@ -13,16 +13,13 @@
+ // limitations under the License.
+ 
+ #include <chrono>
++#include <stdexcept>
+ #include <string>
+-#include <thread>
+ #include <vector>
+ 
+-#include "lifecycle_msgs/srv/change_state.hpp"
+-#include "lifecycle_msgs/srv/get_state.hpp"
+-#include "nav2_util/lifecycle_service_client.hpp"
++#include "lifecycle_msgs/msg/transition.hpp"
+ 
+-using std::string;
+-using lifecycle_msgs::msg::Transition;
++#include "nav2_util/lifecycle_service_client.hpp"
+ 
+ namespace nav2_util
+ {
+@@ -34,7 +31,7 @@ namespace nav2_util
+       try { \
+         fn; \
+         break; \
+-      } catch (std::runtime_error & e) { \
++      } catch (const std::runtime_error & e) { \
+         ++count; \
+         if (count > (retries)) { \
+           throw e;} \
+@@ -53,10 +50,10 @@ static void startupLifecycleNode(
+   // service calls still frequently hang. To get reliable startup it's necessary
+   // to timeout the service call and retry it when that happens.
+   RETRY(
+-    sc.change_state(Transition::TRANSITION_CONFIGURE, service_call_timeout),
++    sc.change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE, service_call_timeout),
+     retries);
+   RETRY(
+-    sc.change_state(Transition::TRANSITION_ACTIVATE, service_call_timeout),
++    sc.change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE, service_call_timeout),
+     retries);
+ }
+ 
+@@ -81,10 +78,10 @@ static void resetLifecycleNode(
+   // service calls still frequently hang. To get reliable reset it's necessary
+   // to timeout the service call and retry it when that happens.
+   RETRY(
+-    sc.change_state(Transition::TRANSITION_DEACTIVATE, service_call_timeout),
++    sc.change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE, service_call_timeout),
+     retries);
+   RETRY(
+-    sc.change_state(Transition::TRANSITION_CLEANUP, service_call_timeout),
++    sc.change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP, service_call_timeout),
+     retries);
+ }
+ 
+Index: nav2-util-1.1.20-1/src/string_utils.cpp
+===================================================================
+--- nav2-util-1.1.20-1.orig/src/string_utils.cpp
++++ nav2-util-1.1.20-1/src/string_utils.cpp
+@@ -15,14 +15,12 @@
+ #include "nav2_util/string_utils.hpp"
+ #include <string>
+ 
+-using std::string;
+-
+ namespace nav2_util
+ {
+ 
+-std::string strip_leading_slash(const string & in)
++std::string strip_leading_slash(const std::string & in)
+ {
+-  string out = in;
++  std::string out = in;
+ 
+   if ((!in.empty()) && (in[0] == '/')) {
+     out.erase(0, 1);
+@@ -31,13 +29,13 @@ std::string strip_leading_slash(const st
+   return out;
+ }
+ 
+-Tokens split(const string & tokenstring, char delimiter)
++Tokens split(const std::string & tokenstring, char delimiter)
+ {
+   Tokens tokens;
+ 
+   size_t current_pos = 0;
+   size_t pos = 0;
+-  while ((pos = tokenstring.find(delimiter, current_pos)) != string::npos) {
++  while ((pos = tokenstring.find(delimiter, current_pos)) != std::string::npos) {
+     tokens.push_back(tokenstring.substr(current_pos, pos - current_pos));
+     current_pos = pos + 1;
+   }
+Index: nav2-util-1.1.20-1/test/CMakeLists.txt
+===================================================================
+--- nav2-util-1.1.20-1.orig/test/CMakeLists.txt
++++ nav2-util-1.1.20-1/test/CMakeLists.txt
+@@ -1,4 +1,5 @@
+ ament_add_gtest(test_execution_timer test_execution_timer.cpp)
++target_link_libraries(test_execution_timer ${library_name})
+ 
+ ament_add_gtest(test_node_utils test_node_utils.cpp)
+ target_link_libraries(test_node_utils ${library_name})
+@@ -7,41 +8,31 @@ find_package(std_srvs REQUIRED)
+ find_package(test_msgs REQUIRED)
+ 
+ ament_add_gtest(test_service_client test_service_client.cpp)
+-ament_target_dependencies(test_service_client std_srvs)
+-target_link_libraries(test_service_client ${library_name})
++target_link_libraries(test_service_client ${library_name} ${std_srvs_TARGETS})
+ 
+ ament_add_gtest(test_string_utils test_string_utils.cpp)
+ target_link_libraries(test_string_utils ${library_name})
+ 
+ find_package(rclcpp_lifecycle REQUIRED)
+ ament_add_gtest(test_lifecycle_utils test_lifecycle_utils.cpp)
+-ament_target_dependencies(test_lifecycle_utils rclcpp_lifecycle)
+-target_link_libraries(test_lifecycle_utils ${library_name})
++target_link_libraries(test_lifecycle_utils ${library_name} rclcpp_lifecycle::rclcpp_lifecycle)
+ 
+ ament_add_gtest(test_actions test_actions.cpp)
+-ament_target_dependencies(test_actions rclcpp_action test_msgs)
+-target_link_libraries(test_actions ${library_name})
++target_link_libraries(test_actions ${library_name} rclcpp_action::rclcpp_action ${test_msgs_TARGETS})
+ 
+ ament_add_gtest(test_lifecycle_node test_lifecycle_node.cpp)
+-ament_target_dependencies(test_lifecycle_node rclcpp_lifecycle)
+-target_link_libraries(test_lifecycle_node ${library_name})
++target_link_libraries(test_lifecycle_node ${library_name} rclcpp_lifecycle::rclcpp_lifecycle)
+ 
+ ament_add_gtest(test_lifecycle_cli_node test_lifecycle_cli_node.cpp)
+-ament_target_dependencies(test_lifecycle_cli_node rclcpp_lifecycle)
+-target_link_libraries(test_lifecycle_cli_node ${library_name})
++target_link_libraries(test_lifecycle_cli_node ${library_name} rclcpp_lifecycle::rclcpp_lifecycle)
+ 
+ ament_add_gtest(test_geometry_utils test_geometry_utils.cpp)
+-ament_target_dependencies(test_geometry_utils geometry_msgs)
+-target_link_libraries(test_geometry_utils ${library_name})
++target_link_libraries(test_odometry_utils ${library_name} ${nav_msgs_TARGETS} ${geometry_msgs_TARGETS})
+ 
+ ament_add_gtest(test_odometry_utils test_odometry_utils.cpp)
+-ament_target_dependencies(test_odometry_utils nav_msgs geometry_msgs)
+-target_link_libraries(test_odometry_utils ${library_name})
++target_link_libraries(test_odometry_utils ${library_name} ${nav_msgs_TARGETS} ${geometry_msgs_TARGETS})
+ 
+ ament_add_gtest(test_robot_utils test_robot_utils.cpp)
+-ament_target_dependencies(test_robot_utils geometry_msgs)
+-target_link_libraries(test_robot_utils ${library_name})
++target_link_libraries(test_robot_utils ${library_name} ${geometry_msgs_TARGETS})
+ 
+ ament_add_gtest(test_validation_messages test_validation_messages.cpp)
+-ament_target_dependencies(test_validation_messages rclcpp_lifecycle)
+-target_link_libraries(test_validation_messages ${library_name})
