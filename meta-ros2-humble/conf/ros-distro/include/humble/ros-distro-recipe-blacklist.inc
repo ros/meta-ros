@@ -201,3 +201,11 @@ SKIP_RECIPE[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', 
 SKIP_RECIPE[zenoh-bridge-dds] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['clang', 'cargo'], 'clang: depends on clang which requires meta-clang layer; cargo: depends on cargo which requires meta-rust layer (or oe-core[honister] or newer)', '', d)}"
 
 BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
+
+# meta-ros provides a recipe for octomap to use instead of the generated one
+BBMASK += "generated-recipes/octomap/octomap_.*.bb"
+BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
+
+BBMASK += "generated-recipes/librealsense2/librealsense2_.*.bb"
+
+BBMASK += "generated-recipes/cpp-polyfills/tl-expected_.*.bb"
