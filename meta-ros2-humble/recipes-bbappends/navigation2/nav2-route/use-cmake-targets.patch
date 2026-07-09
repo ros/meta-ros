@@ -1,0 +1,255 @@
+Use CMake Targets
+
+Fix buildpaths QA errors by backporting selected CMake changes to
+use CMake targets.
+
+Upstream-Status: Backport [https://github.com/ros-navigation/navigation2/commit/b6a5387d6823de6eb8008da995a72086e8ace1e5]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,27 +22,11 @@
+ 
+ nav2_package()
+ 
+-include_directories(
+-  include
+-)
+-
+ set(executable_name route_server)
+ set(library_name ${executable_name}_core)
+ 
+-set(dependencies
+-  rclcpp
+-  rclcpp_lifecycle
+-  rclcpp_components
+-  std_msgs
+-  geometry_msgs
+-  nav2_costmap_2d
+-  pluginlib
+-  visualization_msgs
+-  nav_msgs
+-  tf2_ros
+-  nav2_core
+-  nanoflann
+-  nlohmann_json
++include_directories(
++  include
+ )
+ 
+ # Main library
+@@ -59,8 +43,31 @@
+   src/goal_intent_extractor.cpp
+ )
+ 
+-ament_target_dependencies(${library_name}
+-  ${dependencies}
++target_include_directories(${library_name}
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(${library_name} PUBLIC
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
++  nav_msgs::nav_msgs
++  pluginlib::pluginlib
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  rcl_interfaces::rcl_interfaces
++  geometry_msgs::geometry_msgs
++  visualization_msgs::visualization_msgs
++  std_msgs::std_msgs
++  nav_msgs::nav_msgs
++  tf2_ros::tf2_ros
++  nlohmann_json::nlohmann_json
++)
++target_link_libraries(${library_name} PRIVATE
++  lifecycle_msgs::lifecycle_msgs
++  rclcpp_components::component
++  tf2::tf2
+ )
+ 
+ # Main executable
+@@ -68,11 +75,7 @@
+   src/main.cpp
+ )
+ 
+-target_link_libraries(${executable_name} ${library_name})
+-
+-ament_target_dependencies(${executable_name}
+-  ${dependencies}
+-)
++target_link_libraries(${executable_name} PRIVATE ${library_name} rclcpp::rclcpp)
+ 
+ rclcpp_components_register_nodes(${library_name} "nav2_route::RouteServer")
+ 
+@@ -88,8 +91,32 @@
+   src/plugins/edge_cost_functions/start_pose_orientation_scorer.cpp
+ )
+ 
+-ament_target_dependencies(edge_scorers
+-  ${dependencies}
++target_include_directories(edge_scorers
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(edge_scorers PUBLIC
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
++  nav_msgs::nav_msgs
++  pluginlib::pluginlib
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  rcl_interfaces::rcl_interfaces
++  geometry_msgs::geometry_msgs
++  visualization_msgs::visualization_msgs
++  std_msgs::std_msgs
++  nav_msgs::nav_msgs
++  tf2_ros::tf2_ros
++  angles::angles
++  nlohmann_json::nlohmann_json
++)
++target_link_libraries(edge_scorers PRIVATE
++  lifecycle_msgs::lifecycle_msgs
++  rclcpp_components::component
++  tf2::tf2
+ )
+ 
+ # Route operations plugins
+@@ -101,8 +128,31 @@
+   src/plugins/route_operations/time_marker.cpp
+ )
+ 
+-ament_target_dependencies(route_operations
+-  ${dependencies}
++target_include_directories(route_operations
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(route_operations PUBLIC
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
++  nav_msgs::nav_msgs
++  pluginlib::pluginlib
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  rcl_interfaces::rcl_interfaces
++  geometry_msgs::geometry_msgs
++  visualization_msgs::visualization_msgs
++  std_msgs::std_msgs
++  nav_msgs::nav_msgs
++  tf2_ros::tf2_ros
++  nlohmann_json::nlohmann_json
++)
++target_link_libraries(route_operations PRIVATE
++  lifecycle_msgs::lifecycle_msgs
++  rclcpp_components::component
++  tf2::tf2
+ )
+ 
+ # Graph Parser plugins
+@@ -110,16 +160,62 @@
+     src/plugins/graph_file_loaders/geojson_graph_file_loader.cpp
+ )
+ 
+-ament_target_dependencies(graph_file_loaders
+-    ${dependencies}
++target_include_directories(graph_file_loaders
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(graph_file_loaders PUBLIC
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
++  nav_msgs::nav_msgs
++  pluginlib::pluginlib
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  rcl_interfaces::rcl_interfaces
++  geometry_msgs::geometry_msgs
++  visualization_msgs::visualization_msgs
++  std_msgs::std_msgs
++  nav_msgs::nav_msgs
++  tf2_ros::tf2_ros
++  nlohmann_json::nlohmann_json
++)
++target_link_libraries(graph_file_loaders PRIVATE
++  lifecycle_msgs::lifecycle_msgs
++  rclcpp_components::component
++  tf2::tf2
+ )
+ 
+ add_library(graph_file_savers SHARED
+     src/plugins/graph_file_savers/geojson_graph_file_saver.cpp
+ )
+ 
+-ament_target_dependencies(graph_file_savers
+-    ${dependencies}
++target_include_directories(graph_file_savers
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++)
++target_link_libraries(graph_file_savers PUBLIC
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
++  nav_msgs::nav_msgs
++  pluginlib::pluginlib
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  rcl_interfaces::rcl_interfaces
++  geometry_msgs::geometry_msgs
++  visualization_msgs::visualization_msgs
++  std_msgs::std_msgs
++  nav_msgs::nav_msgs
++  tf2_ros::tf2_ros
++  nlohmann_json::nlohmann_json
++)
++target_link_libraries(graph_file_savers PRIVATE
++  lifecycle_msgs::lifecycle_msgs
++  rclcpp_components::component
++  tf2::tf2
+ )
+ 
+ pluginlib_export_plugin_description_file(nav2_route plugins.xml)
+@@ -133,6 +229,7 @@
+ )
+ 
+ install(TARGETS ${library_name} edge_scorers route_operations graph_file_loaders graph_file_savers
++  EXPORT export_${PROJECT_NAME}
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   RUNTIME DESTINATION bin
+@@ -151,6 +248,21 @@
+ endif()
+ 
+ ament_export_include_directories(include)
+-ament_export_dependencies(${dependencies})
++ament_export_dependencies(
++  rclcpp
++  rclcpp_lifecycle
++  rclcpp_components
++  std_msgs
++  geometry_msgs
++  nav2_costmap_2d
++  pluginlib
++  visualization_msgs
++  nav_msgs
++  tf2_ros
++  nav2_core
++  nanoflann
++  nlohmann_json
++)
+ ament_export_libraries(${library_name} edge_scorers route_operations graph_file_loaders)
++ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ ament_package()
