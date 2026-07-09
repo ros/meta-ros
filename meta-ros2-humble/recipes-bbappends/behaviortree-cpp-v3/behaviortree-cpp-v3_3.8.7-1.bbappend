@@ -6,4 +6,6 @@ ROS_BUILD_DEPENDS += " \
     cppzmq \
 "
 
+EXTRA_OECMAKE += "-DBUILD_UNIT_TESTS=OFF"
+
 FILES:${PN}-dev += "${libdir}/BehaviorTreeV3/cmake"
