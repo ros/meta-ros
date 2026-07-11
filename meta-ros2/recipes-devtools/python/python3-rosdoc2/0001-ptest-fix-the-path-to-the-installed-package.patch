@@ -1,0 +1,36 @@
+From de8b15a327f8c3ddceeb08e7af46159fbd85cb67 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Mon, 6 Jul 2026 11:33:09 +0200
+Subject: [PATCH 1/1] ptest: fix the path to the installed package
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_flake8.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/test/test_flake8.py b/test/test_flake8.py
+index 38bfc5e..3138c9a 100644
+--- a/test/test_flake8.py
++++ b/test/test_flake8.py
+@@ -15,6 +15,7 @@
+ import logging
+ import os
+ import sys
++import sysconfig
+ 
+ import pytest
+ 
+@@ -37,7 +38,7 @@ def test_flake8():
+     )
+ 
+     report = style_guide.check_files([
+-        os.path.join(os.path.dirname(__file__), '..', 'rosdoc2'),
++        os.path.join(sysconfig.get_paths()["purelib"], 'rosdoc2'),
+     ])
+     report_tests = style_guide_tests.check_files([
+         os.path.join(os.path.dirname(__file__), '..', 'test'),
+-- 
+2.47.3
+
