@@ -242,11 +242,11 @@ Co-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
  .../moveit_setup_srdf_plugins/CMakeLists.txt  |   5 +-
  100 files changed, 1548 insertions(+), 788 deletions(-)
 
-diff --git moveit_core/CMakeLists.txt moveit_core/CMakeLists.txt
-index ca30488f7..23fd387c3 100644
---- moveit_core/CMakeLists.txt
-+++ moveit_core/CMakeLists.txt
-@@ -13,6 +13,7 @@ find_package(eigen_stl_containers REQUIRED)
+Index: moveit-core-2.5.9-1/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/CMakeLists.txt
++++ moveit-core-2.5.9-1/CMakeLists.txt
+@@ -13,6 +13,7 @@ find_package(eigen_stl_containers REQUIR
  find_package(Eigen3 REQUIRED)
  find_package(eigen3_cmake_module REQUIRED)
  find_package(fcl REQUIRED)
@@ -254,23 +254,58 @@ index ca30488f7..23fd387c3 100644
  find_package(generate_parameter_library REQUIRED)
  find_package(geometric_shapes REQUIRED)
  find_package(geometry_msgs REQUIRED)
-@@ -22,10 +23,12 @@ find_package(moveit_msgs REQUIRED)
- # https://github.com/moveit/moveit2/issues/2862
- find_package(octomap 1.9.7...<1.10.0 REQUIRED)
- find_package(octomap_msgs REQUIRED)
-+find_package(orocos_kdl REQUIRED)
- find_package(osqp REQUIRED)
- find_package(pluginlib REQUIRED)
- find_package(random_numbers REQUIRED)
- find_package(rclcpp REQUIRED)
-+find_package(rmw_implementation REQUIRED)
- find_package(rsl REQUIRED)
- find_package(ruckig REQUIRED)
- find_package(sensor_msgs REQUIRED)
-@@ -68,8 +71,37 @@ add_subdirectory(transforms)
- add_subdirectory(utils)
- add_subdirectory(version)
-
+@@ -36,6 +37,7 @@ find_package(urdf REQUIRED)
+ find_package(urdfdom REQUIRED)
+ find_package(urdfdom_headers REQUIRED)
+ find_package(visualization_msgs REQUIRED)
++
+ # TODO: Port python bindings
+ # find_package(pybind11 REQUIRED)
+ 
+@@ -45,39 +47,6 @@ include(ConfigExtras.cmake)
+ # Set target file path for version.h
+ set(VERSION_FILE_PATH ${CMAKE_BINARY_DIR}/include)
+ 
+-set(THIS_PACKAGE_INCLUDE_DIRS
+-    exceptions/include
+-    collision_detection/include
+-    collision_detection_fcl/include
+-    collision_detection_bullet/include
+-    constraint_samplers/include
+-    controller_manager/include
+-    distance_field/include
+-    collision_distance_field/include
+-    dynamics_solver/include
+-    kinematics_base/include
+-    kinematics_metrics/include
+-    robot_model/include
+-    transforms/include
+-    robot_state/include
+-    robot_trajectory/include
+-    kinematic_constraints/include
+-    macros/include
+-    online_signal_smoothing/include
+-    planning_interface/include
+-    planning_request_adapter/include
+-    planning_scene/include
+-    # TODO: Port python bindings
+-    # python/tools/include
+-    sensor_manager/include
+-    trajectory_processing/include
+-    utils/include
+-)
+-
+-include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS}
+-  ${LIBFCL_INCLUDE_DIRS}
+-)
+-
+ include_directories(${THIS_PACKAGE_INCLUDE_DIRS}
+                     ${VERSION_FILE_PATH})
+ 
+@@ -145,44 +114,76 @@ add_subdirectory(collision_detection_fcl
+ # #catkin_lint: ignore_once undefined_target (pymoveit_core is defined by pybind_add_module)
+ # install(TARGETS pymoveit_core LIBRARY DESTINATION ${CATKIN_GLOBAL_PYTHON_DESTINATION})
+ 
 +# Create an umbrella INTERFACE target so downstream packages can use
 +# moveit_core::moveit_core to link all moveit_core libraries at once.
 +add_library(moveit_core INTERFACE)
@@ -289,6 +324,7 @@ index ca30488f7..23fd387c3 100644
 +            moveit_kinematics_metrics
 +            moveit_macros
 +            moveit_planning_interface
++            moveit_planning_request_adapter
 +            moveit_planning_scene
 +            moveit_robot_model
 +            moveit_robot_state
@@ -299,56 +335,126 @@ index ca30488f7..23fd387c3 100644
 +            moveit_transforms
 +            moveit_utils)
 +
- install(
--  TARGETS moveit_collision_detection
++install(
 +  TARGETS moveit_core
 +          moveit_collision_detection
-           moveit_collision_detection_bullet
-           moveit_collision_detection_fcl
-           moveit_collision_distance_field
-@@ -119,6 +151,7 @@ ament_export_dependencies(
-   Eigen3
-   eigen3_cmake_module
-   fcl
-+  fmt
-   generate_parameter_library
-   geometric_shapes
-   geometry_msgs
-@@ -126,10 +159,12 @@ ament_export_dependencies(
-   moveit_msgs
-   octomap
-   octomap_msgs
-+  orocos_kdl
-   osqp
-   pluginlib
-   random_numbers
-   rclcpp
-+  rmw_implementation
-   rsl
-   ruckig
-   sensor_msgs
-diff --git moveit_core/collision_detection/CMakeLists.txt moveit_core/collision_detection/CMakeLists.txt
-index e3f8fd212..17e986153 100644
---- moveit_core/collision_detection/CMakeLists.txt
-+++ moveit_core/collision_detection/CMakeLists.txt
-@@ -16,19 +16,17 @@ target_include_directories(
++          moveit_collision_detection_bullet
++          moveit_collision_detection_fcl
++          moveit_collision_distance_field
++          moveit_constraint_samplers
++          moveit_distance_field
++          moveit_dynamics_solver
++          moveit_exceptions
++          moveit_kinematic_constraints
++          moveit_kinematics_base
++          moveit_kinematics_metrics
++          moveit_macros
++          moveit_planning_interface
++          moveit_planning_request_adapter
++          moveit_planning_scene
++          moveit_robot_model
++          moveit_robot_state
++          moveit_robot_trajectory
++          moveit_smoothing_base
++          moveit_test_utils
++          moveit_trajectory_processing
++          moveit_transforms
++          moveit_utils
++  EXPORT moveit_coreTargets
++  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION lib
++  RUNTIME DESTINATION bin)
+ 
+ install(
+   TARGETS
+     collision_detector_bullet_plugin
+     moveit_butterworth_filter
+     moveit_butterworth_parameters
+-    moveit_collision_distance_field
+-    moveit_collision_detection
+-    moveit_collision_detection_fcl
+-    moveit_collision_detection_bullet
+-    moveit_dynamics_solver
+-    moveit_constraint_samplers
+-    moveit_distance_field
+-    moveit_exceptions
+-    moveit_kinematics_base
+-    moveit_kinematic_constraints
+-    moveit_kinematics_metrics
+-    moveit_planning_interface
+-    moveit_planning_scene
+-    moveit_planning_request_adapter
+-    # TODO: Port python bindings
+-    # moveit_python_tools
+-    moveit_robot_model
+-    moveit_robot_state
+-    moveit_robot_trajectory
+-    moveit_smoothing_base
+-    moveit_test_utils
+-    moveit_trajectory_processing
+-    moveit_transforms
+-    moveit_utils
+-  EXPORT export_${PROJECT_NAME}
++  EXPORT moveit_core_pluginTargets
+   LIBRARY DESTINATION lib
+   ARCHIVE DESTINATION lib
+-  RUNTIME DESTINATION bin
+-  INCLUDES DESTINATION include
+ )
+ 
+-ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
++ament_export_targets(moveit_coreTargets HAS_LIBRARY_TARGET)
+ ament_export_dependencies(
+   angles
+   Bullet
+Index: moveit-core-2.5.9-1/collision_detection/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/collision_detection/CMakeLists.txt
++++ moveit-core-2.5.9-1/collision_detection/CMakeLists.txt
+@@ -1,6 +1,5 @@
+-set(MOVEIT_LIB_NAME moveit_collision_detection)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
++add_library(
++  moveit_collision_detection SHARED
+   src/allvalid/collision_env_allvalid.cpp
+   src/collision_common.cpp
+   src/collision_matrix.cpp
+@@ -9,28 +8,38 @@ add_library(${MOVEIT_LIB_NAME} SHARED
+   src/world.cpp
+   src/world_diff.cpp
+   src/collision_env.cpp
+-  src/collision_plugin_cache.cpp
+-)
++  src/collision_plugin_cache.cpp)
++target_include_directories(
++  moveit_collision_detection
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
  include(GenerateExportHeader)
- generate_export_header(moveit_collision_detection)
-
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_collision_detection
--  eigen_stl_containers
--  pluginlib
+-generate_export_header(${MOVEIT_LIB_NAME})
+-target_include_directories(${MOVEIT_LIB_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}> $<TARGET_PROPERTY:moveit_planning_scene,INCLUDE_DIRECTORIES>)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION ${${PROJECT_NAME}_VERSION})
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  rclcpp
 -  rmw_implementation
 -  urdf
 -  urdfdom
 -  urdfdom_headers
--  srdfdom
 -  visualization_msgs
+-  eigen_stl_containers
 -  tf2_eigen
 -  geometric_shapes
+-  OCTOMAP
+-)
+-
+-target_link_libraries(${MOVEIT_LIB_NAME}
+-  moveit_robot_state
+-)
++generate_export_header(moveit_collision_detection)
++
++target_link_libraries(
++  moveit_collision_detection
 +  eigen_stl_containers::eigen_stl_containers
 +  pluginlib::pluginlib
 +  rclcpp::rclcpp
@@ -358,33 +464,113 @@ index e3f8fd212..17e986153 100644
 +  ${visualization_msgs_TARGETS}
 +  tf2_eigen::tf2_eigen
 +  geometric_shapes::geometric_shapes
-   octomap)
- target_include_directories(
-   moveit_collision_detection BEFORE
-diff --git moveit_core/collision_detection_bullet/CMakeLists.txt moveit_core/collision_detection_bullet/CMakeLists.txt
-index feadeb653..f7a210ce0 100644
---- moveit_core/collision_detection_bullet/CMakeLists.txt
-+++ moveit_core/collision_detection_bullet/CMakeLists.txt
-@@ -18,35 +18,36 @@ target_include_directories(
-   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
- set_target_properties(moveit_collision_detection_bullet
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(moveit_collision_detection_bullet SYSTEM BULLET)
--ament_target_dependencies(
-+target_include_directories(moveit_collision_detection_bullet SYSTEM
-+                           PUBLIC ${BULLET_INCLUDE_DIRS})
-+target_link_libraries(
-   moveit_collision_detection_bullet
++  octomap)
++target_include_directories(
++  moveit_collision_detection BEFORE
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
++target_include_directories(
++  moveit_collision_detection
++  PUBLIC $<TARGET_PROPERTY:moveit_planning_scene,INCLUDE_DIRECTORIES>)
++
++set_target_properties(moveit_collision_detection
++                      PROPERTIES VERSION ${${PROJECT_NAME}_VERSION})
++
++target_link_libraries(moveit_collision_detection moveit_robot_state
++                      moveit_utils)
+ 
+ # unit tests
+ if(BUILD_TESTING)
+@@ -42,16 +51,17 @@ if(BUILD_TESTING)
+ 
+   ament_add_gtest(test_world test/test_world.cpp
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  target_link_libraries(test_world ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_world moveit_collision_detection)
+ 
+   ament_add_gtest(test_world_diff test/test_world_diff.cpp
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  target_link_libraries(test_world_diff ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_world_diff moveit_collision_detection)
+ 
+   ament_add_gtest(test_all_valid test/test_all_valid.cpp
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  target_link_libraries(test_all_valid ${MOVEIT_LIB_NAME} moveit_robot_model)
++  target_link_libraries(test_all_valid moveit_collision_detection moveit_robot_model)
+ endif()
+ 
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MOVEIT_LIB_NAME}_export.h DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_collision_detection_export.h
++        DESTINATION include/moveit_core)
+Index: moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/collision_detection_bullet/CMakeLists.txt
++++ moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
+@@ -1,54 +1,58 @@
+-set(MOVEIT_LIB_NAME moveit_collision_detection_bullet)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
++add_library(
++  moveit_collision_detection_bullet SHARED
+   src/bullet_integration/bullet_utils.cpp
+   src/bullet_integration/bullet_discrete_bvh_manager.cpp
+   src/bullet_integration/bullet_cast_bvh_manager.cpp
+   src/collision_env_bullet.cpp
+   src/bullet_integration/bullet_bvh_manager.cpp
+   src/bullet_integration/contact_checker_common.cpp
+-  src/bullet_integration/ros_bullet_utils.cpp
+-)
++  src/bullet_integration/ros_bullet_utils.cpp)
++target_include_directories(
++  moveit_collision_detection_bullet
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
+ include(GenerateExportHeader)
+-generate_export_header(${MOVEIT_LIB_NAME})
+-target_include_directories(${MOVEIT_LIB_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME} SYSTEM
+-  BULLET
+-)
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  rclcpp
 -  rmw_implementation
 -  urdf
 -  urdfdom
 -  urdfdom_headers
 -  visualization_msgs
--  octomap_msgs)
--target_link_libraries(moveit_collision_detection_bullet
--                      moveit_collision_detection moveit_utils)
-+  moveit_collision_detection
+-  octomap_msgs
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++generate_export_header(moveit_collision_detection_bullet)
++target_include_directories(
++  moveit_collision_detection_bullet
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
++set_target_properties(moveit_collision_detection_bullet
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_include_directories(moveit_collision_detection_bullet SYSTEM
++                           PUBLIC ${BULLET_INCLUDE_DIRS})
++target_link_libraries(
++  moveit_collision_detection_bullet
+   moveit_collision_detection
+-)
+-
+-add_library(collision_detector_bullet_plugin SHARED src/collision_detector_bullet_plugin_loader.cpp)
+-set_target_properties(collision_detector_bullet_plugin PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(collision_detector_bullet_plugin SYSTEM
+-  BULLET
+-)
+-ament_target_dependencies(collision_detector_bullet_plugin
+-  rclcpp
+-  urdf
+-  visualization_msgs
+-  pluginlib
+-  rmw_implementation
+-  octomap_msgs
+-)
+-target_link_libraries(collision_detector_bullet_plugin
+-  ${MOVEIT_LIB_NAME}
 +  moveit_utils
 +  ${BULLET_LIBRARIES}
 +  rclcpp::rclcpp
@@ -392,28 +578,21 @@ index feadeb653..f7a210ce0 100644
 +  urdfdom::urdf_parser
 +  ${visualization_msgs_TARGETS}
 +  ${octomap_msgs_TARGETS})
-
- add_library(collision_detector_bullet_plugin SHARED
-             src/collision_detector_bullet_plugin_loader.cpp)
- set_target_properties(collision_detector_bullet_plugin
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(collision_detector_bullet_plugin SYSTEM BULLET)
--ament_target_dependencies(
--  collision_detector_bullet_plugin
--  rclcpp
--  urdf
--  visualization_msgs
--  pluginlib
--  rmw_implementation
--  octomap_msgs)
++
++add_library(collision_detector_bullet_plugin SHARED
++            src/collision_detector_bullet_plugin_loader.cpp)
++set_target_properties(collision_detector_bullet_plugin
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
 +target_include_directories(collision_detector_bullet_plugin SYSTEM
 +                           PUBLIC ${BULLET_INCLUDE_DIRS})
- target_link_libraries(
--  collision_detector_bullet_plugin moveit_collision_detection_bullet
--  moveit_planning_scene moveit_utils)
++target_link_libraries(
 +  collision_detector_bullet_plugin
 +  moveit_collision_detection_bullet
-+  moveit_planning_scene
+   moveit_planning_scene
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_collision_detection_bullet_export.h DESTINATION include)
 +  moveit_utils
 +  ${BULLET_LIBRARIES}
 +  rclcpp::rclcpp
@@ -421,158 +600,305 @@ index feadeb653..f7a210ce0 100644
 +  ${visualization_msgs_TARGETS}
 +  pluginlib::pluginlib
 +  ${octomap_msgs_TARGETS})
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
- install(
-diff --git moveit_core/collision_detection_fcl/CMakeLists.txt moveit_core/collision_detection_fcl/CMakeLists.txt
-index ece406480..1cf1852a8 100644
---- moveit_core/collision_detection_fcl/CMakeLists.txt
-+++ moveit_core/collision_detection_fcl/CMakeLists.txt
-@@ -11,26 +11,29 @@ target_include_directories(
-   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
- set_target_properties(moveit_collision_detection_fcl
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_collision_detection_fcl
++
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(
++  FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_collision_detection_bullet_export.h
++  DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   if(WIN32)
+@@ -63,11 +67,11 @@ if(BUILD_TESTING)
+   endif()
+ 
+   ament_add_gtest(test_bullet_collision_detection test/test_bullet_collision_detection_pr2.cpp)
+-  target_link_libraries(test_bullet_collision_detection moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_bullet_collision_detection moveit_test_utils moveit_collision_detection_bullet)
+ 
+   ament_add_gtest(test_bullet_collision_detection_panda test/test_bullet_collision_detection_panda.cpp)
+-  target_link_libraries(test_bullet_collision_detection_panda moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_bullet_collision_detection_panda moveit_test_utils moveit_collision_detection_bullet)
+ 
+   ament_add_gtest(test_bullet_continuous_collision_checking test/test_bullet_continuous_collision_checking.cpp)
+-  target_link_libraries(test_bullet_continuous_collision_checking moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_bullet_continuous_collision_checking moveit_test_utils moveit_collision_detection_bullet)
+ endif()
+Index: moveit-core-2.5.9-1/collision_detection_fcl/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/collision_detection_fcl/CMakeLists.txt
++++ moveit-core-2.5.9-1/collision_detection_fcl/CMakeLists.txt
+@@ -1,42 +1,44 @@
+-set(MOVEIT_LIB_NAME moveit_collision_detection_fcl)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/collision_common.cpp
+-  src/collision_env_fcl.cpp
+-)
++add_library(moveit_collision_detection_fcl SHARED src/collision_common.cpp
++                                                  src/collision_env_fcl.cpp)
++target_include_directories(
++  moveit_collision_detection_fcl
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
+ include(GenerateExportHeader)
+-generate_export_header(${MOVEIT_LIB_NAME})
+-target_include_directories(${MOVEIT_LIB_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  rclcpp
 -  rmw_implementation
 -  urdf
 -  urdfdom
 -  urdfdom_headers
--  visualization_msgs)
--target_link_libraries(moveit_collision_detection_fcl moveit_collision_detection
--                      moveit_utils fcl)
-+  moveit_collision_detection
+-  visualization_msgs
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++generate_export_header(moveit_collision_detection_fcl)
++target_include_directories(
++  moveit_collision_detection_fcl
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
++set_target_properties(moveit_collision_detection_fcl
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_collision_detection_fcl
+   moveit_collision_detection
 +  moveit_utils
-+  fcl
+   fcl
+-)
+-
+-add_library(collision_detector_fcl_plugin SHARED src/collision_detector_fcl_plugin_loader.cpp)
+-set_target_properties(collision_detector_fcl_plugin PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(collision_detector_fcl_plugin
+-  rclcpp
+-  urdf
+-  visualization_msgs
+-  pluginlib
+-  rmw_implementation
+-)
+-target_link_libraries(collision_detector_fcl_plugin
+-  ${MOVEIT_LIB_NAME}
 +  rclcpp::rclcpp
 +  urdf::urdf
 +  urdfdom::urdf_parser
 +  ${visualization_msgs_TARGETS})
-
- add_library(collision_detector_fcl_plugin SHARED
-             src/collision_detector_fcl_plugin_loader.cpp)
- set_target_properties(collision_detector_fcl_plugin
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(collision_detector_fcl_plugin rclcpp urdf
--                          visualization_msgs pluginlib rmw_implementation)
- target_link_libraries(
--  collision_detector_fcl_plugin moveit_collision_detection_fcl
--  moveit_planning_scene moveit_utils)
++
++add_library(collision_detector_fcl_plugin SHARED
++            src/collision_detector_fcl_plugin_loader.cpp)
++set_target_properties(collision_detector_fcl_plugin
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
 +  collision_detector_fcl_plugin
 +  moveit_collision_detection_fcl
-+  moveit_planning_scene
+   moveit_planning_scene
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MOVEIT_LIB_NAME}_export.h DESTINATION include)
 +  moveit_utils
 +  rclcpp::rclcpp
 +  urdf::urdf
 +  ${visualization_msgs_TARGETS}
 +  pluginlib::pluginlib)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
- install(
-diff --git moveit_core/collision_distance_field/CMakeLists.txt moveit_core/collision_distance_field/CMakeLists.txt
-index 63b63a013..8bb5e3283 100644
---- moveit_core/collision_distance_field/CMakeLists.txt
-+++ moveit_core/collision_distance_field/CMakeLists.txt
-@@ -15,12 +15,17 @@ target_include_directories(
- set_target_properties(moveit_collision_distance_field
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
-
--ament_target_dependencies(moveit_collision_distance_field urdf
--                          visualization_msgs tf2_eigen geometric_shapes octomap)
++
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(
++  FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_collision_detection_fcl_export.h
++  DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   if(WIN32)
+@@ -51,11 +53,11 @@ if(BUILD_TESTING)
+   endif()
+ 
+   ament_add_gtest(test_fcl_collision_env test/test_fcl_env.cpp)
+-  target_link_libraries(test_fcl_collision_env moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_fcl_collision_env moveit_test_utils moveit_collision_detection_fcl)
+ 
+   ament_add_gtest(test_fcl_collision_detection test/test_fcl_collision_detection_pr2.cpp)
+-  target_link_libraries(test_fcl_collision_detection moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_fcl_collision_detection moveit_test_utils moveit_collision_detection_fcl)
+ 
+   ament_add_gtest(test_fcl_collision_detection_panda test/test_fcl_collision_detection_panda.cpp)
+-  target_link_libraries(test_fcl_collision_detection_panda moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_fcl_collision_detection_panda moveit_test_utils moveit_collision_detection_fcl)
+ endif()
+Index: moveit-core-2.5.9-1/collision_distance_field/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/collision_distance_field/CMakeLists.txt
++++ moveit-core-2.5.9-1/collision_distance_field/CMakeLists.txt
+@@ -1,47 +1,45 @@
+-set(MOVEIT_LIB_NAME moveit_collision_distance_field)
 -
- target_link_libraries(
--  moveit_collision_distance_field moveit_planning_scene moveit_distance_field
--  moveit_collision_detection moveit_robot_state)
+-add_library(${MOVEIT_LIB_NAME} SHARED
++add_library(moveit_collision_distance_field SHARED
+   src/collision_distance_field_types.cpp
+-  src/collision_common_distance_field.cpp
+-  src/collision_env_distance_field.cpp
++  src/collision_common_distance_field.cpp src/collision_env_distance_field.cpp
+   src/collision_env_hybrid.cpp
+ )
++target_include_directories(
 +  moveit_collision_distance_field
-+  moveit_planning_scene
-+  moveit_distance_field
-+  moveit_collision_detection
-+  moveit_robot_state
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
+ include(GenerateExportHeader)
+-generate_export_header(${MOVEIT_LIB_NAME})
+-target_include_directories(${MOVEIT_LIB_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  urdf
+-  visualization_msgs
+-  tf2_eigen
+-  geometric_shapes
+-  OCTOMAP
+-)
++generate_export_header(moveit_collision_distance_field)
++target_include_directories(
++  moveit_collision_distance_field
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
++set_target_properties(moveit_collision_distance_field
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ 
+-target_link_libraries(${MOVEIT_LIB_NAME}
++target_link_libraries(
++  moveit_collision_distance_field
+   moveit_planning_scene
+   moveit_distance_field
+   moveit_collision_detection
+   moveit_robot_state
+-)
 +  urdf::urdf
 +  ${visualization_msgs_TARGETS}
 +  tf2_eigen::tf2_eigen
 +  geometric_shapes::geometric_shapes
 +  octomap)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
- install(
-@@ -33,8 +38,6 @@ if(BUILD_TESTING)
-
-   ament_add_gtest(test_collision_distance_field
-                   test/test_collision_distance_field.cpp)
--  ament_target_dependencies(test_collision_distance_field geometric_shapes
--                            octomap srdfdom resource_retriever)
-   target_link_libraries(
-     test_collision_distance_field
-     moveit_collision_distance_field
-@@ -44,5 +47,9 @@ if(BUILD_TESTING)
-     moveit_robot_state
++
+ 
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MOVEIT_LIB_NAME}_export.h DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(
++  FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_collision_distance_field_export.h
++  DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
+   find_package(resource_retriever REQUIRED)
+ 
+   ament_add_gtest(test_collision_distance_field test/test_collision_distance_field.cpp)
+-  ament_target_dependencies(test_collision_distance_field
+-    geometric_shapes
+-    OCTOMAP
+-    srdfdom
+-    resource_retriever
+-  )
+   target_link_libraries(test_collision_distance_field
+-    ${MOVEIT_LIB_NAME}
++    moveit_collision_distance_field
+     moveit_collision_detection
+     moveit_distance_field
+     moveit_robot_model
+@@ -49,5 +47,8 @@ if(BUILD_TESTING)
      moveit_test_utils
      moveit_transforms
--    moveit_planning_scene)
-+    moveit_planning_scene
+     moveit_planning_scene
+-  )
 +    geometric_shapes::geometric_shapes
 +    octomap
 +    srdfdom::srdfdom
 +    resource_retriever::resource_retriever)
  endif()
-diff --git moveit_core/constraint_samplers/CMakeLists.txt moveit_core/constraint_samplers/CMakeLists.txt
-index 25cda7dc6..f5ce605a8 100644
---- moveit_core/constraint_samplers/CMakeLists.txt
-+++ moveit_core/constraint_samplers/CMakeLists.txt
-@@ -9,8 +9,6 @@ target_include_directories(
-          $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_constraint_samplers
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(moveit_constraint_samplers urdf urdfdom
--                          urdfdom_headers visualization_msgs)
- target_link_libraries(
-   moveit_constraint_samplers
+Index: moveit-core-2.5.9-1/constraint_samplers/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/constraint_samplers/CMakeLists.txt
++++ moveit-core-2.5.9-1/constraint_samplers/CMakeLists.txt
+@@ -1,35 +1,34 @@
+-set(MOVEIT_LIB_NAME moveit_constraint_samplers)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/constraint_sampler.cpp
+-  src/constraint_sampler_manager.cpp
+-  src/constraint_sampler_tools.cpp
+-  src/default_constraint_samplers.cpp
+-  src/union_constraint_sampler.cpp
+-)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  urdf
+-  urdfdom
+-  urdfdom_headers
+-  visualization_msgs
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++add_library(moveit_constraint_samplers SHARED
++  src/constraint_sampler.cpp src/constraint_sampler_manager.cpp
++  src/constraint_sampler_tools.cpp src/default_constraint_samplers.cpp
++  src/union_constraint_sampler.cpp)
++target_include_directories(
++  moveit_constraint_samplers
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_constraint_samplers
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_constraint_samplers
    moveit_robot_trajectory
-@@ -18,7 +16,10 @@ target_link_libraries(
+   moveit_robot_state
    moveit_kinematic_constraints
    moveit_kinematics_base
    moveit_planning_scene
--  moveit_utils)
+-)
 +  moveit_utils
 +  urdf::urdf
 +  urdfdom::urdf_parser
 +  ${visualization_msgs_TARGETS})
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-@@ -43,7 +44,6 @@ if(BUILD_TESTING)
-                   test/pr2_arm_kinematics_plugin.cpp test/pr2_arm_ik.cpp)
-   target_include_directories(test_constraint_samplers
-                              PUBLIC ${geometry_msgs_INCLUDE_DIRS})
+ 
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gmock REQUIRED)
+   find_package(orocos_kdl REQUIRED)
+   find_package(angles REQUIRED)
+   find_package(tf2_kdl REQUIRED)
+-  include_directories(SYSTEM ${orocos_kdl_INCLUDE_DIRS} ${angles_INCLUDE_DIRS} ${tf2_kdl_INCLUDE_DIRS})
++  include_directories(SYSTEM ${orocos_kdl_INCLUDE_DIRS} ${angles_INCLUDE_DIRS}
++                      ${tf2_kdl_INCLUDE_DIRS})
+ 
+   if(WIN32)
+     # set(append_library_dirs "$<TARGET_FILE_DIR:${PROJECT_NAME}>;$<TARGET_FILE_DIR:${PROJECT_NAME}_TestPlugins1>")
+@@ -45,10 +44,8 @@ if(BUILD_TESTING)
+   target_include_directories(test_constraint_samplers PUBLIC
+     ${geometry_msgs_INCLUDE_DIRS}
+   )
 -  ament_target_dependencies(test_constraint_samplers kdl_parser)
-   target_link_libraries(test_constraint_samplers moveit_test_utils moveit_utils
--                        moveit_constraint_samplers)
+-  target_link_libraries(test_constraint_samplers
+-    moveit_test_utils
+-    moveit_utils
+-    ${MOVEIT_LIB_NAME}
+-  )
++  target_include_directories(test_constraint_samplers
++                             PUBLIC ${geometry_msgs_INCLUDE_DIRS})
++  target_link_libraries(test_constraint_samplers moveit_test_utils moveit_utils
 +                        moveit_constraint_samplers kdl_parser::kdl_parser)
  endif()
-diff --git moveit_core/distance_field/CMakeLists.txt moveit_core/distance_field/CMakeLists.txt
-index 165d82a7a..edaeab575 100644
---- moveit_core/distance_field/CMakeLists.txt
-+++ moveit_core/distance_field/CMakeLists.txt
-@@ -6,19 +6,20 @@ target_include_directories(
-   moveit_distance_field
-   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-          $<INSTALL_INTERFACE:include/moveit_core>)
--target_link_libraries(moveit_distance_field moveit_macros moveit_utils)
--set_target_properties(moveit_distance_field
--                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
+Index: moveit-core-2.5.9-1/distance_field/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/distance_field/CMakeLists.txt
++++ moveit-core-2.5.9-1/distance_field/CMakeLists.txt
+@@ -1,31 +1,34 @@
+-set(MOVEIT_LIB_NAME moveit_distance_field)
++add_library(
++  moveit_distance_field SHARED
++  src/distance_field.cpp src/find_internal_points.cpp
++  src/propagation_distance_field.cpp)
++target_include_directories(
++  moveit_distance_field
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
 +target_link_libraries(
-   moveit_distance_field
--  Boost
--  eigen_stl_containers
--  urdfdom
--  urdfdom_headers
--  visualization_msgs
--  geometric_shapes
--  tf2_eigen
++  moveit_distance_field
 +  moveit_macros
 +  moveit_utils
 +  Boost::headers
@@ -582,283 +908,495 @@ index 165d82a7a..edaeab575 100644
 +  ${visualization_msgs_TARGETS}
 +  geometric_shapes::geometric_shapes
 +  tf2_eigen::tf2_eigen
-   octomap)
++  octomap)
 +set_target_properties(moveit_distance_field
 +                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-diff --git moveit_core/dynamics_solver/CMakeLists.txt moveit_core/dynamics_solver/CMakeLists.txt
-index 04afe66ef..354e43177 100644
---- moveit_core/dynamics_solver/CMakeLists.txt
-+++ moveit_core/dynamics_solver/CMakeLists.txt
-@@ -6,8 +6,13 @@ target_include_directories(
- set_target_properties(moveit_dynamics_solver
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
-
--ament_target_dependencies(moveit_dynamics_solver urdf urdfdom_headers
--                          orocos_kdl visualization_msgs kdl_parser)
--target_link_libraries(moveit_dynamics_solver moveit_robot_state moveit_utils)
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/distance_field.cpp
+-  src/find_internal_points.cpp
+-  src/propagation_distance_field.cpp
+-)
+-
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  Boost
+-  eigen_stl_containers
+-  urdfdom
+-  urdfdom_headers
+-  visualization_msgs
+-  geometric_shapes
+-  tf2_eigen
+-  OCTOMAP
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
+ 
+   ament_add_gtest(test_voxel_grid test/test_voxel_grid.cpp)
+-  target_link_libraries(test_voxel_grid ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_voxel_grid moveit_distance_field)
+ 
+   ament_add_gtest(test_distance_field test/test_distance_field.cpp)
+-  target_link_libraries(test_distance_field ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_distance_field moveit_distance_field)
+ endif()
+Index: moveit-core-2.5.9-1/dynamics_solver/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/dynamics_solver/CMakeLists.txt
++++ moveit-core-2.5.9-1/dynamics_solver/CMakeLists.txt
+@@ -1,17 +1,19 @@
+-set(MOVEIT_LIB_NAME moveit_dynamics_solver)
++add_library(moveit_dynamics_solver SHARED src/dynamics_solver.cpp)
++target_include_directories(
++  moveit_dynamics_solver
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_dynamics_solver
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED src/dynamics_solver.cpp)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  urdf
+-  urdfdom_headers
+-  orocos_kdl
+-  visualization_msgs
+-  kdl_parser
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
 +target_link_libraries(
 +  moveit_dynamics_solver
-+  moveit_robot_state
+   moveit_robot_state
+-)
 +  moveit_utils
 +  urdf::urdf
 +  ${orocos_kdl_LIBRARIES}
 +  ${visualization_msgs_TARGETS}
 +  kdl_parser::kdl_parser)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-diff --git moveit_core/exceptions/CMakeLists.txt moveit_core/exceptions/CMakeLists.txt
-index 26591d955..2b24e85cb 100644
---- moveit_core/exceptions/CMakeLists.txt
-+++ moveit_core/exceptions/CMakeLists.txt
-@@ -5,8 +5,7 @@ target_include_directories(
-          $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_exceptions PROPERTIES VERSION
-                                                    "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(moveit_exceptions Boost rclcpp urdfdom
--                          urdfdom_headers)
--target_link_libraries(moveit_exceptions moveit_utils)
++
+ 
+ install(DIRECTORY include/ DESTINATION include)
+Index: moveit-core-2.5.9-1/exceptions/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/exceptions/CMakeLists.txt
++++ moveit-core-2.5.9-1/exceptions/CMakeLists.txt
+@@ -1,12 +1,11 @@
+-set(MOVEIT_LIB_NAME moveit_exceptions)
++add_library(moveit_exceptions SHARED src/exceptions.cpp)
++target_include_directories(
++  moveit_exceptions
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_exceptions PROPERTIES VERSION
++                                                   "${${PROJECT_NAME}_VERSION}")
 +target_link_libraries(moveit_exceptions moveit_utils Boost::headers
 +                      rclcpp::rclcpp urdfdom::urdf_parser)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-diff --git moveit_core/kinematic_constraints/CMakeLists.txt moveit_core/kinematic_constraints/CMakeLists.txt
-index 51f33e495..66c8cae02 100644
---- moveit_core/kinematic_constraints/CMakeLists.txt
-+++ moveit_core/kinematic_constraints/CMakeLists.txt
-@@ -16,19 +16,19 @@ target_include_directories(
- set_target_properties(moveit_kinematic_constraints
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
-
--ament_target_dependencies(
--  moveit_kinematic_constraints
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED src/exceptions.cpp)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  Boost
+-  rclcpp
+-  urdfdom
+-  urdfdom_headers
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+Index: moveit-core-2.5.9-1/kinematic_constraints/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/kinematic_constraints/CMakeLists.txt
++++ moveit-core-2.5.9-1/kinematic_constraints/CMakeLists.txt
+@@ -1,37 +1,36 @@
+-set(MOVEIT_LIB_NAME moveit_kinematic_constraints)
+-
+ if(WIN32)
+-  # set(append_library_dirs "$<TARGET_FILE_DIR:${PROJECT_NAME}>;$<TARGET_FILE_DIR:${PROJECT_NAME}_TestPlugins1>")
++  # set(APPEND_LIBRARY_DIRS
++  # "$<TARGET_FILE_DIR:${PROJECT_NAME}>;$<TARGET_FILE_DIR:${PROJECT_NAME}_TestPlugins1>")
+ else()
+-  set(append_library_dirs "${CMAKE_CURRENT_BINARY_DIR};${CMAKE_CURRENT_BINARY_DIR}/../utils;${CMAKE_CURRENT_BINARY_DIR}/../robot_model;${CMAKE_CURRENT_BINARY_DIR}/../robot_state;${CMAKE_CURRENT_BINARY_DIR}/../collision_detection_fcl")
++  set(APPEND_LIBRARY_DIRS
++      "${CMAKE_CURRENT_BINARY_DIR};${CMAKE_CURRENT_BINARY_DIR}/../utils;${CMAKE_CURRENT_BINARY_DIR}/../robot_model;${CMAKE_CURRENT_BINARY_DIR}/../robot_state;${CMAKE_CURRENT_BINARY_DIR}/../collision_detection_fcl"
++  )
+ endif()
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/kinematic_constraint.cpp
+-  src/utils.cpp
+-)
+-
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  urdf
 -  urdfdom
 -  urdfdom_headers
 -  tf2_geometry_msgs
 -  geometry_msgs
 -  visualization_msgs
--  tf2_eigen)
--
- target_link_libraries(
--  moveit_kinematic_constraints moveit_collision_detection_fcl
--  moveit_kinematics_base moveit_robot_state moveit_robot_model moveit_utils)
+-  tf2_eigen
+-)
++add_library(moveit_kinematic_constraints SHARED src/kinematic_constraint.cpp
++                                                src/utils.cpp)
++target_include_directories(
 +  moveit_kinematic_constraints
-+  moveit_collision_detection_fcl
-+  moveit_kinematics_base
-+  moveit_robot_state
-+  moveit_robot_model
-+  moveit_utils
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_kinematic_constraints
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ 
+-target_link_libraries(${MOVEIT_LIB_NAME}
++target_link_libraries(
++  moveit_kinematic_constraints
+   moveit_collision_detection_fcl
+   moveit_kinematics_base
+   moveit_robot_state
+   moveit_robot_model
+   moveit_utils
+-)
 +  urdf::urdf
 +  urdfdom::urdf_parser
 +  tf2_geometry_msgs::tf2_geometry_msgs
 +  ${geometry_msgs_TARGETS}
 +  ${visualization_msgs_TARGETS}
 +  tf2_eigen::tf2_eigen)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-diff --git moveit_core/kinematics_base/CMakeLists.txt moveit_core/kinematics_base/CMakeLists.txt
-index 180253900..472b21caf 100644
---- moveit_core/kinematics_base/CMakeLists.txt
-+++ moveit_core/kinematics_base/CMakeLists.txt
-@@ -11,16 +11,14 @@ target_include_directories(
-   moveit_kinematics_base PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
- )# for this library
-
+ 
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
+@@ -39,8 +38,8 @@ if(BUILD_TESTING)
+   ament_add_gtest(test_constraints test/test_constraints.cpp
+     APPEND_LIBRARY_DIRS "${append_library_dirs}"
+   )
+-  target_link_libraries(test_constraints moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_constraints moveit_test_utils moveit_kinematic_constraints)
+ 
+   ament_add_gtest(test_orientation_constraints test/test_orientation_constraints.cpp)
+-  target_link_libraries(test_orientation_constraints moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_orientation_constraints moveit_test_utils moveit_kinematic_constraints)
+ endif()
+Index: moveit-core-2.5.9-1/kinematics_base/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/kinematics_base/CMakeLists.txt
++++ moveit-core-2.5.9-1/kinematics_base/CMakeLists.txt
+@@ -1,21 +1,25 @@
+-cmake_minimum_required(VERSION 3.22)
+-set(MOVEIT_LIB_NAME moveit_kinematics_base)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED src/kinematics_base.cpp)
++add_library(moveit_kinematics_base SHARED src/kinematics_base.cpp)
++target_include_directories(
++  moveit_kinematics_base
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++target_link_libraries(moveit_kinematics_base moveit_macros moveit_robot_model
++                      moveit_utils)
+ include(GenerateExportHeader)
+-generate_export_header(${MOVEIT_LIB_NAME})
+-target_include_directories(${MOVEIT_LIB_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)  # for this library
++generate_export_header(moveit_kinematics_base)
++target_include_directories(
++  moveit_kinematics_base PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
++)# for this library
+ 
 -# This line ensures that messages are built before the library is built
 -ament_target_dependencies(
-+target_link_libraries(
-   moveit_kinematics_base
+-  ${MOVEIT_LIB_NAME}
 -  rclcpp
 -  urdf
 -  urdfdom_headers
--  srdfdom
--  moveit_msgs
+-  srdfdom moveit_msgs
 -  geometric_shapes
--  geometry_msgs)
+-  geometry_msgs
+-)
++target_link_libraries(
++  moveit_kinematics_base
 +  rclcpp::rclcpp
 +  urdf::urdf
 +  srdfdom::srdfdom
 +  ${moveit_msgs_TARGETS}
 +  geometric_shapes::geometric_shapes
 +  ${geometry_msgs_TARGETS})
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
- install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_kinematics_base_export.h
-diff --git moveit_core/kinematics_metrics/CMakeLists.txt moveit_core/kinematics_metrics/CMakeLists.txt
-index e760b834e..71b51ef8c 100644
---- moveit_core/kinematics_metrics/CMakeLists.txt
-+++ moveit_core/kinematics_metrics/CMakeLists.txt
-@@ -6,10 +6,8 @@ target_include_directories(
- set_target_properties(moveit_kinematics_metrics
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
-
--ament_target_dependencies(moveit_kinematics_metrics urdf urdfdom_headers
--                          visualization_msgs)
--
--target_link_libraries(moveit_kinematics_metrics moveit_robot_model
--                      moveit_robot_state moveit_utils)
+ 
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MOVEIT_LIB_NAME}_export.h DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_kinematics_base_export.h
++        DESTINATION include/moveit_core)
+Index: moveit-core-2.5.9-1/kinematics_metrics/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/kinematics_metrics/CMakeLists.txt
++++ moveit-core-2.5.9-1/kinematics_metrics/CMakeLists.txt
+@@ -1,16 +1,13 @@
+-set(MOVEIT_LIB_NAME moveit_kinematics_metrics)
++add_library(moveit_kinematics_metrics SHARED src/kinematics_metrics.cpp)
++target_include_directories(
++  moveit_kinematics_metrics
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_kinematics_metrics
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED src/kinematics_metrics.cpp)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
 +target_link_libraries(
 +  moveit_kinematics_metrics moveit_robot_model moveit_robot_state moveit_utils
 +  urdf::urdf ${visualization_msgs_TARGETS})
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-diff --git moveit_core/online_signal_smoothing/CMakeLists.txt moveit_core/online_signal_smoothing/CMakeLists.txt
-index 1f1912c6d..7d3b6dd01 100644
---- moveit_core/online_signal_smoothing/CMakeLists.txt
-+++ moveit_core/online_signal_smoothing/CMakeLists.txt
-@@ -5,12 +5,12 @@ target_include_directories(
-   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-          $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-          $<INSTALL_INTERFACE:include/moveit_core>)
--target_link_libraries(moveit_smoothing_base ${Eigen_LIBRARIES} moveit_macros)
+ 
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  urdf
+-  urdfdom_headers
+-  visualization_msgs)
+-
+-target_link_libraries(${MOVEIT_LIB_NAME}
+-  moveit_robot_model
+-  moveit_robot_state
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+Index: moveit-core-2.5.9-1/online_signal_smoothing/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/online_signal_smoothing/CMakeLists.txt
++++ moveit-core-2.5.9-1/online_signal_smoothing/CMakeLists.txt
+@@ -1,50 +1,38 @@
+ # Base class
+-set(SMOOTHING_BASE_LIB moveit_smoothing_base)
+-add_library(${SMOOTHING_BASE_LIB} SHARED
+-  src/smoothing_base_class.cpp
+-)
++add_library(moveit_smoothing_base SHARED src/smoothing_base_class.cpp)
++target_include_directories(
++  moveit_smoothing_base
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
++         $<INSTALL_INTERFACE:include/moveit_core>)
 +target_link_libraries(moveit_smoothing_base ${Eigen_LIBRARIES} moveit_macros
 +                      rclcpp::rclcpp tf2_eigen::tf2_eigen)
  include(GenerateExportHeader)
- generate_export_header(moveit_smoothing_base)
- set_target_properties(moveit_smoothing_base
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(moveit_smoothing_base rclcpp tf2_eigen)
-
+-generate_export_header(${SMOOTHING_BASE_LIB})
+-target_include_directories(${SMOOTHING_BASE_LIB} PUBLIC
+-  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+-)
+-set_target_properties(${SMOOTHING_BASE_LIB} PROPERTIES VERSION
+-  "${${PROJECT_NAME}_VERSION}"
+-)
+-ament_target_dependencies(${SMOOTHING_BASE_LIB}
+-  rclcpp
+-)
++generate_export_header(moveit_smoothing_base)
++set_target_properties(moveit_smoothing_base
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ 
  # Plugin implementations
- add_library(moveit_acceleration_filter SHARED src/acceleration_filter.cpp)
-@@ -23,12 +23,13 @@ set_target_properties(moveit_acceleration_filter
- generate_parameter_library(moveit_acceleration_filter_parameters
-                            src/acceleration_filter_parameters.yaml)
- target_link_libraries(
--  moveit_acceleration_filter moveit_acceleration_filter_parameters
--  moveit_robot_state moveit_smoothing_base osqp::osqp)
--ament_target_dependencies(
--  moveit_acceleration_filter srdfdom # include dependency from
--                                     # moveit_robot_model
--  pluginlib)
-+  moveit_acceleration_filter
-+  moveit_acceleration_filter_parameters
-+  moveit_robot_state
-+  moveit_smoothing_base
-+  osqp::osqp
-+  srdfdom::srdfdom
-+  pluginlib::pluginlib)
-
- add_library(moveit_butterworth_filter SHARED src/butterworth_filter.cpp)
- generate_export_header(moveit_butterworth_filter)
-@@ -41,11 +42,8 @@ generate_parameter_library(moveit_butterworth_filter_parameters
-                            src/butterworth_parameters.yaml)
- target_link_libraries(
-   moveit_butterworth_filter moveit_butterworth_filter_parameters
--  moveit_robot_model moveit_smoothing_base)
--ament_target_dependencies(
--  moveit_butterworth_filter
--  srdfdom # include dependency from moveit_robot_model
--  pluginlib)
+-set(BUTTERWORTH_FILTER_LIB moveit_butterworth_filter)
+-add_library(${BUTTERWORTH_FILTER_LIB} SHARED
+-  src/butterworth_filter.cpp
+-)
+-generate_export_header(${BUTTERWORTH_FILTER_LIB})
+-target_include_directories(${BUTTERWORTH_FILTER_LIB} PUBLIC
+-  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+-)
+-set_target_properties(${BUTTERWORTH_FILTER_LIB} PROPERTIES VERSION
+-  "${${PROJECT_NAME}_VERSION}"
+-)
+-
+-generate_parameter_library(moveit_butterworth_parameters src/butterworth_parameters.yaml)
+-
+-target_link_libraries(${BUTTERWORTH_FILTER_LIB}
+-  ${SMOOTHING_BASE_LIB}
+-  moveit_butterworth_parameters
+-  moveit_robot_model
+-  moveit_smoothing_base
+-)
+-ament_target_dependencies(${BUTTERWORTH_FILTER_LIB}
+-  srdfdom  # include dependency from moveit_robot_model
+-)
++add_library(moveit_butterworth_filter SHARED src/butterworth_filter.cpp)
++generate_export_header(moveit_butterworth_filter)
++target_include_directories(
++  moveit_butterworth_filter
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
++set_target_properties(moveit_butterworth_filter
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++generate_parameter_library(moveit_butterworth_parameters
++                           src/butterworth_parameters.yaml)
++target_link_libraries(
++  moveit_butterworth_filter moveit_butterworth_parameters
 +  moveit_robot_model moveit_smoothing_base srdfdom::srdfdom
 +  pluginlib::pluginlib)
-
- add_library(moveit_ruckig_filter SHARED src/ruckig_filter.cpp)
- generate_export_header(moveit_ruckig_filter)
-@@ -56,11 +54,13 @@ set_target_properties(moveit_ruckig_filter
- generate_parameter_library(moveit_ruckig_filter_parameters
-                            src/ruckig_filter_parameters.yaml)
- target_link_libraries(
--  moveit_ruckig_filter moveit_robot_state moveit_ruckig_filter_parameters
--  moveit_smoothing_base ruckig::ruckig)
--ament_target_dependencies(
--  moveit_ruckig_filter srdfdom # include dependency from moveit_robot_model
--  pluginlib)
-+  moveit_ruckig_filter
-+  moveit_robot_state
-+  moveit_ruckig_filter_parameters
-+  moveit_smoothing_base
-+  ruckig::ruckig
-+  srdfdom::srdfdom
-+  pluginlib::pluginlib)
-
+ 
  # Installation
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-diff --git moveit_core/planning_interface/CMakeLists.txt moveit_core/planning_interface/CMakeLists.txt
-index 338765e2f..45b2bce7f 100644
---- moveit_core/planning_interface/CMakeLists.txt
-+++ moveit_core/planning_interface/CMakeLists.txt
-@@ -6,9 +6,14 @@ target_include_directories(
-          $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_planning_interface
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(moveit_planning_interface moveit_msgs urdf urdfdom
--                          urdfdom_headers)
--target_link_libraries(moveit_planning_interface moveit_robot_trajectory
--                      moveit_robot_state moveit_planning_scene moveit_utils)
+-
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${SMOOTHING_BASE_LIB}_export.h DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${BUTTERWORTH_FILTER_LIB}_export.h DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_smoothing_base_export.h
++        DESTINATION include/moveit_core)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_butterworth_filter_export.h
++        DESTINATION include/moveit_core)
+ 
+ # Testing
+ 
+@@ -54,5 +42,6 @@ if(BUILD_TESTING)
+ 
+   # Lowpass filter unit test
+   ament_add_gtest(test_butterworth_filter test/test_butterworth_filter.cpp)
+-  target_link_libraries(test_butterworth_filter ${BUTTERWORTH_FILTER_LIB})
++  target_link_libraries(test_butterworth_filter moveit_butterworth_filter)
++
+ endif()
+Index: moveit-core-2.5.9-1/planning_interface/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/planning_interface/CMakeLists.txt
++++ moveit-core-2.5.9-1/planning_interface/CMakeLists.txt
+@@ -1,19 +1,19 @@
+-set(MOVEIT_LIB_NAME moveit_planning_interface)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/planning_interface.cpp
+-  src/planning_response.cpp
+-)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  moveit_msgs
+-  urdf
+-  urdfdom
+-  urdfdom_headers
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++add_library(moveit_planning_interface SHARED src/planning_interface.cpp
++                                             src/planning_response.cpp)
++target_include_directories(
++  moveit_planning_interface
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_planning_interface
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
 +target_link_libraries(
 +  moveit_planning_interface
-+  moveit_robot_trajectory
-+  moveit_robot_state
+   moveit_robot_trajectory
+   moveit_robot_state
+-)
 +  moveit_planning_scene
 +  moveit_utils
 +  ${moveit_msgs_TARGETS}
 +  urdf::urdf
 +  urdfdom::urdf_parser)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-diff --git moveit_core/planning_scene/CMakeLists.txt moveit_core/planning_scene/CMakeLists.txt
-index debb3e5b6..d5cde1212 100644
---- moveit_core/planning_scene/CMakeLists.txt
-+++ moveit_core/planning_scene/CMakeLists.txt
-@@ -10,15 +10,6 @@ target_include_directories(
- # TODO: Fix the versioning
- set_target_properties(moveit_planning_scene
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
--  moveit_planning_scene
+ 
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+Index: moveit-core-2.5.9-1/planning_scene/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/planning_scene/CMakeLists.txt
++++ moveit-core-2.5.9-1/planning_scene/CMakeLists.txt
+@@ -1,21 +1,17 @@
+-set(MOVEIT_LIB_NAME moveit_planning_scene)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED src/planning_scene.cpp)
++add_library(moveit_planning_scene SHARED src/planning_scene.cpp)
++target_include_directories(
++  moveit_planning_scene
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
+ include(GenerateExportHeader)
+-generate_export_header(${MOVEIT_LIB_NAME})
+-target_include_directories(${MOVEIT_LIB_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
++generate_export_header(moveit_planning_scene)
++target_include_directories(
++  moveit_planning_scene PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+ #TODO: Fix the versioning
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  Boost
 -  rclcpp
 -  urdfdom
 -  urdfdom_headers
 -  octomap_msgs
--  octomap)
+-  OCTOMAP
+-)
 -
- target_link_libraries(
-   moveit_planning_scene
+-target_link_libraries(${MOVEIT_LIB_NAME}
++set_target_properties(moveit_planning_scene
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_planning_scene
    moveit_robot_model
-@@ -30,7 +21,12 @@ target_link_libraries(
-   moveit_kinematic_constraints
+   moveit_robot_state
+   moveit_exceptions
+@@ -26,10 +22,15 @@ target_link_libraries(${MOVEIT_LIB_NAME}
    moveit_robot_trajectory
    moveit_trajectory_processing
--  moveit_utils)
-+  moveit_utils
+   moveit_utils
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
+-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MOVEIT_LIB_NAME}_export.h DESTINATION include)
 +  Boost::headers
 +  rclcpp::rclcpp
 +  urdfdom::urdf_parser
 +  ${octomap_msgs_TARGETS}
 +  octomap)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
- install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_planning_scene_export.h
-@@ -47,9 +43,9 @@ if(BUILD_TESTING)
-
++
++install(DIRECTORY include/ DESTINATION include/moveit_core)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_planning_scene_export.h
++        DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
+@@ -40,17 +41,15 @@ if(BUILD_TESTING)
+ 
    ament_add_gtest(test_planning_scene test/test_planning_scene.cpp
-                   APPEND_LIBRARY_DIRS "${APPEND_LIBRARY_DIRS}")
--  ament_target_dependencies(test_planning_scene geometric_shapes srdfdom)
--  target_link_libraries(test_planning_scene moveit_test_utils
--                        moveit_planning_scene)
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  ament_target_dependencies(test_planning_scene
+-    geometric_shapes
+-    srdfdom
+-  )
+-  target_link_libraries(test_planning_scene moveit_test_utils ${MOVEIT_LIB_NAME})
 +  target_link_libraries(
 +    test_planning_scene moveit_test_utils moveit_planning_scene
 +    geometric_shapes::geometric_shapes srdfdom::srdfdom)
-
+ 
    ament_add_gtest(test_collision_objects test/test_collision_objects.cpp
-                   APPEND_LIBRARY_DIRS "${APPEND_LIBRARY_DIRS}")
-diff --git moveit_core/robot_model/CMakeLists.txt moveit_core/robot_model/CMakeLists.txt
-index 2886ed4f0..b051a325e 100644
---- moveit_core/robot_model/CMakeLists.txt
-+++ moveit_core/robot_model/CMakeLists.txt
-@@ -28,25 +28,25 @@ target_include_directories(
-     $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_robot_model
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_robot_model
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  target_link_libraries(test_collision_objects moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_collision_objects moveit_test_utils moveit_planning_scene)
+ 
+   ament_add_gtest(test_multi_threaded test/test_multi_threaded.cpp
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  target_link_libraries(test_multi_threaded moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_multi_threaded moveit_test_utils moveit_planning_scene)
+ endif()
+Index: moveit-core-2.5.9-1/robot_model/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/robot_model/CMakeLists.txt
++++ moveit-core-2.5.9-1/robot_model/CMakeLists.txt
+@@ -1,7 +1,4 @@
+-cmake_minimum_required(VERSION 3.22)
+-set(MOVEIT_LIB_NAME moveit_robot_model)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
++add_library(moveit_robot_model SHARED
+   src/aabb.cpp
+   src/fixed_joint_model.cpp
+   src/floating_joint_model.cpp
+@@ -11,24 +8,38 @@ add_library(${MOVEIT_LIB_NAME} SHARED
+   src/planar_joint_model.cpp
+   src/prismatic_joint_model.cpp
+   src/revolute_joint_model.cpp
+-  src/robot_model.cpp
+-)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  angles
 -  moveit_msgs
 -  Eigen3
@@ -867,10 +1405,33 @@ index 2886ed4f0..b051a325e 100644
 -  urdf
 -  urdfdom_headers
 -  srdfdom
--  visualization_msgs)
--target_link_libraries(moveit_robot_model moveit_exceptions moveit_macros
--                      moveit_utils)
-+  moveit_exceptions
+-  visualization_msgs
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++  src/robot_model.cpp)
++target_include_directories(
++  moveit_robot_model
++  PUBLIC
++    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/kinematics_base/include> # Work
++                                                                     # around
++                                                                     # cyclic
++                                                                     # dependency
++                                                                     # between
++                                                                     # this and
++                                                                     # kinematics
++                                                                     # base
++    $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/kinematics_base> # Ditto but for
++                                                             # finding the
++                                                             # export header
++    $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_robot_model
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_robot_model
+   moveit_exceptions
+-  moveit_kinematics_base
+-)
 +  moveit_macros
 +  moveit_utils
 +  angles::angles
@@ -881,117 +1442,231 @@ index 2886ed4f0..b051a325e 100644
 +  urdf::urdf
 +  srdfdom::srdfdom
 +  ${visualization_msgs_TARGETS})
-
+ 
  if(BUILD_TESTING)
    find_package(ament_cmake_gtest REQUIRED)
-   ament_add_gtest(test_robot_model test/test.cpp)
--  ament_target_dependencies(test_robot_model rclcpp)
--  target_link_libraries(test_robot_model moveit_test_utils moveit_robot_model)
-+  target_link_libraries(test_robot_model moveit_test_utils moveit_robot_model
-+                        rclcpp::rclcpp)
+@@ -36,7 +47,7 @@ if(BUILD_TESTING)
+   ament_target_dependencies(test_robot_model
+     rclcpp
+   )
+-  target_link_libraries(test_robot_model moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_robot_model moveit_test_utils moveit_robot_model)
  endif()
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-diff --git moveit_core/robot_state/CMakeLists.txt moveit_core/robot_state/CMakeLists.txt
-index a906be706..cd1831018 100644
---- moveit_core/robot_state/CMakeLists.txt
-+++ moveit_core/robot_state/CMakeLists.txt
-@@ -7,16 +7,16 @@ target_include_directories(
-          $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_robot_state PROPERTIES VERSION
-                                                     ${${PROJECT_NAME}_VERSION})
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_robot_state
--  eigen_stl_containers
+ 
+ install(DIRECTORY include/ DESTINATION include)
+Index: moveit-core-2.5.9-1/robot_state/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/robot_state/CMakeLists.txt
++++ moveit-core-2.5.9-1/robot_state/CMakeLists.txt
+@@ -1,27 +1,24 @@
+-set(MOVEIT_LIB_NAME moveit_robot_state)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/attached_body.cpp
+-  src/conversions.cpp
+-  src/robot_state.cpp
+-  src/cartesian_interpolator.cpp
+-)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION ${${PROJECT_NAME}_VERSION})
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  urdf
+-  eigen_stl_containers
 -  tf2_geometry_msgs
 -  geometric_shapes
 -  urdfdom_headers
--  Boost)
--target_link_libraries(moveit_robot_state moveit_robot_model
--                      moveit_kinematics_base moveit_transforms)
-+  moveit_robot_model
-+  moveit_kinematics_base
-+  moveit_transforms
+-  Boost
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++add_library(
++  moveit_robot_state SHARED src/attached_body.cpp src/conversions.cpp
++                            src/robot_state.cpp src/cartesian_interpolator.cpp)
++target_include_directories(
++  moveit_robot_state
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_robot_state PROPERTIES VERSION
++                                                    ${${PROJECT_NAME}_VERSION})
++target_link_libraries(
++  moveit_robot_state
+   moveit_robot_model
+   moveit_kinematics_base
+   moveit_transforms
+-)
 +  eigen_stl_containers::eigen_stl_containers
 +  urdf::urdf
 +  tf2_geometry_msgs::tf2_geometry_msgs
 +  geometric_shapes::geometric_shapes
 +  Boost::headers)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-@@ -58,7 +58,7 @@ if(BUILD_TESTING)
-
-   ament_add_google_benchmark(robot_state_benchmark
-                              test/robot_state_benchmark.cpp)
--  ament_target_dependencies(robot_state_benchmark kdl_parser)
--  target_link_libraries(robot_state_benchmark moveit_robot_model
--                        moveit_test_utils moveit_robot_state)
-+  target_link_libraries(
-+    robot_state_benchmark moveit_robot_model moveit_test_utils
-+    moveit_robot_state kdl_parser::kdl_parser)
+ 
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ # Unit tests
+ if(BUILD_TESTING)
+@@ -42,7 +39,7 @@ if(BUILD_TESTING)
+     moveit_test_utils
+     moveit_utils
+     moveit_exceptions
+-    ${MOVEIT_LIB_NAME}
++    moveit_robot_state
+   )
+ 
+   # As an executable, this benchmark is not run as a test by default
+@@ -51,7 +48,7 @@ if(BUILD_TESTING)
+     moveit_test_utils
+     moveit_utils
+     moveit_exceptions
+-    ${MOVEIT_LIB_NAME}
++    moveit_robot_state
+   )
+ 
+   ament_add_gtest(test_robot_state_complex test/test_kinematic_complex.cpp)
+@@ -59,7 +56,7 @@ if(BUILD_TESTING)
+     moveit_test_utils
+     moveit_utils
+     moveit_exceptions
+-    ${MOVEIT_LIB_NAME}
++    moveit_robot_state
+   )
+ 
+   ament_add_gtest(test_aabb test/test_aabb.cpp)
+@@ -67,12 +64,12 @@ if(BUILD_TESTING)
+     moveit_test_utils
+     moveit_utils
+     moveit_exceptions
+-    ${MOVEIT_LIB_NAME}
++    moveit_robot_state
+   )
+ 
+   ament_add_gtest(test_cartesian_interpolator test/test_cartesian_interpolator.cpp)
+   target_link_libraries(test_cartesian_interpolator
+     moveit_test_utils
+-    ${MOVEIT_LIB_NAME}
++    moveit_robot_state
+   )
  endif()
-diff --git moveit_core/robot_trajectory/CMakeLists.txt moveit_core/robot_trajectory/CMakeLists.txt
-index c4b26ebb8..d5d722ca3 100644
---- moveit_core/robot_trajectory/CMakeLists.txt
-+++ moveit_core/robot_trajectory/CMakeLists.txt
-@@ -5,11 +5,9 @@ target_include_directories(
-          $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_robot_trajectory
-                       PROPERTIES VERSION ${${PROJECT_NAME}_VERSION})
--ament_target_dependencies(moveit_robot_trajectory rclcpp urdfdom
--                          urdfdom_headers)
--
--target_link_libraries(moveit_robot_trajectory moveit_robot_model
--                      moveit_robot_state moveit_utils)
+Index: moveit-core-2.5.9-1/robot_trajectory/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/robot_trajectory/CMakeLists.txt
++++ moveit-core-2.5.9-1/robot_trajectory/CMakeLists.txt
+@@ -1,21 +1,18 @@
+-set(MOVEIT_LIB_NAME moveit_robot_trajectory)
++add_library(moveit_robot_trajectory SHARED src/robot_trajectory.cpp)
++target_include_directories(
++  moveit_robot_trajectory
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_robot_trajectory
++                      PROPERTIES VERSION ${${PROJECT_NAME}_VERSION})
 +target_link_libraries(
 +  moveit_robot_trajectory moveit_robot_model moveit_robot_state moveit_utils
 +  rclcpp::rclcpp urdfdom::urdf_parser)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-diff --git moveit_core/trajectory_processing/CMakeLists.txt moveit_core/trajectory_processing/CMakeLists.txt
-index bbbe8d1f2..494474248 100644
---- moveit_core/trajectory_processing/CMakeLists.txt
-+++ moveit_core/trajectory_processing/CMakeLists.txt
-@@ -8,17 +8,16 @@ target_include_directories(
-          $<INSTALL_INTERFACE:include/moveit_core>)
- set_target_properties(moveit_trajectory_processing
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_trajectory_processing
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED src/robot_trajectory.cpp)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION ${${PROJECT_NAME}_VERSION})
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  rclcpp
+-  urdfdom
+-  urdfdom_headers
+-)
+-
+-target_link_libraries(${MOVEIT_LIB_NAME}
+-  moveit_robot_model
+-  moveit_robot_state
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   ament_add_gtest(test_robot_trajectory test/test_robot_trajectory.cpp)
+-  target_link_libraries(test_robot_trajectory moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_robot_trajectory moveit_test_utils
++                        moveit_robot_trajectory)
+ endif()
+Index: moveit-core-2.5.9-1/trajectory_processing/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/trajectory_processing/CMakeLists.txt
++++ moveit-core-2.5.9-1/trajectory_processing/CMakeLists.txt
+@@ -1,30 +1,27 @@
+-set(MOVEIT_LIB_NAME moveit_trajectory_processing)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
++add_library(
++  moveit_trajectory_processing SHARED
+   src/iterative_time_parameterization.cpp
+   src/iterative_spline_parameterization.cpp
+-  src/ruckig_traj_smoothing.cpp
+-  src/trajectory_tools.cpp
+-  src/time_optimal_trajectory_generation.cpp
+-)
+-
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  rclcpp
 -  rmw_implementation
 -  urdf
 -  urdfdom
 -  urdfdom_headers
 -  visualization_msgs
--  Boost)
--target_link_libraries(moveit_trajectory_processing moveit_robot_state
--                      moveit_robot_trajectory ruckig::ruckig)
-+  moveit_robot_state
-+  moveit_robot_trajectory
-+  ruckig::ruckig
+-  Boost
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++  src/ruckig_traj_smoothing.cpp src/trajectory_tools.cpp
++  src/time_optimal_trajectory_generation.cpp)
++target_include_directories(
++  moveit_trajectory_processing
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_trajectory_processing
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_trajectory_processing
+   moveit_robot_state
+   moveit_robot_trajectory
+   ruckig::ruckig
+-)
 +  rclcpp::rclcpp
 +  urdf::urdf
 +  urdfdom::urdf_parser
 +  ${visualization_msgs_TARGETS}
 +  Boost::headers)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-diff --git moveit_core/transforms/CMakeLists.txt moveit_core/transforms/CMakeLists.txt
-index 5880e5795..dd6e0953b 100644
---- moveit_core/transforms/CMakeLists.txt
-+++ moveit_core/transforms/CMakeLists.txt
-@@ -3,18 +3,17 @@ target_include_directories(
-   moveit_transforms
-   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-          $<INSTALL_INTERFACE:include/moveit_core>)
--target_link_libraries(moveit_transforms moveit_macros moveit_utils)
+ 
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ if(BUILD_TESTING)
+   if(WIN32)
+@@ -36,14 +33,15 @@ if(BUILD_TESTING)
+ 
+   ament_add_gtest(test_time_parameterization test/test_time_parameterization.cpp
+     APPEND_LIBRARY_DIRS "${append_library_dirs}")
+-  target_link_libraries(test_time_parameterization moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_time_parameterization moveit_test_utils moveit_trajectory_processing)
+ 
+   ament_add_gtest(test_time_optimal_trajectory_generation test/test_time_optimal_trajectory_generation.cpp)
+-  target_link_libraries(test_time_optimal_trajectory_generation moveit_test_utils ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_time_optimal_trajectory_generation moveit_test_utils moveit_trajectory_processing)
+ 
+   ament_add_gtest(test_ruckig_traj_smoothing test/test_ruckig_traj_smoothing.cpp)
++
+   target_link_libraries(test_ruckig_traj_smoothing
+-    ${MOVEIT_LIB_NAME}
++    moveit_trajectory_processing
+     moveit_test_utils
+   )
+ endif()
+Index: moveit-core-2.5.9-1/transforms/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/transforms/CMakeLists.txt
++++ moveit-core-2.5.9-1/transforms/CMakeLists.txt
+@@ -1,22 +1,25 @@
+-set(MOVEIT_LIB_NAME moveit_transforms)
++add_library(moveit_transforms SHARED src/transforms.cpp)
++target_include_directories(
++  moveit_transforms
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
 +target_link_libraries(
 +  moveit_transforms
 +  moveit_macros
@@ -1001,54 +1676,80 @@ index 5880e5795..dd6e0953b 100644
 +  rclcpp::rclcpp
 +  urdfdom::urdf_parser
 +  Boost::headers)
- set_target_properties(moveit_transforms PROPERTIES VERSION
-                                                    "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
--  moveit_transforms
++set_target_properties(moveit_transforms PROPERTIES VERSION
++                                                   "${${PROJECT_NAME}_VERSION}")
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED src/transforms.cpp)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  geometric_shapes
 -  tf2_eigen
 -  rclcpp
 -  rmw_implementation
 -  urdfdom
 -  urdfdom_headers
--  Boost)
-
- install(DIRECTORY include/ DESTINATION include/moveit_core)
-
-diff --git moveit_core/utils/CMakeLists.txt moveit_core/utils/CMakeLists.txt
-index ca44183fa..58fc7d103 100644
---- moveit_core/utils/CMakeLists.txt
-+++ moveit_core/utils/CMakeLists.txt
-@@ -3,8 +3,8 @@ add_library(moveit_utils SHARED src/lexical_casts.cpp src/message_checks.cpp
- target_include_directories(
-   moveit_utils PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-                       $<INSTALL_INTERFACE:include/moveit_core>)
--ament_target_dependencies(moveit_utils Boost moveit_msgs rclcpp fmt)
--target_link_libraries(moveit_utils rsl::rsl)
+-  Boost
+-)
+-
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ # Unit tests
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
+   ament_add_gtest(test_transforms test/test_transforms.cpp)
+-  target_link_libraries(test_transforms ${MOVEIT_LIB_NAME})
++  target_link_libraries(test_transforms moveit_transforms)
+ endif()
+Index: moveit-core-2.5.9-1/utils/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/utils/CMakeLists.txt
++++ moveit-core-2.5.9-1/utils/CMakeLists.txt
+@@ -1,27 +1,35 @@
+-set(MOVEIT_LIB_NAME moveit_utils)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED
+-  src/lexical_casts.cpp
+-  src/message_checks.cpp
+-  src/rclcpp_utils.cpp
+-)
+-ament_target_dependencies(${MOVEIT_LIB_NAME} Boost moveit_msgs)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-
+-install(DIRECTORY include/ DESTINATION include)
++add_library(moveit_utils SHARED src/lexical_casts.cpp src/message_checks.cpp
++                                src/rclcpp_utils.cpp)
++target_include_directories(
++  moveit_utils PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++                      $<INSTALL_INTERFACE:include/moveit_core>)
 +target_link_libraries(moveit_utils rsl::rsl Boost::headers
 +                      ${moveit_msgs_TARGETS} rclcpp::rclcpp fmt::fmt)
- set_target_properties(moveit_utils PROPERTIES VERSION
-                                               "${${PROJECT_NAME}_VERSION}")
-
-@@ -16,20 +16,21 @@ target_include_directories(
-   moveit_test_utils
-   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-          $<INSTALL_INTERFACE:include/moveit_core>)
--target_link_libraries(moveit_test_utils moveit_robot_model
--                      moveit_kinematics_base rsl::rsl)
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_test_utils
++set_target_properties(moveit_utils PROPERTIES VERSION
++                                              "${${PROJECT_NAME}_VERSION}")
+ 
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+ 
+ find_package(ament_index_cpp REQUIRED)
+-set(MOVEIT_TEST_LIB_NAME moveit_test_utils)
+-add_library(${MOVEIT_TEST_LIB_NAME} SHARED src/robot_model_test_utils.cpp)
+-target_link_libraries(${MOVEIT_TEST_LIB_NAME} moveit_robot_model)
+-ament_target_dependencies(${MOVEIT_TEST_LIB_NAME}
 -  ament_index_cpp
 -  Boost
 -  geometry_msgs
 -  urdf
--  pluginlib
 -  srdfdom
 -  urdfdom
 -  urdfdom_headers
--  rclcpp
--  fmt)
+-)
+-set_target_properties(${MOVEIT_TEST_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++add_library(moveit_test_utils SHARED src/robot_model_test_utils.cpp)
++target_include_directories(
++  moveit_test_utils
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++target_link_libraries(
++  moveit_test_utils
 +  moveit_robot_model
 +  moveit_kinematics_base
 +  rsl::rsl
@@ -1062,5 +1763,54 @@ index ca44183fa..58fc7d103 100644
 +  urdfdom::urdf_parser
 +  rclcpp::rclcpp
 +  fmt::fmt)
- set_target_properties(moveit_test_utils PROPERTIES VERSION
-                                                    "${${PROJECT_NAME}_VERSION}")
++set_target_properties(moveit_test_utils PROPERTIES VERSION
++                                                   "${${PROJECT_NAME}_VERSION}")
+Index: moveit-core-2.5.9-1/macros/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/macros/CMakeLists.txt
++++ moveit-core-2.5.9-1/macros/CMakeLists.txt
+@@ -1 +1,6 @@
+-install(DIRECTORY include/ DESTINATION include)
++add_library(moveit_macros INTERFACE)
++target_include_directories(
++  moveit_macros INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++                          $<INSTALL_INTERFACE:include/moveit_core>)
++
++install(DIRECTORY include/ DESTINATION include/moveit_core)
+Index: moveit-core-2.5.9-1/planning_request_adapter/CMakeLists.txt
+===================================================================
+--- moveit-core-2.5.9-1.orig/planning_request_adapter/CMakeLists.txt
++++ moveit-core-2.5.9-1/planning_request_adapter/CMakeLists.txt
+@@ -1,17 +1,18 @@
+-set(MOVEIT_LIB_NAME moveit_planning_request_adapter)
+-
+-add_library(${MOVEIT_LIB_NAME} SHARED src/planning_request_adapter.cpp)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  rclcpp
+-  rmw_implementation
+-  urdf
+-  urdfdom
+-  urdfdom_headers
+-  visualization_msgs
+-)
+-target_link_libraries(${MOVEIT_LIB_NAME}
++add_library(moveit_planning_request_adapter SHARED src/planning_request_adapter.cpp)
++target_include_directories(
++  moveit_planning_request_adapter
++  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++         $<INSTALL_INTERFACE:include/moveit_core>)
++set_target_properties(moveit_planning_request_adapter
++	              PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_planning_request_adapter
++  moveit_planning_interface
+   moveit_planning_scene
++  rclcpp::rclcpp
++  urdf::urdf
++  urdfdom::urdf_parser
++  ${visualization_msgs_TARGETS}
+ )
+ 
+-install(DIRECTORY include/ DESTINATION include)
++install(DIRECTORY include/ DESTINATION include/moveit_core)
