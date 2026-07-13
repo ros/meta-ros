@@ -1,0 +1,107 @@
+Remove use of ament_target_dependencies: Take 2 (#3726)
+
+Upstream-Status: Backport [https://github.com/moveit/moveit2/commit/dddf8f912c77115d417909e2a153498bf882a8ea]
+
+Authored-by: Nathan Brooks <nathanbrooks@picknik.ai>
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: moveit-ros-occupancy-map-monitor-2.5.9-1/CMakeLists.txt
+===================================================================
+--- moveit-ros-occupancy-map-monitor-2.5.9-1.orig/CMakeLists.txt
++++ moveit-ros-occupancy-map-monitor-2.5.9-1/CMakeLists.txt
+@@ -1,6 +1,5 @@
+ cmake_minimum_required(VERSION 3.22)
+ project(moveit_ros_occupancy_map_monitor)
+-set(MOVEIT_LIB_NAME ${PROJECT_NAME})
+ 
+ # Common cmake code applied to all moveit packages
+ find_package(moveit_common REQUIRED)
+@@ -17,6 +16,8 @@ find_package(Eigen3 REQUIRED)
+ find_package(octomap REQUIRED)
+ find_package(geometric_shapes REQUIRED)
+ find_package(tf2_ros REQUIRED)
++find_package(rclcpp REQUIRED)
++find_package(Boost REQUIRED)
+ 
+ 
+ include_directories(include)
+@@ -32,28 +33,45 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
+   pluginlib
+   octomap
+   geometric_shapes
++  tf2_ros
+   Boost
+ )
+ 
+-add_library(${MOVEIT_LIB_NAME} SHARED
++add_library(moveit_ros_occupancy_map_monitor SHARED
+   src/occupancy_map_monitor.cpp
+   src/occupancy_map_monitor_middleware_handle.cpp
+   src/occupancy_map_updater.cpp
+ )
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
+-  ${THIS_PACKAGE_INCLUDE_DEPENDS}
+-)
++set_target_properties(
++  moveit_ros_occupancy_map_monitor
++  PROPERTIES VERSION "${moveit_ros_occupancy_map_monitor_VERSION}")
++target_link_libraries(
++  moveit_ros_occupancy_map_monitor
++  rclcpp::rclcpp
++  moveit_core::moveit_core
++  ${moveit_msgs_TARGETS}
++  pluginlib::pluginlib
++  octomap
++  geometric_shapes::geometric_shapes
++  tf2_ros::tf2_ros
++  Boost::headers)
+ 
+ add_executable(moveit_ros_occupancy_map_server src/occupancy_map_server.cpp)
+-ament_target_dependencies(moveit_ros_occupancy_map_server
+-  ${THIS_PACKAGE_INCLUDE_DEPENDS}
+-)
+-target_link_libraries(moveit_ros_occupancy_map_server ${MOVEIT_LIB_NAME})
++target_link_libraries(
++  moveit_ros_occupancy_map_server
++  PRIVATE moveit_ros_occupancy_map_monitor
++          rclcpp::rclcpp
++          moveit_core::moveit_core
++          ${moveit_msgs_TARGETS}
++          pluginlib::pluginlib
++          octomap
++          geometric_shapes::geometric_shapes
++          tf2_ros::tf2_ros
++          Boost::headers)
+ 
+ install(
+-  TARGETS ${MOVEIT_LIB_NAME}
+-  EXPORT export_${PROJECT_NAME}
++  TARGETS moveit_ros_occupancy_map_monitor
++  EXPORT export_moveit_ros_occupancy_map_monitor
+   LIBRARY DESTINATION lib
+   ARCHIVE DESTINATION lib
+   RUNTIME DESTINATION bin
+@@ -61,11 +79,11 @@ install(
+ )
+ 
+ install(TARGETS moveit_ros_occupancy_map_server
+-  DESTINATION lib/${PROJECT_NAME}
++  DESTINATION lib/moveit_ros_occupancy_map_monitor
+ )
+ install(DIRECTORY include/ DESTINATION include)
+ 
+-ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
++ament_export_targets(export_moveit_ros_occupancy_map_monitor HAS_LIBRARY_TARGET)
+ ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS} eigen3_cmake_module)
+ 
+ if(BUILD_TESTING)
+@@ -85,7 +103,7 @@ if(BUILD_TESTING)
+     test/occupancy_map_monitor_tests.cpp
+   )
+   target_link_libraries(occupancy_map_monitor_tests
+-    ${MOVEIT_LIB_NAME}
++    moveit_ros_occupancy_map_monitor
+   )
+ endif()
+ 
