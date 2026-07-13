@@ -1,0 +1,45 @@
+From: Max Weber-Hohengrund <max.weber-hohengrund@roboa.ch>
+Date: Thu, 9 Jul 2026 00:00:00 +0200
+Subject: [PATCH] Use in-process find_package for system foonathan_memory
+
+The existence check spawns a child cmake via `cmake --find-package`,
+which does not inherit the cross toolchain file, CMAKE_SYSROOT or
+CMAKE_FIND_ROOT_PATH, so a foonathan_memory staged in the Yocto/OE
+recipe sysroot is never found and the vendor falls back to cloning at
+build time -- which fails under bitbake's network-isolated do_compile.
+Use a normal in-process find_package(), which respects the toolchain
+context.
+
+Upstream-Status: Pending
+Signed-off-by: Max Weber-Hohengrund <max.weber-hohengrund@roboa.ch>
+---
+ CMakeLists.txt | 15 +++++----------
+ 1 file changed, 5 insertions(+), 10 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 769f1d1..ff507d0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,17 +4,12 @@ project(foonathan_memory_vendor VERSION "1.4.1")
+ option(FOONATHAN_MEMORY_FORCE_VENDORED_BUILD
+         "Force foonathan memory vendor package build even if it is already installed in the system" OFF)
+ 
++set(_EXIT_CODE 1)
+ if(NOT FOONATHAN_MEMORY_FORCE_VENDORED_BUILD)
+-  execute_process(COMMAND
+-      ${CMAKE_COMMAND}
+-      --find-package
+-      -DNAME=foonathan_memory
+-      -DCOMPILER_ID=$<IF:$<BOOL:${WIN32}>,MSVC,GNU>
+-      -DLANGUAGE=CXX
+-      -DMODE=EXIST
+-      -DCMAKE_FIND_DEBUG_MODE=ON
+-    ERROR_QUIET
+-    RESULT_VARIABLE _EXIT_CODE)
++  find_package(foonathan_memory QUIET)
++  if(foonathan_memory_FOUND)
++    set(_EXIT_CODE 0)
++  endif()
+ endif()
+ 
+ if(NOT _EXIT_CODE EQUAL 0)
