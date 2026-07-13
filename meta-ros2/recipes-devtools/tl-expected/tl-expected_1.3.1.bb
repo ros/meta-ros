@@ -10,4 +10,8 @@ inherit cmake
 
 EXTRA_OECMAKE = "-DEXPECTED_BUILD_TESTS=FALSE"
 
+# tl-expected is a header-only library, ie, the main package is empty, but
+# ROS packages depend on it at runtime via ROS_UNRESOLVED_DEP-libexpected-dev.
+ALLOW_EMPTY:${PN} = "1"
+
 BBCLASSEXTEND = "native nativesdk"
