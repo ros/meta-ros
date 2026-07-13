@@ -1,0 +1,27 @@
+Disable compiler options
+
+We prefer to use the compiler options set by bitbake.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+Signed-off-by: Stephen Street <stephen@redrocketcomputing.com>
+---
+ CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
+
+Index: controller-manager-2.53.1-1/CMakeLists.txt
+===================================================================
+--- controller-manager-2.53.1-1.orig/CMakeLists.txt
++++ controller-manager-2.53.1-1/CMakeLists.txt
+@@ -1,10 +1,6 @@
+ cmake_minimum_required(VERSION 3.16)
+ project(controller_manager LANGUAGES CXX)
+ 
+-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Werror=conversion -Werror=unused-but-set-variable -Werror=return-type -Werror=shadow)
+-endif()
+-
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
+     ament_index_cpp
+     controller_interface
