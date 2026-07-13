@@ -17,3 +17,9 @@ SRC_URI += "file://remove-boost-system.patch \
 # non -dev/-dbg/nativesdk- package contains symlink .so: moveit-ros-planning path '/work/raspberrypi4-webos-linux-gnueabi/moveit-ros-planning/2.1.0-1-r0/packages-split/moveit-ros-planning/usr/lib/libmoveit_trajectory_execution_manager.so'
 # [dev-so]
 inherit ros_insane_dev_so
+
+do_install:append() {
+    # Fix for QA warning [buildpaths]
+    # Remove ${RECIPE_SYSROOT}/usr/include added by the Boost components
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir};##g" ${D}${ros_datadir}/moveit_ros_planning/cmake/export_moveit_ros_planningExport.cmake
+}
