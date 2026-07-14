@@ -28,5 +28,5 @@ inherit ros_insane_dev_so
 do_install:append() {
     # Fix for QA warning [buildpaths]
     # Remove ${RECIPE_SYSROOT}/usr/include added by the Boost components
-    sed -i -e "s#${RECIPE_SYSROOT}${includedir};##g" ${D}${ros_datadir}/moveit_ros_planning/cmake/export_moveit_ros_planningExport.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir};##g" ${D}${ros_datadir}/moveit_ros_planning/cmake/moveit_ros_planningTargetsExport.cmake
 }
