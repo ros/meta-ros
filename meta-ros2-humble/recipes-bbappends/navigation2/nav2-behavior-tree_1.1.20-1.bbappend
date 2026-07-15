@@ -2,3 +2,7 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://revamp-nav2_behavior_tree-CMakelists.patch"
+
+ROS_BUILD_DEPENDS += " \
+    rosidl-adapter \
+"
