@@ -1,0 +1,94 @@
+Generate interface targets
+
+Upstream-Status: Backport [https://github.com/ros2/rosidl/commit/cfe97b176a22fbc5d803f2b0e14a0f7c2d6a33a5]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From cfe97b176a22fbc5d803f2b0e14a0f7c2d6a33a5 Mon Sep 17 00:00:00 2001
+From: Emerson Knapp <537409+emersonknapp@users.noreply.github.com>
+Date: Fri, 20 Mar 2026 09:44:11 -0700
+Subject: [PATCH] Create an aggregate target for rosidl generated interfaces
+ targets (#947)
+
+Signed-off-by: Emerson Knapp <emerson.b.knapp@gmail.com>
+(cherry picked from commit e61e46df2d4111606eb5a1eb969bae23f97a8e01)
+---
+ ...idl_cmake_aggregate_target-extras.cmake.in | 10 +++++++
+ ..._cmake_aggregate_target_package_hook.cmake | 26 +++++++++++++++++++
+ rosidl_cmake/rosidl_cmake-extras.cmake        | 13 ++++++++++
+ 3 files changed, 49 insertions(+)
+ create mode 100644 rosidl_cmake/cmake/rosidl_cmake_aggregate_target-extras.cmake.in
+ create mode 100644 rosidl_cmake/cmake/rosidl_cmake_aggregate_target_package_hook.cmake
+
+diff --git rosidl_cmake/cmake/rosidl_cmake_aggregate_target-extras.cmake.in rosidl_cmake/cmake/rosidl_cmake_aggregate_target-extras.cmake.in
+new file mode 100644
+index 000000000..379947165
+--- /dev/null
++++ rosidl_cmake/cmake/rosidl_cmake_aggregate_target-extras.cmake.in
+@@ -0,0 +1,10 @@
++# generated from rosidl_cmake/cmake/rosidl_cmake_aggregate_target-extras.cmake.in
++
++# Create a convenience aggregate target @PROJECT_NAME@::@PROJECT_NAME@
++# that links all generated interface targets, so downstream packages can use
++# a single modern CMake target name instead of ${@PROJECT_NAME@_TARGETS}.
++if(@PROJECT_NAME@_TARGETS AND NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
++  add_library(@PROJECT_NAME@::@PROJECT_NAME@ INTERFACE IMPORTED)
++  set_target_properties(@PROJECT_NAME@::@PROJECT_NAME@ PROPERTIES
++    INTERFACE_LINK_LIBRARIES "${@PROJECT_NAME@_TARGETS}")
++endif()
+diff --git rosidl_cmake/cmake/rosidl_cmake_aggregate_target_package_hook.cmake rosidl_cmake/cmake/rosidl_cmake_aggregate_target_package_hook.cmake
+new file mode 100644
+index 000000000..f2ef9eb31
+--- /dev/null
++++ rosidl_cmake/cmake/rosidl_cmake_aggregate_target_package_hook.cmake
+@@ -0,0 +1,26 @@
++# Copyright 2026 Open Source Robotics Foundation, Inc.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
++# Generate and register a post-extra file that creates the aggregate
++# interface target ${PROJECT_NAME}::${PROJECT_NAME} for downstream packages.
++# This uses CONFIG_EXTRAS_POST so it runs after ament_cmake_export_targets
++# has populated ${PROJECT_NAME}_TARGETS.
++set(_generated_extra_file
++  "${CMAKE_CURRENT_BINARY_DIR}/rosidl_cmake/rosidl_cmake_aggregate_target-extras.cmake")
++configure_file(
++  "${rosidl_cmake_DIR}/rosidl_cmake_aggregate_target-extras.cmake.in"
++  "${_generated_extra_file}"
++  @ONLY
++)
++list(APPEND ${PROJECT_NAME}_CONFIG_EXTRAS_POST "${_generated_extra_file}")
+diff --git rosidl_cmake/rosidl_cmake-extras.cmake rosidl_cmake/rosidl_cmake-extras.cmake
+index b8f0d07f2..cd7777028 100644
+--- rosidl_cmake/rosidl_cmake-extras.cmake
++++ rosidl_cmake/rosidl_cmake-extras.cmake
+@@ -24,6 +24,19 @@ macro(_rosidl_cmake_register_package_hook)
+       "rosidl_cmake_package_hook.cmake")
+ 
+     find_package(ament_cmake_export_dependencies QUIET REQUIRED)
++
++    _rosidl_cmake_aggregate_target_register_package_hook()
++  endif()
++endmacro()
++
++# register ament_package() hook for the aggregate interface target once
++macro(_rosidl_cmake_aggregate_target_register_package_hook)
++  if(NOT DEFINED _ROSIDL_CMAKE_AGGREGATE_TARGET_PACKAGE_HOOK_REGISTERED)
++    set(_ROSIDL_CMAKE_AGGREGATE_TARGET_PACKAGE_HOOK_REGISTERED TRUE)
++
++    find_package(ament_cmake_core QUIET REQUIRED)
++    ament_register_extension("ament_package" "rosidl_cmake"
++      "rosidl_cmake_aggregate_target_package_hook.cmake")
+   endif()
+ endmacro()
+ 
