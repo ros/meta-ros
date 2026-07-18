@@ -1,0 +1,850 @@
+Upstream-Status: Backport [https://github.com/ros-navigation/navigation2/commit/c2e4aabdab5a4d3ebbf011c9e28d00ce3e27a4c3]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From c2e4aabdab5a4d3ebbf011c9e28d00ce3e27a4c3 Mon Sep 17 00:00:00 2001
+From: Chris Lalancette <clalancette@gmail.com>
+Date: Tue, 20 Aug 2024 18:33:48 -0400
+Subject: [PATCH] Switch nav2_smac_planner to modern CMake idioms. (#4634)
+
+Signed-off-by: Chris Lalancette <clalancette@gmail.com>
+---
+ nav2_smac_planner/CMakeLists.txt              | 224 +++++++++++-------
+ .../include/nav2_smac_planner/a_star.hpp      |   8 +-
+ .../nav2_smac_planner/analytic_expansion.hpp  |   5 +-
+ .../nav2_smac_planner/collision_checker.hpp   |   2 +-
+ .../nav2_smac_planner/costmap_downsampler.hpp |   3 +-
+ .../include/nav2_smac_planner/node_2d.hpp     |  10 +-
+ .../include/nav2_smac_planner/node_basic.hpp  |  12 -
+ .../include/nav2_smac_planner/node_hybrid.hpp |   7 +-
+ .../nav2_smac_planner/node_lattice.hpp        |  11 +-
+ .../include/nav2_smac_planner/smoother.hpp    |   8 -
+ .../include/nav2_smac_planner/utils.hpp       |   1 -
+ nav2_smac_planner/package.xml                 |  32 ++-
+ nav2_smac_planner/src/node_lattice.cpp        |  13 +-
+ nav2_smac_planner/src/smac_planner_hybrid.cpp |   1 -
+ .../src/smac_planner_lattice.cpp              |   1 -
+ nav2_smac_planner/src/smoother.cpp            |   9 +-
+ nav2_smac_planner/test/CMakeLists.txt         |  84 ++++---
+ .../test/test_collision_checker.cpp           |   1 -
+ nav2_smac_planner/test/test_nodebasic.cpp     |   3 -
+ 19 files changed, 224 insertions(+), 211 deletions(-)
+
+diff --git nav2_smac_planner/CMakeLists.txt nav2_smac_planner/CMakeLists.txt
+index d9da9fd1474..e2a90a06eff 100644
+--- nav2_smac_planner/CMakeLists.txt
++++ nav2_smac_planner/CMakeLists.txt
+@@ -4,29 +4,23 @@ project(nav2_smac_planner)
+ set(CMAKE_BUILD_TYPE Release) #Debug, Release
+ 
+ find_package(ament_cmake REQUIRED)
++find_package(ament_index_cpp REQUIRED)
++find_package(angles REQUIRED)
++find_package(geometry_msgs REQUIRED)
+ find_package(nav2_common REQUIRED)
+-find_package(rclcpp REQUIRED)
+-find_package(rclcpp_action REQUIRED)
+-find_package(rclcpp_lifecycle REQUIRED)
+-find_package(std_msgs REQUIRED)
+-find_package(visualization_msgs REQUIRED)
+-find_package(nav2_util REQUIRED)
+ find_package(nav2_core REQUIRED)
+-find_package(nav2_msgs REQUIRED)
+-find_package(nav_msgs REQUIRED)
+-find_package(geometry_msgs REQUIRED)
+-find_package(builtin_interfaces REQUIRED)
+-find_package(tf2_ros REQUIRED)
+ find_package(nav2_costmap_2d REQUIRED)
+-find_package(pluginlib REQUIRED)
+-find_package(eigen3_cmake_module REQUIRED)
+-find_package(Eigen3 REQUIRED)
+-find_package(angles REQUIRED)
++find_package(nav2_util REQUIRED)
++find_package(nav_msgs REQUIRED)
++find_package(nlohmann_json REQUIRED)
+ find_package(ompl REQUIRED)
+-
+-if(NOT CMAKE_CXX_STANDARD)
+-  set(CMAKE_CXX_STANDARD 17)
+-endif()
++find_package(pluginlib REQUIRED)
++find_package(rclcpp REQUIRED)
++find_package(rclcpp_lifecycle REQUIRED)
++find_package(rcl_interfaces REQUIRED)
++find_package(tf2 REQUIRED)
++find_package(tf2_ros REQUIRED)
++find_package(visualization_msgs REQUIRED)
+ 
+ if(MSVC)
+   add_compile_definitions(_USE_MATH_DEFINES)
+@@ -34,107 +28,144 @@ else()
+   add_compile_options(-O3 -Wextra -Wdeprecated -fPIC)
+ endif()
+ 
+-include_directories(
+-  include
+-  ${OMPL_INCLUDE_DIRS}
+-)
+-
+ set(library_name nav2_smac_planner)
+ 
+-set(dependencies
+-  rclcpp
+-  rclcpp_action
+-  rclcpp_lifecycle
+-  std_msgs
+-  visualization_msgs
+-  nav2_util
+-  nav2_msgs
+-  nav_msgs
+-  geometry_msgs
+-  builtin_interfaces
+-  tf2_ros
+-  nav2_costmap_2d
+-  nav2_core
+-  pluginlib
+-  angles
+-  eigen3_cmake_module
+-)
+-
+-# Hybrid plugin
+-add_library(${library_name} SHARED
+-  src/smac_planner_hybrid.cpp
++# Common library
++add_library(${library_name}_common SHARED
+   src/a_star.cpp
+-  src/collision_checker.cpp
+-  src/smoother.cpp
+   src/analytic_expansion.cpp
+-  src/node_hybrid.cpp
+-  src/node_lattice.cpp
++  src/collision_checker.cpp
+   src/costmap_downsampler.cpp
+   src/node_2d.cpp
+   src/node_basic.cpp
++  src/node_hybrid.cpp
++  src/node_lattice.cpp
++  src/smoother.cpp
++)
++target_include_directories(${library_name}_common
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++    ${OMPL_INCLUDE_DIRS}
++)
++target_link_libraries(${library_name}_common PUBLIC
++  ${geometry_msgs_TARGETS}
++  nav2_core::nav2_core
++  nav2_costmap_2d::layers
++  nav2_costmap_2d::nav2_costmap_2d_core
++  ${nav_msgs_TARGETS}
++  nlohmann_json::nlohmann_json
++  ${OMPL_LIBRARIES}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  tf2::tf2
++  ${visualization_msgs_TARGETS}
++)
++target_link_libraries(${library_name}_common PRIVATE
++  angles::angles
+ )
+ 
+-target_link_libraries(${library_name} ${OMPL_LIBRARIES})
+-target_include_directories(${library_name} PUBLIC ${Eigen3_INCLUDE_DIRS})
+-
+-ament_target_dependencies(${library_name}
+-  ${dependencies}
++# Hybrid plugin
++add_library(${library_name} SHARED
++  src/smac_planner_hybrid.cpp
++)
++target_include_directories(${library_name}
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++    ${OMPL_INCLUDE_DIRS}
++)
++target_link_libraries(${library_name} PUBLIC
++  ${library_name}_common
++  ${geometry_msgs_TARGETS}
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  ${nav_msgs_TARGETS}
++  nlohmann_json::nlohmann_json
++  ${OMPL_LIBRARIES}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rcl_interfaces_TARGETS}
++  tf2::tf2
++  tf2_ros::tf2_ros
++  ${visualization_msgs_TARGETS}
++)
++target_link_libraries(${library_name} PRIVATE
++  pluginlib::pluginlib
+ )
+ 
+ # 2D plugin
+ add_library(${library_name}_2d SHARED
+   src/smac_planner_2d.cpp
+-  src/a_star.cpp
+-  src/smoother.cpp
+-  src/collision_checker.cpp
+-  src/analytic_expansion.cpp
+-  src/node_hybrid.cpp
+-  src/node_lattice.cpp
+-  src/costmap_downsampler.cpp
+-  src/node_2d.cpp
+-  src/node_basic.cpp
+ )
+-
+-target_link_libraries(${library_name}_2d ${OMPL_LIBRARIES})
+-target_include_directories(${library_name}_2d PUBLIC ${Eigen3_INCLUDE_DIRS})
+-
+-ament_target_dependencies(${library_name}_2d
+-  ${dependencies}
++target_include_directories(${library_name}_2d
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++    ${OMPL_INCLUDE_DIRS}
++)
++target_link_libraries(${library_name}_2d PUBLIC
++  ${library_name}_common
++  ${geometry_msgs_TARGETS}
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  ${nav_msgs_TARGETS}
++  nlohmann_json::nlohmann_json
++  ${OMPL_LIBRARIES}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rcl_interfaces_TARGETS}
++  tf2::tf2
++  tf2_ros::tf2_ros
++  ${visualization_msgs_TARGETS}
++)
++target_link_libraries(${library_name}_2d PRIVATE
++  pluginlib::pluginlib
+ )
+ 
+ # Lattice plugin
+ add_library(${library_name}_lattice SHARED
+   src/smac_planner_lattice.cpp
+-  src/a_star.cpp
+-  src/smoother.cpp
+-  src/collision_checker.cpp
+-  src/analytic_expansion.cpp
+-  src/node_hybrid.cpp
+-  src/node_lattice.cpp
+-  src/costmap_downsampler.cpp
+-  src/node_2d.cpp
+-  src/node_basic.cpp
+ )
+-
+-target_link_libraries(${library_name}_lattice ${OMPL_LIBRARIES})
+-target_include_directories(${library_name}_lattice PUBLIC ${Eigen3_INCLUDE_DIRS})
+-
+-ament_target_dependencies(${library_name}_lattice
+-  ${dependencies}
++target_include_directories(${library_name}_lattice
++  PUBLIC
++    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
++    ${OMPL_INCLUDE_DIRS}
++)
++target_link_libraries(${library_name}_lattice PUBLIC
++  ${library_name}_common
++  ${geometry_msgs_TARGETS}
++  nav2_core::nav2_core
++  nav2_costmap_2d::nav2_costmap_2d_core
++  ${nav_msgs_TARGETS}
++  nlohmann_json::nlohmann_json
++  ${OMPL_LIBRARIES}
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++  ${rcl_interfaces_TARGETS}
++  tf2::tf2
++  tf2_ros::tf2_ros
++  ${visualization_msgs_TARGETS}
++)
++target_link_libraries(${library_name}_lattice PRIVATE
++  ament_index_cpp::ament_index_cpp
++  pluginlib::pluginlib
+ )
+ 
+ pluginlib_export_plugin_description_file(nav2_core smac_plugin_hybrid.xml)
+ pluginlib_export_plugin_description_file(nav2_core smac_plugin_2d.xml)
+ pluginlib_export_plugin_description_file(nav2_core smac_plugin_lattice.xml)
+ 
+-install(TARGETS ${library_name} ${library_name}_2d ${library_name}_lattice
++install(TARGETS ${library_name}_common ${library_name} ${library_name}_2d ${library_name}_lattice
++  EXPORT ${PROJECT_NAME}
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   RUNTIME DESTINATION lib/${PROJECT_NAME}
+ )
+ 
+ install(DIRECTORY include/
+-  DESTINATION include/
++  DESTINATION include/${PROJECT_NAME}
+ )
+ 
+ install(DIRECTORY lattice_primitives/sample_primitives DESTINATION share/${PROJECT_NAME})
+@@ -144,10 +175,25 @@ if(BUILD_TESTING)
+   set(AMENT_LINT_AUTO_FILE_EXCLUDE include/nav2_smac_planner/thirdparty/robin_hood.h)
+   ament_lint_auto_find_test_dependencies()
+   find_package(ament_cmake_gtest REQUIRED)
++  ament_find_gtest()
+   add_subdirectory(test)
+ endif()
+ 
+-ament_export_include_directories(include ${OMPL_INCLUDE_DIRS})
++ament_export_include_directories(include/${PROJECT_NAME})
+ ament_export_libraries(${library_name} ${library_name}_2d ${library_name}_lattice)
+-ament_export_dependencies(${dependencies})
++ament_export_dependencies(
++  geometry_msgs
++  nav2_core
++  nav2_costmap_2d
++  nav_msgs
++  nlohmann_json
++  ompl
++  rclcpp
++  rclcpp_lifecycle
++  rcl_interfaces
++  tf2
++  tf2_ros
++  visualization_msgs
++)
++ament_export_targets(${PROJECT_NAME})
+ ament_package()
+diff --git nav2_smac_planner/include/nav2_smac_planner/a_star.hpp nav2_smac_planner/include/nav2_smac_planner/a_star.hpp
+index c95d8c82cff..a3ae1f6c7b2 100644
+--- nav2_smac_planner/include/nav2_smac_planner/a_star.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/a_star.hpp
+@@ -16,14 +16,12 @@
+ #ifndef NAV2_SMAC_PLANNER__A_STAR_HPP_
+ #define NAV2_SMAC_PLANNER__A_STAR_HPP_
+ 
+-#include <vector>
+-#include <iostream>
+-#include <unordered_map>
++#include <functional>
+ #include <memory>
+ #include <queue>
+-#include <utility>
+ #include <tuple>
+-#include "Eigen/Core"
++#include <utility>
++#include <vector>
+ 
+ #include "nav2_costmap_2d/costmap_2d.hpp"
+ #include "nav2_core/planner_exceptions.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/analytic_expansion.hpp nav2_smac_planner/include/nav2_smac_planner/analytic_expansion.hpp
+index 76719d72313..c4d3deccda7 100644
+--- nav2_smac_planner/include/nav2_smac_planner/analytic_expansion.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/analytic_expansion.hpp
+@@ -15,10 +15,11 @@
+ #ifndef NAV2_SMAC_PLANNER__ANALYTIC_EXPANSION_HPP_
+ #define NAV2_SMAC_PLANNER__ANALYTIC_EXPANSION_HPP_
+ 
+-#include <string>
+-#include <vector>
++#include <functional>
+ #include <list>
+ #include <memory>
++#include <string>
++#include <vector>
+ 
+ #include "nav2_smac_planner/node_2d.hpp"
+ #include "nav2_smac_planner/node_hybrid.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/collision_checker.hpp nav2_smac_planner/include/nav2_smac_planner/collision_checker.hpp
+index 205c3f0471a..5b31ee87cd2 100644
+--- nav2_smac_planner/include/nav2_smac_planner/collision_checker.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/collision_checker.hpp
+@@ -12,8 +12,8 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License. Reserved.
+ 
+-#include <vector>
+ #include <memory>
++#include <vector>
+ 
+ #include "nav2_costmap_2d/footprint_collision_checker.hpp"
+ #include "nav2_costmap_2d/costmap_2d_ros.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/costmap_downsampler.hpp nav2_smac_planner/include/nav2_smac_planner/costmap_downsampler.hpp
+index 332507d7c2a..21189170298 100644
+--- nav2_smac_planner/include/nav2_smac_planner/costmap_downsampler.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/costmap_downsampler.hpp
+@@ -15,9 +15,8 @@
+ #ifndef NAV2_SMAC_PLANNER__COSTMAP_DOWNSAMPLER_HPP_
+ #define NAV2_SMAC_PLANNER__COSTMAP_DOWNSAMPLER_HPP_
+ 
+-#include <algorithm>
+-#include <string>
+ #include <memory>
++#include <string>
+ 
+ #include "nav2_costmap_2d/costmap_2d_ros.hpp"
+ #include "nav2_smac_planner/constants.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/node_2d.hpp nav2_smac_planner/include/nav2_smac_planner/node_2d.hpp
+index 3ccadefdedb..2ef090fe498 100644
+--- nav2_smac_planner/include/nav2_smac_planner/node_2d.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/node_2d.hpp
+@@ -15,14 +15,10 @@
+ #ifndef NAV2_SMAC_PLANNER__NODE_2D_HPP_
+ #define NAV2_SMAC_PLANNER__NODE_2D_HPP_
+ 
+-#include <math.h>
+-#include <vector>
+-#include <iostream>
+-#include <memory>
+-#include <queue>
+-#include <limits>
+-#include <utility>
+ #include <functional>
++#include <memory>
++#include <stdexcept>
++#include <vector>
+ 
+ #include "nav2_smac_planner/types.hpp"
+ #include "nav2_smac_planner/constants.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/node_basic.hpp nav2_smac_planner/include/nav2_smac_planner/node_basic.hpp
+index dfb26c5ddaf..d7b7d72409f 100644
+--- nav2_smac_planner/include/nav2_smac_planner/node_basic.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/node_basic.hpp
+@@ -15,18 +15,6 @@
+ #ifndef NAV2_SMAC_PLANNER__NODE_BASIC_HPP_
+ #define NAV2_SMAC_PLANNER__NODE_BASIC_HPP_
+ 
+-#include <math.h>
+-#include <vector>
+-#include <cmath>
+-#include <iostream>
+-#include <functional>
+-#include <queue>
+-#include <memory>
+-#include <utility>
+-#include <limits>
+-
+-#include "ompl/base/StateSpace.h"
+-
+ #include "nav2_smac_planner/constants.hpp"
+ #include "nav2_smac_planner/node_hybrid.hpp"
+ #include "nav2_smac_planner/node_lattice.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/node_hybrid.hpp nav2_smac_planner/include/nav2_smac_planner/node_hybrid.hpp
+index b67ed978ec8..cf6a9a6e89e 100644
+--- nav2_smac_planner/include/nav2_smac_planner/node_hybrid.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/node_hybrid.hpp
+@@ -15,15 +15,10 @@
+ #ifndef NAV2_SMAC_PLANNER__NODE_HYBRID_HPP_
+ #define NAV2_SMAC_PLANNER__NODE_HYBRID_HPP_
+ 
+-#include <math.h>
+-#include <vector>
+-#include <cmath>
+-#include <iostream>
+ #include <functional>
+-#include <queue>
+ #include <memory>
+ #include <utility>
+-#include <limits>
++#include <vector>
+ 
+ #include "ompl/base/StateSpace.h"
+ 
+diff --git nav2_smac_planner/include/nav2_smac_planner/node_lattice.hpp nav2_smac_planner/include/nav2_smac_planner/node_lattice.hpp
+index f31ccb9b0d2..f3e3ff37f9a 100644
+--- nav2_smac_planner/include/nav2_smac_planner/node_lattice.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/node_lattice.hpp
+@@ -15,21 +15,12 @@
+ #ifndef NAV2_SMAC_PLANNER__NODE_LATTICE_HPP_
+ #define NAV2_SMAC_PLANNER__NODE_LATTICE_HPP_
+ 
+-#include <math.h>
+-
+-#include <vector>
+-#include <cmath>
+-#include <iostream>
+ #include <functional>
+-#include <queue>
+ #include <memory>
+-#include <utility>
+-#include <limits>
+ #include <string>
++#include <vector>
+ 
+-#include "nlohmann/json.hpp"
+ #include "ompl/base/StateSpace.h"
+-#include "angles/angles.h"
+ 
+ #include "nav2_smac_planner/constants.hpp"
+ #include "nav2_smac_planner/types.hpp"
+diff --git nav2_smac_planner/include/nav2_smac_planner/smoother.hpp nav2_smac_planner/include/nav2_smac_planner/smoother.hpp
+index d896cd90b5f..89ecc0b0926 100644
+--- nav2_smac_planner/include/nav2_smac_planner/smoother.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/smoother.hpp
+@@ -15,22 +15,14 @@
+ #ifndef NAV2_SMAC_PLANNER__SMOOTHER_HPP_
+ #define NAV2_SMAC_PLANNER__SMOOTHER_HPP_
+ 
+-#include <cmath>
+ #include <vector>
+-#include <iostream>
+-#include <memory>
+-#include <queue>
+-#include <utility>
+ 
+ #include "nav2_costmap_2d/costmap_2d.hpp"
+ #include "nav2_smac_planner/types.hpp"
+ #include "nav2_smac_planner/constants.hpp"
+ #include "nav2_util/geometry_utils.hpp"
+ #include "nav_msgs/msg/path.hpp"
+-#include "angles/angles.h"
+-#include "tf2/utils.h"
+ #include "ompl/base/StateSpace.h"
+-#include "ompl/base/spaces/DubinsStateSpace.h"
+ 
+ namespace nav2_smac_planner
+ {
+diff --git nav2_smac_planner/include/nav2_smac_planner/utils.hpp nav2_smac_planner/include/nav2_smac_planner/utils.hpp
+index fb020a729a1..89cb2f8dc77 100644
+--- nav2_smac_planner/include/nav2_smac_planner/utils.hpp
++++ nav2_smac_planner/include/nav2_smac_planner/utils.hpp
+@@ -21,7 +21,6 @@
+ #include <string>
+ 
+ #include "nlohmann/json.hpp"
+-#include "Eigen/Core"
+ #include "geometry_msgs/msg/quaternion.hpp"
+ #include "geometry_msgs/msg/pose.hpp"
+ #include "tf2/utils.h"
+diff --git nav2_smac_planner/package.xml nav2_smac_planner/package.xml
+index 0a1303bd682..d73d553496b 100644
+--- nav2_smac_planner/package.xml
++++ nav2_smac_planner/package.xml
+@@ -8,31 +8,29 @@
+   <license>Apache-2.0</license>
+ 
+   <buildtool_depend>ament_cmake</buildtool_depend>
++  <build_depend>nav2_common</build_depend>
+ 
+-  <depend>rclcpp</depend>
+-  <depend>rclcpp_action</depend>
+-  <depend>rclcpp_lifecycle</depend>
+-  <depend>visualization_msgs</depend>
+-  <depend>nav2_util</depend>
+-  <depend>nav2_msgs</depend>
+-  <depend>nav_msgs</depend>
++  <depend>ament_index_cpp</depend>
++  <depend>angles</depend>
++  <depend>eigen</depend>
+   <depend>geometry_msgs</depend>
+-  <depend>builtin_interfaces</depend>
+-  <depend>nav2_common</depend>
+-  <depend>tf2_ros</depend>
+-  <depend>nav2_costmap_2d</depend>
+   <depend>nav2_core</depend>
+-  <depend>pluginlib</depend>
+-  <depend>eigen3_cmake_module</depend>
+-  <depend>eigen</depend>
+-  <depend>ompl</depend>
++  <depend>nav2_costmap_2d</depend>
++  <depend>nav2_util</depend>
++  <depend>nav_msgs</depend>
+   <depend>nlohmann-json-dev</depend>
+-  <depend>angles</depend>
++  <depend>ompl</depend>
++  <depend>pluginlib</depend>
++  <depend>rclcpp</depend>
++  <depend>rclcpp_lifecycle</depend>
++  <depend>rcl_interfaces</depend>
++  <depend>tf2_ros</depend>
++  <depend>tf2</depend>
++  <depend>visualization_msgs</depend>
+ 
+   <test_depend>ament_lint_common</test_depend>
+   <test_depend>ament_lint_auto</test_depend>
+   <test_depend>ament_cmake_gtest</test_depend>
+-  <test_depend>ament_cmake_pytest</test_depend>
+ 
+   <export>
+     <build_type>ament_cmake</build_type>
+diff --git nav2_smac_planner/src/node_lattice.cpp nav2_smac_planner/src/node_lattice.cpp
+index f3ddc9adb80..6c794b9a987 100644
+--- nav2_smac_planner/src/node_lattice.cpp
++++ nav2_smac_planner/src/node_lattice.cpp
+@@ -12,16 +12,17 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License. Reserved.
+ 
+-#include <math.h>
++#include <algorithm>
+ #include <chrono>
+-#include <vector>
++#include <cmath>
++#include <fstream>
++#include <limits>
+ #include <memory>
+-#include <algorithm>
+ #include <queue>
+-#include <limits>
+ #include <string>
+-#include <fstream>
+-#include <cmath>
++#include <vector>
++
++#include "angles/angles.h"
+ 
+ #include "ompl/base/ScopedState.h"
+ #include "ompl/base/spaces/DubinsStateSpace.h"
+diff --git nav2_smac_planner/src/smac_planner_hybrid.cpp nav2_smac_planner/src/smac_planner_hybrid.cpp
+index 5ba10d7d9a0..15491c051ea 100644
+--- nav2_smac_planner/src/smac_planner_hybrid.cpp
++++ nav2_smac_planner/src/smac_planner_hybrid.cpp
+@@ -19,7 +19,6 @@
+ #include <algorithm>
+ #include <limits>
+ 
+-#include "Eigen/Core"
+ #include "nav2_smac_planner/smac_planner_hybrid.hpp"
+ 
+ // #define BENCHMARK_TESTING
+diff --git nav2_smac_planner/src/smac_planner_lattice.cpp nav2_smac_planner/src/smac_planner_lattice.cpp
+index c5a9ecdff60..ebeead9c5c4 100644
+--- nav2_smac_planner/src/smac_planner_lattice.cpp
++++ nav2_smac_planner/src/smac_planner_lattice.cpp
+@@ -18,7 +18,6 @@
+ #include <algorithm>
+ #include <limits>
+ 
+-#include "Eigen/Core"
+ #include "nav2_smac_planner/smac_planner_lattice.hpp"
+ 
+ // #define BENCHMARK_TESTING
+diff --git nav2_smac_planner/src/smoother.cpp nav2_smac_planner/src/smoother.cpp
+index a69e14011f3..fb43f4a1215 100644
+--- nav2_smac_planner/src/smoother.cpp
++++ nav2_smac_planner/src/smoother.cpp
+@@ -14,8 +14,15 @@
+ 
+ #include <ompl/base/ScopedState.h>
+ #include <ompl/base/spaces/DubinsStateSpace.h>
+-#include <vector>
++
++#include <chrono>
+ #include <memory>
++#include <vector>
++
++#include "angles/angles.h"
++
++#include "tf2/utils.h"
++
+ #include "nav2_smac_planner/smoother.hpp"
+ 
+ namespace nav2_smac_planner
+diff --git nav2_smac_planner/test/CMakeLists.txt nav2_smac_planner/test/CMakeLists.txt
+index 8039cf9c51e..fc4abf20c75 100644
+--- nav2_smac_planner/test/CMakeLists.txt
++++ nav2_smac_planner/test/CMakeLists.txt
+@@ -2,128 +2,136 @@
+ ament_add_gtest(test_utils
+   test_utils.cpp
+ )
+-ament_target_dependencies(test_utils
+-  ${dependencies}
+-)
+ target_link_libraries(test_utils
+   ${library_name}
++  ${geometry_msgs_TARGETS}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
+ )
+ 
+ # Test costmap downsampler
+ ament_add_gtest(test_costmap_downsampler
+   test_costmap_downsampler.cpp
+ )
+-ament_target_dependencies(test_costmap_downsampler
+-  ${dependencies}
+-)
+ target_link_libraries(test_costmap_downsampler
+   ${library_name}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  nav2_util::nav2_util_core
++  rclcpp::rclcpp
+ )
+ 
+ # Test Node2D
+ ament_add_gtest(test_node2d
+   test_node2d.cpp
+ )
+-ament_target_dependencies(test_node2d
+-  ${dependencies}
+-)
+ target_link_libraries(test_node2d
+   ${library_name}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test NodeHybrid
+ ament_add_gtest(test_nodehybrid
+   test_nodehybrid.cpp
+ )
+-ament_target_dependencies(test_nodehybrid
+-  ${dependencies}
+-)
+ target_link_libraries(test_nodehybrid
+   ${library_name}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test NodeBasic
+ ament_add_gtest(test_nodebasic
+   test_nodebasic.cpp
+ )
+-ament_target_dependencies(test_nodebasic
+-  ${dependencies}
+-)
+ target_link_libraries(test_nodebasic
+   ${library_name}
++  rclcpp::rclcpp
+ )
+ 
+ # Test collision checker
+ ament_add_gtest(test_collision_checker
+   test_collision_checker.cpp
+ )
+-ament_target_dependencies(test_collision_checker
+-  ${dependencies}
+-)
+ target_link_libraries(test_collision_checker
+   ${library_name}
++  ${geometry_msgs_TARGETS}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test A*
+ ament_add_gtest(test_a_star
+   test_a_star.cpp
+ )
+-ament_target_dependencies(test_a_star
+-  ${dependencies}
+-)
+ target_link_libraries(test_a_star
+   ${library_name}
++  ament_index_cpp::ament_index_cpp
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test SMAC Hybrid
+ ament_add_gtest(test_smac_hybrid
+   test_smac_hybrid.cpp
+ )
+-ament_target_dependencies(test_smac_hybrid
+-  ${dependencies}
+-)
+ target_link_libraries(test_smac_hybrid
+   ${library_name}
++  ${geometry_msgs_TARGETS}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test SMAC 2D
+ ament_add_gtest(test_smac_2d
+   test_smac_2d.cpp
+ )
+-ament_target_dependencies(test_smac_2d
+-  ${dependencies}
+-)
+ target_link_libraries(test_smac_2d
+   ${library_name}_2d
++  ${geometry_msgs_TARGETS}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test SMAC lattice
+ ament_add_gtest(test_smac_lattice
+   test_smac_lattice.cpp
+ )
+-ament_target_dependencies(test_smac_lattice
+-  ${dependencies}
+-)
+ target_link_libraries(test_smac_lattice
+   ${library_name}_lattice
++  ${geometry_msgs_TARGETS}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+ # Test SMAC Smoother
+ ament_add_gtest(test_smoother
+   test_smoother.cpp
+ )
+-ament_target_dependencies(test_smoother
+-  ${dependencies}
+-)
+ target_link_libraries(test_smoother
+   ${library_name}_lattice
+   ${library_name}
+   ${library_name}_2d
++  ament_index_cpp::ament_index_cpp
++  ${geometry_msgs_TARGETS}
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
+ )
+ 
+-#Test Lattice node
++# Test Lattice node
+ ament_add_gtest(test_lattice_node test_nodelattice.cpp)
+-
+-ament_target_dependencies(test_lattice_node ${dependencies})
+-
+-target_link_libraries(test_lattice_node ${library_name})
++target_link_libraries(test_lattice_node
++  ${library_name}
++  ament_index_cpp::ament_index_cpp
++  nav2_costmap_2d::nav2_costmap_2d_core
++  rclcpp::rclcpp
++  rclcpp_lifecycle::rclcpp_lifecycle
++)
+diff --git nav2_smac_planner/test/test_collision_checker.cpp nav2_smac_planner/test/test_collision_checker.cpp
+index dd4e032a51e..92590bd945f 100644
+--- nav2_smac_planner/test/test_collision_checker.cpp
++++ nav2_smac_planner/test/test_collision_checker.cpp
+@@ -19,7 +19,6 @@
+ 
+ #include "gtest/gtest.h"
+ #include "nav2_smac_planner/collision_checker.hpp"
+-#include "nav2_util/lifecycle_node.hpp"
+ 
+ using namespace nav2_costmap_2d;  // NOLINT
+ 
+diff --git nav2_smac_planner/test/test_nodebasic.cpp nav2_smac_planner/test/test_nodebasic.cpp
+index 00aea824650..544842cec68 100644
+--- nav2_smac_planner/test/test_nodebasic.cpp
++++ nav2_smac_planner/test/test_nodebasic.cpp
+@@ -19,9 +19,6 @@
+ 
+ #include "gtest/gtest.h"
+ #include "rclcpp/rclcpp.hpp"
+-#include "nav2_costmap_2d/costmap_2d.hpp"
+-#include "nav2_costmap_2d/costmap_subscriber.hpp"
+-#include "nav2_util/lifecycle_node.hpp"
+ #include "nav2_smac_planner/node_basic.hpp"
+ #include "nav2_smac_planner/node_2d.hpp"
+ #include "nav2_smac_planner/node_hybrid.hpp"
