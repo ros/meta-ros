@@ -9,10 +9,10 @@ Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -12,6 +12,7 @@
-   date_time
-   thread
-   serialization)
+@@ -6,6 +6,7 @@ find_package(moveit_common REQUIRED)
+ moveit_package()
+ 
+ find_package(Boost REQUIRED filesystem date_time thread serialization)
 +find_package(Bullet CONFIG REQUIRED)
  find_package(moveit_core REQUIRED)
  find_package(moveit_msgs REQUIRED)
