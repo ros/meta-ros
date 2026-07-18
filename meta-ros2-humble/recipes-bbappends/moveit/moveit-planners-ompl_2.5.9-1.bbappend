@@ -3,8 +3,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://remove-ament-target-dependencies.patch \
             file://remove-boost-system.patch \
-            file://add-bullet-dependency.patch \
-            file://use-cmake-targets.patch"
+            file://add-bullet-dependency.patch"
 
 do_install:append() {
     # Fix for QA warning [buildpaths]
