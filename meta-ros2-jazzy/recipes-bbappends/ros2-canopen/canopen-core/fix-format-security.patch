@@ -39,11 +39,11 @@ Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-diff --git a/include/canopen_core/node_interfaces/node_canopen_master.hpp b/include/canopen_core/node_interfaces/node_canopen_master.hpp
-index 29ec2375..b900ea25 100644
---- a/include/canopen_core/node_interfaces/node_canopen_master.hpp
-+++ b/include/canopen_core/node_interfaces/node_canopen_master.hpp
-@@ -235,7 +235,7 @@ public:
+Index: canopen-core-0.3.4-1/include/canopen_core/node_interfaces/node_canopen_master.hpp
+===================================================================
+--- canopen-core-0.3.4-1.orig/include/canopen_core/node_interfaces/node_canopen_master.hpp
++++ canopen-core-0.3.4-1/include/canopen_core/node_interfaces/node_canopen_master.hpp
+@@ -234,7 +234,7 @@ public:
          }
          catch (const std::exception & e)
          {
@@ -52,25 +52,25 @@ index 29ec2375..b900ea25 100644
          }
          RCLCPP_INFO(this->node_->get_logger(), "Canopen master loop stopped");
        });
-diff --git a/src/device_container.cpp b/src/device_container.cpp
-index edfb7a35..722d3c29 100644
---- a/src/device_container.cpp
-+++ b/src/device_container.cpp
-@@ -101,7 +101,7 @@ bool DeviceContainer::load_component(
-               execption_string.append(" for device ");
-               execption_string.append(node_name);
-               execption_string.append(" is not a lifecycle driver while the master is.");
--              RCLCPP_ERROR(this->get_logger(), execption_string.c_str());
-+              RCLCPP_ERROR(this->get_logger(), "%s", execption_string.c_str());
-               throw DeviceContainerException(execption_string);
+Index: canopen-core-0.3.4-1/src/device_container.cpp
+===================================================================
+--- canopen-core-0.3.4-1.orig/src/device_container.cpp
++++ canopen-core-0.3.4-1/src/device_container.cpp
+@@ -108,7 +108,7 @@ bool DeviceContainer::load_component(
+               exception_string.append(" for device ");
+               exception_string.append(node_name);
+               exception_string.append(" is not a lifecycle driver while the master is.");
+-              RCLCPP_ERROR(this->get_logger(), exception_string.c_str());
++              RCLCPP_ERROR(this->get_logger(), "%s", exception_string.c_str());
+               throw DeviceContainerException(exception_string);
              }
              else
-@@ -121,7 +121,7 @@ bool DeviceContainer::load_component(
-               execption_string.append(" for device ");
-               execption_string.append(node_name);
-               execption_string.append(" is a lifecycle driver while the master is not.");
--              RCLCPP_ERROR(this->get_logger(), execption_string.c_str());
-+              RCLCPP_ERROR(this->get_logger(), "%s", execption_string.c_str());
-               throw DeviceContainerException(execption_string);
+@@ -128,7 +128,7 @@ bool DeviceContainer::load_component(
+               exception_string.append(" for device ");
+               exception_string.append(node_name);
+               exception_string.append(" is a lifecycle driver while the master is not.");
+-              RCLCPP_ERROR(this->get_logger(), exception_string.c_str());
++              RCLCPP_ERROR(this->get_logger(), "%s", exception_string.c_str());
+               throw DeviceContainerException(exception_string);
              }
              else
