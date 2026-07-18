@@ -1,4 +1,5 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://use-ompl-cmake-target.patch"
+SRC_URI += "file://use-modern-cmake-idioms.patch \
+            file://use-ompl-cmake-target.patch"
