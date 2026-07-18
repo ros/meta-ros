@@ -35,18 +35,20 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
  nav2_rviz_plugins/src/nav2_panel.cpp          |  11 +-
  8 files changed, 109 insertions(+), 80 deletions(-)
 
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -1,29 +1,18 @@
+Index: nav2-rviz-plugins-1.3.12-1/CMakeLists.txt
+===================================================================
+--- nav2-rviz-plugins-1.3.12-1.orig/CMakeLists.txt
++++ nav2-rviz-plugins-1.3.12-1/CMakeLists.txt
+@@ -1,30 +1,18 @@
  cmake_minimum_required(VERSION 3.5)
  project(nav2_rviz_plugins)
-
+ 
 -# Default to C++14
 -if(NOT CMAKE_CXX_STANDARD)
 -  set(CMAKE_CXX_STANDARD 17)
 -endif()
 -
--if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 -  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 -endif()
 -
@@ -57,11 +59,11 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
  find_package(ament_cmake REQUIRED)
 +find_package(ament_index_cpp REQUIRED)
  find_package(geometry_msgs REQUIRED)
+ find_package(nav2_route REQUIRED)
  find_package(nav2_util REQUIRED)
 +find_package(nav2_common REQUIRED)
  find_package(nav2_lifecycle_manager REQUIRED)
 -find_package(nav2_msgs REQUIRED)
-+find_package(nav2_util REQUIRED)
  find_package(nav_msgs REQUIRED)
  find_package(pluginlib REQUIRED)
  find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Test Concurrent)
@@ -71,44 +73,60 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
  find_package(rviz_common REQUIRED)
  find_package(rviz_default_plugins REQUIRED)
  find_package(rviz_ogre_vendor REQUIRED)
-@@ -31,19 +20,23 @@
+@@ -32,13 +20,17 @@ find_package(rviz_rendering REQUIRED)
  find_package(std_msgs REQUIRED)
  find_package(tf2_geometry_msgs REQUIRED)
  find_package(visualization_msgs REQUIRED)
+-find_package(yaml_cpp_vendor REQUIRED)
+-
 +find_package(yaml-cpp REQUIRED)
-
++ 
 +nav2_package()
 +
 +# We specifically don't turn on CMAKE_AUTOMOC, since it generates one huge
 +# mocs_compilation.cpp file that takes a lot of memory to compile.  Instead
 +# we create individual moc files that can be compiled separately.
  set(nav2_rviz_plugins_headers_to_moc
+   include/nav2_rviz_plugins/costmap_cost_tool.hpp
+   include/nav2_rviz_plugins/docking_panel.hpp
    include/nav2_rviz_plugins/goal_pose_updater.hpp
 -  include/nav2_rviz_plugins/goal_common.hpp
    include/nav2_rviz_plugins/goal_tool.hpp
    include/nav2_rviz_plugins/nav2_panel.hpp
-   include/nav2_rviz_plugins/particle_cloud_display/flat_weighted_arrows_array.hpp
+   include/nav2_rviz_plugins/route_tool.hpp
+@@ -48,11 +40,17 @@ set(nav2_rviz_plugins_headers_to_moc
    include/nav2_rviz_plugins/particle_cloud_display/particle_cloud_display.hpp
  )
--
--include_directories(
--  include
--)
+ 
 +foreach(header "${nav2_rviz_plugins_headers_to_moc}")
 +  qt5_wrap_cpp(nav2_rviz_plugins_moc_files "${header}")
 +endforeach()
-
++
+ qt_wrap_ui(route_tool_UIS_H resource/route_tool.ui)
+ 
+-include_directories(
+-  include
+-)
++# Qt5 boilerplate options from http://doc.qt.io/qt-5/cmake-manual.html
++set(CMAKE_INCLUDE_CURRENT_DIR ON)
++set(CMAKE_AUTOMOC ON)
++set(CMAKE_AUTOUIC ON)
++set(CMAKE_AUTORCC ON)
+ 
  set(library_name ${PROJECT_NAME})
-
-@@ -52,29 +45,7 @@
-   src/nav2_panel.cpp
+ 
+@@ -66,50 +64,38 @@ add_library(${library_name} SHARED
+   src/utils.cpp
    src/particle_cloud_display/flat_weighted_arrows_array.cpp
    src/particle_cloud_display/particle_cloud_display.cpp
 -  ${nav2_rviz_plugins_headers_to_moc}
--)
--
++  ${nav2_rviz_plugins_moc_files}
+   ${route_tool_UIS_H}
+ )
+ 
 -set(dependencies
 -  geometry_msgs
+-  nav2_route
 -  nav2_util
 -  nav2_lifecycle_manager
 -  nav2_msgs
@@ -123,27 +141,34 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
 -  rviz_rendering
 -  std_msgs
 -  tf2_geometry_msgs
+-  yaml_cpp_vendor
 -)
 -
 -ament_target_dependencies(${library_name}
 -  ${dependencies}
-+  ${nav2_rviz_plugins_moc_files}
- )
-
+-)
+-
  target_include_directories(${library_name} PUBLIC
-@@ -82,15 +53,26 @@
-   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+-  ${Qt5Widgets_INCLUDE_DIRS}
+-  ${OGRE_INCLUDE_DIRS}
+-  ${nav2_route_INCLUDE_DIRS}
++  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
++  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
  )
-
+ 
 -target_link_libraries(${library_name}
+-  rviz_common::rviz_common
 +target_link_libraries(${library_name} PUBLIC
 +  ${geometry_msgs_TARGETS}
-+  nav2_lifecycle_manager::nav2_lifecycle_manager_core
++  ${nav2_lifecycle_manager_TARGETS}
 +  ${nav2_msgs_TARGETS}
 +  nav2_util::nav2_util_core
+   nav2_route::route_server_core
++  nav2_route::graph_file_loaders
++  nav2_route::graph_file_savers
 +  rclcpp::rclcpp
 +  rclcpp_action::rclcpp_action
-   rviz_common::rviz_common
++  rviz_common::rviz_common
 +  rviz_default_plugins::rviz_default_plugins
 +  rviz_rendering::rviz_rendering
 +  ${std_msgs_TARGETS}
@@ -155,33 +180,33 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
 +  pluginlib::pluginlib
 +  yaml-cpp::yaml-cpp
  )
-
+ 
 -# Causes the visibility macros to use dllexport rather than dllimport,
 -# which is appropriate when building the dll but not consuming it.
 -# TODO: Make this specific to this project (not rviz default plugins)
 -target_compile_definitions(${library_name} PRIVATE "RVIZ_DEFAULT_PLUGINS_BUILDING_LIBRARY")
 -
  pluginlib_export_plugin_description_file(rviz_common plugins_description.xml)
-
+ 
  install(
-@@ -99,12 +81,11 @@
+@@ -118,12 +104,11 @@ install(
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
    RUNTIME DESTINATION bin
 -  INCLUDES DESTINATION include
  )
-
+ 
  install(
    DIRECTORY include/
 -  DESTINATION include/
 +  DESTINATION include/${PROJECT_NAME}
  )
-
- if(BUILD_TESTING)
-@@ -112,15 +93,22 @@
+ 
+ install(
+@@ -140,15 +125,22 @@ if(BUILD_TESTING)
    ament_lint_auto_find_test_dependencies()
  endif()
-
+ 
 -ament_export_include_directories(include)
 +ament_export_include_directories(include/${PROJECT_NAME})
  ament_export_targets(${library_name} HAS_LIBRARY_TARGET)
@@ -203,11 +228,13 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
 +  std_msgs
 +  tf2_geometry_msgs
 +  visualization_msgs
+   nav2_route
  )
-
- ament_package()
---- a/include/nav2_rviz_plugins/nav2_panel.hpp
-+++ b/include/nav2_rviz_plugins/nav2_panel.hpp
+ 
+Index: nav2-rviz-plugins-1.3.12-1/include/nav2_rviz_plugins/nav2_panel.hpp
+===================================================================
+--- nav2-rviz-plugins-1.3.12-1.orig/include/nav2_rviz_plugins/nav2_panel.hpp
++++ nav2-rviz-plugins-1.3.12-1/include/nav2_rviz_plugins/nav2_panel.hpp
 @@ -31,6 +31,7 @@
  #include "rclcpp/rclcpp.hpp"
  #include "rclcpp_action/rclcpp_action.hpp"
@@ -216,25 +243,27 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
  #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
  #include "visualization_msgs/msg/marker_array.hpp"
  #include "nav2_util/geometry_utils.hpp"
-@@ -76,6 +77,9 @@
-
-   int unique_id {0};
-
+@@ -92,6 +93,9 @@ private:
+   std::string loop_no_ = "0";
+   std::string base_frame_;
+ 
 +  // The Node pointer that we need to keep alive for the duration of this plugin.
 +  std::shared_ptr<rviz_common::ros_integration::RosNodeAbstractionIface> node_ptr_;
 +
    // Call to send NavigateToPose action request for goal poses
-   void startWaypointFollowing(std::vector<geometry_msgs::msg::PoseStamped> poses);
-   void startNavigation(geometry_msgs::msg::PoseStamped);
---- a/package.xml
-+++ b/package.xml
+   geometry_msgs::msg::PoseStamped convert_to_msg(
+     std::vector<double> pose,
+Index: nav2-rviz-plugins-1.3.12-1/package.xml
+===================================================================
+--- nav2-rviz-plugins-1.3.12-1.orig/package.xml
++++ nav2-rviz-plugins-1.3.12-1/package.xml
 @@ -8,17 +8,17 @@
    <license>Apache-2.0</license>
-
+ 
    <buildtool_depend>ament_cmake</buildtool_depend>
 +  <build_depend>nav2_common</build_depend>
    <build_depend>qtbase5-dev</build_depend>
-
+ 
 +  <depend>ament_index_cpp</depend>
    <depend>geometry_msgs</depend>
 -  <depend>nav2_util</depend>
@@ -250,17 +279,19 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
    <depend>rviz_common</depend>
    <depend>rviz_default_plugins</depend>
    <depend>rviz_ogre_vendor</depend>
---- a/src/nav2_panel.cpp
-+++ b/src/nav2_panel.cpp
-@@ -24,6 +24,7 @@
+Index: nav2-rviz-plugins-1.3.12-1/src/nav2_panel.cpp
+===================================================================
+--- nav2-rviz-plugins-1.3.12-1.orig/src/nav2_panel.cpp
++++ nav2-rviz-plugins-1.3.12-1/src/nav2_panel.cpp
+@@ -28,6 +28,7 @@
  #include <string>
-
+ 
  #include "nav2_rviz_plugins/goal_common.hpp"
 +#include "rclcpp/rclcpp.hpp"
+ #include "nav2_rviz_plugins/utils.hpp"
  #include "rviz_common/display_context.hpp"
- #include "ament_index_cpp/get_package_share_directory.hpp"
-
-@@ -384,7 +385,15 @@
+ #include "rviz_common/load_resource.hpp"
+@@ -776,7 +777,15 @@ void Nav2Panel::handleGoalSaver()
  void
  Nav2Panel::onInitialize()
  {
@@ -274,6 +305,6 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
 +    return;
 +  }
 +  rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node();
-
-   // create action feedback subscribers
-   navigation_feedback_sub_ =
+ 
+   // declaring parameter to get the base frame
+   node->declare_parameter("base_frame", rclcpp::ParameterValue(std::string("base_footprint")));
