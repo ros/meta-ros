@@ -4,11 +4,11 @@ Upstream-Status: Inappropriate [oe specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Index: ros2-control-cmake-0.3.0-1/cmake/ros2_control.cmake
+Index: ros2-control-cmake-0.4.0-1/cmake/ros2_control.cmake
 ===================================================================
---- ros2-control-cmake-0.3.0-1.orig/cmake/ros2_control.cmake
-+++ ros2-control-cmake-0.3.0-1/cmake/ros2_control.cmake
-@@ -33,51 +33,6 @@ endmacro()
+--- ros2-control-cmake-0.4.0-1.orig/cmake/ros2_control.cmake
++++ ros2-control-cmake-0.4.0-1/cmake/ros2_control.cmake
+@@ -33,61 +33,6 @@ endmacro()
  
  # set compiler options depending on detected compiler
  macro(set_compiler_options)
@@ -32,8 +32,18 @@ Index: ros2-control-cmake-0.3.0-1/cmake/ros2_control.cmake
 -    if(NOT CMAKE_C_STANDARD)
 -      set(CMAKE_C_STANDARD 99)
 -    endif()
+-
+-    include(CheckCXXCompilerFlag)
+-    check_cxx_compiler_flag("-std=c++20" COMPILER_SUPPORTS_CXX20)
+-    check_cxx_compiler_flag("-std=c++17" COMPILER_SUPPORTS_CXX17)
 -    if(NOT CMAKE_CXX_STANDARD)
--      set(CMAKE_CXX_STANDARD 17)
+-      if(COMPILER_SUPPORTS_CXX20)
+-        set(CMAKE_CXX_STANDARD 20)
+-      elseif(COMPILER_SUPPORTS_CXX17)
+-        set(CMAKE_CXX_STANDARD 17)
+-      else()
+-        message(FATAL_ERROR "Compiler supports neither C++20 nor C++17")
+-      endif()
 -    endif()
 -
 -    set(CMAKE_CXX_STANDARD_REQUIRED ON)
