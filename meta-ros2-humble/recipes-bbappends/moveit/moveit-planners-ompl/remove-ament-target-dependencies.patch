@@ -242,37 +242,44 @@ Co-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
  .../moveit_setup_srdf_plugins/CMakeLists.txt  |   5 +-
  100 files changed, 1548 insertions(+), 788 deletions(-)
 
-Index: moveit-planners-ompl-2.12.4-1/CMakeLists.txt
+Index: moveit-planners-ompl-2.5.9-1/CMakeLists.txt
 ===================================================================
---- moveit-planners-ompl-2.12.4-1.orig/CMakeLists.txt
-+++ moveit-planners-ompl-2.12.4-1/CMakeLists.txt
-@@ -31,8 +31,14 @@ include_directories(SYSTEM ${Boost_INCLU
-
+--- moveit-planners-ompl-2.5.9-1.orig/CMakeLists.txt
++++ moveit-planners-ompl-2.5.9-1/CMakeLists.txt
+@@ -26,14 +26,21 @@ include_directories(SYSTEM
+ 
  add_subdirectory(ompl_interface)
-
+ 
+-install(TARGETS moveit_ompl_interface moveit_ompl_planner_plugin
+-  EXPORT export_${PROJECT_NAME}
 +# Create an umbrella INTERFACE target so downstream packages can use
 +# moveit_planners_ompl::moveit_planners_ompl to link all libraries at once.
 +add_library(moveit_planners_ompl INTERFACE)
 +target_link_libraries(moveit_planners_ompl INTERFACE moveit_ompl_interface
 +                                                     moveit_ompl_planner_plugin)
 +
- install(
--  TARGETS moveit_ompl_interface moveit_ompl_planner_plugin
++install(
 +  TARGETS moveit_planners_ompl moveit_ompl_interface moveit_ompl_planner_plugin
-   EXPORT moveit_planners_omplTargets
++  EXPORT moveit_planners_omplTargets
    LIBRARY DESTINATION lib
    ARCHIVE DESTINATION lib
-Index: moveit-planners-ompl-2.12.4-1/ompl_interface/CMakeLists.txt
+   RUNTIME DESTINATION bin
+   INCLUDES DESTINATION include
+ )
+-ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
++ament_export_targets(moveit_planners_omplTargets HAS_LIBRARY_TARGET)
+ ament_export_dependencies(moveit_core ompl)
+ 
+ pluginlib_export_plugin_description_file(moveit_core ompl_interface_plugin_description.xml)
+Index: moveit-planners-ompl-2.5.9-1/ompl_interface/CMakeLists.txt
 ===================================================================
---- moveit-planners-ompl-2.12.4-1.orig/ompl_interface/CMakeLists.txt
-+++ moveit-planners-ompl-2.12.4-1/ompl_interface/CMakeLists.txt
-@@ -24,23 +24,25 @@ set_target_properties(moveit_ompl_interf
-
- find_package(OpenMP REQUIRED)
-
--ament_target_dependencies(
--  moveit_ompl_interface
--  PUBLIC
+--- moveit-planners-ompl-2.5.9-1.orig/ompl_interface/CMakeLists.txt
++++ moveit-planners-ompl-2.5.9-1/ompl_interface/CMakeLists.txt
+@@ -31,60 +31,69 @@ if(APPLE)
+   target_link_directories(${MOVEIT_LIB_NAME} PUBLIC ${OMPL_LIBRARY_DIRS})
+ endif()
+ 
+-ament_target_dependencies(${MOVEIT_LIB_NAME}
 -  moveit_core
 -  moveit_msgs
 -  moveit_ros_planning
@@ -280,13 +287,21 @@ Index: moveit-planners-ompl-2.12.4-1/ompl_interface/CMakeLists.txt
 -  pluginlib
 -  tf2_eigen
 -  tf2_ros
--  Boost)
- set_target_properties(
-   moveit_ompl_interface PROPERTIES COMPILE_FLAGS
-                                    "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
- set_target_properties(moveit_ompl_interface PROPERTIES LINK_FLAGS
-                                                        "${OpenMP_CXX_FLAGS}")
- target_link_libraries(moveit_ompl_interface PUBLIC ompl::ompl)
+-  OMPL
+-  Boost
+-)
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+-set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+-
+-add_executable(moveit_generate_state_database scripts/generate_state_database.cpp)
+-target_link_libraries(moveit_generate_state_database ${MOVEIT_LIB_NAME})
+-set_target_properties(moveit_generate_state_database PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+-set_target_properties(moveit_generate_state_database PROPERTIES OUTPUT_NAME "generate_state_database")
++set_target_properties(
++  moveit_ompl_interface PROPERTIES COMPILE_FLAGS
++                                   "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
++set_target_properties(moveit_ompl_interface PROPERTIES LINK_FLAGS
++                                                       "${OpenMP_CXX_FLAGS}")
 +target_link_libraries(
 +  moveit_ompl_interface
 +  PUBLIC ompl::ompl
@@ -300,24 +315,30 @@ Index: moveit-planners-ompl-2.12.4-1/ompl_interface/CMakeLists.txt
 +         Boost::headers
 +         Boost::serialization
 +         Boost::date_time)
- add_executable(moveit_generate_state_database
-                scripts/generate_state_database.cpp)
- target_link_libraries(moveit_generate_state_database moveit_ompl_interface)
-@@ -52,16 +54,16 @@ set_target_properties(moveit_generate_st
++add_executable(moveit_generate_state_database
++               scripts/generate_state_database.cpp)
++target_link_libraries(moveit_generate_state_database moveit_ompl_interface)
++set_target_properties(moveit_generate_state_database
++                      PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
++set_target_properties(moveit_generate_state_database
++                      PROPERTIES OUTPUT_NAME "generate_state_database")
+ 
  add_library(moveit_ompl_planner_plugin SHARED src/ompl_planner_manager.cpp)
- set_target_properties(moveit_ompl_planner_plugin
-                       PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
--ament_target_dependencies(
-+target_link_libraries(
-   moveit_ompl_planner_plugin
+-set_target_properties(moveit_ompl_planner_plugin PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(moveit_ompl_planner_plugin
 -  moveit_core
 -  moveit_ros_planning
 -  rclcpp
 -  pluginlib
 -  tf2_ros
--  Boost)
--target_link_libraries(moveit_ompl_planner_plugin moveit_ompl_interface
--                      ompl::ompl)
+-  OMPL
+-  Boost
+-)
+-target_link_libraries(moveit_ompl_planner_plugin ${MOVEIT_LIB_NAME})
++set_target_properties(moveit_ompl_planner_plugin
++                      PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
++target_link_libraries(
++  moveit_ompl_planner_plugin
 +  moveit_ompl_interface
 +  ompl::ompl
 +  moveit_core::moveit_core
@@ -326,75 +347,66 @@ Index: moveit-planners-ompl-2.12.4-1/ompl_interface/CMakeLists.txt
 +  pluginlib::pluginlib
 +  tf2_ros::tf2_ros
 +  Boost::headers)
-
+ 
  install(TARGETS moveit_generate_state_database
-         RUNTIME DESTINATION lib/${PROJECT_NAME})
-@@ -72,25 +74,21 @@ if(BUILD_TESTING)
+-  RUNTIME DESTINATION lib/${PROJECT_NAME}
+-)
+-install(DIRECTORY include/ DESTINATION include)
++        RUNTIME DESTINATION lib/${PROJECT_NAME})
++install(DIRECTORY include/ DESTINATION include/moveit_planners)
+ 
+ if(BUILD_TESTING)
+   find_package(ament_cmake_gtest REQUIRED)
    find_package(Eigen3 REQUIRED)
-
+ 
    ament_add_gtest(test_state_space test/test_state_space.cpp)
--  ament_target_dependencies(test_state_space moveit_core Boost Eigen3)
--  target_link_libraries(test_state_space moveit_ompl_interface ompl::ompl)
+-  ament_target_dependencies(test_state_space moveit_core OMPL Boost Eigen3)
+-  target_link_libraries(test_state_space ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_state_space moveit_ompl_interface ompl::ompl
 +                        moveit_core::moveit_core Boost::headers Eigen3::Eigen)
-   set_target_properties(test_state_space PROPERTIES LINK_FLAGS
-                                                     "${OpenMP_CXX_FLAGS}")
-
-   ament_add_gtest(test_state_validity_checker
-                   test/test_state_validity_checker.cpp)
--  ament_target_dependencies(test_state_validity_checker moveit_core Boost
--                            Eigen3)
--  target_link_libraries(test_state_validity_checker moveit_ompl_interface
--                        ompl::ompl)
--  set_target_properties(test_state_validity_checker
--                        PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
--
+   set_target_properties(test_state_space PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+ 
+   ament_add_gtest(test_state_validity_checker test/test_state_validity_checker.cpp)
+-  ament_target_dependencies(test_state_validity_checker moveit_core OMPL Boost Eigen3)
+-  target_link_libraries(test_state_validity_checker ${MOVEIT_LIB_NAME})
 +  target_link_libraries(
 +    test_state_validity_checker moveit_ompl_interface ompl::ompl
 +    moveit_core::moveit_core Boost::headers Eigen3::Eigen)
-   ament_add_gtest(test_planning_context_manager
-                   test/test_planning_context_manager.cpp)
--  ament_target_dependencies(test_planning_context_manager moveit_core tf2_eigen
--                            Boost Eigen3)
--  target_link_libraries(test_planning_context_manager moveit_ompl_interface)
+   set_target_properties(test_state_validity_checker PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+ 
+   ament_add_gtest(test_planning_context_manager test/test_planning_context_manager.cpp)
+-  ament_target_dependencies(test_planning_context_manager moveit_core tf2_eigen OMPL Boost Eigen3)
+-  target_link_libraries(test_planning_context_manager ${MOVEIT_LIB_NAME})
 +  target_link_libraries(
 +    test_planning_context_manager moveit_ompl_interface
 +    moveit_core::moveit_core tf2_eigen::tf2_eigen Boost::headers Eigen3::Eigen)
-
-   # Disabling flaky test TODO (vatanaksoytezer): Uncomment once this is fixed
-   # ament_add_gtest(test_ompl_constraints test/test_ompl_constraints.cpp)
-@@ -99,27 +97,24 @@ if(BUILD_TESTING)
-
-   ament_add_gtest(test_constrained_planning_state_space
-                   test/test_constrained_planning_state_space.cpp)
--  ament_target_dependencies(test_constrained_planning_state_space moveit_core
--                            Boost Eigen3)
--  target_link_libraries(test_constrained_planning_state_space
--                        moveit_ompl_interface ompl::ompl)
+ 
+   # Disabling flaky test
+   # TODO (vatanaksoytezer): Uncomment once this is fixed
+@@ -93,18 +102,20 @@ if(BUILD_TESTING)
+   # target_link_libraries(test_ompl_constraints ${MOVEIT_LIB_NAME})
+ 
+   ament_add_gtest(test_constrained_planning_state_space test/test_constrained_planning_state_space.cpp)
+-  ament_target_dependencies(test_constrained_planning_state_space moveit_core OMPL Boost Eigen3)
+-  target_link_libraries(test_constrained_planning_state_space ${MOVEIT_LIB_NAME})
 +  target_link_libraries(
 +    test_constrained_planning_state_space moveit_ompl_interface ompl::ompl
 +    moveit_core::moveit_core Boost::headers Eigen3::Eigen)
-   set_target_properties(test_constrained_planning_state_space
-                         PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
-
-   ament_add_gtest(test_constrained_state_validity_checker
-                   test/test_constrained_state_validity_checker.cpp)
--  ament_target_dependencies(test_constrained_state_validity_checker moveit_core
--                            Boost Eigen3)
--  target_link_libraries(test_constrained_state_validity_checker
--                        moveit_ompl_interface ompl::ompl)
+   set_target_properties(test_constrained_planning_state_space PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+ 
+   ament_add_gtest(test_constrained_state_validity_checker test/test_constrained_state_validity_checker.cpp)
+-  ament_target_dependencies(test_constrained_state_validity_checker moveit_core OMPL Boost Eigen3)
+-  target_link_libraries(test_constrained_state_validity_checker ${MOVEIT_LIB_NAME})
 +  target_link_libraries(
 +    test_constrained_state_validity_checker moveit_ompl_interface ompl::ompl
 +    moveit_core::moveit_core Boost::headers Eigen3::Eigen)
-   set_target_properties(test_constrained_state_validity_checker
-                         PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
-
-   ament_add_gtest(test_threadsafe_state_storage
-                   test/test_threadsafe_state_storage.cpp)
--  ament_target_dependencies(test_threadsafe_state_storage moveit_core Boost
--                            Eigen3)
--  target_link_libraries(test_threadsafe_state_storage moveit_ompl_interface)
+   set_target_properties(test_constrained_state_validity_checker PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+ 
+   ament_add_gtest(test_threadsafe_state_storage test/test_threadsafe_state_storage.cpp)
+-  ament_target_dependencies(test_threadsafe_state_storage moveit_core OMPL Boost Eigen3)
+-  target_link_libraries(test_threadsafe_state_storage ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_threadsafe_state_storage moveit_ompl_interface
 +                        moveit_core::moveit_core Boost::headers Eigen3::Eigen)
-   set_target_properties(test_threadsafe_state_storage
-                         PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+   set_target_properties(test_threadsafe_state_storage PROPERTIES LINK_FLAGS "${OpenMP_CXX_FLAGS}")
+ 
+ endif()
