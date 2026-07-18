@@ -246,12 +246,14 @@ diff --git moveit_simple_controller_manager/CMakeLists.txt moveit_simple_control
 index 9905ae323..2de874f22 100644
 --- moveit_simple_controller_manager/CMakeLists.txt
 +++ moveit_simple_controller_manager/CMakeLists.txt
-@@ -29,8 +29,14 @@ set_target_properties(
-   moveit_simple_controller_manager
-   PROPERTIES VERSION "${moveit_simple_controller_manager_VERSION}")
-
--ament_target_dependencies(moveit_simple_controller_manager
--                          ${THIS_PACKAGE_INCLUDE_DEPENDS} Boost)
+@@ -35,10 +35,14 @@ add_library(${PROJECT_NAME} SHARED
+ 
+ set_target_properties(${PROJECT_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+ 
+-ament_target_dependencies(${PROJECT_NAME}
+-  ${THIS_PACKAGE_INCLUDE_DEPENDS}
+-  Boost
+-)
 +target_link_libraries(
 +  moveit_simple_controller_manager
 +  ${control_msgs_TARGETS}
@@ -260,6 +262,6 @@ index 9905ae323..2de874f22 100644
 +  moveit_core::moveit_core
 +  pluginlib::pluginlib
 +  Boost::headers)
-
+ 
  install(
-   TARGETS moveit_simple_controller_manager
+   TARGETS ${PROJECT_NAME}
