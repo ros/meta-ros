@@ -5,4 +5,4 @@ SRC_URI += "file://remove-ament-target-dependencies.patch \
             file://add-bullet-dependency.patch"
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package moveit-planners-chomp contains symlink .so '/usr/lib/libmoveit_chomp_interface.so' [dev-so]
-FILES:${PN}-dev += "${libdir}/libmoveit_chomp_interface.so"
+inherit ros_insane_dev_so
