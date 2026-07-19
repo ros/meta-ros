@@ -1,5 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://remove-use-of-ament_target_dependencies.patch \
             file://add-bullet-dependency.patch"
