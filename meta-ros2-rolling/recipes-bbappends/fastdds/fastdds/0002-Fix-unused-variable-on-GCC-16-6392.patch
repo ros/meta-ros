@@ -1,0 +1,32 @@
+From 754655e466977ba5a882d4a11586a7c08084446e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ricardo=20Gonz=C3=A1lez?= <ricardo@richiware.dev>
+Date: Tue, 12 May 2026 14:46:23 +0200
+Subject: [PATCH 1/1] Fix unused variable on GCC 16 (#6392)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Backport [754655e466977ba5a882d4a11586a7c08084446ex]
+
+Signed-off-by: Ricardo González Moreno <ricardo@richiware.dev>
+---
+ include/fastdds/rtps/common/CacheChange.hpp | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/include/fastdds/rtps/common/CacheChange.hpp b/include/fastdds/rtps/common/CacheChange.hpp
+index 79ec6e534..52e8150fe 100644
+--- a/include/fastdds/rtps/common/CacheChange.hpp
++++ b/include/fastdds/rtps/common/CacheChange.hpp
+@@ -267,8 +267,7 @@ struct FASTDDS_EXPORTED_API CacheChange_t
+             {
+                 // Keep index of next fragment on the payload portion at the beginning of each fragment. Last
+                 // fragment will have fragment_count_ as 'next fragment index'
+-                size_t offset = 0;
+-                for (uint32_t i = 1; i <= fragment_count_; i++, offset += fragment_size_)
++                for (uint32_t i = 1; i <= fragment_count_; i++)
+                 {
+                     set_next_missing_fragment(i - 1, i);  // index to next fragment in missing list
+                 }
+-- 
+2.47.3
+
