@@ -1,5 +1,7 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package moveit-hybrid-planning contains symlink .so '/usr/lib/libforward_trajectory_plugin.so'
 # non -dev/-dbg/nativesdk- package moveit-hybrid-planning contains symlink .so '/usr/lib/libsingle_plan_execution_plugin.so'
 # non -dev/-dbg/nativesdk- package moveit-hybrid-planning contains symlink .so '/usr/lib/libsimple_sampler_plugin.so'
