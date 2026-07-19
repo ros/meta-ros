@@ -7,3 +7,6 @@ SRC_URI += "file://0001-CMakeLists-use-tinyxml2-by-name.patch \
 
 # ERROR: fastdds-3.2.1-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package fastdds contains symlink .so '/opt/ros/rolling/lib/libfastdds.so' [dev-so]
 FILES:${PN}-dev += "${ros_libdir}/libfastdds.so"
+
+# fastdds/3.6.1-3/sources/fastdds-3.6.1-3/include/fastdds/rtps/common/CacheChange.hpp:270:24: error: variable 'offset' set but not used [-Werror=unused-but-set-variable=]
+CXXFLAGS += "-Wno-error=unused-but-set-variable"
