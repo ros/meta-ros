@@ -242,25 +242,25 @@ Co-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
  .../moveit_setup_srdf_plugins/CMakeLists.txt  |   5 +-
  100 files changed, 1548 insertions(+), 788 deletions(-)
 
-diff --git moveit_planners_chomp/CMakeLists.txt moveit_planners_chomp/CMakeLists.txt
-index 3a2c11461..d7849bdfa 100644
---- moveit_planners_chomp/CMakeLists.txt
-+++ moveit_planners_chomp/CMakeLists.txt
-@@ -22,13 +22,20 @@ add_library(moveit_chomp_interface SHARED src/chomp_interface.cpp
-                                           src/chomp_planning_context.cpp)
- set_target_properties(moveit_chomp_interface
-                       PROPERTIES VERSION "${moveit_planners_chomp_VERSION}")
--ament_target_dependencies(moveit_chomp_interface
--                          ${THIS_PACKAGE_INCLUDE_DEPENDS})
+Index: moveit-planners-chomp-2.5.9-1/CMakeLists.txt
+===================================================================
+--- moveit-planners-chomp-2.5.9-1.orig/CMakeLists.txt
++++ moveit-planners-chomp-2.5.9-1/CMakeLists.txt
+@@ -30,13 +30,20 @@ add_library(${MOVEIT_LIB_NAME} SHARED
+   src/chomp_interface.cpp
+   src/chomp_planning_context.cpp)
+ set_target_properties(${MOVEIT_LIB_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
+-ament_target_dependencies(${MOVEIT_LIB_NAME} ${THIS_PACKAGE_INCLUDE_DEPENDS})
 +target_link_libraries(
 +  moveit_chomp_interface moveit_core::moveit_core
 +  chomp_motion_planner::chomp_motion_planner pluginlib::pluginlib
 +  rclcpp::rclcpp rsl::rsl)
-
+ 
  add_library(moveit_chomp_planner_plugin SHARED src/chomp_plugin.cpp)
--ament_target_dependencies(moveit_chomp_planner_plugin
--                          ${THIS_PACKAGE_INCLUDE_DEPENDS})
--target_link_libraries(moveit_chomp_planner_plugin moveit_chomp_interface)
+-ament_target_dependencies(moveit_chomp_planner_plugin ${THIS_PACKAGE_INCLUDE_DEPENDS})
+-target_link_libraries(moveit_chomp_planner_plugin
+-  ${MOVEIT_LIB_NAME}
+-)
 +target_link_libraries(
 +  moveit_chomp_planner_plugin
 +  moveit_chomp_interface
@@ -269,6 +269,6 @@ index 3a2c11461..d7849bdfa 100644
 +  pluginlib::pluginlib
 +  rclcpp::rclcpp
 +  rsl::rsl)
-
+ 
  install(
-   TARGETS moveit_chomp_interface moveit_chomp_planner_plugin
+   TARGETS ${MOVEIT_LIB_NAME} moveit_chomp_planner_plugin
