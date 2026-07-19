@@ -6,3 +6,7 @@ header:
     - kas/machine/qemux86-64.yml
     - kas/common.yml
     - kas/layer/qt6.yml
+
+repos:
+  realsense:
+    branch: "wrynose"

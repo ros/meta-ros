@@ -6,3 +6,7 @@ header:
     - kas/machine/raspberrypi4-64.yml
     - kas/common.yml
     - kas/layer/qt5.yml
+
+repos:
+  realsense:
+    branch: "wrynose"
