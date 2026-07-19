@@ -27,5 +27,7 @@ EXTRA_OECMAKE = " \
 CXXFLAGS += " -Wno-error=maybe-uninitialized"
 # code/AssetLib/X3D/X3DGeoHelper.cpp:194:20: error: array subscript -1 is outside array bounds of 'int [2305843009213693951]' [-Werror=array-bounds=]
 CXXFLAGS += "-Wno-error=array-bounds"
+# assimp/5.4.0/sources/assimp-5.4.0/code/AssetLib/MS3D/MS3DLoader.cpp:636:28: error: variable 'qu' set but not used [-Werror=unused-but-set-variable=]
+CXXFLAGS += "-Wno-error=unused-but-set-variable"
 
 BBCLASSEXTEND = "native nativesdk"
