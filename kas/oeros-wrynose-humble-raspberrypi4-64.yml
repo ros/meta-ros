@@ -3,7 +3,7 @@ header:
   includes:
     - kas/yocto/wrynose.yml
     - kas/ros2/humble.yml
-    - kas/machine/qemux86-64.yml
+    - kas/machine/raspberrypi4-64.yml
     - kas/common.yml
     - kas/layer/qt5.yml
 

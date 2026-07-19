@@ -2,10 +2,10 @@ header:
   version: 14
   includes:
     - kas/yocto/wrynose.yml
-    - kas/ros2/humble.yml
-    - kas/machine/qemux86-64.yml
+    - kas/ros2/lyrical.yml
+    - kas/machine/raspberrypi5.yml
     - kas/common.yml
-    - kas/layer/qt5.yml
+    - kas/layer/qt6.yml
 
 repos:
   zenoh:

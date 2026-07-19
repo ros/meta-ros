@@ -2,11 +2,13 @@ header:
   version: 14
   includes:
     - kas/yocto/wrynose.yml
-    - kas/ros2/humble.yml
+    - kas/ros2/kilted.yml
     - kas/machine/qemux86-64.yml
     - kas/common.yml
     - kas/layer/qt5.yml
 
 repos:
+  qt5:
+    branch: "master"
   zenoh:
     branch: "master"
