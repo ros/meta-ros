@@ -421,7 +421,7 @@ ROS_UNRESOLVED_DEP-libc++-dev = "libcxx"
 # However libcurl-vendor has been removed from the ROS index
 ROS_UNRESOLVED_DEP-libcurl-vendor = "curl"
 
-ROS_UNRESOLVED_DEP-python3-osrf-pycommon = "python3-osrf-pycommon"
+ROS_UNRESOLVED_DEP-python3-osrf-pycommon = "osrf-pycommon"
 
 ROS_UNRESOLVED_DEP-libqt6gui6t64 = "qtbase"
 ROS_UNRESOLVED_DEP-libqt6opengl6t64 = "qtbase"

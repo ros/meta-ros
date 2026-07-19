@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/dartsim/dart.git;protocol=https;branch=main \
 
 SRCREV = "5295704377b36251670681ea0e94cfab8e3fcfc9"
 
-
 DEPENDS = " \
     assimp \
     bullet \
@@ -38,7 +37,6 @@ DEPENDS = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'virtual/libgl libglu', '', d)} \
 "
 
-
 inherit setuptools3 cmake pkgconfig
 
 inherit ros_opt_prefix
@@ -49,8 +47,6 @@ EXTRA_OECMAKE:prepend = "\
     -DDART_USE_SYSTEM_GOOGLETEST=ON \
     -DDART_USE_SYSTEM_GOOGLEBENCHMARK=ON \
 "
-
-CXXFLAGS += "-Wno-error=deprecated-copy -Wno-error=reorder  -Wno-error=cpp"
 
 FILES:${PN} += "${datadir}/dart"
 
