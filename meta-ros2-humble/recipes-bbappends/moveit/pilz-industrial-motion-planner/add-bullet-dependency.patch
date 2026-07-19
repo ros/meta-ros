@@ -1,0 +1,21 @@
+Add Bullet dependency
+
+The moveit-core package exports Bullet as a dependency for
+collision_detection_bullet.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: pilz-industrial-motion-planner-2.5.9-1/CMakeLists.txt
+===================================================================
+--- pilz-industrial-motion-planner-2.5.9-1.orig/CMakeLists.txt
++++ pilz-industrial-motion-planner-2.5.9-1/CMakeLists.txt
+@@ -6,6 +6,7 @@ find_package(moveit_common REQUIRED)
+ moveit_package()
+ 
+ find_package(ament_cmake REQUIRED)
++find_package(Bullet CONFIG REQUIRED)
+ find_package(eigen3_cmake_module REQUIRED)
+ find_package(Eigen3 REQUIRED)
+ # TODO(henning): Enable when this is available
