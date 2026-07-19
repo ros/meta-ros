@@ -1,6 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2022-2023 Wind River Systems, Inc.
 
+LICENSE = "BSD-3-Clause"
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://remove-ament-target-dependencies.patch \
             file://remove-boost-system.patch \
