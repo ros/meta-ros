@@ -5,5 +5,9 @@ LICENSE = "BSD-3-Clause"
 # Doesn't need runtime dependency on ceres-solver
 ROS_EXEC_DEPENDS:remove = "ceres-solver"
 
-# received_message_period.hpp:175:32: error: unused parameter 'message_info' [-Werror=unused-parameter]
-CXXFLAGS += "-Wno-error=unused-parameter"
+CXXFLAGS += "-Wno-unused-variable"
+CXXFLAGS += "-Wno-deprecated-declarations"
+
+ROS_BUILDTOOL_DEPENDS:append = " \
+    ament-cmake-ros-core-native \
+"

@@ -1,0 +1,49 @@
+From 037b417d9db394b3d5154a800283c30d0ae30cee Mon Sep 17 00:00:00 2001
+From: Michal Sojka <michal.sojka@cvut.cz>
+Date: Sat, 28 Mar 2026 22:08:02 +0100
+Subject: [PATCH] fuse_core: Don't fail with boost >= 1.86
+
+Boost >= 1.86 provides std::hash<boost::uuids::uuid> itself; guard
+against redefinition since fuse_core::UUID is an alias for
+boost::uuids::uuid.
+
+See https://www.boost.org/doc/libs/latest/libs/uuid/doc/html/uuid.html#changes_changes_in_boost_1_86_0_major_update
+
+Upstream-Status: Pending [https://github.com/locusrobotics/fuse/pull/423]
+---
+ include/fuse_core/uuid.hpp | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a//include/fuse_core/uuid.hpp b//include/fuse_core/uuid.hpp
+index 35aa98575..efe92d2ad 100644
+--- a//include/fuse_core/uuid.hpp
++++ b/fuse_core/include/fuse_core/uuid.hpp
+@@ -41,6 +41,7 @@
+ #include <boost/uuid/uuid.hpp>
+ #include <boost/uuid/uuid_generators.hpp>
+ #include <boost/uuid/uuid_io.hpp>
++#include <boost/version.hpp>
+ #include <rclcpp/time.hpp>
+ 
+ namespace fuse_core
+@@ -187,7 +188,12 @@ namespace std
+ /**
+  * @brief Define a hash specialization for the UUID to make it easier to use in unordered_maps and
+  *        unordered_sets
++ *
++ * Boost >= 1.86 provides std::hash<boost::uuids::uuid> itself; guard
++ * against redefinition since fuse_core::UUID is an alias for
++ * boost::uuids::uuid.
+  */
++#if BOOST_VERSION < 108600
+ template<>
+ struct hash<fuse_core::UUID>
+ {
+@@ -196,6 +202,7 @@ struct hash<fuse_core::UUID>
+     return boost::uuids::hash_value(id);
+   }
+ };
++#endif  // BOOST_VERSION < 108600
+ 
+ }  // namespace std
+ 
