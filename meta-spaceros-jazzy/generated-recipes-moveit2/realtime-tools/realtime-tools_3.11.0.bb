@@ -12,7 +12,7 @@ DESCRIPTION = "\
 AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
 ROS_AUTHOR = "Stuart Glaser <sglaser@willowgarage.com>"
 HOMEPAGE = "https://control.ros.org"
-LICENSE = "3-Clause BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=86277dc780fe4e3edb08cd487093d9de"
 
 ROS_CN = "realtime_tools"
