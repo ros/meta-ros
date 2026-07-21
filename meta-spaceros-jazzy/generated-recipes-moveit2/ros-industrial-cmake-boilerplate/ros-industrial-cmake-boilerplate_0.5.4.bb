@@ -9,7 +9,7 @@ DESCRIPTION = "Contains boilerplate cmake script, macros and utils"
 AUTHOR = "Levi Armstrong <levi.armstrong@gmail.com>"
 ROS_AUTHOR = "Levi Armstrong"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 & BSD 3-Clause"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros_industrial_cmake_boilerplate"
