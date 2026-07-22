@@ -6,6 +6,8 @@ SECTION = "devel"
 LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=74f06ab3011994d1b43d71ecbb42a7cf"
 
+S = "${WORKDIR}/git"
+
 SRCREV = "7dee3436e747958e7088dfdcea0e4ae031ce619e"
 SRC_URI = "git://github.com/bulletphysics/bullet3;protocol=https;branch=master \
            file://add-exported-cmake-targets.patch \
