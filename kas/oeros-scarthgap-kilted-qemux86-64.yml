@@ -6,3 +6,8 @@ header:
     - kas/machine/qemux86-64.yml
     - kas/common.yml
     - kas/layer/qt5.yml
+    - kas/layer/lts-mixins.yml
+
+repos:
+  lts-mixins:
+    branch: "scarthgap/rust"
