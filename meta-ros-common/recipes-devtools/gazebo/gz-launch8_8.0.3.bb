@@ -4,6 +4,8 @@ LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://test/gtest_vendor/LICENSE;md5=cbbd27594afd089daa160d3a16dd515a"
 
+S = "${WORKDIR}/git"
+
 SRC_URI = "git://github.com/gazebosim/gz-launch.git;protocol=https;branch=gz-launch8"
 
 SRCREV = "4a70f89e97ae19b7db856ffbfcf28d3f7811d3b5"

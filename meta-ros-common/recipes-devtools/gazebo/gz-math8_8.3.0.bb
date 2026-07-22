@@ -2,6 +2,8 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
+S = "${WORKDIR}/git"
+
 SRC_URI = "git://github.com/gazebosim/gz-math.git;protocol=https;branch=gz-math8"
 
 SRCREV = "0c38e855c620e619d45a18401809bf02872cd1e4"
