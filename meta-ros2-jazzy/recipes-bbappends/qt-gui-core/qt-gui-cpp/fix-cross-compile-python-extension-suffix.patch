@@ -1,0 +1,39 @@
+From: Chris Kohn <chris.kohn@amd.com>
+Subject: [PATCH] qt_gui_cpp_sip: Fix Python extension suffix for cross-compilation
+
+When cross-compiling, the native Python interpreter returns the host
+architecture in EXT_SUFFIX (e.g., x86_64-linux-gnu) instead of the
+target architecture (e.g., aarch64-linux-gnu). This causes the
+generated .so file to have an incorrect name that Python cannot import
+on the target.
+
+Use the PYTHON_SOABI CMake variable passed by the Yocto build system
+to construct the correct extension suffix when cross-compiling.
+
+AI-Generated: Claude claude-opus-4-6
+Signed-off-by: Chris Kohn <chris.kohn@amd.com>
+
+diff --git a/src/qt_gui_cpp_sip/CMakeLists.txt b/src/qt_gui_cpp_sip/CMakeLists.txt
+--- a/src/qt_gui_cpp_sip/CMakeLists.txt
++++ b/src/qt_gui_cpp_sip/CMakeLists.txt
+@@ -90,10 +90,16 @@ if(sip_helper_FOUND)
+     DEPENDENCIES qt_gui_cpp
+   )
+ 
+-  execute_process(
+-    COMMAND ${Python3_EXECUTABLE} -c "import sysconfig as c; print(c.get_config_var('EXT_SUFFIX'), end='')"
+-    OUTPUT_VARIABLE PYTHON_EXTENSION_MODULE_SUFFIX
+-    ERROR_QUIET)
++  # When cross-compiling, use PYTHON_SOABI passed by the build system
++  # instead of querying the native Python interpreter
++  if(CMAKE_CROSSCOMPILING AND DEFINED PYTHON_SOABI)
++    set(PYTHON_EXTENSION_MODULE_SUFFIX ".${PYTHON_SOABI}.so")
++  else()
++    execute_process(
++      COMMAND ${Python3_EXECUTABLE} -c "import sysconfig as c; print(c.get_config_var('EXT_SUFFIX'), end='')"
++      OUTPUT_VARIABLE PYTHON_EXTENSION_MODULE_SUFFIX
++      ERROR_QUIET)
++  endif()
+ 
+   if(APPLE)
+     set(LIBQT_GUI_CPP_SIP_SUFFIX .so)
