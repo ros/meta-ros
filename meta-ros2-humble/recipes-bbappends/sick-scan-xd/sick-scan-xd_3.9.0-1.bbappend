@@ -1,5 +1,8 @@
 # Copyright (c) 2026 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://add-missing-include-for-gcc15.patch"
+
 inherit python3native
 
 ROS_BUILD_DEPENDS += " \
