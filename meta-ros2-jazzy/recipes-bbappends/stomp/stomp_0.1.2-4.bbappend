@@ -3,9 +3,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://remove_stomp_example.patch"
 
-ROS_BUILD_DEPENDS = " \
-    ros-industrial-cmake-boilerplate \
-"
+# CMake Error at src/plugins/CMakeLists.txt:26 (QT5_WRAP_CPP):
+#   Unknown CMake command "QT5_WRAP_CPP".
+inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
 
 # ros_ament_cmake.bbclass does this automatically, but this recipe inherits just ros_cmake.bbclass
 # ERROR: stomp-0.1.2-1-r0 do_package: QA Issue: stomp: Files/directories were installed but not shipped in any package:
