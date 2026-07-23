@@ -1,0 +1,33 @@
+add missing include for gcc15
+
+Upstream-Status: Backport [https://github.com/SICKAG/sick_scan_xd/pull/557/changes/f5ac360b4cfb319c981b022a9b817a5e86639d5c]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From f5ac360b4cfb319c981b022a9b817a5e86639d5c Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Mon, 23 Mar 2026 00:51:53 +0100
+Subject: [PATCH] add missing include for gcc15
+
+fix:
+```cpp
+In file included from /build/sick_scan_xd-release-release-humble-sick_scan_xd-3.9.0-1/driver/src/sick_scansegment_xd/msgpack11/msgpack11.cpp:1:
+/build/sick_scan_xd-release-release-humble-sick_scan_xd-3.9.0-1/include/sick_scansegment_xd/msgpack11/msgpack11.hpp:60:25: error: 'uint8_t' was not declared in this scope
+   60 |     typedef std::vector<uint8_t> binary;
+      |                         ^~~~~~~
+```
+---
+ include/sick_scansegment_xd/msgpack11/msgpack11.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/sick_scansegment_xd/msgpack11/msgpack11.hpp b/include/sick_scansegment_xd/msgpack11/msgpack11.hpp
+index 1c238713..b3e044a3 100644
+--- a/include/sick_scansegment_xd/msgpack11/msgpack11.hpp
++++ b/include/sick_scansegment_xd/msgpack11/msgpack11.hpp
+@@ -1,5 +1,6 @@
+ #pragma once
+ 
++#include <cstdint>
+ #include <string>
+ #include <vector>
+ #include <map>
