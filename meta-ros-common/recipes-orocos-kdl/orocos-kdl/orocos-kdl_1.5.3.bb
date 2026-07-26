@@ -8,7 +8,7 @@ SRC_URI = "\
     file://0001-CMakeLists.txt-resolving-host-path-injection-in-.pc-.patch \
 "
 
-SRCREV = "129693e571a7822655d1f58bb0f83b385542a3d8"
+SRCREV = "f9f90c39b86fd027ade83a0bac2c07aea2170c46"
 
 S = "${UNPACKDIR}/${BPN}-${PV}/orocos_kdl"
 
@@ -16,7 +16,5 @@ DEPENDS = "\
     boost \
     libeigen \
 "
-
-EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 inherit cmake
