@@ -6,4 +6,3 @@
 # Note this is not officially supported by OpenEmbedded.
 FORTRAN:forcevariable = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', ',fortran', d)}"
 RUNTIMETARGET:append:pn-gcc-runtime = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', ' libquadmath', d)}"
-HOSTTOOLS += "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', 'gfortran', d)}"
