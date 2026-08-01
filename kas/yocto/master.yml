@@ -37,3 +37,7 @@ repos:
     branch: "main"
     layers:
       meta-clang-revival: "disabled"
+
+local_conf_header:
+  distro: |
+    ERROR_QA:remove = "license-format"
