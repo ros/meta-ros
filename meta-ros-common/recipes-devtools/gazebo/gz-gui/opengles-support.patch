@@ -1,0 +1,33 @@
+Add support for OpenGL ES
+
+This compilation error occurs because GL_UNSIGNED_INT_8_8_8_8_REV is part of
+full desktop OpenGL (1.2+), but we are building with headers configured for
+OpenGL ES (GLES) or missing the desktop OpenGL extension headers.
+
+In texture initialization (glTexImage2D or glTexSubImage2D), substituting
+GL_UNSIGNED_INT_8_8_8_8_REV with GL_UNSIGNED_BYTE matches standard 8-bit per
+channel RGBA/BGRA buffers across both GLES and desktop OpenGL.
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+AI-Generated: Google Gemini (3.1 Pro)
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Index: gz-gui-10.0.0/src/plugins/minimal_scene/EngineToQtInterface.cc
+===================================================================
+--- gz-gui-10.0.0.orig/src/plugins/minimal_scene/EngineToQtInterface.cc
++++ gz-gui-10.0.0/src/plugins/minimal_scene/EngineToQtInterface.cc
+@@ -173,6 +173,13 @@ GLuint EngineToQtInterface::TextureId(gz
+     glFuncs->glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+     glFuncs->glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, 0);
+ 
++// Change GL_UNSIGNED_INT_8_8_8_8_REV to GL_UNSIGNED_BYTE
++// or wrap in a fallback macro block:
++
++#ifndef GL_UNSIGNED_INT_8_8_8_8_REV
++#define GL_UNSIGNED_INT_8_8_8_8_REV GL_UNSIGNED_BYTE
++#endif
++
+     glFuncs->glTexSubImage2D(
+       GL_TEXTURE_2D, 0, 0, 0, GLsizei(this->dataPtr->fallbackImage->Width()),
+       GLsizei(this->dataPtr->fallbackImage->Height()), GL_RGBA,
