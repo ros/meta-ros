@@ -1,6 +1,6 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
-LICENSE = "BSD-3-Clause & MIT & Apache-2.0 & MPL-2.0 & GPL-3.0-or-later & LGPL-2.1-or-later"
+LICENSE = "BSD-3-Clause AND MIT AND Apache-2.0 AND MPL-2.0 AND GPL-3.0-or-later AND LGPL-2.1-or-later"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-search-source-tree-for-dataset.patch"
