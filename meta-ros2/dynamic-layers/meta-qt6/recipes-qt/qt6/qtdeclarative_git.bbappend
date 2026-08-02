@@ -1,0 +1,1 @@
+LICENSE = "(LicenseRef-The-Qt-Company-Commercial OR (GPL-3.0-only AND LicenseRef-Qt-GPL-exception-1.0) AND (LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only) AND GFDL-1.3-no-invariants-only AND BSD-3-Clause) AND BSD-2-Clause"
