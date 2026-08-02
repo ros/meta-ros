@@ -1,0 +1,52 @@
+Remove deprecated Boost::system
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: gtsam-4.3.0-2/gtsam/3rdparty/Eigen/bench/btl/libs/blaze/CMakeLists.txt
+===================================================================
+--- gtsam-4.3.0-2.orig/gtsam/3rdparty/Eigen/bench/btl/libs/blaze/CMakeLists.txt
++++ gtsam-4.3.0-2/gtsam/3rdparty/Eigen/bench/btl/libs/blaze/CMakeLists.txt
+@@ -1,13 +1,9 @@
+ 
+ find_package(BLAZE)
+-find_package(Boost COMPONENTS system)
+-if (BLAZE_FOUND AND Boost_FOUND)
+-  include_directories(${BLAZE_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
++if (BLAZE_FOUND)
++  include_directories(${BLAZE_INCLUDE_DIR})
+   btl_add_bench(btl_blaze main.cpp)
+   # Note: The newest blaze version requires C++14.
+   # Ideally, we should set this depending on the version of Blaze we found
+   set_property(TARGET btl_blaze PROPERTY CXX_STANDARD 14)
+-  if(BUILD_btl_blaze)
+-    target_link_libraries(btl_blaze ${Boost_LIBRARIES})
+-  endif()
+ endif ()
+Index: gtsam-4.3.0-2/cmake/HandleBoost.cmake
+===================================================================
+--- gtsam-4.3.0-2.orig/cmake/HandleBoost.cmake
++++ gtsam-4.3.0-2/cmake/HandleBoost.cmake
+@@ -23,12 +23,12 @@ endif()
+ 
+ # Store these in variables so they are automatically replicated in GTSAMConfig.cmake and such.
+ set(BOOST_FIND_MINIMUM_VERSION 1.65)
+-set(BOOST_FIND_MINIMUM_COMPONENTS serialization system filesystem thread program_options date_time timer chrono regex)
++set(BOOST_FIND_MINIMUM_COMPONENTS serialization filesystem thread program_options date_time timer chrono regex)
+ 
+ find_package(Boost ${BOOST_FIND_MINIMUM_VERSION} COMPONENTS ${BOOST_FIND_MINIMUM_COMPONENTS} REQUIRED)
+ 
+ # Required components
+-if(NOT Boost_SERIALIZATION_LIBRARY OR NOT Boost_SYSTEM_LIBRARY OR NOT Boost_FILESYSTEM_LIBRARY OR
++if(NOT Boost_SERIALIZATION_LIBRARY OR NOT Boost_FILESYSTEM_LIBRARY OR
+     NOT Boost_THREAD_LIBRARY OR NOT Boost_DATE_TIME_LIBRARY)
+   message(FATAL_ERROR "Missing required Boost components >= v1.65, please install/upgrade Boost or configure your search paths.")
+ endif()
+@@ -37,7 +37,6 @@ option(GTSAM_DISABLE_NEW_TIMERS "Disable
+ # Allow for not using the timer libraries on boost < 1.48 (GTSAM timing code falls back to old timer library)
+ set(GTSAM_BOOST_LIBRARIES
+   Boost::serialization
+-  Boost::system
+   Boost::filesystem
+   Boost::thread
+   Boost::date_time
