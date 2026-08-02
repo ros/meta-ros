@@ -9,7 +9,7 @@ DESCRIPTION = "Ouster ROS2 driver"
 AUTHOR = "ouster developers <oss@ouster.io>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=c1feec27682903a4270dbb401e443f91"
 
 ROS_CN = "ouster-ros"

@@ -11,4 +11,4 @@ DEPENDS += "cyclonedds-native"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-confgen-install-confgen-to-be-used-in-target-cyclone.patch"
-LICENSE = "EPL-2.0 & EDL-1.0"
+LICENSE = "EPL-2.0 AND LicenseRef-EDL-1.0"

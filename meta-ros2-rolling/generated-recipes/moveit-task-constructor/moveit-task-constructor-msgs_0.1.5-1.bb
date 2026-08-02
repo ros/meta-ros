@@ -9,7 +9,7 @@ DESCRIPTION = "Messages for MoveIt Task Pipeline"
 AUTHOR = "Robert Haschke <rhaschke@techfak.uni-bielefeld.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "moveit_task_constructor"

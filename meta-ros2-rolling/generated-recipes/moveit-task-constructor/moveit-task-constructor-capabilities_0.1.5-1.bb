@@ -9,7 +9,7 @@ DESCRIPTION = "MoveGroupCapabilites to interact with MoveIt"
 AUTHOR = "Michael v4hn Goerner <me@v4hn.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "moveit_task_constructor"

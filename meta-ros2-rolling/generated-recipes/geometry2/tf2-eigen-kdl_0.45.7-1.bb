@@ -10,7 +10,7 @@ AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
 ROS_AUTHOR = "Adam Leeper"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "geometry2"

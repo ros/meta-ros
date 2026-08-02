@@ -12,7 +12,7 @@ HOMEPAGE = "https://index.ros.org/p/magnetic_model"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD & Public Domain"
-LICENSE = "BSD & PD"
+LICENSE = "LicenseRef-BSD AND LicenseRef-PD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=c1feec27682903a4270dbb401e443f91"
 
 ROS_CN = "compass"

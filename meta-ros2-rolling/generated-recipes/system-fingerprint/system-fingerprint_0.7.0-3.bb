@@ -11,7 +11,7 @@ HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD 2-clause"
-LICENSE = "BSD-2-clause"
+LICENSE = "BSD-2-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=34de8913993f99108716e847b8e8700e"
 
 ROS_CN = "system_fingerprint"

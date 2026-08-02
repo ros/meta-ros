@@ -9,7 +9,7 @@ DESCRIPTION = "CLI tool to transform between rosbags and rawlogs."
 AUTHOR = "Markus Bader <markus.bader@tuwien.ac.at>"
 HOMEPAGE = "https://github.com/mrpt/mrpt_ros_bridge"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrpt_ros_bridge"

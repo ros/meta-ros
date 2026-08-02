@@ -10,7 +10,7 @@ AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 ROS_AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 HOMEPAGE = "https://index.ros.org/p/cras_lint"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "cras_ros_utils"

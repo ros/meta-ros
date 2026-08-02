@@ -12,7 +12,7 @@ HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD License 2.0"
-LICENSE = "BSD-License-2.0"
+LICENSE = "LicenseRef-BSD-License-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=1e0ab6366e5108a0da760802f538e6ed"
 
 ROS_CN = "teleop_twist_keyboard"

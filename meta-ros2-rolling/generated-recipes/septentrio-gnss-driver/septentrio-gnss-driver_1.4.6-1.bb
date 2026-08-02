@@ -12,7 +12,7 @@ HOMEPAGE = "https://github.com/septentrio-gnss/septentrio_gnss_driver"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD 3-Clause License"
-LICENSE = "BSD-3-Clause-License"
+LICENSE = "LicenseRef-BSD-3-Clause-License"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=5668b0d257345fe4a950dc0d5b34f56f"
 
 ROS_CN = "septentrio_gnss_driver"

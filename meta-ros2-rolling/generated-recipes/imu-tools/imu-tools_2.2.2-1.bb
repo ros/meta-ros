@@ -11,7 +11,7 @@ HOMEPAGE = "http://ros.org/wiki/imu_tools"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD, GPL"
-LICENSE = "BSD-&-GPL"
+LICENSE = "LicenseRef--GPL AND LicenseRef-BSD-"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d81febe1baeaed0bfd599be384185f36"
 
 ROS_CN = "imu_tools"

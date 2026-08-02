@@ -10,7 +10,7 @@ AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 ROS_AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 HOMEPAGE = "https://index.ros.org/p/magnetometer_pipeline"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=c1feec27682903a4270dbb401e443f91"
 
 ROS_CN = "compass"

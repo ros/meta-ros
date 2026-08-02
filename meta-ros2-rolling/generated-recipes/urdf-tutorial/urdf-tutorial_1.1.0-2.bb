@@ -12,7 +12,7 @@ HOMEPAGE = "http://ros.org/wiki/urdf_tutorial"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD 3-clause"
-LICENSE = "BSD-3-clause"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=79773b05553c027a06a89128fefb052f"
 
 ROS_CN = "urdf_tutorial"

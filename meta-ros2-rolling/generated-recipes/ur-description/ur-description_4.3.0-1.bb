@@ -12,7 +12,7 @@ HOMEPAGE = "https://github.com/UniversalRobots/Universal_Robots_ROS2_Description
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD-3-Clause & Universal Robots A/S’ Terms and Conditions for Use of Graphical Documentation"
-LICENSE = "BSD-3-Clause & Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation"
+LICENSE = "BSD-3-Clause AND LicenseRef-Universal-Robots-A-S--Terms-and-Conditions-for-Use-of-Graphical-Documentation"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=30;endline=30;md5=d0998f4eabe3d0099aca1e1f57f44fe6"
 
 ROS_CN = "ur_description"

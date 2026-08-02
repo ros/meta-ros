@@ -10,7 +10,7 @@ AUTHOR = "Robert Haschke <rhaschke@techfak.uni-bielefeld.de>"
 ROS_AUTHOR = "Stuart Glaser"
 HOMEPAGE = "http://ros.org/wiki/xacro"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "xacro"

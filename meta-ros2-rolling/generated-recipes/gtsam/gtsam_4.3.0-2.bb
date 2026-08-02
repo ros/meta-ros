@@ -9,7 +9,7 @@ DESCRIPTION = "gtsam"
 AUTHOR = "Frank Dellaert <gtsam@lists.gatech.edu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD-3-Clause & BSD-3-Clause & BSD-3-Clause & MPL-2.0 & MIT & Apache-2.0 & MPL-2.0"
+LICENSE = "Apache-2.0 AND BSD-3-Clause AND MIT AND MPL-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
 ROS_CN = "gtsam"

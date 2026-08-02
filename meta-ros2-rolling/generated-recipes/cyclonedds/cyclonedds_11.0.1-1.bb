@@ -11,7 +11,7 @@ HOMEPAGE = "https://projects.eclipse.org/projects/iot.cyclonedds"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Eclipse Public License 2.0 & Eclipse Distribution License 1.0"
-LICENSE = "EPL-2.0 & Eclipse-Distribution-License-1.0"
+LICENSE = "EPL-2.0 AND LicenseRef-Eclipse-Distribution-License-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=7532470dee289492e850d7d3e8a32b32"
 
 ROS_CN = "cyclonedds"

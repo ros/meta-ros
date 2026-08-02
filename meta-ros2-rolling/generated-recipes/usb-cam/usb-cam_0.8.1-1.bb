@@ -9,7 +9,7 @@ DESCRIPTION = "A ROS Driver for V4L USB Cameras"
 AUTHOR = "Evan Flynn <evanflynn.msu@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/usb_cam"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "usb_cam"

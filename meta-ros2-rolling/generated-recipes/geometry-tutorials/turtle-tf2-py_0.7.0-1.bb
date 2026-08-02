@@ -12,7 +12,7 @@ HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License, Version 2.0 & BSD"
-LICENSE = "Apache-2.0 & BSD"
+LICENSE = "Apache-2.0 AND LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23266fc6f8ec03dc9eb16"
 
 ROS_CN = "geometry_tutorials"

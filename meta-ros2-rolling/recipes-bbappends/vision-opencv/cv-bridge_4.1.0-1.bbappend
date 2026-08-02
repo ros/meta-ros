@@ -2,7 +2,7 @@
 
 ROS_BUILD_DEPENDS:remove = "python3-numpy"
 
-LICENSE = "Apache-2.0 & BSD-3-Clause"
+LICENSE = "Apache-2.0 AND BSD-3-Clause"
 
 ROS_BUILDTOOL_DEPENDS += "\
     python3-numpy-native \

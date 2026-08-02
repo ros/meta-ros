@@ -10,7 +10,7 @@ AUTHOR = "Justin Carpentier <justin.carpentier@inria.fr>"
 ROS_AUTHOR = "Antoine Bambade <antoine.bambade@inria.fr>"
 HOMEPAGE = "https://simple-robotics.github.io/proxsuite"
 SECTION = "devel"
-LICENSE = "BSD-2"
+LICENSE = "LicenseRef-BSD-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=6d936230566da2b5b6f908ac66e333a8"
 
 ROS_CN = "proxsuite"

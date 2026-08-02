@@ -12,7 +12,7 @@ HOMEPAGE = "https://github.com/uncrustify/uncrustify"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & GNU General Public License v2.0"
-LICENSE = "Apache-2.0 & GPL-2.0-only"
+LICENSE = "Apache-2.0 AND GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "uncrustify_vendor"

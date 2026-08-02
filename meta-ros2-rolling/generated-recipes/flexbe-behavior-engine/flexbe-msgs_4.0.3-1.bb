@@ -10,7 +10,7 @@ AUTHOR = "Philipp Schillinger <philsplus@gmail.com>"
 ROS_AUTHOR = "Philipp Schillinger"
 HOMEPAGE = "http://ros.org/wiki/flexbe_msgs"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
 ROS_CN = "flexbe_behavior_engine"

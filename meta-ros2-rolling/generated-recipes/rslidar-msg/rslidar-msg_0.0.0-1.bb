@@ -9,7 +9,7 @@ DESCRIPTION = "ros msgs for the rslidar_sdk project"
 AUTHOR = "robosense <zdxiao@robosense.cn>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rslidar_msg"

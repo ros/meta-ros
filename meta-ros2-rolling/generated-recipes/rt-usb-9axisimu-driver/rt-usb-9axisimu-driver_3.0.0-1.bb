@@ -10,7 +10,7 @@ AUTHOR = "RT Corporation <shop@rt-net.jp>"
 ROS_AUTHOR = "RT Corporation <shop@rt-net.jp>"
 HOMEPAGE = "https://github.com/rt-net/rt_usb_9axisimu_driver/issues"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rt_usb_9axisimu_driver"

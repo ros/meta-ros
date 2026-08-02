@@ -10,7 +10,7 @@ AUTHOR = "Jonathan Bohren <jbo@jhu.edu>"
 ROS_AUTHOR = "Andreas Paepcke"
 HOMEPAGE = "http://www.ros.org/wiki/wiimote"
 SECTION = "devel"
-LICENSE = "GPL"
+LICENSE = "LicenseRef-GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "joystick_drivers"

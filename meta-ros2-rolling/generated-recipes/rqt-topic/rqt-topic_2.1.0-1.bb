@@ -12,7 +12,7 @@ HOMEPAGE = "http://wiki.ros.org/rqt_topic"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "BSD & Apache License 2.0"
-LICENSE = "BSD & Apache-2.0"
+LICENSE = "Apache-2.0 AND LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_topic"

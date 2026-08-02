@@ -11,7 +11,7 @@ HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "GPLv2+ license"
-LICENSE = "GPLv2-license"
+LICENSE = "LicenseRef-GPLv2-license"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=94addb714900aacec43ab1bc87374ead"
 
 ROS_CN = "clips_executive"

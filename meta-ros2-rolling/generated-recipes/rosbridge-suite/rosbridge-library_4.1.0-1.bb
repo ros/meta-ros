@@ -10,7 +10,7 @@ AUTHOR = "Błażej Sowa <blazej@fictionlab.pl>"
 ROS_AUTHOR = "Jonathan Mace <jonathan.c.mace@gmail.com>"
 HOMEPAGE = "http://ros.org/wiki/rosbridge_library"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rosbridge_suite"

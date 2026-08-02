@@ -10,7 +10,7 @@ AUTHOR = "Guilhem Saurel <guilhem.saurel@laas.fr>"
 ROS_AUTHOR = "Justin Carpentier"
 HOMEPAGE = "https://github.com/jrl-umi3218/jrl-cmakemodules"
 SECTION = "devel"
-LICENSE = "GPL-3.0 & LGPL-3.0 & BSD-3-Clause & MIT & Apache-2.0"
+LICENSE = "Apache-2.0 AND BSD-3-Clause AND GPL-3.0 AND LGPL-3.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e4c74a520650d71beb18ceaa66a24c70"
 
 ROS_CN = "jrl_cmakemodules"

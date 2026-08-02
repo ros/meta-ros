@@ -10,7 +10,7 @@ AUTHOR = "Jafar Uruc <jafar.uruc@gmail.com>"
 ROS_AUTHOR = "Jafar Uruc <jafar.uruc@gmail.com>"
 HOMEPAGE = "https://github.com/JafarAbdi/jacro"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "jacro"

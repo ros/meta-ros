@@ -11,7 +11,7 @@ HOMEPAGE = "https://github.com/msteinbeck/tinyspline"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & MIT"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "tinyspline_vendor"

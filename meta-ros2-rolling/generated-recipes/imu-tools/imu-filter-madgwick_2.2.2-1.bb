@@ -10,7 +10,7 @@ AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
 ROS_AUTHOR = "Ivan Dryanovski <ivan.dryanovski@gmail.com>"
 HOMEPAGE = "http://ros.org/wiki/imu_filter_madgwick"
 SECTION = "devel"
-LICENSE = "GPL"
+LICENSE = "LicenseRef-GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
 
 ROS_CN = "imu_tools"

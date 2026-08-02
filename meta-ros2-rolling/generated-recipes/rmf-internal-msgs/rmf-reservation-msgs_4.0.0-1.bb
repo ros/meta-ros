@@ -9,7 +9,7 @@ DESCRIPTION = "Messages for the reservation and queueing system"
 AUTHOR = "Arjo Chakravarty <arjo@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache"
+LICENSE = "LicenseRef-Apache"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=211ba54883815de9f52a3dcd9f281523"
 
 ROS_CN = "rmf_internal_msgs"

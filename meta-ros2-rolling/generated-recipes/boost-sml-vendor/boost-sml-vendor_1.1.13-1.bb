@@ -10,7 +10,7 @@ AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
 ROS_AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
 HOMEPAGE = "https://github.com/boost-ext/sml"
 SECTION = "devel"
-LICENSE = "MIT & BSL-1.0"
+LICENSE = "BSL-1.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=9d62d84a65b2df3c95b5adf0ff285765"
 
 ROS_CN = "boost_sml_vendor"

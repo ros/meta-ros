@@ -12,7 +12,7 @@ HOMEPAGE = "https://gitlab.com/inivation/dv/libcaer"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & BSD-2"
-LICENSE = "Apache-2.0 & BSD-2"
+LICENSE = "Apache-2.0 AND LicenseRef-BSD-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=7fe17132d4ce9672ce7d4db0f8911813"
 
 ROS_CN = "libcaer_vendor"

@@ -11,7 +11,7 @@ HOMEPAGE = "https://projects.coin-or.org/qpOASES"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & LGPL"
-LICENSE = "Apache-2.0 & LGPL"
+LICENSE = "Apache-2.0 AND LicenseRef-LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d160c31cc0b7b3533fd6cf648b07acc7"
 
 ROS_CN = "qpoases_vendor"

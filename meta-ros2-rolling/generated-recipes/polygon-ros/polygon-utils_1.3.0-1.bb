@@ -9,7 +9,7 @@ DESCRIPTION = "Utilities for working with polygons, including triangulation"
 AUTHOR = "David V. Lu!! <david@metrorobots.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "polygon_ros"

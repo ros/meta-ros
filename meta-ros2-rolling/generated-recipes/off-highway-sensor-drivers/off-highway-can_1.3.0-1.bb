@@ -10,7 +10,7 @@ AUTHOR = "Sarah Huber <sarah.huber@de.bosch.com>"
 ROS_AUTHOR = "Robin Petereit <robin.petereit@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "off_highway_sensor_drivers"

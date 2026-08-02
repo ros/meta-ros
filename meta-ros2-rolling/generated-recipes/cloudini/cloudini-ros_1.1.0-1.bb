@@ -10,7 +10,7 @@ AUTHOR = "Davide Faconti <davide.faconti@gmail.com>"
 ROS_AUTHOR = "Davide Faconti"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache"
+LICENSE = "LicenseRef-Apache"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=211ba54883815de9f52a3dcd9f281523"
 
 ROS_CN = "cloudini"

@@ -10,7 +10,7 @@ AUTHOR = "Błażej Sowa <blazej@fictionlab.pl>"
 ROS_AUTHOR = "Mitchell Wills <mwills@wpi.edu>"
 HOMEPAGE = "http://ros.org/wiki/web_video_server"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "web_video_server"

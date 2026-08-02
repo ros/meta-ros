@@ -10,7 +10,7 @@ AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 ROS_AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 HOMEPAGE = "https://github.com/MRPT/mrpt_path_planning"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "mrpt_path_planning"

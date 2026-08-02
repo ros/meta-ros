@@ -9,7 +9,7 @@ DESCRIPTION = "multimedia RTSP streaming library"
 AUTHOR = "Timo Röhling <timo.roehling@fkie.fraunhofer.de>"
 HOMEPAGE = "http://www.live555.com/liveMedia/"
 SECTION = "devel"
-LICENSE = "LGPL-3.0-or-later & BSD-1-Clause"
+LICENSE = "BSD-1-Clause AND LGPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=2903be9d205c3f1ea97d3ba67036ecc5"
 
 ROS_CN = "live555_vendor"

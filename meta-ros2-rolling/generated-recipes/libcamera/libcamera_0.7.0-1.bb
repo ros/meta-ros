@@ -10,7 +10,7 @@ AUTHOR = "Christian Rauch <Rauch.Christian@gmx.de>"
 ROS_AUTHOR = "libcamera project <libcamera-devel@lists.libcamera.org>"
 HOMEPAGE = "https://libcamera.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & BSD-2-Clause & BSD-3-Clause & GPL-2.0-or-later & LGPL-2.1-or-later"
+LICENSE = "Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "libcamera"

@@ -12,7 +12,7 @@ HOMEPAGE = "https://www.ogre3d.org/"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & MIT"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=22;endline=22;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "gz_ogre_next_vendor"

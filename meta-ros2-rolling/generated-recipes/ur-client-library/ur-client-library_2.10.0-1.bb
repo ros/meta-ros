@@ -10,7 +10,7 @@ AUTHOR = "Felix Exner <feex@universal-robots.com>"
 ROS_AUTHOR = "Thomas Timm Andersen"
 HOMEPAGE = "http://wiki.ros.org/ur_client_library"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & BSD-2-Clause & Zlib & MIT & MIT"
+LICENSE = "Apache-2.0 AND BSD-2-Clause AND MIT AND Zlib"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=68073d59fee9cc9e7aa88b8726fba1e1"
 
 ROS_CN = "ur_client_library"

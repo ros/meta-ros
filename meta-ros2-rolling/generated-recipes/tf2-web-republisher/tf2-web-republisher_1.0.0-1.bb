@@ -10,7 +10,7 @@ AUTHOR = "Błażej Sowa <blazej@fictionlab.pl>"
 ROS_AUTHOR = "Julius Kammer <jkammerl@willowgarage.com>"
 HOMEPAGE = "https://github.com/RobotWebTools/tf2_web_republisher/issues"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "tf2_web_republisher"

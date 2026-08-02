@@ -10,7 +10,7 @@ AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 ROS_AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 HOMEPAGE = "https://github.com/MOLAorg/"
 SECTION = "devel"
-LICENSE = "BSD-3-Clause & BSD-3-Clause & CC-BY-NC-SA-3.0 & CC-BY-3.0 & CC-BY-3.0 & CC-BY-NC-SA-4.0"
+LICENSE = "BSD-3-Clause AND CC-BY-3.0 AND CC-BY-NC-SA-3.0 AND CC-BY-NC-SA-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d0998f4eabe3d0099aca1e1f57f44fe6"
 
 ROS_CN = "mola_test_datasets"

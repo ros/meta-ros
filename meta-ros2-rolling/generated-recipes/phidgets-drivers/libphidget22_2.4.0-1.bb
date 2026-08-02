@@ -10,7 +10,7 @@ AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
 ROS_AUTHOR = "Alexander Bubeck"
 HOMEPAGE = "http://ros.org/wiki/libphidget22"
 SECTION = "devel"
-LICENSE = "LGPL"
+LICENSE = "LicenseRef-LGPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=46ee8693f40a89a31023e97ae17ecf19"
 
 ROS_CN = "phidgets_drivers"

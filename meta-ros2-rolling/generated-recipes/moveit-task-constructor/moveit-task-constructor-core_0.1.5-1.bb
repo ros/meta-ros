@@ -9,7 +9,7 @@ DESCRIPTION = "MoveIt Task Pipeline"
 AUTHOR = "Michael Goerner <me@v4hn.de>"
 HOMEPAGE = "https://github.com/moveit/moveit_task_constructor"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=75730354549103aaba72b66caf53717b"
 
 ROS_CN = "moveit_task_constructor"

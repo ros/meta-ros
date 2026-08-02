@@ -9,7 +9,7 @@ DESCRIPTION = "messages related to flir camera driver"
 AUTHOR = "Bernd Pfrommer <bernd.pfrommer@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=4083d50af96f9bddbe68e0de85b0a7db"
 
 ROS_CN = "flir_camera_driver"

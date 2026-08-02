@@ -10,7 +10,7 @@ AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
 ROS_AUTHOR = "Jakub Paplham"
 HOMEPAGE = "https://wiki.ros.org/draco_point_cloud_transport"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "point_cloud_transport_plugins"

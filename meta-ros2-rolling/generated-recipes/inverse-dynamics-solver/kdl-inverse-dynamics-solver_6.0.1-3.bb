@@ -10,7 +10,7 @@ AUTHOR = "Enrico Ferrentino <eferrentino@unisa.it>"
 ROS_AUTHOR = "Vincenzo Petrone <vipetrone@unisa.it>"
 HOMEPAGE = "https://github.com/unisa-acg/inverse-dynamics-solver.git"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "inverse_dynamics_solver"

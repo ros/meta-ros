@@ -11,7 +11,7 @@ HOMEPAGE = "https://github.com/orocos/orocos_kinematics_dynamics"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & LGPL-2.1-or-later"
-LICENSE = "Apache-2.0 & LGPL-2.1-or-later"
+LICENSE = "Apache-2.0 AND LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "orocos_kdl_vendor"

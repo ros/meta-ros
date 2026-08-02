@@ -10,7 +10,7 @@ AUTHOR = "Bernd Pfrommer <bernd.pfrommer@gmail.com>"
 ROS_AUTHOR = "Bernd Pfrommer"
 HOMEPAGE = "http://www.ros.org/wiki/image_transport_plugins"
 SECTION = "devel"
-LICENSE = "Apache-2"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=4083d50af96f9bddbe68e0de85b0a7db"
 
 ROS_CN = "ffmpeg_image_transport"

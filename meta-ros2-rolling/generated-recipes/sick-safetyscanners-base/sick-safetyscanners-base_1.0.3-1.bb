@@ -10,7 +10,7 @@ AUTHOR = "Lennart Puck <puck@fzi.de>"
 ROS_AUTHOR = "Lennart Puck"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "ALv2"
+LICENSE = "LicenseRef-ALv2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=48a602c865794401f5c0c56e309d9596"
 
 ROS_CN = "sick_safetyscanners_base"

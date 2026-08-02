@@ -10,7 +10,7 @@ AUTHOR = "Alejandro Hernández <alejandro@openrobotics.org>"
 ROS_AUTHOR = "Jakub Paplham"
 HOMEPAGE = "https://github.com/ros-perception/point_cloud_transport"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "point_cloud_transport"

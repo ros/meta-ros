@@ -10,7 +10,7 @@ AUTHOR = "Vincent Rabaud <vincent.rabaud@gmail.com>"
 ROS_AUTHOR = "Patrick Mihelich"
 HOMEPAGE = "https://index.ros.org/p/depth_image_proc/"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "image_pipeline"

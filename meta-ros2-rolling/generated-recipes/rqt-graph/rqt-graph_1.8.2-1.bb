@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@gmail.com>"
 ROS_AUTHOR = "Aaron Blasdel <ablasdel@gmail.com>"
 HOMEPAGE = "http://wiki.ros.org/rqt_graph"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_graph"

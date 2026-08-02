@@ -12,7 +12,7 @@ HOMEPAGE = "https://control.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "3-Clause BSD"
-LICENSE = "3-Clause-BSD"
+LICENSE = "LicenseRef-3-Clause-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=86277dc780fe4e3edb08cd487093d9de"
 
 ROS_CN = "realtime_tools"

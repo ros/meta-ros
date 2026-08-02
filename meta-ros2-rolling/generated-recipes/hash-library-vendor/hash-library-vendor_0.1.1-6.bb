@@ -12,7 +12,7 @@ HOMEPAGE = "https://github.com/stbrumme/hash-library"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "Apache License 2.0 & Zlib License"
-LICENSE = "Apache-2.0 & Zlib-License"
+LICENSE = "Apache-2.0 AND LicenseRef-Zlib-License"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f9b08e944e4cd1aa722fbb316eb4b3e2"
 
 ROS_CN = "hash_library_vendor"

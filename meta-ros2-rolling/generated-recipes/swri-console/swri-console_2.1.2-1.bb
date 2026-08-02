@@ -10,7 +10,7 @@ AUTHOR = "Southwest Research Institute <swri-robotics@swri.org>"
 ROS_AUTHOR = "P. J. Reed <preed@swri.org>"
 HOMEPAGE = "http://ros.org/wiki/swri_console"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "LicenseRef-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "swri_console"
