@@ -4,7 +4,7 @@
 # Do not modify it by hand, as the contents will be replaced when
 # running the update-modules task.
 
-LICENSE += "& BSD-3-Clause & EXPAT"
+LICENSE += "AND BSD-3-Clause AND EXPAT"
 
 LIC_FILES_CHKSUM += "\
     file://pkg/mod/github.com/charlievieth/fastwalk@v1.0.14/LICENSE;md5=ca768dcff348a2a95cf861f3312b0a5c;spdx=EXPAT \

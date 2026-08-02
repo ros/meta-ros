@@ -1,5 +1,5 @@
 DESCRIPTION = "Library for nonlinear optimization, wrapping many algorithms for global and local, constrained or unconstrained, optimization"
-LICENSE = "MIT & LGPL-2.1-or-later & BSD-3-Clause"
+LICENSE = "BSD-3-Clause AND LGPL-2.1-or-later AND MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=bd64d5de9621ced0bbf488c45413e534 \
                     file://COPYRIGHT;md5=1b4ae9cf9d4ec57f6dc120948e9b483a \
                     file://doc/docs/NLopt_License_and_Copyright.md;md5=9a4df202e8a0eb3830515fbd3cad5b8e \
