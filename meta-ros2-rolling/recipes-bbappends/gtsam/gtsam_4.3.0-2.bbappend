@@ -35,6 +35,7 @@ do_install:append() {
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package gtsam contains symlink .so '/opt/ros/rolling/lib/libgtsam.so'
 # non -dev/-dbg/nativesdk- package gtsam contains symlink .so '/opt/ros/rolling/lib/libgtsam_unstable.so' [dev-so]
-FILES:${PN}-dev =+ "${ros_libdir}/libgtsam*${SOLIBSDEV}"
+FILES:${PN}-dev =+ "${ros_libdir}/libgtsam*${SOLIBSDEV} \
+                    ${ros_libdir}/libcephes-gtsam*${SOLIBSDEV}"
 
 BBCLASSEXTEND = "native"
