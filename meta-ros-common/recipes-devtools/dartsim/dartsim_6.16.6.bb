@@ -1,6 +1,6 @@
 SUMMARY = "DART: Dynamic Animation and Robotics Toolkit "
 HOMEPAGE = "https://github.com/dartsim/dart"
-LICENSE = "BSD-2-Clause & BSD-3-Clause & MIT"
+LICENSE = "BSD-2-Clause AND BSD-3-Clause AND MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7413f9690259504048a18c69eac91b4c \
                     file://data/mjcf/openai/LICENSE.md;md5=b7fcc920c21836f90e2ba40fd8fad0a7"
 

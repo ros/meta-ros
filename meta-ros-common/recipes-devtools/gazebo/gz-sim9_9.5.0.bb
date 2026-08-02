@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-LICENSE = "Apache-2.0 & Artistic-2.0 & BSD-3-Clause"
+LICENSE = "Apache-2.0 AND Artistic-2.0 AND BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa \
                     file://src/systems/elevator/vender/afsm/LICENSE;md5=ed0f22fa6f2ee0a77567130e0e8c8d15 \
                     file://src/systems/elevator/vender/metapushkin/LICENSE;md5=ed0f22fa6f2ee0a77567130e0e8c8d15 \

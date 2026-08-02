@@ -1,5 +1,5 @@
 DESCRIPTION = "A translator library for raster and vector geospatial data formats"
-LICENSE = "Apache-2.0 & BSD-3-Clause & MIT & ISC & Info-ZIP & Qhull & libpng-2.0"
+LICENSE = "Apache-2.0 AND BSD-3-Clause AND ISC AND Info-ZIP AND MIT AND Qhull AND libpng-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=c50ab31669698143abc7d61e9404b940 \
                     file://alg/internal_libqhull/COPYING.txt;md5=484ee0cacf0472e8b40225b116f6296c \
                     file://autotest/gdrivers/data/netcdf_cf_xml/udunits2-LICENCE;md5=b19151c1ce22098c7740b5bc0871b24a \

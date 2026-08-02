@@ -1,4 +1,4 @@
-LICENSE = "BSD-3-Clause & MIT & Unknown"
+LICENSE = "BSD-3-Clause AND MIT AND LicenseRef-Unknown"
 LIC_FILES_CHKSUM = "file://license.txt;md5=943332dbb441a49d1576fe75197d6cac"
 
 SRC_URI = "git://github.com/mcfletch/pyopengl;protocol=https;branch=master"

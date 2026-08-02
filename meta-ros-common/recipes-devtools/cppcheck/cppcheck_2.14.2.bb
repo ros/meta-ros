@@ -1,4 +1,4 @@
-LICENSE = "0BSD & BSD-2-Clause & GPL-3.0-only & Zlib"
+LICENSE = "0BSD AND BSD-2-Clause AND GPL-3.0-only AND Zlib"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
                     file://externals/picojson/LICENSE;md5=29d6d693711f69885bbfe08072624f2e \
                     file://externals/simplecpp/LICENSE;md5=df43620d67c1dceec49343b0b17c385d \

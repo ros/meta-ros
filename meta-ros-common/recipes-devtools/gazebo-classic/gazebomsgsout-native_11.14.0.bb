@@ -1,4 +1,4 @@
-LICENSE = "Apache-2.0 & GPL-2.0-only & LGPL-2.1-only & LGPL-3.0-only"
+LICENSE = "Apache-2.0 AND GPL-2.0-only AND LGPL-2.1-only AND LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://LICENSE;md5=622f4fcdd9e66304dcb89897348be7b0 \
                     file://cmake/GPL-2;md5=b234ee4d69f5fce4486a80fdaf4a4263"

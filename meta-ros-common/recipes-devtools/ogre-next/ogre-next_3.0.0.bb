@@ -1,6 +1,6 @@
 # Copyright (c) 2023-2025 Wind River Systems, Inc.
 
-LICENSE = "MIT & BSL-1.0 & CC-BY-3.0 & LGPL-2.1-or-later"
+LICENSE = "BSL-1.0 AND CC-BY-3.0 AND LGPL-2.1-or-later AND MIT"
 LIC_FILES_CHKSUM = "file://CMake/Templates/DemoLicense.rtf;md5=2711c49576d18cf781ec81aad76f40d6 \
                     file://COPYING;md5=65d1ee510d57bbd05663424f2ff8d660 \
                     file://Samples/Media/materials/textures/Cubemaps/License.txt;md5=81b3db517e68c27c535791b2276d5ffd \

@@ -1,5 +1,5 @@
 SUMMARY = "ZZipLib - libZ-based ZIP-access Library with an Easy-to-Use API"
-LICENSE = "LGPL-2.0-only & MPL-1.1 & Zlib"
+LICENSE = "LGPL-2.0-only AND MPL-1.1 AND Zlib"
 LIC_FILES_CHKSUM = "file://COPYING.LIB;md5=55ca817ccb7d5b5b66355690e9abc605 \
                     file://docs/COPYING.LIB;md5=55ca817ccb7d5b5b66355690e9abc605 \
                     file://docs/COPYING.MPL;md5=48ff35a6e75247e702019cddd0eacc21 \

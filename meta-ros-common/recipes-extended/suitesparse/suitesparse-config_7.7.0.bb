@@ -3,7 +3,7 @@
 
 require suitesparse-7.7.0.inc
 
-LICENSE = "PD"
+LICENSE = "LicenseRef-PD"
 LIC_FILES_CHKSUM += "file://README.txt;md5=dabbb8fc940f88cfe4fde254fad9dd68"
 
 S = "${UNPACKDIR}/${BPN}-${PV}/SuiteSparse_config"

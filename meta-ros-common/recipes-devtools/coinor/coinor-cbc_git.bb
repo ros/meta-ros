@@ -1,4 +1,4 @@
-LICENSE = "EPL-2.0-or-later"
+LICENSE = "LicenseRef-EPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=44f12365016145dc45da7854fe1d6c8e"
 
 SRC_URI = "git://github.com/coin-or/Cbc.git;protocol=https;branch=master"

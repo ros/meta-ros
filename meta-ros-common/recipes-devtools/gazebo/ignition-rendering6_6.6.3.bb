@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-LICENSE = "Apache-2.0 & OFL-1.1"
+LICENSE = "Apache-2.0 AND OFL-1.1"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://ogre/src/media/fonts/liberation-sans/SIL%20Open%20Font%20License.txt;md5=a4b00b7892bfb2fc9398e7f292af5b3d"

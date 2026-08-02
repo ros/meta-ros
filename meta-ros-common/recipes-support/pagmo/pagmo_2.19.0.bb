@@ -1,4 +1,4 @@
-LICENSE = "LGPL-3.0-only & MIT & GPL-3.0-only"
+LICENSE = "GPL-3.0-only AND LGPL-3.0-only AND MIT"
 LIC_FILES_CHKSUM = "file://COPYING.gpl3;md5=11cc2d3ee574f9d6b7ee797bdce4d423 \
                     file://COPYING.lgpl3;md5=6a6a8e020838b23406c81b19c1d46df6 \
                     file://cmake_modules/yacma/LICENSE;md5=28912171f281b7a4e03f7917f542a27c"

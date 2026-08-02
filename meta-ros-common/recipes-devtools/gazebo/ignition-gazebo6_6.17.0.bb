@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
-LICENSE = "Apache-2.0 & Artistic-2.0"
+LICENSE = "Apache-2.0 AND Artistic-2.0"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0 \
                     file://src/systems/elevator/vender/afsm/LICENSE;md5=ec4341a201f4b801aba0191a5d2d8f39 \
