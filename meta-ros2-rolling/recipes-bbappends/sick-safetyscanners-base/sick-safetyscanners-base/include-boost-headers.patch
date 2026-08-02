@@ -1,0 +1,47 @@
+Include Boost headers
+
+Include the Boost headers to resolve compatibility with newer Boost Asio changes:
+
+include/sick_safetyscanners_base/Types.h:76:44: error: 'time_duration' in namespace 'boost::posix_time' does not name a type
+include/sick_safetyscanners_base/communication/UDPClient.h:147:16: error: 'deadline_timer' in namespace 'boost::asio' does not name a type
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: sick-safetyscanners-base-1.0.3-1/include/sick_safetyscanners_base/communication/TCPClient.h
+===================================================================
+--- sick-safetyscanners-base-1.0.3-1.orig/include/sick_safetyscanners_base/communication/TCPClient.h
++++ sick-safetyscanners-base-1.0.3-1/include/sick_safetyscanners_base/communication/TCPClient.h
+@@ -36,6 +36,7 @@
+ #define SICK_SAFETYSCANNERS_BASE_COMMUNICATION_SYNCTCPCLIENT_H
+ 
+ #include <boost/asio.hpp>
++#include <boost/asio/deadline_timer.hpp>
+ #include <boost/date_time/posix_time/posix_time_types.hpp>
+ #include <cstdint>
+ #include <vector>
+Index: sick-safetyscanners-base-1.0.3-1/include/sick_safetyscanners_base/communication/UDPClient.h
+===================================================================
+--- sick-safetyscanners-base-1.0.3-1.orig/include/sick_safetyscanners_base/communication/UDPClient.h
++++ sick-safetyscanners-base-1.0.3-1/include/sick_safetyscanners_base/communication/UDPClient.h
+@@ -40,6 +40,7 @@
+ #include <iostream>
+ 
+ #include <boost/asio.hpp>
++#include <boost/asio/deadline_timer.hpp>
+ 
+ #include "sick_safetyscanners_base/Types.h"
+ #include "sick_safetyscanners_base/datastructure/PacketBuffer.h"
+Index: sick-safetyscanners-base-1.0.3-1/include/sick_safetyscanners_base/Types.h
+===================================================================
+--- sick-safetyscanners-base-1.0.3-1.orig/include/sick_safetyscanners_base/Types.h
++++ sick-safetyscanners-base-1.0.3-1/include/sick_safetyscanners_base/Types.h
+@@ -38,6 +38,7 @@
+ #include "sick_safetyscanners_base/datastructure/Data.h"
+ #include "sick_safetyscanners_base/datastructure/PacketBuffer.h"
+ #include <boost/asio/ip/address_v4.hpp>
++#include <boost/date_time/posix_time/posix_time_types.hpp>
+ #include <cstdint>
+ #include <functional>
+ #include <memory>

@@ -1,0 +1,287 @@
+refactor: migrate from deprecated boost::asio::io_service to io_context
+
+Upstream-Status: Pending
+Signed-off-by: Matthias Schoepfer <msc@fp-robotics.com>
+
+From 879788fff0d5fcf3bb7570de09c1d50803ac19d0 Mon Sep 17 00:00:00 2001
+From: Matthias Schoepfer <msc@fp-robotics.com>
+Date: Mon, 26 Jan 2026 09:38:07 +0100
+Subject: [PATCH] refactor: migrate from deprecated boost::asio::io_service to
+ io_context
+
+Replace deprecated Boost.Asio APIs with their modern equivalents to
+ensure compatibility with newer Boost versions and suppress deprecation
+warnings:
+
+- `boost::asio::io_service` -> `boost::asio::io_context`
+- `boost::asio::io_service::work` -> `boost::asio::executor_work_guard`
+- `address_v4::from_string()` -> `boost::asio::ip::make_address_v4()`
+- `address_v4::to_ulong()` -> `address_v4::to_uint()`
+
+The executor_work_guard requires proper shutdown ordering: reset the
+work guard before stopping the io_context to allow `run()` to complete
+gracefully.
+
+Signed-off-by: Matthias Schoepfer <msc@fp-robotics.com>
+---
+ .../SickSafetyscanners.h                      | 16 ++++++++--------
+ .../communication/TCPClient.h                 |  2 +-
+ .../communication/UDPClient.h                 |  6 +++---
+ .../datastructure/CommSettings.h              |  2 +-
+ src/SickSafetyscanners.cpp                    | 19 ++++++++++++-------
+ src/cola2/ChangeCommSettingsCommand.cpp       |  2 +-
+ src/communication/UDPClient.cpp               |  4 ++--
+ src/datastructure/ConfigData.cpp              |  2 +-
+ 8 files changed, 29 insertions(+), 24 deletions(-)
+
+diff --git a/include/sick_safetyscanners_base/SickSafetyscanners.h b/include/sick_safetyscanners_base/SickSafetyscanners.h
+index 58509a3..423c630 100644
+--- a/include/sick_safetyscanners_base/SickSafetyscanners.h
++++ b/include/sick_safetyscanners_base/SickSafetyscanners.h
+@@ -64,7 +64,7 @@
+ 
+ namespace sick {
+ 
+-using io_service_ptr = std::shared_ptr<boost::asio::io_service>;
++using io_service_ptr = std::shared_ptr<boost::asio::io_context>;
+ 
+ using namespace sick::datastructure;
+ 
+@@ -98,7 +98,7 @@ public:
+   SickSafetyscannersBase(sick::types::ip_address_t sensor_ip,
+                          sick::types::port_t sensor_tcp_port,
+                          CommSettings comm_settings,
+-                         boost::asio::io_service& io_service);
++                         boost::asio::io_context& io_service);
+   /*!
+    * \brief Constructor of the SickSafetyscannersBase class.
+    *
+@@ -262,7 +262,7 @@ public:
+ private:
+   sick::types::ip_address_t m_sensor_ip;
+   CommSettings m_comm_settings;
+-  std::unique_ptr<boost::asio::io_service> m_io_service_ptr;
++  std::unique_ptr<boost::asio::io_context> m_io_service_ptr;
+ 
+   /*!
+    * \brief Helper function to create command objects generically.
+@@ -281,7 +281,7 @@ private:
+   }
+ 
+ protected:
+-  boost::asio::io_service& m_io_service;
++  boost::asio::io_context& m_io_service;
+   sick::communication::UDPClient m_udp_client;
+   sick::cola2::Cola2Session m_session;
+   sick::data_processing::UDPPacketMerger m_packet_merger;
+@@ -350,7 +350,7 @@ public:
+                          sick::types::port_t sensor_tcp_port,
+                          CommSettings comm_settings,
+                          sick::types::ScanDataCb callback,
+-                         boost::asio::io_service& io_service);
++                         boost::asio::io_context& io_service);
+ 
+   /*!
+    * \brief Destructor of the AsyncSickSafetyScanner object
+@@ -381,9 +381,9 @@ private:
+   void processUDPPacket(const sick::datastructure::PacketBuffer& buffer);
+ 
+   sick::types::ScanDataCb m_scan_data_cb;
+-  std::unique_ptr<boost::asio::io_service> m_io_service_ptr;
++  std::unique_ptr<boost::asio::io_context> m_io_service_ptr;
+   boost::thread m_service_thread;
+-  std::unique_ptr<boost::asio::io_service::work> m_work;
++  std::unique_ptr<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> m_work;
+ };
+ 
+ /*!
+@@ -402,7 +402,7 @@ public:
+   SyncSickSafetyScanner(sick::types::ip_address_t sensor_ip,
+                         sick::types::port_t sensor_tcp_port,
+                         CommSettings comm_settings,
+-                        boost::asio::io_service& io_service) = delete;
++                        boost::asio::io_context& io_service) = delete;
+   /*!
+    * \brief Indicates whether sensor data is available in the receiving buffers.
+    *
+diff --git a/include/sick_safetyscanners_base/communication/TCPClient.h b/include/sick_safetyscanners_base/communication/TCPClient.h
+index 1a2c880..38c26bb 100644
+--- a/include/sick_safetyscanners_base/communication/TCPClient.h
++++ b/include/sick_safetyscanners_base/communication/TCPClient.h
+@@ -103,7 +103,7 @@ public:
+   receive(sick::types::time_duration_t timeout = boost::posix_time::seconds(5));
+ 
+ private:
+-  boost::asio::io_service m_io_service;
++  boost::asio::io_context m_io_service;
+   sick::datastructure::PacketBuffer::ArrayBuffer m_recv_buffer;
+   boost::asio::ip::tcp::socket m_socket;
+   sick::types::ip_address_t m_server_ip;
+diff --git a/include/sick_safetyscanners_base/communication/UDPClient.h b/include/sick_safetyscanners_base/communication/UDPClient.h
+index 02831a5..5808f0b 100644
+--- a/include/sick_safetyscanners_base/communication/UDPClient.h
++++ b/include/sick_safetyscanners_base/communication/UDPClient.h
+@@ -60,7 +60,7 @@ public:
+    * \param io_service Instance of the boost::asio io_service
+    * \param server_port The local port number on the receiver (this client's) side.
+    */
+-  UDPClient(boost::asio::io_service& io_service, sick::types::port_t server_port);
++  UDPClient(boost::asio::io_context& io_service, sick::types::port_t server_port);
+ 
+   /*!
+    * \brief Constructor of a UDPClient object
+@@ -71,7 +71,7 @@ public:
+    * \param interface_ip The used host (client's) interface IP  which is needed to join the
+    * multicast group.
+    */
+-  UDPClient(boost::asio::io_service& io_service,
++  UDPClient(boost::asio::io_context& io_service,
+             sick::types::port_t server_port,
+             boost::asio::ip::address_v4 host_ip,
+             boost::asio::ip::address_v4 interface_ip);
+@@ -139,7 +139,7 @@ public:
+   sick::datastructure::PacketBuffer receive(sick::types::time_duration_t timeout);
+ 
+ private:
+-  boost::asio::io_service& m_io_service;
++  boost::asio::io_context& m_io_service;
+   boost::asio::ip::udp::endpoint m_remote_endpoint;
+   boost::asio::ip::udp::socket m_socket;
+   types::PacketHandler m_packet_handler;
+diff --git a/include/sick_safetyscanners_base/datastructure/CommSettings.h b/include/sick_safetyscanners_base/datastructure/CommSettings.h
+index bbbe83b..9dda5d7 100644
+--- a/include/sick_safetyscanners_base/datastructure/CommSettings.h
++++ b/include/sick_safetyscanners_base/datastructure/CommSettings.h
+@@ -67,7 +67,7 @@ struct CommSettings
+   bool enabled{true};
+ 
+   sick::types::port_t host_udp_port{0};
+-  sick::types::ip_address_t host_ip{boost::asio::ip::address_v4::from_string("192.168.1.100")};
++  sick::types::ip_address_t host_ip{boost::asio::ip::make_address_v4("192.168.1.100")};
+ };
+ 
+ std::ostream& operator<<(std::ostream& os, const CommSettings& settings);
+diff --git a/src/SickSafetyscanners.cpp b/src/SickSafetyscanners.cpp
+index 0d1f9c1..601a14f 100644
+--- a/src/SickSafetyscanners.cpp
++++ b/src/SickSafetyscanners.cpp
+@@ -46,7 +46,7 @@ SickSafetyscannersBase::SickSafetyscannersBase(sick::types::ip_address_t sensor_
+                                                CommSettings comm_settings)
+   : m_sensor_ip(sensor_ip)
+   , m_comm_settings(comm_settings)
+-  , m_io_service_ptr(sick::make_unique<boost::asio::io_service>())
++  , m_io_service_ptr(sick::make_unique<boost::asio::io_context>())
+   , m_io_service(*m_io_service_ptr)
+   , m_udp_client(m_io_service, comm_settings.host_udp_port)
+   , m_session(sick::make_unique<sick::communication::TCPClient>(m_sensor_ip, sensor_tcp_port))
+@@ -61,7 +61,7 @@ SickSafetyscannersBase::SickSafetyscannersBase(sick::types::ip_address_t sensor_
+                                                boost::asio::ip::address_v4 interface_ip)
+   : m_sensor_ip(sensor_ip)
+   , m_comm_settings(comm_settings)
+-  , m_io_service_ptr(sick::make_unique<boost::asio::io_service>())
++  , m_io_service_ptr(sick::make_unique<boost::asio::io_context>())
+   , m_io_service(*m_io_service_ptr)
+   , m_udp_client(m_io_service, comm_settings.host_udp_port, comm_settings.host_ip, interface_ip)
+   , m_session(sick::make_unique<sick::communication::TCPClient>(m_sensor_ip, sensor_tcp_port))
+@@ -73,7 +73,7 @@ SickSafetyscannersBase::SickSafetyscannersBase(sick::types::ip_address_t sensor_
+ SickSafetyscannersBase::SickSafetyscannersBase(sick::types::ip_address_t sensor_ip,
+                                                sick::types::port_t sensor_tcp_port,
+                                                CommSettings comm_settings,
+-                                               boost::asio::io_service& io_service)
++                                               boost::asio::io_context& io_service)
+   : m_sensor_ip(sensor_ip)
+   , m_comm_settings(comm_settings)
+   , m_io_service_ptr(nullptr)
+@@ -235,7 +235,8 @@ AsyncSickSafetyScanner::AsyncSickSafetyScanner(sick::types::ip_address_t sensor_
+                                                sick::types::ScanDataCb callback)
+   : SickSafetyscannersBase(sensor_ip, sensor_tcp_port, comm_settings)
+   , m_scan_data_cb(callback)
+-  , m_work(sick::make_unique<boost::asio::io_service::work>(m_io_service))
++  , m_work(sick::make_unique<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>>(
++      boost::asio::make_work_guard(m_io_service)))
+ {
+   m_service_thread = boost::thread([this] {
+     try
+@@ -256,7 +257,8 @@ AsyncSickSafetyScanner::AsyncSickSafetyScanner(sick::types::ip_address_t sensor_
+                                                sick::types::ScanDataCb callback)
+   : SickSafetyscannersBase(sensor_ip, sensor_tcp_port, comm_settings, interface_ip)
+   , m_scan_data_cb(callback)
+-  , m_work(sick::make_unique<boost::asio::io_service::work>(m_io_service))
++  , m_work(sick::make_unique<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>>(
++      boost::asio::make_work_guard(m_io_service)))
+ {
+   m_service_thread = boost::thread([this] {
+     try
+@@ -274,7 +276,7 @@ AsyncSickSafetyScanner::AsyncSickSafetyScanner(sick::types::ip_address_t sensor_
+                                                sick::types::port_t sensor_tcp_port,
+                                                CommSettings comm_settings,
+                                                sick::types::ScanDataCb callback,
+-                                               boost::asio::io_service& io_service)
++                                               boost::asio::io_context& io_service)
+   : SickSafetyscannersBase(sensor_ip, sensor_tcp_port, comm_settings, io_service)
+   , m_scan_data_cb(callback)
+   , m_work()
+@@ -283,8 +285,11 @@ AsyncSickSafetyScanner::AsyncSickSafetyScanner(sick::types::ip_address_t sensor_
+ 
+ AsyncSickSafetyScanner::~AsyncSickSafetyScanner()
+ {
++  if (m_work)
++  {
++    m_work->reset();
++  }
+   m_io_service.stop();
+-  m_work.reset();
+   if (m_service_thread.joinable())
+   {
+     m_service_thread.join();
+diff --git a/src/cola2/ChangeCommSettingsCommand.cpp b/src/cola2/ChangeCommSettingsCommand.cpp
+index bbb8b48..46cedba 100644
+--- a/src/cola2/ChangeCommSettingsCommand.cpp
++++ b/src/cola2/ChangeCommSettingsCommand.cpp
+@@ -105,7 +105,7 @@ void ChangeCommSettingsCommand::writeEInterfaceTypeToDataPtr(
+ void ChangeCommSettingsCommand::writeIPAddresstoDataPtr(
+   std::vector<uint8_t>::iterator data_ptr) const
+ {
+-  read_write_helper::writeUint32LittleEndian(data_ptr + 8, m_settings.host_ip.to_ulong());
++  read_write_helper::writeUint32LittleEndian(data_ptr + 8, m_settings.host_ip.to_uint());
+ }
+ 
+ void ChangeCommSettingsCommand::writePortToDataPtr(std::vector<uint8_t>::iterator data_ptr) const
+diff --git a/src/communication/UDPClient.cpp b/src/communication/UDPClient.cpp
+index b2037e1..2e08a11 100644
+--- a/src/communication/UDPClient.cpp
++++ b/src/communication/UDPClient.cpp
+@@ -60,7 +60,7 @@ using boost::lambda::_2;
+ using boost::lambda::bind;
+ using boost::lambda::var;
+ 
+-UDPClient::UDPClient(boost::asio::io_service& io_service, sick::types::port_t server_port)
++UDPClient::UDPClient(boost::asio::io_context& io_service, sick::types::port_t server_port)
+   : m_io_service(io_service)
+   , m_socket(io_service, boost::asio::ip::udp::endpoint{boost::asio::ip::udp::v4(), server_port})
+   , m_packet_handler()
+@@ -71,7 +71,7 @@ UDPClient::UDPClient(boost::asio::io_service& io_service, sick::types::port_t se
+   checkDeadline();
+ }
+ 
+-UDPClient::UDPClient(boost::asio::io_service& io_service,
++UDPClient::UDPClient(boost::asio::io_context& io_service,
+                      sick::types::port_t server_port,
+                      boost::asio::ip::address_v4 host_ip,
+                      boost::asio::ip::address_v4 interface_ip)
+diff --git a/src/datastructure/ConfigData.cpp b/src/datastructure/ConfigData.cpp
+index 0f42f5b..bd96ba4 100644
+--- a/src/datastructure/ConfigData.cpp
++++ b/src/datastructure/ConfigData.cpp
+@@ -91,7 +91,7 @@ void ConfigData::setHostIp(const boost::asio::ip::address_v4& host_ip)
+ 
+ void ConfigData::setHostIp(const std::string& host_ip)
+ {
+-  m_host_ip = boost::asio::ip::address_v4::from_string(host_ip);
++  m_host_ip = boost::asio::ip::make_address_v4(host_ip);
+ }
+ 
+ uint16_t ConfigData::getHostUdpPort() const
+-- 
+2.49.0
+

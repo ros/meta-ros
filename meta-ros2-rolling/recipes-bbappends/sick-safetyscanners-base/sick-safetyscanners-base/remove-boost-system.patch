@@ -1,0 +1,18 @@
+Remove deprecated Boost::system
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: sick-safetyscanners-base-1.0.3-1/CMakeLists.txt
+===================================================================
+--- sick-safetyscanners-base-1.0.3-1.orig/CMakeLists.txt
++++ sick-safetyscanners-base-1.0.3-1/CMakeLists.txt
+@@ -9,7 +9,7 @@ add_definitions(-std=c++11 -Wall -Werror
+ 
+ 
+ ## Find system libraries
+-find_package(Boost REQUIRED COMPONENTS system thread chrono)
++find_package(Boost REQUIRED COMPONENTS thread chrono)
+ 
+ 
+ ###########
