@@ -64,6 +64,6 @@ FILES:${PN}-implicitworkspace = " \
 # sysroot instead using the one from host (e.g. for native python)
 export CATKIN_CROSSCOMPILING = "1"
 
-EXTRA_OECMAKE = " -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3'"
+EXTRA_OECMAKE = " -DPYTHON_EXECUTABLE_TARGET='/usr/bin/env python3' -DCMAKE_POLICY_VERSION_MINIMUM=3.5 "
 
 # inherit python3native

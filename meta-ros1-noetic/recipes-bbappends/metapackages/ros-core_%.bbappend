@@ -2,3 +2,5 @@
 
 # The dependency on roslisp isn't mandatory and roslisp is blacklisted
 ROS_EXEC_DEPENDS:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'lisp', 'geneus genlisp roslisp', '', d)}"
+
+EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"

@@ -7,3 +7,5 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += " \
     file://recognize-busybox-star.patch \
 "
+
+EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
