@@ -11,7 +11,7 @@ HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
 # Original license in package.xml, joined with "&" when multiple license tags were used:
 #         "LGPL 2.1"
-LICENSE = "LGPL-2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=0b629839aa0cbbdfcc0a9fe2b0b43af8"
 
 ROS_CN = "qt_advanced_docking_system"
