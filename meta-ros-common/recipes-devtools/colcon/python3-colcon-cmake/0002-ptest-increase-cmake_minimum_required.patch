@@ -1,0 +1,36 @@
+From 420a841d380e3533103dc75c01c95f3f35df6a94 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Tue, 11 Aug 2026 20:44:17 +0200
+Subject: [PATCH 2/3] ptest: increase cmake_minimum_required
+
+CMake Warning (deprecated) at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+Upstream-Status: Submitted [https://github.com/colcon/colcon-cmake/issues/162]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_task_cmake_build.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/test_task_cmake_build.py b/test/test_task_cmake_build.py
+index ee8f8e1..ca5ccf8 100644
+--- a/test/test_task_cmake_build.py
++++ b/test/test_task_cmake_build.py
+@@ -60,7 +60,7 @@ def _test_build_package(
+ 
+         package.path.mkdir(exist_ok=True)
+         (package.path / 'CMakeLists.txt').write_text(
+-            'cmake_minimum_required(VERSION 3.5)\n'
++            'cmake_minimum_required(VERSION 3.10)\n'
+             'project(test-package NONE)\n'
+             'file(GENERATE OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/out-file"\n'
+             '     CONTENT "Hello, World!")\n'
+-- 
+2.43.0
+
