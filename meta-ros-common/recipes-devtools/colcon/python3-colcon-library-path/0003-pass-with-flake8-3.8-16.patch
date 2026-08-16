@@ -1,0 +1,27 @@
+From fb9007cf41410456c19b6bbb9237bdaca297e495 Mon Sep 17 00:00:00 2001
+From: Dirk Thomas <dirk-thomas@users.noreply.github.com>
+Date: Wed, 20 May 2020 11:49:03 -0700
+Subject: [PATCH 3/3] pass with flake8 3.8 (#16)
+
+Upstream-Status: Backport [> 0.2.1]
+
+---
+ test/test_copyright_license.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/test_copyright_license.py b/test/test_copyright_license.py
+index 21f5ace..01d0c85 100644
+--- a/test/test_copyright_license.py
++++ b/test/test_copyright_license.py
+@@ -26,7 +26,7 @@ def check_files(paths):
+                 continue
+             lines = content.splitlines()
+             has_copyright = \
+-                any(l for l in lines if l.startswith('# Copyright'))
++                any(line for line in lines if line.startswith('# Copyright'))
+             has_license = \
+                 '# Licensed under the Apache License, Version 2.0' in lines
+             if not has_copyright or not has_license:
+-- 
+2.43.0
+
