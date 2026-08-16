@@ -1,12 +1,18 @@
-
 SUMMARY = "Extension for colcon to support ROS packages."
 SECTION = "devel/python"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://setup.cfg;beginline=22;endline=22;md5=3d0bd1ac53c1dd582844ed15eee7f8e2"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRC_URI[sha256sum] = "79a7e89f6fa636f7e4fd44a88b7860fb1da99d51f0ba7bcf0b9b624a1a578365"
+SRC_URI = "\
+    git://github.com/colcon/colcon-ros;branch=master;protocol=https \
+    file://0001-Drop-unnecessary-scope-qualifiers-to-please-flake8.patch \
+    file://0101-ptest-no-python3-scspell-in-OpenEmbedded-Yocto.patch \
+    file://0102-ptest-correct-path-of-the-to-be-checked-python-files.patch \
+"
 
-inherit pypi setuptools3
+SRCREV = "7c72610ded646405d3c61318680e7d93bcbf1409"
+
+inherit setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-catkin-pkg \
@@ -16,5 +22,12 @@ RDEPENDS:${PN} += "\
     python3-colcon-python-setup-py \
     python3-colcon-recursive-crawl \
 "
+
+RDEPENDS:${PN}-ptest += "\
+    python3-flake8 \
+    python3-pycodestyle \
+"
+
+PTEST_PYTEST_DIR = "test"
 
 BBCLASSEXTEND += "nativesdk"
