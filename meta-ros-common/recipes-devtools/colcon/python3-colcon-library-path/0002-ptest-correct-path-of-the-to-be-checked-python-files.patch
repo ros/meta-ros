@@ -1,0 +1,36 @@
+From 0d0a6c388e10650b06331a2a045c02f68a14e2f6 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@oip.be>
+Date: Sun, 16 Aug 2026 15:41:56 +0200
+Subject: [PATCH 2/2] ptest: correct path of the to be checked python files
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_flake8.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/test/test_flake8.py b/test/test_flake8.py
+index 9f126e5..9d3764c 100644
+--- a/test/test_flake8.py
++++ b/test/test_flake8.py
+@@ -3,6 +3,7 @@
+ 
+ import logging
+ from pathlib import Path
++import site
+ import sys
+ 
+ from flake8 import LOG
+@@ -27,7 +28,7 @@ def test_flake8():
+     sys.stdout = sys.stderr
+     # implicitly calls report_errors()
+     report = style_guide.check_files([
+-        str(Path(__file__).parents[1] / 'colcon_library_path'),
++        site.getsitepackages()[0] + '/' + 'colcon_library_path',
+     ])
+     report_tests = style_guide_tests.check_files([
+         str(Path(__file__).parents[1] / 'test'),
+-- 
+2.43.0
+
