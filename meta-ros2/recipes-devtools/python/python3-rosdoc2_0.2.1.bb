@@ -9,7 +9,12 @@ HOMEPAGE = "https://github.com/ros-infrastructure/rosdoc2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=10;endline=10;md5=d36ab912b8b544b7412f2d84c52072f1"
 
-SRC_URI[sha256sum] = "fbb2ba4d0d867590955963363bf24b969c6ed18c24d730845b38884736b8ccf7"
+DEPENDS = "python3-wheel-native"
+
+SRC_URI = "\
+    git://github.com/ros-infrastructure/rosdoc2.git;branch=main;protocol=https \
+    file://0001-ptest-fix-the-path-to-the-installed-package.patch \
+"
 
 inherit pypi python_setuptools_build_meta
 
