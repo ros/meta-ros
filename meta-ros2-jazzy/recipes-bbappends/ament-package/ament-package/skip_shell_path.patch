@@ -1,0 +1,29 @@
+We should not set the PATH or LD_LIBRARY_PATH when using an SDK.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Index: git/ament_package/template/prefix_level/_local_setup_util.py
+===================================================================
+--- git.orig/ament_package/template/prefix_level/_local_setup_util.py
++++ git/ament_package/template/prefix_level/_local_setup_util.py
+@@ -192,6 +192,11 @@
+     return bool(os.environ.get('AMENT_TRACE_SETUP_FILES'))
+ 
+ 
++def _skip_shell_path():
++    # skip setting shell PATH envvars when AMENT_SKIP_SHELL_PATH is set
++    return bool(os.environ.get('AMENT_SKIP_SHELL_PATH'))
++
++
+ def get_commands(pkg_name, prefix, primary_extension, additional_extension):
+     commands = []
+     package_dsv_path = os.path.join(prefix, 'share', pkg_name, 'package.dsv')
+@@ -320,6 +325,8 @@
+         env_name = env_name_and_values[0]
+         values = env_name_and_values[1:]
+         for value in values:
++            if _skip_shell_path() and ((env_name == "PATH") or (env_name == "LD_LIBRARY_PATH")):
++                break
+             if not value:
+                 value = prefix
+             elif not os.path.isabs(value):
