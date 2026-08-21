@@ -85,6 +85,23 @@ superflore tool may be found in the `recipes-*` directories.  When changes are
 required against the generated recipes, the bbappend files are created in 
 `recipes-bbappends`.
 
+## Optional / Dynamic Layers
+
+Some ROS packages are only useful, or only buildable, when another optional
+OpenEmbedded layer is also present in your build. These are wired up using
+bitbake's `dynamic-layers` mechanism.
+
+| `dynamic-layers/` directory | Add this layer | Collection name | Unlocks |
+| --- | --- | --- | --- |
+| `meta-ros2/dynamic-layers/meta-qt5` | [meta-qt5](https://github.com/meta-qt5/meta-qt5) | `qt5-layer` | PyQt5 (`python3-pyqt5`) and Qt5 build adjustments for ROS 2 rqt tooling |
+| `meta-ros2/dynamic-layers/meta-qt6` | [meta-qt6](https://code.qt.io/yocto/meta-qt6) | `qt6-layer` | PyQt6 (`python3-pyqt6`) and Qt6 build adjustments for ROS 2 rqt tooling |
+| `meta-ros2/dynamic-layers/meta-zenoh` | [meta-zenoh](https://github.com/Jarsop/meta-zenoh) | `zenoh-layer` | `zenoh`/`zenoh-c`, needed for the Zenoh RMW implementation |
+| `meta-ros-common/dynamic-layers/meta-python-ai` | [meta-python-ai](https://github.com/zboszor/meta-python-ai) | `meta-python-ai` | `libaec`/`openblas` build adjustments for numeric/AI Python packages |
+
+To enable one of these, add the named upstream layer to your `bblayers.conf`
+alongside the meta-ros layers you're already using; no other configuration is
+required.
+
 # History
 
 The original implementation of `meta-ros` for ROS 1 Indigo Igloo
