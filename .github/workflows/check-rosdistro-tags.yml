@@ -1,0 +1,84 @@
+name: Check rosdistro Tags
+
+# Watches https://github.com/ros/rosdistro for new "<ROS_DISTRO>/<date>"
+# release tags and dispatches generate_recipes.yml for any distro that's
+# due, instead of relying on someone remembering to run it by hand. See
+# scripts/check-rosdistro-tags.sh for the recency/dedup logic this wraps,
+# and docs/meta-ros-audit-remediation-spec.md (task M1-4) for the design
+# rationale and open questions this implementation makes a call on.
+#
+# This workflow only manages the branch it runs on: it reads that
+# branch's own recorded generated/cache.yaml state and dispatches
+# generate_recipes.yml against that same branch (github.ref_name). It
+# does not fan out across other Yocto-release branches -- if this
+# protection is wanted on wrynose/scarthgap/etc. too, this file needs to
+# be added to each of those branches independently, same as any other
+# repo-wide file (see AGENTS.md).
+
+on:
+  schedule:
+    # Daily, off the hour to avoid the top-of-hour scheduling stampede.
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Only consider tags at most this many days old'
+        required: false
+        default: '30'
+      dry_run:
+        description: 'Report what would be dispatched, but do not dispatch'
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  actions: write
+  pull-requests: read
+  contents: read
+
+jobs:
+  check-and-dispatch:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+
+      - name: Check rosdistro tags
+        id: check
+        run: |
+          bash scripts/check-rosdistro-tags.sh -d "${{ inputs.days || '30' }}"
+
+      - name: Dispatch generate_recipes.yml for due distros
+        if: steps.check.outputs.due_distros != '[]' && steps.check.outputs.due_distros != ''
+        env:
+          # workflow_dispatch runs respect the dry_run input (which
+          # itself defaults to true -- see the input schema above, safe
+          # for manual testing); scheduled runs have no `inputs` context
+          # at all, so they fall through to actually dispatching, which
+          # is the point of this workflow.
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+        run: |
+          for distro in $(echo '${{ steps.check.outputs.due_distros }}' | jq -r '.[]'); do
+            # Don't pile up a second regeneration branch/PR while a prior
+            # one for this distro is still open and awaiting review.
+            open_count=$(gh pr list --state open \
+              --search "head:superflore/${{ github.ref_name }}/${distro}/" \
+              --json number --jq 'length')
+            if [ "$open_count" -gt 0 ]; then
+              echo "SKIP $distro: an open superflore PR already exists for it"
+              continue
+            fi
+
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "DRY RUN: would dispatch generate_recipes.yml for $distro on ${{ github.ref_name }}"
+              continue
+            fi
+
+            echo "Dispatching generate_recipes.yml for $distro on ${{ github.ref_name }}"
+            gh workflow run generate_recipes.yml \
+              --ref "${{ github.ref_name }}" \
+              -f ros_distro="$distro" \
+              -f dry_run=false
+          done
