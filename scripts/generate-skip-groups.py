@@ -12,6 +12,7 @@ UNRESOLVED_STR = "ROS_UNRESOLVED_DEP-"
 
 def usage():
     print("generate-skip-groups.py <cooker log file>")
+    sys.exit(1)
 
 def main():
     if (len(sys.argv) != 2):
