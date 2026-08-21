@@ -12,4 +12,6 @@ SRC_URI = "\
 
 SRCREV = "bb12f2de41e1977b52274db83fcce16231ee5c7b"
 
-inherit python_uv_build ptest-python-pytest
+inherit python_pep517 ptest-python-pytest
+
+DEPENDS += "python3-uv-build-native"
