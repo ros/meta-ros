@@ -461,17 +461,44 @@ recipe trees). **Opinion: not a meaningful win now; revisit in 12-18 months.**
 **Effort:** N/A now. **Next step:** No action; re-evaluate once `bitbake-setup` matures past its
 first release, or if kas maintenance shows signs of stalling.
 
-### 5.6 kas composition features (`includes`/`defaults`/`overrides`) — likely under-exploited, but unverifiable from this checkout
-**Where:** kas has had `defaults`/`overrides` sections and file-composition via `includes:` for
-some time — exactly the mechanism that would let a base ROS2 kas config + 5 thin per-distro
-overlay files replace N near-independent full kas files. **This cannot be confirmed here**: the
-actual kas files live on the external `build` branch (referenced from README, not part of this
-checkout), so this audit cannot say whether they already use these features or are ~10 full
-copies. This is the single most actionable "go check this" item from the modernization research.
+### 5.6 kas composition features — resolved: already well-exploited, no refactor needed
+**Where:** *Updated after checking out the `build` branch (task M2-2), which wasn't part of the
+original checkout this audit was based on.* `kas/` there has ~70+ top-level
+`kas/oeros-<yocto-release>-<ros-distro>-<machine>.yml` combination files, but they are **not**
+independent full copies. Each one is a thin `header.includes:` list — e.g.
+`kas/oeros-wrynose-humble-qemux86-64.yml` is just:
+```yaml
+header:
+  version: 14
+  includes:
+    - kas/yocto/wrynose.yml
+    - kas/ros2/humble.yml
+    - kas/machine/qemux86-64.yml
+    - kas/common.yml
+    - kas/layer/qt5.yml
+repos:
+  zenoh:
+    branch: "master"
+```
+pulling in reusable fragments: `kas/yocto/<release>.yml` (openembedded-core/bitbake/meta-openembedded
+pins for that Yocto release, using kas's `defaults: repos: branch:` so every repo in the file
+shares one branch setting instead of repeating it), `kas/ros2/<distro>.yml` (the meta-ros layers
+for that ROS distro), `kas/machine/<machine>.yml` (just the `machine:` value), and
+`kas/common.yml` (shared `local_conf_header` settings, itself further composed from
+`kas/layer/*.yml` optional-layer fragments — the same fragments referenced in
+[README.md § Optional / Dynamic Layers](#optional--dynamic-layers)). This is exactly the
+base-plus-overlay pattern the audit was checking for, already in active use.
 
-**Effort:** Medium (once accessible). **Next step:** A follow-up pass checking out the `build`
-branch specifically to inspect `kas/*.yml` for `includes`/`defaults`/`overrides` usage before
-drawing conclusions about onboarding duplication.
+**Conclusion: no refactor is warranted here.** This closes out what the original audit flagged as
+"the single most actionable go-check-this item" from the modernization research — it turned out
+to already be done well.
+
+**Minor, unrelated defect noticed in passing:** `kas/oeros-scarthgap-lyrical-raspberrypi4-64..yml`
+(on the `build` branch) has a double dot in its filename — cosmetic, but worth a one-line fix by
+whoever next touches that branch. Not actioned here since it's outside this pass's scope (this
+remediation work is being done against `master`, not `build`).
+
+**Effort:** None — investigation only, closed as a non-issue.
 
 ### 5.7 meta-ros is already on the OpenEmbedded Layer Index — no action needed
 **Where (external research):** `meta-ros`, `meta-ros1`, `meta-ros2`, `meta-ros-common`, etc. are
@@ -545,8 +572,8 @@ Fixing everything here at once isn't realistic for a layer of this size (~12,000
    checklist row into concrete, actionable findings.
 7. **Write per-sub-layer READMEs** (§2.1) using the shared template from Phase 1's documentation
    work — this also closes the YP-Compatible README-format gap (§4).
-8. **Audit the external `build` branch's kas files** (§5.6) for `includes`/`defaults`/`overrides`
-   usage — the one modernization question this pass couldn't answer from this checkout.
+8. ~~Audit the external `build` branch's kas files (§5.6)~~ — **done**; already well-composed via
+   `includes`/`defaults`, no refactor needed.
 9. **Wire `generate-skip-groups.py` into CI** (§1.4) so skip lists get periodically re-diffed
     instead of accumulating forever.
 

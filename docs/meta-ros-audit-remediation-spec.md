@@ -282,23 +282,19 @@ Goal: close remaining repo-only documentation/structure gaps.
 - **Acceptance criteria:** All 11 sub-layers have a `README.md` (or `README.md` file at their root)
   covering at minimum: description, dependencies, and a maintainer/contact pointer.
 
-### Task M2-2: Audit the `build` branch's kas files
+### Task M2-2: Audit the `build` branch's kas files — DONE
 - **Audit ref:** §5.6
-- **Problem:** The audit's modernization research couldn't confirm whether the external `build`
-  branch's kas config files already exploit kas's `includes`/`defaults`/`overrides` composition
-  features to avoid duplicating the ROS-distro × Yocto-release matrix, or whether they're ~10
-  independent full copies — that branch isn't part of this checkout.
-- **Do:**
-  1. Check out the `build` branch (`git checkout build` or equivalent) and locate the `kas/*.yml`
-     files referenced from `README.md`. This is still just a `git checkout` — no bitbake, no
-     Yocto build environment needed.
-  2. Determine whether they use `includes:`/`defaults:`/`overrides:` for a base-config +
-     per-variant-overlay structure, or are independent full copies.
-  3. If independent copies: estimate the size of a refactor to a base+overlay structure and file it
-     as a follow-up task (this task is investigate-and-report, not necessarily refactor).
-- **Acceptance criteria:** A written finding (append to the audit report or a new short doc) stating
-  definitively which pattern is in use, with file paths, and — if refactor-worthy — a follow-up task
-  description with estimated effort.
+- **Status:** Completed. `git show origin/build:kas/...` was used to inspect the composition
+  without switching this working tree's branch. Result: **already well-composed**, not the ~10
+  independent full copies the audit worried about. `kas/oeros-<yocto>-<distro>-<machine>.yml`
+  combo files are thin `header.includes:` lists over reusable fragments
+  (`kas/yocto/<release>.yml`, `kas/ros2/<distro>.yml`, `kas/machine/<machine>.yml`,
+  `kas/common.yml`, `kas/layer/<optional-layer>.yml`), using kas's `defaults:` for shared repo
+  branch settings. No refactor is warranted. Full detail recorded in audit report §5.6 (updated in
+  place rather than left as the original "unverifiable from this checkout" finding).
+- **Minor unrelated defect noticed:** `kas/oeros-scarthgap-lyrical-raspberrypi4-64..yml` on the
+  `build` branch has a double-dot typo in its filename. Not fixed here — out of scope for a
+  `master`-branch remediation pass — but worth a one-line fix next time someone is on `build`.
 
 ---
 
@@ -393,19 +389,23 @@ without explicit go-ahead.
 
 ## Task index
 
-| ID | Title | Milestone | Environment | Effort |
-|---|---|---|---|---|
-| M0-1 | Retire or replace dead CI (Travis/test-all.sh) | 0 | Repo clone | Small |
-| M0-2 | Fix `LAYERRECOMMENDS` omissions | 0 | Repo clone | Small |
-| M1-1 | Document `dynamic-layers` mechanism | 1 | Repo clone | Small |
-| M1-2 | Document recipe-override (bbappend) workflow | 1 | Repo clone | Medium |
-| M1-3 | Land root `AGENTS.md` | 1 | Repo clone | Small |
-| M1-4 | Tag-driven scheduled trigger for `generate_recipes.yml` | 1 | Repo clone + GH API | Medium |
-| M2-1 | Write per-sub-layer READMEs | 2 | Repo clone | Medium |
-| M2-2 | Audit `build` branch kas files | 2 | Repo clone | Medium |
-| M3-1 | Run `yocto-check-layer`, record results | 3 (deferred) | Full Yocto build env | Medium |
-| M3-2 | Wire `generate-skip-groups.py` into CI | 3 (deferred) | Full Yocto build env | Medium |
-| M4-1 | Mirror superflore/milestone process in-repo | 4 | Repo clone (blocked) | Medium |
-| M4-2 | Add `MAINTAINERS` file | 4 | Repo clone (blocked) | Small |
-| M4-3 | Backfill `SRCREV` pin comments | 4 | Repo clone | Small |
-| M4-4 | Re-evaluate `OE_FRAGMENTS`/`bitbake-setup` | 4 | N/A — deferred | N/A |
+| ID | Title | Milestone | Environment | Effort | Status |
+|---|---|---|---|---|---|
+| M0-1 | Retire or replace dead CI (Travis/test-all.sh) | 0 | Repo clone | Small | Done |
+| M0-2 | Fix `LAYERRECOMMENDS` omissions | 0 | Repo clone | Small | Done |
+| M1-1 | Document `dynamic-layers` mechanism | 1 | Repo clone | Small | Done |
+| M1-2 | Document recipe-override (bbappend) workflow | 1 | Repo clone | Medium | Done |
+| M1-3 | Land root `AGENTS.md` | 1 | Repo clone | Small | Done |
+| M1-4 | Tag-driven scheduled trigger for `generate_recipes.yml` | 1 | Repo clone + GH API | Medium | Done |
+| M2-1 | Write per-sub-layer READMEs | 2 | Repo clone | Medium | Done |
+| M2-2 | Audit `build` branch kas files | 2 | Repo clone | Medium | Done — no refactor needed |
+| M3-1 | Run `yocto-check-layer`, record results | 3 (deferred) | Full Yocto build env | Medium | Not started |
+| M3-2 | Wire `generate-skip-groups.py` into CI | 3 (deferred) | Full Yocto build env | Medium | Not started |
+| M4-1 | Mirror superflore/milestone process in-repo | 4 | Repo clone (blocked) | Medium | Not started |
+| M4-2 | Add `MAINTAINERS` file | 4 | Repo clone (blocked) | Small | Not started |
+| M4-3 | Backfill `SRCREV` pin comments | 4 | Repo clone | Small | Not started |
+| M4-4 | Re-evaluate `OE_FRAGMENTS`/`bitbake-setup` | 4 | N/A — deferred | N/A | Not started |
+
+All of Milestones 0-2 (repo-clone-only work) are complete as of this update. Milestone 3 remains
+deferred pending a full Yocto build environment; Milestone 4 is backlog, several items blocked on
+maintainer input.
