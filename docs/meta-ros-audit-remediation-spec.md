@@ -322,6 +322,18 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
   showing which layers pass and which don't, with concrete failure messages for the latter. This
   task's job is to produce that record, not necessarily to fix every failure it surfaces — file
   follow-up tasks for anything found.
+- **[Handoff status: DONE — see `docs/yocto-check-layer-results-2026-08-21.md`. Environment: a
+  `poky-wrynose` build set up via `bitbake-setup`, matching this branch's `LAYERSERIES_COMPAT`, plus
+  `meta-openembedded`'s `wrynose` branch for the `meta-python`/`openembedded-layer` dependencies.
+  All 11 layers currently FAIL, but 10 of the 11 failures cascade from one root cause:
+  `meta-ros-common` has several hand-authored recipes with malformed `LICENSE` fields (using the
+  word `AND` instead of OE's `&` operator), which is a fatal QA error that blocks bitbake from
+  getting past the signature baseline for any layer that depends on `ros-common-layer` — i.e. all
+  10 others. Only `meta-ros-common` itself got a full test run, surfacing 3 further real findings:
+  a patch missing `Upstream-Status:`, no `SECURITY.md` in the layer, and the LICENSE-format QA
+  errors themselves. The other 10 layers' own compliance (patches, README, SECURITY.md) remains
+  unverified until the LICENSE fix lands and the check is re-run — flagged as a fast-follow, not
+  fixed here per this task's own acceptance criteria.]**
 
 ### Task M3-2: Wire `generate-skip-groups.py` into CI
 - **Audit ref:** §1.4
@@ -344,6 +356,12 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
 - **Acceptance criteria:** A scheduled or on-demand job exists that regenerates and diffs the skip
   block per distro and surfaces changes as a reviewable PR; `generate-skip-groups.py` exits cleanly
   on incorrect invocation.
+- **[Handoff status: PARTIALLY DONE — the sub-item 3 trivial fix (usage() now calls sys.exit(1))
+  is done, since it was repo-only and didn't need the build environment. The CI-wiring work itself
+  (building `packagegroup-ros-world-<distro>` per distro to capture a cooker log) is NOT started —
+  it needs a genuinely successful `bitbake world`-scale attempt to produce that log, which is
+  currently blocked by the same `meta-ros-common` LICENSE-format QA errors recorded under M3-1.
+  Revisit after that fix lands.]**
 
 ---
 
@@ -399,13 +417,17 @@ without explicit go-ahead.
 | M1-4 | Tag-driven scheduled trigger for `generate_recipes.yml` | 1 | Repo clone + GH API | Medium | Done |
 | M2-1 | Write per-sub-layer READMEs | 2 | Repo clone | Medium | Done |
 | M2-2 | Audit `build` branch kas files | 2 | Repo clone | Medium | Done — no refactor needed |
-| M3-1 | Run `yocto-check-layer`, record results | 3 (deferred) | Full Yocto build env | Medium | Not started |
-| M3-2 | Wire `generate-skip-groups.py` into CI | 3 (deferred) | Full Yocto build env | Medium | Not started |
+| M3-1 | Run `yocto-check-layer`, record results | 3 (deferred) | Full Yocto build env | Medium | Done — all 11 layers FAIL, root cause found |
+| M3-2 | Wire `generate-skip-groups.py` into CI | 3 (deferred) | Full Yocto build env | Medium | Partially done — trivial fix landed, CI job blocked on M3-1's root cause |
 | M4-1 | Mirror superflore/milestone process in-repo | 4 | Repo clone (blocked) | Medium | Not started |
 | M4-2 | Add `MAINTAINERS` file | 4 | Repo clone (blocked) | Small | Not started |
 | M4-3 | Backfill `SRCREV` pin comments | 4 | Repo clone | Small | Not started |
 | M4-4 | Re-evaluate `OE_FRAGMENTS`/`bitbake-setup` | 4 | N/A — deferred | N/A | Not started |
 
-All of Milestones 0-2 (repo-clone-only work) are complete as of this update. Milestone 3 remains
-deferred pending a full Yocto build environment; Milestone 4 is backlog, several items blocked on
-maintainer input.
+All of Milestones 0-2 (repo-clone-only work) are complete as of this update. Milestone 3: a
+`poky-wrynose` build environment was set up and `yocto-check-layer` run against all 11 layers
+(see `docs/yocto-check-layer-results-2026-08-21.md`) — every layer currently fails, but 10 of the
+11 failures cascade from one fixable root cause in `meta-ros-common` (malformed `LICENSE` fields
+using `AND` instead of `&`), which also blocks M3-2's CI-wiring work since it needs a real
+`bitbake world` attempt to succeed far enough to produce a cooker log. Milestone 4 is backlog,
+several items blocked on maintainer input.
