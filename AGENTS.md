@@ -117,6 +117,12 @@ anything under `recipes-*` or `generated-recipes`.
 - `ros-cherrypick.sh` — ports bbappend patches between ROS-distro layers
   within the same Yocto branch (e.g. humble → iron); see its header
   comment for a worked example.
+- `check-rosdistro-tags.sh` — compares `ros/rosdistro`'s newest
+  `<distro>/<date>` tag per ROS distro against the release date already
+  recorded in this repo's `generated/cache.yaml`, and reports which
+  distros are due for a `generate_recipes.yml` run. Backs the scheduled
+  `check-rosdistro-tags.yml` workflow; safe to run locally/read-only at
+  any time to check staleness without dispatching anything.
 
 ## Before you touch a recipe
 
