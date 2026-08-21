@@ -325,15 +325,21 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
 - **[Handoff status: DONE — see `docs/yocto-check-layer-results-2026-08-21.md`. Environment: a
   `poky-wrynose` build set up via `bitbake-setup`, matching this branch's `LAYERSERIES_COMPAT`, plus
   `meta-openembedded`'s `wrynose` branch for the `meta-python`/`openembedded-layer` dependencies.
-  All 11 layers currently FAIL, but 10 of the 11 failures cascade from one root cause:
-  `meta-ros-common` has several hand-authored recipes with malformed `LICENSE` fields (using the
-  word `AND` instead of OE's `&` operator), which is a fatal QA error that blocks bitbake from
-  getting past the signature baseline for any layer that depends on `ros-common-layer` — i.e. all
-  10 others. Only `meta-ros-common` itself got a full test run, surfacing 3 further real findings:
-  a patch missing `Upstream-Status:`, no `SECURITY.md` in the layer, and the LICENSE-format QA
-  errors themselves. The other 10 layers' own compliance (patches, README, SECURITY.md) remains
-  unverified until the LICENSE fix lands and the check is re-run — flagged as a fast-follow, not
-  fixed here per this task's own acceptance criteria.]**
+  Two rounds: round 1 found `meta-ros-common` had 40 hand-authored recipes with malformed
+  `LICENSE` fields (`AND`/`OR` used as literal words instead of OE's `&`/`|` operators) — a fatal
+  QA error blocking every other layer via `LAYERDEPENDS` on `ros-common-layer`. The user identified
+  the context (an in-flight superflore PR doing the *opposite*, SPDX-driven migration, scoped to
+  Blacksail-and-later — not yet valid on `wrynose`) and authorized reverting these 40 recipes back
+  to `&`/`|`; done and confirmed clean (commit follows). Round 2, after that fix: a *new* fatal
+  parse error surfaced (`python3-junitparser` needs `python_uv_build.bbclass`, which wrynose's
+  OE-core doesn't ship — confirmed the recipe's `inherit` is correct per upstream's own
+  `pyproject.toml`, so this is an environment gap, not a recipe bug) — NOT fixed, since the right
+  resolution (backport a bbclass, pin an older release, or accept as a known wrynose gap) needs a
+  maintainer call. `meta-ros-common` also has 2 findings independent of either parse blocker: a
+  patch missing `Upstream-Status:`, and no `SECURITY.md`. The other 10 layers' own compliance
+  remains unverified — confirmed cascade-blocked pre-fix on all 10, and re-confirmed for
+  `meta-ros1` post-fix (same new blocker), but not individually re-run for the remaining 9 since
+  the mechanism is already established. Re-run once `python_uv_build` is resolved.]**
 
 ### Task M3-2: Wire `generate-skip-groups.py` into CI
 - **Audit ref:** §1.4
