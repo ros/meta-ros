@@ -10,7 +10,8 @@ S = "${UNPACKDIR}/${BPN}-${PV}/SuiteSparse_config"
 
 inherit cmake pkgconfig
 
-DEPENDS = "openblas"
+DEPENDS = "lapack"
+DEPENDS:append = "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', ' openblas', '', d)}"
 
 EXTRA_OECMAKE = "-DSUITESPARSE_USE_64BIT_BLAS=ON -DBLA_PREFER_PKGCONFIG=ON"
 
