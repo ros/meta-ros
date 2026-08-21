@@ -13,8 +13,8 @@ DEPENDS = " \
     suitesparse-ccolamd \
     suitesparse-camd \
     lapack \
-    openblas \
 "
+DEPENDS:append = "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', ' openblas', '', d)}"
 
 S = "${WORKDIR}/git/CHOLMOD"
 
