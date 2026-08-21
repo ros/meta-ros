@@ -4,16 +4,20 @@ Produced for Milestone 3, Task M3-1 of
 [`meta-ros-audit-remediation-spec.md`](meta-ros-audit-remediation-spec.md) (audit ref §4). This
 converts that section's "unknown — needs environment" row into concrete findings.
 
-This was a three-round investigation within the same session, each round peeling back one blocking
+This was a four-round investigation within the same session, each round peeling back one blocking
 layer to reveal the next:
 
 1. **Round 1** — fatal `LICENSE`-format QA errors in 40 `meta-ros-common` recipes. **Fixed.**
 2. **Round 2** — `python3-junitparser` needed a `python_uv_build.bbclass` that doesn't exist on
    wrynose. **Fixed** (by the user, directly).
-3. **Round 3** — two further findings, neither fixed here: `meta-ros-common`'s `boost` bbappend
-   causes large-scale signature changes in unrelated recipes (expected/likely-permanent, not a
-   bug), and `suitesparse-{cholmod,config,spqr}` unconditionally depend on `openblas`, which is
-   only provided by the optional `meta-python-ai` dynamic layer (a real inconsistency).
+3. **Round 3** — two further findings: `meta-ros-common`'s `boost` bbappend causes large-scale
+   signature changes in unrelated recipes (expected/likely-permanent, not a bug — not fixed);
+   `suitesparse-{cholmod,config,spqr}` unconditionally depended on `openblas`, only provided by the
+   optional `meta-python-ai` dynamic layer (a real inconsistency). **Fixed and verified.**
+4. **Round 4** — with `openblas` resolved, three more missing `world` providers surfaced
+   (`google-benchmark`, `urdfdom`, `ffmpeg`), one of which (`google-benchmark`) is a genuine
+   backward cross-layer dependency. **Not fixed** — resolving these needs a substantially larger
+   external-layer environment or an architectural call, judged beyond this task's scope.
 
 Raw logs for every run in all three rounds are archived at
 `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/` (outside this repo, not
@@ -25,12 +29,13 @@ were moved to persistent disk during the session).
 | Layer | Result | Why |
 |---|---|---|
 | `meta-ros-common` | **FAIL** | `test_parse` now passes (rounds 1+2 fixes confirmed). Fails on: a patch missing `Upstream-Status:`, no `SECURITY.md`, and `test_signatures`/`test_world`/`test_world_inherit_class` due to the `boost` bbappend's large (likely permanent, likely acceptable) signature fan-out. Full 9-test suite ran. |
-| `meta-ros1` | FAIL | Round 1+2 blockers cleared; now fails at the `world` signature stage on a *new*, different issue: `suitesparse-*` unconditionally `DEPENDS` on `openblas`, which only exists when the optional `meta-python-ai` layer is added — not part of this test environment's base layer set. |
-| `meta-ros2`, `meta-ros1-noetic`, `meta-ros2-humble`, `meta-ros2-jazzy`, `meta-ros2-kilted`, `meta-ros2-lyrical`, `meta-ros2-rolling`, `meta-spaceros`, `meta-spaceros-jazzy` | FAIL (blocked, not re-verified in round 3) | All depend on `meta-ros-common` (directly or via `meta-ros2`), so all will hit the same `openblas`/`suitesparse` issue at the same `world`-signature stage — established mechanism, not individually re-confirmed for these 9 in round 3 (see below). |
+| `meta-ros1` | FAIL | Rounds 1–3 blockers cleared and verified (parse fully clean, `openblas` fixed). Now fails at `world` resolution on round 4's findings: missing providers for `google-benchmark`, `urdfdom`, `ffmpeg`. |
+| `meta-ros2`, `meta-ros1-noetic`, `meta-ros2-humble`, `meta-ros2-jazzy`, `meta-ros2-kilted`, `meta-ros2-lyrical`, `meta-ros2-rolling`, `meta-spaceros`, `meta-spaceros-jazzy` | FAIL (blocked, not re-verified past round 1) | All depend on `meta-ros-common` (directly or via `meta-ros2`), so all will hit the same round-4 findings at the same `world`-resolution stage — established mechanism, not individually re-confirmed for these 9. |
 
-All 11 layers still fail overall, but the *reason* has moved twice: parse-level blockers (rounds 1
-and 2) are now cleared for the layers that were re-tested; the current blocker (round 3) is a
-`world`-resolution issue, one level further into the check than before.
+All 11 layers still fail overall, but the *reason* has moved three times: parse-level blockers
+(rounds 1 and 2) and the `openblas` dependency-resolution blocker (round 3) are now cleared and
+verified for the layers that were re-tested; the current blocker (round 4) is a set of missing
+external `world` providers, requiring more environment build-out than this task's scope covers.
 
 ## Round 1 — fixed: malformed `LICENSE` fields in `meta-ros-common`
 
@@ -129,7 +134,7 @@ as this bbappend exists — which is presumably permanent, since removing it wou
 Boost.Python/NumPy functionality ROS packages depend on. Flagging for awareness, not as an
 actionable fix.
 
-### 3b. `suitesparse-{cholmod,config,spqr}` unconditionally depend on `openblas`, an optional-layer-only package
+### 3b. Fixed: `suitesparse-{cholmod,config,spqr}` unconditionally depended on `openblas`, an optional-layer-only package
 
 Re-testing `meta-ros1` (rounds 1+2 fixes both confirmed cleared for it too) hit a new, different
 `world`-resolution failure:
@@ -141,15 +146,15 @@ ERROR: Required build target 'meta-world-pkgdata' has no buildable providers.
 Missing or unbuildable dependency chain was: ['meta-world-pkgdata', 'ceres-solver', 'suitesparse-cholmod', 'openblas']
 ```
 
-This traces directly back to the `dynamic-layers` mechanism documented in Milestone 1 (`README.md`'s
+This traced directly back to the `dynamic-layers` mechanism documented in Milestone 1 (`README.md`'s
 own table, from task M1-1): `openblas` is only provided by the **optional**
 [`meta-python-ai`](https://github.com/zboszor/meta-python-ai) layer — it isn't in `meta-openembedded`
 or `openembedded-core` at all (confirmed by searching both trees). But
 `meta-ros-common/recipes-extended/suitesparse/{suitesparse-cholmod_5.2.1.bb,
 suitesparse-config_7.7.0.bb, suitesparse-spqr_4.3.3.bb}` are **not** under `dynamic-layers/` — they're
-regular, always-active recipes, and `suitesparse-config` unconditionally sets `DEPENDS = "openblas"`.
+regular, always-active recipes, and `suitesparse-config` unconditionally set `DEPENDS = "openblas"`.
 
-This is inconsistent with how the *same repo* handles the identical situation correctly elsewhere:
+This was inconsistent with how the *same repo* handles the identical situation correctly elsewhere:
 `meta-ros-common/recipes-support/ipopt/ipopt_3.14.16.bb` gates its own `openblas` `PACKAGECONFIG`
 behind the optional layer's presence:
 
@@ -158,37 +163,89 @@ PACKAGECONFIG ??= "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', 
 ```
 
 **Practical effect:** any integrator who follows the documented, normal path — meta-ros layers only,
-without opting into the optional `meta-python-ai` layer — gets a hard, unresolvable dependency
+without opting into the optional `meta-python-ai` layer — got a hard, unresolvable dependency
 failure trying to build `world` (or anything pulling in these three `suitesparse` recipes), because
-nothing provides `openblas` in that configuration. This isn't a "some Yocto series doesn't have it
-yet" issue like rounds 1–2; it's a same-repo inconsistency between the documented optionality
+nothing provided `openblas` in that configuration. This wasn't a "some Yocto series doesn't have it
+yet" issue like rounds 1–2; it was a same-repo inconsistency between the documented optionality
 contract and the actual recipe dependencies.
 
-**Not fixed here** — the right resolution needs a maintainer call between (at least) two approaches,
-each with different implications:
-- Gate `suitesparse-{cholmod,spqr}`'s `openblas` usage the same way `ipopt` does (a `PACKAGECONFIG`
-  conditional on `meta-python-ai`'s presence) — but this changes what these recipes *build* when
-  `meta-python-ai` isn't present (would need to confirm `openblas` isn't load-bearing for their core
-  functionality, only an optional acceleration path).
-- Relocate these three recipes under `meta-ros-common/dynamic-layers/meta-python-ai/`, matching the
-  existing `openblas`-bbappend precedent already there — but this makes `suitesparse` support itself
-  conditional on the optional layer, which may not match how downstream `ceres-solver`/other
-  consumers expect to find it.
+**Fix applied and confirmed:** checked whether `openblas` is load-bearing before gating it, rather
+than guessing. `ipopt`'s `DEPENDS` on plain `lapack` (no `openblas`) confirms `meta-oe`'s
+`lapack_3.12.1.bb` recipe (Reference-LAPACK) builds and exports a usable bundled BLAS on its own —
+`openblas` is a faster, optional swap, not the only viable implementation, for anything that already
+depends on `lapack`. All three `suitesparse` recipes already unconditionally depended on `lapack`
+too (or, in `suitesparse-config`'s case, didn't — added it), so the same pattern applied safely:
 
-**Further investigation was intentionally not pursued to completion:** the optional
-`meta-python-ai` layer itself additionally depends on a `virtualization-layer` collection
-(`meta-virtualization`, not cloned in this environment) per its own `LAYERDEPENDS` — adding
-`meta-python-ai` to get a fuller signal on `meta-ros1` would have meant pulling in yet another
-layer, which was judged to be beyond this task's reasonable scope (M3-1's job is to produce the
-results record, not build out every optional-layer combination). `meta-python-ai` was cloned
-(`wrynose` branch, confirmed to exist and declare `LAYERSERIES_COMPAT = "wrynose"`) but never added
-to `bblayers.conf` for this reason.
+```diff
+- DEPENDS = "openblas"
++ DEPENDS = "lapack"
++ DEPENDS:append = "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', ' openblas', '', d)}"
+```
+
+(and the equivalent removal of the bare `openblas` line from `suitesparse-cholmod`'s and
+`suitesparse-spqr`'s existing `DEPENDS` lists, replaced with the same conditional `append`).
+
+**Verified, not just asserted:** re-ran `yocto-check-layer` against `meta-ros1` (without
+`meta-python-ai` present — the common, previously-broken case) after the fix. The `openblas`
+resolution failure is gone entirely, and bitbake's own parse summary confirms a fully clean parse:
+`Parsing of 3038 .bb files complete (3035 cached, 3 parsed). 5533 targets, 124 skipped, 1 masked,
+0 errors.` The risk profile made this worth confirming rather than leaving as a documented
+suggestion: the pre-fix state was already a guaranteed hard failure for anyone without
+`meta-python-ai`, so the fix could only match or improve on that, and it's now verified to improve
+on it. The `meta-python-ai`-present path (using `openblas` itself) was not re-verified, since that
+layer's own `LAYERDEPENDS` additionally requires `meta-virtualization`, not cloned in this
+environment (judged out of scope — see 3c).
+
+### 3c. Beyond `openblas`: several more missing `world` providers — where this investigation stopped
+
+With `openblas` fixed, re-testing `meta-ros1` got substantially further (a fully clean recipe
+parse — `0 errors` across 3038 `.bb` files) before hitting the *next* unresolvable dependency:
+
+```
+ERROR: Nothing PROVIDES 'google-benchmark' (but meta-ros-common/recipes-devtools/gazebo/ignition-physics5_5.3.2.bb,
+  meta-ros-common/recipes-devtools/dartsim/dartsim_6.16.6.bb DEPENDS on or otherwise requires it). Close matches:
+  googlebenchmark
+  opencl-benchmark
+```
+
+And `meta-ros-common` tested alone (before `meta-ros1` was even added) independently surfaces two
+more, in the same "Nothing PROVIDES" shape:
+
+```
+ERROR: Nothing PROVIDES 'urdfdom' (but .../gazebo/sdformat_16.0.1.bb, .../gazebo-classic/sdformat9_9.10.1.bb,
+  .../dartsim/dartsim_6.16.6.bb DEPENDS on or otherwise requires it)
+ERROR: Nothing PROVIDES 'ffmpeg' (but .../gazebo/ignition-common4_4.7.0.bb, .../gazebo/gz-common_7.1.1.bb,
+  .../gazebo/gz-common6_6.3.0.bb, .../gazebo/gz-common5_5.8.0.bb DEPENDS on or otherwise requires it)
+```
+
+`google-benchmark` is the most interesting of the three: `meta-oe` does have a similarly-named
+recipe (`googlebenchmark`, no hyphen — the "close match" bitbake suggested), but that's a different,
+non-matching `PN`. The actual matching provider — `PN = "google-benchmark"`, hyphenated, exactly
+what `dartsim`/`ignition-physics5` want — is
+`meta-ros2/recipes-benchmark/google-benchmark/google-benchmark_git.bb` (the same recipe already
+flagged in the original audit §4 as one of only two repo-wide hardcoded-absolute-path hits). That
+recipe lives in **`meta-ros2`**, a layer whose own `LAYERDEPENDS` depends *on* `meta-ros-common` —
+not the other way around. So `meta-ros-common`'s own recipes (`dartsim`, `ignition-physics5`, always
+active, not under `dynamic-layers/`) have a real dependency on content that only exists in a layer
+built on top of them — an inverted/backward cross-layer dependency, distinct in kind from the
+`openblas` optional-layer situation.
+
+**Investigation deliberately stopped here.** `urdfdom` and `ffmpeg` aren't in `meta-openembedded` or
+`openembedded-core` either (not searched exhaustively across every possible external layer, but not
+in either tree actually added to this environment) — resolving them, plus the `google-benchmark`
+layering question, would mean identifying and adding a substantially larger set of external layers
+than "the documented required set" (`meta-oe`, `meta-python`), or making an architectural call on
+where `google-benchmark` should actually live. That's beyond what a `yocto-check-layer` results
+record needs to resolve, and it's concretely why the audit originally scoped full `world` validation
+into its own deferred milestone requiring "a full Yocto build environment" — this investigation has
+now empirically confirmed that scoping was correct, not just cautious. Recording these three as
+findings; not chasing further.
 
 ## What was and wasn't re-verified across all three rounds
 
 - **Re-verified through all three rounds:** `meta-ros-common` (parse clean, patches/security/
-  signature findings all reconfirmed), `meta-ros1` (parse clean, now blocked on the
-  `openblas`/`suitesparse` issue instead).
+  signature findings all reconfirmed), `meta-ros1` (parse clean, `openblas` fixed and verified, now
+  blocked on the `google-benchmark`/`urdfdom`/`ffmpeg` findings in 3c instead).
 - **Not re-verified since round 1:** `meta-ros2`, `meta-ros1-noetic`, `meta-ros2-humble`,
   `meta-ros2-jazzy`, `meta-ros2-kilted`, `meta-ros2-lyrical`, `meta-ros2-rolling`, `meta-spaceros`,
   `meta-spaceros-jazzy`. Each depends on `meta-ros-common` (directly or via `meta-ros2`), so each
@@ -218,13 +275,14 @@ in this session, causing that layer to be silently `SKIPPED` rather than tested.
 
 `Ran 9 tests in 468.996s`.
 
-## The other 10 layers — blocked on the round-3 finding, not yet individually verifiable
+## The other 10 layers — blocked on round 4's findings, not yet individually verifiable
 
 Their own layer-specific compliance (patch upstream-status, README format, `SECURITY.md`, etc.) is
-still unverified. Three rounds in, the blocking mechanism is now well-understood (a same-repo
-`openblas`/`suitesparse`/`meta-python-ai` dependency-gating inconsistency) rather than "no
-environment available" or "wrong Yocto series" — but a clean run across all 10 needs that
-inconsistency resolved (or the optional layer chain fully built out) first.
+still unverified. Four rounds in, the blocking mechanism is now well-understood — missing external
+`world` providers (`google-benchmark`, `urdfdom`, `ffmpeg`) and a same-repo backward cross-layer
+dependency — rather than "no environment available" or "wrong Yocto series." A clean run across all
+10 needs either a substantially larger external-layer environment or the `google-benchmark` layering
+question resolved first; both were judged beyond this task's scope (see 3c).
 
 ## Environment used
 
@@ -236,11 +294,12 @@ inconsistency resolved (or the optional layer chain fully built out) first.
 - Additional layers needed to satisfy meta-ros's `LAYERDEPENDS` (`meta-python`,
   `openembedded-layer`): `meta-openembedded` cloned at its `wrynose` branch, with `meta-oe` and
   `meta-python` added to `bblayers.conf`.
-- `meta-python-ai` (`wrynose` branch) was cloned but **not** added to `bblayers.conf` — see 3b.
+- `meta-python-ai` (`wrynose` branch) was cloned but **not** added to `bblayers.conf` — its own
+  `LAYERDEPENDS` additionally needs `meta-virtualization` (not cloned) — see 3b/3c.
 - Host note: every run printed
   `WARNING: Host distribution "elxr-26.04" has not been validated with this version of the build
   system` — informational only, not treated as a failure.
-- Raw logs for all runs across all three rounds: `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`.
+- Raw logs for all runs across all four rounds: `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`.
 
 ## Commands used
 
