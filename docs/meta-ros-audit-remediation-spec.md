@@ -322,24 +322,34 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
   showing which layers pass and which don't, with concrete failure messages for the latter. This
   task's job is to produce that record, not necessarily to fix every failure it surfaces — file
   follow-up tasks for anything found.
-- **[Handoff status: DONE — see `docs/yocto-check-layer-results-2026-08-21.md`. Environment: a
-  `poky-wrynose` build set up via `bitbake-setup`, matching this branch's `LAYERSERIES_COMPAT`, plus
-  `meta-openembedded`'s `wrynose` branch for the `meta-python`/`openembedded-layer` dependencies.
-  Two rounds: round 1 found `meta-ros-common` had 40 hand-authored recipes with malformed
-  `LICENSE` fields (`AND`/`OR` used as literal words instead of OE's `&`/`|` operators) — a fatal
-  QA error blocking every other layer via `LAYERDEPENDS` on `ros-common-layer`. The user identified
-  the context (an in-flight superflore PR doing the *opposite*, SPDX-driven migration, scoped to
-  Blacksail-and-later — not yet valid on `wrynose`) and authorized reverting these 40 recipes back
-  to `&`/`|`; done and confirmed clean (commit follows). Round 2, after that fix: a *new* fatal
-  parse error surfaced (`python3-junitparser` needs `python_uv_build.bbclass`, which wrynose's
-  OE-core doesn't ship — confirmed the recipe's `inherit` is correct per upstream's own
-  `pyproject.toml`, so this is an environment gap, not a recipe bug) — NOT fixed, since the right
-  resolution (backport a bbclass, pin an older release, or accept as a known wrynose gap) needs a
-  maintainer call. `meta-ros-common` also has 2 findings independent of either parse blocker: a
-  patch missing `Upstream-Status:`, and no `SECURITY.md`. The other 10 layers' own compliance
-  remains unverified — confirmed cascade-blocked pre-fix on all 10, and re-confirmed for
-  `meta-ros1` post-fix (same new blocker), but not individually re-run for the remaining 9 since
-  the mechanism is already established. Re-run once `python_uv_build` is resolved.]**
+- **[Handoff status: DONE — see `docs/yocto-check-layer-results-2026-08-21.md` (raw logs archived
+  at `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`, outside the repo).
+  Environment: a `poky-wrynose` build set up via `bitbake-setup`, matching this branch's
+  `LAYERSERIES_COMPAT`, plus `meta-openembedded`'s `wrynose` branch for the
+  `meta-python`/`openembedded-layer` dependencies. Three rounds, each peeling back one blocker to
+  reveal the next: **Round 1** — 40 hand-authored `meta-ros-common` recipes had malformed `LICENSE`
+  fields (`AND`/`OR` as literal words instead of `&`/`|`) — a fatal QA error blocking every other
+  layer via `LAYERDEPENDS`. The user identified the context (an in-flight superflore PR doing the
+  opposite, SPDX-driven migration, scoped to Blacksail-and-later — not yet valid on `wrynose`) and
+  authorized reverting these 40 recipes; fixed and confirmed clean. **Round 2** — a new fatal parse
+  error surfaced (`python3-junitparser` needs `python_uv_build.bbclass`, missing on wrynose's
+  OE-core, though confirmed its own dependencies, `python_pep517.bbclass` and
+  `python3-uv-build-native`, already exist there — so this was a thin, low-risk wrapper gap, not a
+  deep one). **The user fixed this directly**, inlining the two effective lines into the recipe.
+  **Round 3** — with both blockers cleared, two further findings, neither fixed here: (a)
+  `meta-ros-common`'s `boost` bbappend (adds Boost.Python/NumPy support) causes ~30.8K signature
+  changes in unrelated recipes — very likely expected/permanent given what it's for, not a bug; (b)
+  `suitesparse-{cholmod,config,spqr}` unconditionally `DEPENDS` on `openblas`, which is only
+  provided by the optional `meta-python-ai` dynamic layer (documented in M1-1's own README table) —
+  a real same-repo inconsistency, since `ipopt` in the same layer correctly gates the identical
+  dependency behind `meta-python-ai`'s presence. Needs a maintainer call between gating vs.
+  relocating under `dynamic-layers/`. `meta-ros-common` also has 2 findings independent of all
+  three rounds' blockers: a patch missing `Upstream-Status:`, and no `SECURITY.md`. The other 10
+  layers' own compliance remains unverified — confirmed cascade-blocked pre-round-1 on all 10,
+  re-confirmed for `meta-ros1` through all three rounds (now blocked on 3b specifically), but not
+  individually re-run for the remaining 9 since the mechanism is already established. Also noted:
+  `yocto-check-layer` doesn't reliably restore `bblayers.conf` after a normal exit — reset it to the
+  intended base before each invocation rather than assuming it's clean.]**
 
 ### Task M3-2: Wire `generate-skip-groups.py` into CI
 - **Audit ref:** §1.4

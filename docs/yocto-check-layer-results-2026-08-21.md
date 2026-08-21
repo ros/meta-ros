@@ -4,33 +4,35 @@ Produced for Milestone 3, Task M3-1 of
 [`meta-ros-audit-remediation-spec.md`](meta-ros-audit-remediation-spec.md) (audit ref §4). This
 converts that section's "unknown — needs environment" row into concrete findings.
 
-This is a two-round investigation within the same session: the first round found a fatal
-`LICENSE`-format QA error blocking every layer, which turned out to be fixable and was fixed; the
-second round (after that fix) found a second, distinct blocker that is **not** fixed here.
+This was a three-round investigation within the same session, each round peeling back one blocking
+layer to reveal the next:
+
+1. **Round 1** — fatal `LICENSE`-format QA errors in 40 `meta-ros-common` recipes. **Fixed.**
+2. **Round 2** — `python3-junitparser` needed a `python_uv_build.bbclass` that doesn't exist on
+   wrynose. **Fixed** (by the user, directly).
+3. **Round 3** — two further findings, neither fixed here: `meta-ros-common`'s `boost` bbappend
+   causes large-scale signature changes in unrelated recipes (expected/likely-permanent, not a
+   bug), and `suitesparse-{cholmod,config,spqr}` unconditionally depend on `openblas`, which is
+   only provided by the optional `meta-python-ai` dynamic layer (a real inconsistency).
+
+Raw logs for every run in all three rounds are archived at
+`/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/` (outside this repo, not
+committed — `/tmp` on this machine is a `tmpfs` that doesn't survive a reboot, so the scratch copies
+were moved to persistent disk during the session).
 
 ## Summary
 
 | Layer | Result | Why |
 |---|---|---|
-| `meta-ros-common` | **FAIL** | Blocked by a missing `python_uv_build.bbclass` (see below); also a patch missing `Upstream-Status:`, and no `SECURITY.md`. Full test suite ran (see below). |
-| `meta-ros1` | FAIL (blocked) | Never reached its own test suite — aborted at the signature baseline due to `meta-ros-common`'s parse blocker. |
-| `meta-ros2` | FAIL (blocked, unconfirmed post-fix) | Confirmed blocked before the LICENSE fix; not individually re-run after it (see caveat below). |
-| `meta-ros1-noetic` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-ros2-humble` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-ros2-jazzy` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-ros2-kilted` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-ros2-lyrical` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-ros2-rolling` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-spaceros` | FAIL (blocked, unconfirmed post-fix) | Same. |
-| `meta-spaceros-jazzy` | FAIL (blocked, unconfirmed post-fix) | Same. |
+| `meta-ros-common` | **FAIL** | `test_parse` now passes (rounds 1+2 fixes confirmed). Fails on: a patch missing `Upstream-Status:`, no `SECURITY.md`, and `test_signatures`/`test_world`/`test_world_inherit_class` due to the `boost` bbappend's large (likely permanent, likely acceptable) signature fan-out. Full 9-test suite ran. |
+| `meta-ros1` | FAIL | Round 1+2 blockers cleared; now fails at the `world` signature stage on a *new*, different issue: `suitesparse-*` unconditionally `DEPENDS` on `openblas`, which only exists when the optional `meta-python-ai` layer is added — not part of this test environment's base layer set. |
+| `meta-ros2`, `meta-ros1-noetic`, `meta-ros2-humble`, `meta-ros2-jazzy`, `meta-ros2-kilted`, `meta-ros2-lyrical`, `meta-ros2-rolling`, `meta-spaceros`, `meta-spaceros-jazzy` | FAIL (blocked, not re-verified in round 3) | All depend on `meta-ros-common` (directly or via `meta-ros2`), so all will hit the same `openblas`/`suitesparse` issue at the same `world`-signature stage — established mechanism, not individually re-confirmed for these 9 in round 3 (see below). |
 
-All 11 layers currently fail. `meta-ros1` was re-tested after the `LICENSE` fix and hits the same
-new blocker as `meta-ros-common`, confirming the cascade is still in effect — the other 9 were not
-individually re-run a second time (see "What was and wasn't re-verified" below), since re-running
-them would burn a lot of wall-clock time to reconfirm the same already-understood mechanism rather
-than surface new information.
+All 11 layers still fail overall, but the *reason* has moved twice: parse-level blockers (rounds 1
+and 2) are now cleared for the layers that were re-tested; the current blocker (round 3) is a
+`world`-resolution issue, one level further into the check than before.
 
-## Round 1 — root cause found and fixed: malformed `LICENSE` fields in `meta-ros-common`
+## Round 1 — fixed: malformed `LICENSE` fields in `meta-ros-common`
 
 `meta-ros-common` is edited directly (it's the one layer without a `recipes-bbappends` directory —
 see `AGENTS.md`), and 40 of its hand-authored recipes set `LICENSE` using the English words `AND`
@@ -58,90 +60,171 @@ recipes aren't superflore output (no generation header, consistent with the dire
 convention) — someone had apparently hand-migrated them to the newer SPDX-preferred syntax ahead
 of the tooling that will eventually support it here.
 
-**Fix applied (commit follows this doc):** reverted `AND`/`OR` back to `&`/`|` in all 40 affected
-recipes across `recipes-devtools/{coinor,cppcheck,dartsim,gazebo-classic,gazebo,ogre-next,python}/`
-and `recipes-support/{gdal,ode,pagmo,zziplib}/`. Confirmed by re-running `yocto-check-layer`
-against `meta-ros-common` twice (once after the first batch of 39, which surfaced one more —
-`freeimage` — that bitbake hadn't reached yet before halting; then again after that one too) —
-zero remaining `QA Issue: ... license-format` errors in either run.
+**Fix applied:** reverted `AND`/`OR` back to `&`/`|` in all 40 affected recipes across
+`recipes-devtools/{coinor,cppcheck,dartsim,gazebo-classic,gazebo,ogre-next,python}/` and
+`recipes-support/{gdal,ode,pagmo,zziplib}/`. Confirmed clean by re-running `yocto-check-layer`
+against `meta-ros-common` twice — zero remaining `QA Issue: ... license-format` errors.
 
-## Round 2 — new blocker found: `python_uv_build.bbclass` unavailable on wrynose
+## Round 2 — fixed (by the user): `python_uv_build.bbclass` unavailable on wrynose
 
-With the `LICENSE` errors cleared, `meta-ros-common`'s parse gets further and hits a new, distinct
-fatal error:
+With the `LICENSE` errors cleared, `meta-ros-common`'s parse got further and hit a new fatal error:
 
 ```
 ERROR: ParseError at meta-ros-common/recipes-devtools/python3-junitparser/python3-junitparser_5.0.1.bb:14:
     Could not inherit file classes/python_uv_build.bbclass
 ```
 
-`python3-junitparser_5.0.1.bb` has `inherit python_uv_build ptest-python-pytest`. Checked upstream
+`python3-junitparser_5.0.1.bb` had `inherit python_uv_build ptest-python-pytest`. Checked upstream
 (`junitparser`'s `pyproject.toml` at the pinned `SRCREV`): it genuinely declares
-`build-backend = "uv_build"` — so the recipe's `inherit` is *correct* for the package. The problem
-is environmental: this wrynose-era `openembedded-core` checkout has no `python_uv_build.bbclass` at
-all (confirmed by searching the whole checkout — only unrelated `uv_build`-version-bump patches for
-an unrelated recipe, `python3-cryptography-vectors`, turned up). The closest analogous class present
-is `python_setuptools_build_meta.bbclass`, but that's a different build backend than what
-`junitparser` actually declares, so swapping to it would be a real behavior change, not a
-same-meaning syntax revert like the `LICENSE` fix — **not applied here.**
+`build-backend = "uv_build"`, so the recipe's `inherit` was *correct* for the package — the problem
+was environmental. This wrynose-era `openembedded-core` has no `python_uv_build.bbclass`, but does
+have both of that class's own dependencies already: `python_pep517.bbclass` (complete, present) and
+`python3-uv-build_0.10.10.bb` (with `BBCLASSEXTEND = "native"`, so `python3-uv-build-native`
+resolves). Confirmed the actual upstream `python_uv_build.bbclass` (present on OE-core's bleeding
+edge `master`, but not even on `whinlatter`, the release right after wrynose) is a trivial 3-line
+wrapper: `inherit python_pep517` + `DEPENDS += "python3-uv-build-native"`.
 
-This looks like the same underlying pattern as Round 1: a recipe written against tooling from a
-newer OE-core generation than wrynose currently ships, landed on this `wrynose`-targeting branch
-before the target environment could support it. Plausible resolutions (none applied, all need a
-maintainer call, not a unilateral guess):
-- Backport/vendor a `python_uv_build.bbclass` compatible with wrynose's OE-core (real, nontrivial
-  work — would need real `uv` build-backend knowledge to get right).
-- Pin `python3-junitparser` to an older release that used a supported build backend, if one exists.
-- Leave it broken on `wrynose` until this repo's `master` moves to whichever Yocto series ships
-  native `uv_build` support, and treat this as a `wrynose`-specific known issue in the interim.
+Given all the real dependencies were already present, this was a much lower-risk fix than it first
+looked — proposed vendoring the 3-line wrapper as its own `classes/python_uv_build.bbclass` in
+`meta-ros-common`, verbatim from OE-core master (MIT-licensed). **The user instead fixed it more
+simply themselves**, inlining the two effective lines directly into the recipe rather than adding a
+new class file:
 
-This is now **the** active blocker on `meta-ros-common`'s (and therefore every other layer's) parse
-— confirmed by re-testing `meta-ros1` after the `LICENSE` fix, which hit the identical
-`python_uv_build.bbclass` error at the same "Getting initial signatures" stage.
+```diff
+-inherit python_uv_build ptest-python-pytest
++inherit python_pep517 ptest-python-pytest
++
++DEPENDS += "python3-uv-build-native"
+```
 
-## What was and wasn't re-verified after the `LICENSE` fix
+Confirmed: `meta-ros-common`'s `test_parse` now passes cleanly.
 
-- **Re-verified:** `meta-ros-common` (twice — confirmed `LICENSE` errors gone, confirmed the new
-  `python_uv_build` blocker), `meta-ros1` (confirmed it hits the same new blocker, proving the
-  cascade mechanism is unchanged in kind, just in current root cause).
-- **Not re-verified:** `meta-ros2`, `meta-ros1-noetic`, `meta-ros2-humble`, `meta-ros2-jazzy`,
-  `meta-ros2-kilted`, `meta-ros2-lyrical`, `meta-ros2-rolling`, `meta-spaceros`,
+## Round 3 — two further findings, not fixed here
+
+### 3a. `meta-ros-common`'s `boost` bbappend causes large-scale signature changes — likely expected, not a bug
+
+With rounds 1+2 fixed, `meta-ros-common` still fails `test_signatures`, `test_world`, and
+`test_world_inherit_class`:
+
+```
+AssertionError: Adding layer meta-ros-common changed signatures.
+30796 signatures changed, initial differences (first hash before, second after):
+   boost-native:do_create_recipe_spdx: ...
+   boost-native:do_deploy_source_date_epoch: ...
+   boost:do_deploy_source_date_epoch: ...
+```
+
+Root cause: `meta-ros-common/recipes-support/boost/boost_%.bbappend` adds `inherit python3native`
+and `DEPENDS += "python3-numpy-native"` to `boost`, to enable the Boost.Python/Boost.NumPy bindings
+ROS packages need. `boost`/`boost-native` are foundational, widely-depended-upon OE-core recipes,
+so any real modification to them ripples through the signature of nearly everything that transitively
+depends on `boost-native` — hence ~30.8K changed signatures from one bbappend.
+
+**This is very likely expected and acceptable, not a defect.** Bbappending a shared recipe to add a
+`PACKAGECONFIG`/dependency a project genuinely needs is a completely standard Yocto pattern; the
+`test_signatures` check's design intent is to catch layers with an unexpectedly broad, incidental
+footprint (e.g. a stray global `DISTRO_FEATURES` append), not to forbid this. `meta-ros-common` will
+likely never cleanly pass `test_signatures`/`test_world_inherit_class` in the strict sense as long
+as this bbappend exists — which is presumably permanent, since removing it would break real
+Boost.Python/NumPy functionality ROS packages depend on. Flagging for awareness, not as an
+actionable fix.
+
+### 3b. `suitesparse-{cholmod,config,spqr}` unconditionally depend on `openblas`, an optional-layer-only package
+
+Re-testing `meta-ros1` (rounds 1+2 fixes both confirmed cleared for it too) hit a new, different
+`world`-resolution failure:
+
+```
+ERROR: Nothing PROVIDES 'openblas' (but meta-ros-common/recipes-extended/suitesparse/suitesparse-cholmod_5.2.1.bb,
+  suitesparse-spqr_4.3.3.bb, suitesparse-config_7.7.0.bb DEPENDS on or otherwise requires it).
+ERROR: Required build target 'meta-world-pkgdata' has no buildable providers.
+Missing or unbuildable dependency chain was: ['meta-world-pkgdata', 'ceres-solver', 'suitesparse-cholmod', 'openblas']
+```
+
+This traces directly back to the `dynamic-layers` mechanism documented in Milestone 1 (`README.md`'s
+own table, from task M1-1): `openblas` is only provided by the **optional**
+[`meta-python-ai`](https://github.com/zboszor/meta-python-ai) layer — it isn't in `meta-openembedded`
+or `openembedded-core` at all (confirmed by searching both trees). But
+`meta-ros-common/recipes-extended/suitesparse/{suitesparse-cholmod_5.2.1.bb,
+suitesparse-config_7.7.0.bb, suitesparse-spqr_4.3.3.bb}` are **not** under `dynamic-layers/` — they're
+regular, always-active recipes, and `suitesparse-config` unconditionally sets `DEPENDS = "openblas"`.
+
+This is inconsistent with how the *same repo* handles the identical situation correctly elsewhere:
+`meta-ros-common/recipes-support/ipopt/ipopt_3.14.16.bb` gates its own `openblas` `PACKAGECONFIG`
+behind the optional layer's presence:
+
+```
+PACKAGECONFIG ??= "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', 'openblas', '', d)}"
+```
+
+**Practical effect:** any integrator who follows the documented, normal path — meta-ros layers only,
+without opting into the optional `meta-python-ai` layer — gets a hard, unresolvable dependency
+failure trying to build `world` (or anything pulling in these three `suitesparse` recipes), because
+nothing provides `openblas` in that configuration. This isn't a "some Yocto series doesn't have it
+yet" issue like rounds 1–2; it's a same-repo inconsistency between the documented optionality
+contract and the actual recipe dependencies.
+
+**Not fixed here** — the right resolution needs a maintainer call between (at least) two approaches,
+each with different implications:
+- Gate `suitesparse-{cholmod,spqr}`'s `openblas` usage the same way `ipopt` does (a `PACKAGECONFIG`
+  conditional on `meta-python-ai`'s presence) — but this changes what these recipes *build* when
+  `meta-python-ai` isn't present (would need to confirm `openblas` isn't load-bearing for their core
+  functionality, only an optional acceleration path).
+- Relocate these three recipes under `meta-ros-common/dynamic-layers/meta-python-ai/`, matching the
+  existing `openblas`-bbappend precedent already there — but this makes `suitesparse` support itself
+  conditional on the optional layer, which may not match how downstream `ceres-solver`/other
+  consumers expect to find it.
+
+**Further investigation was intentionally not pursued to completion:** the optional
+`meta-python-ai` layer itself additionally depends on a `virtualization-layer` collection
+(`meta-virtualization`, not cloned in this environment) per its own `LAYERDEPENDS` — adding
+`meta-python-ai` to get a fuller signal on `meta-ros1` would have meant pulling in yet another
+layer, which was judged to be beyond this task's reasonable scope (M3-1's job is to produce the
+results record, not build out every optional-layer combination). `meta-python-ai` was cloned
+(`wrynose` branch, confirmed to exist and declare `LAYERSERIES_COMPAT = "wrynose"`) but never added
+to `bblayers.conf` for this reason.
+
+## What was and wasn't re-verified across all three rounds
+
+- **Re-verified through all three rounds:** `meta-ros-common` (parse clean, patches/security/
+  signature findings all reconfirmed), `meta-ros1` (parse clean, now blocked on the
+  `openblas`/`suitesparse` issue instead).
+- **Not re-verified since round 1:** `meta-ros2`, `meta-ros1-noetic`, `meta-ros2-humble`,
+  `meta-ros2-jazzy`, `meta-ros2-kilted`, `meta-ros2-lyrical`, `meta-ros2-rolling`, `meta-spaceros`,
   `meta-spaceros-jazzy`. Each depends on `meta-ros-common` (directly or via `meta-ros2`), so each
-  will hit the same `python_uv_build.bbclass` error at the same baseline stage — this follows
-  directly from `LAYERDEPENDS` and was true of every layer tested pre-fix, but it was not
-  individually re-confirmed for these 9 specifically after the `LICENSE` fix landed.
+  will hit the same `openblas`/`suitesparse` `world`-resolution failure `meta-ros1` did — this
+  follows directly from `LAYERDEPENDS` and the confirmed mechanism, but wasn't individually
+  reconfirmed for these 9 in round 3.
 
-## `meta-ros-common` — full results (round 2, post-`LICENSE`-fix)
+**Note on environment hygiene:** `yocto-check-layer` does not reliably restore `bblayers.conf` to
+its pre-run state after a normal (non-interrupted) completion — a prior run's dependency-layer
+additions were found still present in `bblayers.conf` at the start of a later, unrelated invocation
+in this session, causing that layer to be silently `SKIPPED` rather than tested. Worth resetting
+`bblayers.conf` to the intended base set before each invocation rather than assuming it's clean.
 
-`meta-ros-common` has no meta-ros-internal dependencies of its own, so it was tested standalone and
-ran its complete 9-test suite before hitting the (now different) parse blocker:
+## `meta-ros-common` — full results (final, all fixes applied)
 
 | Test | Result | Detail |
 |---|---|---|
 | `test_layerseries_compat` | ok | |
-| `test_parse` (`bitbake -p`) | ERROR | `python_uv_build.bbclass` missing, see above. |
-| `test_patches_upstream_status` | FAIL | 1 patch with malformed/missing `Upstream-Status:`: `recipes-devtools/gazebo/ignition-rendering6/ign-gz-namespace-migration.patch` — unchanged from round 1. |
+| `test_parse` (`bitbake -p`) | **ok** | Fixed in rounds 1+2. |
+| `test_patches_upstream_status` | FAIL | 1 patch with malformed/missing `Upstream-Status:`: `recipes-devtools/gazebo/ignition-rendering6/ign-gz-namespace-migration.patch`. |
 | `test_readme` | ok | |
-| `test_security` | FAIL | No `SECURITY.md` in the layer — unchanged from round 1. Not a checklist item the original audit (§4) checked for; `yocto-check-layer` enforces it directly, so this is new information regardless. |
+| `test_security` | FAIL | No `SECURITY.md` in the layer. Not a checklist item the original audit (§4) checked for; `yocto-check-layer` enforces it directly, so this is new information regardless. |
 | `test_show_environment` | ok | |
-| `test_signatures` | ERROR | Cascades from the `python_uv_build` parse blocker. |
-| `test_world` | ERROR | Cascades from the `python_uv_build` parse blocker. |
-| `test_world_inherit_class` | FAIL | Cascades from the `python_uv_build` parse blocker. |
+| `test_signatures` | FAIL | `boost` bbappend's large signature fan-out — see 3a, likely expected/permanent. |
+| `test_world` | ERROR | Same underlying cause as `test_signatures`. |
+| `test_world_inherit_class` | FAIL | Same underlying cause. |
 
-`Ran 9 tests in 127.435s — FAILED` (same shape as round 1's `Ran 9 tests in 244.133s — FAILED
-(failures=3, errors=3, skipped=2)`; the patch and `SECURITY.md` findings are independent of both
-parse blockers and hold regardless of which one is currently active).
+`Ran 9 tests in 468.996s`.
 
-## The other 10 layers — blocked, not yet individually verifiable
+## The other 10 layers — blocked on the round-3 finding, not yet individually verifiable
 
 Their own layer-specific compliance (patch upstream-status, README format, `SECURITY.md`, etc.) is
-still unverified — the same "unknown" status the original audit left it in. Two rounds in, it's now
-understood to be blocked on specific, identified root causes (first `LICENSE` format, now
-`python_uv_build`) rather than "no environment available," but a clean run across all 10 still
-needs the `python_uv_build` gap resolved first.
-
-**Next step once `python_uv_build.bbclass` is resolved for wrynose:** re-run this same check per
-layer (commands below) to get real per-layer results for all 10.
+still unverified. Three rounds in, the blocking mechanism is now well-understood (a same-repo
+`openblas`/`suitesparse`/`meta-python-ai` dependency-gating inconsistency) rather than "no
+environment available" or "wrong Yocto series" — but a clean run across all 10 needs that
+inconsistency resolved (or the optional layer chain fully built out) first.
 
 ## Environment used
 
@@ -153,9 +236,11 @@ layer (commands below) to get real per-layer results for all 10.
 - Additional layers needed to satisfy meta-ros's `LAYERDEPENDS` (`meta-python`,
   `openembedded-layer`): `meta-openembedded` cloned at its `wrynose` branch, with `meta-oe` and
   `meta-python` added to `bblayers.conf`.
+- `meta-python-ai` (`wrynose` branch) was cloned but **not** added to `bblayers.conf` — see 3b.
 - Host note: every run printed
   `WARNING: Host distribution "elxr-26.04" has not been validated with this version of the build
   system` — informational only, not treated as a failure.
+- Raw logs for all runs across all three rounds: `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`.
 
 ## Commands used
 
