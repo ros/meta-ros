@@ -1,1 +1,1 @@
-LICENSE = "Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND (GFDL-1.3-no-invariants-only AND GPL-3.0-only AND LicenseRef-Qt-GPL-exception-1.0 OR LicenseRef-The-Qt-Company-Commercial) AND (Apache-2.0 OR MIT) AND GPL-3.0-or-later WITH Bison-exception-2.2"
+LICENSE = "Apache-2.0 & BSD-2-Clause & BSD-3-Clause & (GFDL-1.3-no-invariants-only & GPL-3.0-only & LicenseRef-Qt-GPL-exception-1.0 | LicenseRef-The-Qt-Company-Commercial) & (Apache-2.0 | MIT) & GPL-3.0-or-later WITH Bison-exception-2.2"
