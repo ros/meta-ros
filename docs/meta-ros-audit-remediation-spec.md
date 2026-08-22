@@ -322,46 +322,35 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
   showing which layers pass and which don't, with concrete failure messages for the latter. This
   task's job is to produce that record, not necessarily to fix every failure it surfaces — file
   follow-up tasks for anything found.
-- **[Handoff status: DONE — see `docs/yocto-check-layer-results-2026-08-21.md` (raw logs archived
-  at `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`, outside the repo).
-  Environment: a `poky-wrynose` build set up via `bitbake-setup`, matching this branch's
-  `LAYERSERIES_COMPAT`, plus `meta-openembedded`'s `wrynose` branch for the
-  `meta-python`/`openembedded-layer` dependencies. Three rounds, each peeling back one blocker to
-  reveal the next: **Round 1** — 40 hand-authored `meta-ros-common` recipes had malformed `LICENSE`
-  fields (`AND`/`OR` as literal words instead of `&`/`|`) — a fatal QA error blocking every other
-  layer via `LAYERDEPENDS`. The user identified the context (an in-flight superflore PR doing the
-  opposite, SPDX-driven migration, scoped to Blacksail-and-later — not yet valid on `wrynose`) and
-  authorized reverting these 40 recipes; fixed and confirmed clean. **Round 2** — a new fatal parse
-  error surfaced (`python3-junitparser` needs `python_uv_build.bbclass`, missing on wrynose's
-  OE-core, though confirmed its own dependencies, `python_pep517.bbclass` and
-  `python3-uv-build-native`, already exist there — so this was a thin, low-risk wrapper gap, not a
-  deep one). **The user fixed this directly**, inlining the two effective lines into the recipe.
-  **Round 3** — with both blockers cleared, two further findings: (a) `meta-ros-common`'s `boost`
-  bbappend (adds Boost.Python/NumPy support) causes ~30.8K signature changes in unrelated recipes —
-  very likely expected/permanent given what it's for, not a bug, not fixed; (b)
-  `suitesparse-{cholmod,config,spqr}` unconditionally `DEPENDS` on `openblas`, which is only
-  provided by the optional `meta-python-ai` dynamic layer (documented in M1-1's own README table) —
-  a real same-repo inconsistency, since `ipopt` in the same layer correctly gates the identical
-  dependency behind `meta-python-ai`'s presence. Checked whether `openblas` was load-bearing before
-  fixing (it isn't — `meta-oe`'s `lapack` recipe already exports a usable bundled BLAS, matching
-  `ipopt`'s own working pattern), applied the same `PACKAGECONFIG`-style gate to all three recipes,
-  and verified via a real re-run: `meta-ros1` without `meta-python-ai` present now parses `world`
-  fully cleanly (0 errors across 3038 recipes) — fixed and confirmed, not just proposed. **Round 4**
-  — with `openblas` resolved, three more missing `world` providers surfaced
-  (`google-benchmark`, `urdfdom`, `ffmpeg`); `google-benchmark`'s real provider turned out to be
-  `meta-ros2/recipes-benchmark/google-benchmark/` (a layer that depends on `meta-ros-common`, not
-  the reverse) — a genuine backward cross-layer dependency, distinct from rounds 1-3's issues. Not
-  fixed: resolving all three needs either a substantially larger external-layer environment or an
-  architectural call on `google-benchmark`'s placement, judged beyond this task's scope (M3-1's job
-  is to produce the record, not build out arbitrarily more of the layer stack) — this also
-  empirically confirms the original audit's own call to defer full `world` validation to a
-  dedicated milestone was correct. `meta-ros-common` also has 2 findings independent of all four
-  rounds' blockers: a patch missing `Upstream-Status:`, and no `SECURITY.md`. The other 10 layers'
-  own compliance remains unverified — confirmed cascade-blocked pre-round-1 on all 10, re-confirmed
-  for `meta-ros1` through all four rounds (now blocked on round 4's findings), but not individually
-  re-run for the remaining 9 since the mechanism is already established. Also noted:
-  `yocto-check-layer` doesn't reliably restore `bblayers.conf` after a normal exit — reset it to the
-  intended base before each invocation rather than assuming it's clean.]**
+- **[Handoff status: DONE — see `docs/yocto-check-layer-results-2026-08-21.md` for full detail (raw
+  logs archived at `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`, outside
+  the repo). Six rounds, each peeling back one blocker to reveal the next. **Fixed and verified**:
+  (1) 40 `meta-ros-common` recipes' malformed `LICENSE` fields (`AND`/`OR` as literal words instead
+  of `&`/`|` — a fatal QA error; the user identified the exact upstream context, an in-flight
+  superflore PR #327 scoped to Blacksail-and-later, confirming this branch's `wrynose` series needs
+  the old syntax); (2) `python3-junitparser`'s `python_uv_build.bbclass` gap (fixed by the user
+  directly); (3) `suitesparse-{cholmod,config,spqr}`'s unconditional `openblas` dependency, gated
+  the same way `ipopt` already does it in the same layer, verified via a clean re-parse; (4) the
+  identical `LICENSE` `AND`/`OR` bug found independently in 12 hand-authored `meta-ros2` files plus
+  7 `meta-ros2-rolling` bbappends, plus two unrelated `WITH`-exception `LICENSE`-syntax bugs (OE's
+  parser doesn't support SPDX's `WITH` keyword at all) and one stale `.replace()`-based license
+  workaround. **Found but explicitly not fixed** (each needs either more environment build-out or a
+  maintainer's architectural call, not a unilateral guess): 61 more `LICENSE` `AND`/`OR` instances
+  confined entirely to `meta-ros2-rolling/generated-recipes/` — genuine superflore output, never
+  hand-edited; strong evidence `rolling` was regenerated with a superflore build already emitting
+  PR #327's change prematurely, worth the user's attention given their involvement in that PR;
+  `meta-ros-common`'s `boost` bbappend causing ~30.8K signature changes elsewhere (likely permanent,
+  not a bug); `gz-gui`/`gz-sim`/`gz-gui9`'s unconditional `qtdeclarative` dependency on the optional
+  `meta-qt6` layer — unlike `openblas`, Qt has no functional substitute here, so this likely needs
+  relocating these recipes under `dynamic-layers/meta-qt6/` rather than gating. **Net result**:
+  testing the realistic `meta-ros2-humble` combination (`meta-ros-common` + `meta-ros2`, no
+  `meta-ros1` mixed in) is down to that single `qtdeclarative` finding from an original "unknown —
+  needs environment." `meta-ros-common` also has 2 findings independent of all fixes: a patch
+  missing `Upstream-Status:`, and no `SECURITY.md`. The other layers' own compliance remains
+  unverified through the full 9-test suite — not individually re-run once the pattern was
+  established. Also noted: `yocto-check-layer` doesn't reliably restore `bblayers.conf` after a
+  normal exit — reset it to the intended base before each invocation rather than assuming it's
+  clean.]**
 
 ### Task M3-2: Wire `generate-skip-groups.py` into CI
 - **Audit ref:** §1.4
