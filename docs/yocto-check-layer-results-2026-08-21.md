@@ -90,6 +90,18 @@ Scarthgap and Wrynose," so it was scoped to Blacksail-and-later only. Since this
 **Fix applied:** reverted `AND`/`OR` back to `&`/`|` in all 40 affected recipes. Confirmed clean by
 re-running `yocto-check-layer` against `meta-ros-common`.
 
+**Independent corroboration, found later while scoping M3-2:** the `build` branch has a real,
+dated commit from the user three weeks before this session —
+`72ba0905163200e74a26059b5d7d05c6caf0cc12`, "master.yml: Ignore license-format errors temporarily"
+(2026-08-01) — that adds `ERROR_QA:remove = "license-format"` to `kas/yocto/master.yml` specifically,
+with the commit message: "The new license-format QA policy will raise an error if the LICENSE
+variable contains a license that is not an SPDX-Identifier or prefixed with LicenseRef. Temporarily
+disable the errors while we make the changes to our custom and generated recipes." Confirmed
+`kas/yocto/wrynose.yml` has no equivalent suppression (it only removes the unrelated
+`license-exists` check) — meaning `license-format` genuinely is fatal for `wrynose` builds, exactly
+matching everything found in this round. This wasn't a coincidental rediscovery: the user was
+already mid-fix on this exact problem before this session started.
+
 ## Round 2 — fixed (by the user): `python_uv_build.bbclass` unavailable on wrynose
 
 `python3-junitparser_5.0.1.bb` had `inherit python_uv_build ptest-python-pytest`. Confirmed against
