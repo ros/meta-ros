@@ -11,6 +11,7 @@ SRC_URI = " \
 "
 
 SRCREV_release = "4827b82ab911131c8ea0ee375aab949c5ee06dc5"
+# v0.6.0 tag
 SRCREV_upstream = "5f0e8fad34e86771cfae3dac4beef5f1858d5610"
 SRCREV_FORMAT = "release_upstream"
 

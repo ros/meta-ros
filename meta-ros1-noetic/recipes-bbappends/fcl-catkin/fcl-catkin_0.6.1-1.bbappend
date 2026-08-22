@@ -9,6 +9,7 @@ SRCREV_fcl-release = "fa130d1ccd1c66c39b29f10d0f94cc3f0f8ba1b3"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-fcl-with-bitbake-fetcher.patch \
     git://github.com/flexible-collision-library/fcl.git;protocol=https;name=fcl-upstream;destsuffix=git/fcl-upstream;branch=master \
 "
+# v0.6.1 tag
 SRCREV_fcl-upstream = "97455a46de121fb7c0f749e21a58b1b54cd2c6be"
 
 SRCREV_FORMAT = "fcl-release_fcl-upstream"

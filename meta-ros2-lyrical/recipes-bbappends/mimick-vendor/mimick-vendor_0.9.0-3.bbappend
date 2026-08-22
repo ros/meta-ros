@@ -10,6 +10,7 @@ SRC_URI = "git://github.com/ros2-gbp/mimick_vendor-release;name=release;${ROS_BR
     git://github.com/ros2/Mimick.git;protocol=https;name=mimick;branch=ros2;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/mimick-upstream \
 "
 SRCREV_release = "c1a4219fa4355899238341e35317f09f9e258ce3"
+# No tagged release matches this commit upstream; pinned to a specific commit on the ros2 branch
 SRCREV_mimick = "f171450b5ebaa3d2538c762a059dfc6ab7a01039"
 SRCREV_FORMAT = "release_mimick"
 

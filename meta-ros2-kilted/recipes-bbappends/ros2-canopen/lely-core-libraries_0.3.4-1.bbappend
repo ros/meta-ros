@@ -5,6 +5,7 @@ SRC_URI += "file://use-system-lely-core.patch \
             file://skip-compile-cogen.patch \
             file://add-target.patch"
 
+# v2.3.2 tag (gitlab.com/lely_industries/lely-core)
 SRCREV_upstream = "7824cbb2ac08d091c4fa2fb397669b938de9e3f5"
 
 DEPENDS += "lely-core lely-core-native"

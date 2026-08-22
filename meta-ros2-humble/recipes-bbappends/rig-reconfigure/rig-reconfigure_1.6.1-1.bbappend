@@ -12,6 +12,7 @@ SRC_URI = " \
 "
 
 SRCREV_release = "cd6cd723cc561154f4eac4b0d17660954d90e4c6"
+# v1.89.8-docking tag
 SRCREV_upstream = "f8704cd085c4347f835c21dc12a3951924143872"
 SRCREV_FORMAT = "release_upstream"
 
