@@ -12,7 +12,9 @@ SRC_URI = " \
     git://github.com/cameron314/concurrentqueue.git;protocol=https;name=concurrentqueue-upstream;destsuffix=git/concurrentqueue-upstream;branch=master \
 "
 SRCREV_release = "dc17fed08353f30a7e20676df7c8fc5e842ed011"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
 SRCREV_singleproducerconsumer-upstream = "ef7dfbf553288064347d51b8ac335f1ca489032a"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
 SRCREV_concurrentqueue-upstream = "8f65a8734d77c3cc00d74c0532efca872931d3ce"
 
 SRCREV_FORMAT = "release_singleproducerconsumer-upstream_concurrentqueue-upstream"

@@ -4,6 +4,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://repackage-lely-core.patch \
             file://add-target.patch"
 
+# v2.3.2 tag (gitlab.com/lely_industries/lely-core)
 SRCREV_upstream = "7824cbb2ac08d091c4fa2fb397669b938de9e3f5"
 
 DEPENDS += "lely-core lely-core-native"
