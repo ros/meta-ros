@@ -9,5 +9,6 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-qpOASES-with-bitbake-fetcher.patch \
     git://github.com/coin-or/qpOASES;protocol=https;branch=stable/3.2;name=qpOASES-upstream;destsuffix=git/qpOASES-upstream \
 "
+# No tagged release matches this commit upstream; pinned to a specific commit on the stable/3.2 branch
 SRCREV_qpOASES-upstream = "4799956d98cb9a5ca32e818c6ef79b69103392d8"
 SRCREV_FORMAT += "_qpOASES-upstream"
