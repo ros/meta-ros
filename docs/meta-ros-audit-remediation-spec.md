@@ -424,6 +424,25 @@ without explicit go-ahead.
   `meta-ros2-kilted/.../rosbag2-storage-mcap/mcap-vendor_0.32.0-2.bbappend`, which documents
   `# releases/cpp/v1.4.0`). Where the original rationale can't be determined from the upstream repo
   history, note that explicitly rather than fabricating a reason.
+- **[Handoff status: DONE — confirmed 74 files, but many pin the same upstream commit across
+  multiple ROS distro variants, so the real scope was 34 distinct (upstream repo, commit) pairs.
+  Several files (`mcap-vendor`, `lz4`/`zstd` in one `mcap-vendor` variant, `uncrustify-vendor`,
+  `iceoryx-posh`'s `cpptoml` pin, `python-qt-binding`) already had a correct annotation and were
+  left untouched. For the other ~18 distinct packages, looked up each pinned commit against its
+  real upstream repo (`git ls-remote --tags`, resolved via the package's own `SRC_URI`, not
+  guessed) and added a one-line comment above each un-annotated `SRCREV`/`SRCREV_<name>` line: the
+  matching tag where the commit is genuinely tagged upstream (e.g. `# v0.6.2 tag` for `osqp`), or an
+  explicit "no tagged release matches this commit upstream" note where it isn't (true for several
+  small forks/vendored deps — `cho3/acado`, `cho3/hpmpc`, `ros2/Mimick`, `pboettch/
+  json-schema-validator`, `cameron314/readerwriterqueue`, `cameron314/concurrentqueue`,
+  `Fields2Cover/{steering_functions,spline,matplotlib-cpp}`, `delmottea/libCMT`) — per this task's
+  own instruction not to fabricate a reason. One case (`lely-core-libraries`'s `SRCREV_upstream`)
+  needed identifying the actual upstream repo first, since it isn't named in the bbappend itself —
+  confirmed as `gitlab.com/lely_industries/lely-core` (tag `v2.3.2`) by matching the pinned commit.
+  Net result: 94 one-line comments added across 65 files, zero deletions. Verified safe by
+  re-running `yocto-check-layer`'s parse step against `meta-ros1-noetic` (which carries several of
+  these bbappends) afterward — clean parse, 0 errors; the layer still fails overall, but on an
+  unrelated M3-1-style missing-provider issue (`qtdeclarative`), not anything from this change.]**
 
 ### Task M4-4: Re-evaluate `OE_FRAGMENTS` / `bitbake-setup`
 - **Audit ref:** §5.5
@@ -449,7 +468,7 @@ without explicit go-ahead.
 | M3-2 | Wire `generate-skip-groups.py` into CI | 3 (deferred) | Full Yocto build env | Medium | Partially done — trivial fix landed, CI job blocked on M3-1's root cause |
 | M4-1 | Mirror superflore/milestone process in-repo | 4 | Repo clone (blocked) | Medium | Not started |
 | M4-2 | Add `MAINTAINERS` file | 4 | Repo clone (blocked) | Small | Not started |
-| M4-3 | Backfill `SRCREV` pin comments | 4 | Repo clone | Small | Not started |
+| M4-3 | Backfill `SRCREV` pin comments | 4 | Repo clone | Small | Done |
 | M4-4 | Re-evaluate `OE_FRAGMENTS`/`bitbake-setup` | 4 | N/A — deferred | N/A | Not started |
 
 All of Milestones 0-2 (repo-clone-only work) are complete as of this update. Milestone 3: a
