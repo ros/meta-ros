@@ -14,5 +14,6 @@ SRC_URI = " \
 "
 
 SRCREV_release = "b535529aa09eb56e19bd913543c383e82fbfa899"
+# hash_library_v8 tag
 SRCREV_upstream = "70cc93763d49a24c4536c7f0a23248f9b40e30f5"
 SRCREV_FORMAT = "release_upstream"
