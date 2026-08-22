@@ -8,7 +8,9 @@ SRC_URI += " \
   file://0002-lua-source-dir.patch;patchdir=sol2 \
 "
 
+# v3.3.0 tag
 SRCREV_upstream = "eba86625b707e3c8c99bbfc4624e51f42dc9e561"
+# v5.4.4 tag
 SRCREV_lua = "5d708c3f9cae12820e415d4f89c9eacbe2ab964b"
 SRCREV_FORMAT += "_upstream_lua"
 EXTRA_OECMAKE += "-DLUA_SOURCE_DIR=${S}/lua"
