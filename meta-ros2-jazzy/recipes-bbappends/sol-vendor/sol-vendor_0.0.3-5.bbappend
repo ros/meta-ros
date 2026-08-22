@@ -10,7 +10,9 @@ SRC_URI = " \
 "
 
 SRCREV_release = "e5a8f99c246ee8436d8530e4513ee056a360d0cf"
+# v3.3.0 tag
 SRCREV_upstream = "eba86625b707e3c8c99bbfc4624e51f42dc9e561"
+# v5.4.4 tag
 SRCREV_lua = "5d708c3f9cae12820e415d4f89c9eacbe2ab964b"
 SRCREV_FORMAT = "release_upstream_lua"
 

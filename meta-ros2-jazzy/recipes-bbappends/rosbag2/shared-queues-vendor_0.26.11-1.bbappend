@@ -10,7 +10,10 @@ SRC_URI = " \
     file://0001-CMakeLists.txt-fetch-readerwriterqueue-and-concurren.patch \
     git://github.com/cameron314/readerwriterqueue.git;protocol=https;name=singleproducerconsumer-upstream;destsuffix=git/singleproducerconsumer-upstream;branch=master \
 "
-SRCREV_release = "fea3a738733673c927d77631a735157993ff6395"
+SRCREV_release = "dc17fed08353f30a7e20676df7c8fc5e842ed011"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
 SRCREV_singleproducerconsumer-upstream = "ef7dfbf553288064347d51b8ac335f1ca489032a"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
+SRCREV_concurrentqueue-upstream = "8f65a8734d77c3cc00d74c0532efca872931d3ce"
 
 SRCREV_FORMAT = "release_singleproducerconsumer-upstream"
