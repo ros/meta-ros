@@ -6,6 +6,7 @@ SRC_URI += " \
   file://0001-CMakeLists.txt-fetch-source-with-bitbake-fetcher.patch \
 "
 
+# No tagged release matches this commit upstream; pinned to a specific commit on the main branch
 SRCREV_upstream = "1063c9adbafc25f5a14bae15c3babdb039de86c6"
 SRCREV_FORMAT += "_upstream"
 
