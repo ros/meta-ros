@@ -11,5 +11,6 @@ SRCREV_qpOASES-release = "37962324bdc1c603d4889b77b2c7389e8d91a01b"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-qpOASES-with-bitbake-fetcher.patch \
     git://github.com/coin-or/qpOASES;protocol=https;branch=stable/3.2;name=qpOASES-upstream;destsuffix=git/qpOASES-upstream \
 "
+# No tagged release matches this commit upstream; pinned to a specific commit on the stable/3.2 branch
 SRCREV_qpOASES-upstream = "4799956d98cb9a5ca32e818c6ef79b69103392d8"
 SRCREV_FORMAT = "qpOASES-release_qpOASES-upstream"
