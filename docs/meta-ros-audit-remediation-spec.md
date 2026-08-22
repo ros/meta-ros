@@ -379,12 +379,31 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
 - **Acceptance criteria:** A scheduled or on-demand job exists that regenerates and diffs the skip
   block per distro and surfaces changes as a reviewable PR; `generate-skip-groups.py` exits cleanly
   on incorrect invocation.
-- **[Handoff status: PARTIALLY DONE — the sub-item 3 trivial fix (usage() now calls sys.exit(1))
-  is done, since it was repo-only and didn't need the build environment. The CI-wiring work itself
-  (building `packagegroup-ros-world-<distro>` per distro to capture a cooker log) is NOT started —
-  it needs a genuinely successful `bitbake world`-scale attempt to produce that log, which is
-  currently blocked by the same `meta-ros-common` LICENSE-format QA errors recorded under M3-1.
-  Revisit after that fix lands.]**
+- **[Handoff status: PARTIALLY DONE.** The sub-item 3 trivial fix (`usage()` now calls
+  `sys.exit(1)`) is done. A new companion script, `scripts/update-skip-groups.py`, was added
+  (`audit-remediation`) — a name-aware merge that updates only the auto-generated
+  `ROS_WORLD_SKIP_GROUPS` blocks in a `packagegroup-ros-world-<distro>.bb` file, preserving
+  hand-written comments interspersed between entries (verified against the real
+  `packagegroup-ros-world-humble.bb`, including simulated resolve/persist/add scenarios).
+  **CI-wiring itself is drafted, not enabled:** discovered the `build` branch already has a
+  working `.gitlab-ci.yml` pipeline (`build-job`) with the real kas + AWS S3 sstate-mirror
+  infrastructure this task needs, whose artifacts already capture the cooker log
+  `generate-skip-groups.py` consumes — so `skip-groups-job` was added there (on a new local
+  branch `build-skip-groups-ci`, tracking `origin/build`) reusing that infrastructure rather
+  than reinventing environment setup via GitHub Actions. `when: manual` only, not scheduled,
+  not enabled. Several details are flagged as unverified in the job's own header comments rather
+  than guessed (GH_TOKEN availability, whether `kas build` actually streams bitbake's console
+  output the way the job assumes, the real `gh` CLI install step for the `crops-container` image,
+  MACHINE defaulting to `qemux86-64` against a pipeline that otherwise defaults to
+  `raspberrypi5`) — same pattern as M1-4's flagged assumptions. Also discovered along the way:
+  the `build` branch's kas composition (`kas/common.yml`) already includes `meta-python-ai`,
+  `meta-virtualization`, and `meta-zenoh` by default in every real build, and the
+  `wrynose`+`humble`+`qemux86-64` combo file includes `meta-qt5` — meaning the `openblas` and
+  `qtdeclarative` findings from M3-1 rounds 3/6/7 were very likely artifacts of this session's
+  simplified manual test environment, not real gaps in the project's actual kas-based build
+  process (the fixes made are still correct and worth keeping regardless — they matter for
+  anyone building without kas — but their practical urgency is lower than the M3-1 doc's
+  original framing implied).]**
 
 ---
 

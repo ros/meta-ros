@@ -261,6 +261,21 @@ Just the `qtdeclarative`/`meta-qt6` finding above (round 6/7). Everything else d
 seven rounds for this specific, realistic layer combination has either been fixed and verified, or
 identified as expected/non-fixable Yocto behavior (the `boost` signature fan-out).
 
+**Important caveat, discovered while scoping M3-2:** this whole investigation used a manually
+composed test environment (`bitbake-setup` + hand-picked `meta-oe`/`meta-python` + explicitly
+cloned optional layers). The repo's real `build` branch has a working `kas`-based build pipeline
+(`.gitlab-ci.yml` + `kas/*.yml`) whose composition already includes `meta-python-ai`,
+`meta-virtualization`, and `meta-zenoh` by default (`kas/common.yml`), and the
+`wrynose`+`humble`+`qemux86-64` combo file (`kas/oeros-wrynose-humble-qemux86-64.yml`) includes
+`meta-qt5`. That means the `openblas` (round 3) and `qtdeclarative` (rounds 6–7) findings were very
+likely artifacts of this session's simplified environment, not real gaps in the project's actual
+build process — a real `kas build` almost certainly already has both `openblas` and `qtdeclarative`
+available. The fixes already made (the `openblas` gate, in particular) remain correct and worth
+keeping regardless, since they matter for anyone building without `kas` — but their practical
+urgency is lower than earlier framing in this doc implied. The `LICENSE` `AND`/`OR` bugs and the
+cross-layer `google-benchmark` finding are unaffected by this caveat — those are real content bugs
+independent of which layers happen to be present.
+
 ## `meta-ros-common` — full results (final, all applicable fixes applied)
 
 | Test | Result | Detail |
