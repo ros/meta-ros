@@ -4,7 +4,7 @@ Produced for Milestone 3, Task M3-1 of
 [`meta-ros-audit-remediation-spec.md`](meta-ros-audit-remediation-spec.md) (audit ref §4). This
 converts that section's "unknown — needs environment" row into concrete findings.
 
-This was a six-round investigation within the same session, each round peeling back one blocking
+This was a seven-round investigation within the same session, each round peeling back one blocking
 layer to reveal the next:
 
 1. **Round 1** — fatal `LICENSE`-format QA errors (`AND`/`OR` as literal words) in 40
@@ -33,11 +33,17 @@ layer to reveal the next:
    code change). Testing the *realistic* layer combination (`meta-ros2-humble` alone, not mixed
    with `meta-ros1`) got all the way down to a single remaining finding: `gz-gui`/`gz-sim`/
    `gz-gui9` unconditionally depend on `qtdeclarative`, which only the optional `meta-qt6` layer
-   provides — but unlike `openblas`, Qt is not an optional accelerator here, it's load-bearing for
-   what these GUI packages *are*. **Not fixed** — likely needs relocating under
-   `dynamic-layers/meta-qt6/` rather than gating, a maintainer call.
+   provides.
+7. **Round 7** — checked each affected package's actual upstream `CMakeLists.txt` for a genuine
+   headless build option rather than assuming. Mixed, precise answer: `gz-sim` **v10** specifically
+   has a real `ENABLE_GUI` option and is safely gate-able like `openblas` was; `gz-sim` **v9**,
+   `gz-gui`, `gz-gui9`, and `gz-launch7/8/9` are all confirmed genuinely, permanently Qt-required
+   with no upstream escape hatch. `gz-sim` has a very large blast radius (`packagegroup-ros-world-
+   <distro>` itself, plus dozens of real simulation packages, across every ROS2 distro). Presented
+   the full breakdown to the user; **decision: record the analysis, don't touch any recipes this
+   round.**
 
-Raw logs for every run across all six rounds are archived at
+Raw logs for every run across all seven rounds are archived at
 `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/` (outside this repo, not
 committed — `/tmp` on this machine is a `tmpfs` that doesn't survive a reboot, so the scratch copies
 were moved to persistent disk during the session).
@@ -215,22 +221,44 @@ by any `bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', ...)` check, even t
 recipes already conditionally `inherit` a `qt6-cmake` bbclass based on that exact check for a
 different purpose).
 
-**Why this one wasn't fixed the same way as `openblas`:** `openblas` was a swappable BLAS
+**Why this one wasn't fixed the same way as `openblas` right away:** `openblas` was a swappable BLAS
 *implementation* — `lapack`'s bundled reference BLAS was a genuine functional substitute, so gating
-was safe and verified. `qtdeclarative` is not swappable this way: `gz-gui` *is* Gazebo's Qt/QML-based
-GUI. There's no meaningful "build gz-gui without Qt" mode — gating the dependency would just move
-the failure from a clean "Nothing PROVIDES" at dependency-resolution time to a CMake configure-time
-failure inside the actual build, no better off. The architecturally sound fix is very likely
-relocating `gz-gui`/`gz-sim`/`gz-gui9` (or at least their Qt-dependent pieces) under
-`meta-ros-common/dynamic-layers/meta-qt6/`, matching the precedent already established by
-`meta-ros2/dynamic-layers/meta-qt6/` for the exact same `qt6-layer` optional dependency — but that's
-a real structural change needing a maintainer's call, not something to guess at unilaterally the way
-`openblas`'s gate was (which had a verified-safe substitute to fall back to).
+was safe and verified with a real test. `qtdeclarative`'s situation needed checking case-by-case
+before assuming the same fix would apply — see round 7.
+
+## Round 7 — verified against real upstream `CMakeLists.txt`: mixed answer, not touched
+
+Rather than assume `qtdeclarative` was uniformly unfixable or uniformly fixable, checked each
+affected package's actual upstream build system for a genuine headless option (not guessed):
+
+| Recipe | Upstream headless option? | Verdict |
+|---|---|---|
+| `gz-sim_10.1.1.bb`, `gz-sim_10.4.0.bb` (gz-sim **v10**) | **Yes** — `option(ENABLE_GUI "Build gz-sim with GUI enabled" ON)`; `gz-gui` is only `gz_find_package`d `if(ENABLE_GUI)` | Safely gate-able, same pattern as `openblas`: conditional `DEPENDS` on `gz-gui` + `-DENABLE_GUI=OFF` in `EXTRA_OECMAKE` when `qt6-layer` absent. |
+| `gz-sim9_{9.0.0,9.1.0,9.5.0}.bb` (gz-sim **v9**) | **No** — `gz_find_package(gz-gui9 REQUIRED)` and `Qt5 ... REQUIRED`, no `ENABLE_GUI`-equivalent in this older major version | Genuinely Qt-required, same situation as `gz-gui`/`gz-gui9`. |
+| `gz-gui_10.0.0.bb`, `gz-gui9_9.0.2.bb` | N/A — these packages exist only to provide the GUI | Correctly, permanently Qt-required. Gating would be meaningless (nothing left to build). |
+| `gz-launch7/8/9` (`7.1.1`, `8.0.0/1/3`, `9.0.0/1`) | **No** — confirmed `gz_find_package(gz-gui ... REQUIRED)` and `gz_find_package(gz-sim ... REQUIRED PRIVATE COMPONENTS gui)`, no disable flag | Genuinely Qt-required, no escape hatch. |
+
+**Blast radius checked before proposing anything:** `gz-sim` (any version) is depended on directly
+by `packagegroup-ros-world-<distro>.bb` itself in every ROS2 distro (`humble`/`jazzy`/`kilted`/
+`lyrical`/`rolling`), plus dozens of real packages across those distros —
+`turtlebot3-gazebo`, `ur-simulation-gz`, `nav2-bringup`, `gz-ros2-control(-demos)`,
+`rmf-simulation`, `ros-gz(-sim)`, `open-manipulator-bringup`, and many more. `gz-gui` has a similar
+but smaller footprint (`gz-launch`, `gz-sim` itself, `ignition-gui6`, several vendor/plugin
+packages). This is a much larger footprint than `openblas`'s narrowly-scoped 3 `suitesparse`
+recipes — a structural change here (gating `gz-sim` v10, and/or relocating the genuinely
+Qt-only packages under `dynamic-layers/meta-qt6/` so `world` gracefully skips them instead of
+hard-failing) would touch how a wide swath of the ROS2 simulation ecosystem resolves.
+
+**Decision: recorded as a finding, not acted on.** Given the mixed picture (one narrow, verified-safe
+gate available for `gz-sim` v10; several genuinely-unfixable-by-gating packages where the real fix
+would be a `dynamic-layers` relocation with real blast radius), this was presented to the user with
+the full breakdown above rather than executed unilaterally, and the explicit decision was to record
+the analysis for a maintainer to act on rather than touch any recipes this round.
 
 ## What's genuinely blocking a clean `meta-ros2-humble` run right now
 
-Just the one finding above (`qtdeclarative`/`meta-qt6`). Everything else discovered across all six
-rounds for this specific, realistic layer combination has either been fixed and verified, or
+Just the `qtdeclarative`/`meta-qt6` finding above (round 6/7). Everything else discovered across all
+seven rounds for this specific, realistic layer combination has either been fixed and verified, or
 identified as expected/non-fixable Yocto behavior (the `boost` signature fan-out).
 
 ## `meta-ros-common` — full results (final, all applicable fixes applied)
@@ -273,7 +301,7 @@ a clean run is possible there. The rest would very likely hit the same `qtdeclar
 - Host note: every run printed
   `WARNING: Host distribution "elxr-26.04" has not been validated with this version of the build
   system` — informational only, not treated as a failure.
-- Raw logs for all runs across all six rounds: `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`.
+- Raw logs for all runs across all seven rounds: `/opt/meta-ros-remediation-handoff/yocto-check-layer-logs-2026-08-21/`.
 - **Note on environment hygiene:** `yocto-check-layer` does not reliably restore `bblayers.conf` to
   its pre-run state after a normal (non-interrupted) completion — a prior run's dependency-layer
   additions were found still present in `bblayers.conf` at the start of a later, unrelated

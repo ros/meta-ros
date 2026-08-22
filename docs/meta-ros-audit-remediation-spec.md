@@ -341,16 +341,22 @@ separated out so the repo-clone-only work isn't blocked waiting on it.
   PR #327's change prematurely, worth the user's attention given their involvement in that PR;
   `meta-ros-common`'s `boost` bbappend causing ~30.8K signature changes elsewhere (likely permanent,
   not a bug); `gz-gui`/`gz-sim`/`gz-gui9`'s unconditional `qtdeclarative` dependency on the optional
-  `meta-qt6` layer — unlike `openblas`, Qt has no functional substitute here, so this likely needs
-  relocating these recipes under `dynamic-layers/meta-qt6/` rather than gating. **Net result**:
-  testing the realistic `meta-ros2-humble` combination (`meta-ros-common` + `meta-ros2`, no
-  `meta-ros1` mixed in) is down to that single `qtdeclarative` finding from an original "unknown —
-  needs environment." `meta-ros-common` also has 2 findings independent of all fixes: a patch
-  missing `Upstream-Status:`, and no `SECURITY.md`. The other layers' own compliance remains
-  unverified through the full 9-test suite — not individually re-run once the pattern was
-  established. Also noted: `yocto-check-layer` doesn't reliably restore `bblayers.conf` after a
-  normal exit — reset it to the intended base before each invocation rather than assuming it's
-  clean.]**
+  `meta-qt6` layer. **Round 7** checked each affected recipe's real upstream `CMakeLists.txt` rather
+  than assuming a blanket answer: `gz-sim` v10 specifically (`gz-sim_10.1.1.bb`,
+  `gz-sim_10.4.0.bb`) has a genuine `ENABLE_GUI` build option and is safely gate-able the same way
+  `openblas` was; `gz-sim` v9, `gz-gui`, `gz-gui9`, and `gz-launch7/8/9` are all confirmed
+  genuinely, permanently Qt-required upstream with no headless option. `gz-sim` has a very large
+  blast radius (`packagegroup-ros-world-<distro>` itself in every ROS2 distro, plus dozens of real
+  simulation packages), so presented the full gate-able-vs-not breakdown to the user rather than
+  executing unilaterally — **decision: record the analysis, don't touch any recipes.** **Net
+  result**: testing the realistic `meta-ros2-humble` combination (`meta-ros-common` + `meta-ros2`,
+  no `meta-ros1` mixed in) is down to that single `qtdeclarative` finding, now with a precise,
+  verified breakdown of what could be fixed if a maintainer chooses to. `meta-ros-common` also has 2
+  findings independent of all fixes: a patch missing `Upstream-Status:`, and no `SECURITY.md`. The
+  other layers' own compliance remains unverified through the full 9-test suite — not individually
+  re-run once the pattern was established. Also noted: `yocto-check-layer` doesn't reliably restore
+  `bblayers.conf` after a normal exit — reset it to the intended base before each invocation rather
+  than assuming it's clean.]**
 
 ### Task M3-2: Wire `generate-skip-groups.py` into CI
 - **Audit ref:** §1.4
