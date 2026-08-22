@@ -8,6 +8,7 @@ SRC_URI += "file://0001-CMakeLists.txt-install-only-specified-mimick-files-n.pat
     file://0002-CMakeLists.txt-fetch-mimick-with-bitbake-fetcher.patch \
     git://github.com/ros2/Mimick.git;protocol=https;name=mimick;branch=ros2;destsuffix=git/mimick-upstream \
 "
+# No tagged release matches this commit upstream; pinned to a specific commit on the ros2 branch
 SRCREV_mimick = "f171450b5ebaa3d2538c762a059dfc6ab7a01039"
 SRCREV_FORMAT += "_mimick"
 

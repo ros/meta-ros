@@ -11,8 +11,11 @@ SRC_URI = " \
 "
 
 SRCREV_release = "2999def538cf52b4aaec294dc7171234baf94ae5"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
 SRCREV_steering-functions = "33fc010017efa1ef2c8a2d4779fcda94b4b30d20"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
 SRCREV_spline = "1b5d4bad29082997076b264de84ca6d46c2ae6ab"
+# No tagged release matches this commit upstream; pinned to a specific commit on the master branch
 SRCREV_matplotlib-cpp = "75c15d0c907a4b68bca5ef97032302bd14ccab8e"
 
 SRCREV_FORMAT = "release_steering-functions_spline_matplotlib-cpp"

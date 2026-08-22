@@ -11,7 +11,9 @@ SRC_URI += "file://0001-CMakeLists.txt-fetch-acado-hpmpc-with-bitbake-fetche.pat
     git://github.com/cho3/hpmpc.git;protocol=https;name=hpmpc-upstream;destsuffix=git/hpmpc-upstream;branch=submodule \
     file://0001-hpmpc-Don-t-clear-CMAKE_C_FLAGS.patch;patchdir=hpmpc-upstream \
 "
+# No tagged release matches this commit upstream (cho3/acado fork); pinned to a specific commit on the submodule branch
 SRCREV_acado-upstream = "8366e22cd5d815078e8d24f78dbced28b48d7e32"
+# No tagged release matches this commit upstream (cho3/hpmpc fork); pinned to a specific commit on the submodule branch
 SRCREV_hpmpc-upstream = "abbcf0806e4c8763ab2129a90efd827d194c1b00"
 SRCREV_FORMAT += "_acado-upstream_hpmpc-upstream"
 

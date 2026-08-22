@@ -13,6 +13,8 @@ SRC_URI = " \
     file://add-build-dir-include.patch \
 "
 SRCREV_release = "${SRCREV}"
+# v0.6.2 tag
 SRCREV_osqp = "f9fc23d3436e4b17dd2cb95f70cfa1f37d122c24"
+# v0.1.8 tag
 SRCREV_qdldl = "138fdac58b9cd1c4137ff1b99152c8108a6cff5b"
 SRCREV_FORMAT = "release_osqp_qdldl"
