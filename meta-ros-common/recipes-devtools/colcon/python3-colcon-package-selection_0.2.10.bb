@@ -1,15 +1,27 @@
-
 SUMMARY = "Extension for colcon to select the packages to process."
 SECTION = "devel/python"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://setup.cfg;beginline=22;endline=22;md5=3d0bd1ac53c1dd582844ed15eee7f8e2"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRC_URI[sha256sum] = "494493d836c7ac69ce6d5e9f69a6efca6619da8e691e5a4138c975e6f31103db"
+SRC_URI = "\
+    git://github.com/colcon/colcon-package-selection;branch=master;protocol=https \
+    file://0001-ptest-no-python3-scspell-in-OpenEmbedded-Yocto.patch \
+    file://0002-ptest-correct-path-of-the-to-be-checked-python-files.patch \
+"
 
-inherit pypi setuptools3
+SRCREV = "2521b2a5d3e0a0145f5ddfd21e33cd8bca1e92df"
+
+inherit setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-colcon-core \
 "
+
+RDEPENDS:${PN}-ptest += "\
+    python3-flake8 \
+    python3-pycodestyle \
+"
+
+PTEST_PYTEST_DIR = "test"
 
 BBCLASSEXTEND += "nativesdk"
