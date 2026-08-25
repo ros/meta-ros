@@ -1,0 +1,35 @@
+From 2ec5d4ba34bb89be34e7f3de0d24912d22aa312f Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Tue, 25 Aug 2026 18:24:58 +0200
+Subject: [PATCH 101/101] flake8: no global variable needed in function
+
+Upstream-Status: Pending [https://github.com/colcon/colcon-metadata/pull/38]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ colcon_metadata/metadata/repository.py | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/colcon_metadata/metadata/repository.py b/colcon_metadata/metadata/repository.py
+index 4209096..b166cfe 100644
+--- a/colcon_metadata/metadata/repository.py
++++ b/colcon_metadata/metadata/repository.py
+@@ -26,7 +26,6 @@ def get_repositories():
+ 
+     :rtype: dict
+     """
+-    global metadata_repositories_file
+     if not metadata_repositories_file.exists():
+         return {}
+     if metadata_repositories_file.is_dir():
+@@ -46,7 +45,6 @@ def set_repositories(repositories):
+     """
+     assert isinstance(repositories, dict), \
+         'The passed repositories should be a dictionary'
+-    global metadata_repositories_file
+     data = yaml.dump(repositories, default_flow_style=False)
+     os.makedirs(str(metadata_repositories_file.parent), exist_ok=True)
+     with metadata_repositories_file.open('w') as h:
+-- 
+2.43.0
+
