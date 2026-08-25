@@ -1,0 +1,27 @@
+From 988fe9dbf36a1506786be79432ba0b8aa7ffe36b Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@oip.be>
+Date: Tue, 25 Aug 2026 20:36:00 +0200
+Subject: [PATCH 3/3] ptest: mark flake8 tests as expected to fail.
+
+Upstream-Status: Pending [https://github.com/colcon/colcon-python-setup-py/issues/65]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_flake8.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/test/test_flake8.py b/test/test_flake8.py
+index 03a7c26..81fe292 100644
+--- a/test/test_flake8.py
++++ b/test/test_flake8.py
+@@ -11,6 +11,7 @@ import pytest
+ 
+ @pytest.mark.flake8
+ @pytest.mark.linter
++@pytest.mark.xfail(reason="https://github.com/colcon/colcon-python-setup-py/issues/65")
+ def test_flake8():
+     from flake8.api.legacy import get_style_guide
+ 
+-- 
+2.43.0
+
