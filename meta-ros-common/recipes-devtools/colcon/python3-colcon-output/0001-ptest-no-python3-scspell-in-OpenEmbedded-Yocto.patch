@@ -1,0 +1,80 @@
+From 90ac4ac52c98e8d754e9d6b694a0c69f9a54fa34 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@oip.be>
+Date: Tue, 25 Aug 2026 15:05:36 +0200
+Subject: [PATCH 1/2] ptest: no python3-scspell in OpenEmbedded/Yocto
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_spell_check.py | 58 ----------------------------------------
+ 1 file changed, 58 deletions(-)
+ delete mode 100644 test/test_spell_check.py
+
+diff --git a/test/test_spell_check.py b/test/test_spell_check.py
+deleted file mode 100644
+index 705847d..0000000
+--- a/test/test_spell_check.py
++++ /dev/null
+@@ -1,58 +0,0 @@
+-# Copyright 2016-2019 Dirk Thomas
+-# Licensed under the Apache License, Version 2.0
+-
+-from pathlib import Path
+-
+-import pytest
+-
+-spell_check_words_path = Path(__file__).parent / 'spell_check.words'
+-
+-
+-@pytest.fixture(scope='module')
+-def known_words():
+-    return spell_check_words_path.read_text().splitlines()
+-
+-
+-@pytest.mark.linter
+-def test_spell_check(known_words):
+-    from scspell import Report
+-    from scspell import SCSPELL_BUILTIN_DICT
+-    from scspell import spell_check
+-
+-    source_filenames = [Path(__file__).parents[1] / 'setup.py'] + \
+-        list(
+-            (Path(__file__).parents[1] / 'colcon_output')
+-            .glob('**/*.py')) + \
+-        list((Path(__file__).parents[1] / 'test').glob('**/*.py'))
+-
+-    for source_filename in sorted(source_filenames):
+-        print('Spell checking:', source_filename)
+-
+-    # check all files
+-    report = Report(known_words)
+-    spell_check(
+-        [str(p) for p in source_filenames], base_dicts=[SCSPELL_BUILTIN_DICT],
+-        report_only=report, additional_extensions=[('', 'Python')])
+-
+-    unknown_word_count = len(report.unknown_words)
+-    assert unknown_word_count == 0, \
+-        f'Found {unknown_word_count} unknown words: ' + \
+-        ', '.join(sorted(report.unknown_words))
+-
+-    unused_known_words = set(known_words) - report.found_known_words
+-    unused_known_word_count = len(unused_known_words)
+-    assert unused_known_word_count == 0, \
+-        f'{unused_known_word_count} words in the word list are not used: ' + \
+-        ', '.join(sorted(unused_known_words))
+-
+-
+-@pytest.mark.linter
+-def test_spell_check_word_list_order(known_words):
+-    assert known_words == sorted(known_words), \
+-        'The word list should be ordered alphabetically'
+-
+-
+-@pytest.mark.linter
+-def test_spell_check_word_list_duplicates(known_words):
+-    assert len(known_words) == len(set(known_words)), \
+-        'The word list should not contain duplicates'
+-- 
+2.43.0
+
