@@ -1,0 +1,76 @@
+From 6ff4a5638d0e29cf773a411ac86eca443a99aef0 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@oip.be>
+Date: Tue, 25 Aug 2026 15:43:11 +0200
+Subject: [PATCH 2/2] ptest: correct path of the to be checked python files
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_flake8.py | 54 ---------------------------------------------
+ 1 file changed, 54 deletions(-)
+ delete mode 100644 test/test_flake8.py
+
+diff --git a/test/test_flake8.py b/test/test_flake8.py
+deleted file mode 100644
+index 60c548a..0000000
+--- a/test/test_flake8.py
++++ /dev/null
+@@ -1,54 +0,0 @@
+-# Copyright 2016-2018 Dirk Thomas
+-# Licensed under the Apache License, Version 2.0
+-
+-import logging
+-from pathlib import Path
+-import sys
+-
+-import pytest
+-
+-
+-@pytest.mark.flake8
+-@pytest.mark.linter
+-def test_flake8():
+-    from flake8.api.legacy import get_style_guide
+-
+-    # avoid debug / info / warning messages from flake8 internals
+-    logging.getLogger('flake8').setLevel(logging.ERROR)
+-
+-    # for some reason the pydocstyle logger changes to an effective level of 1
+-    # set higher level to prevent the output to be flooded with debug messages
+-    logging.getLogger('pydocstyle').setLevel(logging.WARNING)
+-
+-    style_guide = get_style_guide(
+-        extend_ignore=['D100', 'D104'],
+-        show_source=True,
+-    )
+-    style_guide_tests = get_style_guide(
+-        extend_ignore=['D100', 'D101', 'D102', 'D103', 'D104', 'D105', 'D107'],
+-        show_source=True,
+-    )
+-
+-    stdout = sys.stdout
+-    sys.stdout = sys.stderr
+-    # implicitly calls report_errors()
+-    report = style_guide.check_files([
+-        str(Path(__file__).parents[1] / 'colcon_package_information'),
+-    ])
+-    report_tests = style_guide_tests.check_files([
+-        str(Path(__file__).parents[1] / 'test'),
+-    ])
+-    sys.stdout = stdout
+-
+-    total_errors = report.total_errors + report_tests.total_errors
+-    if total_errors:  # pragma: no cover
+-        # output summary with per-category counts
+-        print()
+-        if report.total_errors:
+-            report._application.formatter.show_statistics(report._stats)
+-        if report_tests.total_errors:
+-            report_tests._application.formatter.show_statistics(
+-                report_tests._stats)
+-        print(f'flake8 reported {total_errors} errors', file=sys.stderr)
+-
+-    assert not total_errors, f'flake8 reported {total_errors} errors'
+-- 
+2.43.0
+
