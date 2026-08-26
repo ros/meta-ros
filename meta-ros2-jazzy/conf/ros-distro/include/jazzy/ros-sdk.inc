@@ -15,6 +15,7 @@ ROS_SDK_HOST_PACKAGES = " \
     nativesdk-rosidl-typesupport-fastrtps-cpp \
     nativesdk-rosidl-typesupport-introspection-c \
     nativesdk-rosidl-typesupport-introspection-cpp \
+    nativesdk-ros-sdk-env \
 "
 
 ROS_SDK_TARGET_PACKAGES = " \
