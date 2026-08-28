@@ -47,6 +47,7 @@ jobs:
       - name: Check out superflore
         uses: actions/checkout@v6
         with:
+          ref: master-next
           repository: ros-infrastructure/superflore
           path: superflore
           fetch-tags: true
