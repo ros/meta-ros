@@ -20,7 +20,7 @@ EXTRA_OECMAKE:append = " \
     -DPYTHON_SITE_PACKAGES_INSTALL_DIR=${PYTHON_SITEPACKAGES_DIR} \
 "
 
-inherit cmake python3-dir python3native ptest-python-pytest
+inherit cmake python3-dir python3targetconfig ptest-python-pytest
 
 FILES:${PN}:append = " \
     ${PYTHON_SITEPACKAGES_DIR}/PyKDL.*.so \
