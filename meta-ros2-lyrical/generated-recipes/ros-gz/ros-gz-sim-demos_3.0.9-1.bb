@@ -18,21 +18,96 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=5;endline=5;md5=3dce4ba60d7e51e
 ROS_CN = "ros_gz"
 ROS_BPN = "ros_gz_sim_demos"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gz-sim-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-sim-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    ${ROS_UNRESOLVED_DEP-glslang-dev} \
+    ${ROS_UNRESOLVED_DEP-glslc} \
+    ${ROS_UNRESOLVED_DEP-libfreeimage-dev} \
+    ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
+    ${ROS_UNRESOLVED_DEP-libx11-xcb-dev} \
+    ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev} \
+    assimp \
+    boost \
+    bullet \
+    fcl \
+    fmt \
+    freetype \
+    gcc-runtime \
+    gz-cmake-vendor \
+    gz-common-vendor \
+    gz-dartsim-vendor \
+    gz-fuel-tools-vendor \
+    gz-gui-vendor \
+    gz-math-vendor \
+    gz-msgs-vendor \
+    gz-ogre-next-vendor \
+    gz-physics-vendor \
+    gz-plugin-vendor \
+    gz-rendering-vendor \
+    gz-sensors-vendor \
+    gz-tools-vendor \
+    gz-transport-vendor \
+    gz-utils-vendor \
+    libccd \
+    libeigen \
+    libsdl2 \
+    libtinyxml2 \
+    libx11 \
+    libxaw \
+    libxrandr \
+    lz4 \
+    mesa \
+    ode \
+    poco \
+    rapidjson \
+    sdformat-vendor \
+    shaderc \
+    spdlog \
+    spdlog-vendor \
+    tbb \
+    urdfdom \
+    vulkan-headers \
+    zziplib \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-core-native \
+    ament-cmake-export-definitions-native \
+    ament-cmake-export-dependencies-native \
+    ament-cmake-export-include-directories-native \
+    ament-cmake-export-libraries-native \
+    ament-cmake-export-link-flags-native \
+    ament-cmake-export-targets-native \
+    ament-cmake-gen-version-h-native \
+    ament-cmake-include-directories-native \
+    ament-cmake-libraries-native \
+    ament-cmake-python-native \
+    ament-cmake-target-dependencies-native \
+    ament-cmake-test-native \
+    ament-cmake-version-native \
+    ament-package-native \
+    cmake-native \
+    python3-catkin-pkg-native \
+    python3-setuptools-native \
+"
+
+ROS_EXEC_DEPENDS = "\
     gz-sim-vendor \
     image-transport-plugins \
     marine-acoustic-msgs \
@@ -51,15 +126,14 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
