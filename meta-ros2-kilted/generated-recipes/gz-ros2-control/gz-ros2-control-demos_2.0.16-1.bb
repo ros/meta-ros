@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493f
 ROS_CN = "gz_ros2_control"
 ROS_BPN = "gz_ros2_control_demos"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     control-msgs \
     control-toolbox \
     geometry-msgs \
@@ -33,11 +33,11 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     control-msgs \
     control-toolbox \
     gz-ros2-control \
@@ -49,7 +49,191 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    ${ROS_UNRESOLVED_DEP-glslang-dev} \
+    ${ROS_UNRESOLVED_DEP-glslc} \
+    ${ROS_UNRESOLVED_DEP-libexpected-dev} \
+    ${ROS_UNRESOLVED_DEP-libfreeimage-dev} \
+    ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
+    ${ROS_UNRESOLVED_DEP-libx11-xcb-dev} \
+    ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev} \
+    action-msgs \
+    ament-index-cpp \
+    assimp \
+    backward-ros \
+    boost \
+    builtin-interfaces \
+    bullet \
+    class-loader \
+    controller-interface \
+    controller-manager \
+    controller-manager-msgs \
+    diagnostic-msgs \
+    diagnostic-updater \
+    eigen3-cmake-module \
+    elfutils \
+    fastcdr \
+    fcl \
+    filters \
+    fmt \
+    freetype \
+    gcc-runtime \
+    generate-parameter-library \
+    gz-cmake-vendor \
+    gz-common-vendor \
+    gz-dartsim-vendor \
+    gz-fuel-tools-vendor \
+    gz-gui-vendor \
+    gz-math-vendor \
+    gz-msgs-vendor \
+    gz-ogre-next-vendor \
+    gz-physics-vendor \
+    gz-plugin-vendor \
+    gz-rendering-vendor \
+    gz-sensors-vendor \
+    gz-tools-vendor \
+    gz-transport-vendor \
+    gz-utils-vendor \
+    joint-limits \
+    libcap \
+    libccd \
+    libeigen \
+    libsdl2 \
+    libstatistics-collector \
+    libtinyxml2 \
+    libx11 \
+    libxaw \
+    libxrandr \
+    libyaml \
+    libyaml-vendor \
+    lifecycle-msgs \
+    lttng-ust \
+    lz4 \
+    mesa \
+    message-filters \
+    ode \
+    orocos-kdl \
+    orocos-kdl-vendor \
+    pal-statistics \
+    pal-statistics-msgs \
+    parameter-traits \
+    poco \
+    rapidjson \
+    rcl \
+    rcl-action \
+    rcl-interfaces \
+    rcl-lifecycle \
+    rcl-logging-interface \
+    rcl-logging-spdlog \
+    rcl-yaml-param-parser \
+    rclcpp-components \
+    rclpy \
+    rcpputils \
+    rcutils \
+    realtime-tools \
+    rmw \
+    rmw-implementation \
+    rmw-implementation-cmake \
+    rosgraph-msgs \
+    rosidl-cmake \
+    rosidl-core-runtime \
+    rosidl-dynamic-typesupport \
+    rosidl-generator-py \
+    rosidl-runtime-c \
+    rosidl-runtime-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-fastrtps-c \
+    rosidl-typesupport-fastrtps-cpp \
+    rosidl-typesupport-interface \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
+    rsl \
+    sdformat-urdf \
+    sdformat-vendor \
+    sensor-msgs \
+    service-msgs \
+    shaderc \
+    spdlog \
+    spdlog-vendor \
+    statistics-msgs \
+    tbb \
+    tcb-span \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-msgs \
+    tf2-ros \
+    tinyxml2-vendor \
+    tl-expected \
+    tracetools \
+    trajectory-msgs \
+    type-description-interfaces \
+    unique-identifier-msgs \
+    urdf \
+    urdf-parser-plugin \
+    urdfdom \
+    urdfdom-headers \
+    vulkan-headers \
+    yaml-cpp \
+    yaml-cpp-vendor \
+    zziplib \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-core-native \
+    ament-cmake-export-definitions-native \
+    ament-cmake-export-dependencies-native \
+    ament-cmake-export-include-directories-native \
+    ament-cmake-export-interfaces-native \
+    ament-cmake-export-libraries-native \
+    ament-cmake-export-link-flags-native \
+    ament-cmake-export-targets-native \
+    ament-cmake-gen-version-h-native \
+    ament-cmake-gmock-native \
+    ament-cmake-gtest-native \
+    ament-cmake-include-directories-native \
+    ament-cmake-libraries-native \
+    ament-cmake-pytest-native \
+    ament-cmake-python-native \
+    ament-cmake-ros-core-native \
+    ament-cmake-ros-native \
+    ament-cmake-target-dependencies-native \
+    ament-cmake-test-native \
+    ament-cmake-version-native \
+    ament-index-python-native \
+    ament-package-native \
+    cmake-native \
+    gcc-runtime-native \
+    generate-parameter-library-py-native \
+    gmock-vendor-native \
+    gtest-native \
+    gtest-vendor-native \
+    pkgconfig-native \
+    python3-catkin-pkg-native \
+    python3-empy-native \
+    python3-jinja2-native \
+    python3-native \
+    python3-pytest-native \
+    python3-pyyaml-native \
+    python3-setuptools-native \
+    python3-typeguard-native \
+    rcpputils-native \
+    rcutils-native \
+    rosidl-cmake-native \
+    rosidl-generator-c-native \
+    rosidl-generator-cpp-native \
+    rosidl-generator-type-description-native \
+    rosidl-pycommon-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
+    rosidl-typesupport-c-native \
+    rosidl-typesupport-interface-native \
+"
+
+ROS_EXEC_DEPENDS = "\
     ackermann-steering-controller \
     ament-index-python \
     control-msgs \
@@ -81,15 +265,14 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 

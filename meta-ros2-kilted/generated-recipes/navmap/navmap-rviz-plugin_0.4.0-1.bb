@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=e8978a5103d23
 ROS_CN = "NavMap"
 ROS_BPN = "navmap_rviz_plugin"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     navmap-core \
     navmap-ros \
@@ -32,11 +32,11 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     navmap-core \
     navmap-ros \
@@ -53,7 +53,166 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    action-msgs \
+    ament-index-cpp \
+    ament-index-python \
+    builtin-interfaces \
+    class-loader \
+    curl \
+    eigen3-cmake-module \
+    fastcdr \
+    freetype \
+    gcc-runtime \
+    glew \
+    gz-cmake-vendor \
+    gz-math-vendor \
+    gz-utils-vendor \
+    image-transport \
+    interactive-markers \
+    keyboard-handler \
+    laser-geometry \
+    libcurl-vendor \
+    libeigen \
+    libstatistics-collector \
+    libtinyxml2 \
+    libx11 \
+    libxaw \
+    libxrandr \
+    libyaml \
+    libyaml-vendor \
+    lttng-ust \
+    map-msgs \
+    mesa \
+    message-filters \
+    nav-msgs \
+    orocos-kdl \
+    orocos-kdl-vendor \
+    pcl \
+    pcl-conversions \
+    pcl-msgs \
+    pcl-ros \
+    point-cloud-transport \
+    qtbase \
+    rcl \
+    rcl-action \
+    rcl-interfaces \
+    rcl-logging-interface \
+    rcl-logging-spdlog \
+    rcl-yaml-param-parser \
+    rclcpp-action \
+    rclcpp-components \
+    rcpputils \
+    rcutils \
+    resource-retriever \
+    rmw \
+    rmw-implementation \
+    rmw-implementation-cmake \
+    rosbag2-compression \
+    rosbag2-cpp \
+    rosbag2-interfaces \
+    rosbag2-storage \
+    rosbag2-transport \
+    rosgraph-msgs \
+    rosidl-cmake \
+    rosidl-core-runtime \
+    rosidl-default-generators \
+    rosidl-dynamic-typesupport \
+    rosidl-generator-py \
+    rosidl-runtime-c \
+    rosidl-runtime-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-fastrtps-c \
+    rosidl-typesupport-fastrtps-cpp \
+    rosidl-typesupport-interface \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
+    rviz-ogre-vendor \
+    rviz-resource-interfaces \
+    service-msgs \
+    spdlog \
+    spdlog-vendor \
+    statistics-msgs \
+    std-srvs \
+    tf2 \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-msgs \
+    tf2-ros \
+    tinyxml2-vendor \
+    tracetools \
+    type-description-interfaces \
+    unique-identifier-msgs \
+    urdf \
+    urdf-parser-plugin \
+    urdfdom \
+    urdfdom-headers \
+    yaml-cpp \
+    yaml-cpp-vendor \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = "\
+    action-msgs-native \
+    ament-cmake-core-native \
+    ament-cmake-export-definitions-native \
+    ament-cmake-export-dependencies-native \
+    ament-cmake-export-include-directories-native \
+    ament-cmake-export-interfaces-native \
+    ament-cmake-export-libraries-native \
+    ament-cmake-export-link-flags-native \
+    ament-cmake-export-targets-native \
+    ament-cmake-gen-version-h-native \
+    ament-cmake-include-directories-native \
+    ament-cmake-libraries-native \
+    ament-cmake-python-native \
+    ament-cmake-ros-core-native \
+    ament-cmake-target-dependencies-native \
+    ament-cmake-test-native \
+    ament-cmake-version-native \
+    ament-index-python-native \
+    ament-package-native \
+    builtin-interfaces-native \
+    cmake-native \
+    eigen3-cmake-module-native \
+    fastcdr-native \
+    gcc-runtime-native \
+    pkgconfig-native \
+    python3-catkin-pkg-native \
+    python3-empy-native \
+    python3-native \
+    python3-setuptools-native \
+    rcpputils-native \
+    rcutils-native \
+    rmw-native \
+    ros-environment-native \
+    rosidl-cmake-native \
+    rosidl-core-generators-native \
+    rosidl-core-runtime-native \
+    rosidl-dynamic-typesupport-native \
+    rosidl-generator-c-native \
+    rosidl-generator-cpp-native \
+    rosidl-generator-py-native \
+    rosidl-generator-rs-native \
+    rosidl-generator-type-description-native \
+    rosidl-pycommon-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
+    rosidl-typesupport-c-native \
+    rosidl-typesupport-cpp-native \
+    rosidl-typesupport-fastrtps-c-native \
+    rosidl-typesupport-fastrtps-cpp-native \
+    rosidl-typesupport-interface-native \
+    rosidl-typesupport-introspection-c-native \
+    rosidl-typesupport-introspection-cpp-native \
+    service-msgs-native \
+    unique-identifier-msgs-native \
+"
+
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     navmap-core \
     navmap-ros \
@@ -72,9 +231,8 @@ ROS_EXEC_DEPENDS = " \
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
