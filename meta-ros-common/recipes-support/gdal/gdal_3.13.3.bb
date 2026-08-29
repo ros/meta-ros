@@ -5,10 +5,10 @@ LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=c50ab31669698143abc7d61e9404b940 \
                     file://autotest/gdrivers/data/netcdf_cf_xml/udunits2-LICENCE;md5=b19151c1ce22098c7740b5bc0871b24a \
                     file://autotest/gdrivers/data/tga/ref_test_suite/LICENSE;md5=04a545d2353fb1bafb554b2aaf4b53ff \
                     file://cmake/modules/Copyright.txt;md5=a9411e1f3f66c6538b3e7547221847e8 \
-                    file://doc/source/development/rfc/rfc34_license_policy.rst;md5=f8398d9086d1771abaa64a3edb800f8c \
+                    file://doc/source/development/rfc/rfc34_license_policy.rst;md5=4537c7c45e6a64aa6bf627a1f4ec10aa \
                     file://doc/source/gdal_rtd/LICENSE;md5=fae97b5ad072682750697bd9979577ac \
-                    file://doc/source/license.rst;md5=8206115cec4bac89882387f6aa7c71d4 \
-                    file://frmts/gif/giflib/COPYING;md5=ae11c61b04b2917be39b11f78d71519a \
+                    file://doc/source/license.rst;md5=c96e77982090094e3458f78011884c23 \
+                    file://frmts/gif/giflib/COPYING;md5=b427970b2f3a9142a4e432c78c4680f4 \
                     file://frmts/grib/degrib/LICENSE.TXT;md5=f1598fd5b29e50328fbf6ba41529c93e \
                     file://frmts/mrf/LERCV1/LICENSE.TXT;md5=06209abe95b90904e809b2e6f3ba4ea7 \
                     file://frmts/pcraster/libcsf/COPYING;md5=bb1803659a82ae9748406a56173637b4 \
@@ -22,12 +22,13 @@ LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=c50ab31669698143abc7d61e9404b940 \
                     file://third_party/fast_float/LICENSE-MIT;md5=32b11d50c7d9788d4270f6a83f3e68eb"
 
 SRC_URI = " \
-    git://github.com/OSGeo/GDAL;protocol=https;branch=release/3.10 \
+    git://github.com/OSGeo/GDAL;protocol=https;branch=release/3.13 \
     file://install-headers-to-gdal-subdir.patch \
+    file://cmp0190-use-old-behavior.patch \
 "
 
-PV = "3.10.1+git${SRCPV}"
-SRCREV = "9b7a7c8ffa7b7aff696974c432d4254a809b3efe"
+PV = "3.13.3"
+SRCREV = "c8b4c45fca87d3e6fbf80e7a7898b8a661ad0edc"
 
 
 DEPENDS = " \
@@ -54,7 +55,7 @@ DEPENDS = " \
     zstd \
 "
 
-inherit cmake python3-dir python3native python3targetconfig
+inherit cmake python3-dir python3targetconfig
 
 PACKAGES += "python3-${BPN}"
 
@@ -64,7 +65,7 @@ FILES:${PN} += " \
 "
 
 FILES:python3-${PN} = " \
-    ${PYTHON_SITEPACKAGES_DIR}/GDAL-3.10.1-py${PYTHON_BASEVERSION}.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/GDAL-${PV}-py${PYTHON_BASEVERSION}.egg-info \
     ${PYTHON_SITEPACKAGES_DIR}/osgeo \
     ${PYTHON_SITEPACKAGES_DIR}/osgeo_utils \
 "
