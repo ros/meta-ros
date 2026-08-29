@@ -1,0 +1,26 @@
+CMP0190: Use old Python find_package behavior
+
+CMake 4.1 introduces a new policy that requires that
+CMAKE_CROSSCOMPILING_EMULATOR be set if FindPython is used to discover
+both the Interpreter and Development components.
+
+Use the old policy for the time-being until GDAL makes the necessary
+changes.
+
+Upstream-Status: Inappropriate [OE specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: gdal-3.13.3/CMakeLists.txt
+===================================================================
+--- gdal-3.13.3.orig/CMakeLists.txt
++++ gdal-3.13.3/CMakeLists.txt
+@@ -6,6 +6,8 @@ project(gdal LANGUAGES C CXX)
+ 
+ set(GDAL_LIB_TARGET_NAME GDAL)
+ 
++cmake_policy(SET CMP0190 OLD)
++
+ #
+ # setup cmake modules paths
+ include(cmake/modules/init.cmake)
