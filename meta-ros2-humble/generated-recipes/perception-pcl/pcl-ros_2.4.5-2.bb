@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9de
 ROS_CN = "perception_pcl"
 ROS_BPN = "pcl_ros"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     libeigen \
     pcl \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-ros \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     libeigen \
     pcl \
@@ -48,7 +48,89 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    action-msgs \
+    ament-cmake \
+    ament-cmake-core \
+    ament-cmake-export-definitions \
+    ament-cmake-export-dependencies \
+    ament-cmake-export-include-directories \
+    ament-cmake-export-interfaces \
+    ament-cmake-export-libraries \
+    ament-cmake-export-link-flags \
+    ament-cmake-export-targets \
+    ament-cmake-gen-version-h \
+    ament-cmake-libraries \
+    ament-cmake-python \
+    ament-cmake-target-dependencies \
+    ament-cmake-test \
+    ament-cmake-version \
+    ament-index-cpp \
+    builtin-interfaces \
+    console-bridge \
+    console-bridge-vendor \
+    eigen3-cmake-module \
+    gcc-runtime \
+    libstatistics-collector \
+    libyaml \
+    libyaml-vendor \
+    message-filters \
+    orocos-kdl \
+    orocos-kdl-vendor \
+    pcl-msgs \
+    rcl \
+    rcl-action \
+    rcl-interfaces \
+    rcl-logging-interface \
+    rcl-logging-spdlog \
+    rcl-yaml-param-parser \
+    rclcpp-action \
+    rcpputils \
+    rcutils \
+    rmw \
+    rmw-implementation \
+    rmw-implementation-cmake \
+    rosgraph-msgs \
+    rosidl-runtime-c \
+    rosidl-runtime-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-interface \
+    statistics-msgs \
+    std-msgs \
+    tf2-msgs \
+    tracetools \
+    unique-identifier-msgs \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-core-native \
+    ament-cmake-export-definitions-native \
+    ament-cmake-export-dependencies-native \
+    ament-cmake-export-include-directories-native \
+    ament-cmake-export-interfaces-native \
+    ament-cmake-export-libraries-native \
+    ament-cmake-export-link-flags-native \
+    ament-cmake-export-targets-native \
+    ament-cmake-gen-version-h-native \
+    ament-cmake-include-directories-native \
+    ament-cmake-libraries-native \
+    ament-cmake-python-native \
+    ament-cmake-target-dependencies-native \
+    ament-cmake-test-native \
+    ament-cmake-version-native \
+    ament-package-native \
+    cmake-native \
+    python3-catkin-pkg-native \
+    python3-importlib-metadata-native \
+    python3-native \
+    python3-setuptools-native \
+"
+
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     libeigen \
     pcl \
@@ -62,16 +144,15 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
