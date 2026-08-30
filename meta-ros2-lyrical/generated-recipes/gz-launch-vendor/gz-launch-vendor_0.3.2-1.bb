@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=12c26a18c7f49
 ROS_CN = "gz_launch_vendor"
 ROS_BPN = "gz_launch_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libwebsockets-dev} \
     binutils \
     gflags \
@@ -37,14 +37,14 @@ ROS_BUILD_DEPENDS = " \
     util-linux \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     ament-cmake-test-native \
     ament-cmake-vendor-package-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-cmake-vendor \
     gz-common-vendor \
     gz-gui-vendor \
@@ -58,7 +58,61 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    ${ROS_UNRESOLVED_DEP-glslang-dev} \
+    ${ROS_UNRESOLVED_DEP-glslc} \
+    ${ROS_UNRESOLVED_DEP-libfreeimage-dev} \
+    ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
+    ${ROS_UNRESOLVED_DEP-libx11-xcb-dev} \
+    ${ROS_UNRESOLVED_DEP-libxcb-randr0-dev} \
+    assimp \
+    boost \
+    bullet \
+    fcl \
+    fmt \
+    freetype \
+    gz-dartsim-vendor \
+    gz-fuel-tools-vendor \
+    gz-ogre-next-vendor \
+    gz-physics-vendor \
+    gz-rendering-vendor \
+    gz-sensors-vendor \
+    gz-utils-vendor \
+    libccd \
+    libeigen \
+    libsdl2 \
+    libx11 \
+    libxaw \
+    libxrandr \
+    lz4 \
+    mesa \
+    ode \
+    poco \
+    rapidjson \
+    sdformat-vendor \
+    shaderc \
+    spdlog \
+    spdlog-vendor \
+    tbb \
+    urdfdom \
+    vulkan-headers \
+    zziplib \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-export-dependencies-native \
+    ament-cmake-libraries-native \
+    ament-package-native \
+    git-native \
+    python3-catkin-pkg-native \
+    python3-setuptools-native \
+    python3-vcstool-native \
+"
+
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libwebsockets-dev} \
     binutils \
     gflags \
@@ -79,7 +133,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-xvfb} \
     ament-cmake-copyright \
     ament-cmake-lint-cmake \
@@ -87,9 +141,8 @@ ROS_TEST_DEPENDS = " \
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
