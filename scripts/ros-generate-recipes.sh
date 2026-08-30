@@ -63,6 +63,11 @@ case $ROS_DISTRO in
         ;;
 esac
 
+# libatomic: The libatomic package is produced by gcc-runtime@openembedded-core
+#     However, base.bbclass already adds virtual/compilerlibs so every target
+#     recipe already build-depends on gcc-runtime.
+SKIP_KEYS="libatomic"
+
 only_option=""
 if [ $# -gt 1 ]; then
     shift
@@ -196,6 +201,7 @@ CMD="$SUPERFLORE_GEN_OE_RECIPES\
  --yocto-release $YOCTO_RELEASE\
  --output-repository-path .\
  --upstream-branch HEAD\
+ --skip-keys $SKIP_KEYS\
  $only_option"
 
 echo "Running: $CMD"
