@@ -114,6 +114,22 @@ case $YOCTO_RELEASE in
         ;;
 esac
 
+# Check if our current branch forked from master
+# Return values:
+#   0: master HEAD is an ancestor of the current branch HEAD
+#   1: master HEAD is not an ancestor of the current branch HEAD
+#   >1: ERROR
+git merge-base --is-ancestor origin/master HEAD
+GIT_DEV_BRANCH=$?
+
+if [ $GIT_DEV_BRANCH -eq 0 ]; then
+    echo "INFO: Detected master HEAD as ancestor, assume using Yocto Project development branch"
+    USE_YOCTO_RELEASE=0
+else
+    echo "INFO: Could not detect master HEAD as ancestor, using Yocto Project release $YOCTO_RELEASE"
+    USE_YOCTO_RELEASE=1
+fi
+
 generated=meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated
 if [ ! -f $generated/cache.yaml ]; then
     echo "ABORT: $generated/cache.yaml doesn't exist -- run ros-generate-cache.sh to create it"
@@ -200,11 +216,17 @@ export SUPERFLORE_GENERATION_DATETIME="$ROS_ROSDISTRO_COMMIT_DATETIME"
 
 before_commit=$(git rev-list -1 HEAD)
 
+if [ $USE_YOCTO_RELEASE -eq 1 ]; then
+    YOCTO_RELEASE_OPT="--yocto-release $YOCTO_RELEASE"
+else
+    YOCTO_RELEASE_OPT=""
+fi
+
 CMD="$SUPERFLORE_GEN_OE_RECIPES\
  --dry-run\
  --no-branch\
  --ros-distro $ROS_DISTRO\
- --yocto-release $YOCTO_RELEASE\
+ $YOCTO_RELEASE_OPT\
  --output-repository-path .\
  --upstream-branch HEAD\
  --skip-keys $SKIP_KEYS\
