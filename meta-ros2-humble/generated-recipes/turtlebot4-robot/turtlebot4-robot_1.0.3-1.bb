@@ -17,18 +17,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3dce4ba60d7e51e
 ROS_CN = "turtlebot4_robot"
 ROS_BPN = "turtlebot4_robot"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     turtlebot4-base \
     turtlebot4-bringup \
     turtlebot4-diagnostics \
     turtlebot4-tests \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     turtlebot4-base \
     turtlebot4-bringup \
     turtlebot4-diagnostics \
@@ -37,7 +37,208 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    action-msgs \
+    ament-cmake \
+    ament-cmake-auto \
+    ament-cmake-core \
+    ament-cmake-export-definitions \
+    ament-cmake-export-dependencies \
+    ament-cmake-export-include-directories \
+    ament-cmake-export-interfaces \
+    ament-cmake-export-libraries \
+    ament-cmake-export-link-flags \
+    ament-cmake-export-targets \
+    ament-cmake-gen-version-h \
+    ament-cmake-libraries \
+    ament-cmake-python \
+    ament-cmake-target-dependencies \
+    ament-cmake-test \
+    ament-cmake-version \
+    ament-index-cpp \
+    ament-index-python \
+    builtin-interfaces \
+    camera-calibration \
+    camera-calibration-parsers \
+    camera-info-manager \
+    class-loader \
+    composition-interfaces \
+    console-bridge \
+    console-bridge-vendor \
+    create3-republisher \
+    curl \
+    cv-bridge \
+    depthai \
+    depthai-bridge \
+    depthai-descriptions \
+    depthai-examples \
+    depthai-ros-driver \
+    depthai-ros-msgs \
+    diagnostic-aggregator \
+    diagnostic-msgs \
+    diagnostic-updater \
+    eigen3-cmake-module \
+    ffmpeg-image-transport-msgs \
+    foxglove-msgs \
+    freetype \
+    geometry-msgs \
+    glew \
+    image-geometry \
+    image-pipeline \
+    image-transport \
+    image-transport-plugins \
+    irobot-create-description \
+    irobot-create-msgs \
+    joint-state-publisher \
+    joy-linux \
+    kdl-parser \
+    launch \
+    launch-ros \
+    libcurl-vendor \
+    libeigen \
+    libgpiod \
+    libstatistics-collector \
+    libtinyxml2 \
+    libusb1 \
+    libx11 \
+    libxaw \
+    libxrandr \
+    libyaml \
+    libyaml-vendor \
+    lifecycle-msgs \
+    mesa \
+    message-filters \
+    nav-msgs \
+    nav2-common \
+    nlohmann-json \
+    opencv \
+    orocos-kdl \
+    orocos-kdl-vendor \
+    osrf-pycommon \
+    pluginlib \
+    python3-importlib-metadata \
+    python3-numpy \
+    python3-psutil \
+    python3-pyyaml \
+    python3-semver \
+    qtbase \
+    rcl \
+    rcl-action \
+    rcl-interfaces \
+    rcl-lifecycle \
+    rcl-logging-interface \
+    rcl-logging-spdlog \
+    rcl-yaml-param-parser \
+    rclcpp \
+    rclcpp-action \
+    rclcpp-components \
+    rclpy \
+    rcpputils \
+    rcutils \
+    resource-retriever \
+    rmw \
+    rmw-implementation \
+    rmw-implementation-cmake \
+    robot-state-publisher \
+    rosgraph-msgs \
+    rosidl-default-generators \
+    rosidl-runtime-c \
+    rosidl-runtime-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-interface \
+    rplidar-ros \
+    rviz-common \
+    rviz-imu-plugin \
+    rviz-ogre-vendor \
+    rviz-rendering \
+    sensor-msgs \
+    statistics-msgs \
+    std-msgs \
+    std-srvs \
+    stereo-msgs \
+    teleop-twist-joy \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-msgs \
+    tf2-ros \
+    tinyxml2-vendor \
+    tracetools \
+    turtlebot4-description \
+    turtlebot4-msgs \
+    turtlebot4-node \
+    unique-identifier-msgs \
+    urdf \
+    urdf-parser-plugin \
+    urdfdom \
+    urdfdom-headers \
+    vision-msgs \
+    yaml-cpp \
+    yaml-cpp-vendor \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = "\
+    ament-cmake-core-native \
+    ament-cmake-export-definitions-native \
+    ament-cmake-export-dependencies-native \
+    ament-cmake-export-include-directories-native \
+    ament-cmake-export-interfaces-native \
+    ament-cmake-export-libraries-native \
+    ament-cmake-export-link-flags-native \
+    ament-cmake-export-targets-native \
+    ament-cmake-gen-version-h-native \
+    ament-cmake-gmock-native \
+    ament-cmake-gtest-native \
+    ament-cmake-include-directories-native \
+    ament-cmake-libraries-native \
+    ament-cmake-pytest-native \
+    ament-cmake-python-native \
+    ament-cmake-ros-native \
+    ament-cmake-target-dependencies-native \
+    ament-cmake-test-native \
+    ament-cmake-version-native \
+    ament-index-python-native \
+    ament-package-native \
+    cmake-native \
+    domain-coordinator-native \
+    eigen3-cmake-module-native \
+    fastcdr-native \
+    fastrtps-cmake-module-native \
+    gmock-vendor-native \
+    gtest-native \
+    gtest-vendor-native \
+    pkgconfig-native \
+    python-cmake-module-native \
+    python3-catkin-pkg-native \
+    python3-empy-native \
+    python3-importlib-metadata-native \
+    python3-native \
+    python3-pytest-native \
+    python3-setuptools-native \
+    rcpputils-native \
+    rcutils-native \
+    rmw-native \
+    ros-environment-native \
+    rosidl-cmake-native \
+    rosidl-generator-c-native \
+    rosidl-generator-cpp-native \
+    rosidl-generator-py-native \
+    rosidl-generator-rs-native \
+    rosidl-runtime-c-native \
+    rosidl-runtime-cpp-native \
+    rosidl-typesupport-c-native \
+    rosidl-typesupport-cpp-native \
+    rosidl-typesupport-fastrtps-c-native \
+    rosidl-typesupport-fastrtps-cpp-native \
+    rosidl-typesupport-interface-native \
+    rosidl-typesupport-introspection-c-native \
+    rosidl-typesupport-introspection-cpp-native \
+"
+
+ROS_EXEC_DEPENDS = "\
     turtlebot4-base \
     turtlebot4-bringup \
     turtlebot4-diagnostics \
@@ -48,9 +249,8 @@ ROS_EXEC_DEPENDS = " \
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 

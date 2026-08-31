@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d0998f4eabe3d00
 ROS_CN = "mola_academic_datasets"
 ROS_BPN = "mola_academic_datasets"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     kitti-metrics-eval \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \
@@ -24,11 +24,11 @@ ROS_BUILD_DEPENDS = " \
     mola-input-paris-luco-dataset \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     kitti-metrics-eval \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \
@@ -39,7 +39,31 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    glfw \
+    libeigen \
+    mola-common \
+    mola-kernel \
+    mola-yaml \
+    mrpt-libbase \
+    mrpt-libgui \
+    mrpt-libmaps \
+    mrpt-libmath \
+    mrpt-libobs \
+    mrpt-libopengl \
+    mrpt-libposes \
+    mrpt-libtclap \
+    nanoflann \
+    suitesparse-cholmod \
+    suitesparse-cxsparse \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = ""
+
+ROS_EXEC_DEPENDS = "\
     kitti-metrics-eval \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \
@@ -52,9 +76,8 @@ ROS_EXEC_DEPENDS = " \
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
