@@ -52,13 +52,16 @@ ROS_DISTRO=$1
 case $ROS_DISTRO in
     "melodic"|"noetic")
         ROS_VERSION="1"
+        echo "INFO: Detected ROS_DISTRO: $ROS_DISTRO"
         ;;
 
     "humble"|"jazzy"|"kilted"|"lyrical"|"rolling")
         ROS_VERSION="2"
+        echo "INFO: Detected ROS_DISTRO: $ROS_DISTRO"
         ;;
 
-    *)  echo "ABORT: Unsupported ROS_DISTRO: $ROS_DISTRO"
+    *)
+        echo "ABORT: Unsupported ROS_DISTRO: $ROS_DISTRO"
         exit 1
         ;;
 esac
@@ -72,6 +75,7 @@ only_option=""
 if [ $# -gt 1 ]; then
     shift
     only_option="--only $*"
+    echo "INFO: Only generating recipes for $*"
 fi
 
 layerconf=meta-ros$ROS_VERSION-$ROS_DISTRO/conf/layer.conf
@@ -104,7 +108,8 @@ case $YOCTO_RELEASE in
     "walnascar"|"whinlatter"|"wrynose")
         ;;
 
-    *)  echo "ABORT: Unrecognized YOCTO_RELEASE: $YOCTO_RELEASE"
+    *)
+        echo "ABORT: Unrecognized YOCTO_RELEASE: $YOCTO_RELEASE"
         exit 1
         ;;
 esac
@@ -136,10 +141,11 @@ fi
 # Keep this block in sync with the one in ros-generate-cache.sh .
 case $ROS_DISTRO_RELEASE_DATE in
     final|pre-release|[2-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9])
-        : OK
+        echo "INFO: ROS_DISTRO_RELEASE_DATE: '$ROS_DISTRO_RELEASE_DATE'"
         ;;
 
-    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'final' or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
+    *)
+        echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'final' or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
         exit 1
         ;;
 esac
@@ -177,9 +183,9 @@ unset abort
 # Done checking things.
 
 # Keep this block in sync with the one in ros-generate-cache.sh .
-echo "Running 'rosdep update'"
+echo "INFO: Running 'rosdep update'"
 rosdep update || { echo "ABORT: 'rosdep update' failed"; exit 1; }
-echo "'rosdep update' finished"
+echo "INFO: 'rosdep update' finished"
 
 tmpdir=$(mktemp -t -d ros-generate-recipes-XXXXXXXX)
 trap "rm -rf $tmpdir" 0
@@ -204,7 +210,7 @@ CMD="$SUPERFLORE_GEN_OE_RECIPES\
  --skip-keys $SKIP_KEYS\
  $only_option"
 
-echo "Running: $CMD"
+echo "INFO: Running: $CMD"
 $CMD
 
 if [ $? -ne 0 ]; then
