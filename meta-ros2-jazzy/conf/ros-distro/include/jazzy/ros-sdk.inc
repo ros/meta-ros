@@ -1,7 +1,9 @@
 ROS_SDK_HOST_PACKAGES = " \
     nativesdk-ament-package \
+    nativesdk-cmake \
     nativesdk-python3-colcon-common-extensions \
     nativesdk-python3-numpy \
+    nativesdk-ros-sdk-env \
     nativesdk-rosidl-adapter \
     nativesdk-rosidl-cli \
     nativesdk-rosidl-cmake \
@@ -15,18 +17,13 @@ ROS_SDK_HOST_PACKAGES = " \
     nativesdk-rosidl-typesupport-fastrtps-cpp \
     nativesdk-rosidl-typesupport-introspection-c \
     nativesdk-rosidl-typesupport-introspection-cpp \
-    nativesdk-ros-sdk-env \
 "
 
 ROS_SDK_TARGET_PACKAGES = " \
-    ament-cmake-python \
-    ament-cmake-ros \
-    ament-package \
-    ament-lint \
-    ament-lint-auto \
     ament-cmake \
     ament-cmake-auto \
     ament-cmake-core \
+    ament-cmake-cppcheck \
     ament-cmake-export-definitions \
     ament-cmake-export-dependencies \
     ament-cmake-export-include-directories \
@@ -41,22 +38,33 @@ ROS_SDK_TARGET_PACKAGES = " \
     ament-cmake-libraries \
     ament-cmake-pytest \
     ament-cmake-python \
+    ament-cmake-ros \
     ament-cmake-target-dependencies \
     ament-cmake-test \
     ament-cmake-vendor-package \
     ament-cmake-version \
-    foonathan-memory-staticdev \
-    rclcpp \
-    rclcpp-lifecycle \
-    rclcpp-action \
-    rclcpp-components \
+    ament-cppcheck \
+    ament-cpplint \
+    ament-lint \
+    ament-lint-auto \
+    ament-lint-cmake \
+    ament-lint-common \
+    ament-package \
+    ament-uncrustify \
+    ament-xmllint
     builtin-interfaces \
     common-interfaces \
     fastrtps-cmake-module \
-    rosidl-default-generators \
-    rosidl-core-generators \
-    rosidl-cmake \
+    foonathan-memory-staticdev \
+    pluginlib \
+    python-cmake-module \
+    rclcpp \
+    rclcpp-action \
+    rclcpp-components \
+    rclcpp-lifecycle \
     ros-environment \
     ros-workspace \
-    pluginlib \
+    rosidl-cmake \
+    rosidl-core-generators \
+    rosidl-default-generators \
 "
