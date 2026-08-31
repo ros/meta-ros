@@ -114,6 +114,22 @@ case $YOCTO_RELEASE in
         ;;
 esac
 
+# Check if our current branch forked from master
+#   Default branch format: superflore/<OLD_BRANCH_NAME>/<ROS_DISTRO>/<ROS_DISTRO_RELEASE_DATE>
+GIT_BRANCH=$(git branch --show-current)
+
+case $GIT_BRANCH in
+    # Development branch
+    "superflore/master"*)
+        echo "INFO: Detected Yocto Project development branch (master), not specifying release"
+        USE_YOCTO_RELEASE=0
+        ;;
+    *)
+        echo "INFO: No Yocto Project development branch detected, using release $YOCTO_RELEASE"
+        USE_YOCTO_RELEASE=1
+        ;;
+esac
+
 generated=meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated
 if [ ! -f $generated/cache.yaml ]; then
     echo "ABORT: $generated/cache.yaml doesn't exist -- run ros-generate-cache.sh to create it"
@@ -200,11 +216,17 @@ export SUPERFLORE_GENERATION_DATETIME="$ROS_ROSDISTRO_COMMIT_DATETIME"
 
 before_commit=$(git rev-list -1 HEAD)
 
+if [ $USE_YOCTO_RELEASE -eq 1 ]; then
+    YOCTO_RELEASE_OPT="--yocto-release $YOCTO_RELEASE"
+else
+    YOCTO_RELEASE_OPT=""
+fi
+
 CMD="$SUPERFLORE_GEN_OE_RECIPES\
  --dry-run\
  --no-branch\
  --ros-distro $ROS_DISTRO\
- --yocto-release $YOCTO_RELEASE\
+ $YOCTO_RELEASE_OPT\
  --output-repository-path .\
  --upstream-branch HEAD\
  --skip-keys $SKIP_KEYS\
