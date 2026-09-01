@@ -10,7 +10,7 @@ AUTHOR = "Bernd Pfrommer <bernd.pfrommer@gmail.com>"
 ROS_AUTHOR = "Michael Kaess"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "LGPLv2.1"
 LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e181b18ed9533044a61dea448605dcd5"
@@ -18,18 +18,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e181b18ed953304
 ROS_CN = "apriltag_mit"
 ROS_BPN = "apriltag_mit"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     clang \
     libeigen \
     opencv \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     clang \
     libeigen \
@@ -38,7 +38,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = ""
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = ""
+
+ROS_EXEC_DEPENDS = "\
     boost \
     clang \
     libeigen \
@@ -49,9 +56,8 @@ ROS_EXEC_DEPENDS = " \
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 

@@ -9,26 +9,26 @@ DESCRIPTION = "Eclipse Cyclone DDS is a very performant and robust open-source D
 AUTHOR = "Eclipse Foundation, Inc. <cyclonedds-dev@eclipse.org>"
 HOMEPAGE = "https://projects.eclipse.org/projects/iot.cyclonedds"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Eclipse Public License 2.0 & Eclipse Distribution License 1.0"
-LICENSE = "EPL-2.0 & Eclipse-Distribution-License-1.0"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Eclipse Public License 2.0 AND Eclipse Distribution License 1.0"
+LICENSE = "EPL-2.0 AND Eclipse-Distribution-License-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=7532470dee289492e850d7d3e8a32b32"
 
 ROS_CN = "cyclonedds"
 ROS_BPN = "cyclonedds"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     iceoryx-binding-c \
     iceoryx-hoofs \
     iceoryx-posh \
     openssl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     iceoryx-binding-c \
     iceoryx-hoofs \
     iceoryx-posh \
@@ -36,7 +36,16 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+# Propagated from the <build_export_depend>/<buildtool_export_depend> tags of the
+# packages above, transitively. Bitbake has no "export" concept, so superflore
+# flattens REP-149 export semantics into this recipe.
+ROS_TRANSITIVE_EXPORT_DEPENDS = "\
+    acl \
+"
+
+ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS = ""
+
+ROS_EXEC_DEPENDS = "\
     iceoryx-binding-c \
     iceoryx-hoofs \
     iceoryx-posh \
@@ -47,9 +56,8 @@ ROS_EXEC_DEPENDS = " \
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
-# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+DEPENDS += "${ROS_TRANSITIVE_EXPORT_DEPENDS} ${ROS_TRANSITIVE_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
