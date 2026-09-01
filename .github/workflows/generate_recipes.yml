@@ -126,15 +126,14 @@ jobs:
           source ${GITHUB_WORKSPACE}/rosdistro_commit.env
           cd ${GITHUB_WORKSPACE}/meta-ros
           CURRENT_BRANCH=$(git branch --show-current)
-          if [ "${CURRENT_BRANCH}" = "superflore/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}" ]; then
-            echo "Pushing to superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
-            git branch -M superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
-            git push --set-upstream origin superflore/$GITHUB_REF_NAME/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
+          if [ "${CURRENT_BRANCH}" = "superflore/${GITHUB_REF_NAME}/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}" ]; then
+            echo "Pushing to superflore/${GITHUB_REF_NAME}/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
+            git push --set-upstream origin superflore/${GITHUB_REF_NAME}/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}
             echo "Creating Pull Request"
-            gh pr create --title "Superflore Update for $GITHUB_REF_NAME : ${ROS_DISTRO} : ${ROS_DISTRO_RELEASE_DATE_ONLY}" --base $GITHUB_REF_NAME --fill-verbose 
+            gh pr create --title "Superflore Update for ${GITHUB_REF_NAME} : ${ROS_DISTRO} : ${ROS_DISTRO_RELEASE_DATE_ONLY}" --base ${GITHUB_REF_NAME} --fill-verbose
           else
             echo "Warning: The name of the branch didn't match the expected output."
             echo "Branch: ${CURRENT_BRANCH}"
-            echo "Expected: superflore/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
+            echo "Expected: superflore/${GITHUB_REF_NAME}/${ROS_DISTRO}/${ROS_DISTRO_RELEASE_DATE_ONLY}"
           fi      
       - run: echo "🍏 This job's status is ${{ job.status }}."
