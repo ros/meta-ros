@@ -48,13 +48,16 @@ BRANCH_NAME=$5
 case $ROS_DISTRO in
     "melodic"|"noetic")
         ROS_VERSION="1"
+        echo "INFO: Detected ROS_DISTRO: $ROS_DISTRO"
         ;;
 
     "humble"|"jazzy"|"kilted"|"lyrical"|"rolling")
         ROS_VERSION="2"
+        echo "INFO: Detected ROS_DISTRO: $ROS_DISTRO"
         ;;
 
-    *)  echo "ABORT: Unsupported ROS_DISTRO: $ROS_DISTRO"
+    *)
+        echo "ABORT: Unsupported ROS_DISTRO: $ROS_DISTRO"
         exit 1
         ;;
 esac
@@ -62,10 +65,11 @@ esac
 # Keep this block in sync with the one in ros-generate-recipes.sh .
 case $ROS_DISTRO_RELEASE_DATE in
     final|pre-release|[2-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9])
-        : OK
+        echo "INFO: ROS_DISTRO_RELEASE_DATE: '$ROS_DISTRO_RELEASE_DATE'"
         ;;
 
-    *)  echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'final' or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
+    *)
+        echo "ABORT: ROS_DISTRO_RELEASE_DATE not YYYY-MM-DD or 'final' or 'pre-release': '$ROS_DISTRO_RELEASE_DATE'"
         exit 1
         ;;
 esac
@@ -177,9 +181,9 @@ fi
 cd - > /dev/null
 
 # Keep this block in sync with the one in ros-generate-recipes.sh .
-echo "Running 'rosdep update'"
+echo "INFO: Running 'rosdep update'"
 rosdep update || { echo "ABORT: 'rosdep update' failed"; exit 1; }
-echo "'rosdep update' finished"
+echo "INFO: 'rosdep update' finished"
 
 generated="meta-ros$ROS_VERSION-$ROS_DISTRO/files/$ROS_DISTRO/generated"
 mkdir -p $generated
