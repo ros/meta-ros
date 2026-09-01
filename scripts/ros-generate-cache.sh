@@ -202,8 +202,9 @@ for f in $ROSDEP_YAML_BASENAMES; do
 done
 unset f
 
+OLD_BRANCH_NAME=$(git branch --show-current)
 if [ "$BRANCH_NAME" != ":nobranch" ] ; then
-    [ -z "$BRANCH_NAME" ] && BRANCH_NAME="superflore/$ROS_DISTRO/$ROS_DISTRO_RELEASE_DATE"
+    [ -z "$BRANCH_NAME" ] && BRANCH_NAME="superflore/$OLD_BRANCH_NAME/$ROS_DISTRO/$ROS_DISTRO_RELEASE_DATE"
     if git branch | grep -q " $BRANCH_NAME$"; then
         echo "ERROR: branch '$BRANCH_NAME' already exists, will create a new commit in currently checked out branch"
     else
