@@ -10,6 +10,7 @@ DEPENDS = "openssl"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/asio/${BP}.tar.bz2 \
            file://0001-tests-Remove-blocking_adaptation.cpp.patch \
+           file://0001-Remove-deprecated-class-ssl-rfc2818_verification.patch \
            file://run-ptest \
 "
 

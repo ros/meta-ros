@@ -1,0 +1,402 @@
+From f8eb0e0f2205edb9fc202f29cc36af6c65524dd8 Mon Sep 17 00:00:00 2001
+From: Christopher Kohlhoff <chris@kohlhoff.com>
+Date: Mon, 21 Oct 2024 22:02:46 +1100
+Subject: [PATCH] Remove deprecated class ssl::rfc2818_verification.
+
+Upstream-Status: Backport [https://github.com/arvidn/asio/commit/ae27080e5eab4ab41b1784a927248bf2933186b5]
+---
+ include/Makefile.am                           |   2 -
+ include/asio/ssl.hpp                          |   1 -
+ .../asio/ssl/impl/rfc2818_verification.ipp    | 164 ------------------
+ include/asio/ssl/impl/src.hpp                 |   1 -
+ include/asio/ssl/rfc2818_verification.hpp     |  98 -----------
+ src/Makefile.msc                              |   1 -
+ src/tests/Makefile.am                         |   3 -
+ src/tests/unit/ssl/rfc2818_verification.cpp   |  25 ---
+ 8 files changed, 295 deletions(-)
+ delete mode 100644 include/asio/ssl/impl/rfc2818_verification.ipp
+ delete mode 100644 include/asio/ssl/rfc2818_verification.hpp
+ delete mode 100644 src/tests/unit/ssl/rfc2818_verification.cpp
+
+diff --git a/include/Makefile.am b/include/Makefile.am
+index 8f43766..6667e00 100644
+--- a/include/Makefile.am
++++ b/include/Makefile.am
+@@ -560,9 +560,7 @@ nobase_include_HEADERS = \
+ 	asio/ssl/impl/context.ipp \
+ 	asio/ssl/impl/error.ipp \
+ 	asio/ssl/impl/host_name_verification.ipp \
+-	asio/ssl/impl/rfc2818_verification.ipp \
+ 	asio/ssl/impl/src.hpp \
+-	asio/ssl/rfc2818_verification.hpp \
+ 	asio/ssl/stream_base.hpp \
+ 	asio/ssl/stream.hpp \
+ 	asio/ssl/verify_context.hpp \
+diff --git a/include/asio/ssl.hpp b/include/asio/ssl.hpp
+index 4180dab..3de9504 100644
+--- a/include/asio/ssl.hpp
++++ b/include/asio/ssl.hpp
+@@ -18,7 +18,6 @@
+ #include "asio/ssl/context.hpp"
+ #include "asio/ssl/context_base.hpp"
+ #include "asio/ssl/error.hpp"
+-#include "asio/ssl/rfc2818_verification.hpp"
+ #include "asio/ssl/host_name_verification.hpp"
+ #include "asio/ssl/stream.hpp"
+ #include "asio/ssl/stream_base.hpp"
+diff --git a/include/asio/ssl/impl/rfc2818_verification.ipp b/include/asio/ssl/impl/rfc2818_verification.ipp
+deleted file mode 100644
+index 93e161d..0000000
+--- a/include/asio/ssl/impl/rfc2818_verification.ipp
++++ /dev/null
+@@ -1,164 +0,0 @@
+-//
+-// ssl/impl/rfc2818_verification.ipp
+-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-//
+-// Copyright (c) 2003-2024 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+-//
+-// Distributed under the Boost Software License, Version 1.0. (See accompanying
+-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-//
+-
+-#ifndef ASIO_SSL_IMPL_RFC2818_VERIFICATION_IPP
+-#define ASIO_SSL_IMPL_RFC2818_VERIFICATION_IPP
+-
+-#if defined(_MSC_VER) && (_MSC_VER >= 1200)
+-# pragma once
+-#endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
+-
+-#include "asio/detail/config.hpp"
+-
+-#if !defined(ASIO_NO_DEPRECATED)
+-
+-#include <cctype>
+-#include <cstring>
+-#include "asio/ip/address.hpp"
+-#include "asio/ssl/rfc2818_verification.hpp"
+-#include "asio/ssl/detail/openssl_types.hpp"
+-
+-#include "asio/detail/push_options.hpp"
+-
+-namespace asio {
+-namespace ssl {
+-
+-bool rfc2818_verification::operator()(
+-    bool preverified, verify_context& ctx) const
+-{
+-  using namespace std; // For memcmp.
+-
+-  // Don't bother looking at certificates that have failed pre-verification.
+-  if (!preverified)
+-    return false;
+-
+-  // We're only interested in checking the certificate at the end of the chain.
+-  int depth = X509_STORE_CTX_get_error_depth(ctx.native_handle());
+-  if (depth > 0)
+-    return true;
+-
+-  // Try converting the host name to an address. If it is an address then we
+-  // need to look for an IP address in the certificate rather than a host name.
+-  asio::error_code ec;
+-  ip::address address = ip::make_address(host_, ec);
+-  bool is_address = !ec;
+-
+-  X509* cert = X509_STORE_CTX_get_current_cert(ctx.native_handle());
+-
+-  // Go through the alternate names in the certificate looking for matching DNS
+-  // or IP address entries.
+-  GENERAL_NAMES* gens = static_cast<GENERAL_NAMES*>(
+-      X509_get_ext_d2i(cert, NID_subject_alt_name, 0, 0));
+-  for (int i = 0; i < sk_GENERAL_NAME_num(gens); ++i)
+-  {
+-    GENERAL_NAME* gen = sk_GENERAL_NAME_value(gens, i);
+-    if (gen->type == GEN_DNS && !is_address)
+-    {
+-      ASN1_IA5STRING* domain = gen->d.dNSName;
+-      if (domain->type == V_ASN1_IA5STRING && domain->data && domain->length)
+-      {
+-        const char* pattern = reinterpret_cast<const char*>(domain->data);
+-        std::size_t pattern_length = domain->length;
+-        if (match_pattern(pattern, pattern_length, host_.c_str()))
+-        {
+-          GENERAL_NAMES_free(gens);
+-          return true;
+-        }
+-      }
+-    }
+-    else if (gen->type == GEN_IPADD && is_address)
+-    {
+-      ASN1_OCTET_STRING* ip_address = gen->d.iPAddress;
+-      if (ip_address->type == V_ASN1_OCTET_STRING && ip_address->data)
+-      {
+-        if (address.is_v4() && ip_address->length == 4)
+-        {
+-          ip::address_v4::bytes_type bytes = address.to_v4().to_bytes();
+-          if (memcmp(bytes.data(), ip_address->data, 4) == 0)
+-          {
+-            GENERAL_NAMES_free(gens);
+-            return true;
+-          }
+-        }
+-        else if (address.is_v6() && ip_address->length == 16)
+-        {
+-          ip::address_v6::bytes_type bytes = address.to_v6().to_bytes();
+-          if (memcmp(bytes.data(), ip_address->data, 16) == 0)
+-          {
+-            GENERAL_NAMES_free(gens);
+-            return true;
+-          }
+-        }
+-      }
+-    }
+-  }
+-  GENERAL_NAMES_free(gens);
+-
+-  // No match in the alternate names, so try the common names. We should only
+-  // use the "most specific" common name, which is the last one in the list.
+-  X509_NAME* name = X509_get_subject_name(cert);
+-  int i = -1;
+-  ASN1_STRING* common_name = 0;
+-  while ((i = X509_NAME_get_index_by_NID(name, NID_commonName, i)) >= 0)
+-  {
+-    X509_NAME_ENTRY* name_entry = X509_NAME_get_entry(name, i);
+-    common_name = X509_NAME_ENTRY_get_data(name_entry);
+-  }
+-  if (common_name && common_name->data && common_name->length)
+-  {
+-    const char* pattern = reinterpret_cast<const char*>(common_name->data);
+-    std::size_t pattern_length = common_name->length;
+-    if (match_pattern(pattern, pattern_length, host_.c_str()))
+-      return true;
+-  }
+-
+-  return false;
+-}
+-
+-bool rfc2818_verification::match_pattern(const char* pattern,
+-    std::size_t pattern_length, const char* host)
+-{
+-  using namespace std; // For tolower.
+-
+-  const char* p = pattern;
+-  const char* p_end = p + pattern_length;
+-  const char* h = host;
+-
+-  while (p != p_end && *h)
+-  {
+-    if (*p == '*')
+-    {
+-      ++p;
+-      while (*h && *h != '.')
+-        if (match_pattern(p, p_end - p, h++))
+-          return true;
+-    }
+-    else if (tolower(*p) == tolower(*h))
+-    {
+-      ++p;
+-      ++h;
+-    }
+-    else
+-    {
+-      return false;
+-    }
+-  }
+-
+-  return p == p_end && !*h;
+-}
+-
+-} // namespace ssl
+-} // namespace asio
+-
+-#include "asio/detail/pop_options.hpp"
+-
+-#endif // !defined(ASIO_NO_DEPRECATED)
+-
+-#endif // ASIO_SSL_IMPL_RFC2818_VERIFICATION_IPP
+diff --git a/include/asio/ssl/impl/src.hpp b/include/asio/ssl/impl/src.hpp
+index 5ffb95f..26c79c5 100644
+--- a/include/asio/ssl/impl/src.hpp
++++ b/include/asio/ssl/impl/src.hpp
+@@ -24,6 +24,5 @@
+ #include "asio/ssl/detail/impl/engine.ipp"
+ #include "asio/ssl/detail/impl/openssl_init.ipp"
+ #include "asio/ssl/impl/host_name_verification.ipp"
+-#include "asio/ssl/impl/rfc2818_verification.ipp"
+ 
+ #endif // ASIO_SSL_IMPL_SRC_HPP
+diff --git a/include/asio/ssl/rfc2818_verification.hpp b/include/asio/ssl/rfc2818_verification.hpp
+deleted file mode 100644
+index db28310..0000000
+--- a/include/asio/ssl/rfc2818_verification.hpp
++++ /dev/null
+@@ -1,98 +0,0 @@
+-//
+-// ssl/rfc2818_verification.hpp
+-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-//
+-// Copyright (c) 2003-2024 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+-//
+-// Distributed under the Boost Software License, Version 1.0. (See accompanying
+-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-//
+-
+-#ifndef ASIO_SSL_RFC2818_VERIFICATION_HPP
+-#define ASIO_SSL_RFC2818_VERIFICATION_HPP
+-
+-#if defined(_MSC_VER) && (_MSC_VER >= 1200)
+-# pragma once
+-#endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
+-
+-#include "asio/detail/config.hpp"
+-
+-#if !defined(ASIO_NO_DEPRECATED)
+-
+-#include <string>
+-#include "asio/ssl/detail/openssl_types.hpp"
+-#include "asio/ssl/verify_context.hpp"
+-
+-#include "asio/detail/push_options.hpp"
+-
+-namespace asio {
+-namespace ssl {
+-
+-/// (Deprecated. Use ssl::host_name_verification.) Verifies a certificate
+-/// against a hostname according to the rules described in RFC 2818.
+-/**
+- * @par Example
+- * The following example shows how to synchronously open a secure connection to
+- * a given host name:
+- * @code
+- * using asio::ip::tcp;
+- * namespace ssl = asio::ssl;
+- * typedef ssl::stream<tcp::socket> ssl_socket;
+- *
+- * // Create a context that uses the default paths for finding CA certificates.
+- * ssl::context ctx(ssl::context::sslv23);
+- * ctx.set_default_verify_paths();
+- *
+- * // Open a socket and connect it to the remote host.
+- * asio::io_context io_context;
+- * ssl_socket sock(io_context, ctx);
+- * tcp::resolver resolver(io_context);
+- * tcp::resolver::query query("host.name", "https");
+- * asio::connect(sock.lowest_layer(), resolver.resolve(query));
+- * sock.lowest_layer().set_option(tcp::no_delay(true));
+- *
+- * // Perform SSL handshake and verify the remote host's certificate.
+- * sock.set_verify_mode(ssl::verify_peer);
+- * sock.set_verify_callback(ssl::rfc2818_verification("host.name"));
+- * sock.handshake(ssl_socket::client);
+- *
+- * // ... read and write as normal ...
+- * @endcode
+- */
+-class rfc2818_verification
+-{
+-public:
+-  /// The type of the function object's result.
+-  typedef bool result_type;
+-
+-  /// Constructor.
+-  explicit rfc2818_verification(const std::string& host)
+-    : host_(host)
+-  {
+-  }
+-
+-  /// Perform certificate verification.
+-  ASIO_DECL bool operator()(bool preverified, verify_context& ctx) const;
+-
+-private:
+-  // Helper function to check a host name against a pattern.
+-  ASIO_DECL static bool match_pattern(const char* pattern,
+-      std::size_t pattern_length, const char* host);
+-
+-  // Helper function to check a host name against an IPv4 address
+-  // The host name to be checked.
+-  std::string host_;
+-};
+-
+-} // namespace ssl
+-} // namespace asio
+-
+-#include "asio/detail/pop_options.hpp"
+-
+-#if defined(ASIO_HEADER_ONLY)
+-# include "asio/ssl/impl/rfc2818_verification.ipp"
+-#endif // defined(ASIO_HEADER_ONLY)
+-
+-#endif // !defined(ASIO_NO_DEPRECATED)
+-
+-#endif // ASIO_SSL_RFC2818_VERIFICATION_HPP
+diff --git a/src/Makefile.msc b/src/Makefile.msc
+index 840dc7b..59d96a3 100644
+--- a/src/Makefile.msc
++++ b/src/Makefile.msc
+@@ -325,7 +325,6 @@ SSL_UNIT_TEST_EXES = \
+ 	tests\unit\ssl\context.exe \
+ 	tests\unit\ssl\context_base.exe \
+ 	tests\unit\ssl\context_service.exe \
+-	tests\unit\ssl\rfc2818_verification.exe \
+ 	tests\unit\ssl\stream.exe \
+ 	tests\unit\ssl\stream_base.exe \
+ 	tests\unit\ssl\stream_service.exe
+diff --git a/src/tests/Makefile.am b/src/tests/Makefile.am
+index eab2d56..68b77f5 100644
+--- a/src/tests/Makefile.am
++++ b/src/tests/Makefile.am
+@@ -221,7 +221,6 @@ check_PROGRAMS += \
+ 	unit/ssl/context \
+ 	unit/ssl/error \
+ 	unit/ssl/host_name_verification \
+-	unit/ssl/rfc2818_verification \
+ 	unit/ssl/stream_base \
+ 	unit/ssl/stream
+ endif
+@@ -421,7 +420,6 @@ TESTS += \
+ 	unit/ssl/context \
+ 	unit/ssl/error \
+ 	unit/ssl/host_name_verification \
+-	unit/ssl/rfc2818_verification \
+ 	unit/ssl/stream_base \
+ 	unit/ssl/stream
+ endif
+@@ -638,7 +636,6 @@ unit_ssl_context_SOURCES = unit/ssl/context.cpp
+ unit_ssl_error_SOURCES = unit/ssl/error.cpp
+ unit_ssl_stream_base_SOURCES = unit/ssl/stream_base.cpp
+ unit_ssl_host_name_verification_SOURCES = unit/ssl/host_name_verification.cpp
+-unit_ssl_rfc2818_verification_SOURCES = unit/ssl/rfc2818_verification.cpp
+ unit_ssl_stream_SOURCES = unit/ssl/stream.cpp
+ endif
+ 
+diff --git a/src/tests/unit/ssl/rfc2818_verification.cpp b/src/tests/unit/ssl/rfc2818_verification.cpp
+deleted file mode 100644
+index adcfa95..0000000
+--- a/src/tests/unit/ssl/rfc2818_verification.cpp
++++ /dev/null
+@@ -1,25 +0,0 @@
+-//
+-// rfc2818_verification.cpp
+-// ~~~~~~~~~~~~~~~~~~~~~~~~
+-//
+-// Copyright (c) 2003-2024 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+-//
+-// Distributed under the Boost Software License, Version 1.0. (See accompanying
+-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-//
+-
+-// Disable autolinking for unit tests.
+-#if !defined(BOOST_ALL_NO_LIB)
+-#define BOOST_ALL_NO_LIB 1
+-#endif // !defined(BOOST_ALL_NO_LIB)
+-
+-// Test that header file is self-contained.
+-#include "asio/ssl/rfc2818_verification.hpp"
+-
+-#include "../unit_test.hpp"
+-
+-ASIO_TEST_SUITE
+-(
+-  "ssl/rfc2818_verification",
+-  ASIO_TEST_CASE(null_test)
+-)
