@@ -387,7 +387,6 @@ ROS_UNRESOLVED_DEP-python3-expiringdict = "python3-expiringdict"
 ROS_UNRESOLVED_DEP-python3-msgpack-numpy = "python3-msgpack-numpy"
 ROS_UNRESOLVED_DEP-python3-transforms3d = "python3-transforms3d"
 ROS_UNRESOLVED_DEP-python3-uvicorn = "python3-uvicorn"
-ROS_UNRESOLVED_DEP-python-is-python3 = "python3"
 ROS_UNRESOLVED_DEP-stress = "stress"
 ROS_UNRESOLVED_DEP-xclip = "xclip"
 
