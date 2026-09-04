@@ -308,7 +308,6 @@ ROS_UNRESOLVED_DEP-ignition-gui6-native = "ignition-gui6-native"
 # ROS_UNRESOLVED_DEP-libqt5-quick = "qtbase"
 ROS_UNRESOLVED_DEP-qml-module-qtquick-extras = "qtdeclarative"
 
-ROS_UNRESOLVED_DEP-range-v3 = "range-v3"
 ROS_UNRESOLVED_DEP-simde = "simde"
 ROS_UNRESOLVED_DEP-xsimd = "xsimd"
 
