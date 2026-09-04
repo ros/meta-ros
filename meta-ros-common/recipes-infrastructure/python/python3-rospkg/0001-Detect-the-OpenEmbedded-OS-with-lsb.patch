@@ -1,0 +1,66 @@
+From 00ce476d8d4d7cf8f9ca61d7c1196d97c2180b6b Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Tue, 2 Jun 2026 19:45:21 +0200
+Subject: [PATCH 1/1] Detect the OpenEmbedded 'OS' with lsb.
+
+distro.name() -> OpenEmbedded
+  The system what is building the custom distro
+
+distro.id() -> 'distro'
+  The created distibution.
+  Can be 'nodist', 'poky', 'oeros, ...
+
+Upstream-Status: Pending
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ src/rospkg/os_detect.py | 22 +++++++++-------------
+ 1 file changed, 9 insertions(+), 13 deletions(-)
+
+diff --git a/src/rospkg/os_detect.py b/src/rospkg/os_detect.py
+index 08db41a..26adfd9 100644
+--- a/src/rospkg/os_detect.py
++++ b/src/rospkg/os_detect.py
+@@ -133,7 +133,7 @@ class LsbDetect(OsDetector):
+     def __init__(self, lsb_name, get_version_fn=None):
+         self.lsb_name = lsb_name
+         if distro.__name__ == "distro":
+-            self.lsb_info = (distro.id(), distro.version(), distro.codename())
++            self.lsb_info = (distro.id(), distro.version(), distro.codename(), distro.name())
+         elif hasattr(distro, "linux_distribution"):
+             self.lsb_info = distro.linux_distribution(full_distribution_name=0)
+         elif hasattr(distro, "dist"):
+@@ -224,22 +224,18 @@ class FdoDetect(OsDetector):
+         raise OsNotDetected("called in incorrect OS")
+ 
+ 
+-class OpenEmbedded(OsDetector):
++class OpenEmbedded(LsbDetect):
+     """
+     Detect OpenEmbedded.
+     """
+-    def is_os(self):
+-        return "ROS_OS_OVERRIDE" in os.environ and os.environ["ROS_OS_OVERRIDE"] == "openembedded"
+-
+-    def get_version(self):
+-        if self.is_os():
+-            return ""
+-        raise OsNotDetected('called in incorrect OS')
++    def __init__(self, get_version_fn=None):
++        super(OpenEmbedded, self).__init__('openembedded', get_version_fn)
+ 
+-    def get_codename(self):
+-        if self.is_os():
+-            return ""
+-        raise OsNotDetected('called in incorrect OS')
++    def is_os(self):
++        if self.lsb_info is None:
++            return False
++        # lsb_info[4] = distro.name() = 'openembedded'
++        return self.lsb_info[3].lower() == self.lsb_name.lower()
+ 
+ 
+ class Conda(OsDetector):
+-- 
+2.43.0
+
