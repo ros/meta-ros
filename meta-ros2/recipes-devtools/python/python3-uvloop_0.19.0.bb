@@ -29,7 +29,7 @@ S = "${UNPACKDIR}/uvloop-${PV}"
 #     python3-threading \
 #     python3-unittest \
 # "
-# 
+#
 # WARNING: We were unable to map the following python package/module
 # dependencies to the bitbake packages which include them:
 #    OpenSSL

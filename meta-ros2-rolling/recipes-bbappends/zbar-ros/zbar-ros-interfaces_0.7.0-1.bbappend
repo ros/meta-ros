@@ -8,7 +8,7 @@ ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-gtest \
     ament-cmake-pytest \
     python3-numpy-native \
-    rosidl-adapter-native \ 
+    rosidl-adapter-native \
     rosidl-generator-c-native \
     rosidl-generator-cpp-native \
     rosidl-generator-py-native \

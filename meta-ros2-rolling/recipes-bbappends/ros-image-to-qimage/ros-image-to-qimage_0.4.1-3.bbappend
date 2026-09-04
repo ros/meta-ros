@@ -1,7 +1,7 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
 ROS_BUILDTOOL_DEPENDS += "\
-    ament-cmake-ros-native \ 
+    ament-cmake-ros-native \
     python3-numpy-native \
     rosidl-adapter-native \
     rosidl-generator-c-native \
