@@ -1,0 +1,28 @@
+Override msgs11 generator scripts
+
+Allows packages like gz-sim to override the generator script locations.
+
+This allows them to be executed from the native sysroot instead of
+the target sysroot.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: gz-msgs11-11.1.0/gz-msgs-extras.cmake.in
+===================================================================
+--- gz-msgs11-11.1.0.orig/gz-msgs-extras.cmake.in
++++ gz-msgs11-11.1.0/gz-msgs-extras.cmake.in
+@@ -41,8 +41,12 @@ endif()
+ if(NOT DEFINED @PROJECT_NAME@_PYTHON_INTERPRETER)
+   set(@PROJECT_NAME@_PYTHON_INTERPRETER Python3::Interpreter)
+ endif()
++if(NOT DEFINED @PROJECT_NAME@_PROTO_GENERATOR_SCRIPT)
+ set(@PROJECT_NAME@_PROTO_GENERATOR_SCRIPT ${@PROJECT_NAME@_INSTALL_PATH}/bin/${PROTO_SCRIPT_NAME})
++endif()
++if(NOT DEFINED @PROJECT_NAME@_FACTORY_GENERATOR_SCRIPT)
+ set(@PROJECT_NAME@_FACTORY_GENERATOR_SCRIPT ${@PROJECT_NAME@_INSTALL_PATH}/bin/${FACTORY_SCRIPT_NAME})
++endif()
+ 
+ ##################################################
+ # A function to generate a target message library from a group of protobuf files .
