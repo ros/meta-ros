@@ -13,6 +13,6 @@ SRC_URI = " \
   file://0001-CMakeLists.txt-fetch-dependencies-with-bitbake-fetch.patch \
 "
 
-SRCREV_release = "b535529aa09eb56e19bd913543c383e82fbfa899"
+SRCREV_release = "${SRCREV}"
 SRCREV_upstream = "70cc93763d49a24c4536c7f0a23248f9b40e30f5"
 SRCREV_FORMAT = "release_upstream"
