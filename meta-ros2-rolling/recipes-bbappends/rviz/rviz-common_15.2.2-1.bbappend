@@ -11,7 +11,7 @@ LICENSE = "BSD-3-Clause"
 inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt6', 'pyqt6'], '', 'qt6-cmake', d)}
 
 ROS_BUILDTOOL_DEPENDS += "\
-    ament-cmake-ros-native \ 
+    ament-cmake-ros-native \
     python3-numpy-native \
     rosidl-adapter-native \
     rosidl-generator-c-native \
