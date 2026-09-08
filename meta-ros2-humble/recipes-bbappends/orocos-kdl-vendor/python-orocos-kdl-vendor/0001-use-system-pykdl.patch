@@ -18,7 +18,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 0f5522f..b0f085a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -23,14 +23,8 @@ if(NOT FORCE_BUILD_VENDOR_PKG)
+@@ -23,14 +23,9 @@ if(NOT FORCE_BUILD_VENDOR_PKG)
      # Force FindPython3 to use the debug interpreter where ROS 2 expects it
      set(Python3_EXECUTABLE "${PYTHON_EXECUTABLE_DEBUG}")
    endif()
@@ -31,7 +31,8 @@ index 0f5522f..b0f085a 100644
 -  )
 -  if(pykdl_import_exit_code EQUAL 0)
 +  # Check if Python bindings are installed by searching for them
-+  if(EXISTS $ENV{STAGING_LIBDIR}/$ENV{PYTHON_DIR}/site-packages/PyKDL.so)
++  file(GLOB PyKDL_SOLIB $ENV{STAGING_LIBDIR}/$ENV{PYTHON_DIR}/site-packages/PyKDL*.so)
++  if(PyKDL_SOLIB)
      set(pykdl_FOUND 1)
    endif()
  endif()
