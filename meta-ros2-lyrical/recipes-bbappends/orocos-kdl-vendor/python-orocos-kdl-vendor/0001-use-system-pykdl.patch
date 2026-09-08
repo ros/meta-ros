@@ -18,7 +18,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 0f5522f..b0f085a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -29,14 +29,8 @@ cmake_policy(SET CMP0094 NEW)
+@@ -29,14 +29,9 @@ cmake_policy(SET CMP0094 NEW)
  set(Python3_FIND_UNVERSIONED_NAMES FIRST)
  
  if(NOT FORCE_BUILD_VENDOR_PKG)
@@ -31,7 +31,8 @@ index 0f5522f..b0f085a 100644
 -  )
 -  if(pykdl_import_exit_code EQUAL 0)
 +  # Check if Python bindings are installed by searching for them
-+  if(EXISTS $ENV{STAGING_LIBDIR}/$ENV{PYTHON_DIR}/site-packages/PyKDL.so)
++  file(GLOB PyKDL_SOLIB $ENV{STAGING_LIBDIR}/$ENV{PYTHON_DIR}/site-packages/PyKDL*.so)
++  if(PyKDL_SOLIB)
      set(pykdl_FOUND 1)
    endif()
  endif()
