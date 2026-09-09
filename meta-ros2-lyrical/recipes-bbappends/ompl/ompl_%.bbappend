@@ -36,9 +36,3 @@ do_install:append() {
     sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
     sed -i -e "s#-I${RECIPE_SYSROOT}${includedir}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
 }
-
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://0001-FindPython.cmake-install_python-Allow-to-set-differe.patch \
-            file://remove-boost-system.patch"
-
-EXTRA_OECMAKE += "-DINSTALL_PYTHON_SHEBANG='/usr/bin/env python3'"
