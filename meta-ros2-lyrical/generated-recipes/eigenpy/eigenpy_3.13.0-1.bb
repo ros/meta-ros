@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=2ac6d860cb803
 ROS_CN = "eigenpy"
 ROS_BPN = "eigenpy"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     doxygen \
     git \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     python3-scipy \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     libeigen \
     python3 \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     libeigen \
     python3 \

@@ -9,32 +9,32 @@ DESCRIPTION = "Eclipse Cyclone DDS is a very performant and robust open-source D
 AUTHOR = "Eclipse Foundation Inc <cyclonedds-dev@eclipse.org>"
 HOMEPAGE = "https://projects.eclipse.org/projects/iot.cyclonedds"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Eclipse Public License 2.0 & Eclipse Distribution License 1.0"
-LICENSE = "EPL-2.0 & Eclipse-Distribution-License-1.0"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Eclipse Public License 2.0 AND Eclipse Distribution License 1.0"
+LICENSE = "EPL-2.0 AND Eclipse-Distribution-License-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=7532470dee289492e850d7d3e8a32b32"
 
 ROS_CN = "cyclonedds"
 ROS_BPN = "cyclonedds"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     iceoryx-hoofs \
     iceoryx-posh \
     openssl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     iceoryx-hoofs \
     iceoryx-posh \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     iceoryx-hoofs \
     iceoryx-posh \
     openssl \

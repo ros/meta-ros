@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=9c2b4f259ad099b
 ROS_CN = "rqml"
 ROS_BPN = "rqml_core"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-index-cpp \
     mesa \
     nlohmann-json \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-index-cpp \
     qml6-ros2-plugin \
     qtbase \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-qml6-module-qtcore} \
     ${ROS_UNRESOLVED_DEP-qml6-module-qtqml-models} \
     ${ROS_UNRESOLVED_DEP-qml6-module-qtqml-workerscript} \
@@ -56,7 +56,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ros-babel-fish-test-msgs \
 "

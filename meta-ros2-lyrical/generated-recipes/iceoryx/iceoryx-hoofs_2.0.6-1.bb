@@ -9,7 +9,7 @@ DESCRIPTION = "Eclipse iceoryx inter-process-communication (IPC) middleware basi
 AUTHOR = "Eclipse Foundation Inc <iceoryx-oss-support@apex.ai>"
 HOMEPAGE = "https://iceoryx.io"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=80318c4afef111a7690eaf237460856b"
@@ -17,25 +17,22 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=80318c4afef111a
 ROS_CN = "iceoryx"
 ROS_BPN = "iceoryx_hoofs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     acl \
-    gcc-runtime \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     acl \
-    gcc-runtime \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     acl \
-    gcc-runtime \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

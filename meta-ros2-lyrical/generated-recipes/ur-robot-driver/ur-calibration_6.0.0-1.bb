@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=4633480cdd27d
 ROS_CN = "ur_robot_driver"
 ROS_BPN = "ur_calibration"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
     rclcpp \
     ur-client-library \
@@ -24,11 +24,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libeigen \
     rclcpp \
     ur-client-library \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libeigen \
     rclcpp \
     ur-client-library \
@@ -47,7 +47,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gmock \
     ament-cmake-gtest \
     ament-lint-auto \

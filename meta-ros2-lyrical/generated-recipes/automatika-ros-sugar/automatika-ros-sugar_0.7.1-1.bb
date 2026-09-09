@@ -15,8 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=58e54c03ca7f821
 ROS_CN = "automatika_ros_sugar"
 ROS_BPN = "automatika_ros_sugar"
 
-ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy} \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     lifecycle-msgs \
@@ -25,6 +24,7 @@ ROS_BUILD_DEPENDS = " \
     python3-attrs \
     python3-jinja2 \
     python3-msgpack \
+    python3-msgpack-numpy \
     python3-numpy \
     python3-pyyaml \
     python3-setproctitle \
@@ -36,14 +36,13 @@ ROS_BUILD_DEPENDS = " \
     tf2-ros \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-python-native \
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy} \
+ROS_EXPORT_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     lifecycle-msgs \
@@ -52,6 +51,7 @@ ROS_EXPORT_DEPENDS = " \
     python3-attrs \
     python3-jinja2 \
     python3-msgpack \
+    python3-msgpack-numpy \
     python3-numpy \
     python3-pyyaml \
     python3-setproctitle \
@@ -65,8 +65,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-python3-msgpack-numpy} \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     lifecycle-msgs \
@@ -75,6 +74,7 @@ ROS_EXEC_DEPENDS = " \
     python3-attrs \
     python3-jinja2 \
     python3-msgpack \
+    python3-msgpack-numpy \
     python3-numpy \
     python3-pyyaml \
     python3-setproctitle \
@@ -88,7 +88,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     ament-index-python \
     ament-lint-auto \

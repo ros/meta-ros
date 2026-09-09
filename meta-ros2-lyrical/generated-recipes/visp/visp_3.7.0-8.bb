@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=ad93de9fc0533
 ROS_CN = "visp"
 ROS_BPN = "visp"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     bzip2 \
     doxygen \
     gsl \
@@ -34,11 +34,11 @@ ROS_BUILD_DEPENDS = " \
     zbar \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     bzip2 \
     gsl \
     jpeg \
@@ -57,7 +57,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     bzip2 \
     gsl \
     jpeg \

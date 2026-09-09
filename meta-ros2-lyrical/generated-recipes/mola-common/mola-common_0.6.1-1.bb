@@ -15,12 +15,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d0998f4eabe3d
 ROS_CN = "mola_common"
 ROS_BPN = "mola_common"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-xmllint \
     ros-environment \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gtest-native \
     ament-cmake-native \
     cmake-native \
@@ -33,7 +33,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

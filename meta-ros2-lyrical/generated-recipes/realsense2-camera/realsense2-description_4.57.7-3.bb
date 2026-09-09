@@ -10,7 +10,7 @@ AUTHOR = "LibRealSense ROS Team <rsswsdk@realsensecloud.onmicrosoft.com>"
 ROS_AUTHOR = "LibRealSense ROS Team <rsswsdk@realsensecloud.onmicrosoft.com>"
 HOMEPAGE = "http://www.ros.org/wiki/RealSense"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
@@ -18,17 +18,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493f
 ROS_CN = "realsense2_camera"
 ROS_BPN = "realsense2_description"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rclcpp \
     rclcpp-components \
     realsense2-camera-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rclcpp \
     rclcpp-components \
     realsense2-camera-msgs \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     launch-ros \
     rclcpp \
     rclcpp-components \

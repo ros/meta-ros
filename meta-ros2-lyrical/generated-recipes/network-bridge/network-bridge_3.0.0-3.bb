@@ -9,7 +9,7 @@ DESCRIPTION = "Allows for arbitrary network links (UDP, TCP, etc) to bridge ROS2
 AUTHOR = "Ethan Brown <brow1633@purdue.edu>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "MIT License"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e093dbacd8b861c0bd410cc6f33e06c4"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e093dbacd8b861c
 ROS_CN = "network_bridge"
 ROS_BPN = "network_bridge"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     pluginlib \
     rclcpp \
@@ -27,12 +27,12 @@ ROS_BUILD_DEPENDS = " \
     zstd \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     pluginlib \
     rclcpp \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     pluginlib \
     rclcpp \
@@ -55,7 +55,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \

@@ -10,30 +10,30 @@ AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 ROS_AUTHOR = "Brandon Ong <brandon@openrobotics.org>"
 HOMEPAGE = "https://github.com/pybind/pybind11"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & BSD"
-LICENSE = "Apache-2.0 & BSD"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache License 2.0 AND BSD"
+LICENSE = "Apache-2.0 AND BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "pybind11_vendor"
 ROS_BPN = "pybind11_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     python3-pybind11 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     python3-pybind11 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     python3-pybind11 \
 "
 

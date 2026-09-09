@@ -16,11 +16,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=ed30c5fed1ec9
 ROS_CN = "greenwave_monitor"
 ROS_BPN = "greenwave_monitor_interfaces"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rosidl-default-generators \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rosidl-default-runtime \
 "
 

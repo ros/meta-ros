@@ -16,12 +16,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=e4c74a520650d
 ROS_CN = "mola_input_ouster"
 ROS_BPN = "mola_input_ouster"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libflatbuffers-dev} \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
     curl \
     libeigen \
     libpng \
+    libtins \
     libzip \
     mola-kernel \
     mola-yaml \
@@ -31,11 +31,11 @@ ROS_BUILD_DEPENDS = " \
     zstd \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     curl \
     mola-kernel \
     mola-yaml \
@@ -45,7 +45,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     curl \
     mola-kernel \
     mola-yaml \

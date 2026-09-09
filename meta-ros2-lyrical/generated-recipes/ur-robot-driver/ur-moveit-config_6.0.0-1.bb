@@ -10,7 +10,7 @@ AUTHOR = "Felix Exner <feex@universal-robots.com>"
 ROS_AUTHOR = "Robert Wilbrandt <wilbrandt@fzi.de>"
 HOMEPAGE = "https://docs.universal-robots.com/Universal_Robots_ROS_Documentation/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=25515e36b34c800cf08bed6a88dd7900"
@@ -20,7 +20,7 @@ ROS_BPN = "ur_moveit_config"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     moveit-configs-utils \
     moveit-kinematics \
     moveit-planners \

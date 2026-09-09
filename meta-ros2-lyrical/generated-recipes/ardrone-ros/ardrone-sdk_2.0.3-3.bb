@@ -15,18 +15,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=4633480cdd27d79
 ROS_CN = "ardrone_ros"
 ROS_BPN = "ardrone_sdk"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libavahi-client-dev} \
     ffmpeg \
     jsoncpp \
     ncurses \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libavahi-client-dev} \
     ffmpeg \
     jsoncpp \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libavahi-client-dev} \
     ffmpeg \
     jsoncpp \

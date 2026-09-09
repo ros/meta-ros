@@ -9,7 +9,7 @@ DESCRIPTION = "ros2 package for syncing variable number of topics"
 AUTHOR = "Bernd Pfrommer <bernd.pfrommer@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=c93e37fc0c6f510db5735eb91dcc1550"
@@ -17,17 +17,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=c93e37fc0c6f510
 ROS_CN = "flex_sync"
 ROS_BPN = "flex_sync"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-clang-format \
     rclcpp \
     rclcpp-components \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-cmake-clang-format \
     rclcpp \
     rclcpp-components \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake-clang-format \
     rclcpp \
     rclcpp-components \
@@ -43,7 +43,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-clang-format \
     ament-cmake-clang-format \
     ament-cmake-gtest \

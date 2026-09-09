@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=82f0323c08605
 ROS_CN = "mujoco_ros2_control"
 ROS_BPN = "mujoco_ros2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     backward-ros \
     control-toolbox \
     controller-manager \
@@ -35,13 +35,13 @@ ROS_BUILD_DEPENDS = " \
     transmission-interface \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-python-native \
     git-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     backward-ros \
     control-toolbox \
     controller-manager \
@@ -62,7 +62,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     backward-ros \
     control-toolbox \
     controller-manager \
@@ -84,7 +84,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-cmake-pytest \
 "

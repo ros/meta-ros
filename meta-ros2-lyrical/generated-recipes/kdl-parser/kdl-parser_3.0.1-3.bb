@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9de
 ROS_CN = "kdl_parser"
 ROS_BPN = "kdl_parser"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
     orocos-kdl \
     rcutils \
@@ -24,12 +24,12 @@ ROS_BUILD_DEPENDS = " \
     urdfdom-headers \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native \
     eigen3-cmake-module-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     orocos-kdl \
     rcutils \
     urdfdom-headers \
@@ -37,14 +37,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     orocos-kdl \
     rcutils \
     urdf \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

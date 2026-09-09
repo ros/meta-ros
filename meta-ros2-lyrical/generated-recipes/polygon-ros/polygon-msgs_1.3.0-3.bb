@@ -9,7 +9,7 @@ DESCRIPTION = "General purpose two-dimensional polygons. Formerly a part of nav_
 AUTHOR = "David V. Lu!! <david@metrorobots.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "BSD 3-Clause"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f5654d47d02d927c4f7a04f0a51abaa1"
@@ -17,22 +17,22 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f5654d47d02d927
 ROS_CN = "polygon_ros"
 ROS_BPN = "polygon_msgs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rosidl-default-generators \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     std-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rosidl-default-runtime \
     std-msgs \
 "

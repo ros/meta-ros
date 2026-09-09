@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=58e54c03ca7f821
 ROS_CN = "kompass"
 ROS_BPN = "kompass"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     automatika-ros-sugar \
     kompass-interfaces \
     python3-pykdl \
@@ -23,7 +23,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     automatika-ros-sugar \
     kompass-interfaces \
     python3-pykdl \
@@ -31,7 +31,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     automatika-ros-sugar \
     kompass-interfaces \
     python3-pykdl \

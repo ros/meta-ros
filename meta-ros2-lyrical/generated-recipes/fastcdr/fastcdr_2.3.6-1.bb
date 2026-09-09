@@ -9,7 +9,7 @@ DESCRIPTION = "*eProsima Fast CDR* is a C++ serialization library implementing t
 AUTHOR = "Miguel Company <miguelcompany@eprosima.com>"
 HOMEPAGE = "https://www.eprosima.com/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=da5a1be2927e3a58d7e126f7c5d3ddbd"
@@ -19,7 +19,7 @@ ROS_BPN = "fastcdr"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
@@ -30,7 +30,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libgtest-dev} \
 "
 

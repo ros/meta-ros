@@ -10,7 +10,7 @@ AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 ROS_AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 HOMEPAGE = "https://docs.mola-slam.org/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "GPLv3"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e9f2deaa804a16d9e0d3965ef77e171e"
@@ -18,17 +18,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e9f2deaa804a1
 ROS_CN = "mola_state_estimation"
 ROS_BPN = "mola_gtsam_factors"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gtsam \
     mola-common \
     mrpt-libposes \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gtsam \
     mola-common \
     mrpt-libposes \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gtsam \
     mola-common \
     mrpt-libposes \

@@ -9,9 +9,9 @@ DESCRIPTION = "Foonathan/memory vendor package for Fast DDS."
 AUTHOR = "Miguel Company <miguelcompany@eprosima.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & zlib License"
-LICENSE = "Apache-2.0 & Zlib"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache License 2.0 AND zlib License"
+LICENSE = "Apache-2.0 AND Zlib"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=401a7342a877608092ef332b6948eb03"
 
 ROS_CN = "foonathan_memory_vendor"
@@ -19,21 +19,21 @@ ROS_BPN = "foonathan_memory_vendor"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
     git-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     cmake-native \
 "
 
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     ament-cmake-lint-cmake \
     ament-cmake-test \

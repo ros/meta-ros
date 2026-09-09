@@ -9,17 +9,17 @@ DESCRIPTION = "multimedia RTSP streaming library"
 AUTHOR = "Timo Röhling <timo.roehling@fkie.fraunhofer.de>"
 HOMEPAGE = "http://www.live555.com/liveMedia/"
 SECTION = "devel"
-LICENSE = "LGPL-3.0-or-later & BSD-1-Clause"
+LICENSE = "LGPL-3.0-or-later AND BSD-1-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=2903be9d205c3f1ea97d3ba67036ecc5"
 
 ROS_CN = "live555_vendor"
 ROS_BPN = "live555_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     openssl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
