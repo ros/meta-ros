@@ -5,4 +5,8 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-runtime-native \
 "
 
+do_install:append() {
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir}/uuid##g" ${D}${ros_prefix}/share/bondcpp/cmake/bondcppExport.cmake
+}
+
 inherit pkgconfig
