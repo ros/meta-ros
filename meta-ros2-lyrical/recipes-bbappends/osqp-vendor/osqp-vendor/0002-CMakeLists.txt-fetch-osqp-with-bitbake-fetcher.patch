@@ -14,15 +14,15 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index d9f4814..268e41b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -11,7 +11,6 @@ project(osqp_vendor)
- endif()
+@@ -5,7 +5,6 @@
+ find_package(ament_cmake REQUIRED)
  
  macro(build_osqp)
--  set(git_tag "v0.6.2")
+-  set(git_tag "v1.0.0")
    set(extra_cmake_args)
  
    get_property(multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
-@@ -20,13 +19,8 @@ macro(build_osqp)
+@@ -14,13 +13,8 @@
    endif()
  
    include(ExternalProject)
