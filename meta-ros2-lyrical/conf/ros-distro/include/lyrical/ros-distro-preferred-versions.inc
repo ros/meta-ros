@@ -12,7 +12,7 @@
 # The head of the tree should be used for lyrical
 PREFERRED_VERSION_pcl = "1.14.1"
 
-PREFERRED_VERSION_sdformat = "16.0.1"
+PREFERRED_VERSION_sdformat = "16.1.0"
 
 # required for python3-scipy
 PREFERRED_VERSION_python3-gast = "0.6.0"
