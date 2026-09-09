@@ -10,7 +10,7 @@ AUTHOR = "Vladimir Ermakov <vooon341@gmail.com>"
 ROS_AUTHOR = "Lorenz Meier"
 HOMEPAGE = "https://mavlink.io/en/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "LGPLv3"
 LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=b691248d2f70cdaeeaf13696ada5d47c"
@@ -18,13 +18,13 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=b691248d2f70c
 ROS_CN = "mavlink"
 ROS_BPN = "mavlink"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     python3 \
     python3-future \
     python3-lxml \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     cmake-native \
     ros-environment-native \

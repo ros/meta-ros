@@ -10,7 +10,7 @@ AUTHOR = "Bence Magyar <bence.magyar.robotics@gmail.com>"
 ROS_AUTHOR = "Stuart Glaser <sglaser@willowgarage.com>"
 HOMEPAGE = "https://control.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "3-Clause BSD"
 LICENSE = "3-Clause-BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=86277dc780fe4e3edb08cd487093d9de"
@@ -18,29 +18,29 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=86277dc780fe4e3
 ROS_CN = "realtime_tools"
 ROS_BPN = "realtime_tools"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     libcap \
     rclcpp \
     rclcpp-action \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     libcap \
     rclcpp \
     rclcpp-action \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     libcap \
     rclcpp \
@@ -48,7 +48,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gmock \
     lifecycle-msgs \
     rclcpp-lifecycle \

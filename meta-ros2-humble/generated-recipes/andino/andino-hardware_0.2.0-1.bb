@@ -9,7 +9,7 @@ DESCRIPTION = "The andino_hardware package"
 AUTHOR = "Franco Cipollone <franco.c@ekumenlabs.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "BSD Clause 3"
 LICENSE = "BSD-Clause-3"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=e2197b8633fd51a47f897d9d6f820c24"
@@ -19,7 +19,7 @@ ROS_BPN = "andino_hardware"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 

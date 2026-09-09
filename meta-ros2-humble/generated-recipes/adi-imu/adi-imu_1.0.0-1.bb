@@ -10,7 +10,7 @@ AUTHOR = "Analog Devices <Adrian.Stanea@analog.com>"
 ROS_AUTHOR = "rbolboac <ramona.gradinariu@analog.com>"
 HOMEPAGE = "https://analogdevicesinc.github.io/imu_ros2/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License Version 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e0d579b99de3d4e65d07e0dba4f55532"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e0d579b99de3d4e
 ROS_CN = "adi_imu"
 ROS_BPN = "adi_imu"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libiio-dev} \
     ament-cmake \
     builtin-interfaces \
@@ -31,7 +31,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libiio-dev} \
     ament-cmake \
     geometry-msgs \
@@ -42,7 +42,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libiio-dev} \
     ament-cmake \
     builtin-interfaces \
@@ -54,7 +54,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-cmake-lint-cmake \
     ament-cmake-xmllint \

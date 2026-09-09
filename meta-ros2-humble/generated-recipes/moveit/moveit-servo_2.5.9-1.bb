@@ -10,7 +10,7 @@ AUTHOR = "Blake Anderson <blakeanderson@utexas.edu>"
 ROS_AUTHOR = "Brian O'Neil"
 HOMEPAGE = "https://ros-planning.github.io/moveit_tutorials"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "BSD 3-Clause"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f5654d47d02d927c4f7a04f0a51abaa1"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f5654d47d02d9
 ROS_CN = "moveit"
 ROS_BPN = "moveit_servo"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     control-msgs \
     control-toolbox \
     geometry-msgs \
@@ -34,11 +34,11 @@ ROS_BUILD_DEPENDS = " \
     trajectory-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     control-msgs \
     control-toolbox \
     geometry-msgs \
@@ -56,7 +56,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     control-msgs \
     control-toolbox \
     geometry-msgs \
@@ -81,7 +81,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

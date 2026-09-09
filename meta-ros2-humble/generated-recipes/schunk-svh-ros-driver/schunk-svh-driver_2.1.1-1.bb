@@ -15,18 +15,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=53aea082abed7
 ROS_CN = "schunk_svh_ros_driver"
 ROS_BPN = "schunk_svh_driver"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     hardware-interface \
     pluginlib \
     rclcpp \
     schunk-svh-library \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     hardware-interface \
     pluginlib \
     rclcpp \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     controller-manager \
     hardware-interface \
     joint-state-broadcaster \
@@ -51,7 +51,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
 "
 

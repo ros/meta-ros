@@ -10,7 +10,7 @@ AUTHOR = "Chittaranjan Personal <ksatyaki@gmail.com>"
 ROS_AUTHOR = "Chittaranjan Swaminathan <ksatyaki@gmail.com>"
 HOMEPAGE = "https://mapsofdynamics.bitbucket.io"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "LGPLv3"
 LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=b691248d2f70cdaeeaf13696ada5d47c"
@@ -18,17 +18,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=b691248d2f70c
 ROS_CN = "mod"
 ROS_BPN = "mod"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     libeigen \
     ompl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     libeigen \
     ompl \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     libeigen \
     ompl \

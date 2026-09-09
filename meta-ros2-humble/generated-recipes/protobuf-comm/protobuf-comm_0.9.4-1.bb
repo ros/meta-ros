@@ -15,18 +15,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=ad93de9fc0533
 ROS_CN = "protobuf_comm"
 ROS_BPN = "protobuf_comm"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     openssl \
     protobuf \
     spdlog \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     openssl \
     protobuf \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     openssl \
     protobuf \

@@ -9,7 +9,7 @@ DESCRIPTION = "eCAL - enhanced Communication Abstraction Layer. A fast publish-s
 AUTHOR = "Eclipse Foundation, Inc. <ecal-dev@eclipse.org>"
 HOMEPAGE = "https://eclipse-ecal.github.io/ecal"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=80318c4afef111a7690eaf237460856b"
@@ -17,21 +17,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=80318c4afef111a
 ROS_CN = "ecal"
 ROS_BPN = "ecal"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     protobuf \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     protobuf \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     protobuf \
 "
 

@@ -9,7 +9,7 @@ DESCRIPTION = "Provides a ublox_dgnss node for a u-blox GPS DGNSS receiver using
 AUTHOR = "Nick Hortovanyi <nick@aussierobots.com>"
 HOMEPAGE = "https://github.com/aussierobots/ublox_dgnss"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d23266fc6f8ec03dc9eb16"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d2326
 ROS_CN = "ublox_dgnss"
 ROS_BPN = "ublox_dgnss"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ntrip-client-node \
     ublox-dgnss-node \
     ublox-nav-sat-fix-hp-node \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     ublox-ubx-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ntrip-client-node \
     ublox-dgnss-node \
     ublox-nav-sat-fix-hp-node \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ntrip-client-node \
     ublox-dgnss-node \
     ublox-nav-sat-fix-hp-node \

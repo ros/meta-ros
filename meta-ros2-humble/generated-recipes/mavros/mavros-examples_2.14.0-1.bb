@@ -10,15 +10,15 @@ AUTHOR = "Haroon Rasheed <haroon300@hotmail.com>"
 ROS_AUTHOR = "Haroon Rasheed <haroon300@hotmail.com>"
 HOMEPAGE = "http://wiki.ros.org/mavros"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "GPLv3 & LGPLv3 & BSD"
-LICENSE = "GPL-3.0-only & LGPL-3.0-only & BSD"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "GPLv3 AND LGPLv3 AND BSD"
+LICENSE = "GPL-3.0-only AND LGPL-3.0-only AND BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=1e7b3bcc2e271699c77c769685058cbe"
 
 ROS_CN = "mavros"
 ROS_BPN = "mavros_examples"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     mavros \
     mavros-msgs \
@@ -29,13 +29,13 @@ ROS_BUILD_DEPENDS = " \
     trajectory-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-python-native \
     eigen3-cmake-module-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     mavros \
     mavros-msgs \
@@ -46,11 +46,11 @@ ROS_EXPORT_DEPENDS = " \
     trajectory-msgs \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     eigen3-cmake-module-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     mavros \
     mavros-msgs \
@@ -62,7 +62,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "
