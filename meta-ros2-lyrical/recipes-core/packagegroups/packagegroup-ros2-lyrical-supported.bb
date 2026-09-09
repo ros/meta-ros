@@ -10,9 +10,7 @@ PACKAGES = "${PN}"
 RDEPENDS:${PN} = "\
         canopen \
         desktop-full \
+        moveit \
+        navigation2 \
         ros2-control \
 "
-# navigation2 does not yet exist in ROS 2 Lyrical
-#   https://github.com/ros-navigation/navigation2/issues/6123
-# moveit2 does not yet exist in ROS 2 Lyrical
-#   https://github.com/moveit/moveit2/issues/3717
