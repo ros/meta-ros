@@ -10,17 +10,17 @@ AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 ROS_AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 HOMEPAGE = "https://github.com/MOLAorg/"
 SECTION = "devel"
-LICENSE = "BSD-3-Clause & BSD-3-Clause & CC-BY-NC-SA-3.0 & CC-BY-3.0 & CC-BY-3.0 & CC-BY-NC-SA-4.0"
+LICENSE = "BSD-3-Clause AND BSD-3-Clause AND CC-BY-NC-SA-3.0 AND CC-BY-3.0 AND CC-BY-3.0 AND CC-BY-NC-SA-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d0998f4eabe3d0099aca1e1f57f44fe6"
 
 ROS_CN = "mola_test_datasets"
 ROS_BPN = "mola_test_datasets"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ros-environment \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gtest-native \
     ament-cmake-native \
     cmake-native \
@@ -33,7 +33,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-lint-cmake \
     ament-cmake-pep257 \
     ament-cmake-uncrustify \

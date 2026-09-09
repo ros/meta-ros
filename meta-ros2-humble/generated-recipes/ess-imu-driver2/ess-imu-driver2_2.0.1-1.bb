@@ -9,37 +9,37 @@ DESCRIPTION = "ROS2 package for Epson IMU using C++ wrapper around Linux C drive
 AUTHOR = "Raymond Chow <raymond.chow@ea.epson.com>"
 HOMEPAGE = "https://wiki.ros.org/ess_imu_driver2"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD-3 & Public Domain"
-LICENSE = "BSD-3-Clause & PD"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "BSD-3 AND Public Domain"
+LICENSE = "BSD-3-Clause AND PD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=76ea7cd512d17201ff67e2488e8c4ce3"
 
 ROS_CN = "ess_imu_driver2"
 ROS_BPN = "ess_imu_driver2"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rclcpp \
     sensor-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rclcpp \
     sensor-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rclcpp \
     sensor-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "
