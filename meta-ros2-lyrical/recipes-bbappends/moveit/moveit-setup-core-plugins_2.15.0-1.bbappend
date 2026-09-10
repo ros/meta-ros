@@ -1,5 +1,8 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://add-bullet-dependency.patch"
+
 ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros \
     ament-cmake-gmock \
