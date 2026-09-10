@@ -4,3 +4,18 @@
 #   To use a cross-compiled Qt, please set the QT_HOST_PATH cache variable to
 #   the location of your host Qt installation.
 inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt6-layer', 'qt6-cmake', '', d)}
+
+# nav2-rviz-plugins/1.5.1-1/recipe-sysroot/opt/ros/lyrical/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp:132:8: error: 'template<class _Codecvt, class _Elem, class _Wide_alloc, class _Byte_alloc> class std::__cxx11::wstring_convert' is deprecated [-Werror=deprecated-declarations]
+CXXFLAGS += "-Wno-error=deprecated-declarations"
+
+# nav2-rviz-plugins/1.5.1-1/recipe-sysroot/opt/ros/lyrical/include/rclcpp/rclcpp/exceptions/exceptions.hpp:71:79: error: declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidNodeNameError' [-Werror=shadow]
+CXXFLAGS += "-Wno-error=shadow"
+
+# nav2-rviz-plugins/1.5.1-1/recipe-sysroot/opt/ros/lyrical/include/class_loader/class_loader/meta_object.hpp:59:27: error: 'class class_loader::impl::AbstractMetaObjectBase' has virtual functions and accessible non-virtual destructor [-Werror=non-virtual-dtor]
+CXXFLAGS += "-Wno-error=non-virtual-dtor"
+
+# nav2-rviz-plugins/1.5.1-1/recipe-sysroot/usr/include/OGRE/OgreStringInterface.h:70:59: error: unused parameter 'newDescription' [-Werror=unused-parameter]
+CXXFLAGS += "-Wno-error=unused-parameter"
+
+# nav2-rviz-plugins/1.5.1-1/recipe-sysroot/opt/ros/lyrical/include/rviz_common/rviz_common/message_filter_display.hpp:126:73: error: potential null pointer dereference [-Werror=null-dereference]
+CXXFLAGS += "-Wno-error=null-dereference"
