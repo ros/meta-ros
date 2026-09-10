@@ -1,0 +1,78 @@
+Use OMPL CMake target
+
+This is needed to avoid generating buildpaths into the CMake files.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,7 +51,6 @@ target_include_directories(${library_nam
+   PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+-    ${OMPL_INCLUDE_DIRS}
+ )
+ target_link_libraries(${library_name}_common PUBLIC
+   geometry_msgs::geometry_msgs
+@@ -61,7 +60,7 @@ target_link_libraries(${library_name}_co
+   nav2_costmap_2d::nav2_costmap_2d_core
+   nav_msgs::nav_msgs
+   nlohmann_json::nlohmann_json
+-  ${OMPL_LIBRARIES}
++  ompl::ompl
+   rclcpp::rclcpp
+   rclcpp_lifecycle::rclcpp_lifecycle
+   tf2::tf2
+@@ -79,7 +78,6 @@ target_include_directories(${library_nam
+   PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+-    ${OMPL_INCLUDE_DIRS}
+ )
+ target_link_libraries(${library_name} PUBLIC
+   ${library_name}_common
+@@ -89,7 +87,7 @@ target_link_libraries(${library_name} PU
+   nav2_costmap_2d::nav2_costmap_2d_core
+   nav_msgs::nav_msgs
+   nlohmann_json::nlohmann_json
+-  ${OMPL_LIBRARIES}
++  ompl::ompl
+   rclcpp::rclcpp
+   rclcpp_lifecycle::rclcpp_lifecycle
+   rcl_interfaces::rcl_interfaces
+@@ -109,7 +107,6 @@ target_include_directories(${library_nam
+   PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+-    ${OMPL_INCLUDE_DIRS}
+ )
+ target_link_libraries(${library_name}_2d PUBLIC
+   ${library_name}_common
+@@ -119,7 +116,7 @@ target_link_libraries(${library_name}_2d
+   nav2_costmap_2d::nav2_costmap_2d_core
+   nav_msgs::nav_msgs
+   nlohmann_json::nlohmann_json
+-  ${OMPL_LIBRARIES}
++  ompl::ompl
+   rclcpp::rclcpp
+   rclcpp_lifecycle::rclcpp_lifecycle
+   rcl_interfaces::rcl_interfaces
+@@ -139,7 +136,6 @@ target_include_directories(${library_nam
+   PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+-    ${OMPL_INCLUDE_DIRS}
+ )
+ target_link_libraries(${library_name}_lattice PUBLIC
+   ${library_name}_common
+@@ -149,7 +145,7 @@ target_link_libraries(${library_name}_la
+   nav2_costmap_2d::nav2_costmap_2d_core
+   nav_msgs::nav_msgs
+   nlohmann_json::nlohmann_json
+-  ${OMPL_LIBRARIES}
++  ompl::ompl
+   rclcpp::rclcpp
+   rclcpp_lifecycle::rclcpp_lifecycle
+   rcl_interfaces::rcl_interfaces
