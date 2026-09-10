@@ -1,0 +1,19 @@
+Add Bullet dependency
+
+The moveit-core package exports Bullet as a dependency for
+collision_detection_bullet.
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,6 +25,7 @@
+ foreach(dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
+   find_package(${dependency} REQUIRED)
+ endforeach()
++find_package(Bullet CONFIG REQUIRED)
+ 
+ add_library(moveit_move_group_capabilities_base SHARED
+             src/move_group_context.cpp src/move_group_capability.cpp)
