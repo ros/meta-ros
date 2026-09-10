@@ -51,7 +51,7 @@ ROS_SDK_TARGET_PACKAGES = " \
     ament-lint-common \
     ament-package \
     ament-uncrustify \
-    ament-xmllint
+    ament-xmllint \
     builtin-interfaces \
     common-interfaces \
     fastrtps-cmake-module \
