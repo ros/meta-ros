@@ -1,5 +1,8 @@
 # Copyright (c) 2026 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://remove-buildpaths.patch"
+
 # This resolves the following error:
 #   To use a cross-compiled Qt, please set the QT_HOST_PATH cache variable to
 #   the location of your host Qt installation.
