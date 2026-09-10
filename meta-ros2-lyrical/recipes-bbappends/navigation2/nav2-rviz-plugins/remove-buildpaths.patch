@@ -1,0 +1,23 @@
+Remove buildpaths
+
+The include directories end up in nav2_rviz_pluginsExport.cmake which causes
+a buildpaths QA failure.
+
+Remove them as they are not required for build. The headers should be 
+automatically provided through targets provided with target_link_libraries.
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: nav2-rviz-plugins-1.5.1-1/CMakeLists.txt
+===================================================================
+--- nav2-rviz-plugins-1.5.1-1.orig/CMakeLists.txt
++++ nav2-rviz-plugins-1.5.1-1/CMakeLists.txt
+@@ -99,7 +99,6 @@ add_library(${library_name} SHARED
+   ${route_tool_UIS_H}
+ )
+ target_include_directories(${library_name} PUBLIC
+-  ${OGRE_INCLUDE_DIRS}
+   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+ )
