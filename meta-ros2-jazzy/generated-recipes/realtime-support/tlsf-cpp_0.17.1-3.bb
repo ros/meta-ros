@@ -10,15 +10,15 @@ AUTHOR = "Brandon Ong <brandon@openrobotics.org>"
 ROS_AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "GNU Lesser Public License 2.1 & Apache License 2.0"
-LICENSE = "LGPL-2.1-only & Apache-2.0"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "GNU Lesser Public License 2.1 AND Apache License 2.0"
+LICENSE = "LGPL-2.1-only AND Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3badeab1074cb0c993003745c15d12f0"
 
 ROS_CN = "realtime_support"
 ROS_BPN = "tlsf_cpp"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake \
     rclcpp \
     rmw \
@@ -26,7 +26,7 @@ ROS_BUILD_DEPENDS = " \
     tlsf \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -34,7 +34,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake \
     rclcpp \
     rmw \
@@ -43,7 +43,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

@@ -9,7 +9,7 @@ DESCRIPTION = "CLIPS plugin to continuously refresh agendas and run CLIPS enviro
 AUTHOR = "Tarik Viehmann <viehmann@kbsg.rwth-aachen.de>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "GPLv2+ license"
 LICENSE = "GPLv2-license"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=94addb714900aacec43ab1bc87374ead"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=94addb714900a
 ROS_CN = "clips_executive"
 ROS_BPN = "cx_executive_plugin"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     clips-vendor \
     cx-plugin \
     cx-utils \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     clips-vendor \
     cx-plugin \
     cx-utils \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     clips-vendor \
     cx-plugin \
     cx-utils \

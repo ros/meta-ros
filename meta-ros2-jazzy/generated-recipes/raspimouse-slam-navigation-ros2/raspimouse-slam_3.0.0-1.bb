@@ -10,7 +10,7 @@ AUTHOR = "RT Corporation <shop@rt-net.jp>"
 ROS_AUTHOR = "Shuhei Kozasa <kozasa@rt-net.jp>"
 HOMEPAGE = "https://github.com/rt-net/raspimouse_slam_navigation_ros2"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=bb69307f9a8566360ce04a9b7e6a00b7"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=bb69307f9a85663
 ROS_CN = "raspimouse_slam_navigation_ros2"
 ROS_BPN = "raspimouse_slam"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     hls-lfcd-lds-driver \
     joint-state-publisher \
     joy-linux \
@@ -34,11 +34,11 @@ ROS_BUILD_DEPENDS = " \
     xacro \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     hls-lfcd-lds-driver \
     joint-state-publisher \
     joy-linux \
@@ -56,7 +56,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     hls-lfcd-lds-driver \
     joint-state-publisher \
     joy-linux \
@@ -73,7 +73,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

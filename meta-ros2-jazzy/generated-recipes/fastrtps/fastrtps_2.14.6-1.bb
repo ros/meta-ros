@@ -9,7 +9,7 @@ DESCRIPTION = "*eprosima Fast DDS* (formerly Fast RTPS) is a C++ implementation 
 AUTHOR = "Miguel Company <miguelcompany@eprosima.com>"
 HOMEPAGE = "https://www.eprosima.com/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=da5a1be2927e3a58d7e126f7c5d3ddbd"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=da5a1be2927e3
 ROS_CN = "fastrtps"
 ROS_BPN = "fastrtps"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     asio \
     fastcdr \
     foonathan-memory-vendor \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     python3 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     fastcdr \
     foonathan-memory-vendor \
     libtinyxml2 \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     fastcdr \
     foonathan-memory-vendor \
     libtinyxml2 \

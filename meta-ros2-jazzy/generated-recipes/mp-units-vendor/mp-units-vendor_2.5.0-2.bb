@@ -10,31 +10,31 @@ AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
 ROS_AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
 HOMEPAGE = "https://github.com/mpusz/mp-units"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=8c794bf9bb044f88c82272b48c3e6a09"
 
 ROS_CN = "mp_units_vendor"
 ROS_BPN = "mp_units_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     fmt \
     gsl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
     git-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     fmt \
     gsl \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     fmt \
     gsl \
 "
