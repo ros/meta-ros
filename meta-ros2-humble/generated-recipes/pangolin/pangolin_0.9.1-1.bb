@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=58e54c03ca7f821
 ROS_CN = "pangolin"
 ROS_BPN = "pangolin"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     glew \
     libeigen \
     libjpeg-turbo \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     wayland \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     glew \
     libjpeg-turbo \
     libpng \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     glew \
     libjpeg-turbo \
     libpng \

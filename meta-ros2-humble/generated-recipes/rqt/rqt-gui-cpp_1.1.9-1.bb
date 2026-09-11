@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc
 ROS_CN = "rqt"
 ROS_BPN = "rqt_gui_cpp"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     pluginlib \
     qt-gui \
     qt-gui-cpp \
@@ -24,18 +24,18 @@ ROS_BUILD_DEPENDS = " \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     pluginlib \
     rclcpp \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     pluginlib \
     qt-gui \
     qt-gui-cpp \

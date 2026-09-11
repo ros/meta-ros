@@ -16,25 +16,25 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=58e54c03ca7f8
 ROS_CN = "rosbag_timing_inspector"
 ROS_BPN = "rosbag_timing_inspector"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     glfw \
     mesa \
     rosbag2-cpp \
     rosbag2-storage \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rosbag2-cpp \
     rosbag2-storage \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rosbag2-cpp \
     rosbag2-storage \
 "

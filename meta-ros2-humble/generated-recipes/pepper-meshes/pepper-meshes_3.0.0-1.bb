@@ -10,7 +10,7 @@ AUTHOR = "Victor Paléologue <victor.paleologue@palaio.eu>"
 ROS_AUTHOR = "Maxime Busy <mbusy@softbankrobotics.com>"
 HOMEPAGE = "http://github.com/ros-naoqi/pepper_meshes2/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License"
 LICENSE = "CC-BY-NC-ND-4.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=cc423ec78844eb7f9a98d5df4d0f6289"
@@ -20,7 +20,7 @@ ROS_BPN = "pepper_meshes"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 

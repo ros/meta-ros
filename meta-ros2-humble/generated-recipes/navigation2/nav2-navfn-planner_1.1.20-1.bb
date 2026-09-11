@@ -9,13 +9,13 @@ DESCRIPTION = "TODO"
 AUTHOR = "Steve Macenski <stevenmacenski@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & BSD-3-Clause"
+LICENSE = "Apache-2.0 AND BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "navigation2"
 ROS_BPN = "nav2_navfn_planner"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     nav-msgs \
@@ -32,11 +32,11 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     nav-msgs \
@@ -55,7 +55,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     nav-msgs \
@@ -73,7 +73,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

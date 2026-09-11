@@ -10,13 +10,13 @@ AUTHOR = "Intel Labs <scenario-execution@intel.com>"
 ROS_AUTHOR = "Intel Labs <scenario-execution@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "scenario_execution"
 ROS_BPN = "scenario_execution_rviz"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     nav-msgs \
     py-trees-ros-interfaces \
@@ -27,18 +27,18 @@ ROS_BUILD_DEPENDS = " \
     std-srvs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rclcpp \
     rviz-common \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     nav-msgs \
     py-trees-ros-interfaces \

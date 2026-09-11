@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
 ROS_AUTHOR = "The Cartographer Authors <google-cartographer@googlegroups.com>"
 HOMEPAGE = "https://github.com/cartographer-project/cartographer_ros"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5afebf178817283e37"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5
 ROS_CN = "cartographer_ros"
 ROS_BPN = "cartographer_ros"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     abseil-cpp \
     builtin-interfaces \
     cartographer \
@@ -45,11 +45,11 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     abseil-cpp \
     builtin-interfaces \
     cartographer \
@@ -76,7 +76,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     abseil-cpp \
     builtin-interfaces \
     cartographer \

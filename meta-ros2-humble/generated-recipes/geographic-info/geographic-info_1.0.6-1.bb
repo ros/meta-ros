@@ -16,23 +16,23 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=d566ef916e9de
 ROS_CN = "geographic_info"
 ROS_BPN = "geographic_info"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geodesy \
     geographic-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geodesy \
     geographic-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geodesy \
     geographic-msgs \
 "

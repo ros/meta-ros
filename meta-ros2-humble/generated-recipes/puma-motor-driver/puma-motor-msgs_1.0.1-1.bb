@@ -15,18 +15,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc
 ROS_CN = "puma_motor_driver"
 ROS_BPN = "puma_motor_msgs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     action-msgs \
     builtin-interfaces \
     rosidl-default-generators \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     action-msgs \
     builtin-interfaces \
     std-msgs \
@@ -34,7 +34,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     action-msgs \
     builtin-interfaces \
     rosidl-default-runtime \

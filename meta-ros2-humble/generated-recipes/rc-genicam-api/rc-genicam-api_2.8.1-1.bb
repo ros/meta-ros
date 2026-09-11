@@ -16,17 +16,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=27;endline=27;md5=01c2bc31767cc
 ROS_CN = "rc_genicam_api"
 ROS_BPN = "rc_genicam_api"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libpng \
     libusb1 \
     ncurses \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libpng \
     libusb1 \
     ncurses \
@@ -34,7 +34,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libpng \
     libusb1 \
     ncurses \

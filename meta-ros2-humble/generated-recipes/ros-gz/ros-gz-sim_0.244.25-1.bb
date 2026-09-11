@@ -10,7 +10,7 @@ AUTHOR = "Alejandro Hernandez <ahcorde@openrobotics.org>"
 ROS_AUTHOR = "Alejandro Hernandez"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=3dce4ba60d7e51e
 ROS_CN = "ros_gz"
 ROS_BPN = "ros_gz_sim"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     ${ROS_UNRESOLVED_DEP-ignition-math6} \
     ament-index-python \
@@ -28,12 +28,12 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     ${ROS_UNRESOLVED_DEP-ignition-math6} \
     ament-index-python \
@@ -45,7 +45,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     ${ROS_UNRESOLVED_DEP-ignition-math6} \
     ament-index-python \
@@ -56,7 +56,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

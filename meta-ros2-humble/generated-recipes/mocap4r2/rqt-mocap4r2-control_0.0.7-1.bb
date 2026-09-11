@@ -9,7 +9,7 @@ DESCRIPTION = "Control tools GUI"
 AUTHOR = "Francisco Martín Rico <fmrico@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=c93e37fc0c6f510db5735eb91dcc1550"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=c93e37fc0c6f510
 ROS_CN = "mocap4r2"
 ROS_BPN = "rqt_mocap4r2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     mocap4r2-control \
     mocap4r2-control-msgs \
     qt-gui-cpp \
@@ -28,11 +28,11 @@ ROS_BUILD_DEPENDS = " \
     sensor-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     mocap4r2-control \
     mocap4r2-control-msgs \
     qt-gui-cpp \
@@ -45,7 +45,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     mocap4r2-control \
     mocap4r2-control-msgs \
     qt-gui-cpp \
@@ -57,7 +57,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

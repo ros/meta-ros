@@ -10,7 +10,7 @@ AUTHOR = "Pyo <pyo@robotis.com>"
 ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
 HOMEPAGE = "https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
@@ -18,18 +18,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e5
 ROS_CN = "turtlebot3_manipulation"
 ROS_BPN = "turtlebot3_manipulation_hardware"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     dynamixel-sdk \
     hardware-interface \
     pluginlib \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     dynamixel-sdk \
     hardware-interface \
     pluginlib \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     dynamixel-sdk \
     hardware-interface \
     pluginlib \

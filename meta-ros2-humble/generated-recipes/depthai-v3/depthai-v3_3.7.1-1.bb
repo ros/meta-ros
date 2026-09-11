@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=92566b45c3390
 ROS_CN = "depthai_v3"
 ROS_BPN = "depthai_v3"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-gfortran} \
     curl \
     fmt \
@@ -31,11 +31,11 @@ ROS_BUILD_DEPENDS = " \
     zip \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-gfortran} \
     curl \
     fmt \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-gfortran} \
     curl \
     fmt \

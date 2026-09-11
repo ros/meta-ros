@@ -18,7 +18,7 @@ ROS_BPN = "mrt_cmake_modules"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     python3-catkin-pkg-native \
     python3-pyyaml-native \
@@ -29,7 +29,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     gtest-vendor-native \
     lcov-native \
     python3-catkin-pkg-native \

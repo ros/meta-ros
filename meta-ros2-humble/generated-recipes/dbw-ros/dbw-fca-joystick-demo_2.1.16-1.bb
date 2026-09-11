@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 ROS_CN = "dbw_ros"
 ROS_BPN = "dbw_fca_joystick_demo"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     dataspeed-dbw-common \
     dbw-fca-msgs \
     rclcpp \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     dataspeed-dbw-common \
     dbw-fca-msgs \
     rclcpp \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     dataspeed-dbw-common \
     dbw-fca-can \
     dbw-fca-msgs \

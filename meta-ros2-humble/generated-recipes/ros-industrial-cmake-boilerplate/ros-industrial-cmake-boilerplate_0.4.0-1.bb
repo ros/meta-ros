@@ -10,9 +10,9 @@ AUTHOR = "Levi Armstrong <Levi.Armstrong@swri.org>"
 ROS_AUTHOR = "Levi Armstrong"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache 2.0 & BSD 3-Clause"
-LICENSE = "Apache-2.0 & BSD-3-Clause"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache 2.0 AND BSD 3-Clause"
+LICENSE = "Apache-2.0 AND BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
 
 ROS_CN = "ros_industrial_cmake_boilerplate"
@@ -20,7 +20,7 @@ ROS_BPN = "ros_industrial_cmake_boilerplate"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
@@ -31,7 +31,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-iwyu} \
     clang \
     cppcheck \

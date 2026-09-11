@@ -9,9 +9,9 @@ DESCRIPTION = "vendor package for the sol2 library"
 AUTHOR = "Kotaro Yoshimoto <pythagora.yoshimoto@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & MIT"
-LICENSE = "Apache-2.0 & MIT"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache License 2.0 AND MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=90960aa57caec7a7bf3c3aa0ed98b90a"
 
 ROS_CN = "sol_vendor"
@@ -19,7 +19,7 @@ ROS_BPN = "sol_vendor"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -30,7 +30,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ouxt-lint-common \
 "

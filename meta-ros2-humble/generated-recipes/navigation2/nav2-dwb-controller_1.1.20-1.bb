@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=82f0323c08605
 ROS_CN = "navigation2"
 ROS_BPN = "nav2_dwb_controller"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     costmap-queue \
     dwb-core \
     dwb-critics \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     nav-2d-utils \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     costmap-queue \
     dwb-core \
     dwb-critics \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     costmap-queue \
     dwb-core \
     dwb-critics \

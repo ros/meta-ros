@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=58e54c03ca7f8
 ROS_CN = "synapticon_ros2_control"
 ROS_BPN = "synapticon_ros2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     hardware-interface \
     libcap \
     pluginlib \
@@ -24,11 +24,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp-lifecycle \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     hardware-interface \
     libcap \
     pluginlib \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     controller-manager \
     forward-command-controller \
     hardware-interface \
@@ -56,7 +56,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ros-testing \
 "

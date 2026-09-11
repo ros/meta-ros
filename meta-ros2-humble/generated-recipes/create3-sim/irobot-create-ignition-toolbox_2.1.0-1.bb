@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc
 ROS_CN = "create3_sim"
 ROS_BPN = "irobot_create_ignition_toolbox"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     control-msgs \
     irobot-create-msgs \
     irobot-create-toolbox \
@@ -30,11 +30,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-geometry-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     control-msgs \
     irobot-create-msgs \
     irobot-create-toolbox \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     control-msgs \
     irobot-create-msgs \
     irobot-create-toolbox \
@@ -67,7 +67,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-cppcheck \
     ament-cmake-cpplint \
     ament-cmake-flake8 \

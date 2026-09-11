@@ -10,7 +10,7 @@ AUTHOR = "Leonardo Neumarkt <leonardoneumarkt@ekumenlabs.com>"
 ROS_AUTHOR = "Leonardo Neumarkt <leonardoneumarkt@ekumenlabs.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "BSD Clause 3"
 LICENSE = "BSD-Clause-3"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e2197b8633fd51a47f897d9d6f820c24"
@@ -20,7 +20,7 @@ ROS_BPN = "andino_gz"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     andino-description \
     andino-slam \

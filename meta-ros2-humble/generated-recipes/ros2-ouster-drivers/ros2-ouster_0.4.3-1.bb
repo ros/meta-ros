@@ -15,12 +15,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5
 ROS_CN = "ros2_ouster_drivers"
 ROS_BPN = "ros2_ouster"
 
-ROS_BUILD_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     launch \
     launch-ros \
+    libtins \
     ouster-msgs \
     pcl \
     pcl-conversions \
@@ -34,16 +34,16 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
+ROS_EXPORT_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     launch \
     launch-ros \
+    libtins \
     ouster-msgs \
     pcl \
     pcl-conversions \
@@ -59,12 +59,12 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    ${ROS_UNRESOLVED_DEP-libtins-dev} \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     launch \
     launch-ros \
+    libtins \
     ouster-msgs \
     pcl \
     pcl-conversions \
@@ -79,7 +79,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

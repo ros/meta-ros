@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=d566ef916e9de
 ROS_CN = "image_pipeline"
 ROS_BPN = "depth_image_proc"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     class-loader \
     cv-bridge \
     image-geometry \
@@ -32,11 +32,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-ros \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cv-bridge \
     image-geometry \
     image-transport \
@@ -53,7 +53,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     cv-bridge \
     image-geometry \
     image-transport \
@@ -69,7 +69,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

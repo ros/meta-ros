@@ -10,7 +10,7 @@ AUTHOR = "Thomas Peyrucain <thomas.peyrucain@pal-robotics.com>"
 ROS_AUTHOR = "Thomas Peyrucain <thomas.peyrucain@pal-robotics.com>"
 HOMEPAGE = "http://moveit.ros.org/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
@@ -20,7 +20,7 @@ ROS_BPN = "pal_sea_arm_moveit_config"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     launch-pal \
     moveit-configs-utils \
     moveit-kinematics \
@@ -42,7 +42,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

@@ -10,7 +10,7 @@ AUTHOR = "Southwest Research Institute <swri-robotics@swri.org>"
 ROS_AUTHOR = "David Anthony <david.anthony@swri.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "BSD 3 Clause"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e93ac74ce618e98d7286226018d612a5"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e93ac74ce618e
 ROS_CN = "marti_common"
 ROS_BPN = "swri_cli_tools"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     marti-introspection-msgs \
     python3-natsort \
     rcl-interfaces \
@@ -31,7 +31,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     marti-introspection-msgs \
     python3-natsort \
     rcl-interfaces \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     marti-introspection-msgs \
     python3-natsort \
     rcl-interfaces \
@@ -56,7 +56,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-copyright \
     ament-flake8 \
     ament-pep257 \
