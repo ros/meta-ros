@@ -2,11 +2,8 @@
 
 inherit python3native
 
-DEPENDS += "python3-numpy-native"
-
 FILES:${PN}-python = " \
     ${libdir}/libboost_python*.so.* \
-    ${libdir}/libboost_numpy*.so.* \
 "
 
 do_configure() {
