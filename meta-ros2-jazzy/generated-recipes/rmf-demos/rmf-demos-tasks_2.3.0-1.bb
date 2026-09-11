@@ -10,7 +10,7 @@ AUTHOR = "Yadunund <yadunund@openrobotics.org>"
 ROS_AUTHOR = "Grey <grey@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache Licence 2.0"
 LICENSE = "Apache-Licence-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=1b1c76d8de4ab08fc409e5ecfd544e9d"
@@ -26,7 +26,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rmf-dispenser-msgs \
     rmf-fleet-msgs \
     rmf-lift-msgs \
@@ -34,7 +34,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-copyright \
     ament-flake8 \
     ament-pep257 \
