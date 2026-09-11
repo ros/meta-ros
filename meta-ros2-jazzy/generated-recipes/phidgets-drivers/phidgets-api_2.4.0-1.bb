@@ -16,21 +16,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 ROS_CN = "phidgets_drivers"
 ROS_BPN = "phidgets_api"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libphidget22 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libphidget22 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libphidget22 \
 "
 

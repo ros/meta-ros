@@ -10,9 +10,9 @@ AUTHOR = "Aditya Pande <aditya.pande@openrobotics.org>"
 ROS_AUTHOR = "Michel Hidalgo <michel@ekumenlabs.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & BSD"
-LICENSE = "Apache-2.0 & BSD"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache License 2.0 AND BSD"
+LICENSE = "Apache-2.0 AND BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "launch"
@@ -20,13 +20,13 @@ ROS_BPN = "launch_testing_ament_cmake"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-test-native \
     launch-testing-native \
     python-cmake-module-native \
@@ -35,7 +35,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     launch-testing \
     python-cmake-module \

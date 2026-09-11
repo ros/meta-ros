@@ -9,7 +9,7 @@ DESCRIPTION = "A controller/manager for the lifecycle nodes of the ROS2 Planning
 AUTHOR = "Francisco Martin Rico <fmrico@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23266fc6f8ec03dc9eb16"
@@ -17,17 +17,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23
 ROS_CN = "ros2_planning_system"
 ROS_BPN = "plansys2_lifecycle_manager"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     lifecycle-msgs \
     rclcpp \
     rclcpp-lifecycle \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     lifecycle-msgs \
     rclcpp \
     rclcpp-lifecycle \
@@ -35,14 +35,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     lifecycle-msgs \
     rclcpp \
     rclcpp-lifecycle \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

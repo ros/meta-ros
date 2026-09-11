@@ -10,7 +10,7 @@ AUTHOR = "Bartolome Jimenez Vera <bjv@capra.ooo>"
 ROS_AUTHOR = "Arne Nordmann <arne.nordmann@de.bosch.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
@@ -18,17 +18,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493f
 ROS_CN = "micro_ros_diagnostics"
 ROS_BPN = "micro_ros_diagnostic_bridge"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     diagnostic-msgs \
     micro-ros-diagnostic-msgs \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     diagnostic-msgs \
     micro-ros-diagnostic-msgs \
     rclcpp \
@@ -36,14 +36,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     diagnostic-msgs \
     micro-ros-diagnostic-msgs \
     rclcpp \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

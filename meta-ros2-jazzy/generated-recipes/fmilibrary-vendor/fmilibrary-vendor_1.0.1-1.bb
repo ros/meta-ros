@@ -15,11 +15,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=665599198b8a9e4
 ROS_CN = "fmilibrary_vendor"
 ROS_BPN = "fmilibrary_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     git \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 

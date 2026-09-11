@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=7226d4de58a1d
 ROS_CN = "insight_gui"
 ROS_BPN = "insight_gui"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libgirepository-dev} \
     glib-2.0 \
     gtk4 \
@@ -29,7 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libgirepository-dev} \
     ${ROS_UNRESOLVED_DEP-python3-gi-cairo} \
     ${ROS_UNRESOLVED_DEP-python3-networkx} \
@@ -48,7 +48,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-copyright \
     ament-flake8 \
     ament-pep257 \

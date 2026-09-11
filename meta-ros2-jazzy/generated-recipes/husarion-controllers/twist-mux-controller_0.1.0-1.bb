@@ -10,7 +10,7 @@ AUTHOR = "Husarion <support@husarion.com>"
 ROS_AUTHOR = "Dawid Kmak <dawid.kmak@husarion.com>"
 HOMEPAGE = "https://husarion.com"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493f
 ROS_CN = "husarion_controllers"
 ROS_BPN = "twist_mux_controller"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     controller-interface \
     generate-parameter-library \
     geometry-msgs \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     realtime-tools \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     controller-interface \
     generate-parameter-library \
     geometry-msgs \
@@ -46,7 +46,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     controller-interface \
     generate-parameter-library \
     geometry-msgs \

@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605
 ROS_CN = "ros2_canopen"
 ROS_BPN = "canopen_ros2_controllers"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     canopen-402-driver \
     canopen-interfaces \
     canopen-proxy-driver \
@@ -30,11 +30,11 @@ ROS_BUILD_DEPENDS = " \
     std-srvs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     canopen-402-driver \
     canopen-interfaces \
     canopen-proxy-driver \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     canopen-402-driver \
     canopen-interfaces \
     canopen-proxy-driver \

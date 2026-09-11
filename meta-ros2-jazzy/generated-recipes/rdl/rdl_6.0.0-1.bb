@@ -9,7 +9,7 @@ DESCRIPTION = "The rdl meta-package"
 AUTHOR = "jordan <jlack1987@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "zlib"
 LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=1eb3ae4da2d543c88883b0e54da683a2"
@@ -19,7 +19,7 @@ ROS_BPN = "rdl"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rdl-benchmark \
     rdl-dynamics \
     rdl-urdfreader \

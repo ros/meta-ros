@@ -10,7 +10,7 @@ AUTHOR = "Francisco Martin Rico <fmrico@gmail.com>"
 ROS_AUTHOR = "Anders Jonsson"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=e8978a5103d23266fc6f8ec03dc9eb16"
@@ -18,17 +18,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=e8978a5103d23
 ROS_CN = "ros2_planning_system"
 ROS_BPN = "plansys2_pddl_parser"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     plansys2-msgs \
     rclcpp \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     plansys2-msgs \
     rclcpp \
     std-msgs \
@@ -36,14 +36,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     plansys2-msgs \
     rclcpp \
     std-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-index-cpp \
     ament-lint-auto \

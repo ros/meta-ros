@@ -9,7 +9,7 @@ DESCRIPTION = "Vendor package for small_gicp. This is just a wrapper to provide 
 AUTHOR = "miguel <Miguel.Granero@iosb.fraunhofer.de>"
 HOMEPAGE = "https://github.com/koide3/small_gicp"
 SECTION = "devel"
-LICENSE = "MIT & BSD"
+LICENSE = "MIT AND BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3de80f16cfd73b8dbe121e90d489cbe6"
 
 ROS_CN = "multisensor_calibration"
@@ -17,7 +17,7 @@ ROS_BPN = "small_gicp_vendor"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
 "

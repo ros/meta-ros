@@ -9,7 +9,7 @@ DESCRIPTION = "bcr_bot"
 AUTHOR = "Gaurav Gupta <gaurav@blackcoffeerobotics.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=5a034bfdd80f2941632b4629d4fe2295"
@@ -19,7 +19,7 @@ ROS_BPN = "bcr_bot"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-python \
     launch \
     launch-ros \

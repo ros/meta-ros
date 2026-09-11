@@ -10,9 +10,9 @@ AUTHOR = "Brandon Ong <brandon@openrobotics.org>"
 ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
 HOMEPAGE = "http://wiki.ros.org/rqt_topic"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD & Apache License 2.0"
-LICENSE = "BSD & Apache-2.0"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "BSD AND Apache License 2.0"
+LICENSE = "BSD AND Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
 ROS_CN = "rqt_topic"
@@ -26,7 +26,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     python-qt-binding \
     rclpy \
     ros2topic \
@@ -36,7 +36,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-flake8 \
     ament-xmllint \
     python3-pytest \

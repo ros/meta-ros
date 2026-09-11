@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=58e54c03ca7f821
 ROS_CN = "depthai-ros"
 ROS_BPN = "depthai_ros_driver"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-auto \
     camera-calibration \
     cv-bridge \
@@ -41,11 +41,11 @@ ROS_BUILD_DEPENDS = " \
     vision-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-cmake-auto \
     camera-calibration \
     cv-bridge \
@@ -72,7 +72,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake-auto \
     camera-calibration \
     cv-bridge \

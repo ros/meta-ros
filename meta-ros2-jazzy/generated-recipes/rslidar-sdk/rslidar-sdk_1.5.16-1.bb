@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=d566ef916e9dedc
 ROS_CN = "rslidar_sdk"
 ROS_BPN = "rslidar_sdk"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libpcap \
     rclcpp \
     rslidar-msg \
@@ -24,11 +24,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libpcap \
     rclcpp \
     rslidar-msg \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libpcap \
     rclcpp \
     rslidar-msg \

@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=162b49cfbae9ead
 ROS_CN = "imu_pipeline"
 ROS_BPN = "imu_transformer"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     message-filters \
     rclcpp \
     rclcpp-components \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-sensor-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     message-filters \
     rclcpp \
     rclcpp-components \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     message-filters \
     rclcpp \
     rclcpp-components \
@@ -50,7 +50,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     geometry-msgs \
     tf2-geometry-msgs \
 "
