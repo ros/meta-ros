@@ -10,7 +10,7 @@ AUTHOR = "Michael Jeronimo <michael.jeronimo@openrobotics.org>"
 ROS_AUTHOR = "Steven! Ragnarök <steven@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f2c2560c422b1f619ff2ce48845782f5"
@@ -18,12 +18,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f2c2560c422b1
 ROS_CN = "ros_workspace"
 ROS_BPN = "ros_workspace"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-core \
     ament-package \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 

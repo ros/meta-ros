@@ -10,7 +10,7 @@ AUTHOR = "Pyo <pyo@robotis.com>"
 ROS_AUTHOR = "Darby Lim <thlim@robotis.com>"
 HOMEPAGE = "http://turtlebot3.robotis.com"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
@@ -20,7 +20,7 @@ ROS_BPN = "turtlebot3"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     turtlebot3-bringup \
     turtlebot3-cartographer \
     turtlebot3-description \

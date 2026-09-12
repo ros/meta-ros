@@ -9,7 +9,7 @@ DESCRIPTION = "Vendor package for: gz-launch8 8.0.3      Gazebo Launch : Run and
 AUTHOR = "Addisu Z. Taddese <addisuzt@intrinsic.ai>"
 HOMEPAGE = "https://github.com/gazebosim/gz-launch"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=12c26a18c7f49
 ROS_CN = "gz_launch_vendor"
 ROS_BPN = "gz_launch_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libwebsockets-dev} \
     binutils \
     gflags \
@@ -37,14 +37,14 @@ ROS_BUILD_DEPENDS = " \
     util-linux \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     ament-cmake-test-native \
     ament-cmake-vendor-package-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-cmake-vendor \
     gz-common-vendor \
     gz-gui-vendor \
@@ -58,7 +58,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libwebsockets-dev} \
     binutils \
     gflags \
@@ -79,7 +79,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-xvfb} \
     ament-cmake-copyright \
     ament-cmake-lint-cmake \

@@ -15,11 +15,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=82f0323c08605
 ROS_CN = "navigation2"
 ROS_BPN = "navigation2"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     nav2-common \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     nav2-amcl \
     nav2-behavior-tree \
     nav2-behaviors \

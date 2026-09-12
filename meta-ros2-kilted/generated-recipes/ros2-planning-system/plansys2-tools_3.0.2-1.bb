@@ -9,7 +9,7 @@ DESCRIPTION = "A set of tools for monitoring ROS2 Planning System"
 AUTHOR = "Francisco Martin Rico <fmrico@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache License, Version 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23266fc6f8ec03dc9eb16"
@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23
 ROS_CN = "ros2_planning_system"
 ROS_BPN = "plansys2_tools"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     plansys2-msgs \
     plansys2-problem-expert \
     qt-gui-cpp \
@@ -28,11 +28,11 @@ ROS_BUILD_DEPENDS = " \
     rqt-gui-cpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     plansys2-msgs \
     plansys2-problem-expert \
     qt-gui-cpp \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     plansys2-msgs \
     plansys2-problem-expert \
     qt-gui-cpp \
@@ -56,7 +56,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-index-cpp \
     ament-lint-auto \

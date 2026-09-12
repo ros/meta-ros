@@ -10,7 +10,7 @@ AUTHOR = "Sean Kelly <sean.kelly@ifm.com>"
 ROS_AUTHOR = "Tom Panzarella <tom@boxrobotics.ai>"
 HOMEPAGE = "https://github.com/ifm/ifm3d"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3dce4ba60d7e51ec64f3c3dc18672dd3"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=3dce4ba60d7e51e
 ROS_CN = "ifm3d_core"
 ROS_BPN = "ifm3d_core"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     curl \
     cv-bridge \
@@ -27,7 +27,7 @@ ROS_BUILD_DEPENDS = " \
     xmlrpc-c \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     curl \
     cv-bridge \
     glog \
