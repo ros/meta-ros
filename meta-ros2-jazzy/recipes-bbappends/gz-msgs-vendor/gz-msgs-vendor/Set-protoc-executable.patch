@@ -1,11 +1,11 @@
 Upstream-Status: Inappropriate [OE specific]
 
-Index: git/CMakeLists.txt
+Index: gz-msgs-vendor-0.0.8-1/CMakeLists.txt
 ===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
-@@ -45,6 +45,7 @@ ament_vendor(${LIB_NAME_UNDERSCORE}_vend
-   VCS_VERSION ${GITHUB_NAME}${LIB_VER_MAJOR}_${LIB_VER}${LIB_VER_SUFFIX}
+--- gz-msgs-vendor-0.0.8-1.orig/CMakeLists.txt
++++ gz-msgs-vendor-0.0.8-1/CMakeLists.txt
+@@ -56,6 +56,7 @@ ament_vendor(${LIB_NAME_UNDERSCORE}_vend
+   VCS_VERSION ${LIB_VCS_VER}
    CMAKE_ARGS
      -DBUILD_DOCS:BOOL=OFF
 +    -DPROTOBUF_PROTOC_EXECUTABLE=${PROTOBUF_PROTOC_EXECUTABLE}
