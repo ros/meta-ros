@@ -39,3 +39,7 @@ PREFERRED_VERSION_ogre-next = "2.3.3"
 
 # python-pygraphviz needed a version < 13
 PREFERRED_VERSION_graphviz = "12.2.1"
+
+PREFERRED_VERSION_xsimd = "12.1.1"
+PREFERRED_VERSION_xtensor = "0.25.0"
+PREFERRED_VERSION_xtl = "0.7.5"
