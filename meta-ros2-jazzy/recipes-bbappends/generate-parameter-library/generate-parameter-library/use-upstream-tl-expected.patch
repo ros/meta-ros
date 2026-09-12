@@ -7,10 +7,10 @@ Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Index: generate-parameter-library-0.7.3-1/cmake/generate_parameter_library.cmake
+Index: generate-parameter-library-0.7.6-1/cmake/generate_parameter_library.cmake
 ===================================================================
---- generate-parameter-library-0.7.3-1.orig/cmake/generate_parameter_library.cmake
-+++ generate-parameter-library-0.7.3-1/cmake/generate_parameter_library.cmake
+--- generate-parameter-library-0.7.6-1.orig/cmake/generate_parameter_library.cmake
++++ generate-parameter-library-0.7.6-1/cmake/generate_parameter_library.cmake
 @@ -97,19 +97,11 @@ macro(generate_parameter_library LIB_NAM
      rsl::rsl
      tcb_span::tcb_span
@@ -31,11 +31,11 @@ Index: generate-parameter-library-0.7.3-1/cmake/generate_parameter_library.cmake
    )
  endmacro()
  
-Index: generate-parameter-library-0.7.3-1/generate_parameter_library-extras.cmake
+Index: generate-parameter-library-0.7.6-1/generate_parameter_library-extras.cmake
 ===================================================================
---- generate-parameter-library-0.7.3-1.orig/generate_parameter_library-extras.cmake
-+++ generate-parameter-library-0.7.3-1/generate_parameter_library-extras.cmake
-@@ -33,10 +33,5 @@ find_package(rsl REQUIRED)
+--- generate-parameter-library-0.7.6-1.orig/generate_parameter_library-extras.cmake
++++ generate-parameter-library-0.7.6-1/generate_parameter_library-extras.cmake
+@@ -32,11 +32,6 @@ find_package(rsl REQUIRED)
  find_package(rclcpp_lifecycle REQUIRED)
  find_package(tcb_span REQUIRED)
  find_package(tl-expected REQUIRED)
@@ -43,6 +43,7 @@ Index: generate-parameter-library-0.7.3-1/generate_parameter_library-extras.cmak
 -# remove once this redirection is removed
 -# https://github.com/PickNikRobotics/cpp_polyfills/pull/12
 -set(tl_expected_DEPRECATED_QUIET TRUE)
+ find_package(parameter_traits REQUIRED)
 -find_package(tl_expected REQUIRED)
  
  include("${generate_parameter_library_DIR}/generate_parameter_library.cmake")
