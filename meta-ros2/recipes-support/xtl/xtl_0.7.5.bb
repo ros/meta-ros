@@ -12,3 +12,5 @@ SRCREV = "fea39142693fbbc2ef19d75012bc6b46ef0a5f8c"
 S = "${WORKDIR}/git"
 
 inherit cmake
+
+EXTRA_OECMAKE += "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
