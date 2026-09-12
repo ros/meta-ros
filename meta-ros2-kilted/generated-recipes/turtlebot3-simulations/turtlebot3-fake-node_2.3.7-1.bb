@@ -10,7 +10,7 @@ AUTHOR = "Pyo <pyo@robotis.com>"
 ROS_AUTHOR = "Pyo <pyo@robotis.com>"
 HOMEPAGE = "http://turtlebot3.robotis.com"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=cd41bc11770726765d770973e9991bab"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=cd41bc1177072
 ROS_CN = "turtlebot3_simulations"
 ROS_BPN = "turtlebot3_fake_node"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake \
     geometry-msgs \
     nav-msgs \
@@ -31,7 +31,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-cmake \
     geometry-msgs \
     nav-msgs \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake \
     geometry-msgs \
     nav-msgs \

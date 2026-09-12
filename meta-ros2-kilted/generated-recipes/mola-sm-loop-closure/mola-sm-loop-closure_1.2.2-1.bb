@@ -10,7 +10,7 @@ AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 ROS_AUTHOR = "Jose-Luis Blanco-Claraco <joseluisblancoc@gmail.com>"
 HOMEPAGE = "https://docs.mola-slam.org/"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "GPLv3"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e9f2deaa804a16d9e0d3965ef77e171e"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e9f2deaa804a1
 ROS_CN = "mola_sm_loop_closure"
 ROS_BPN = "mola_sm_loop_closure"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gtsam \
     libflann \
     lz4 \
@@ -36,13 +36,13 @@ ROS_BUILD_DEPENDS = " \
     tbb \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gtest-native \
     ament-cmake-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gtsam \
     mola-common \
     mola-georeferencing \
@@ -59,7 +59,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gtsam \
     mola-common \
     mola-georeferencing \
@@ -75,7 +75,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-lint-cmake \
     ament-cmake-pep257 \
     ament-cmake-uncrustify \

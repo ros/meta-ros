@@ -9,7 +9,7 @@ DESCRIPTION = "Various tools for IMU devices"
 AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
 HOMEPAGE = "http://ros.org/wiki/imu_tools"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "BSD, GPL"
 LICENSE = "BSD-&-GPL"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d81febe1baeaed0bfd599be384185f36"
@@ -19,7 +19,7 @@ ROS_BPN = "imu_tools"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     imu-complementary-filter \
     imu-filter-madgwick \
     rviz-imu-plugin \

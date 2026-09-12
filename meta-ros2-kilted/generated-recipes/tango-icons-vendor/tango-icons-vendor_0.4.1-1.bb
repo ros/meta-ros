@@ -10,9 +10,9 @@ AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 ROS_AUTHOR = "Alejandro Hernandez <alejandro@osrfoundation.org>"
 HOMEPAGE = "http://ros.org/wiki/qt_gui_icons"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & Public Domain"
-LICENSE = "Apache-2.0 & PD"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache License 2.0 AND Public Domain"
+LICENSE = "Apache-2.0 AND PD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "tango_icons_vendor"
@@ -20,7 +20,7 @@ ROS_BPN = "tango_icons_vendor"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,12 +28,12 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     adwaita-icon-theme \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

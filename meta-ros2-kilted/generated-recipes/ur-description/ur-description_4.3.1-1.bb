@@ -10,9 +10,9 @@ AUTHOR = "Felix Exner <feex@universal-robots.com>"
 ROS_AUTHOR = "Nadia Hammoudeh Garcia"
 HOMEPAGE = "https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/issues"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD-3-Clause & Universal Robots A/S’ Terms and Conditions for Use of Graphical Documentation"
-LICENSE = "BSD-3-Clause & Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "BSD-3-Clause AND Universal Robots A/S’ Terms and Conditions for Use of Graphical Documentation"
+LICENSE = "BSD-3-Clause AND Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=30;endline=30;md5=d0998f4eabe3d0099aca1e1f57f44fe6"
 
 ROS_CN = "ur_description"
@@ -20,7 +20,7 @@ ROS_BPN = "ur_description"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     joint-state-publisher-gui \
     launch \
     launch-ros \
@@ -39,7 +39,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     launch-testing-ament-cmake \
     launch-testing-ros \
