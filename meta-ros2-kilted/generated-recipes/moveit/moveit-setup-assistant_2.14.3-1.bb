@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=4633480cdd27d
 ROS_CN = "moveit"
 ROS_BPN = "moveit_setup_assistant"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-index-cpp \
     moveit-setup-framework \
     moveit-setup-srdf-plugins \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-index-cpp \
     moveit-setup-framework \
     moveit-setup-srdf-plugins \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-cpp \
     moveit-configs-utils \
     moveit-setup-app-plugins \
@@ -54,7 +54,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     moveit-resources-panda-moveit-config \
 "

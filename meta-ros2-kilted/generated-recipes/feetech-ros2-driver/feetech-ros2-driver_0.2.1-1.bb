@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc
 ROS_CN = "feetech_ros2_driver"
 ROS_BPN = "feetech_ros2_driver"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
     fmt \
     hardware-interface \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     tl-expected \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
     fmt \
     hardware-interface \
@@ -45,7 +45,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
     fmt \
     hardware-interface \

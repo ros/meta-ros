@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=46ee8693f40a8
 ROS_CN = "slam_toolbox"
 ROS_BPN = "slam_toolbox"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     bond \
     bondcpp \
     boost \
@@ -50,11 +50,11 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rviz-common \
     rviz-default-plugins \
     rviz-ogre-vendor \
@@ -63,7 +63,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     bond \
     bondcpp \
     boost \
@@ -99,7 +99,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-cpplint \
     ament-cmake-flake8 \
     ament-cmake-gtest \

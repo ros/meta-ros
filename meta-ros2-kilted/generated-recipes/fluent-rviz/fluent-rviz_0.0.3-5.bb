@@ -9,7 +9,7 @@ DESCRIPTION = "A library which makes Rviz fluent. Powered by C++17"
 AUTHOR = "shouth <shouth373@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=80318c4afef111a7690eaf237460856b"
@@ -17,18 +17,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=80318c4afef11
 ROS_CN = "fluent_rviz"
 ROS_BPN = "fluent_rviz"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     rclcpp \
     std-msgs \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     rclcpp \
     std-msgs \
@@ -37,7 +37,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     rclcpp \
     std-msgs \
@@ -45,7 +45,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ouxt-lint-common \
 "

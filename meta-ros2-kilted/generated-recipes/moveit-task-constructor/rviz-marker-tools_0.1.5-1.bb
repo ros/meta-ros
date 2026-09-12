@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=75730354549103a
 ROS_CN = "moveit_task_constructor"
 ROS_BPN = "rviz_marker_tools"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     libeigen \
     moveit-common \
@@ -27,12 +27,12 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     eigen3-cmake-module-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     libeigen \
     moveit-common \
@@ -42,11 +42,11 @@ ROS_EXPORT_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     eigen3-cmake-module-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     moveit-common \
     rclcpp \

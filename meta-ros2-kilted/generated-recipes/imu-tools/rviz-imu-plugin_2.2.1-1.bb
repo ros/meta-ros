@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc
 ROS_CN = "imu_tools"
 ROS_BPN = "rviz_imu_plugin"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     message-filters \
     pluginlib \
     qtbase \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-ros \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     message-filters \
     pluginlib \
     rclcpp \
@@ -47,7 +47,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     message-filters \
     pluginlib \
     qtbase \

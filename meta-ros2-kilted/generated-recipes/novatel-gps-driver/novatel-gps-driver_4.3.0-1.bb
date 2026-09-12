@@ -16,7 +16,8 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9de
 ROS_CN = "novatel_gps_driver"
 ROS_BPN = "novatel_gps_driver"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
+    ${ROS_UNRESOLVED_DEP-swri-roscpp} \
     boost \
     diagnostic-msgs \
     diagnostic-updater \
@@ -29,17 +30,17 @@ ROS_BUILD_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     swri-math-util \
-    swri-roscpp \
     swri-serial-util \
     tf2 \
     tf2-geometry-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
+    ${ROS_UNRESOLVED_DEP-swri-roscpp} \
     boost \
     diagnostic-msgs \
     diagnostic-updater \
@@ -52,7 +53,6 @@ ROS_EXPORT_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     swri-math-util \
-    swri-roscpp \
     swri-serial-util \
     tf2 \
     tf2-geometry-msgs \
@@ -60,7 +60,8 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
+    ${ROS_UNRESOLVED_DEP-swri-roscpp} \
     boost \
     diagnostic-msgs \
     diagnostic-updater \
@@ -73,14 +74,13 @@ ROS_EXEC_DEPENDS = " \
     sensor-msgs \
     std-msgs \
     swri-math-util \
-    swri-roscpp \
     swri-serial-util \
     tf2 \
     tf2-geometry-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-index-cpp \
     ament-lint-auto \

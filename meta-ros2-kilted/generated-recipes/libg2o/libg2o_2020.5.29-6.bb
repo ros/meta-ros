@@ -16,14 +16,14 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9de
 ROS_CN = "libg2o"
 ROS_BPN = "libg2o"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
     mesa \
     suitesparse-cholmod \
     suitesparse-cxsparse \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -31,7 +31,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libeigen \
     mesa \
     suitesparse-cholmod \

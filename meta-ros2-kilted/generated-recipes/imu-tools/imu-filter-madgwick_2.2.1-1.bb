@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=162b49cfbae9ead
 ROS_CN = "imu_tools"
 ROS_BPN = "imu_filter_madgwick"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     nav-msgs \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     nav-msgs \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     nav-msgs \
@@ -62,7 +62,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
 "
 

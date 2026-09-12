@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605
 ROS_CN = "clips_executive"
 ROS_BPN = "cx_bringup"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     cx-protobuf-plugin \
     cx-ros-comm-gen \
     example-interfaces \
@@ -24,11 +24,11 @@ ROS_BUILD_DEPENDS = " \
     std-srvs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cx-protobuf-plugin \
     cx-ros-comm-gen \
     example-interfaces \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     cx-ament-index-plugin \
     cx-clips-env-manager \
     cx-config-plugin \
@@ -55,7 +55,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

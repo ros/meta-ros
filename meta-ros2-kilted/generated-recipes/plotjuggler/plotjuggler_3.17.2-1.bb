@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=6c8ed70e05fe4a3
 ROS_CN = "plotjuggler"
 ROS_BPN = "plotjuggler"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-index-cpp \
     binutils \
     boost \
@@ -34,11 +34,11 @@ ROS_BUILD_DEPENDS = " \
     zstd \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-index-cpp \
     binutils \
     boost \
@@ -58,7 +58,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-cpp \
     binutils \
     boost \

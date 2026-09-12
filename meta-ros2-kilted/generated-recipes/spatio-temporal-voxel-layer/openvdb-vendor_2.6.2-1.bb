@@ -10,15 +10,15 @@ AUTHOR = "Tim Clephas <tim.clephas@nobleo.nl>"
 ROS_AUTHOR = "Ignacio Vizzo <ignaciovizzo@gmail.com>"
 HOMEPAGE = "https://github.com/AcademySoftwareFoundation/openvdb"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "LGPL v2.1 & MPL-2.0 license"
-LICENSE = "LGPL-2.1-only & MPL-2.0-license"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "LGPL v2.1 AND MPL-2.0 license"
+LICENSE = "LGPL-2.1-only AND MPL-2.0-license"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=458541e94fd1d7768ee3dd330b592bd3"
 
 ROS_CN = "spatio_temporal_voxel_layer"
 ROS_BPN = "openvdb_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libblosc-dev} \
     ${ROS_UNRESOLVED_DEP-liblzma-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
@@ -29,13 +29,13 @@ ROS_BUILD_DEPENDS = " \
     zstd \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
     git-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libblosc-dev} \
     ${ROS_UNRESOLVED_DEP-liblzma-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libblosc-dev} \
     ${ROS_UNRESOLVED_DEP-liblzma-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \

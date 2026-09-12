@@ -10,7 +10,7 @@ AUTHOR = "Alejandro Hernández <alejandro@openrobotics.com>"
 ROS_AUTHOR = "Alejandro Hernández"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=fc216ef9336537897fbeafa564601763"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=fc216ef93365378
 ROS_CN = "gz_ros2_control"
 ROS_BPN = "gz_ros2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     controller-manager \
     gz-plugin-vendor \
     gz-sim-vendor \
@@ -30,11 +30,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     controller-manager \
     gz-plugin-vendor \
     gz-sim-vendor \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     controller-manager \
     gz-plugin-vendor \
     gz-sim-vendor \
@@ -61,7 +61,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

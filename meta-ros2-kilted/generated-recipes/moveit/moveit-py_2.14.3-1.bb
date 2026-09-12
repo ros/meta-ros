@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 ROS_CN = "moveit"
 ROS_BPN = "moveit_py"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     moveit-core \
     moveit-ros-planning \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     rclpy \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     moveit-core \
     moveit-ros-planning \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-python \
     geometry-msgs \
     moveit-core \
@@ -55,7 +55,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     python3-pytest \
 "

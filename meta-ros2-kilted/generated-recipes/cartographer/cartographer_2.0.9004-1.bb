@@ -10,7 +10,7 @@ AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
 ROS_AUTHOR = "The Cartographer Authors <google-cartographer@googlegroups.com>"
 HOMEPAGE = "https://github.com/cartographer-project/cartographer"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
 #         "Apache 2.0"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5afebf178817283e37"
@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5
 ROS_CN = "cartographer"
 ROS_BPN = "cartographer"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     abseil-cpp \
     boost \
     cairo \
@@ -33,11 +33,11 @@ ROS_BUILD_DEPENDS = " \
     python3-sphinx \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     abseil-cpp \
     boost \
     cairo \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     abseil-cpp \
     boost \
     cairo \

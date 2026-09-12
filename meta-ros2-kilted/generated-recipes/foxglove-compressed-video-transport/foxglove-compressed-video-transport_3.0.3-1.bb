@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=4083d50af96f9
 ROS_CN = "foxglove_compressed_video_transport"
 ROS_BPN = "foxglove_compressed_video_transport"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ffmpeg-encoder-decoder \
     foxglove-msgs \
     image-transport \
@@ -27,13 +27,13 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-ros-native \
     ros-environment-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ffmpeg-encoder-decoder \
     foxglove-msgs \
     image-transport \
@@ -46,7 +46,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ffmpeg-encoder-decoder \
     foxglove-msgs \
     image-transport \
@@ -58,7 +58,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-clang-format \
     ament-cmake-gtest \
     ament-lint-auto \

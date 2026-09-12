@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5
 ROS_CN = "navigation2"
 ROS_BPN = "nav2_constrained_smoother"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ceres-solver \
     geometry-msgs \
     libeigen \
@@ -30,11 +30,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-ros \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ceres-solver \
     geometry-msgs \
     nav2-core \
@@ -49,7 +49,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ceres-solver \
     geometry-msgs \
     nav2-core \
@@ -63,7 +63,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-cmake-pytest \
     ament-lint-auto \

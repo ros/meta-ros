@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9de
 ROS_CN = "trac_ik"
 ROS_BPN = "trac_ik_lib"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev} \
     geometry-msgs \
     kdl-parser \
@@ -26,12 +26,12 @@ ROS_BUILD_DEPENDS = " \
     urdf \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     eigen3-cmake-module-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev} \
     geometry-msgs \
     kdl-parser \
@@ -41,11 +41,11 @@ ROS_EXPORT_DEPENDS = " \
     urdf \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     eigen3-cmake-module-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev} \
     geometry-msgs \
     kdl-parser \

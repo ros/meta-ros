@@ -10,15 +10,15 @@ AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 ROS_AUTHOR = "Martin Pecka <peckama2@fel.cvut.cz>"
 HOMEPAGE = "https://index.ros.org/p/magnetic_model"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "BSD & Public Domain"
-LICENSE = "BSD & PD"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "BSD AND Public Domain"
+LICENSE = "BSD AND PD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=c1feec27682903a4270dbb401e443f91"
 
 ROS_CN = "compass"
 ROS_BPN = "magnetic_model"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     angles \
     cras-cpp-common \
     geographiclib \
@@ -27,12 +27,12 @@ ROS_BUILD_DEPENDS = " \
     sensor-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gen-version-h-native \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cras-cpp-common \
     geometry-msgs \
     rclcpp \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     angles \
     cras-cpp-common \
     geographiclib \
@@ -51,7 +51,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     cras-lint \
 "

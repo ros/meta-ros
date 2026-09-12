@@ -10,38 +10,38 @@ AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
 HOMEPAGE = "https://github.com/yaml/libyaml"
 SECTION = "devel"
-# Original license in package.xml, joined with "&" when multiple license tags were used:
-#         "Apache License 2.0 & MIT"
-LICENSE = "Apache-2.0 & MIT"
+# Original license in package.xml, joined with "AND" when multiple license tags were used:
+#         "Apache License 2.0 AND MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "libyaml_vendor"
 ROS_BPN = "libyaml_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libyaml \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
     pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libyaml \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     pkgconfig-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libyaml \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \
