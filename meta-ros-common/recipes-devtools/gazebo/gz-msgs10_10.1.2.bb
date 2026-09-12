@@ -3,6 +3,8 @@ include gz-msgs10.inc
 
 SRCREV = "78e664a544cdc17e39a86507eec8aaf753a3dbc4"
 
+SRC_URI += "file://fix-compatibility-with-protobuf-v30.patch"
+
 DEPENDS = "gz-math7 gz-cmake3 gz-utils2 gz-msgs10-native libtinyxml2 protobuf protobuf-native ${PN}-native"
 DEPENDS += "${PN}-native"
 EXTRA_OECMAKE += " \
