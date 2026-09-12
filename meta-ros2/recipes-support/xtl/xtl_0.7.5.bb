@@ -10,3 +10,5 @@ SRC_URI = "git://github.com/xtensor-stack/xtl.git;protocol=https;branch=master"
 SRCREV = "fea39142693fbbc2ef19d75012bc6b46ef0a5f8c"
 
 inherit cmake
+
+EXTRA_OECMAKE += "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
