@@ -10,10 +10,10 @@ some QA packaging policies.
 Upstream-Status: Pending
 Assisted-by: M365 Copilot:GPT-5-chat
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2377719..476c02a 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+Index: pal-statistics-2.8.2-1/CMakeLists.txt
+===================================================================
+--- pal-statistics-2.8.2-1.orig/CMakeLists.txt
++++ pal-statistics-2.8.2-1/CMakeLists.txt
 @@ -14,9 +14,28 @@ if(WIN32)
    endif()
  endif()
@@ -46,11 +46,10 @@ index 2377719..476c02a 100644
  if(WIN32)
    target_link_libraries(${PROJECT_NAME}
            Boost::boost
-@@ -48,7 +67,34 @@ endif()
- # Install Python modules
- ament_python_install_package(${PROJECT_NAME})
+@@ -71,6 +90,35 @@ if(WIN32)
+   ament_export_dependencies(Boost)
+ endif()
  
--ament_export_dependencies(Boost)
 +# Install public headers
 +install(
 +  DIRECTORY include/
@@ -79,6 +78,7 @@ index 2377719..476c02a 100644
 +  pal_statistics_msgs
 +  Boost
 +)
- 
++
  if(ament_cmake_auto_VERSION VERSION_LESS "2.6.0")
    ament_auto_package(USE_SCOPED_HEADER_INSTALL_DIR)
+ else()
