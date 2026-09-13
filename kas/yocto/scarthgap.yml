@@ -7,11 +7,11 @@ defaults:
   repos:
     branch: "scarthgap"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-5.0.18/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-5.0.19/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "ece80784b493c8b7493478fa2ba0dc1d6d80aa79"
+    commit: "2814f0962f56c8d1afa4de76d2895ba9b5cb767d"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -19,14 +19,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.8"
-    commit: "82abbfcdbda949851a03bb2cb2049ea689564ad6"
+    commit: "0880963fea4d91a034e4a6e007d23f98658ab986"
     path: "layers/bitbake"
     layers:
       bitbake: "disabled"
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    commit: "b0c2c648a1af89e7a8dd4c2ec841f3bc0ed0ccb9"
+    commit: "b5874ea07d69919d9b40d59f2c2f0bbd24bc3259"
     path: "layers/meta-openembedded"
     layers:
       meta-filesystems:
