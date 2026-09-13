@@ -15,11 +15,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=2903be9d205c3f1
 ROS_CN = "live555_vendor"
 ROS_BPN = "live555_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     openssl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 

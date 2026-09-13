@@ -18,19 +18,19 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f49
 ROS_CN = "rcl"
 ROS_BPN = "rcl_yaml_param_parser"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libyaml \
     libyaml-vendor \
     rcutils \
     rmw \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gen-version-h-native \
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libyaml \
     libyaml-vendor \
     rcutils \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libyaml \
     libyaml-vendor \
     rcutils \
@@ -47,7 +47,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

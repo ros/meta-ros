@@ -19,7 +19,7 @@ ROS_BPN = "rmf_traffic_editor_assets"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 

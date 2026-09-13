@@ -17,11 +17,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f49
 ROS_CN = "autoware_utils"
 ROS_BPN = "autoware_utils_system"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
     autoware-cmake-native \
 "
@@ -33,7 +33,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     autoware-lint-common \
 "

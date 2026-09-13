@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=5bb539404d0b40b
 ROS_CN = "rtsp_image_transport"
 ROS_BPN = "rtsp_image_transport"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     cv-bridge \
     ffmpeg \
     image-transport \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cv-bridge \
     ffmpeg \
     image-transport \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     cv-bridge \
     ffmpeg \
     image-transport \

@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=ad93de9fc0533
 ROS_CN = "clips_executive"
 ROS_BPN = "cx_protobuf_plugin"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     cx-plugin \
     cx-utils \
     pluginlib \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cx-plugin \
     cx-utils \
     pluginlib \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     cx-plugin \
     cx-utils \
     pluginlib \

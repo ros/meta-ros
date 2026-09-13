@@ -18,12 +18,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f2c2560c422b1
 ROS_CN = "ros_workspace"
 ROS_BPN = "ros_workspace"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-core \
     ament-package \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 

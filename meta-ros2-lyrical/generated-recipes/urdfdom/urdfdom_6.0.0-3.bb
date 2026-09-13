@@ -16,14 +16,14 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 ROS_CN = "urdfdom"
 ROS_BPN = "urdfdom"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     console-bridge \
     console-bridge-vendor \
     libtinyxml2 \
     urdfdom-headers \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
@@ -31,7 +31,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     console-bridge \
     console-bridge-vendor \
     libtinyxml2 \
@@ -39,7 +39,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     python3 \
 "
 

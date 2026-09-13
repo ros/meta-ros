@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=22;endline=22;md5=e8978a5103d23
 ROS_CN = "librealsense2"
 ROS_BPN = "librealsense2"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     git \
     glfw \
     libusb1 \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     udev \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     glfw \
     libx11 \
     mesa \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     glfw \
     libx11 \
     mesa \

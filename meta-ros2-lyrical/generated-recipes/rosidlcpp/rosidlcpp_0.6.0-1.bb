@@ -19,13 +19,13 @@ ROS_BPN = "rosidlcpp"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-core-native \
     rosidlcpp-generator-c-native \
     rosidlcpp-generator-cpp-native \

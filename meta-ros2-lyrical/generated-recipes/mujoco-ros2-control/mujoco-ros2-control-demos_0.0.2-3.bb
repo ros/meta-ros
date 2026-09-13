@@ -17,7 +17,7 @@ ROS_BPN = "mujoco_ros2_control_demos"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -25,7 +25,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-position-controllers} \
     controller-manager \
     joint-state-broadcaster \

@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=c93e37fc0c6f5
 ROS_CN = "robot_calibration"
 ROS_BPN = "robot_calibration"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     camera-calibration-parsers \
     ceres-solver \
@@ -50,11 +50,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     camera-calibration-parsers \
     ceres-solver \
     control-msgs \
@@ -86,7 +86,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     camera-calibration-parsers \
     ceres-solver \
     control-msgs \
@@ -117,7 +117,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     launch \
     launch-ros \

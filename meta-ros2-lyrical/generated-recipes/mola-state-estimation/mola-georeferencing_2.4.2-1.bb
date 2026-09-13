@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e9f2deaa804a1
 ROS_CN = "mola_state_estimation"
 ROS_BPN = "mola_georeferencing"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gtsam \
     mola-common \
     mola-gtsam-factors \
@@ -28,11 +28,11 @@ ROS_BUILD_DEPENDS = " \
     mrpt-libtclap \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gtsam \
     mola-common \
     mola-gtsam-factors \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gtsam \
     mola-common \
     mola-gtsam-factors \

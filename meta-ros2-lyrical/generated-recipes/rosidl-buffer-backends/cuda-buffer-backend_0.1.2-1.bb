@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605
 ROS_CN = "rosidl_buffer_backends"
 ROS_BPN = "cuda_buffer_backend"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     cuda-buffer \
     cuda-buffer-backend-msgs \
     pluginlib \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     rosidl-typesupport-cpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cuda-buffer \
     cuda-buffer-backend-msgs \
     pluginlib \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     cuda-buffer \
     cuda-buffer-backend-msgs \
     pluginlib \
@@ -56,7 +56,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

@@ -16,14 +16,14 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9de
 ROS_CN = "point_cloud_transport_tutorial"
 ROS_BPN = "point_cloud_transport_tutorial"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     point-cloud-transport \
     rclcpp \
     rosbag2-cpp \
     sensor-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native \
 "
 
@@ -31,7 +31,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     point-cloud-transport \
     point-cloud-transport-plugins \
     rclcpp \
@@ -40,7 +40,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     ament-cmake-cppcheck \
     ament-cmake-cpplint \

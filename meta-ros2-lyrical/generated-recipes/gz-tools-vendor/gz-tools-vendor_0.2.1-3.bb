@@ -17,30 +17,30 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=12c26a18c7f49
 ROS_CN = "gz_tools_vendor"
 ROS_BPN = "gz_tools_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gz-cmake-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     ament-cmake-test-native \
     ament-cmake-vendor-package-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-cmake-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ruby} \
     gz-cmake-vendor \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     ament-cmake-lint-cmake \
     ament-cmake-xmllint \

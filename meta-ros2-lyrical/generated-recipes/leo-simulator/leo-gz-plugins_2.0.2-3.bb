@@ -16,29 +16,29 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=92566b45c3390
 ROS_CN = "leo_simulator"
 ROS_BPN = "leo_gz_plugins"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gz-plugin-vendor \
     gz-sim-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-plugin-vendor \
     gz-sim-vendor \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gz-plugin-vendor \
     gz-sim-vendor \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     ament-cmake-cpplint \
     ament-cmake-lint-cmake \

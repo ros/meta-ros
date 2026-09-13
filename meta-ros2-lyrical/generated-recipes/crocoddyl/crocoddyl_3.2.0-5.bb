@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=4633480cdd27d
 ROS_CN = "crocoddyl"
 ROS_BPN = "crocoddyl"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     boost \
     doxygen \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     python3-numpy \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     boost \
     eigenpy \
@@ -42,7 +42,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-coinor-libipopt-dev} \
     ament-cmake \
     boost \

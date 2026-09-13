@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=9c2b4f259ad099b
 ROS_CN = "ackermann_nlmpc"
 ROS_BPN = "ackermann_nlmpc"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ackermann-msgs \
     ackermann-nlmpc-msgs \
     geometry-msgs \
@@ -26,7 +26,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ackermann-msgs \
     ackermann-nlmpc-msgs \
     geometry-msgs \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ackermann-msgs \
     ackermann-nlmpc-msgs \
     geometry-msgs \
@@ -45,7 +45,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-pep257 \
     python3-pytest \
 "

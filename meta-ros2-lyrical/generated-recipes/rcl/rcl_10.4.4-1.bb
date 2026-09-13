@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=12c26a18c7f49
 ROS_CN = "rcl"
 ROS_BPN = "rcl"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libyaml \
     libyaml-vendor \
     rcl-interfaces \
@@ -34,12 +34,12 @@ ROS_BUILD_DEPENDS = " \
     type-description-interfaces \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gen-version-h-native \
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libyaml \
     libyaml-vendor \
     rcl-interfaces \
@@ -58,7 +58,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libyaml \
     libyaml-vendor \
     rcl-interfaces \
@@ -75,7 +75,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-ros \
     ament-lint-auto \
     ament-lint-common \

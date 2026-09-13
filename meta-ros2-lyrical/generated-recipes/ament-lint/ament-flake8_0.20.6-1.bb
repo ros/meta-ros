@@ -26,7 +26,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-python3-flake8-blind-except} \
     ${ROS_UNRESOLVED_DEP-python3-flake8-class-newline} \
     ${ROS_UNRESOLVED_DEP-python3-flake8-deprecated} \

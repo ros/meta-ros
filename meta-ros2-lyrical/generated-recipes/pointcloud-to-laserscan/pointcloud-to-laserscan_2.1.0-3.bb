@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=01c2bc31767cc
 ROS_CN = "pointcloud_to_laserscan"
 ROS_BPN = "pointcloud_to_laserscan"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     laser-geometry \
     message-filters \
     rclcpp \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-sensor-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     laser-geometry \
     message-filters \
     rclcpp \
@@ -44,7 +44,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     laser-geometry \
     launch \
     launch-ros \
@@ -58,7 +58,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-cppcheck \
     ament-cmake-cpplint \
     ament-cmake-flake8 \

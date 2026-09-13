@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=a3ae2ba3f0f44
 ROS_CN = "audio_common"
 ROS_BPN = "audio_capture"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     audio-common-msgs \
     boost \
     diagnostic-updater \
@@ -26,7 +26,7 @@ ROS_BUILD_DEPENDS = " \
     rclcpp-components \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -34,7 +34,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     audio-common-msgs \
     diagnostic-updater \
     gstreamer1.0 \

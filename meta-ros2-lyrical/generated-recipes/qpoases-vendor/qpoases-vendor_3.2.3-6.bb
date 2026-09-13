@@ -17,21 +17,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d160c31cc0b7b
 ROS_CN = "qpoases_vendor"
 ROS_BPN = "qpoases_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     subversion \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     subversion \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     subversion \
 "
 

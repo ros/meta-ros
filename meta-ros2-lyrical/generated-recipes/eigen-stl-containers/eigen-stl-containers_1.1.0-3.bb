@@ -16,15 +16,15 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9de
 ROS_CN = "eigen_stl_containers"
 ROS_BPN = "eigen_stl_containers"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     libeigen \
 "
 
