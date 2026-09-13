@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f49
 ROS_CN = "rosidlcpp"
 ROS_BPN = "rosidlcpp_generator_py"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     fmt \
     nlohmann-json \
     rosidl-runtime-c \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     rosidlcpp-parser \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     fmt \
     nlohmann-json \
     rmw \
@@ -37,7 +37,7 @@ ROS_EXPORT_DEPENDS = " \
     rosidlcpp-parser \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-native \
     ament-index-python-native \
     python-cmake-module-native \
@@ -47,7 +47,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
     rosidl-typesupport-interface-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     fmt \
     nlohmann-json \
     rosidlcpp-generator-core \

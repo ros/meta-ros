@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=12c26a18c7f49
 ROS_CN = "sdformat_vendor"
 ROS_BPN = "sdformat_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gz-cmake-vendor \
     gz-math-vendor \
     gz-tools-vendor \
@@ -27,14 +27,14 @@ ROS_BUILD_DEPENDS = " \
     urdfdom \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     ament-cmake-test-native \
     ament-cmake-vendor-package-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-cmake-vendor \
     gz-math-vendor \
     gz-tools-vendor \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gz-cmake-vendor \
     gz-math-vendor \
     gz-tools-vendor \
@@ -54,7 +54,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     ament-cmake-lint-cmake \
     ament-cmake-xmllint \
