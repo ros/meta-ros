@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f49
 ROS_CN = "kinematics_interface"
 ROS_BPN = "kinematics_interface_kdl"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     kdl-parser \
     kinematics-interface \
     libeigen \
@@ -26,12 +26,12 @@ ROS_BUILD_DEPENDS = " \
     tf2-eigen-kdl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     eigen3-cmake-module-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     kdl-parser \
     kinematics-interface \
     libeigen \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     kdl-parser \
     kinematics-interface \
     libeigen \
@@ -50,7 +50,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gmock \
     ros2-control-test-assets \
 "

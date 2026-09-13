@@ -15,13 +15,13 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=75730354549103a
 ROS_CN = "libpointmatcher"
 ROS_BPN = "libpointmatcher"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     libeigen \
     libnabo \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
@@ -29,7 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     libeigen \
     libnabo \

@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=01c2bc31767cc
 ROS_CN = "flexbe_behavior_engine"
 ROS_BPN = "flexbe_mirror"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     flexbe-core \
     flexbe-msgs \
     rclpy \
@@ -24,7 +24,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     flexbe-core \
     flexbe-msgs \
     rclpy \
@@ -32,14 +32,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     flexbe-core \
     flexbe-msgs \
     rclpy \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-copyright \
     ament-flake8 \
     ament-pep257 \

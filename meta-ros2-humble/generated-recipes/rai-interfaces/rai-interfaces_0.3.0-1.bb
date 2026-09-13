@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=82f0323c08605
 ROS_CN = "rai_interfaces"
 ROS_BPN = "rai_interfaces"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     action-msgs \
     geometry-msgs \
     sensor-msgs \
@@ -23,12 +23,12 @@ ROS_BUILD_DEPENDS = " \
     vision-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     action-msgs \
     geometry-msgs \
     sensor-msgs \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     action-msgs \
     geometry-msgs \
     nav2-msgs \
@@ -52,7 +52,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

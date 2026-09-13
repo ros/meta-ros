@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc
 ROS_CN = "lanelet2"
 ROS_BPN = "lanelet2_examples"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     lanelet2-core \
     lanelet2-io \
     lanelet2-matching \
@@ -26,12 +26,12 @@ ROS_BUILD_DEPENDS = " \
     lanelet2-traffic-rules \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     mrt-cmake-modules-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     lanelet2-core \
     lanelet2-io \
     lanelet2-matching \
@@ -41,11 +41,11 @@ ROS_EXPORT_DEPENDS = " \
     lanelet2-traffic-rules \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     mrt-cmake-modules-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     lanelet2-core \
     lanelet2-io \
     lanelet2-matching \
@@ -57,7 +57,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     gtest \
 "
 

@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=3dce4ba60d7e5
 ROS_CN = "rmf_simulation"
 ROS_BPN = "rmf_building_sim_common"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     menge-vendor \
     rclcpp \
     rmf-building-map-msgs \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     rmf-lift-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     menge-vendor \
     rclcpp \
     rmf-building-map-msgs \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     menge-vendor \
     rclcpp \
     rmf-building-map-msgs \

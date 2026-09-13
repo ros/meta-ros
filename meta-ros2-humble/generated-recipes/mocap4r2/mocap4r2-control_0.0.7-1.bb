@@ -17,17 +17,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=e8978a5103d2326
 ROS_CN = "mocap4r2"
 ROS_BPN = "mocap4r2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     mocap4r2-control-msgs \
     rclcpp \
     rclcpp-lifecycle \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     mocap4r2-control-msgs \
     rclcpp \
     rclcpp-lifecycle \
@@ -35,14 +35,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     mocap4r2-control-msgs \
     rclcpp \
     rclcpp-lifecycle \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

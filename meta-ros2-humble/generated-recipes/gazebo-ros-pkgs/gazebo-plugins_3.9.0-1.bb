@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=f7d4e3a22e649
 ROS_CN = "gazebo_ros_pkgs"
 ROS_BPN = "gazebo_plugins"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     camera-info-manager \
     cv-bridge \
     gazebo-msgs \
@@ -36,11 +36,11 @@ ROS_BUILD_DEPENDS = " \
     trajectory-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     camera-info-manager \
     cv-bridge \
     geometry-msgs \
@@ -56,7 +56,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     camera-info-manager \
     cv-bridge \
     gazebo-msgs \
@@ -75,7 +75,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

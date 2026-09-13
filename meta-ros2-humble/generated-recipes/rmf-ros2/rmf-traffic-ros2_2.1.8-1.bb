@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f49
 ROS_CN = "rmf_ros2"
 ROS_BPN = "rmf_traffic_ros2"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
     nlohmann-json \
     proj \
@@ -33,11 +33,11 @@ ROS_BUILD_DEPENDS = " \
     zlib \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     nlohmann-json \
     proj \
     rclcpp \
@@ -53,7 +53,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     nlohmann-json \
     proj \
     rclcpp \
@@ -69,7 +69,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-catch2 \
     ament-cmake-uncrustify \
 "

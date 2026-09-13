@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=3dce4ba60d7e5
 ROS_CN = "autoware_rviz_plugins"
 ROS_BPN = "autoware_perception_rviz_plugin"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     autoware-lanelet2-extension \
     autoware-map-msgs \
     autoware-perception-msgs \
@@ -29,12 +29,12 @@ ROS_BUILD_DEPENDS = " \
     tf2-ros \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     autoware-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     autoware-lanelet2-extension \
     autoware-map-msgs \
     autoware-perception-msgs \
@@ -46,7 +46,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     autoware-lanelet2-extension \
     autoware-map-msgs \
     autoware-perception-msgs \
@@ -59,7 +59,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     autoware-lint-common \
 "

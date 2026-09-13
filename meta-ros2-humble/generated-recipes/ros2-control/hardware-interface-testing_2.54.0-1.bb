@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493f
 ROS_CN = "ros2_control"
 ROS_BPN = "hardware_interface_testing"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     control-msgs \
     hardware-interface \
     lifecycle-msgs \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     ros2-control-test-assets \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     control-msgs \
     hardware-interface \
     lifecycle-msgs \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     control-msgs \
     hardware-interface \
     lifecycle-msgs \
@@ -51,7 +51,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gmock \
 "
 

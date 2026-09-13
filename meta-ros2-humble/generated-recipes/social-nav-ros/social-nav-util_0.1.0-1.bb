@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=79773b05553c027
 ROS_CN = "social_nav_ros"
 ROS_BPN = "social_nav_util"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     rclpy \
     social-nav-msgs \
@@ -26,7 +26,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     rclpy \
     social-nav-msgs \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     rclpy \
     social-nav-msgs \

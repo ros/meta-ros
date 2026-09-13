@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9de
 ROS_CN = "image_pipeline"
 ROS_BPN = "image_publisher"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     camera-info-manager \
     cv-bridge \
     image-transport \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp-components \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     camera-info-manager \
     cv-bridge \
     image-transport \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     camera-info-manager \
     cv-bridge \
     image-transport \
@@ -50,7 +50,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=cd41bc1177072
 ROS_CN = "turtlebot3_simulations"
 ROS_BPN = "turtlebot3_gazebo"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gazebo-ros-pkgs \
     geometry-msgs \
     nav-msgs \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     tf2 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gazebo-ros-pkgs \
     geometry-msgs \
     nav-msgs \
@@ -42,7 +42,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gazebo-ros-pkgs \
     geometry-msgs \
     nav-msgs \

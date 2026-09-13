@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=d566ef916e9de
 ROS_CN = "mapviz"
 ROS_BPN = "tile_map"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     glew \
     jsoncpp \
     mapviz \
@@ -29,12 +29,12 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     qtbase-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     glew \
     mapviz \
     pluginlib \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     glew \
     jsoncpp \
     mapviz \

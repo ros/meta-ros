@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f49
 ROS_CN = "rmf_ros2"
 ROS_BPN = "rmf_fleet_adapter"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
     nlohmann-json \
     nlohmann-json-schema-validator-vendor \
@@ -43,11 +43,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     nlohmann-json \
     nlohmann-json-schema-validator-vendor \
     rclcpp \
@@ -73,7 +73,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     nlohmann-json \
     nlohmann-json-schema-validator-vendor \
     rclcpp \
@@ -98,7 +98,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-catch2 \
     ament-cmake-uncrustify \
 "

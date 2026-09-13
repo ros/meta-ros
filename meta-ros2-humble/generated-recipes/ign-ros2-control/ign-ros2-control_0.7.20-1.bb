@@ -18,21 +18,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=fc216ef93365378
 ROS_CN = "ign_ros2_control"
 ROS_BPN = "ign_ros2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gz-ros2-control \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gz-ros2-control \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gz-ros2-control \
 "
 

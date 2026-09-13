@@ -15,23 +15,23 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=5fbf62ea9f085c3
 ROS_CN = "clips_vendor"
 ROS_BPN = "clips_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-vendor-package \
     unzip \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-cmake-vendor-package \
     unzip \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake-vendor-package \
     unzip \
 "

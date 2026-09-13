@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=162b49cfbae9e
 ROS_CN = "joystick_drivers"
 ROS_BPN = "wiimote"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-cwiid-dev} \
     bluez5 \
     geometry-msgs \
@@ -29,12 +29,12 @@ ROS_BUILD_DEPENDS = " \
     wiimote-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-auto-native \
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     rclcpp \
     rclcpp-components \
@@ -47,7 +47,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-cwiid} \
     bluez5 \
     geometry-msgs \
@@ -61,7 +61,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

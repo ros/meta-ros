@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=fc216ef93365378
 ROS_CN = "franka_ros2"
 ROS_BPN = "franka_ign_ros2_control"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     ${ROS_UNRESOLVED_DEP-ignition-plugin} \
     ament-index-cpp \
@@ -30,11 +30,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     ${ROS_UNRESOLVED_DEP-ignition-plugin} \
     ament-index-cpp \
@@ -49,7 +49,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-ignition-gazebo6} \
     ${ROS_UNRESOLVED_DEP-ignition-plugin} \
     ament-index-cpp \
@@ -63,7 +63,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

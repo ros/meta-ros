@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=d566ef916e9de
 ROS_CN = "geometric_shapes"
 ROS_BPN = "geometric_shapes"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     assimp \
     boost \
     console-bridge-vendor \
@@ -33,13 +33,13 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     eigen3-cmake-module-native \
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     console-bridge-vendor \
     eigen-stl-containers \
@@ -52,11 +52,11 @@ ROS_EXPORT_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     eigen3-cmake-module-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     assimp \
     boost \
     console-bridge-vendor \
@@ -73,7 +73,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-copyright \
     ament-cmake-gtest \
     ament-lint-auto \

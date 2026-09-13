@@ -20,7 +20,7 @@ ROS_BPN = "ament_cmake_auto"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gmock-native \
     ament-cmake-gtest-native \
     ament-cmake-native \
@@ -28,7 +28,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-gmock-native \
     ament-cmake-gtest-native \
     ament-cmake-native \

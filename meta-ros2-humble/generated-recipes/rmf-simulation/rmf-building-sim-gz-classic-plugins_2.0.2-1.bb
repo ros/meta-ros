@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=3dce4ba60d7e5
 ROS_CN = "rmf_simulation"
 ROS_BPN = "rmf_building_sim_gz_classic_plugins"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gazebo-ros \
     gazebo-rosdev \
     menge-vendor \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     rmf-fleet-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gazebo-ros \
     gazebo-rosdev \
     menge-vendor \
@@ -46,7 +46,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gazebo-ros \
     gazebo-rosdev \
     menge-vendor \

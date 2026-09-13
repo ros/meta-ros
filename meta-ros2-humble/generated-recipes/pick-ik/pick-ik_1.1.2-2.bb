@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=4633480cdd27d79
 ROS_CN = "pick_ik"
 ROS_BPN = "pick_ik"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     fmt \
     generate-parameter-library \
     moveit-core \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     tl-expected \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     fmt \
     generate-parameter-library \
     moveit-core \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     fmt \
     generate-parameter-library \
     moveit-core \
@@ -62,7 +62,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     moveit-resources-panda-moveit-config \
 "
 

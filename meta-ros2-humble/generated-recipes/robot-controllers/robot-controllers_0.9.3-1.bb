@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9de
 ROS_CN = "robot_controllers"
 ROS_BPN = "robot_controllers"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     angles \
     control-msgs \
     geometry-msgs \
@@ -35,11 +35,11 @@ ROS_BUILD_DEPENDS = " \
     urdf \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     angles \
     control-msgs \
     geometry-msgs \
@@ -60,7 +60,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     angles \
     control-msgs \
     geometry-msgs \
@@ -80,7 +80,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-cpplint \
     ament-cmake-gtest \
 "

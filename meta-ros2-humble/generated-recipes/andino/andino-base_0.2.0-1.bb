@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=e2197b8633fd5
 ROS_CN = "andino"
 ROS_BPN = "andino_base"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
     gflags \
     hardware-interface \
@@ -27,12 +27,12 @@ ROS_BUILD_DEPENDS = " \
     rclcpp-lifecycle \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     pkgconfig-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
     gflags \
     hardware-interface \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libserial-dev} \
     controller-manager \
     gflags \
@@ -55,7 +55,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-clang-format \
 "
 

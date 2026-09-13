@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f49
 ROS_CN = "ament_package"
 ROS_BPN = "ament_package"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     python3 \
     python3-importlib-metadata \
     python3-setuptools \
@@ -26,7 +26,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     python3 \
     python3-importlib-metadata \
     python3-setuptools \
@@ -34,14 +34,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     python3 \
     python3-importlib-metadata \
     python3-setuptools \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     python3-flake8 \
     python3-pytest \
 "

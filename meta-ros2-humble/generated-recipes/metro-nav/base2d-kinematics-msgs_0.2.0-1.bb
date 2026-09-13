@@ -17,11 +17,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=79773b05553c027
 ROS_CN = "metro_nav"
 ROS_BPN = "base2d_kinematics_msgs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rosidl-default-generators \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -29,7 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rosidl-default-runtime \
 "
 

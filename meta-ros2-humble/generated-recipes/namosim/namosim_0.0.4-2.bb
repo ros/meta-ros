@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=58e54c03ca7f8
 ROS_CN = "namosim"
 ROS_BPN = "namosim"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-jupyter-notebook} \
     ${ROS_UNRESOLVED_DEP-python3-cairosvg} \
     ${ROS_UNRESOLVED_DEP-python3-jsonpickle} \
@@ -45,7 +45,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-jupyter-notebook} \
     ${ROS_UNRESOLVED_DEP-python3-cairosvg} \
     ${ROS_UNRESOLVED_DEP-python3-jsonpickle} \
@@ -75,7 +75,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-jupyter-notebook} \
     ${ROS_UNRESOLVED_DEP-python3-cairosvg} \
     ${ROS_UNRESOLVED_DEP-python3-jsonpickle} \
