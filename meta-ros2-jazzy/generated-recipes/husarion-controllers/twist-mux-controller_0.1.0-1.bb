@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493f
 ROS_CN = "husarion_controllers"
 ROS_BPN = "twist_mux_controller"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     controller-interface \
     generate-parameter-library \
     geometry-msgs \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     realtime-tools \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     controller-interface \
     generate-parameter-library \
     geometry-msgs \
@@ -46,7 +46,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     controller-interface \
     generate-parameter-library \
     geometry-msgs \

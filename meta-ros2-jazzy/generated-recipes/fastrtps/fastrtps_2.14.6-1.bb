@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=da5a1be2927e3
 ROS_CN = "fastrtps"
 ROS_BPN = "fastrtps"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     asio \
     fastcdr \
     foonathan-memory-vendor \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     python3 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     fastcdr \
     foonathan-memory-vendor \
     libtinyxml2 \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     fastcdr \
     foonathan-memory-vendor \
     libtinyxml2 \

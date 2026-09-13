@@ -16,21 +16,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=9c2b4f259ad099b
 ROS_CN = "rqml"
 ROS_BPN = "rqml_default_plugins"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rqml-core \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rqml-core \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-qml6-module-qt-labs-qmlmodels} \
     ${ROS_UNRESOLVED_DEP-qml6-module-qtmultimedia} \
     ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-controls} \
@@ -48,7 +48,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     qml6-ros2-plugin \
     rcl-interfaces \

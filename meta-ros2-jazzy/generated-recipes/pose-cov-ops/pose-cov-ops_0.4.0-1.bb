@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 ROS_CN = "pose_cov_ops"
 ROS_BPN = "pose_cov_ops"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-xmllint \
     cv-bridge \
     geometry-msgs \
@@ -30,14 +30,14 @@ ROS_BUILD_DEPENDS = " \
     tf2 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gmock-native \
     ament-cmake-gtest-native \
     ament-cmake-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     cv-bridge \
     geometry-msgs \
     mrpt-libposes \
@@ -52,7 +52,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     cv-bridge \
     geometry-msgs \
     mrpt-libposes \
@@ -66,7 +66,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
     gtest \

@@ -18,11 +18,11 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=12c26a18c7f49
 ROS_CN = "hebi_cpp_api"
 ROS_BPN = "hebi_cpp_api"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     libeigen \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 

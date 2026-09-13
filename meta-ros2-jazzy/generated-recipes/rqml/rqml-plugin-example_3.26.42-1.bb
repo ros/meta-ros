@@ -15,21 +15,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=8dc6050b5352930
 ROS_CN = "rqml"
 ROS_BPN = "rqml_plugin_example"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rqml-core \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rqml-core \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-controls} \
     ${ROS_UNRESOLVED_DEP-qml6-module-qtquick-layouts} \
     qml6-ros2-plugin \

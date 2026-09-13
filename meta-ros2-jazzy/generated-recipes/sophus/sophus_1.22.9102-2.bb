@@ -16,17 +16,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=33;endline=33;md5=58e54c03ca7f8
 ROS_CN = "sophus"
 ROS_BPN = "sophus"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ceres-solver \
     fmt \
     libeigen \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ceres-solver \
     fmt \
     libeigen \

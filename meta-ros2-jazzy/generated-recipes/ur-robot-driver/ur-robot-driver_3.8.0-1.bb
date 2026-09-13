@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=4633480cdd27d
 ROS_CN = "ur_robot_driver"
 ROS_BPN = "ur_robot_driver"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     backward-ros \
     controller-manager \
     controller-manager-msgs \
@@ -36,12 +36,12 @@ ROS_BUILD_DEPENDS = " \
     ur-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-python-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     backward-ros \
     controller-manager \
     controller-manager-msgs \
@@ -63,7 +63,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     backward-ros \
     controller-manager \
     controller-manager-msgs \
@@ -100,7 +100,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     launch-testing-ament-cmake \
     ros2run \
 "

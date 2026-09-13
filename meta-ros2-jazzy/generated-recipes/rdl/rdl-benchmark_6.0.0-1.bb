@@ -17,17 +17,17 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=1eb3ae4da2d54
 ROS_CN = "rdl"
 ROS_BPN = "rdl_benchmark"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     rdl-dynamics \
     rdl-urdfreader \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     rdl-dynamics \
     rdl-urdfreader \
@@ -35,14 +35,14 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     rdl-dynamics \
     rdl-urdfreader \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-clang-format \
     ament-cmake-cppcheck \
     ament-cmake-gtest \

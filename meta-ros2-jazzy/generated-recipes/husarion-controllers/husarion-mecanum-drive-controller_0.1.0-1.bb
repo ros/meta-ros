@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493f
 ROS_CN = "husarion_controllers"
 ROS_BPN = "husarion_mecanum_drive_controller"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     control-toolbox \
     controller-interface \
     generate-parameter-library \
@@ -34,11 +34,11 @@ ROS_BUILD_DEPENDS = " \
     tf2-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     control-toolbox \
     controller-interface \
     geometry-msgs \
@@ -55,7 +55,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     control-toolbox \
     controller-interface \
     geometry-msgs \

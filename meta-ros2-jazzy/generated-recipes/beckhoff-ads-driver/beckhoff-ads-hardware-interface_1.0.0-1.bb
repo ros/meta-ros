@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5
 ROS_CN = "beckhoff_ads_driver"
 ROS_BPN = "beckhoff_ads_hardware_interface"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ads-vendor \
     hardware-interface \
     pluginlib \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     yaml-cpp-vendor \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ads-vendor \
     hardware-interface \
     pluginlib \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ads-vendor \
     hardware-interface \
     pluginlib \
