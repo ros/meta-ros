@@ -8,7 +8,5 @@ header:
     - kas/layer/qt5.yml
 
 repos:
-  qt5:
-    branch: "master"
   zenoh:
     branch: "master"
