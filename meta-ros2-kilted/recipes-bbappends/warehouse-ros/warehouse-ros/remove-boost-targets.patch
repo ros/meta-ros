@@ -1,0 +1,26 @@
+Remove Boost targets
+
+The warehouse_ros package uses boost:shared_ptr. Since boost::shared_ptr
+is part of the header-only Boost.SmartPtr library, you do not need to
+link any compiled Boost libraries.
+
+The header files are already located in the default include directory.
+We choose not to add ${Boost_INCLUDE_DIRS} to target_include_directories
+to avoid introducing a buildpath QA problem.
+
+Upstream-Status: Pending
+
+Signed-off: Rob Woolley <rob.woolley@windriver.com>
+
+Index: warehouse-ros-2.0.8-1/CMakeLists.txt
+===================================================================
+--- warehouse-ros-2.0.8-1.orig/CMakeLists.txt
++++ warehouse-ros-2.0.8-1/CMakeLists.txt
+@@ -34,7 +34,6 @@ target_link_libraries(warehouse_ros PUBL
+   tf2::tf2
+   tf2_ros::tf2_ros
+   ${tf2_geometry_msgs_TARGETS}
+-  ${Boost_LIBRARIES}
+ )
+ target_include_directories(warehouse_ros
+   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
