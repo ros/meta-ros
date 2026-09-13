@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=82f0323c08605
 ROS_CN = "nobleo_socketcan_bridge"
 ROS_BPN = "nobleo_socketcan_bridge"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-ros \
     can-msgs \
     diagnostic-msgs \
@@ -27,11 +27,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp-components \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     can-msgs \
     diagnostic-msgs \
     diagnostic-updater \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     can-msgs \
     diagnostic-msgs \
     diagnostic-updater \
@@ -53,7 +53,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-clang-format \
     ament-cmake-cppcheck \
     ament-cmake-cpplint \

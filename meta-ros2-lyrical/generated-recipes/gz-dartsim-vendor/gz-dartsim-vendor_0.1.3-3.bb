@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=21;endline=21;md5=f12ef8c0445c0
 ROS_CN = "gz_dartsim_vendor"
 ROS_BPN = "gz_dartsim_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
     assimp \
     boost \
@@ -33,12 +33,12 @@ ROS_BUILD_DEPENDS = " \
     urdfdom \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
     assimp \
     boost \
@@ -55,7 +55,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-liboctomap-dev} \
     assimp \
     boost \
@@ -71,7 +71,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-xmllint \
     ament-lint-auto \
 "

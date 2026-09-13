@@ -20,7 +20,7 @@ ROS_BPN = "osrf_testing_tools_cpp"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
