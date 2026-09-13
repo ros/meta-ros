@@ -17,18 +17,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=7532470dee28949
 ROS_CN = "cyclonedds"
 ROS_BPN = "cyclonedds"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     iceoryx-binding-c \
     iceoryx-hoofs \
     iceoryx-posh \
     openssl \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     iceoryx-binding-c \
     iceoryx-hoofs \
     iceoryx-posh \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     iceoryx-binding-c \
     iceoryx-hoofs \
     iceoryx-posh \

@@ -19,7 +19,7 @@ ROS_BPN = "rmf_traffic_editor_test_maps"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     rmf-building-map-tools-native \
     ros2run-native \

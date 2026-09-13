@@ -16,12 +16,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=46ee8693f40a8
 ROS_CN = "phidgets_drivers"
 ROS_BPN = "libphidget22"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     file \
     libusb1 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -29,7 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     libusb1 \
 "
 

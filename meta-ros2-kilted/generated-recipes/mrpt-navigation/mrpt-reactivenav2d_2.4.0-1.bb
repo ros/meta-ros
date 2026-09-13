@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9de
 ROS_CN = "mrpt_navigation"
 ROS_BPN = "mrpt_reactivenav2d"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake-lint-cmake \
     ament-cmake-xmllint \
     ament-lint-auto \
@@ -36,11 +36,11 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-cmake-lint-cmake \
     ament-cmake-xmllint \
     ament-lint-auto \
@@ -62,7 +62,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake-lint-cmake \
     ament-cmake-xmllint \
     ament-lint-auto \

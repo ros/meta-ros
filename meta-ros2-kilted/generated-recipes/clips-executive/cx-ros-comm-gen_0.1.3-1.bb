@@ -15,21 +15,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=82f0323c08605
 ROS_CN = "clips_executive"
 ROS_BPN = "cx_ros_comm_gen"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     python3-jinja2 \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     python3-jinja2 \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-python \
     cx-plugin \
     cx-utils \

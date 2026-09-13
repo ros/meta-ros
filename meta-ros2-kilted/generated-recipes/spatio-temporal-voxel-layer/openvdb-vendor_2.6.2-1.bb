@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=458541e94fd1d
 ROS_CN = "spatio_temporal_voxel_layer"
 ROS_BPN = "openvdb_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libblosc-dev} \
     ${ROS_UNRESOLVED_DEP-liblzma-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
@@ -29,13 +29,13 @@ ROS_BUILD_DEPENDS = " \
     zstd \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-vendor-package-native \
     git-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libblosc-dev} \
     ${ROS_UNRESOLVED_DEP-liblzma-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
@@ -48,7 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libblosc-dev} \
     ${ROS_UNRESOLVED_DEP-liblzma-dev} \
     ${ROS_UNRESOLVED_DEP-libopenvdb-dev} \
