@@ -18,12 +18,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=fe8b75cf0aba6
 ROS_CN = "octomap"
 ROS_BPN = "octovis"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     octomap \
     qtbase \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
@@ -31,7 +31,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ${ROS_UNRESOLVED_DEP-libqglviewer2-qt5} \
     octomap \
     qtbase \

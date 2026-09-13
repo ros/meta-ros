@@ -18,13 +18,13 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=20;endline=20;md5=b691248d2f70c
 ROS_CN = "mavlink"
 ROS_BPN = "mavlink"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     python3 \
     python3-future \
     python3-lxml \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     cmake-native \
     ros-environment-native \

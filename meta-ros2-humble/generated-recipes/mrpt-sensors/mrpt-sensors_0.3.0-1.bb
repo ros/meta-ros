@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=4633480cdd27d79
 ROS_CN = "mrpt_sensors"
 ROS_BPN = "mrpt_sensors"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     mrpt-generic-sensor \
     mrpt-sensor-bumblebee-stereo \
     mrpt-sensor-gnss-nmea \
@@ -25,11 +25,11 @@ ROS_BUILD_DEPENDS = " \
     mrpt-sensorlib \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     mrpt-generic-sensor \
     mrpt-sensor-bumblebee-stereo \
     mrpt-sensor-gnss-nmea \
@@ -40,7 +40,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     mrpt-generic-sensor \
     mrpt-sensor-bumblebee-stereo \
     mrpt-sensor-gnss-nmea \
@@ -50,7 +50,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-xmllint \
     ament-lint-auto \
 "

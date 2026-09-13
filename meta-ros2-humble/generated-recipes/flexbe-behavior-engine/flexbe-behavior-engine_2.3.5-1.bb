@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 ROS_CN = "flexbe_behavior_engine"
 ROS_BPN = "flexbe_behavior_engine"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     flexbe-core \
     flexbe-input \
     flexbe-mirror \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     flexbe-widget \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     flexbe-core \
     flexbe-input \
     flexbe-mirror \
@@ -43,7 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     flexbe-core \
     flexbe-input \
     flexbe-mirror \

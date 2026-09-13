@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5
 ROS_CN = "cartographer_ros"
 ROS_BPN = "cartographer_rviz"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     abseil-cpp \
     boost \
     cartographer \
@@ -32,11 +32,11 @@ ROS_BUILD_DEPENDS = " \
     rviz-rendering \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     abseil-cpp \
     boost \
     cartographer \
@@ -52,7 +52,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     abseil-cpp \
     boost \
     cartographer \

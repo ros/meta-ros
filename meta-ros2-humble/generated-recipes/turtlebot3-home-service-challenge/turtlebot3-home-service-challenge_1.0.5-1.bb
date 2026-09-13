@@ -20,7 +20,7 @@ ROS_BPN = "turtlebot3_home_service_challenge"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     turtlebot3-home-service-challenge-aruco \
     turtlebot3-home-service-challenge-core \
     turtlebot3-home-service-challenge-manipulator \

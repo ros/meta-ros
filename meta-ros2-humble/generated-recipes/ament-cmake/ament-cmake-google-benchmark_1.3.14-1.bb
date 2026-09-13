@@ -20,7 +20,7 @@ ROS_BPN = "ament_cmake_google_benchmark"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
     ament-cmake-export-dependencies-native \
     ament-cmake-python-native \
@@ -30,7 +30,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-cmake-test \
     google-benchmark-vendor \
 "

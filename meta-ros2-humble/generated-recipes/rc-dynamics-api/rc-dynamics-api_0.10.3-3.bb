@@ -16,22 +16,22 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=23;endline=23;md5=01c2bc31767cc
 ROS_CN = "rc_dynamics_api"
 ROS_BPN = "rc_dynamics_api"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     curl \
     protobuf \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     curl \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     curl \
     protobuf \
 "

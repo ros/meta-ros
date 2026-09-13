@@ -15,18 +15,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d0998f4eabe3d
 ROS_CN = "mola_academic_datasets"
 ROS_BPN = "kitti_metrics_eval"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     mola-common \
     mrpt-libmath \
     mrpt-libposes \
     mrpt-libtclap \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     mola-common \
     mrpt-libmath \
     mrpt-libposes \
@@ -35,7 +35,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     mola-common \
     mrpt-libmath \
     mrpt-libposes \

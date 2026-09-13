@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d0998f4eabe3d00
 ROS_CN = "mola_academic_datasets"
 ROS_BPN = "mola_academic_datasets"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     kitti-metrics-eval \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \
@@ -24,11 +24,11 @@ ROS_BUILD_DEPENDS = " \
     mola-input-paris-luco-dataset \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     kitti-metrics-eval \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \
@@ -39,7 +39,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     kitti-metrics-eval \
     mola-input-euroc-dataset \
     mola-input-kitti-dataset \

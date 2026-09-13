@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=e9f2deaa804a1
 ROS_CN = "mola_sm_loop_closure"
 ROS_BPN = "mola_sm_loop_closure"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     gtsam \
     libflann \
     lz4 \
@@ -36,13 +36,13 @@ ROS_BUILD_DEPENDS = " \
     tbb \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-gtest-native \
     ament-cmake-native \
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     gtsam \
     mola-common \
     mola-georeferencing \
@@ -59,7 +59,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gtsam \
     mola-common \
     mola-georeferencing \
@@ -75,7 +75,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-lint-cmake \
     ament-cmake-pep257 \
     ament-cmake-uncrustify \
