@@ -18,7 +18,7 @@ ROS_BPN = "rqt_moveit"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     python3-setuptools-native \
     rosidl-default-generators-native \
 "
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     python-qt-binding \
     rclpy \
     rqt-gui \

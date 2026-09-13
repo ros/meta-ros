@@ -18,18 +18,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e181b18ed953304
 ROS_CN = "apriltag_mit"
 ROS_BPN = "apriltag_mit"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     boost \
     clang \
     libeigen \
     opencv \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     boost \
     clang \
     libeigen \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     boost \
     clang \
     libeigen \

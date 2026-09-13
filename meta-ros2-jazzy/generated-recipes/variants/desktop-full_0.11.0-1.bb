@@ -20,7 +20,7 @@ ROS_BPN = "desktop_full"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -28,7 +28,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     desktop \
     perception \
     ros-gz-sim-demos \

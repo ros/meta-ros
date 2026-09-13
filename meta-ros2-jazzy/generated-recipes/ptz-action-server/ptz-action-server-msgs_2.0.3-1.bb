@@ -15,21 +15,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 ROS_CN = "ptz_action_server"
 ROS_BPN = "ptz_action_server_msgs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     action-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     action-msgs \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     action-msgs \
     rosidl-default-runtime \
 "

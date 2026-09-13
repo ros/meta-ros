@@ -19,7 +19,7 @@ ROS_BPN = "open_sound_control"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     open-sound-control-bridge \
     open-sound-control-msgs \
 "

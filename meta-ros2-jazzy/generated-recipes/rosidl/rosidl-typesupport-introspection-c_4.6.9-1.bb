@@ -20,24 +20,24 @@ ROS_BPN = "rosidl_typesupport_introspection_c"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rosidl-cmake \
     rosidl-runtime-c \
     rosidl-typesupport-interface \
 "
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-native \
     python3-native \
     rosidl-generator-c-native \
     rosidl-pycommon-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-python \
     rosidl-cli \
     rosidl-generator-c \
@@ -46,7 +46,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

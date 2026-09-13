@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5
 ROS_CN = "ai_worker"
 ROS_BPN = "ffw_robot_manager"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     controller-interface \
     dynamixel-hardware-interface \
     dynamixel-interfaces \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     std-srvs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     controller-interface \
     dynamixel-hardware-interface \
     dynamixel-interfaces \
@@ -47,7 +47,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     controller-interface \
     dynamixel-hardware-interface \
     dynamixel-interfaces \
@@ -60,7 +60,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

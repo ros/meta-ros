@@ -15,18 +15,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=58e54c03ca7f821
 ROS_CN = "ros_babel_fish"
 ROS_BPN = "ros_babel_fish_test_msgs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     std-msgs \
@@ -34,7 +34,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     rosidl-default-runtime \

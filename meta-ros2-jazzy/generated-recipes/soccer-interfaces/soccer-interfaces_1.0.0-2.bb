@@ -19,7 +19,7 @@ ROS_BPN = "soccer_interfaces"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     soccer-vision-2d-msgs \
     soccer-vision-3d-msgs \
     soccer-vision-attribute-msgs \

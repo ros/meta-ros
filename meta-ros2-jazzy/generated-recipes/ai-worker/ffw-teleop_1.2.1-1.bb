@@ -18,21 +18,21 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e5
 ROS_CN = "ai_worker"
 ROS_BPN = "ffw_teleop"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     python3-tkinter \
     rclpy \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     python3-tkinter \
     rclpy \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     python3-tkinter \
     rclpy \
 "

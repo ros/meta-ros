@@ -17,18 +17,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f49
 ROS_CN = "rosbag2"
 ROS_BPN = "rosbag2_compression"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rcpputils \
     rcutils \
     rosbag2-cpp \
     rosbag2-storage \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rcpputils \
     rcutils \
     rosbag2-cpp \
@@ -37,7 +37,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rcpputils \
     rcutils \
     rosbag2-cpp \
@@ -45,7 +45,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gmock \
     ament-lint-auto \
     ament-lint-common \

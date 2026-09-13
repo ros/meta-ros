@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9de
 ROS_CN = "mrpt_msgs"
 ROS_BPN = "mrpt_msgs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     ros-environment \
     rosidl-default-generators \
@@ -23,12 +23,12 @@ ROS_BUILD_DEPENDS = " \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     sensor-msgs \
     std-msgs \
@@ -36,7 +36,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     rosidl-default-runtime \
     sensor-msgs \
@@ -44,7 +44,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cppcheck \
     ament-cpplint \
     ament-lint-auto \

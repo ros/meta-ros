@@ -15,12 +15,12 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=795d41331508248
 ROS_CN = "zenoh_bridge_dds"
 ROS_BPN = "zenoh_bridge_dds"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     cargo \
     clang \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 

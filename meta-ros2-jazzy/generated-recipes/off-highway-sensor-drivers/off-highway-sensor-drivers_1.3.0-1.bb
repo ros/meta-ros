@@ -18,7 +18,7 @@ ROS_BPN = "off_highway_sensor_drivers"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -26,7 +26,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     off-highway-can \
     off-highway-general-purpose-radar \
     off-highway-general-purpose-radar-msgs \

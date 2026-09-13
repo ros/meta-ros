@@ -16,29 +16,29 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=82f0323c08605
 ROS_CN = "scenario_execution"
 ROS_BPN = "scenario_execution_interfaces"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     rosidl-default-generators \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     builtin-interfaces \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     rosidl-default-runtime \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-lint-auto \
     ament-lint-common \
 "

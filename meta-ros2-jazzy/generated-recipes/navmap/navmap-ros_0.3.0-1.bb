@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=e8978a5103d2326
 ROS_CN = "NavMap"
 ROS_BPN = "navmap_ros"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     geometry-msgs \
     nav-msgs \
     navmap-core \
@@ -29,11 +29,11 @@ ROS_BUILD_DEPENDS = " \
     std-srvs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     nav-msgs \
     navmap-core \
@@ -47,7 +47,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     geometry-msgs \
     nav-msgs \
     navmap-core \

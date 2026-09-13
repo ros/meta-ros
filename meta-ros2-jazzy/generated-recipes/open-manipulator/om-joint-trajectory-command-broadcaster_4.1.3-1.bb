@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=3dce4ba60d7e5
 ROS_CN = "open_manipulator"
 ROS_BPN = "om_joint_trajectory_command_broadcaster"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     backward-ros \
     builtin-interfaces \
     control-msgs \
@@ -33,11 +33,11 @@ ROS_BUILD_DEPENDS = " \
     urdf \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     backward-ros \
     builtin-interfaces \
     control-msgs \
@@ -54,7 +54,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     backward-ros \
     builtin-interfaces \
     control-msgs \

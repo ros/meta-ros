@@ -16,19 +16,19 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=82f0323c08605
 ROS_CN = "scenario_execution"
 ROS_BPN = "scenario_execution_x11"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     scenario-execution \
 "
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     scenario-execution \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ffmpeg \
     scenario-execution \
 "

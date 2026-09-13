@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=e8978a5103d23
 ROS_CN = "ros2_planning_system"
 ROS_BPN = "plansys2_bt_actions"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     action-msgs \
     behaviortree-cpp \
     plansys2-executor \
@@ -26,11 +26,11 @@ ROS_BUILD_DEPENDS = " \
     rclcpp-lifecycle \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     action-msgs \
     behaviortree-cpp \
     plansys2-executor \
@@ -41,7 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     action-msgs \
     behaviortree-cpp \
     plansys2-executor \
@@ -51,7 +51,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-gtest \
     ament-lint-auto \
     ament-lint-common \

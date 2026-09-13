@@ -20,13 +20,13 @@ ROS_BPN = "sdformat_test_files"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     cmake-native \
 "
 

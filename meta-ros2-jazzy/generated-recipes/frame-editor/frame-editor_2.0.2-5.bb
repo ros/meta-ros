@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=58e54c03ca7f821
 ROS_CN = "frame_editor"
 ROS_BPN = "frame_editor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     interactive-markers \
@@ -30,13 +30,13 @@ ROS_BUILD_DEPENDS = " \
     visualization-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
     ament-cmake-python-native \
     rosidl-default-generators-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     geometry-msgs \
     interactive-markers \
     rclpy \
@@ -50,7 +50,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     builtin-interfaces \
     geometry-msgs \
     interactive-markers \

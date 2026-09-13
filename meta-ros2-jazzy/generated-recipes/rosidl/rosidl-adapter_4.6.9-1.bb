@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=12c26a18c7f49
 ROS_CN = "rosidl"
 ROS_BPN = "rosidl_adapter"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-cmake \
 "
 
@@ -26,18 +26,18 @@ ROS_BUILDTOOL_DEPENDS = ""
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-core-native \
     python3-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     python3-empy \
     rosidl-cli \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \

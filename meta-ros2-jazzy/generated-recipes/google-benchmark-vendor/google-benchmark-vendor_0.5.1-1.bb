@@ -18,22 +18,22 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=a9acc8a0587aa
 ROS_CN = "google_benchmark_vendor"
 ROS_BPN = "google_benchmark_vendor"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     google-benchmark \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
     git-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     google-benchmark \
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     google-benchmark \
 "
 

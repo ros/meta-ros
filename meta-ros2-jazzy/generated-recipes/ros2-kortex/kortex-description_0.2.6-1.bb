@@ -6,7 +6,7 @@ inherit ros_distro_jazzy
 inherit ros_superflore_generated
 
 DESCRIPTION = "<p>URDF and xacro description package for KINOVA KORTEX™ robots</p>     <p>This package contains configuration data, 3D models and launch files for KINOVA KORTEX™ arms and supported grippers</p>"
-AUTHOR = " <avannobel@kinova.ca>"
+AUTHOR = "<avannobel@kinova.ca>"
 ROS_AUTHOR = "Alexandre Vannobel <avannobel@kinova.ca>"
 HOMEPAGE = "https://wiki.ros.org"
 SECTION = "devel"
@@ -18,7 +18,7 @@ ROS_BPN = "kortex_description"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
@@ -26,7 +26,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     gz-ros2-control \
     joint-state-publisher \
     joint-state-publisher-gui \

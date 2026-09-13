@@ -17,7 +17,7 @@ ROS_BPN = "urdfdom_headers"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 

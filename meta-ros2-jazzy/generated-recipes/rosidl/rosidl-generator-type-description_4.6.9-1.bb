@@ -20,26 +20,26 @@ ROS_BPN = "rosidl_generator_type_description"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-python-native \
     ament-cmake-ros-native \
 "
 
 ROS_EXPORT_DEPENDS = ""
 
-ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = "\
     ament-cmake-core-native \
     python3-native \
 "
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-python \
     rosidl-cli \
     rosidl-parser \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \

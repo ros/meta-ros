@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=b73cebba72f83c5
 ROS_CN = "cartographer"
 ROS_BPN = "cartographer"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     abseil-cpp \
     boost \
     cairo \
@@ -33,11 +33,11 @@ ROS_BUILD_DEPENDS = " \
     python3-sphinx \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     abseil-cpp \
     boost \
     cairo \
@@ -51,7 +51,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     abseil-cpp \
     boost \
     cairo \

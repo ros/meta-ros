@@ -20,7 +20,7 @@ ROS_BPN = "ros_environment"
 
 ROS_BUILD_DEPENDS = ""
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-core-native \
 "
 

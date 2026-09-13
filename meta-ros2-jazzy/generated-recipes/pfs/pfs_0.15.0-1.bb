@@ -16,7 +16,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5
 ROS_CN = "pfs"
 ROS_BPN = "pfs"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     cmake \
 "
 

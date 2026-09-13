@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=12c26a18c7f49
 ROS_CN = "launch_ros"
 ROS_BPN = "ros2launch"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     ament-index-python \
     launch \
     launch-ros \
@@ -28,7 +28,7 @@ ROS_BUILD_DEPENDS = " \
 
 ROS_BUILDTOOL_DEPENDS = ""
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     ament-index-python \
     launch \
     launch-ros \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     ament-index-python \
     launch \
     launch-ros \
@@ -49,7 +49,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-copyright \
     ament-flake8 \
     ament-pep257 \

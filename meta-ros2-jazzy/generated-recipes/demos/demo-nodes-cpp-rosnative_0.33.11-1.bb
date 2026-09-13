@@ -18,18 +18,18 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f49
 ROS_CN = "demos"
 ROS_BPN = "demo_nodes_cpp_native"
 
-ROS_BUILD_DEPENDS = " \
+ROS_BUILD_DEPENDS = "\
     rclcpp \
     rclcpp-components \
     rmw-fastrtps-cpp \
     std-msgs \
 "
 
-ROS_BUILDTOOL_DEPENDS = " \
+ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native \
 "
 
-ROS_EXPORT_DEPENDS = " \
+ROS_EXPORT_DEPENDS = "\
     rclcpp \
     rclcpp-components \
     rmw-fastrtps-cpp \
@@ -38,7 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
+ROS_EXEC_DEPENDS = "\
     rclcpp \
     rclcpp-components \
     rmw-fastrtps-cpp \
@@ -46,7 +46,7 @@ ROS_EXEC_DEPENDS = " \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
+ROS_TEST_DEPENDS = "\
     ament-cmake-pytest \
     ament-lint-auto \
     ament-lint-common \
