@@ -22,3 +22,6 @@ CXXFLAGS += "-Wno-error=unused-parameter"
 
 # nav2-rviz-plugins/1.5.1-1/recipe-sysroot/opt/ros/lyrical/include/rviz_common/rviz_common/message_filter_display.hpp:126:73: error: potential null pointer dereference [-Werror=null-dereference]
 CXXFLAGS += "-Wno-error=null-dereference"
+
+# nav2-rviz-plugins/1.5.1-1/recipe-sysroot/usr/include/OGRE/OgreAlignedAllocator.h:108:73: error: extra ';' [-Werror=pedantic]
+CXXFLAGS += "-Wno-error=pedantic"
