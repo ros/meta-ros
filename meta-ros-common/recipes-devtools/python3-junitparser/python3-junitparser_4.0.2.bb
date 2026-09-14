@@ -7,4 +7,4 @@ SRC_URI = "git://github.com/weiwei/junitparser;protocol=https;branch=master"
 
 SRCREV = "5bdff46601ec082b9ab0601c68bf5d3af6672577"
 
-inherit python_setuptools_build_meta ptest-python-pytest
+inherit python_setuptools_build_meta
