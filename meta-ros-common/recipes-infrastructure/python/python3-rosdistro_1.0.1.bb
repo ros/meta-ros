@@ -3,7 +3,7 @@ SECTION = "devel/python"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=988919d688133096537549f9afebf425"
 
-inherit setuptools3 ptest-python-pytest
+inherit setuptools3
 
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "\
