@@ -11,10 +11,9 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=10;endline=10;md5=d36ab912b8b544b7
 
 DEPENDS = "python3-wheel-native"
 
-SRC_URI = "\
-    git://github.com/ros-infrastructure/rosdoc2.git;branch=main;protocol=https \
-    file://0001-ptest-fix-the-path-to-the-installed-package.patch \
-"
+SRC_URI = "git://github.com/ros-infrastructure/rosdoc2.git;branch=main;protocol=https"
+
+SRCREV = "978d4a81812504bf93964ecc41ea3022cfa49387"
 
 inherit pypi python_setuptools_build_meta
 
