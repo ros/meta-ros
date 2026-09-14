@@ -12,7 +12,7 @@ SRC_URI = "\
 
 SRCREV = "c0725a01c9c03849130c1f377336097ffa179042"
 
-inherit setuptools3 ptest-python-pytest
+inherit setuptools3
 
 RDEPENDS:${PN} += "\
     ${PYTHON_PN}-colcon-core \

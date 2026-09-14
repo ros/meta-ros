@@ -12,7 +12,7 @@ SRC_URI = "\
 
 SRCREV = "7c72610ded646405d3c61318680e7d93bcbf1409"
 
-inherit setuptools3 ptest-python-pytest
+inherit setuptools3
 
 RDEPENDS:${PN} += "\
     ${PYTHON_PN}-catkin-pkg \

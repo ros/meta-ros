@@ -11,7 +11,7 @@ SRC_URI = "\
 
 SRCREV = "728784f041fd23fc2060b57c5137320cde444af9"
 
-inherit setuptools3 ptest-python-pytest
+inherit setuptools3
 
 FILES:${PN} += "${datadir}/colcon_notification"
 
