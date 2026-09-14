@@ -8,3 +8,6 @@ CXXFLAGS += "-Wno-error=deprecated-declarations"
 
 # nav2-waypoint-follower/1.5.1-1/recipe-sysroot/opt/ros/lyrical/include/class_loader/class_loader/meta_object.hpp:59:27: error: 'class class_loader::impl::AbstractMetaObjectBase' has virtual functions and accessible non-virtual destructor [-Werror=non-virtual-dtor]
 CXXFLAGS += "-Wno-error=non-virtual-dtor"
+
+# nav2-waypoint-follower/1.5.1-1/recipe-sysroot/usr/include/opencv4/opencv2/core/mat.inl.hpp:103:57: error: arithmetic between different enumeration types 'cv::_InputArray::KindFlag' and 'cv::AccessFlag' is deprecated [-Werror=deprecated-enum-enum-conversion]
+CXXFLAGS += "-Wno-error=deprecated-enum-enum-conversion"
