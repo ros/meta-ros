@@ -14,6 +14,8 @@ SRC_URI = "git://github.com/xtensor-stack/xtensor.git;protocol=https;branch=mast
 
 SRCREV = "f115228a7fc277b9be1bef34572831f8fd53ac73"
 
+S = "${WORKDIR}/git"
+
 inherit cmake
 
 FILES:${PN} += "\
