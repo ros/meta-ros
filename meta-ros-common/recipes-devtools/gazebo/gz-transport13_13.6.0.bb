@@ -6,6 +6,8 @@ SRC_URI = "git://github.com/gazebosim/gz-transport.git;protocol=https;branch=gz-
 
 SRCREV = "35fef7ea10c2e133498e9010bd2e397a0ce0c3bf"
 
+S = "${WORKDIR}/git"
+
 inherit cmake pkgconfig python3targetconfig
 
 DEPENDS = " \
