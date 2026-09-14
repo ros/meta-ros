@@ -12,6 +12,8 @@ SRC_URI = "git://github.com/xtensor-stack/xsimd.git;protocol=https;branch=7.x"
 
 SRCREV = "b948624424c1ce297e0d7a3380a114f4c245b190"
 
+S = "${WORKDIR}/git"
+
 EXTRA_OECMAKE = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 BBCLASSEXTEND = "native nativesdk"
