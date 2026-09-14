@@ -10,6 +10,8 @@ SRC_URI = "git://github.com/gazebosim/gz-sim.git;protocol=https;branch=gz-sim9"
 
 SRCREV = "fffcee070673596f431a46eb52bc2dbb072d0cd3"
 
+S = "${WORKDIR}/git"
+
 inherit cmake
 
 DEPENDS += " \
