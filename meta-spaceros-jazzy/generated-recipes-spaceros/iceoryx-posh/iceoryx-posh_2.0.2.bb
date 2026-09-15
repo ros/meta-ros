@@ -37,10 +37,10 @@ ROS_EXEC_DEPENDS = "\
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
@@ -48,7 +48,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release_2.0"
 SRC_URI = "git://github.com/eclipse-iceoryx/iceoryx.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f756b7c99ddf714d05929374492b34c5c69355bb"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/iceoryx_posh"
+S = "${WORKDIR}/git/iceoryx_posh"
 
 ROS_BUILD_TYPE = "cmake"
 

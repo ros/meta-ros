@@ -39,10 +39,10 @@ ROS_TEST_DEPENDS = "\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
@@ -50,7 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ament/ament_cmake.git;${ROS_BRANCH};protocol=https"
 SRCREV = "5741cff5b9f83253bf3521bd8f44108fde3504ad"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_cmake_vendor_package"
+S = "${WORKDIR}/git/ament_cmake_vendor_package"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

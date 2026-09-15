@@ -33,10 +33,10 @@ ROS_TEST_DEPENDS = "\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
@@ -44,7 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/osrf/osrf_testing_tools_cpp.git;${ROS_BRANCH};protocol=https"
 SRCREV = "ab362a640ef30ca207c04d2c033392bbc6fcdf31"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/test_osrf_testing_tools_cpp"
+S = "${WORKDIR}/git/test_osrf_testing_tools_cpp"
 
 ROS_BUILD_TYPE = "cmake"
 
