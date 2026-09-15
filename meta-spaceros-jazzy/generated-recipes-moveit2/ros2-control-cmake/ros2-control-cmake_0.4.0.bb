@@ -34,10 +34,10 @@ ROS_TEST_DEPENDS = "\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
@@ -45,6 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=dynrpm/jazzy/ros2_control_cmake"
 SRC_URI = "git://github.com/ros2-gbp/ros2_control_cmake-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "6bf6eb3c4c27fbf08cafae1e35f6142bda1e5bc9"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

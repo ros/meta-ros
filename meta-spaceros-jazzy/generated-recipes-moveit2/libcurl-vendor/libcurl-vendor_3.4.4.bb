@@ -41,10 +41,10 @@ ROS_EXEC_DEPENDS = "\
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
@@ -52,6 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/libcurl_vendor"
 SRC_URI = "git://github.com/ros2-gbp/resource_retriever-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "d80224e4c60400350b1ab8eb61c5f21f89bc1004"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
