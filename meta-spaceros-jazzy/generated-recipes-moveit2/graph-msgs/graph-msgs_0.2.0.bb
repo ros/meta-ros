@@ -56,7 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=dynrpm/jazzy/graph_msgs"
 SRC_URI = "git://github.com/ros2-gbp/graph_msgs-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "cb9838e309f09242d2ccef5878756aa50588a063"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

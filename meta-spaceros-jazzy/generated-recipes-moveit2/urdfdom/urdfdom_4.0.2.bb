@@ -56,7 +56,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/urdfdom"
 SRC_URI = "git://github.com/ros2-gbp/urdfdom-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "3c8022de6c3702ff1e6541e635518fecc2a3296d"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "cmake"
 

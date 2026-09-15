@@ -63,7 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/image_geometry"
 SRC_URI = "git://github.com/ros2-gbp/vision_opencv-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f5ea0ce5972556558784659e5a6c45b27176d2a0"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

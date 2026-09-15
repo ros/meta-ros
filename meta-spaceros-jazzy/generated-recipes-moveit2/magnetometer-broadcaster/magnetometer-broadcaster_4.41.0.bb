@@ -80,7 +80,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=debian/jazzy/noble/magnetometer_broadcaster"
 SRC_URI = "git://github.com/ros2-gbp/ros2_controllers-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8d65beb62208494ca1a9df3527c554eda2e05ec8"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

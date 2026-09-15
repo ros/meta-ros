@@ -67,7 +67,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/topic_tools"
 SRC_URI = "git://github.com/ros2-gbp/topic_tools-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "9c3cb4f4ab53bfefe3236f58cbea37e6a776e68f"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

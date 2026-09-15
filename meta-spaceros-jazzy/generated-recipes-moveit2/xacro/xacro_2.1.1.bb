@@ -58,7 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/xacro"
 SRC_URI = "git://github.com/ros2-gbp/xacro-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "a849bc94e07fa84964a69165c1160452f3bb743a"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

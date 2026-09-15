@@ -65,7 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gz_math_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_math_vendor-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "71161eed401fc34af327174f7922520ad9767e41"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

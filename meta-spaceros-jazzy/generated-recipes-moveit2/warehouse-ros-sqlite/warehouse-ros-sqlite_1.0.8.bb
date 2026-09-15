@@ -64,7 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=dynrpm/jazzy/warehouse_ros_sqlite"
 SRC_URI = "git://github.com/ros2-gbp/warehouse_ros_sqlite-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e87a63ba474e07dde5b2c7ebd0a3cb92e1964aca"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

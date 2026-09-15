@@ -57,7 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/generate_parameter_library_py"
 SRC_URI = "git://github.com/ros2-gbp/generate_parameter_library-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "d71323188b6209d39a6cbd1094f2d13bb533fbdb"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_python"
 

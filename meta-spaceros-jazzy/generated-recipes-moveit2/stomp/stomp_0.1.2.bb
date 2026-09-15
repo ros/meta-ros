@@ -53,7 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/stomp"
 SRC_URI = "git://github.com/ros2-gbp/stomp-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "699543c259979d6b331206a37941d78cd3122b0e"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "cmake"
 
