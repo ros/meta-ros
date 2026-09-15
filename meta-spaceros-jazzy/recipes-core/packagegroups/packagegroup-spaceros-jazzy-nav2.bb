@@ -10,6 +10,7 @@ PACKAGES = "${PN}"
 
 RDEPENDS:${PN} = "\
     angles\
+    backward-ros\
     behaviortree-cpp\
     bond\
     bondcpp\
@@ -45,6 +46,7 @@ RDEPENDS:${PN} = "\
     nav2-planner\
     nav2-regulated-pure-pursuit-controller\
     nav2-rotation-shim-controller\
+    nav2-route\
     nav2-simple-commander\
     nav2-smac-planner\
     nav2-smoother\
@@ -62,4 +64,5 @@ RDEPENDS:${PN} = "\
     smclib\
     yaml-cpp-vendor\
 "
+# Temporarily removed from packagegroup
 #    nav2-constrained-smoother
