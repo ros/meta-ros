@@ -17,7 +17,7 @@ PREFERRED_VERSION_dartsim = "6.13.2"
 
 PREFERRED_VERSION_ogre-next = "2.3.3"
 
-PREFERRED_VERSION_gz-cmake3 = "3.5.6"
+PREFERRED_VERSION_gz-cmake3 = "3.6.0"
 PREFERRED_VERSION_gz-math7 = "7.6.0"
 PREFERRED_VERSION_gz-tools2 = "2.0.3"
 PREFERRED_VERSION_gz-utils2 = "2.2.1"
