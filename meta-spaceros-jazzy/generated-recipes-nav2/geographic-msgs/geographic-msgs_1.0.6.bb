@@ -63,7 +63,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/geographic_msgs"
 SRC_URI = "git://github.com/ros2-gbp/geographic_info-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "caa6354cd98e112a31d8f26ab3168880bb3d327e"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
