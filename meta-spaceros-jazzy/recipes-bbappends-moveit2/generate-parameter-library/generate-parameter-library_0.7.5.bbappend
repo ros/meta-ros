@@ -5,5 +5,10 @@ LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=4633480cdd27d
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://use-upstream-tl-expected.patch"
 
+# Replace libexpected-dev with tl-expected
+ROS_BUILD_DEPENDS:remove = "libexpected-dev"
+ROS_EXEC_DEPENDS:remove = "libexpected-dev"
+ROS_EXPORT_DEPENDS:remove = "libexpected-dev"
+
 # tl-expected does not have a runtime package
 ROS_EXEC_DEPENDS:remove = "tl-expected"
