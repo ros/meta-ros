@@ -68,7 +68,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rmw_dds_common.git;${ROS_BRANCH};protocol=https"
 SRCREV = "2e3ebf31850a8b05430fb44230ead2d566b8ff1d"
-S = "${WORKDIR}/git/rmw_dds_common"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rmw_dds_common"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

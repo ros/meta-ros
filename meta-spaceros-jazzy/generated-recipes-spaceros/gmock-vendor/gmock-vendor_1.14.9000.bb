@@ -44,7 +44,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ament/googletest.git;${ROS_BRANCH};protocol=https"
 SRCREV = "449327bfc17e58db5ce53955b8e250427909a1c8"
-S = "${WORKDIR}/git/googlemock"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/googlemock"
 
 ROS_BUILD_TYPE = "cmake"
 

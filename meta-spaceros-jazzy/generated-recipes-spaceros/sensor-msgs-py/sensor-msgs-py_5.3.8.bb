@@ -49,7 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/common_interfaces.git;${ROS_BRANCH};protocol=https"
 SRCREV = "a941f14bb318d8d904505ed935ccbb97f24a70a4"
-S = "${WORKDIR}/git/sensor_msgs_py"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/sensor_msgs_py"
 
 ROS_BUILD_TYPE = "ament_python"
 

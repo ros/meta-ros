@@ -50,7 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros/pluginlib.git;${ROS_BRANCH};protocol=https"
 SRCREV = "ddb1163d79932739ddf184328352e2a8e973ee29"
-S = "${WORKDIR}/git/ros2plugin"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ros2plugin"
 
 ROS_BUILD_TYPE = "ament_python"
 

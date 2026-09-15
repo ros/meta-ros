@@ -64,7 +64,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros/kdl_parser.git;${ROS_BRANCH};protocol=https"
 SRCREV = "c6f0299344afd1afbeb442fe37e073be69dd5e47"
-S = "${WORKDIR}/git/kdl_parser"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/kdl_parser"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

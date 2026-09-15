@@ -49,7 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/ament/ament_cobra.git;${ROS_BRANCH};protocol=https"
 SRCREV = "101aa17b1f4e04d09533bb35271d808a13d1fee1"
-S = "${WORKDIR}/git/ament_cmake_cobra"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_cmake_cobra"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

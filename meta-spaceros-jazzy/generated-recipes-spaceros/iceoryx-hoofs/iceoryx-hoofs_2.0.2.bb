@@ -50,7 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release_2.0"
 SRC_URI = "git://github.com/eclipse-iceoryx/iceoryx.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f756b7c99ddf714d05929374492b34c5c69355bb"
-S = "${WORKDIR}/git/iceoryx_hoofs"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/iceoryx_hoofs"
 
 ROS_BUILD_TYPE = "cmake"
 
