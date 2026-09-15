@@ -27,7 +27,7 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    nodl-python \
+    ${ROS_UNRESOLVED_DEP-nodl-python} \
     python3-argcomplete \
     python3-lxml \
     ros2cli \
