@@ -16,10 +16,10 @@ Signed-off-by: Chris Lalancette <clalancette@gmail.com>
  nav2_costmap_2d/test/unit/CMakeLists.txt      |  35 ++--
  5 files changed, 137 insertions(+), 127 deletions(-)
 
-Index: nav2-costmap-2d-1.3.5/CMakeLists.txt
+Index: nav2-costmap-2d-1.3.12/CMakeLists.txt
 ===================================================================
---- nav2-costmap-2d-1.3.5.orig/CMakeLists.txt
-+++ nav2-costmap-2d-1.3.5/CMakeLists.txt
+--- nav2-costmap-2d-1.3.12.orig/CMakeLists.txt
++++ nav2-costmap-2d-1.3.12/CMakeLists.txt
 @@ -2,13 +2,14 @@ cmake_minimum_required(VERSION 3.5)
  project(nav2_costmap_2d)
  
@@ -255,10 +255,10 @@ Index: nav2-costmap-2d-1.3.5/CMakeLists.txt
 +)
  pluginlib_export_plugin_description_file(nav2_costmap_2d costmap_plugins.xml)
  ament_package()
-Index: nav2-costmap-2d-1.3.5/package.xml
+Index: nav2-costmap-2d-1.3.12/package.xml
 ===================================================================
---- nav2-costmap-2d-1.3.5.orig/package.xml
-+++ nav2-costmap-2d-1.3.5/package.xml
+--- nav2-costmap-2d-1.3.12.orig/package.xml
++++ nav2-costmap-2d-1.3.12/package.xml
 @@ -19,6 +19,7 @@
    <buildtool_depend>ament_cmake</buildtool_depend>
    <build_depend>nav2_common</build_depend>
@@ -291,10 +291,10 @@ Index: nav2-costmap-2d-1.3.5/package.xml
 +    <build_type>ament_cmake</build_type>
    </export>
  </package>
-Index: nav2-costmap-2d-1.3.5/test/integration/CMakeLists.txt
+Index: nav2-costmap-2d-1.3.12/test/integration/CMakeLists.txt
 ===================================================================
---- nav2-costmap-2d-1.3.5.orig/test/integration/CMakeLists.txt
-+++ nav2-costmap-2d-1.3.5/test/integration/CMakeLists.txt
+--- nav2-costmap-2d-1.3.12.orig/test/integration/CMakeLists.txt
++++ nav2-costmap-2d-1.3.12/test/integration/CMakeLists.txt
 @@ -2,41 +2,41 @@ ament_add_gtest_executable(footprint_tes
    footprint_tests.cpp
  )
@@ -418,10 +418,10 @@ Index: nav2-costmap-2d-1.3.5/test/integration/CMakeLists.txt
 +#   nav2_costmap_2d_core
  #   layers
  # )
-Index: nav2-costmap-2d-1.3.5/test/regression/CMakeLists.txt
+Index: nav2-costmap-2d-1.3.12/test/regression/CMakeLists.txt
 ===================================================================
---- nav2-costmap-2d-1.3.5.orig/test/regression/CMakeLists.txt
-+++ nav2-costmap-2d-1.3.5/test/regression/CMakeLists.txt
+--- nav2-costmap-2d-1.3.12.orig/test/regression/CMakeLists.txt
++++ nav2-costmap-2d-1.3.12/test/regression/CMakeLists.txt
 @@ -1,17 +1,13 @@
  # Bresenham2D corner cases test
  ament_add_gtest(costmap_bresenham_2d costmap_bresenham_2d.cpp)
@@ -451,11 +451,11 @@ Index: nav2-costmap-2d-1.3.5/test/regression/CMakeLists.txt
 -  ${PROJECT_NAME}::nav2_costmap_2d_core
 +  nav2_costmap_2d_core
  )
-Index: nav2-costmap-2d-1.3.5/test/unit/CMakeLists.txt
+Index: nav2-costmap-2d-1.3.12/test/unit/CMakeLists.txt
 ===================================================================
---- nav2-costmap-2d-1.3.5.orig/test/unit/CMakeLists.txt
-+++ nav2-costmap-2d-1.3.5/test/unit/CMakeLists.txt
-@@ -1,63 +1,64 @@
+--- nav2-costmap-2d-1.3.12.orig/test/unit/CMakeLists.txt
++++ nav2-costmap-2d-1.3.12/test/unit/CMakeLists.txt
+@@ -1,69 +1,69 @@
  ament_add_gtest(collision_footprint_test footprint_collision_checker_test.cpp)
  target_link_libraries(collision_footprint_test
 -  ${PROJECT_NAME}::nav2_costmap_2d_core
@@ -506,9 +506,8 @@ Index: nav2-costmap-2d-1.3.5/test/unit/CMakeLists.txt
  target_link_libraries(binary_filter_test
 -  ${PROJECT_NAME}::nav2_costmap_2d_core
 -  ${PROJECT_NAME}::filters
-+  filters
 +  nav2_costmap_2d_core
-+  ${std_msgs_TARGETS}
++  filters
  )
  
  ament_add_gtest(copy_window_test copy_window_test.cpp)
@@ -534,7 +533,12 @@ Index: nav2-costmap-2d-1.3.5/test/unit/CMakeLists.txt
  ament_add_gtest(lifecycle_test lifecycle_test.cpp)
  target_link_libraries(lifecycle_test
 -  ${PROJECT_NAME}::nav2_costmap_2d_core
--)
-\ No newline at end of file
 +  nav2_costmap_2d_core
-+)
+ )
+ 
+ ament_add_gtest(obstacle_layer_test obstacle_layer_test.cpp)
+ target_link_libraries(obstacle_layer_test
+-  ${PROJECT_NAME}::nav2_costmap_2d_core
++  nav2_costmap_2d_core
+   layers
+ )
