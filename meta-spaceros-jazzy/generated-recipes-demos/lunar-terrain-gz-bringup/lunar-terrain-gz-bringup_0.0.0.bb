@@ -62,7 +62,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "925fe48e09cff6d79cc8455265bcd09b51b5ee5b"
-S = "${WORKDIR}/git/lunar_terrain/lunar_terrain_gz_bringup"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lunar_terrain/lunar_terrain_gz_bringup"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
