@@ -5,15 +5,14 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "An automatically generated package with all the configuration and launch files for using the SSRMS_Canadarm2 with the MoveIt Motion Planning Framework"
-AUTHOR = "Dharini Dutia <dharini@openrobotics.org>"
-ROS_AUTHOR = "Dharini Dutia <dharini@openrobotics.org>"
-HOMEPAGE = "http://moveit.ros.org/"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
+DESCRIPTION = "Minimal RViz launch and config for the Space ROS Nav2 Curiosity demo"
+AUTHOR = "Open Robotics <openrobotics@openrobotics.org>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "src"
-ROS_BPN = "canadarm_moveit_config"
+ROS_BPN = "nav2_demo_rviz"
 
 ROS_BUILD_DEPENDS = ""
 
@@ -26,26 +25,11 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    moveit-ros-move-group\
-    moveit-kinematics\
-    moveit-planners\
-    moveit-simple-controller-manager\
-    joint-state-publisher\
-    joint-state-publisher-gui\
-    tf2-ros\
-    xacro\
-    controller-manager\
-    moveit-configs-utils\
-    moveit-ros-move-group\
-    moveit-ros-visualization\
-    moveit-setup-assistant\
-    robot-state-publisher\
+    launch\
+    launch-ros\
+    nav2-common\
+    nav2-rviz-plugins\
     rviz2\
-    rviz-common\
-    rviz-default-plugins\
-    simulation\
-    tf2-ros\
-    xacro\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -63,7 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "925fe48e09cff6d79cc8455265bcd09b51b5ee5b"
-S = "${WORKDIR}/git/canadarm2/canadarm_moveit_config"
+S = "${WORKDIR}/git/nav2_demo/nav2_demo_rviz"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
