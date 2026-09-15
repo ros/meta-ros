@@ -438,6 +438,12 @@ libqt6-qml:
 - qtdeclarative@meta-qt6
 libqt6-quick:
 - qtdeclarative@meta-qt6
+libqtcore:
+- qtbase@meta-qt6
+libqtgui:
+- qtbase@meta-qt6
+libqtopengl:
+- qtbase@meta-qt6
 libqtwidgets:
 - qtbase@meta-qt6
 libreadline:
@@ -516,6 +522,8 @@ linux-kernel-headers:
 - linux-libc-headers@openembedded-core
 lm-sensors:
 - lmsensors@meta-oe
+lttng-tools:
+- lttng-tools@openembedded-core
 lua-dev:
 - lua@openembedded-core
 lua5.2-dev:
@@ -532,6 +540,8 @@ network-manager:
 - ${ROS_UNRESOLVED_DEP-network-manager}
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
+nodl_python:
+- ${ROS_UNRESOLVED_DEP-nodl-python}
 ocl-icd-opencl-dev:
 - opencl-icd-loader@meta-oe
 opencl-headers:
@@ -751,6 +761,8 @@ python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-rtree:
 - python3-rtree@meta-ros2
+python3-ruamel.yaml:
+- python3-ruamel-yaml@openembedded-core
 python3-scipy:
 - python3-scipy@meta-scipy
 python3-scp:
@@ -884,8 +896,6 @@ swig:
 - swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
-tar:
-- tar@openembedded-core
 tbb:
 - tbb@meta-oe
 tinyxml:
