@@ -167,6 +167,7 @@ RDEPENDS:${PN} = "\
     rosidl-generator-c\
     rosidl-generator-cpp\
     rosidl-generator-py\
+    rosidl-generator-rs\
     rosidl-generator-tests\
     rosidl-generator-type-description\
     rosidl-parser\
@@ -229,6 +230,6 @@ RDEPENDS:${PN} = "\
     visualization-msgs\
 "
 # Temporarily removed from packagegroup
-#    ament-ikos
 #    ament-cmake-ikos
+#    ament-ikos
 #    test-osrf-testing-tools-cpp
