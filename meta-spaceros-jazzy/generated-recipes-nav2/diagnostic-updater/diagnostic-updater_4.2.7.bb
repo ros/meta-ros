@@ -5,55 +5,43 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    This contains CvBridge, which converts between ROS2\
-    Image messages and OpenCV images.\
-"
-AUTHOR = "Kenji Brameld <kenjibrameld@gmail.com>"
-ROS_AUTHOR = "Patrick Mihelich"
-HOMEPAGE = "http://www.ros.org/wiki/cv_bridge"
-LICENSE = "Apache-2.0 & BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+DESCRIPTION = "Update and publish diagnostic information."
+AUTHOR = "Christian Henkel <Christian.Henkel2@de.bosch.com>"
+ROS_AUTHOR = "Jeremy Leibs"
+HOMEPAGE = "https://index.ros.org/p/diagnostic_updater/"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
-ROS_CN = "cv_bridge"
-ROS_BPN = "cv_bridge"
+ROS_CN = "diagnostic_updater"
+ROS_BPN = "diagnostic_updater"
 
 ROS_BUILD_DEPENDS = "\
-    boost\
-    boost\
-    opencv\
-    python3-numpy\
+    diagnostic-msgs\
     rclcpp\
-    rcpputils\
-    sensor-msgs\
-    opencv\
+    rclpy\
+    std-msgs\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
+    ament-cmake-native\
+    ament-cmake-python-native\
     ament-cmake-ros-native\
-    python-cmake-module-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    opencv\
-    python3-numpy\
+    diagnostic-msgs\
     rclcpp\
-    rcpputils\
-    sensor-msgs\
-    opencv\
+    rclpy\
+    std-msgs\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ament-index-python\
-    boost\
-    opencv\
-    python3-numpy\
+    diagnostic-msgs\
     rclcpp\
-    rcpputils\
-    sensor-msgs\
-    opencv\
+    rclpy\
+    std-msgs\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -62,6 +50,11 @@ ROS_TEST_DEPENDS = "\
     ament-cmake-pytest\
     ament-lint-auto\
     ament-lint-common\
+    launch\
+    launch-testing\
+    launch-testing-ros\
+    python3-pytest\
+    rclcpp-lifecycle\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -73,9 +66,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/cv_bridge"
-SRC_URI = "git://github.com/ros2-gbp/vision_opencv-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "d30ec40f8ebf943aaa16b860166e53a49a6f6174"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/diagnostic_updater"
+SRC_URI = "git://github.com/ros2-gbp/diagnostics-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "cacd1def22b9c418d0674ab13060ffbe277e6c5a"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

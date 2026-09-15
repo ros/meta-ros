@@ -5,33 +5,46 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it."
-AUTHOR = "Scott K Logan <scott@openrobotics.org>"
-ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-HOMEPAGE = "https://github.com/jbeder/yaml-cpp"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+DESCRIPTION = "Message/Service definitions specifically for the dwb_core"
+AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
-ROS_CN = "yaml_cpp_vendor"
-ROS_BPN = "yaml_cpp_vendor"
+ROS_CN = "dwb_msgs"
+ROS_BPN = "dwb_msgs"
 
 ROS_BUILD_DEPENDS = "\
-    yaml-cpp\
+    builtin-interfaces\
+    geometry-msgs\
+    nav-2d-msgs\
+    std-msgs\
+    nav-msgs\
+    rosidl-default-runtime\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
-    ament-cmake-vendor-package-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    yaml-cpp\
+    builtin-interfaces\
+    geometry-msgs\
+    nav-2d-msgs\
+    std-msgs\
+    nav-msgs\
+    rosidl-default-runtime\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    yaml-cpp\
+    builtin-interfaces\
+    geometry-msgs\
+    nav-2d-msgs\
+    std-msgs\
+    nav-msgs\
+    rosidl-default-runtime\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,9 +59,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/yaml_cpp_vendor"
-SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "2659fc4dd6597ca3131647f281c6d9e3f73f9deb"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/dwb_msgs"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "6a6fbe2bf338d116997b44958188202798b3f800"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

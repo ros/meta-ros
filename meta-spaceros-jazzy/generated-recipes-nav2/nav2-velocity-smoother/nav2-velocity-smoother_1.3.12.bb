@@ -5,37 +5,49 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it."
-AUTHOR = "Scott K Logan <scott@openrobotics.org>"
-ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-HOMEPAGE = "https://github.com/jbeder/yaml-cpp"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+DESCRIPTION = "Nav2's Output velocity smoother"
+AUTHOR = "Steve Macenski <stevenmacenski@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "yaml_cpp_vendor"
-ROS_BPN = "yaml_cpp_vendor"
+ROS_CN = "nav2_velocity_smoother"
+ROS_BPN = "nav2_velocity_smoother"
 
 ROS_BUILD_DEPENDS = "\
-    yaml-cpp\
+    nav2-common\
+    rclcpp\
+    rclcpp-components\
+    geometry-msgs\
+    nav2-util\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
-    ament-cmake-vendor-package-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    yaml-cpp\
+    rclcpp\
+    rclcpp-components\
+    geometry-msgs\
+    nav2-util\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    yaml-cpp\
+    rclcpp\
+    rclcpp-components\
+    geometry-msgs\
+    nav2-util\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = "\
+    ament-lint-common\
+    ament-lint-auto\
+    ament-cmake-gtest\
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we
@@ -46,9 +58,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/yaml_cpp_vendor"
-SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "2659fc4dd6597ca3131647f281c6d9e3f73f9deb"
+ROS_BRANCH ?= "branch=release/jazzy/nav2_velocity_smoother"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "200b2eda2051ae1a3f45e77fded544f0e15444fd"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

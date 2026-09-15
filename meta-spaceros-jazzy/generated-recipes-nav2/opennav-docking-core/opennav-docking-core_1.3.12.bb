@@ -5,37 +5,49 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it."
-AUTHOR = "Scott K Logan <scott@openrobotics.org>"
-ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-HOMEPAGE = "https://github.com/jbeder/yaml-cpp"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+DESCRIPTION = "A set of headers for plugins core to the opennav docking framework"
+AUTHOR = "Steve Macenski <steve@opennav.org>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "yaml_cpp_vendor"
-ROS_BPN = "yaml_cpp_vendor"
+ROS_CN = "opennav_docking_core"
+ROS_BPN = "opennav_docking_core"
 
 ROS_BUILD_DEPENDS = "\
-    yaml-cpp\
+    rclcpp\
+    rclcpp-lifecycle\
+    nav2-util\
+    nav2-msgs\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
-    ament-cmake-vendor-package-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    yaml-cpp\
+    rclcpp\
+    rclcpp-lifecycle\
+    nav2-util\
+    nav2-msgs\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    yaml-cpp\
+    rclcpp\
+    rclcpp-lifecycle\
+    nav2-util\
+    nav2-msgs\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = "\
+    ament-lint-common\
+    ament-lint-auto\
+    ament-cmake-gtest\
+    ament-cmake-pytest\
+"
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we
@@ -46,9 +58,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/yaml_cpp_vendor"
-SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "2659fc4dd6597ca3131647f281c6d9e3f73f9deb"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/opennav_docking_core"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "2c2c088cf30c7f26d56136fb100d3b8c6bf7ae16"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

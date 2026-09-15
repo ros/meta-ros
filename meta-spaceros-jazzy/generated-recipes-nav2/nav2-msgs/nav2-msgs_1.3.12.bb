@@ -5,20 +5,25 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "ROS messages for Geographic Information Systems."
-AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
-HOMEPAGE = "http://wiki.ros.org/geographic_msgs"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+DESCRIPTION = "Messages and service files for the Nav2 stack"
+AUTHOR = "Michael Jeronimo <michael.jeronimo@intel.com>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "geographic_msgs"
-ROS_BPN = "geographic_msgs"
+ROS_CN = "nav2_msgs"
+ROS_BPN = "nav2_msgs"
 
 ROS_BUILD_DEPENDS = "\
+    nav2-common\
+    rclcpp\
+    std-msgs\
+    builtin-interfaces\
     rosidl-default-generators\
     geometry-msgs\
-    std-msgs\
-    unique-identifier-msgs\
+    action-msgs\
+    nav-msgs\
+    geographic-msgs\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
@@ -26,30 +31,31 @@ ROS_BUILDTOOL_DEPENDS = "\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    geometry-msgs\
+    rclcpp\
     std-msgs\
-    unique-identifier-msgs\
+    builtin-interfaces\
+    rosidl-default-generators\
+    geometry-msgs\
+    action-msgs\
+    nav-msgs\
+    geographic-msgs\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    rosidl-default-runtime\
-    geometry-msgs\
+    rclcpp\
     std-msgs\
-    unique-identifier-msgs\
+    builtin-interfaces\
+    rosidl-default-generators\
+    geometry-msgs\
+    action-msgs\
+    nav-msgs\
+    geographic-msgs\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "\
-    ament-cmake-gtest\
-    ament-lint-auto\
-    ament-cmake-cppcheck\
-    ament-cmake-cpplint\
-    ament-cmake-lint-cmake\
-    ament-cmake-uncrustify\
-    ament-cmake-xmllint\
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we
@@ -60,9 +66,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/geographic_msgs"
-SRC_URI = "git://github.com/ros2-gbp/geographic_info-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "caa6354cd98e112a31d8f26ab3168880bb3d327e"
+ROS_BRANCH ?= "branch=release/jazzy/nav2_msgs"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "4b6e05c4239640c6f040f1a64a22fe66d15d060e"
 S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"

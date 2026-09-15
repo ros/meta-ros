@@ -5,33 +5,36 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Wrapper around yaml-cpp, it provides a fixed CMake module and an ExternalProject build of it."
-AUTHOR = "Scott K Logan <scott@openrobotics.org>"
-ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
-HOMEPAGE = "https://github.com/jbeder/yaml-cpp"
-LICENSE = "Apache-2.0 & MIT"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
+DESCRIPTION = "OMPL is a free sampling-based motion planning library."
+AUTHOR = "Mark Moll <mmoll@rice.edu>"
+ROS_AUTHOR = "Kavraki Lab"
+HOMEPAGE = "https://ompl.kavrakilab.org"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "yaml_cpp_vendor"
-ROS_BPN = "yaml_cpp_vendor"
+ROS_CN = "ompl"
+ROS_BPN = "ompl"
 
 ROS_BUILD_DEPENDS = "\
-    yaml-cpp\
+    cmake\
+    boost\
+    libeigen\
+    pkgconfig\
+    libflann\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
-    ament-cmake-native\
-    ament-cmake-vendor-package-native\
+    cmake-native\
 "
 
-ROS_EXPORT_DEPENDS = "\
-    yaml-cpp\
-"
+ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    yaml-cpp\
+    boost\
+    libeigen\
+    libflann\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -46,11 +49,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/yaml_cpp_vendor"
-SRC_URI = "git://github.com/ros2-gbp/yaml_cpp_vendor-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "2659fc4dd6597ca3131647f281c6d9e3f73f9deb"
+ROS_BRANCH ?= "branch=release/jazzy/ompl"
+SRC_URI = "git://github.com/ros2-gbp/ompl-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "93a7d7a7d2d7f0c93962629d5994d3f5e1e750b9"
 S = "${WORKDIR}/git"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
