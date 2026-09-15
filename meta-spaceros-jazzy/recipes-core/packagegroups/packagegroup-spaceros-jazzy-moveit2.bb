@@ -57,6 +57,7 @@ RDEPENDS:${PN} = "\
     laser-geometry\
     launch-param-builder\
     libcurl-vendor\
+    magnetometer-broadcaster\
     map-msgs\
     mecanum-drive-controller\
     moveit-msgs\
@@ -93,9 +94,9 @@ RDEPENDS:${PN} = "\
     sdformat-urdf\
     sdformat-vendor\
     sdl2-vendor\
-    sqlite3-vendor\
     srdfdom\
     sros2\
+    state-interfaces-broadcaster\
     steering-controllers-library\
     stomp\
     tcb-span\
@@ -114,8 +115,19 @@ RDEPENDS:${PN} = "\
     xacro\
     yaml-cpp-vendor\
 "
-
-# rviz2
+# Temporarily removed from packagegroup
+# gz-cmake-vendor
+# gz-math-vendor
+# gz-tools-vendor
+# gz-utils-vendor
+# joint-state-publisher-gui
+# moveit-resources-fanuc-description
+# moveit-resources-fanuc-moveit-config
+# moveit-resources-panda-description
+# moveit-resources-panda-moveit-config
+# moveit-resources-pr2-description
+# py-binding-tools
+# python-qt-binding
 # rviz-assimp-vendor
 # rviz-common
 # rviz-default-plugins
@@ -123,15 +135,4 @@ RDEPENDS:${PN} = "\
 # rviz-rendering
 # rviz-rendering-tests
 # rviz-visual-testing-framework
-# gz-cmake-vendor
-# gz-math-vendor
-# gz-tools-vendor
-# gz-utils-vendor
-# python-qt-binding
-# py-binding-tools
-# joint-state-publisher-gui
-# moveit-resources-fanuc-description
-# moveit-resources-fanuc-moveit-config
-# moveit-resources-panda-description
-# moveit-resources-panda-moveit-config
-# moveit-resources-pr2-description
+# rviz2
