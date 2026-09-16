@@ -7,3 +7,4 @@ ROS_BUILDTOOL_DEPENDS += " \
     rcutils-native \
 "
 
+BBCLASSEXTEND = "native nativesdk"

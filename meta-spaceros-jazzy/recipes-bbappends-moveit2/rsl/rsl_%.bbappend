@@ -54,3 +54,5 @@ CXXFLAGS += "-Wno-error=shadow"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
+
+BBCLASSEXTEND = "native nativesdk"
