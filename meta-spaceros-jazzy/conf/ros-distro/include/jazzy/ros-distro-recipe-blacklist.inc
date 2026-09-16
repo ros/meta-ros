@@ -209,3 +209,5 @@ BBMASK += "generated-recipes-moveit2/octomap/octomap_.*.bb"
 BBMASK += "generated-recipes/libcamera/libcamera_.*.bb"
 
 BBMASK += "generated-recipes/librealsense2/librealsense2_.*.bb"
+
+BBMASK += "generated-recipes-moveit2/tl-expected/tl-expected_.*.bb"
