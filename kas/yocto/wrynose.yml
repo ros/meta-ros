@@ -5,11 +5,11 @@ defaults:
   repos:
     branch: "wrynose"
 
-# https://downloads.yoctoproject.org/releases/yocto/yocto-6.0.2/RELEASENOTES
+# https://downloads.yoctoproject.org/releases/yocto/yocto-6.0.3/RELEASENOTES
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "5d1aa5c806c061a2994f4decb59016610f093213"
+    commit: "ef022bf82d79015802309d14c28b13373ebe53f5"
     path: "layers/openembedded-core"
     layers:
       meta:
@@ -17,14 +17,14 @@ repos:
   bitbake:
     url: "https://github.com/openembedded/bitbake.git"
     branch: "2.18"
-    commit: "acfe02fa38b5da9e6a36c6cedcf91d4fcbefbfbd"
+    commit: "fae9db3168dbff1b8c76fe9c6726a9687ff97514"
     path: "layers/bitbake"
     layers:
       bitbake: "disabled"
 
   meta-yocto:
     url: "https://git.yoctoproject.org/meta-yocto"
-    commit: "24c24cef5d1523fefe43a3e3d34667b37ae551f3"
+    commit: "1b132647002eea43a2c7a7f857f63f42dacbc26c"
     path: "layers/meta-yocto"
     layers:
       meta-poky:
