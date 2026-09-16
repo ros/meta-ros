@@ -12,7 +12,7 @@ DESCRIPTION = "\
 AUTHOR = "Dharini Dutia <dharini@openrobotics.org>"
 ROS_AUTHOR = "Chris Lalancette <clalancette@openrobotics.org>"
 HOMEPAGE = "https://github.com/gabime/spdlog"
-LICENSE = "Apache-2.0 AND MIT"
+LICENSE = "Apache-2.0 & MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "spdlog_vendor"
