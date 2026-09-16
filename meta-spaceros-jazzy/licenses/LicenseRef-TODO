@@ -1,0 +1,10 @@
+The package.xml files for the Curiosity Rover and Canadarm demos indicates the
+license as GPL. However, this is not a valid SPDX identifier. It may refer to
+the General Public License, but it does not specify which version. Moreover
+the Space ROS Demos are intended to be under Apache 2.0.
+
+See the pull request for details:
+https://github.com/space-ros/demos/commit/df7874dcacd3c25d6adede14291d59abbd86fae6
+
+See this discussion for a list of affected packages;
+https://github.com/space-ros/space-ros/discussions/326 
