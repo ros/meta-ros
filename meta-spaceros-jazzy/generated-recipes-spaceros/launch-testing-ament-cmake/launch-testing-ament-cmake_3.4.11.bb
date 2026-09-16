@@ -9,7 +9,7 @@ DESCRIPTION = "A package providing cmake functions for running launch tests from
 AUTHOR = "Aditya Pande <aditya.pande@openrobotics.org>"
 ROS_AUTHOR = "Michel Hidalgo <michel@ekumenlabs.com>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 AND BSD"
+LICENSE = "Apache-2.0 & BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "launch"

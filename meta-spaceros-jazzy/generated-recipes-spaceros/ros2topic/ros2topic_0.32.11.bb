@@ -9,7 +9,7 @@ DESCRIPTION = "The topic command for ROS 2 command line tools."
 AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
 ROS_AUTHOR = "Aditya Pande <aditya.pande@openrobotics.org>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 AND BSD-3-Clause"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "ros2cli"

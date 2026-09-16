@@ -9,7 +9,7 @@ DESCRIPTION = "Wrapper around mimick, it provides an ExternalProject build of mi
 AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 ROS_AUTHOR = "Geoffrey Biggs <geoff@openrobotics.org>"
 HOMEPAGE = "https://github.com/Snaipe/Mimick"
-LICENSE = "Apache-2.0 AND MIT"
+LICENSE = "Apache-2.0 & MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "mimick_vendor"
