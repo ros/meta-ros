@@ -5,29 +5,56 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Gazebo Worlds for Moon World Simulation using Ignition Gazebo"
-AUTHOR = "Element Robotics <founders@elementrobotics.space>"
+DESCRIPTION = "A lunar pole exploration rover mission for SpaceROS inspired by the Volatiles Investigating Polar Exploration Rover"
+AUTHOR = "Robin BARAN <r-baran@hotmail.fr>"
 HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "src"
-ROS_BPN = "lunar_terrain_gz_worlds"
+ROS_BPN = "lunar_pole_exploration_rover"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = "\
+    rclcpp\
+    rclpy\
+    simulation\
+"
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
     ament-cmake-python-native\
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = "\
+    rclcpp\
+    rclpy\
+    simulation\
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ros-gz\
-    leo-description\
+    ament-index-python\
+    control-msgs\
+    diff-drive-controller\
+    effort-controllers\
+    geometry-msgs\
+    hardware-interface\
+    ign-ros2-control\
+    imu-sensor-broadcaster\
+    joint-state-broadcaster\
+    joint-trajectory-controller\
+    launch\
+    launch-ros\
+    robot-state-publisher\
+    ros-ign-gazebo\
+    ros2controlcli\
+    std-msgs\
+    velocity-controllers\
+    xacro\
+    rclcpp\
+    rclpy\
+    simulation\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -48,7 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "925fe48e09cff6d79cc8455265bcd09b51b5ee5b"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lunar_terrain/lunar_terrain_gz_worlds"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lunar_pole_exploration_rover"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
