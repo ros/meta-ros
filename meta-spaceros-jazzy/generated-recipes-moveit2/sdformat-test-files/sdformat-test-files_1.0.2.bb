@@ -33,18 +33,18 @@ ROS_EXEC_DEPENDS = ""
 ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=rpm/jazzy/sdformat_test_files"
+ROS_BRANCH ?= "branch=debian/jazzy/noble/sdformat_test_files"
 SRC_URI = "git://github.com/ros2-gbp/sdformat_urdf-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8c299f750f424fdc4c3f0f040c8f9cf222b0299d"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "cmake"
 

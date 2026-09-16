@@ -27,7 +27,6 @@ ROS_BUILD_DEPENDS = "\
     gz-math-vendor\
     gz-utils-vendor\
     gz-tools-vendor\
-    sdformat14\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
@@ -42,7 +41,6 @@ ROS_EXPORT_DEPENDS = "\
     gz-math-vendor\
     gz-utils-vendor\
     gz-tools-vendor\
-    sdformat14\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
@@ -55,7 +53,6 @@ ROS_EXEC_DEPENDS = "\
     gz-math-vendor\
     gz-utils-vendor\
     gz-tools-vendor\
-    sdformat14\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -69,18 +66,18 @@ ROS_TEST_DEPENDS = "\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/sdformat_vendor"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/sdformat_vendor"
 SRC_URI = "git://github.com/ros2-gbp/sdformat_vendor-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "add6c9668e465ebd636c08716501329383c541ff"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
