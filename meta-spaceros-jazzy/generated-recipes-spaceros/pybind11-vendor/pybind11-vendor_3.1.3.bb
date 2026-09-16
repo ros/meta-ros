@@ -9,7 +9,7 @@ DESCRIPTION = "Wrapper around pybind11."
 AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 ROS_AUTHOR = "Brandon Ong <brandon@openrobotics.org>"
 HOMEPAGE = "https://github.com/pybind/pybind11"
-LICENSE = "Apache-2.0 & BSD"
+LICENSE = "Apache-2.0 AND BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "pybind11_vendor"

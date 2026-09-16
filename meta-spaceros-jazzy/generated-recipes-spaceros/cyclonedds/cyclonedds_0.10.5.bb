@@ -8,7 +8,7 @@ inherit mash_generated
 DESCRIPTION = "Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation. Cyclone DDS is developed completely in the open as an Eclipse IoT project."
 AUTHOR = "Eclipse Foundation, Inc. <cyclonedds-dev@eclipse.org>"
 HOMEPAGE = "https://projects.eclipse.org/projects/iot.cyclonedds"
-LICENSE = "EPL-2.0 & EDL-1.0"
+LICENSE = "EPL-2.0 AND EDL-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=7532470dee289492e850d7d3e8a32b32"
 
 ROS_CN = "cyclonedds"

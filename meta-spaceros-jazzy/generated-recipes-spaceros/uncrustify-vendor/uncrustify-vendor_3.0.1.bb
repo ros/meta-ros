@@ -12,7 +12,7 @@ DESCRIPTION = "\
 AUTHOR = "Scott K Logan <scott@openrobotics.org>"
 ROS_AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
 HOMEPAGE = "https://github.com/uncrustify/uncrustify"
-LICENSE = "Apache-2.0 & GPL-2.0-only"
+LICENSE = "Apache-2.0 AND GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "uncrustify_vendor"

@@ -12,7 +12,7 @@ DESCRIPTION = "\
 AUTHOR = "Audrow Nash <audrow@openrobotics.org>"
 ROS_AUTHOR = "Dirk Thomas"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 & BSD"
+LICENSE = "Apache-2.0 AND BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "ament_lint"
