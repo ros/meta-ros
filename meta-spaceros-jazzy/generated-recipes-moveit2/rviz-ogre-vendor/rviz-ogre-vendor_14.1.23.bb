@@ -9,7 +9,7 @@ DESCRIPTION = "Wrapper around ogre3d, it provides a fixed CMake module and an Ex
 AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
 ROS_AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 HOMEPAGE = "https://www.ogre3d.org/"
-LICENSE = "Apache-2.0 AND MIT"
+LICENSE = "Apache-2.0 & MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rviz_ogre_vendor"

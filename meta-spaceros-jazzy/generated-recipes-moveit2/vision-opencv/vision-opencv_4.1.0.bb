@@ -9,7 +9,7 @@ DESCRIPTION = "Packages for interfacing ROS2 with OpenCV, a library of programmi
 AUTHOR = "Kenji Brameld <kenjibrameld@gmail.com>"
 ROS_AUTHOR = "Patrick Mihelich"
 HOMEPAGE = "http://www.ros.org/wiki/vision_opencv"
-LICENSE = "Apache-2.0 AND BSD"
+LICENSE = "Apache-2.0 & BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "vision_opencv"
