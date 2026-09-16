@@ -211,10 +211,10 @@ Signed-off-by: RBT22 <rozgonyibalint@gmail.com>
  nav2_mppi_controller/test/utils_test.cpp      | 183 ++++++++++++---
  40 files changed, 952 insertions(+), 872 deletions(-)
 
-Index: git/CMakeLists.txt
+Index: nav2-mppi-controller-1.3.12/CMakeLists.txt
 ===================================================================
---- git.orig/CMakeLists.txt
-+++ git/CMakeLists.txt
+--- nav2-mppi-controller-1.3.12.orig/CMakeLists.txt
++++ nav2-mppi-controller-1.3.12/CMakeLists.txt
 @@ -1,23 +1,7 @@
  cmake_minimum_required(VERSION 3.5)
  project(nav2_mppi_controller)
@@ -290,11 +290,16 @@ Index: git/CMakeLists.txt
  add_library(mppi_controller SHARED
    src/controller.cpp
    src/optimizer.cpp
-@@ -94,12 +70,12 @@ add_library(mppi_critics SHARED
+@@ -94,17 +70,12 @@ add_library(mppi_critics SHARED
  set(libraries mppi_controller mppi_critics)
  
  foreach(lib IN LISTS libraries)
--  target_compile_options(${lib} PUBLIC -fconcepts)
+-  if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+-    # Clang: use C++20 and optimization, omit -fconcepts
+-    target_compile_features(${lib} PUBLIC cxx_std_20)
+-  else()
+-    target_compile_options(${lib} PUBLIC -fconcepts)
+-  endif()
 -  target_include_directories(${lib} PUBLIC ${xsimd_INCLUDE_DIRS})  #  ${OpenMP_INCLUDE_DIRS}
 -  target_link_libraries(${lib} xtensor xtensor::optimize xtensor::use_xsimd)
    ament_target_dependencies(${lib} ${dependencies_pkgs})
@@ -306,7 +311,7 @@ Index: git/CMakeLists.txt
  install(TARGETS mppi_controller mppi_critics
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
-@@ -116,7 +92,7 @@ if(BUILD_TESTING)
+@@ -121,7 +92,7 @@ if(BUILD_TESTING)
    set(ament_cmake_copyright_FOUND TRUE)
    ament_lint_auto_find_test_dependencies()
    add_subdirectory(test)
@@ -315,10 +320,10 @@ Index: git/CMakeLists.txt
  endif()
  
  ament_export_libraries(${libraries})
-Index: git/benchmark/controller_benchmark.cpp
+Index: nav2-mppi-controller-1.3.12/benchmark/controller_benchmark.cpp
 ===================================================================
---- git.orig/benchmark/controller_benchmark.cpp
-+++ git/benchmark/controller_benchmark.cpp
+--- nav2-mppi-controller-1.3.12.orig/benchmark/controller_benchmark.cpp
++++ nav2-mppi-controller-1.3.12/benchmark/controller_benchmark.cpp
 @@ -13,6 +13,9 @@
  // limitations under the License.
  
@@ -340,10 +345,10 @@ Index: git/benchmark/controller_benchmark.cpp
  #include "nav2_mppi_controller/motion_models.hpp"
  #include "nav2_mppi_controller/controller.hpp"
  
-Index: git/benchmark/optimizer_benchmark.cpp
+Index: nav2-mppi-controller-1.3.12/benchmark/optimizer_benchmark.cpp
 ===================================================================
---- git.orig/benchmark/optimizer_benchmark.cpp
-+++ git/benchmark/optimizer_benchmark.cpp
+--- nav2-mppi-controller-1.3.12.orig/benchmark/optimizer_benchmark.cpp
++++ nav2-mppi-controller-1.3.12/benchmark/optimizer_benchmark.cpp
 @@ -13,6 +13,9 @@
  // limitations under the License.
  
@@ -435,10 +440,10 @@ Index: git/benchmark/optimizer_benchmark.cpp
  
    prepareAndRunBenchmark(consider_footprint, motion_model, critics, state);
  }
-Index: git/include/nav2_mppi_controller/critic_data.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/critic_data.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/critic_data.hpp
-+++ git/include/nav2_mppi_controller/critic_data.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/critic_data.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/critic_data.hpp
 @@ -15,16 +15,11 @@
  #ifndef NAV2_MPPI_CONTROLLER__CRITIC_DATA_HPP_
  #define NAV2_MPPI_CONTROLLER__CRITIC_DATA_HPP_
@@ -467,10 +472,10 @@ Index: git/include/nav2_mppi_controller/critic_data.hpp
    float & model_dt;
  
    bool fail_flag;
-Index: git/include/nav2_mppi_controller/critic_manager.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/critic_manager.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/critic_manager.hpp
-+++ git/include/nav2_mppi_controller/critic_manager.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/critic_manager.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/critic_manager.hpp
 @@ -20,13 +20,6 @@
  #include <vector>
  #include <pluginlib/class_loader.hpp>
@@ -485,10 +490,10 @@ Index: git/include/nav2_mppi_controller/critic_manager.hpp
  #include "geometry_msgs/msg/twist.hpp"
  #include "geometry_msgs/msg/twist_stamped.hpp"
  
-Index: git/include/nav2_mppi_controller/models/control_sequence.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/control_sequence.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/models/control_sequence.hpp
-+++ git/include/nav2_mppi_controller/models/control_sequence.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/models/control_sequence.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/control_sequence.hpp
 @@ -15,12 +15,7 @@
  #ifndef NAV2_MPPI_CONTROLLER__MODELS__CONTROL_SEQUENCE_HPP_
  #define NAV2_MPPI_CONTROLLER__MODELS__CONTROL_SEQUENCE_HPP_
@@ -525,10 +530,10 @@ Index: git/include/nav2_mppi_controller/models/control_sequence.hpp
    }
  };
  
-Index: git/include/nav2_mppi_controller/models/path.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/path.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/models/path.hpp
-+++ git/include/nav2_mppi_controller/models/path.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/models/path.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/path.hpp
 @@ -15,12 +15,7 @@
  #ifndef NAV2_MPPI_CONTROLLER__MODELS__PATH_HPP_
  #define NAV2_MPPI_CONTROLLER__MODELS__PATH_HPP_
@@ -568,10 +573,10 @@ Index: git/include/nav2_mppi_controller/models/path.hpp
    }
  };
  
-Index: git/include/nav2_mppi_controller/models/state.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/state.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/models/state.hpp
-+++ git/include/nav2_mppi_controller/models/state.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/models/state.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/state.hpp
 @@ -15,16 +15,12 @@
  #ifndef NAV2_MPPI_CONTROLLER__MODELS__STATE_HPP_
  #define NAV2_MPPI_CONTROLLER__MODELS__STATE_HPP_
@@ -633,10 +638,10 @@ Index: git/include/nav2_mppi_controller/models/state.hpp
    }
  };
  }  // namespace mppi::models
-Index: git/include/nav2_mppi_controller/models/trajectories.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/trajectories.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/models/trajectories.hpp
-+++ git/include/nav2_mppi_controller/models/trajectories.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/models/trajectories.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/models/trajectories.hpp
 @@ -15,13 +15,7 @@
  #ifndef NAV2_MPPI_CONTROLLER__MODELS__TRAJECTORIES_HPP_
  #define NAV2_MPPI_CONTROLLER__MODELS__TRAJECTORIES_HPP_
@@ -677,10 +682,10 @@ Index: git/include/nav2_mppi_controller/models/trajectories.hpp
    }
  };
  
-Index: git/include/nav2_mppi_controller/motion_models.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/motion_models.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/motion_models.hpp
-+++ git/include/nav2_mppi_controller/motion_models.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/motion_models.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/motion_models.hpp
 @@ -15,28 +15,28 @@
  #ifndef NAV2_MPPI_CONTROLLER__MOTION_MODELS_HPP_
  #define NAV2_MPPI_CONTROLLER__MOTION_MODELS_HPP_
@@ -720,7 +725,7 @@ Index: git/include/nav2_mppi_controller/motion_models.hpp
  /**
   * @class mppi::MotionModel
   * @brief Abstract motion model for modeling a vehicle
-@@ -71,42 +71,34 @@ public:
+@@ -71,51 +71,35 @@ public:
     */
    virtual void predict(models::State & state)
    {
@@ -739,6 +744,7 @@ Index: git/include/nav2_mppi_controller/motion_models.hpp
      float max_delta_vx = model_dt_ * control_constraints_.ax_max;
      float min_delta_vx = model_dt_ * control_constraints_.ax_min;
      float max_delta_vy = model_dt_ * control_constraints_.ay_max;
+     float min_delta_vy = model_dt_ * control_constraints_.ay_min;
      float max_delta_wz = model_dt_ * control_constraints_.az_max;
 -    for (unsigned int i = 0; i != state.vx.shape(0); i++) {
 -      float vx_last = state.vx(i, 0);
@@ -746,15 +752,18 @@ Index: git/include/nav2_mppi_controller/motion_models.hpp
 -      float wz_last = state.wz(i, 0);
 -      for (unsigned int j = 1; j != state.vx.shape(1); j++) {
 -        float & cvx_curr = state.cvx(i, j - 1);
--        cvx_curr = std::clamp(cvx_curr, vx_last + min_delta_vx, vx_last + max_delta_vx);
+-        if (vx_last > 0) {
+-          cvx_curr = std::clamp(cvx_curr, vx_last + min_delta_vx, vx_last + max_delta_vx);
+-        } else {
+-          cvx_curr = std::clamp(cvx_curr, vx_last - max_delta_vx, vx_last - min_delta_vx);
+-        }
 -        state.vx(i, j) = cvx_curr;
 -        vx_last = cvx_curr;
--
+ 
 -        float & cwz_curr = state.cwz(i, j - 1);
 -        cwz_curr = std::clamp(cwz_curr, wz_last - max_delta_wz, wz_last + max_delta_wz);
 -        state.wz(i, j) = cwz_curr;
 -        wz_last = cwz_curr;
-+
 +    unsigned int n_rows = state.vx.rows();
 +    unsigned int n_cols = state.vx.cols();
 +
@@ -774,7 +783,11 @@ Index: git/include/nav2_mppi_controller/motion_models.hpp
  
          if (is_holo) {
 -          float & cvy_curr = state.cvy(i, j - 1);
--          cvy_curr = std::clamp(cvy_curr, vy_last - max_delta_vy, vy_last + max_delta_vy);
+-          if (vy_last > 0) {
+-            cvy_curr = std::clamp(cvy_curr, vy_last + min_delta_vy, vy_last + max_delta_vy);
+-          } else {
+-            cvy_curr = std::clamp(cvy_curr, vy_last - max_delta_vy, vy_last - min_delta_vy);
+-          }
 -          state.vy(i, j) = cvy_curr;
 -          vy_last = cvy_curr;
 +          float vy_last = state.vy(j, i - 1);
@@ -784,7 +797,7 @@ Index: git/include/nav2_mppi_controller/motion_models.hpp
          }
        }
      }
-@@ -161,11 +153,14 @@ public:
+@@ -170,11 +154,14 @@ public:
     */
    void applyConstraints(models::ControlSequence & control_sequence) override
    {
@@ -804,10 +817,10 @@ Index: git/include/nav2_mppi_controller/motion_models.hpp
    }
  
    /**
-Index: git/include/nav2_mppi_controller/optimizer.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/optimizer.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/optimizer.hpp
-+++ git/include/nav2_mppi_controller/optimizer.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/optimizer.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/optimizer.hpp
 @@ -15,17 +15,11 @@
  #ifndef NAV2_MPPI_CONTROLLER__OPTIMIZER_HPP_
  #define NAV2_MPPI_CONTROLLER__OPTIMIZER_HPP_
@@ -845,7 +858,7 @@ Index: git/include/nav2_mppi_controller/optimizer.hpp
  
    /**
     * @brief Set the maximum speed based on the speed limits callback
-@@ -203,8 +198,8 @@ protected:
+@@ -204,8 +199,8 @@ protected:
     * @param state fill state
     */
    void integrateStateVelocities(
@@ -856,7 +869,7 @@ Index: git/include/nav2_mppi_controller/optimizer.hpp
  
    /**
     * @brief Update control sequence with state controls weighted by costs
-@@ -258,7 +253,7 @@ protected:
+@@ -259,7 +254,7 @@ protected:
    models::Trajectories generated_trajectories_;
    models::Path path_;
    geometry_msgs::msg::Pose goal_;
@@ -865,10 +878,10 @@ Index: git/include/nav2_mppi_controller/optimizer.hpp
  
    CriticData critics_data_ = {
      state_, generated_trajectories_, path_, goal_,
-Index: git/include/nav2_mppi_controller/tools/noise_generator.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/tools/noise_generator.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/tools/noise_generator.hpp
-+++ git/include/nav2_mppi_controller/tools/noise_generator.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/tools/noise_generator.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/tools/noise_generator.hpp
 @@ -15,19 +15,14 @@
  #ifndef NAV2_MPPI_CONTROLLER__TOOLS__NOISE_GENERATOR_HPP_
  #define NAV2_MPPI_CONTROLLER__TOOLS__NOISE_GENERATOR_HPP_
@@ -910,10 +923,10 @@ Index: git/include/nav2_mppi_controller/tools/noise_generator.hpp
  
    mppi::models::OptimizerSettings settings_;
    bool is_holonomic_;
-Index: git/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
-+++ git/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
 @@ -15,16 +15,11 @@
  #ifndef NAV2_MPPI_CONTROLLER__TOOLS__TRAJECTORY_VISUALIZER_HPP_
  #define NAV2_MPPI_CONTROLLER__TOOLS__TRAJECTORY_VISUALIZER_HPP_
@@ -942,10 +955,10 @@ Index: git/include/nav2_mppi_controller/tools/trajectory_visualizer.hpp
      const builtin_interfaces::msg::Time & cmd_stamp);
  
    /**
-Index: git/include/nav2_mppi_controller/tools/utils.hpp
+Index: nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/tools/utils.hpp
 ===================================================================
---- git.orig/include/nav2_mppi_controller/tools/utils.hpp
-+++ git/include/nav2_mppi_controller/tools/utils.hpp
+--- nav2-mppi-controller-1.3.12.orig/include/nav2_mppi_controller/tools/utils.hpp
++++ nav2-mppi-controller-1.3.12/include/nav2_mppi_controller/tools/utils.hpp
 @@ -16,6 +16,8 @@
  #ifndef NAV2_MPPI_CONTROLLER__TOOLS__UTILS_HPP_
  #define NAV2_MPPI_CONTROLLER__TOOLS__UTILS_HPP_
@@ -1162,10 +1175,10 @@ Index: git/include/nav2_mppi_controller/tools/utils.hpp
  }  // namespace mppi::utils
  
  #endif  // NAV2_MPPI_CONTROLLER__TOOLS__UTILS_HPP_
-Index: git/package.xml
+Index: nav2-mppi-controller-1.3.12/package.xml
 ===================================================================
---- git.orig/package.xml
-+++ git/package.xml
+--- nav2-mppi-controller-1.3.12.orig/package.xml
++++ nav2-mppi-controller-1.3.12/package.xml
 @@ -28,7 +28,8 @@
    <depend>xtensor</depend>
    <depend>libomp-dev</depend>
@@ -1176,10 +1189,10 @@ Index: git/package.xml
  
    <test_depend>ament_lint_auto</test_depend>
    <test_depend>ament_lint_common</test_depend>
-Index: git/src/critics/constraint_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/constraint_critic.cpp
 ===================================================================
---- git.orig/src/critics/constraint_critic.cpp
-+++ git/src/critics/constraint_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/constraint_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/constraint_critic.cpp
 @@ -40,8 +40,6 @@ void ConstraintCritic::initialize()
  
  void ConstraintCritic::score(CriticData & data)
@@ -1274,11 +1287,11 @@ Index: git/src/critics/constraint_critic.cpp
      }
      return;
    }
-Index: git/src/critics/cost_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/cost_critic.cpp
 ===================================================================
---- git.orig/src/critics/cost_critic.cpp
-+++ git/src/critics/cost_critic.cpp
-@@ -96,8 +96,6 @@ float CostCritic::findCircumscribedCost(
+--- nav2-mppi-controller-1.3.12.orig/src/critics/cost_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/cost_critic.cpp
+@@ -127,8 +127,6 @@ float CostCritic::findCircumscribedCost(
  
  void CostCritic::score(CriticData & data)
  {
@@ -1287,7 +1300,7 @@ Index: git/src/critics/cost_critic.cpp
    if (!enabled_) {
      return;
    }
-@@ -122,24 +120,30 @@ void CostCritic::score(CriticData & data
+@@ -153,24 +151,30 @@ void CostCritic::score(CriticData & data
      near_goal = true;
    }
  
@@ -1330,7 +1343,7 @@ Index: git/src/critics/cost_critic.cpp
        float Tx = traj_x(i, j);
        float Ty = traj_y(i, j);
        unsigned int x_i = 0u, y_i = 0u;
-@@ -182,10 +186,10 @@ void CostCritic::score(CriticData & data
+@@ -209,10 +213,10 @@ void CostCritic::score(CriticData & data
    }
  
    if (power_ > 1u) {
@@ -1344,11 +1357,11 @@ Index: git/src/critics/cost_critic.cpp
    }
  
    data.fail_flag = all_trajectories_collide;
-Index: git/src/critics/goal_angle_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/goal_angle_critic.cpp
 ===================================================================
---- git.orig/src/critics/goal_angle_critic.cpp
-+++ git/src/critics/goal_angle_critic.cpp
-@@ -41,16 +41,15 @@ void GoalAngleCritic::score(CriticData &
+--- nav2-mppi-controller-1.3.12.orig/src/critics/goal_angle_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/goal_angle_critic.cpp
+@@ -42,26 +42,15 @@ void GoalAngleCritic::score(CriticData &
      return;
    }
  
@@ -1356,25 +1369,35 @@ Index: git/src/critics/goal_angle_critic.cpp
 +  const auto goal_idx = data.path.x.size() - 1;
    const float goal_yaw = data.path.yaws(goal_idx);
  
+-  auto angular_distances =
+-    xt::eval(xt::fabs(utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw)));
+-
+-  if (symmetric_yaw_tolerance_) {
+-    // For symmetric robots: use minimum distance to either goal orientation or goal + 180°
+-    const float symmetric_goal_yaw = angles::normalize_angle(goal_yaw + M_PI);
+-    auto symmetric_distances =
+-      xt::eval(xt::fabs(utils::shortest_angular_distance(data.trajectories.yaws,
+-        symmetric_goal_yaw)));
+-    angular_distances = xt::eval(xt::minimum(angular_distances, symmetric_distances));
+-  }
+-
 -  if (power_ > 1u) {
 -    data.costs += xt::pow(
--      xt::mean(xt::fabs(utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw)), {1}) *
--      weight_, power_);
+-      xt::mean(angular_distances, {1}) * weight_, power_);
 +  if(power_ > 1u) {
 +    data.costs += (((utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw).abs()).
 +      rowwise().mean()) * weight_).pow(power_).eval();
    } else {
--    data.costs += xt::mean(
--      xt::fabs(utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw)), {1}) * weight_;
+-    data.costs += xt::mean(angular_distances, {1}) * weight_;
 +    data.costs += (((utils::shortest_angular_distance(data.trajectories.yaws, goal_yaw).abs()).
 +      rowwise().mean()) * weight_).eval();
    }
  }
  
-Index: git/src/critics/goal_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/goal_critic.cpp
 ===================================================================
---- git.orig/src/critics/goal_critic.cpp
-+++ git/src/critics/goal_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/goal_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/goal_critic.cpp
 @@ -18,7 +18,6 @@
  namespace mppi::critics
  {
@@ -1409,11 +1432,11 @@ Index: git/src/critics/goal_critic.cpp
    }
  }
  
-Index: git/src/critics/obstacles_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/obstacles_critic.cpp
 ===================================================================
---- git.orig/src/critics/obstacles_critic.cpp
-+++ git/src/critics/obstacles_critic.cpp
-@@ -104,7 +104,6 @@ float ObstaclesCritic::distanceToObstacl
+--- nav2-mppi-controller-1.3.12.orig/src/critics/obstacles_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/obstacles_critic.cpp
+@@ -118,7 +118,6 @@ float ObstaclesCritic::distanceToObstacl
  
  void ObstaclesCritic::score(CriticData & data)
  {
@@ -1421,7 +1444,7 @@ Index: git/src/critics/obstacles_critic.cpp
    if (!enabled_) {
      return;
    }
-@@ -120,20 +119,22 @@ void ObstaclesCritic::score(CriticData &
+@@ -134,20 +133,22 @@ void ObstaclesCritic::score(CriticData &
      near_goal = true;
    }
  
@@ -1451,7 +1474,7 @@ Index: git/src/critics/obstacles_critic.cpp
        pose_cost = costAtPose(traj.x(i, j), traj.y(i, j), traj.yaws(i, j));
        if (pose_cost.cost < 1.0f) {continue;}  // In free space
  
-@@ -161,22 +162,18 @@ void ObstaclesCritic::score(CriticData &
+@@ -175,22 +176,18 @@ void ObstaclesCritic::score(CriticData &
      }
  
      if (!trajectory_collide) {all_trajectories_collide = false;}
@@ -1479,10 +1502,10 @@ Index: git/src/critics/obstacles_critic.cpp
    }
  
    data.fail_flag = all_trajectories_collide;
-Index: git/src/critics/path_align_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/path_align_critic.cpp
 ===================================================================
---- git.orig/src/critics/path_align_critic.cpp
-+++ git/src/critics/path_align_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/path_align_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/path_align_critic.cpp
 @@ -17,9 +17,6 @@
  namespace mppi::critics
  {
@@ -1566,10 +1589,10 @@ Index: git/src/critics/path_align_critic.cpp
    }
  }
  
-Index: git/src/critics/path_angle_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/path_angle_critic.cpp
 ===================================================================
---- git.orig/src/critics/path_angle_critic.cpp
-+++ git/src/critics/path_angle_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/path_angle_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/path_angle_critic.cpp
 @@ -20,8 +20,6 @@
  namespace mppi::critics
  {
@@ -1669,10 +1692,10 @@ Index: git/src/critics/path_angle_critic.cpp
          }
          return;
        }
-Index: git/src/critics/path_follow_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/path_follow_critic.cpp
 ===================================================================
---- git.orig/src/critics/path_follow_critic.cpp
-+++ git/src/critics/path_follow_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/path_follow_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/path_follow_critic.cpp
 @@ -14,8 +14,7 @@
  
  #include "nav2_mppi_controller/critics/path_follow_critic.hpp"
@@ -1722,10 +1745,10 @@ Index: git/src/critics/path_follow_critic.cpp
    }
  }
  
-Index: git/src/critics/prefer_forward_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/prefer_forward_critic.cpp
 ===================================================================
---- git.orig/src/critics/prefer_forward_critic.cpp
-+++ git/src/critics/prefer_forward_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/prefer_forward_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/prefer_forward_critic.cpp
 @@ -14,6 +14,8 @@
  
  #include "nav2_mppi_controller/critics/prefer_forward_critic.hpp"
@@ -1762,10 +1785,10 @@ Index: git/src/critics/prefer_forward_critic.cpp
    }
  }
  
-Index: git/src/critics/twirling_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/twirling_critic.cpp
 ===================================================================
---- git.orig/src/critics/twirling_critic.cpp
-+++ git/src/critics/twirling_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/twirling_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/twirling_critic.cpp
 @@ -14,6 +14,8 @@
  
  #include "nav2_mppi_controller/critics/twirling_critic.hpp"
@@ -1795,10 +1818,10 @@ Index: git/src/critics/twirling_critic.cpp
    }
  }
  
-Index: git/src/critics/velocity_deadband_critic.cpp
+Index: nav2-mppi-controller-1.3.12/src/critics/velocity_deadband_critic.cpp
 ===================================================================
---- git.orig/src/critics/velocity_deadband_critic.cpp
-+++ git/src/critics/velocity_deadband_critic.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/critics/velocity_deadband_critic.cpp
++++ nav2-mppi-controller-1.3.12/src/critics/velocity_deadband_critic.cpp
 @@ -40,59 +40,33 @@ void VelocityDeadbandCritic::initialize(
  
  void VelocityDeadbandCritic::score(CriticData & data)
@@ -1873,10 +1896,10 @@ Index: git/src/critics/velocity_deadband_critic.cpp
    }
    return;
  }
-Index: git/src/noise_generator.cpp
+Index: nav2-mppi-controller-1.3.12/src/noise_generator.cpp
 ===================================================================
---- git.orig/src/noise_generator.cpp
-+++ git/src/noise_generator.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/noise_generator.cpp
++++ nav2-mppi-controller-1.3.12/src/noise_generator.cpp
 @@ -16,9 +16,6 @@
  
  #include <memory>
@@ -1949,10 +1972,10 @@ Index: git/src/noise_generator.cpp
    }
  }
  
-Index: git/src/optimizer.cpp
+Index: nav2-mppi-controller-1.3.12/src/optimizer.cpp
 ===================================================================
---- git.orig/src/optimizer.cpp
-+++ git/src/optimizer.cpp
+--- nav2-mppi-controller-1.3.12.orig/src/optimizer.cpp
++++ nav2-mppi-controller-1.3.12/src/optimizer.cpp
 @@ -20,9 +20,7 @@
  #include <string>
  #include <vector>
@@ -1974,7 +1997,7 @@ Index: git/src/optimizer.cpp
  void Optimizer::initialize(
    rclcpp_lifecycle::LifecycleNode::WeakPtr parent, const std::string & name,
    std::shared_ptr<nav2_costmap_2d::Costmap2DROS> costmap_ros,
-@@ -86,7 +81,7 @@ void Optimizer::getParams()
+@@ -87,7 +82,7 @@ void Optimizer::getParams()
    getParam(s.sampling_std.wz, "wz_std", 0.4f);
    getParam(s.retry_attempt_limit, "retry_attempt_limit", 1);
  
@@ -1983,7 +2006,7 @@ Index: git/src/optimizer.cpp
    if (s.base_constraints.ax_min > 0.0) {
      s.base_constraints.ax_min = -1.0 * s.base_constraints.ax_min;
      RCLCPP_WARN(
-@@ -97,6 +92,7 @@ void Optimizer::getParams()
+@@ -105,6 +100,7 @@ void Optimizer::getParams()
    getParam(motion_model_name, "motion_model", std::string("DiffDrive"));
  
    s.constraints = s.base_constraints;
@@ -1991,16 +2014,16 @@ Index: git/src/optimizer.cpp
    setMotionModel(motion_model_name);
    parameters_handler_->addPostCallback([this]() {reset();});
  
-@@ -137,7 +133,7 @@ void Optimizer::reset()
- 
-   settings_.constraints = settings_.base_constraints;
+@@ -147,7 +143,7 @@ void Optimizer::reset(bool reset_dynamic
+     settings_.constraints = settings_.base_constraints;
+   }
  
 -  costs_ = xt::zeros<float>({settings_.batch_size});
 +  costs_.setZero(settings_.batch_size);
    generated_trajectories_.reset(settings_.batch_size, settings_.time_steps);
  
    noise_generator_.reset(settings_, isHolonomic());
-@@ -210,7 +206,7 @@ void Optimizer::prepare(
+@@ -222,7 +218,7 @@ void Optimizer::prepare(
    state_.pose = robot_pose;
    state_.speed = robot_speed;
    path_ = utils::toTensor(plan);
@@ -2009,7 +2032,7 @@ Index: git/src/optimizer.cpp
    goal_ = goal;
  
    critics_data_.fail_flag = false;
-@@ -222,22 +218,15 @@ void Optimizer::prepare(
+@@ -234,22 +230,15 @@ void Optimizer::prepare(
  
  void Optimizer::shiftControlSequence()
  {
@@ -2039,7 +2062,7 @@ Index: git/src/optimizer.cpp
    }
  }
  
-@@ -253,32 +242,35 @@ void Optimizer::applyControlSequenceCons
+@@ -265,41 +254,36 @@ void Optimizer::applyControlSequenceCons
  {
    auto & s = settings_;
  
@@ -2053,6 +2076,7 @@ Index: git/src/optimizer.cpp
    float max_delta_vx = s.model_dt * s.constraints.ax_max;
    float min_delta_vx = s.model_dt * s.constraints.ax_min;
    float max_delta_vy = s.model_dt * s.constraints.ay_max;
+   float min_delta_vy = s.model_dt * s.constraints.ay_min;
    float max_delta_wz = s.model_dt * s.constraints.az_max;
 -  float vx_last = control_sequence_.vx(0);
 -  float vy_last = control_sequence_.vy(0);
@@ -2070,7 +2094,11 @@ Index: git/src/optimizer.cpp
 +
 +  for (unsigned int i = 1; i != control_sequence_.vx.size(); i++) {
      float & vx_curr = control_sequence_.vx(i);
--    vx_curr = std::clamp(vx_curr, vx_last + min_delta_vx, vx_last + max_delta_vx);
+-    if (vx_last > 0) {
+-      vx_curr = std::clamp(vx_curr, vx_last + min_delta_vx, vx_last + max_delta_vx);
+-    } else {
+-      vx_curr = std::clamp(vx_curr, vx_last - max_delta_vx, vx_last - min_delta_vx);
+-    }
 +    vx_curr = utils::clamp(s.constraints.vx_min, s.constraints.vx_max, vx_curr);
 +    vx_curr = utils::clamp(vx_last + min_delta_vx, vx_last + max_delta_vx, vx_curr);
      vx_last = vx_curr;
@@ -2083,13 +2111,17 @@ Index: git/src/optimizer.cpp
  
      if (isHolonomic()) {
        float & vy_curr = control_sequence_.vy(i);
--      vy_curr = std::clamp(vy_curr, vy_last - max_delta_vy, vy_last + max_delta_vy);
+-      if (vy_last > 0) {
+-        vy_curr = std::clamp(vy_curr, vy_last + min_delta_vy, vy_last + max_delta_vy);
+-      } else {
+-        vy_curr = std::clamp(vy_curr, vy_last - max_delta_vy, vy_last - min_delta_vy);
+-      }
 +      vy_curr = utils::clamp(-s.constraints.vy, s.constraints.vy, vy_curr);
 +      vy_curr = utils::clamp(vy_last - max_delta_vy, vy_last + max_delta_vy, vy_curr);
        vy_last = vy_curr;
      }
    }
-@@ -296,11 +288,11 @@ void Optimizer::updateStateVelocities(
+@@ -317,11 +301,11 @@ void Optimizer::updateStateVelocities(
  void Optimizer::updateInitialStateVelocities(
    models::State & state) const
  {
@@ -2104,7 +2136,7 @@ Index: git/src/optimizer.cpp
    }
  }
  
-@@ -311,36 +303,56 @@ void Optimizer::propagateStateVelocities
+@@ -332,36 +316,56 @@ void Optimizer::propagateStateVelocities
  }
  
  void Optimizer::integrateStateVelocities(
@@ -2183,7 +2215,7 @@ Index: git/src/optimizer.cpp
  }
  
  void Optimizer::integrateStateVelocities(
-@@ -348,77 +360,79 @@ void Optimizer::integrateStateVelocities
+@@ -369,77 +373,79 @@ void Optimizer::integrateStateVelocities
    const models::State & state) const
  {
    const float initial_yaw = static_cast<float>(tf2::getYaw(state.pose.pose.orientation));
@@ -2304,11 +2336,11 @@ Index: git/src/optimizer.cpp
    }
  
    applyControlSequenceConstraints();
-Index: git/src/trajectory_visualizer.cpp
+Index: nav2-mppi-controller-1.3.12/src/trajectory_visualizer.cpp
 ===================================================================
---- git.orig/src/trajectory_visualizer.cpp
-+++ git/src/trajectory_visualizer.cpp
-@@ -61,11 +61,11 @@ void TrajectoryVisualizer::on_deactivate
+--- nav2-mppi-controller-1.3.12.orig/src/trajectory_visualizer.cpp
++++ nav2-mppi-controller-1.3.12/src/trajectory_visualizer.cpp
+@@ -61,7 +61,7 @@ void TrajectoryVisualizer::on_deactivate
  }
  
  void TrajectoryVisualizer::add(
@@ -2317,15 +2349,19 @@ Index: git/src/trajectory_visualizer.cpp
    const std::string & marker_namespace,
    const builtin_interfaces::msg::Time & cmd_stamp)
  {
+@@ -71,7 +71,7 @@ void TrajectoryVisualizer::add(
+     return;
+   }
+ 
 -  auto & size = trajectory.shape()[0];
 +  size_t size = trajectory.rows();
    if (!size) {
      return;
    }
-@@ -105,12 +105,13 @@ void TrajectoryVisualizer::add(
- void TrajectoryVisualizer::add(
-   const models::Trajectories & trajectories, const std::string & marker_namespace)
- {
+@@ -115,12 +115,13 @@ void TrajectoryVisualizer::add(
+     return;
+   }
+ 
 -  auto & shape = trajectories.x.shape();
 -  const float shape_1 = static_cast<float>(shape[1]);
 -  points_->markers.reserve(floor(shape[0] / trajectory_step_) * floor(shape[1] * time_step_));
@@ -2341,10 +2377,10 @@ Index: git/src/trajectory_visualizer.cpp
        const float j_flt = static_cast<float>(j);
        float blue_component = 1.0f - j_flt / shape_1;
        float green_component = j_flt / shape_1;
-Index: git/test/critic_manager_test.cpp
+Index: nav2-mppi-controller-1.3.12/test/critic_manager_test.cpp
 ===================================================================
---- git.orig/test/critic_manager_test.cpp
-+++ git/test/critic_manager_test.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/critic_manager_test.cpp
++++ nav2-mppi-controller-1.3.12/test/critic_manager_test.cpp
 @@ -118,7 +118,7 @@ TEST(CriticManagerTests, BasicCriticOper
    models::Trajectories generated_trajectories;
    models::Path path;
@@ -2354,10 +2390,10 @@ Index: git/test/critic_manager_test.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt, false, nullptr, nullptr,
-Index: git/test/critics_tests.cpp
+Index: nav2-mppi-controller-1.3.12/test/critics_tests.cpp
 ===================================================================
---- git.orig/test/critics_tests.cpp
-+++ git/test/critics_tests.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/critics_tests.cpp
++++ nav2-mppi-controller-1.3.12/test/critics_tests.cpp
 @@ -15,6 +15,7 @@
  
  #include <chrono>
@@ -2447,7 +2483,7 @@ Index: git/test/critics_tests.cpp
    // 4.0 weight * 0.1 model_dt * (0.2 - 0.4/2.5) * 30 timesteps = 0.48
    EXPECT_NEAR(costs(1), 0.48, 0.01);
  }
-@@ -145,7 +142,8 @@ TEST(CriticTests, GoalAngleCritic)
+@@ -220,7 +217,8 @@ TEST(CriticTests, GoalAngleCritic)
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2457,7 +2493,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -163,23 +161,22 @@ TEST(CriticTests, GoalAngleCritic)
+@@ -238,23 +236,22 @@ TEST(CriticTests, GoalAngleCritic)
  
    // provide state poses and path too far from `threshold_to_consider` to consider
    state.pose.pose.position.x = 1.0;
@@ -2484,7 +2520,7 @@ Index: git/test/critics_tests.cpp
    EXPECT_NEAR(costs(0), 9.42, 0.02);  // (3.14 - 0.0) * 3.0 weight
  }
  
-@@ -199,7 +196,8 @@ TEST(CriticTests, GoalCritic)
+@@ -274,7 +271,8 @@ TEST(CriticTests, GoalAngleSymmetricCrit
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2494,7 +2530,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -217,14 +215,13 @@ TEST(CriticTests, GoalCritic)
+@@ -343,14 +341,13 @@ TEST(CriticTests, GoalCritic)
  
    // provide state poses and path far, should not trigger
    state.pose.pose.position.x = 1.0;
@@ -2511,7 +2547,7 @@ Index: git/test/critics_tests.cpp
  
    // provide state pose and path close
    path.x(9) = 0.5;
-@@ -232,7 +229,7 @@ TEST(CriticTests, GoalCritic)
+@@ -358,7 +355,7 @@ TEST(CriticTests, GoalCritic)
    goal.position.x = 0.5;
    critic.score(data);
    EXPECT_NEAR(costs(2), 2.5, 1e-6);  // (sqrt(10.0 * 10.0) * 5.0 weight
@@ -2520,7 +2556,7 @@ Index: git/test/critics_tests.cpp
  }
  
  TEST(CriticTests, PathAngleCritic)
-@@ -252,7 +249,8 @@ TEST(CriticTests, PathAngleCritic)
+@@ -378,7 +375,8 @@ TEST(CriticTests, PathAngleCritic)
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2530,7 +2566,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -272,11 +270,10 @@ TEST(CriticTests, PathAngleCritic)
+@@ -398,11 +396,10 @@ TEST(CriticTests, PathAngleCritic)
    // provide state poses and path close, within pose tolerance so won't do anything
    state.pose.pose.position.x = 0.0;
    state.pose.pose.position.y = 0.0;
@@ -2543,7 +2579,7 @@ Index: git/test/critics_tests.cpp
  
    // provide state pose and path close but outside of tol. with less than PI/2 angular diff.
    path.x(9) = 0.95;
-@@ -285,60 +282,60 @@ TEST(CriticTests, PathAngleCritic)
+@@ -411,60 +408,60 @@ TEST(CriticTests, PathAngleCritic)
    path.x(6) = 1.0;  // angle between path point and pose = 0 < max_angle_to_furthest_
    path.y(6) = 0.0;
    critic.score(data);
@@ -2614,7 +2650,7 @@ Index: git/test/critics_tests.cpp
    // should use reverse orientation as the closer angle in no dir preference mode
    EXPECT_NEAR(costs(0), 2.9167, 1e-2);
  
-@@ -370,7 +367,8 @@ TEST(CriticTests, PreferForwardCritic)
+@@ -496,7 +493,8 @@ TEST(CriticTests, PreferForwardCritic)
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2624,7 +2660,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -389,23 +387,22 @@ TEST(CriticTests, PreferForwardCritic)
+@@ -515,23 +513,22 @@ TEST(CriticTests, PreferForwardCritic)
  
    // provide state poses and path far away, not within positional tolerances
    state.pose.pose.position.x = 1.0;
@@ -2653,7 +2689,7 @@ Index: git/test/critics_tests.cpp
    EXPECT_NEAR(costs(0), 15.0f, 1e-3f);  // 1.0 * 0.1 model_dt * 5.0 weight * 30 length
  }
  
-@@ -426,7 +423,8 @@ TEST(CriticTests, TwirlingCritic)
+@@ -552,7 +549,8 @@ TEST(CriticTests, TwirlingCritic)
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2663,7 +2699,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -446,30 +444,30 @@ TEST(CriticTests, TwirlingCritic)
+@@ -572,30 +570,30 @@ TEST(CriticTests, TwirlingCritic)
  
    // provide state poses and path far away, not within positional tolerances
    state.pose.pose.position.x = 1.0;
@@ -2703,7 +2739,7 @@ Index: git/test/critics_tests.cpp
  }
  
  TEST(CriticTests, PathFollowCritic)
-@@ -489,7 +487,8 @@ TEST(CriticTests, PathFollowCritic)
+@@ -615,7 +613,8 @@ TEST(CriticTests, PathFollowCritic)
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2713,7 +2749,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -509,18 +508,17 @@ TEST(CriticTests, PathFollowCritic)
+@@ -635,18 +634,17 @@ TEST(CriticTests, PathFollowCritic)
  
    // provide state poses and goal close within positional tolerances
    state.pose.pose.position.x = 2.0;
@@ -2734,7 +2770,7 @@ Index: git/test/critics_tests.cpp
  }
  
  TEST(CriticTests, PathAlignCritic)
-@@ -540,7 +538,8 @@ TEST(CriticTests, PathAlignCritic)
+@@ -666,7 +664,8 @@ TEST(CriticTests, PathAlignCritic)
    generated_trajectories.reset(1000, 30);
    models::Path path;
    geometry_msgs::msg::Pose goal;
@@ -2744,7 +2780,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -560,18 +559,17 @@ TEST(CriticTests, PathAlignCritic)
+@@ -686,18 +685,17 @@ TEST(CriticTests, PathAlignCritic)
  
    // provide state poses and path close within positional tolerances
    state.pose.pose.position.x = 1.0;
@@ -2765,7 +2801,7 @@ Index: git/test/critics_tests.cpp
  
    // provide state pose and path far enough to enable, with data to pass condition
    // but with empty trajectories and paths, should still be zero
-@@ -579,7 +577,7 @@ TEST(CriticTests, PathAlignCritic)
+@@ -705,7 +703,7 @@ TEST(CriticTests, PathAlignCritic)
    path.x(9) = 0.15;
    goal.position.x = 0.15;
    critic.score(data);
@@ -2774,7 +2810,7 @@ Index: git/test/critics_tests.cpp
  
    // provide state pose and path far enough to enable, with data to pass condition
    // and with a valid path to pass invalid path condition
-@@ -609,10 +607,10 @@ TEST(CriticTests, PathAlignCritic)
+@@ -735,10 +733,10 @@ TEST(CriticTests, PathAlignCritic)
    path.x(20) = 0.9;
    path.x(21) = 0.9;
    goal.position.x = 0.9;
@@ -2787,7 +2823,7 @@ Index: git/test/critics_tests.cpp
  
    // provide state pose and path far enough to enable, with data to pass condition
    // but path is blocked in collision
-@@ -625,12 +623,12 @@ TEST(CriticTests, PathAlignCritic)
+@@ -751,12 +749,12 @@ TEST(CriticTests, PathAlignCritic)
    }
  
    data.path_pts_valid.reset();  // Recompute on new path
@@ -2804,7 +2840,7 @@ Index: git/test/critics_tests.cpp
  }
  
  TEST(CriticTests, VelocityDeadbandCritic)
-@@ -647,11 +645,12 @@ TEST(CriticTests, VelocityDeadbandCritic
+@@ -773,11 +771,12 @@ TEST(CriticTests, VelocityDeadbandCritic
    costmap_ros->on_configure(lstate);
  
    models::State state;
@@ -2818,7 +2854,7 @@ Index: git/test/critics_tests.cpp
    float model_dt = 0.1;
    CriticData data =
    {state, generated_trajectories, path, goal, costs, model_dt,
-@@ -668,16 +667,16 @@ TEST(CriticTests, VelocityDeadbandCritic
+@@ -794,16 +793,16 @@ TEST(CriticTests, VelocityDeadbandCritic
    // Scoring testing
  
    // provide velocities out of deadband bounds, should not have any costs
@@ -2842,10 +2878,10 @@ Index: git/test/critics_tests.cpp
    critic.score(data);
    // 35.0 weight * 0.1 model_dt * (0.07 + 0.06 + 0.059) * 30 timesteps = 56.7
    EXPECT_NEAR(costs(1), 19.845, 0.01);
-Index: git/test/models_test.cpp
+Index: nav2-mppi-controller-1.3.12/test/models_test.cpp
 ===================================================================
---- git.orig/test/models_test.cpp
-+++ git/test/models_test.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/models_test.cpp
++++ nav2-mppi-controller-1.3.12/test/models_test.cpp
 @@ -35,9 +35,9 @@ TEST(ModelsTest, ControlSequenceTest)
  {
    // populate the object
@@ -2975,10 +3011,10 @@ Index: git/test/models_test.cpp
 +  EXPECT_EQ(trajectories.y.cols(), 40);
 +  EXPECT_EQ(trajectories.yaws.cols(), 40);
  }
-Index: git/test/motion_model_tests.cpp
+Index: nav2-mppi-controller-1.3.12/test/motion_model_tests.cpp
 ===================================================================
---- git.orig/test/motion_model_tests.cpp
-+++ git/test/motion_model_tests.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/motion_model_tests.cpp
++++ nav2-mppi-controller-1.3.12/test/motion_model_tests.cpp
 @@ -20,6 +20,7 @@
  #include "nav2_mppi_controller/motion_models.hpp"
  #include "nav2_mppi_controller/models/state.hpp"
@@ -3201,10 +3237,10 @@ Index: git/test/motion_model_tests.cpp
      EXPECT_TRUE(fabs(control_sequence2.vx(i)) / fabs(control_sequence2.wz(i)) >= 0.2);
    }
  
-Index: git/test/noise_generator_test.cpp
+Index: nav2-mppi-controller-1.3.12/test/noise_generator_test.cpp
 ===================================================================
---- git.orig/test/noise_generator_test.cpp
-+++ git/test/noise_generator_test.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/noise_generator_test.cpp
++++ nav2-mppi-controller-1.3.12/test/noise_generator_test.cpp
 @@ -70,7 +70,7 @@ TEST(NoiseGeneratorTest, NoiseGeneratorM
    // Populate a potential control sequence
    mppi::models::ControlSequence control_sequence;
@@ -3273,10 +3309,10 @@ Index: git/test/noise_generator_test.cpp
  
    generator.shutdown();
  }
-Index: git/test/optimizer_smoke_test.cpp
+Index: nav2-mppi-controller-1.3.12/test/optimizer_smoke_test.cpp
 ===================================================================
---- git.orig/test/optimizer_smoke_test.cpp
-+++ git/test/optimizer_smoke_test.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/optimizer_smoke_test.cpp
++++ nav2-mppi-controller-1.3.12/test/optimizer_smoke_test.cpp
 @@ -22,10 +22,6 @@
  #include <nav2_costmap_2d/costmap_2d_ros.hpp>
  #include <nav2_core/goal_checker.hpp>
@@ -3288,10 +3324,10 @@ Index: git/test/optimizer_smoke_test.cpp
  #include "nav2_mppi_controller/optimizer.hpp"
  #include "nav2_mppi_controller/tools/parameters_handler.hpp"
  #include "nav2_mppi_controller/motion_models.hpp"
-Index: git/test/optimizer_unit_tests.cpp
+Index: nav2-mppi-controller-1.3.12/test/optimizer_unit_tests.cpp
 ===================================================================
---- git.orig/test/optimizer_unit_tests.cpp
-+++ git/test/optimizer_unit_tests.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/optimizer_unit_tests.cpp
++++ nav2-mppi-controller-1.3.12/test/optimizer_unit_tests.cpp
 @@ -32,7 +32,6 @@ RosLockGuard g_rclcpp;
  using namespace mppi;  // NOLINT
  using namespace mppi::critics;  // NOLINT
@@ -3362,7 +3398,7 @@ Index: git/test/optimizer_unit_tests.cpp
      updateInitialStateVelocities(state);
      EXPECT_NEAR(state.vx(0, 0), 5.0, 1e-6);
      EXPECT_NEAR(state.vy(0, 0), 1.0, 1e-6);
-@@ -200,9 +199,9 @@ public:
+@@ -201,9 +200,9 @@ public:
      state.speed.linear.x = -5.0;
      state.speed.linear.y = -1.0;
      state.speed.angular.z = -6.0;
@@ -3375,7 +3411,7 @@ Index: git/test/optimizer_unit_tests.cpp
      updateStateVelocities(state);
      EXPECT_NEAR(state.vx(0, 0), -5.0, 1e-6);
      EXPECT_NEAR(state.vy(0, 0), -1.0, 1e-6);
-@@ -248,9 +247,9 @@ TEST(OptimizerTests, BasicInitializedFun
+@@ -251,9 +250,9 @@ TEST(OptimizerTests, BasicInitializedFun
    // Should be empty of size batches x time steps
    // and tests getting set params: time_steps, batch_size, controller_frequency
    auto trajs = optimizer_tester.getGeneratedTrajectories();
@@ -3388,7 +3424,7 @@ Index: git/test/optimizer_unit_tests.cpp
  
    optimizer_tester.resetMotionModel();
    optimizer_tester.testSetOmniModel();
-@@ -258,8 +257,8 @@ TEST(OptimizerTests, BasicInitializedFun
+@@ -261,8 +260,8 @@ TEST(OptimizerTests, BasicInitializedFun
    EXPECT_EQ(traj(5, 0), 0.0);  // x
    EXPECT_EQ(traj(5, 1), 0.0);  // y
    EXPECT_EQ(traj(5, 2), 0.0);  // yaw
@@ -3399,7 +3435,7 @@ Index: git/test/optimizer_unit_tests.cpp
  
    optimizer_tester.reset();
    optimizer_tester.shutdown();
-@@ -498,31 +497,31 @@ TEST(OptimizerTests, applyControlSequenc
+@@ -501,31 +500,31 @@ TEST(OptimizerTests, applyControlSequenc
    auto & sequence = optimizer_tester.grabControlSequence();
  
    // Test boundary of limits
@@ -3449,7 +3485,7 @@ Index: git/test/optimizer_unit_tests.cpp
  }
  
  TEST(OptimizerTests, updateStateVelocitiesTests)
-@@ -574,9 +573,9 @@ TEST(OptimizerTests, getControlFromSeque
+@@ -578,9 +577,9 @@ TEST(OptimizerTests, getControlFromSeque
  
    // Test conversion of control sequence into a Twist command to execute
    auto & sequence = optimizer_tester.grabControlSequence();
@@ -3462,7 +3498,7 @@ Index: git/test/optimizer_unit_tests.cpp
  
    auto diff_t = optimizer_tester.getControlFromSequenceAsTwistWrapper();
    EXPECT_NEAR(diff_t.twist.linear.x, 0.25, 1e-6);
-@@ -615,39 +614,38 @@ TEST(OptimizerTests, integrateStateVeloc
+@@ -619,39 +618,38 @@ TEST(OptimizerTests, integrateStateVeloc
    models::State state;
    state.reset(1000, 50);
    models::Trajectories traj;
@@ -3518,10 +3554,10 @@ Index: git/test/optimizer_unit_tests.cpp
      x += (0.1 /*vx*/ * cosf(0.2 /*wz*/ * 0.1 /*model_dt*/ * (i - 1))) * 0.1 /*model_dt*/;
      y += (0.1 /*vx*/ * sinf(0.2 /*wz*/ * 0.1 /*model_dt*/ * (i - 1))) * 0.1 /*model_dt*/;
  
-Index: git/test/trajectory_visualizer_tests.cpp
+Index: nav2-mppi-controller-1.3.12/test/trajectory_visualizer_tests.cpp
 ===================================================================
---- git.orig/test/trajectory_visualizer_tests.cpp
-+++ git/test/trajectory_visualizer_tests.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/trajectory_visualizer_tests.cpp
++++ nav2-mppi-controller-1.3.12/test/trajectory_visualizer_tests.cpp
 @@ -77,7 +77,7 @@ TEST(TrajectoryVisualizerTests, VisOptim
      [&](const visualization_msgs::msg::MarkerArray msg) {recieved_msg = msg;});
  
@@ -3573,10 +3609,10 @@ Index: git/test/trajectory_visualizer_tests.cpp
      optimal_trajectory(i, 0) = static_cast<float>(i);
      optimal_trajectory(i, 1) = static_cast<float>(i);
    }
-Index: git/test/utils/utils.hpp
+Index: nav2-mppi-controller-1.3.12/test/utils/utils.hpp
 ===================================================================
---- git.orig/test/utils/utils.hpp
-+++ git/test/utils/utils.hpp
+--- nav2-mppi-controller-1.3.12.orig/test/utils/utils.hpp
++++ nav2-mppi-controller-1.3.12/test/utils/utils.hpp
 @@ -84,7 +84,7 @@ void printMap(const nav2_costmap_2d::Cos
  /**
   * Print costmap with trajectory and goal point to stdout.
@@ -3622,10 +3658,10 @@ Index: git/test/utils/utils.hpp
      costmap.worldToMap(trajectory(i, 0), trajectory(i, 1), trajectory_j, trajectory_i);
      if (match_near(trajectory_i, trajectory_j)) {
        return true;
-Index: git/test/utils_test.cpp
+Index: nav2-mppi-controller-1.3.12/test/utils_test.cpp
 ===================================================================
---- git.orig/test/utils_test.cpp
-+++ git/test/utils_test.cpp
+--- nav2-mppi-controller-1.3.12.orig/test/utils_test.cpp
++++ nav2-mppi-controller-1.3.12/test/utils_test.cpp
 @@ -14,11 +14,7 @@
  
  #include <chrono>

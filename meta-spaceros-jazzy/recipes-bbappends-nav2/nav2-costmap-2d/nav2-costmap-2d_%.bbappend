@@ -1,5 +1,8 @@
 # Copyright (c) 2025 Wind River Systems, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://switch-to-modern-cmake-idioms.patch"
+
 # nav2-costmap-2d/1.3.5/recipe-sysroot/opt/ros/jazzy/include/rclcpp/rclcpp/exceptions/exceptions.hpp:71:79:
 # error: declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidNodeNameError' [-Werror=shadow]
 CXXFLAGS += "-Wno-error=shadow"
