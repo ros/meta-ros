@@ -5,41 +5,48 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "This package defines messages commonly used in mapping packages."
-AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
-ROS_AUTHOR = "Mabel Zhang <mabel@openrobotics.org>"
-HOMEPAGE = "http://ros.org/wiki/map_msgs"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=01c2bc31767ccb3a68e12f02612b2a97"
+DESCRIPTION = "Nav2's Output velocity smoother"
+AUTHOR = "Steve Macenski <stevenmacenski@gmail.com>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "map_msgs"
-ROS_BPN = "map_msgs"
+ROS_CN = "nav2_velocity_smoother"
+ROS_BPN = "nav2_velocity_smoother"
 
 ROS_BUILD_DEPENDS = "\
-    nav-msgs\
-    sensor-msgs\
-    std-msgs\
+    nav2-common\
+    rclcpp\
+    rclcpp-components\
+    geometry-msgs\
+    nav2-util\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
-    rosidl-default-generators-native\
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = "\
+    rclcpp\
+    rclcpp-components\
+    geometry-msgs\
+    nav2-util\
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    nav-msgs\
-    rosidl-default-runtime\
-    sensor-msgs\
-    std-msgs\
+    rclcpp\
+    rclcpp-components\
+    geometry-msgs\
+    nav2-util\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
     ament-lint-common\
+    ament-lint-auto\
+    ament-cmake-gtest\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -51,9 +58,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/map_msgs"
-SRC_URI = "git://github.com/ros2-gbp/navigation_msgs-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "4675ed3bf06517781914cb22ee88628485cf7b78"
+ROS_BRANCH ?= "branch=release/jazzy/nav2_velocity_smoother"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "200b2eda2051ae1a3f45e77fded544f0e15444fd"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"

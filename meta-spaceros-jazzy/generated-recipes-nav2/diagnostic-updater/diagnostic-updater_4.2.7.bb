@@ -5,50 +5,56 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "ROS messages for Geographic Information Systems."
-AUTHOR = "Jack O'Quin <jack.oquin@gmail.com>"
-HOMEPAGE = "http://wiki.ros.org/geographic_msgs"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
+DESCRIPTION = "Update and publish diagnostic information."
+AUTHOR = "Christian Henkel <Christian.Henkel2@de.bosch.com>"
+ROS_AUTHOR = "Jeremy Leibs"
+HOMEPAGE = "https://index.ros.org/p/diagnostic_updater/"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
-ROS_CN = "geographic_msgs"
-ROS_BPN = "geographic_msgs"
+ROS_CN = "diagnostic_updater"
+ROS_BPN = "diagnostic_updater"
 
 ROS_BUILD_DEPENDS = "\
-    rosidl-default-generators\
-    geometry-msgs\
+    diagnostic-msgs\
+    rclcpp\
+    rclpy\
     std-msgs\
-    unique-identifier-msgs\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
+    ament-cmake-python-native\
+    ament-cmake-ros-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    geometry-msgs\
+    diagnostic-msgs\
+    rclcpp\
+    rclpy\
     std-msgs\
-    unique-identifier-msgs\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    rosidl-default-runtime\
-    geometry-msgs\
+    diagnostic-msgs\
+    rclcpp\
+    rclpy\
     std-msgs\
-    unique-identifier-msgs\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
     ament-cmake-gtest\
+    ament-cmake-pytest\
     ament-lint-auto\
-    ament-cmake-cppcheck\
-    ament-cmake-cpplint\
-    ament-cmake-lint-cmake\
-    ament-cmake-uncrustify\
-    ament-cmake-xmllint\
+    ament-lint-common\
+    launch\
+    launch-testing\
+    launch-testing-ros\
+    python3-pytest\
+    rclcpp-lifecycle\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -60,9 +66,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/geographic_msgs"
-SRC_URI = "git://github.com/ros2-gbp/geographic_info-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "caa6354cd98e112a31d8f26ab3168880bb3d327e"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/diagnostic_updater"
+SRC_URI = "git://github.com/ros2-gbp/diagnostics-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "cacd1def22b9c418d0674ab13060ffbe277e6c5a"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"

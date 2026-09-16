@@ -6,60 +6,53 @@ inherit ros_distro_jazzy
 inherit mash_generated
 
 DESCRIPTION = "\
-    This contains CvBridge, which converts between ROS2\
-    Image messages and OpenCV images.\
+    image_transport should always be used to subscribe to and publish images. It provides transparent\
+    support for transporting images in low-bandwidth compressed formats. Examples (provided by separate\
+    plugin packages) include JPEG/PNG compression and Theora streaming video.\
 "
-AUTHOR = "Kenji Brameld <kenjibrameld@gmail.com>"
-ROS_AUTHOR = "Patrick Mihelich"
-HOMEPAGE = "http://www.ros.org/wiki/cv_bridge"
-LICENSE = "Apache-2.0 AND BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
+ROS_AUTHOR = "Michael Carroll <michael@openrobotics.org>"
+HOMEPAGE = "http://ros.org/wiki/image_transport"
+LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "cv_bridge"
-ROS_BPN = "cv_bridge"
+ROS_CN = "image_transport"
+ROS_BPN = "image_transport"
 
 ROS_BUILD_DEPENDS = "\
-    boost\
-    boost\
-    opencv\
-    python3-numpy\
+    message-filters\
+    pluginlib\
     rclcpp\
-    rcpputils\
+    rclcpp-components\
     sensor-msgs\
-    opencv\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-ros-native\
-    python-cmake-module-native\
+    ament-cmake-gen-version-h-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    opencv\
-    python3-numpy\
+    message-filters\
+    pluginlib\
     rclcpp\
-    rcpputils\
+    rclcpp-components\
     sensor-msgs\
-    opencv\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ament-index-python\
-    boost\
-    opencv\
-    python3-numpy\
+    message-filters\
+    pluginlib\
     rclcpp\
-    rcpputils\
+    rclcpp-components\
     sensor-msgs\
-    opencv\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
     ament-cmake-gtest\
-    ament-cmake-pytest\
     ament-lint-auto\
     ament-lint-common\
 "
@@ -73,9 +66,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/cv_bridge"
-SRC_URI = "git://github.com/ros2-gbp/vision_opencv-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "d30ec40f8ebf943aaa16b860166e53a49a6f6174"
+ROS_BRANCH ?= "branch=release/jazzy/image_transport"
+SRC_URI = "git://github.com/ros2-gbp/image_common-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "e8db471ebb7b38a6d74b533bf00faf9c4edacf51"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"

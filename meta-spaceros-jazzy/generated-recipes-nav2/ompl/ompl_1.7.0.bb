@@ -5,25 +5,26 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "This package defines messages commonly used in mapping packages."
-AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
-ROS_AUTHOR = "Mabel Zhang <mabel@openrobotics.org>"
-HOMEPAGE = "http://ros.org/wiki/map_msgs"
+DESCRIPTION = "OMPL is a free sampling-based motion planning library."
+AUTHOR = "Mark Moll <mmoll@rice.edu>"
+ROS_AUTHOR = "Kavraki Lab"
+HOMEPAGE = "https://ompl.kavrakilab.org"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=01c2bc31767ccb3a68e12f02612b2a97"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_CN = "map_msgs"
-ROS_BPN = "map_msgs"
+ROS_CN = "ompl"
+ROS_BPN = "ompl"
 
 ROS_BUILD_DEPENDS = "\
-    nav-msgs\
-    sensor-msgs\
-    std-msgs\
+    cmake\
+    boost\
+    libeigen\
+    pkgconfig\
+    libflann\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
-    ament-cmake-native\
-    rosidl-default-generators-native\
+    cmake-native\
 "
 
 ROS_EXPORT_DEPENDS = ""
@@ -31,16 +32,13 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    nav-msgs\
-    rosidl-default-runtime\
-    sensor-msgs\
-    std-msgs\
+    boost\
+    libeigen\
+    libflann\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "\
-    ament-lint-common\
-"
+ROS_TEST_DEPENDS = ""
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
 # Bitbake doesn't support the "export" concept, so build them as if we
@@ -51,11 +49,11 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/map_msgs"
-SRC_URI = "git://github.com/ros2-gbp/navigation_msgs-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "4675ed3bf06517781914cb22ee88628485cf7b78"
+ROS_BRANCH ?= "branch=release/jazzy/ompl"
+SRC_URI = "git://github.com/ros2-gbp/ompl-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "93a7d7a7d2d7f0c93962629d5994d3f5e1e750b9"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
-ROS_BUILD_TYPE = "ament_cmake"
+ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

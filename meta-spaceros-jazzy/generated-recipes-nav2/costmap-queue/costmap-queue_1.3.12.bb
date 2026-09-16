@@ -5,41 +5,42 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "This package defines messages commonly used in mapping packages."
+DESCRIPTION = "The costmap_queue package"
 AUTHOR = "David V. Lu!! <davidvlu@gmail.com>"
-ROS_AUTHOR = "Mabel Zhang <mabel@openrobotics.org>"
-HOMEPAGE = "http://ros.org/wiki/map_msgs"
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=01c2bc31767ccb3a68e12f02612b2a97"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
-ROS_CN = "map_msgs"
-ROS_BPN = "map_msgs"
+ROS_CN = "costmap_queue"
+ROS_BPN = "costmap_queue"
 
 ROS_BUILD_DEPENDS = "\
-    nav-msgs\
-    sensor-msgs\
-    std-msgs\
+    nav2-common\
+    nav2-costmap-2d\
+    rclcpp\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
     ament-cmake-native\
-    rosidl-default-generators-native\
 "
 
-ROS_EXPORT_DEPENDS = ""
+ROS_EXPORT_DEPENDS = "\
+    nav2-costmap-2d\
+    rclcpp\
+"
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    nav-msgs\
-    rosidl-default-runtime\
-    sensor-msgs\
-    std-msgs\
+    nav2-costmap-2d\
+    rclcpp\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
     ament-lint-common\
+    ament-lint-auto\
+    ament-cmake-gtest\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -51,9 +52,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/map_msgs"
-SRC_URI = "git://github.com/ros2-gbp/navigation_msgs-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "4675ed3bf06517781914cb22ee88628485cf7b78"
+ROS_BRANCH ?= "branch=dynrpm/jazzy/costmap_queue"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "cb418cee2fc908bad4c72c4fa5cebd7a1ff37df7"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"

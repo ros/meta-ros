@@ -5,63 +5,63 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "\
-    This contains CvBridge, which converts between ROS2\
-    Image messages and OpenCV images.\
-"
-AUTHOR = "Kenji Brameld <kenjibrameld@gmail.com>"
-ROS_AUTHOR = "Patrick Mihelich"
-HOMEPAGE = "http://www.ros.org/wiki/cv_bridge"
-LICENSE = "Apache-2.0 AND BSD"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
+DESCRIPTION = "Ceres constrained smoother"
+AUTHOR = "Matej Vargovcik <vargovcik@robotechvision.com>"
+HOMEPAGE = "https://wiki.ros.org"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "cv_bridge"
-ROS_BPN = "cv_bridge"
+ROS_CN = "nav2_constrained_smoother"
+ROS_BPN = "nav2_constrained_smoother"
 
 ROS_BUILD_DEPENDS = "\
-    boost\
-    boost\
-    opencv\
-    python3-numpy\
+    nav2-common\
+    angles\
     rclcpp\
-    rcpputils\
-    sensor-msgs\
-    opencv\
+    nav2-util\
+    nav2-msgs\
+    nav2-costmap-2d\
+    nav2-core\
+    pluginlib\
+    ceres-solver\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
-    ament-cmake-ros-native\
-    python-cmake-module-native\
+    ament-cmake-native\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    opencv\
-    python3-numpy\
+    nav2-common\
+    angles\
     rclcpp\
-    rcpputils\
-    sensor-msgs\
-    opencv\
+    nav2-util\
+    nav2-msgs\
+    nav2-costmap-2d\
+    nav2-core\
+    pluginlib\
+    ceres-solver\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    ament-index-python\
-    boost\
-    opencv\
-    python3-numpy\
+    nav2-common\
+    angles\
     rclcpp\
-    rcpputils\
-    sensor-msgs\
-    opencv\
+    nav2-util\
+    nav2-msgs\
+    nav2-costmap-2d\
+    nav2-core\
+    pluginlib\
+    ceres-solver\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
+    ament-lint-common\
+    ament-lint-auto\
     ament-cmake-gtest\
     ament-cmake-pytest\
-    ament-lint-auto\
-    ament-lint-common\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -73,9 +73,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-ROS_BRANCH ?= "branch=release/jazzy/cv_bridge"
-SRC_URI = "git://github.com/ros2-gbp/vision_opencv-release.git;${ROS_BRANCH};protocol=https"
-SRCREV = "d30ec40f8ebf943aaa16b860166e53a49a6f6174"
+ROS_BRANCH ?= "branch=release/jazzy/nav2_constrained_smoother"
+SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
+SRCREV = "0155a0e8b576d84100627010c6b2e82cb0d74a04"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
