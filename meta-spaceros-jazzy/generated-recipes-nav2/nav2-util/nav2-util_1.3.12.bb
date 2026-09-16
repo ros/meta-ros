@@ -8,7 +8,7 @@ inherit mash_generated
 DESCRIPTION = "Nav2 utilities"
 AUTHOR = "Michael Jeronimo <michael.jeronimo@intel.com>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "Apache-2.0 AND BSD-3-Clause"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5b6f343b05213cf7cc"
 
 ROS_CN = "nav2_util"

@@ -12,7 +12,7 @@ DESCRIPTION = "\
 AUTHOR = "Kenji Brameld <kenjibrameld@gmail.com>"
 ROS_AUTHOR = "Patrick Mihelich"
 HOMEPAGE = "http://www.ros.org/wiki/cv_bridge"
-LICENSE = "Apache-2.0 AND BSD"
+LICENSE = "Apache-2.0 & BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
 ROS_CN = "cv_bridge"
