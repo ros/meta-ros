@@ -10,6 +10,11 @@ ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-native \
 "
 
+# Replace libexpected-dev with tl-expected
+ROS_BUILD_DEPENDS:remove = "libexpected-dev"
+ROS_EXEC_DEPENDS:remove = "libexpected-dev"
+ROS_EXPORT_DEPENDS:remove = "libexpected-dev"
+
 # tl-expected does not have a runtime package
 ROS_EXEC_DEPENDS:remove = "tl-expected"
 
@@ -49,3 +54,5 @@ CXXFLAGS += "-Wno-error=shadow"
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
+
+BBCLASSEXTEND = "native nativesdk"
