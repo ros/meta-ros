@@ -22,11 +22,9 @@ Subject: [PATCH] remove boost.system as a dependency. unused (#1306)
  vcpkg.json                       | 1 -
  10 files changed, 4 insertions(+), 12 deletions(-)
 
-diff --git a/.github/workflows/build.yml b/.github/workflows/build.yml
-index 1efe6ef081..5b894d7ff8 100644
 --- a/.github/workflows/build.yml
 +++ b/.github/workflows/build.yml
-@@ -41,7 +41,6 @@ jobs:
+@@ -41,7 +41,6 @@
          libboost-filesystem-dev \
          libboost-program-options-dev \
          libboost-serialization-dev \
@@ -34,7 +32,7 @@ index 1efe6ef081..5b894d7ff8 100644
          libboost-test-dev \
          libeigen3-dev \
          libflann-dev \
-@@ -58,7 +57,7 @@ jobs:
+@@ -58,7 +57,7 @@
        with:
            vcpkgGitCommitId: da4b78d35084ec4e9808aa02017028da03b8d2ab
            vcpkgTriplet: 'x64-windows'
@@ -43,11 +41,9 @@ index 1efe6ef081..5b894d7ff8 100644
  
      - name: Build & Test (Linux, macOS)
        if: runner.os != 'Windows'
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 5f980f4522..88e0f8ca44 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -47,7 +47,7 @@ set_package_properties(Boost PROPERTIES
+@@ -47,7 +47,7 @@
      URL "https://www.boost.org"
      PURPOSE "Used throughout OMPL for data serialization, graphs, etc.")
  set(Boost_USE_MULTITHREADED ON)
@@ -56,11 +52,9 @@ index 5f980f4522..88e0f8ca44 100644
  
  # on macOS we need to check whether to use libc++ or libstdc++ with clang++
  if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
-diff --git a/CMakeModules/CPackSettings.cmake b/CMakeModules/CPackSettings.cmake
-index 911f838ad2..0000915766 100644
 --- a/CMakeModules/CPackSettings.cmake
 +++ b/CMakeModules/CPackSettings.cmake
-@@ -45,7 +45,7 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+@@ -45,7 +45,7 @@
          OUTPUT_VARIABLE UBUNTU_RELEASE
          OUTPUT_STRIP_TRAILING_WHITESPACE)
      set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}_${PROJECT_VERSION}_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}-Ubuntu${UBUNTU_RELEASE}")
@@ -69,11 +63,9 @@ index 911f838ad2..0000915766 100644
  endif()
  
  if(WIN32)
-diff --git a/CMakeModules/OMPLUtils.cmake b/CMakeModules/OMPLUtils.cmake
-index ddd6f9afab..9a63df7db6 100644
 --- a/CMakeModules/OMPLUtils.cmake
 +++ b/CMakeModules/OMPLUtils.cmake
-@@ -5,7 +5,6 @@ macro(add_ompl_test test_name)
+@@ -5,7 +5,6 @@
      Boost::program_options
      Boost::serialization
      Boost::filesystem
@@ -81,11 +73,9 @@ index ddd6f9afab..9a63df7db6 100644
      Boost::unit_test_framework)
    add_test(NAME ${test_name} COMMAND $<TARGET_FILE:${test_name}>)
  endmacro(add_ompl_test)
-diff --git a/demos/CMakeLists.txt b/demos/CMakeLists.txt
-index 3def76bfc5..d0827a8c17 100644
 --- a/demos/CMakeLists.txt
 +++ b/demos/CMakeLists.txt
-@@ -12,7 +12,6 @@ if (OMPL_BUILD_DEMOS)
+@@ -12,7 +12,6 @@
              ompl::ompl
              Eigen3::Eigen
              Boost::filesystem
@@ -93,11 +83,9 @@ index 3def76bfc5..d0827a8c17 100644
              Boost::program_options)
      endmacro(add_ompl_demo)
  
-diff --git a/install-ompl-ubuntu.sh.in b/install-ompl-ubuntu.sh.in
-index 79f60e30e7..86f62f5e13 100755
 --- a/install-ompl-ubuntu.sh.in
 +++ b/install-ompl-ubuntu.sh.in
-@@ -20,7 +20,6 @@ install_common_dependencies()
+@@ -20,7 +20,6 @@
          libboost-filesystem-dev \
          libboost-program-options-dev \
          libboost-serialization-dev \
@@ -105,11 +93,9 @@ index 79f60e30e7..86f62f5e13 100755
          libboost-test-dev \
          libeigen3-dev \
          libexpat1 \
-diff --git a/omplConfig.cmake.in b/omplConfig.cmake.in
-index f1d478557e..5f40fe1142 100644
 --- a/omplConfig.cmake.in
 +++ b/omplConfig.cmake.in
-@@ -12,7 +12,7 @@ set_and_check(OMPL_INCLUDE_DIRS @PACKAGE_INCLUDE_INSTALL_DIR@)
+@@ -12,7 +12,7 @@
  
  include ("${CMAKE_CURRENT_LIST_DIR}/omplExport.cmake" )
  include(CMakeFindDependencyMacro)
@@ -118,11 +104,9 @@ index f1d478557e..5f40fe1142 100644
  find_dependency(Boost REQUIRED COMPONENTS ${_@PROJECT_NAME@_boost_components})
  if(Boost_FOUND)
      foreach(_comp ${_@PROJECT_NAME@_boost_components})
-diff --git a/scripts/docker/ompl.Dockerfile b/scripts/docker/ompl.Dockerfile
-index 8998701672..b20a97e737 100644
 --- a/scripts/docker/ompl.Dockerfile
 +++ b/scripts/docker/ompl.Dockerfile
-@@ -13,7 +13,6 @@ RUN apt-get update && \
+@@ -13,7 +13,6 @@
          libboost-program-options-dev \
          libboost-python-dev \
          libboost-serialization-dev \
@@ -130,7 +114,7 @@ index 8998701672..b20a97e737 100644
          libboost-test-dev \
          libeigen3-dev \
          libexpat1 \
-@@ -58,7 +57,6 @@ RUN apt-get update && \
+@@ -58,7 +57,6 @@
          libboost-program-options-dev \
          libboost-python-dev \
          libboost-serialization-dev \
@@ -138,11 +122,9 @@ index 8998701672..b20a97e737 100644
          libeigen3-dev \
          libflann-dev \
          libtriangle-dev \
-diff --git a/src/ompl/CMakeLists.txt b/src/ompl/CMakeLists.txt
-index 463930ca43..82911ef2a1 100644
 --- a/src/ompl/CMakeLists.txt
 +++ b/src/ompl/CMakeLists.txt
-@@ -44,7 +44,6 @@ target_link_libraries(ompl
+@@ -44,7 +44,6 @@
      PUBLIC
          Boost::filesystem
          Boost::serialization
@@ -150,8 +132,6 @@ index 463930ca43..82911ef2a1 100644
          Eigen3::Eigen
          "$<$<BOOL:${Threads_FOUND}>:Threads::Threads>"
          "$<$<BOOL:${OMPL_HAVE_FLANN}>:flann::flann>"
-diff --git a/vcpkg.json b/vcpkg.json
-index aa07572a8e..9690014d71 100644
 --- a/vcpkg.json
 +++ b/vcpkg.json
 @@ -7,7 +7,6 @@
