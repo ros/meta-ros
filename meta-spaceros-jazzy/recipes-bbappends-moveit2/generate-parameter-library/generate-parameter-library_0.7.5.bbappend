@@ -12,3 +12,5 @@ ROS_EXPORT_DEPENDS:remove = "libexpected-dev"
 
 # tl-expected does not have a runtime package
 ROS_EXEC_DEPENDS:remove = "tl-expected"
+
+BBCLASSEXTEND = "native nativesdk"
