@@ -1,0 +1,13 @@
+header:
+  version: 14
+
+repos:
+  spaceros:
+    url: "https://github.com/ros/meta-ros.git"
+    path: "layers/meta-ros"
+    commit: "8fb0ee223c8dfcd69f7b71ef8bce449015c1d3fa"
+    layers:
+      meta-ros-common:
+      meta-ros2:
+      meta-spaceros:
+      meta-spaceros-jazzy:
