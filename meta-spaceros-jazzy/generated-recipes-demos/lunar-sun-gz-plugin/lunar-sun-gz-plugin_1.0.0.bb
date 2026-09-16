@@ -5,18 +5,18 @@
 inherit ros_distro_jazzy
 inherit mash_generated
 
-DESCRIPTION = "Simulation description for CanadArm2"
-AUTHOR = "franklinselva <franklinselva10@gmail.com>"
+DESCRIPTION = "Plugins for dynamic sun in lunar world"
+AUTHOR = "Munir Azme <munir.azme@elementrobotics.space>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "GPL"
-LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=162b49cfbae9eadf37c9b89b2d2ac6be"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=bb69307f9a8566360ce04a9b7e6a00b7"
 
 ROS_CN = "src"
-ROS_BPN = "canadarm_gazebo"
+ROS_BPN = "lunar_sun_gz_plugin"
 
 ROS_BUILD_DEPENDS = "\
-    canadarm-description\
-    ros-gz\
+    gz-plugin-vendor\
+    gz-sim-vendor\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
@@ -24,30 +24,25 @@ ROS_BUILDTOOL_DEPENDS = "\
 "
 
 ROS_EXPORT_DEPENDS = "\
-    canadarm-description\
-    ros-gz\
+    gz-plugin-vendor\
+    gz-sim-vendor\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
-    gz-ros2-control\
-    joint-state-broadcaster\
-    robot-state-publisher\
-    control-msgs\
-    ros2-control\
-    ros2-controllers\
-    xacro\
-    canadarm-description\
-    ros-gz\
+    gz-plugin-vendor\
+    gz-sim-vendor\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = "\
     ament-lint-auto\
-    ament-lint-common\
-    ament-lint-auto\
-    ament-lint-common\
+    ament-cmake-copyright\
+    ament-cmake-cpplint\
+    ament-cmake-lint-cmake\
+    ament-cmake-uncrustify\
+    ament-cmake-xmllint\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
@@ -62,7 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "925fe48e09cff6d79cc8455265bcd09b51b5ee5b"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/canadarm2/canadarm_gazebo"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lunar_terrain/lunar_sun_gz_plugin"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

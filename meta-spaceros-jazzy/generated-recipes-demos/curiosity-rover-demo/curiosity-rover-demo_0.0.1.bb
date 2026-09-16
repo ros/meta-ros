@@ -11,7 +11,7 @@ HOMEPAGE = "https://wiki.ros.org"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=82f0323c08605e5b6f343b05213cf7cc"
 
-ROS_CN = "demos"
+ROS_CN = "src"
 ROS_BPN = "curiosity_rover_demo"
 
 ROS_BUILD_DEPENDS = "\
@@ -58,17 +58,17 @@ ROS_TEST_DEPENDS = "\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
-SRCREV = "acf369b3fa1c8a64ff40b649b80c5540a6fac970"
+SRCREV = "925fe48e09cff6d79cc8455265bcd09b51b5ee5b"
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/racs2_demos_on_spaceros/curiosity_rover_demo"
 
 ROS_BUILD_TYPE = "ament_cmake"
