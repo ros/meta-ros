@@ -12,7 +12,7 @@ DESCRIPTION = "\
 AUTHOR = "Alejandro Hernandez Cordero <alejandro@openrobotics.org>"
 ROS_AUTHOR = "Jacob Perron <jacob@openrobotics.org>"
 HOMEPAGE = "http://assimp.sourceforge.net/index.html"
-LICENSE = "Apache-2.0 AND BSD-3-Clause"
+LICENSE = "Apache-2.0 & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=15;endline=15;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
 ROS_CN = "rviz_assimp_vendor"
