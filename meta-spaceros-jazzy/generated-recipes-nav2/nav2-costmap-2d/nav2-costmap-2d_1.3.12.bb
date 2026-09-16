@@ -16,7 +16,7 @@ DESCRIPTION = "\
 "
 AUTHOR = "Steve Macenski <stevenmacenski@gmail.com>"
 HOMEPAGE = "https://wiki.ros.org"
-LICENSE = "BSD-3-Clause & Apache-2.0"
+LICENSE = "BSD-3-Clause AND Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=4633480cdd27d7906aaf3ef4b72014b2"
 
 ROS_CN = "nav2_costmap_2d"
