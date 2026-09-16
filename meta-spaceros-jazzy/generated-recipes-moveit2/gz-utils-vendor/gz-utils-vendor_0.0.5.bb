@@ -20,7 +20,6 @@ ROS_BPN = "gz_utils_vendor"
 
 ROS_BUILD_DEPENDS = "\
     gz-cmake-vendor\
-    gz-utils2\
 "
 
 ROS_BUILDTOOL_DEPENDS = "\
@@ -32,14 +31,12 @@ ROS_BUILDTOOL_DEPENDS = "\
 
 ROS_EXPORT_DEPENDS = "\
     gz-cmake-vendor\
-    gz-utils2\
 "
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = "\
     gz-cmake-vendor\
-    gz-utils2\
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
@@ -50,10 +47,10 @@ ROS_TEST_DEPENDS = "\
 "
 
 DEPENDS = "${ROS_BUILD_DEPENDS} ${ROS_BUILDTOOL_DEPENDS}"
-# Bitbake doesn't support the "export" concept, so build them as if we needed
-# them to build this package (even though we actually don't) so that they're
-# guaranteed to have been staged should this package appear in another's
-# DEPENDS.
+# Bitbake doesn't support the "export" concept, so build them as if we
+# needed them to build this package (even though we actually don't) so
+# that they're guaranteed to have been staged should this package appear
+# in another's DEPENDS.
 DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
@@ -61,6 +58,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/gz_utils_vendor"
 SRC_URI = "git://github.com/ros2-gbp/gz_utils_vendor-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "703bec3b307c5820d6b866a9953f55a209b5cea9"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
