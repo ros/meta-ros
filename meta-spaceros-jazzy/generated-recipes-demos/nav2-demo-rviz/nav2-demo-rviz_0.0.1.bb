@@ -47,7 +47,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/space-ros/demos.git;${ROS_BRANCH};protocol=https"
 SRCREV = "925fe48e09cff6d79cc8455265bcd09b51b5ee5b"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/nav2_demo/nav2_demo_rviz"
+S = "${WORKDIR}/git/nav2_demo/nav2_demo_rviz"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
