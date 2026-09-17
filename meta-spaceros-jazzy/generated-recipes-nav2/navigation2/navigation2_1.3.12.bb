@@ -75,7 +75,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=dynrpm/jazzy/navigation2"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "964e6e93688adac0fd9ac5c1afab60b5c3965249"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

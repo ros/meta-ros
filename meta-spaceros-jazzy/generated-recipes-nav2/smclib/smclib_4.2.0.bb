@@ -53,7 +53,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/smclib"
 SRC_URI = "git://github.com/ros2-gbp/bond_core-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "28a83ba1c7a3448116da8d1a7e761afb099968a2"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

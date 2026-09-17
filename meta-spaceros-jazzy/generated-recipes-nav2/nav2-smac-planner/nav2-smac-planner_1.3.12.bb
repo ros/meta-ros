@@ -106,7 +106,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/nav2_smac_planner"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "025044b0ac87cacfddd2e401d64b826ab46d53fc"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

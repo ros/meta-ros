@@ -50,7 +50,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=dynrpm/jazzy/nav2_simple_commander"
 SRC_URI = "git://github.com/SteveMacenski/navigation2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "f2730a4030c79533f4d610b2b7e5c368537ea5fb"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

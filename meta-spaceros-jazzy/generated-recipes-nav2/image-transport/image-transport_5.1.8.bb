@@ -69,7 +69,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/image_transport"
 SRC_URI = "git://github.com/ros2-gbp/image_common-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e8db471ebb7b38a6d74b533bf00faf9c4edacf51"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
