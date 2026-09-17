@@ -45,7 +45,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=spaceros_main"
 SRC_URI = "git://github.com/ament/ament_lint.git;${ROS_BRANCH};protocol=https"
 SRCREV = "9fe34febc580eb943a2f64d19aec2d74ef70021e"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/ament_uncrustify"
+S = "${WORKDIR}/git/ament_uncrustify"
 
 ROS_BUILD_TYPE = "ament_python"
 

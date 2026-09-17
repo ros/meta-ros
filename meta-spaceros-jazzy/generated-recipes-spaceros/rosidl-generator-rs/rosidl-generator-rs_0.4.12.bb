@@ -60,7 +60,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=main"
 SRC_URI = "git://github.com/ros2-rust/rosidl_rust.git;${ROS_BRANCH};protocol=https"
 SRCREV = "4cf85d82f5b3ec234abfc60bcac80e7f1cfa24d0"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/rosidl_generator_rs"
+S = "${WORKDIR}/git/rosidl_generator_rs"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

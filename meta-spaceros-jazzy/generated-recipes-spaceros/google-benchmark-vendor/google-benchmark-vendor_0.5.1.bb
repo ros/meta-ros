@@ -49,7 +49,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ament/google_benchmark_vendor.git;${ROS_BRANCH};protocol=https"
 SRCREV = "8d70898e23f1e8ddf32de7aa39909359c5d2d701"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 

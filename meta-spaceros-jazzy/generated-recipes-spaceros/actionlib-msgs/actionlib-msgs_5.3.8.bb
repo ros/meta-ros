@@ -55,7 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/common_interfaces.git;${ROS_BRANCH};protocol=https"
 SRCREV = "a941f14bb318d8d904505ed935ccbb97f24a70a4"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/actionlib_msgs"
+S = "${WORKDIR}/git/actionlib_msgs"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

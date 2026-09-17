@@ -55,7 +55,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/ros2_tracing.git;${ROS_BRANCH};protocol=https"
 SRCREV = "615d3dc1ea9ce39784f36ab8bce3b362cd530a07"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/tracetools"
+S = "${WORKDIR}/git/tracetools"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

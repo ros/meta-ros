@@ -52,7 +52,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=jazzy"
 SRC_URI = "git://github.com/ros2/rcl_interfaces.git;${ROS_BRANCH};protocol=https"
 SRCREV = "7aa3caf43377ea6ad615bc1040832e2c7566bfbe"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/statistics_msgs"
+S = "${WORKDIR}/git/statistics_msgs"
 
 ROS_BUILD_TYPE = "ament_cmake"
 
