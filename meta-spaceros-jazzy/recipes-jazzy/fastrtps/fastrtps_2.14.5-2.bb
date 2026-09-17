@@ -63,6 +63,8 @@ ROS_BRANCH ?= "branch=release/jazzy/fastrtps"
 SRC_URI = "git://github.com/ros2-gbp/fastdds-release;${ROS_BRANCH};protocol=https"
 SRCREV = "969ab7d1c1999f7807d9a8538e81e4fa70a7d6e2"
 
+S = "${WORKDIR}/git"
+
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

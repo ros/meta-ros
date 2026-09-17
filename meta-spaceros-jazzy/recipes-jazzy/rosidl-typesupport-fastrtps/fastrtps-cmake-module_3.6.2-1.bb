@@ -48,6 +48,8 @@ ROS_BRANCH ?= "branch=release/jazzy/fastrtps_cmake_module"
 SRC_URI = "git://github.com/ros2-gbp/rosidl_typesupport_fastrtps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "4beb013ba722ebbc7e00afd03ce1ab92bb57f9b1"
 
+S = "${WORKDIR}/git"
+
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

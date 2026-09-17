@@ -42,6 +42,8 @@ ROS_BRANCH ?= "branch=release/jazzy/urdfdom_headers"
 SRC_URI = "git://github.com/ros2-gbp/urdfdom_headers-release;${ROS_BRANCH};protocol=https"
 SRCREV = "1816d683f984c8e4dea5ba1267e560dc5b105c24"
 
+S = "${WORKDIR}/git"
+
 ROS_BUILD_TYPE = "cmake"
 
 inherit ros_${ROS_BUILD_TYPE}

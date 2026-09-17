@@ -78,6 +78,8 @@ ROS_BRANCH ?= "branch=release/jazzy/rmw_fastrtps_dynamic_cpp"
 SRC_URI = "git://github.com/ros2-gbp/rmw_fastrtps-release;${ROS_BRANCH};protocol=https"
 SRCREV = "dc2be1987ecdecc719fd78747ff07b54c6fe65c2"
 
+S = "${WORKDIR}/git"
+
 ROS_BUILD_TYPE = "ament_cmake"
 
 inherit ros_${ROS_BUILD_TYPE}
