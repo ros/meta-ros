@@ -57,7 +57,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/sros2"
 SRC_URI = "git://github.com/ros2-gbp/sros2-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "bb7b88934c7770ae0b5814ed529627db783752a4"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_python"
 

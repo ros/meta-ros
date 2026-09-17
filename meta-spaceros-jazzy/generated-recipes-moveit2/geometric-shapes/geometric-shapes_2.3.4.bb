@@ -93,7 +93,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=dynrpm/jazzy/geometric_shapes"
 SRC_URI = "git://github.com/ros2-gbp/geometric_shapes-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "e8de9bb3b57ddeab87ee1990caa73b8766fd6ad0"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "ament_cmake"
 

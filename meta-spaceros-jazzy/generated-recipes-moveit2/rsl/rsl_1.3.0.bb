@@ -65,7 +65,7 @@ RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 ROS_BRANCH ?= "branch=release/jazzy/rsl"
 SRC_URI = "git://github.com/ros2-gbp/RSL-release.git;${ROS_BRANCH};protocol=https"
 SRCREV = "5dd7ad86bcec61e1684c913b2584cb3ff45ea742"
-S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
+S = "${WORKDIR}/git"
 
 ROS_BUILD_TYPE = "cmake"
 
