@@ -1,0 +1,53 @@
+From 4e844f40881e54a85315636d481e7e10d0e21fa9 Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Sun, 21 Jun 2026 13:53:21 +0200
+Subject: [PATCH 1/1] ptest: skip tests for OE/Yocto
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/test_rosdep_gem.py  | 2 ++
+ test/test_rosdep_main.py | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/test/test_rosdep_gem.py b/test/test_rosdep_gem.py
+index 46afcbf..f821ea5 100644
+--- a/test/test_rosdep_gem.py
++++ b/test/test_rosdep_gem.py
+@@ -31,6 +31,7 @@
+ 
+ import os
+ import traceback
++import unittest
+ from unittest.mock import Mock, patch
+ 
+ 
+@@ -38,6 +39,7 @@ def get_test_dir():
+     return os.path.abspath(os.path.join(os.path.dirname(__file__), 'gem'))
+ 
+ 
++@unittest.skip("OE: no gems as rdoc installed")
+ def test_gem_detect():
+     from rosdep2.platforms.gem import gem_detect
+ 
+diff --git a/test/test_rosdep_main.py b/test/test_rosdep_main.py
+index 78bde7e..6981d78 100644
+--- a/test/test_rosdep_main.py
++++ b/test/test_rosdep_main.py
+@@ -119,6 +119,7 @@ class TestRosdepMain(unittest.TestCase):
+             except SystemExit:
+                 pass
+ 
++    @unittest.skip("Not for OpenEmbedded")
+     def test_check(self):
+         sources_cache = get_cache_dir()
+         cmd_extras = ['-c', sources_cache]
+@@ -158,6 +159,7 @@ class TestRosdepMain(unittest.TestCase):
+ 
+     @patch('rosdep2.platforms.debian.read_stdout')
+     @patch('rosdep2.installers.os.geteuid', return_value=1)
++    @unittest.skip("Not for OpenEmbedded")
+     def test_install(self, mock_geteuid, mock_read_stdout):
+         sources_cache = get_cache_dir()
+         cmd_extras = ['-c', sources_cache]
