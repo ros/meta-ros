@@ -2,3 +2,5 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://add-fmt-range.patch"
+
+inherit python3targetconfig
