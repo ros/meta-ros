@@ -1,0 +1,24 @@
+Include missing fmt/ranges.h header
+
+Add missing header to provide join to fmt namespace.
+
+rosidlcpp_generator_py.cpp:263:24: error: 'join' is not a member of 'fmt'
+  263 |             "{}", fmt::join(action_info, "."));  // TODO: Find better name
+      |                        ^~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+diff --git a/src/rosidlcpp_generator_py/rosidlcpp_generator_py.cpp b/src/rosidlcpp_generator_py/rosidlcpp_generator_py.cpp
+index 8b770757..2011bde6 100644
+--- a/src/rosidlcpp_generator_py/rosidlcpp_generator_py.cpp
++++ b/src/rosidlcpp_generator_py/rosidlcpp_generator_py.cpp
+@@ -22,6 +22,7 @@
+ 
+ #include <fmt/core.h>
+ #include <fmt/format.h>
++#include <fmt/ranges.h>
+ 
+ #include <nlohmann/json.hpp>
+ #include <nlohmann/json_fwd.hpp>
