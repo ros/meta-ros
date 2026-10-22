@@ -1,5 +1,7 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
+inherit python3targetconfig
+
 ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros-native \
     python3-numpy-native \
