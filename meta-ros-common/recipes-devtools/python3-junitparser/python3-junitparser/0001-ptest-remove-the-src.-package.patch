@@ -1,0 +1,108 @@
+From 3e17f8f8ade4a9549362bf74606263201e4dc3cd Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Sun, 25 Oct 2026 18:19:00 +0100
+Subject: [PATCH 1/1] ptest: remove the 'src.' package
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ tests/test_cli.py      | 4 ++--
+ tests/test_fromfile.py | 2 +-
+ tests/test_general.py  | 6 +++---
+ tests/test_write.py    | 2 +-
+ tests/test_xunit2.py   | 4 ++--
+ 5 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+index 86de610..828e57d 100644
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -1,7 +1,7 @@
+ from pathlib import Path
+ import pytest
+-from src.junitparser import cli
+-from src.junitparser import version
++from junitparser import cli
++from junitparser import version
+ 
+ DATA_DIR = Path(__file__).parent / "data"
+ 
+diff --git a/tests/test_fromfile.py b/tests/test_fromfile.py
+index 73b8552..fb0d016 100644
+--- a/tests/test_fromfile.py
++++ b/tests/test_fromfile.py
+@@ -3,7 +3,7 @@ import pytest
+ import sys
+ from io import StringIO
+ from unittest import skipIf
+-from src.junitparser import (
++from junitparser import (
+     TestCase,
+     TestSuite,
+     Skipped,
+diff --git a/tests/test_general.py b/tests/test_general.py
+index f6bb902..8c5aeaa 100644
+--- a/tests/test_general.py
++++ b/tests/test_general.py
+@@ -6,7 +6,7 @@ from xml.etree import ElementTree as etree
+ 
+ import pytest
+ 
+-from src.junitparser import (
++from junitparser import (
+     Attr,
+     Element,
+     Error,
+@@ -35,13 +35,13 @@ except ImportError:
+ class Test_XmlPackage:
+     @pytest.mark.skipif(has_lxml, reason="xml package is used unless lxml is installed")
+     def test_xml_etree(self):
+-        from src.junitparser.junitparser import etree as actual_etree
++        from junitparser.junitparser import etree as actual_etree
+ 
+         assert actual_etree == expected_xml_etree
+ 
+     @pytest.mark.skipif(not has_lxml, reason="lxml package has to be installed")
+     def test_lxml_etree(self):
+-        from src.junitparser.junitparser import etree as actual_etree
++        from junitparser.junitparser import etree as actual_etree
+ 
+         assert actual_etree == expected_lxml_etree
+ 
+diff --git a/tests/test_write.py b/tests/test_write.py
+index 5cc7362..fa004be 100644
+--- a/tests/test_write.py
++++ b/tests/test_write.py
+@@ -5,7 +5,7 @@ from io import BytesIO, StringIO
+ from tempfile import NamedTemporaryFile
+ from unittest import skipIf
+ 
+-from src.junitparser import TestCase, TestSuite, JUnitXmlError, JUnitXml
++from junitparser import TestCase, TestSuite, JUnitXmlError, JUnitXml
+ 
+ try:
+     from lxml.etree import XMLParser  # noqa: F401
+diff --git a/tests/test_xunit2.py b/tests/test_xunit2.py
+index e0440fc..2a8a33b 100644
+--- a/tests/test_xunit2.py
++++ b/tests/test_xunit2.py
+@@ -1,5 +1,5 @@
+ import textwrap
+-from src.junitparser.xunit2 import (
++from junitparser.xunit2 import (
+     JUnitXml,
+     TestSuite,
+     TestCase,
+@@ -8,7 +8,7 @@ from src.junitparser.xunit2 import (
+     FlakyFailure,
+     FlakyError,
+ )
+-from src.junitparser import Failure, Property
++from junitparser import Failure, Property
+ from copy import deepcopy
+ 
+ 
+-- 
+2.47.3
+
