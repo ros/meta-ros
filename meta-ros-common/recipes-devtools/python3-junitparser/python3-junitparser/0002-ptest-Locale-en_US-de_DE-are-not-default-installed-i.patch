@@ -1,0 +1,29 @@
+From a94c6f913673e8b26001876dd7b9118b1195ed2d Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@oip.be>
+Date: Sun, 2 Aug 2026 14:48:09 +0200
+Subject: [PATCH 2/2] ptest: Locale en_US, de_DE are not default installed in
+ Yocto
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@oip.be>
+---
+ tests/test_general.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/test_general.py b/tests/test_general.py
+index 12cea9a..38171b6 100644
+--- a/tests/test_general.py
++++ b/tests/test_general.py
+@@ -99,7 +99,7 @@ def locale_fixture():
+ 
+ class Test_Locale:
+     @skipIf(os.name == "nt", "Not tested on Windows")
+-    @pytest.mark.parametrize("loc", ["", "en_US.UTF-8", "de_DE.UTF-8"])
++    @pytest.mark.parametrize("loc", [""])
+     def test_fromstring_numbers_locale_insensitive(self, loc, locale_fixture):
+         "Case relies on that LC_ALL is set in the console."
+         locale.setlocale(locale.LC_NUMERIC, loc)
+-- 
+2.43.0
+
