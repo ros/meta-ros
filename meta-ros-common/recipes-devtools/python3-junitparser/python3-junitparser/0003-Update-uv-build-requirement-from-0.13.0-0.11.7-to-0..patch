@@ -1,0 +1,39 @@
+From 9b6b0db989c50eef5100e084463d81a1838003b5 Mon Sep 17 00:00:00 2001
+From: "dependabot[bot]" <49699333+dependabot[bot]@users.noreply.github.com>
+Date: Tue, 13 Oct 2026 18:46:40 +0000
+Subject: [PATCH 3/3] Update uv-build requirement from <0.13.0,>=0.11.7 to
+ >=0.11.7,<0.14.0
+
+Updates the requirements on [uv-build](https://github.com/astral-sh/uv) to permit the latest version.
+- [Release notes](https://github.com/astral-sh/uv/releases)
+- [Changelog](https://github.com/astral-sh/uv/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/astral-sh/uv/compare/0.11.7...0.13.0)
+
+---
+updated-dependencies:
+- dependency-name: uv-build
+  dependency-version: 0.13.0
+  dependency-type: direct:development
+...
+
+Upstream-Status: Backport [https://github.com/weiwei/junitparser/pull/183]
+
+Signed-off-by: dependabot[bot] <support@github.com>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 8201d3a..227f526 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["uv_build>=0.11.7,<0.13.0"]
++requires = ["uv_build>=0.11.7,<0.14.0"]
+ build-backend = "uv_build"
+ 
+ [project]
+-- 
+2.47.3
+
