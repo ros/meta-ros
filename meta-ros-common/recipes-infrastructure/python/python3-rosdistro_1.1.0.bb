@@ -7,10 +7,8 @@ inherit setuptools3
 
 ROS_BRANCH ?= "branch=master"
 SRC_URI = "\
-    git://github.com/ros-infrastructure/rosdistro;${ROS_BRANCH};protocol=https \
-    file://0001-Detect-http-test-readiness-with-retry-loop-200.patch \
+    git://github.com/ros-infrastructure/rosdistro;${ROS_BRANCH};tag=${PV};protocol=https \
 "
-SRCREV = "9c909bfb7f34e13e8229f1742b6493b228a3cfa9"
 
 S = "${WORKDIR}/git"
 
@@ -23,4 +21,3 @@ RDEPENDS:${PN}-ptest += "\
 PTEST_PYTEST_DIR = "test"
 
 BBCLASSEXTEND = "native nativesdk"
-
