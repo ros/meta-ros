@@ -31,6 +31,7 @@ RDEPENDS:${PN} = "\
     python3-pyyaml \
     python3-rosdistro \
     python3-setuptools \
+    python3-six \
     python3-sphinx \
     python3-sphinx-rtd-theme \
     "
