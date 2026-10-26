@@ -6,12 +6,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=86a73ab7b555900fd6b51429658aca4c"
 ROS_BRANCH ?= "branch=master"
 
 SRC_URI = "\
-    git://github.com/ros-infrastructure/rosdep;${ROS_BRANCH};protocol=https \
+    git://github.com/ros-infrastructure/rosdep;${ROS_BRANCH};tag=${PV};protocol=https \
     file://0001-ptest-skip-tests-for-OE-Yocto.patch \
     file://0002-ptest-bin-bash-is-not-installed.patch \
 "
 
-SRCREV = "ad3a6103b485030c12275703a086878acf33922a"
+SRCREV = "f073f7ffddf7ca0c9f7971e42ba8aa52a4fa21a7"
 
 inherit setuptools3 ptest-python-pytest
 
