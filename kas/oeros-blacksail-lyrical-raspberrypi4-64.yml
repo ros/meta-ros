@@ -1,0 +1,12 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/blacksail.yml
+    - kas/ros2/lyrical.yml
+    - kas/machine/raspberrypi4-64.yml
+    - kas/common.yml
+    - kas/layer/qt5.yml
+
+repos:
+  zenoh:
+    branch: "master"
