@@ -1,0 +1,51 @@
+header:
+  version: 14
+
+defaults:
+  repos:
+    branch: "blacksail"
+
+# https://downloads.yoctoproject.org/releases/yocto/yocto-6.0.3/RELEASENOTES
+repos:
+  openembedded-core:
+    url: "https://github.com/openembedded/openembedded-core.git"
+    commit: "0f03c732a0a2d0506b41b1abe60b3f368b2300dc"
+    path: "layers/openembedded-core"
+    layers:
+      meta:
+
+  bitbake:
+    url: "https://github.com/openembedded/bitbake.git"
+    branch: "2.18"
+    commit: "51fd94a67fa17650a9ff623492005972bbc7d26f"
+    path: "layers/bitbake"
+    layers:
+      bitbake: "disabled"
+
+  meta-yocto:
+    url: "https://git.yoctoproject.org/meta-yocto"
+    commit: "7c25b11156553145fa6b241a2d4f65d94438f804"
+    path: "layers/meta-yocto"
+    layers:
+      meta-poky:
+      meta-yocto-bsp:
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    commit: "d3494922ad3e10a8880fa349366eb22e1f9f24ca"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-filesystems:
+      meta-gnome:
+      meta-initramfs:
+      meta-multimedia:
+      meta-networking:
+      meta-oe:
+      meta-perl:
+      meta-python:
+      meta-webserver:
+      meta-xfce:
+
+local_conf_header:
+  distro: |
+    ERROR_QA:remove = "license-exists"
