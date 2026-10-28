@@ -17,6 +17,7 @@ can be presumed unsupported.
 | ---                 | ---          | ---              | ---             | ---          | ---                |
 |                     | *(Rolling)*  | **Humble (LTS)** | **Jazzy (LTS)** | **Kilted**   | **Lyrical (LTS)**  |
 |                     |              | **May 2027**     | **May 2029**    | **Nov 2026** | **May 2031**       |
+| **Blacksail**       | **Apr 2027** | **Apr 2027**     | **Apr 2027**    | **Nov 2026** | **Apr 2027**       |
 | **Wrynose (LTS)**   | **Apr 2030** | **May 2027**     | **May 2029**    | **Nov 2026** | **Apr 2030**       |
 | Whinlatter          | ~~Apr 2026~~ | ~~Apr 2026~~     | ~~Apr 2026~~    | ~~Apr 2026~~ | ~~Apr 2026~~       |
 | Walnascar           | ~~Nov 2025~~ | ~~Nov 2025~~     | ~~Nov 2025~~    | ~~Nov 2025~~ | ~~Nov 2025~~       |
