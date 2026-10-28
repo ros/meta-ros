@@ -4,6 +4,8 @@ SECTION = "devel/python"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://setup.cfg;beginline=22;endline=22;md5=3d0bd1ac53c1dd582844ed15eee7f8e2"
 
+PYPI_PACKAGE_SDIST = "colcon-common-extensions"
+
 SRC_URI[sha256sum] = "84408d13f8a46044851a7a4e686749940539d2b3d02e6752746cbbc9a89049ff"
 
 inherit pypi setuptools3
