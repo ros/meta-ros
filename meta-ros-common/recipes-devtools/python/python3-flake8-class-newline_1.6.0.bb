@@ -11,4 +11,4 @@ RDEPENDS:${PN} += "python3-flake8"
 
 RDEPENDS:${PN} += "python3-core"
 
-PYPI_PACKAGE = "flake8-class-newline"
+PYPI_PACKAGE_SDIST = "flake8-class-newline"
