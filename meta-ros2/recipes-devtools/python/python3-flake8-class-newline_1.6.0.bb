@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "514c4923c88eb8b3dd52db4b55b8d3483520db89db80af6ba812a4af15
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "flake8-class-newline"
+PYPI_PACKAGE_SDIST = "flake8-class-newline"
 
 BBCLASSEXTEND = "native nativesdk"
