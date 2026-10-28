@@ -11,6 +11,6 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pycodestyle"
 
-PYPI_PACKAGE = "flake8-blind-except"
+PYPI_PACKAGE_SDIST = "flake8-blind-except"
 
 BBCLASSEXTEND = "native nativesdk"
