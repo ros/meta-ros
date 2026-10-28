@@ -11,4 +11,4 @@ RDEPENDS:${PN} += "python3-flake8 python3-setuptools"
 
 RDEPENDS:${PN} += "python3-core python3-flake8 python3-pycodestyle"
 
-PYPI_PACKAGE = "flake8-quotes"
+PYPI_PACKAGE_SDIST = "flake8-quotes"
