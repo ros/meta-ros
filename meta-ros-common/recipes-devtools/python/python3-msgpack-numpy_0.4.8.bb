@@ -11,4 +11,4 @@ RDEPENDS:${PN} += "python3-msgpack python3-numpy"
 
 RDEPENDS:${PN} += "python3-core python3-numpy python3-pickle"
 
-PYPI_PACKAGE = "msgpack-numpy"
+PYPI_PACKAGE_SDIST = "msgpack-numpy"
