@@ -97,15 +97,15 @@ case $YOCTO_RELEASE in
         ;;
 
     # Recent End-of-life
-    "langdale"|"mickledore"|"nanbield"|"styhead")
+    "langdale"|"mickledore"|"nanbield"|"styhead"|"kirkstone")
         ;;
 
     # Supported LTS releases
-    "kirkstone"|"scarthgap")
+    "scarthgap"|"wrynose")
         ;;
 
     # Supported non-LTS releases
-    "walnascar"|"whinlatter"|"wrynose")
+    "walnascar"|"whinlatter"|"blacksail")
         ;;
 
     *)
