@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "e23941f892da3e0c09d711babbb0c73bc735242e9b216b726616758a92
 inherit setuptools3 pypi
 
 BBCLASSEXTEND = "native"
+
+PYPI_PACKAGE_SDIST = "flake8-import-order"
