@@ -184,6 +184,10 @@ if [ "$ROS_DISTRO" = "dashing" -o "$ROS_DISTRO" = "eloquent" ] ; then
     sed 's#fmi_adapter_ros2#fmi_adapter#g' -i $ROS_DISTRO/distribution.yaml
 fi
 
+if [ "$ROS_DISTRO" = "humble" ] ; then
+   filter_package 'affordance_primitives'
+fi
+
 if [ "$ROS_DISTRO" = "kilted" ] ; then
    set_release_version 'py_binding_tools' '2.0.2-1' '2.1.0-1'
 fi
