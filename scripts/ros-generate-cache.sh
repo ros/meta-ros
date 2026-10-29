@@ -143,6 +143,32 @@ with open("$ROS_DISTRO/distribution.yaml", "w") as f:
 HEREDOC
 }
 
+function filter_package {
+    package=$1
+
+    python3 <<HEREDOC
+from ruamel.yaml import YAML
+
+yaml = YAML()
+yaml.preserve_quotes = True  # keep existing quotes if any
+
+def filter_package(data, repo_name):
+    print("filter_package %s" % repo_name)
+    if repo_name in data.get("repositories", {}):
+        del data["repositories"][repo_name]
+
+# Load the file
+with open("$ROS_DISTRO/distribution.yaml", "r") as f:
+    data = yaml.load(f)
+
+filter_package(data, '$package')
+
+# Write back the file
+with open("$ROS_DISTRO/distribution.yaml", "w") as f:
+    yaml.dump(data, f)
+HEREDOC
+}
+
 # Create a directory tree under $tmpdir with the contents of ros/rosdistro.git at commit $ROS_ROSDISTRO_COMMIT.
 cd $path_to_ros_rosdistro
 git archive $ROS_ROSDISTRO_COMMIT | tar -C $tmpdir -xf -
