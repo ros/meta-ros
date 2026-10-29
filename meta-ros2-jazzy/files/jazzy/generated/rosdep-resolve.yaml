@@ -240,6 +240,8 @@ libdw-dev:
 - elfutils@openembedded-core
 libepoxy-dev:
 - libepoxy@openembedded-core
+libevdev-dev:
+- libevdev@openembedded-core
 libexpected-dev:
 - ${ROS_UNRESOLVED_DEP-libexpected-dev}
 libfcl:
@@ -261,9 +263,7 @@ libfreetype-dev:
 libfreetype6:
 - freetype@openembedded-core
 libftdi1-dev:
-- ${ROS_UNRESOLVED_DEP-libftdi1-dev}
-libfyaml-dev:
-- libfyaml@meta-ros2
+- libftdi@meta-oe
 libgdal-dev:
 - gdal@meta-ros-common
 libgeos++-dev:
@@ -272,6 +272,10 @@ libgflags-dev:
 - gflags@meta-oe
 libgirepository-dev:
 - ${ROS_UNRESOLVED_DEP-libgirepository-dev}
+libgit2-dev:
+- ${ROS_UNRESOLVED_DEP-libgit2-dev}
+libgles-dev:
+- ${ROS_UNRESOLVED_DEP-libgles-dev}
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
@@ -448,6 +452,8 @@ libqtopengl:
 - qtbase@meta-qt6
 libqtwidgets:
 - qtbase@meta-qt6
+libquazip1-qt5-dev:
+- ${ROS_UNRESOLVED_DEP-libquazip1-qt5-dev}
 libqwt-qt5-dev:
 - qwt-qt5@meta-qt5
 libreadline:
@@ -462,6 +468,8 @@ libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
 - sqlite3@openembedded-core
+libssh-dev:
+- libssh@meta-oe
 libssl-dev:
 - openssl@openembedded-core
 libsystemd-dev:
@@ -600,7 +608,8 @@ pyflakes3:
 - python3-pyflakes@meta-python
 pyqt5-dev-tools:
 - ${ROS_UNRESOLVED_DEP-pyqt5-dev-tools}
-python-argparse: []
+python-argparse:
+- ${ROS_UNRESOLVED_DEP-python-argparse}
 python3:
 - python3@openembedded-core
 python3-antlr4:
@@ -739,6 +748,8 @@ python3-paho-mqtt:
 - python3-paho-mqtt@meta-python
 python3-pandas:
 - python3-pandas@meta-python
+python3-paramiko:
+- python3-paramiko@meta-ros-common
 python3-pexpect:
 - ${ROS_UNRESOLVED_DEP-python3-pexpect}
 python3-pil:
@@ -803,6 +814,8 @@ python3-ruamel.yaml:
 - python3-ruamel-yaml@openembedded-core
 python3-scipy:
 - python3-scipy@meta-scipy
+python3-scp:
+- ${ROS_UNRESOLVED_DEP-python3-scp}
 python3-semver:
 - python3-semver@meta-python
 python3-serial:
@@ -945,6 +958,8 @@ qtdeclarative5-dev:
 - qtdeclarative@meta-qt5
 qtmultimedia5-dev:
 - qtmultimedia@meta-qt5
+qtpositioning5-dev:
+- ${ROS_UNRESOLVED_DEP-qtpositioning5-dev}
 qtquickcontrols2-5-dev:
 - ${ROS_UNRESOLVED_DEP-qtquickcontrols2-5-dev}
 qttools5-dev-tools:
@@ -998,6 +1013,8 @@ tinyxml:
 - libtinyxml@meta-oe
 tinyxml2:
 - libtinyxml2@meta-oe
+tmux:
+- tmux@meta-oe
 udev:
 - udev@openembedded-core
 uncrustify:
