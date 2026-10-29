@@ -124,7 +124,7 @@ yaml = YAML()
 yaml.preserve_quotes = True  # keep existing quotes if any
 
 def set_release_version(data, repo_name, oldversion, newversion):
-    print("set_release_version")
+    print("set_release_version %s %s %s" % (repo_name, oldversion, newversion))
     if repo_name in data.get("repositories", {}):
         release_section = data["repositories"][repo_name].get("release", {})
         if "version" in release_section:
@@ -135,7 +135,7 @@ def set_release_version(data, repo_name, oldversion, newversion):
 with open("$ROS_DISTRO/distribution.yaml", "r") as f:
     data = yaml.load(f)
 
-set_release_version(data, '$1', '$2', '$3')
+set_release_version(data, '$package', '$oldversion', '$newversion')
 
 # Write back the file
 with open("$ROS_DISTRO/distribution.yaml", "w") as f:
