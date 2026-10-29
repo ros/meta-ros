@@ -84,6 +84,8 @@ geographiclib-tools:
 - geographiclib@meta-ros-common
 geos:
 - geos@meta-oe
+gfortran:
+- ${ROS_UNRESOLVED_DEP-gfortran}
 git:
 - git@openembedded-core
 glslang-dev:
@@ -239,15 +241,15 @@ libfreetype-dev:
 libfreetype6:
 - freetype@openembedded-core
 libftdi1-dev:
-- ${ROS_UNRESOLVED_DEP-libftdi1-dev}
-libfyaml-dev:
-- libfyaml@meta-ros2
+- libftdi@meta-oe
 libgdal-dev:
 - gdal@meta-ros-common
 libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
+libgles-dev:
+- ${ROS_UNRESOLVED_DEP-libgles-dev}
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
@@ -270,6 +272,10 @@ libhdf5-dev:
 - hdf5@meta-oe
 libicu-dev:
 - ${ROS_UNRESOLVED_DEP-libicu-dev}
+libiio-dev:
+- ${ROS_UNRESOLVED_DEP-libiio-dev}
+libimath-dev:
+- ${ROS_UNRESOLVED_DEP-libimath-dev}
 libjpeg:
 - jpeg@openembedded-core
 libjson-c-dev:
@@ -284,6 +290,8 @@ liblttng-ctl-dev:
 - lttng-tools@openembedded-core
 liblttng-ust-dev:
 - lttng-ust@openembedded-core
+liblz4:
+- lz4@openembedded-core
 liblz4-dev:
 - lz4@openembedded-core
 liblzma-dev:
@@ -378,6 +386,8 @@ libqt5-qml:
 - qtdeclarative@meta-qt5
 libqt5-quick:
 - qtdeclarative@meta-qt5
+libqt5-svg:
+- qtsvg@meta-qt5
 libqt5-svg-dev:
 - qtsvg@meta-qt5
 libqt5-websockets-dev:
@@ -422,8 +432,6 @@ libserial-dev:
 - ${ROS_UNRESOLVED_DEP-libserial-dev}
 libshaderc-dev:
 - shaderc@openembedded-core
-libsimpleini-dev:
-- ${ROS_UNRESOLVED_DEP-libsimpleini-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -522,6 +530,8 @@ nanobind-dev:
 - python3-nanobind@meta-python
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
+nodl_python:
+- ${ROS_UNRESOLVED_DEP-nodl-python}
 nvidia-cuda:
 - ${ROS_UNRESOLVED_DEP-nvidia-cuda}
 nvidia-cuda-dev:
@@ -540,8 +550,6 @@ patchelf:
 - patchelf@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
-position_controllers:
-- ${ROS_UNRESOLVED_DEP-position-controllers}
 procps:
 - procps@openembedded-core
 proj:
@@ -636,6 +644,8 @@ python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
 - python3-importlib-metadata@meta-python
+python3-importlib-resources:
+- python3@openembedded-core
 python3-jinja2:
 - python3-jinja2@openembedded-core
 python3-jsonschema:
@@ -730,6 +740,8 @@ python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-rtree:
 - python3-rtree@meta-ros2
+python3-ruamel.yaml:
+- python3-ruamel-yaml@openembedded-core
 python3-scipy:
 - python3-scipy@meta-scipy
 python3-semver:
@@ -937,6 +949,8 @@ yaml-cpp:
 - yaml-cpp@meta-ros-common
 zbar:
 - zbar@meta-oe
+zip:
+- zip@openembedded-core
 zlib:
 - zlib@openembedded-core
 zziplib:
