@@ -229,7 +229,7 @@ libfreetype-dev:
 libfreetype6:
 - freetype@openembedded-core
 libftdi1-dev:
-- ${ROS_UNRESOLVED_DEP-libftdi1-dev}
+- libftdi@meta-oe
 libfyaml-dev:
 - libfyaml@meta-ros2
 libgdal-dev:
@@ -498,6 +498,8 @@ nanobind-dev:
 - python3-nanobind@meta-python
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
+nodl_python:
+- ${ROS_UNRESOLVED_DEP-nodl-python}
 ocl-icd-opencl-dev:
 - opencl-icd-loader@meta-oe
 opencl-headers:
@@ -704,6 +706,8 @@ python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-rtree:
 - python3-rtree@meta-ros2
+python3-ruamel.yaml:
+- python3-ruamel-yaml@openembedded-core
 python3-scipy:
 - python3-scipy@meta-scipy
 python3-semver:
@@ -879,8 +883,6 @@ suitesparse:
 - suitesparse-cxsparse@meta-ros-common
 swig:
 - swig@openembedded-core
-swri_roscpp:
-- ${ROS_UNRESOLVED_DEP-swri-roscpp}
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
 tbb:
