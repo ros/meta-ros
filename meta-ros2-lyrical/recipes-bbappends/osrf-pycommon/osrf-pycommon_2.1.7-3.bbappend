@@ -1,3 +1,5 @@
+PROVIDES += "${PYTHON_PN}-${BPN}"
+
 PACKAGES =+ "${PYTHON_PN}-${BPN}"
 
 FILES:${PN} += "${datadir}/ament_index/resource_index/packages/osrf_pycommon"
