@@ -1,0 +1,49 @@
+Fix c_check to ignore -linux from gcc configure line
+
+The gcc configure linux appears to now have -linux included:
+
+Configured with:
+../../../../../../work-shared/gcc-16.2.0-r0/sources/gcc-16.2.0/configure -linux
+--host=x86_64-linux --target=aarch64-oe-linux --prefix=/host-native/usr
+--exec_prefix=/host-native/usr --bindir=/host-native/usr/bin/aarch64-oe-linux
+--sbindir=/host-native/usr/bin/aarch64-oe-linux
+--libexecdir=/host-native/usr/libexec/aarch64-oe-linux
+--datadir=/host-native/usr/share --sysconfdir=/host-native/etc
+--sharedstatedir=/host-native/com --localstatedir=/host-native/var
+--libdir=/host-native/usr/lib/aarch64-oe-linux
+--includedir=/host-native/usr/include --oldincludedir=/host-native/usr/include
+--infodir=/host-native/usr/share/info --mandir=/host-native/usr/share/man
+--disable-silent-rules --disable-dependency-tracking --enable-clocale=generic
+--with-gnu-ld --enable-shared --enable-languages=c,c++,fortran
+--enable-threads=posix --disable-multilib --enable-default-pie --enable-c99
+--enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch
+--program-prefix=aarch64-oe-linux- --without-local-prefix
+--disable-install-libiberty --disable-libssp --enable-libitm --enable-lto
+--disable-bootstrap --with-system-zlib --with-linker-hash-style=sysv
+--enable-linker-build-id --with-ppl=no --with-cloog=no
+--enable-checking=release --enable-cheaders=c_global --without-isl
+--with-gxx-include-dir=/not/exist/usr/include/c++/16.2.0
+--with-gxx-libcxx-include-dir=/not/exist/usr/include/c++/v1
+--with-sysroot=/not/exist --with-build-sysroot=/host
+--enable-poison-system-directories=error --with-system-zlib --disable-static
+--disable-nls --with-glibc-version=2.28 --enable-initfini-array
+--enable-__cxa_atexit diff --git a/c_check b/c_check
+
+This change adds -linux to the list of ignored flags.
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+index 25e503c8c..3ec9d4592 100755
+--- a/c_check
++++ b/c_check
+@@ -468,7 +468,7 @@ for flag in $flags; do
+         case "$flag" in
+             *gfortranbegin*|*frtbegin*|*pathfstart*|*numa*|*crt[0-9]*|\
+                 *gcc*|*user32*|*kernel32*|*advapi32*|*shell32*|*omp*|\
+-                *[0-9]*) ;;
++		*linux|*[0-9]*) ;;
+             *) linker_l="$linker_l $flag" ;;
+         esac
+     esac
