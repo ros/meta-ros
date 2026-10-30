@@ -1,0 +1,57 @@
+Disable VAMP compiler flags
+
+OMPL uses VAMP as an external dependency.
+
+It attempts to add compiler flags to tune the build for the native CPU.
+
+However, this doesn't work when cross compiling and causes the OMPL
+configure task to fail when it attempts to build a test executable.
+
+We detect for cross-compiling, instead of setting VAMP_ARCH as described
+here for Docker builds:
+https://github.com/KavrakiLab/vamp/commit/ec0ccb04dcb3099ce30b8163c36a205e7d66b5c0
+
+This proved to be a more reliable approach than setting VAMP_ARCH in
+EXTRA_OECMAKE.
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+Index: ompl-2.0.2-1/external/vamp/cmake/CompilerSettings.cmake
+===================================================================
+--- ompl-2.0.2-1.orig/external/vamp/cmake/CompilerSettings.cmake
++++ ompl-2.0.2-1/external/vamp/cmake/CompilerSettings.cmake
+@@ -1,5 +1,7 @@
+ # Allow users to override VAMP_ARCH (e.g., for Docker builds targeting different hardware)
+-if(NOT DEFINED VAMP_ARCH)
++if(CMAKE_CROSSCOMPILING)
++    set(VAMP_ARCH "")
++elseif(NOT DEFINED VAMP_ARCH)
+ 	if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+ 		# Need explicit AVX2 for some MacOS clang versions
+ 		set(VAMP_ARCH "-march=native -mavx2")
+Index: ompl-2.0.2-1/CMakeModules/VampConfig.cmake
+===================================================================
+--- ompl-2.0.2-1.orig/CMakeModules/VampConfig.cmake
++++ ompl-2.0.2-1/CMakeModules/VampConfig.cmake
+@@ -78,6 +78,9 @@ function(setup_vamp_simd_environment)
+         if(VAMP_PORTABLE_BUILD)
+             set(SIMD_FLAGS_LIST "-march=x86-64" "-mavx2" "-mfma" "-mbmi2")
+             message(STATUS "VAMP: Using portable SIMD flags for x86_64 (with BMI2)")
++        elseif(CMAKE_CROSSCOMPILING)
++            set(SIMD_FLAGS_LIST "")
++	    message(STATUS "VAMP: Disable SIMD flags for x86_64")
+         else()
+             set(SIMD_FLAGS_LIST "-march=native" "-mavx2")
+             message(STATUS "VAMP: Using native SIMD flags for x86_64")
+@@ -86,6 +89,9 @@ function(setup_vamp_simd_environment)
+         if(VAMP_PORTABLE_BUILD)
+             set(SIMD_FLAGS_LIST "-march=armv8-a")
+             message(STATUS "VAMP: Using portable SIMD flags for ARM64")
++        elseif(CMAKE_CROSSCOMPILING)
++            set(SIMD_FLAGS_LIST "")
++	    message(STATUS "VAMP: Disable SIMD flags for ARM64")
+         else()
+             set(SIMD_FLAGS_LIST "-mcpu=native" "-mtune=native")
+             message(STATUS "VAMP: Using native SIMD flags for ARM64")

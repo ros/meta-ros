@@ -7,6 +7,9 @@ LICENSE = "BSD-3-Clause"
 # https://github.com/ompl/ompl/commit/bb0a03c6fe4fbba0282c9a58881c3f499e7564d0 says it's optional
 ROS_UNRESOLVED_DEP-opende = ""
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://disable_vamp_flags.patch"
+
 # ERROR: ompl-1.5.2-1-r0 do_package: QA Issue: ompl: Files/directories were installed but not shipped in any package:
 #   /usr/share/ament_index
 #   /usr/share/ament_index/resource_index
