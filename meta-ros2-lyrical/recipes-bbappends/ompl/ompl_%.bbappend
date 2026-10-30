@@ -34,7 +34,7 @@ do_install:append() {
     # QA Issue: File /opt/ros/rolling/lib/pkgconfig/ompl.pc in package ompl-dev contains reference to TMPDIR [buildpaths]
     sed -i -e "s#${RECIPE_SYSROOT}${includedir}/eigen3##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
     sed -i -e "s#${RECIPE_SYSROOT}${includedir}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
-    sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
+    sed -i -e "s#${RECIPE_SYSROOT}${includedir}##g" ${D}${ros_prefix}/share/cmake/vamp/vamp_cppTargets.cmake
     sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/share/ompl/cmake/omplConfig.cmake
     sed -i -e "s#${RECIPE_SYSROOT}${libdir}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
     sed -i -e "s#-I${RECIPE_SYSROOT}${includedir}##g" ${D}${ros_prefix}/lib/pkgconfig/ompl.pc
