@@ -46,11 +46,13 @@ index 2377719..476c02a 100644
  if(WIN32)
    target_link_libraries(${PROJECT_NAME}
            Boost::boost
-@@ -48,7 +67,34 @@ endif()
+@@ -67,9 +86,34 @@ endif()
  # Install Python modules
  ament_python_install_package(${PROJECT_NAME})
  
--ament_export_dependencies(Boost)
+-if(WIN32)
+-  ament_export_dependencies(Boost)
+-endif()
 +# Install public headers
 +install(
 +  DIRECTORY include/
