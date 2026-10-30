@@ -271,9 +271,7 @@ libfreetype6:
 libfreetype6-dev:
 - freetype@openembedded-core
 libftdi1-dev:
-- ${ROS_UNRESOLVED_DEP-libftdi1-dev}
-libfyaml-dev:
-- libfyaml@meta-ros2
+- libftdi@meta-oe
 libgazebo11-dev:
 - ${ROS_UNRESOLVED_DEP-libgazebo11-dev}
 libgdal-dev:
@@ -282,6 +280,8 @@ libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
+libgles-dev:
+- ${ROS_UNRESOLVED_DEP-libgles-dev}
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
@@ -438,14 +438,18 @@ libqt6-qml:
 - qtdeclarative@meta-qt6
 libqt6-quick:
 - qtdeclarative@meta-qt6
+libqtcore:
+- qtbase@meta-qt6
+libqtgui:
+- qtbase@meta-qt6
+libqtopengl:
+- qtbase@meta-qt6
 libqtwidgets:
 - qtbase@meta-qt6
 libreadline:
 - readline@openembedded-core
 libserial-dev:
 - ${ROS_UNRESOLVED_DEP-libserial-dev}
-libsimpleini-dev:
-- ${ROS_UNRESOLVED_DEP-libsimpleini-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -516,6 +520,8 @@ linux-kernel-headers:
 - linux-libc-headers@openembedded-core
 lm-sensors:
 - lmsensors@meta-oe
+lttng-tools:
+- lttng-tools@openembedded-core
 lua-dev:
 - lua@openembedded-core
 lua5.2-dev:
@@ -532,6 +538,8 @@ network-manager:
 - ${ROS_UNRESOLVED_DEP-network-manager}
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
+nodl_python:
+- ${ROS_UNRESOLVED_DEP-nodl-python}
 ocl-icd-opencl-dev:
 - opencl-icd-loader@meta-oe
 opencl-headers:
@@ -564,7 +572,8 @@ pyflakes3:
 - python3-pyflakes@meta-python
 pyqt5-dev-tools:
 - ${ROS_UNRESOLVED_DEP-pyqt5-dev-tools}
-python-argparse: []
+python-argparse:
+- ${ROS_UNRESOLVED_DEP-python-argparse}
 python3:
 - python3@openembedded-core
 python3-antlr4:
@@ -631,6 +640,10 @@ python3-git:
 - python3-git@openembedded-core
 python3-graphviz:
 - python3-graphviz@meta-python
+python3-grpc-tools:
+- python3-grpcio-tools@meta-python
+python3-grpcio:
+- python3-grpcio@meta-python
 python3-httpx:
 - python3-httpx@meta-python
 python3-img2pdf:
@@ -751,6 +764,8 @@ python3-rospkg-modules:
 - python3-rospkg@meta-ros-common
 python3-rtree:
 - python3-rtree@meta-ros2
+python3-ruamel.yaml:
+- python3-ruamel-yaml@openembedded-core
 python3-scipy:
 - python3-scipy@meta-scipy
 python3-scp:
@@ -884,8 +899,6 @@ swig:
 - swig@openembedded-core
 tango-icon-theme:
 - adwaita-icon-theme@openembedded-core
-tar:
-- tar@openembedded-core
 tbb:
 - tbb@meta-oe
 tinyxml:
@@ -924,6 +937,8 @@ xtensor:
 - xtensor@meta-ros2
 xterm:
 - xterm@meta-oe
+xvfb:
+- ${ROS_UNRESOLVED_DEP-xvfb}
 yaml:
 - libyaml@openembedded-core
 yaml-cpp:
