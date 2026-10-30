@@ -11,3 +11,6 @@ CXXFLAGS += "-Wno-error=non-virtual-dtor"
 
 # nav2-smoother/1.5.1-1/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/MathFunctions.h:1666:13: error: potential null pointer dereference [-Werror=null-dereference]
 CXXFLAGS += "-Wno-error=null-dereference"
+
+# nav2-smoother/1.5.2-2/recipe-sysroot/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:332:12: error: 'result' may be used uninitialized [-Werror=maybe-uninitialized]
+CXXFLAGS += "-Wno-error=maybe-uninitialized"
