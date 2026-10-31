@@ -242,10 +242,10 @@ Co-authored-by: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
  .../moveit_setup_srdf_plugins/CMakeLists.txt  |   5 +-
  100 files changed, 1548 insertions(+), 788 deletions(-)
 
-Index: moveit-core-2.5.9-1/CMakeLists.txt
+Index: moveit-core-2.5.10-1/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/CMakeLists.txt
-+++ moveit-core-2.5.9-1/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/CMakeLists.txt
++++ moveit-core-2.5.10-1/CMakeLists.txt
 @@ -13,6 +13,7 @@ find_package(eigen_stl_containers REQUIR
  find_package(Eigen3 REQUIRED)
  find_package(eigen3_cmake_module REQUIRED)
@@ -254,15 +254,7 @@ Index: moveit-core-2.5.9-1/CMakeLists.txt
  find_package(generate_parameter_library REQUIRED)
  find_package(geometric_shapes REQUIRED)
  find_package(geometry_msgs REQUIRED)
-@@ -36,6 +37,7 @@ find_package(urdf REQUIRED)
- find_package(urdfdom REQUIRED)
- find_package(urdfdom_headers REQUIRED)
- find_package(visualization_msgs REQUIRED)
-+
- # TODO: Port python bindings
- # find_package(pybind11 REQUIRED)
- 
-@@ -45,39 +47,6 @@ include(ConfigExtras.cmake)
+@@ -43,39 +44,6 @@ include(ConfigExtras.cmake)
  # Set target file path for version.h
  set(VERSION_FILE_PATH ${CMAKE_BINARY_DIR}/include)
  
@@ -302,9 +294,9 @@ Index: moveit-core-2.5.9-1/CMakeLists.txt
  include_directories(${THIS_PACKAGE_INCLUDE_DIRS}
                      ${VERSION_FILE_PATH})
  
-@@ -145,44 +114,76 @@ add_subdirectory(collision_detection_fcl
- # #catkin_lint: ignore_once undefined_target (pymoveit_core is defined by pybind_add_module)
- # install(TARGETS pymoveit_core LIBRARY DESTINATION ${CATKIN_GLOBAL_PYTHON_DESTINATION})
+@@ -116,41 +84,76 @@ add_subdirectory(collision_detection)
+ add_subdirectory(collision_detection_bullet)
+ add_subdirectory(collision_detection_fcl)
  
 +# Create an umbrella INTERFACE target so downstream packages can use
 +# moveit_core::moveit_core to link all moveit_core libraries at once.
@@ -364,7 +356,7 @@ Index: moveit-core-2.5.9-1/CMakeLists.txt
 +  LIBRARY DESTINATION lib
 +  ARCHIVE DESTINATION lib
 +  RUNTIME DESTINATION bin)
- 
++
  install(
    TARGETS
      collision_detector_bullet_plugin
@@ -384,8 +376,6 @@ Index: moveit-core-2.5.9-1/CMakeLists.txt
 -    moveit_planning_interface
 -    moveit_planning_scene
 -    moveit_planning_request_adapter
--    # TODO: Port python bindings
--    # moveit_python_tools
 -    moveit_robot_model
 -    moveit_robot_state
 -    moveit_robot_trajectory
@@ -407,10 +397,10 @@ Index: moveit-core-2.5.9-1/CMakeLists.txt
  ament_export_dependencies(
    angles
    Bullet
-Index: moveit-core-2.5.9-1/collision_detection/CMakeLists.txt
+Index: moveit-core-2.5.10-1/collision_detection/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/collision_detection/CMakeLists.txt
-+++ moveit-core-2.5.9-1/collision_detection/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/collision_detection/CMakeLists.txt
++++ moveit-core-2.5.10-1/collision_detection/CMakeLists.txt
 @@ -1,6 +1,5 @@
 -set(MOVEIT_LIB_NAME moveit_collision_detection)
 -
@@ -503,10 +493,10 @@ Index: moveit-core-2.5.9-1/collision_detection/CMakeLists.txt
 +install(DIRECTORY include/ DESTINATION include/moveit_core)
 +install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_collision_detection_export.h
 +        DESTINATION include/moveit_core)
-Index: moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
+Index: moveit-core-2.5.10-1/collision_detection_bullet/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/collision_detection_bullet/CMakeLists.txt
-+++ moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/collision_detection_bullet/CMakeLists.txt
++++ moveit-core-2.5.10-1/collision_detection_bullet/CMakeLists.txt
 @@ -1,54 +1,58 @@
 -set(MOVEIT_LIB_NAME moveit_collision_detection_bullet)
 -
@@ -623,10 +613,10 @@ Index: moveit-core-2.5.9-1/collision_detection_bullet/CMakeLists.txt
 -  target_link_libraries(test_bullet_continuous_collision_checking moveit_test_utils ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_bullet_continuous_collision_checking moveit_test_utils moveit_collision_detection_bullet)
  endif()
-Index: moveit-core-2.5.9-1/collision_detection_fcl/CMakeLists.txt
+Index: moveit-core-2.5.10-1/collision_detection_fcl/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/collision_detection_fcl/CMakeLists.txt
-+++ moveit-core-2.5.9-1/collision_detection_fcl/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/collision_detection_fcl/CMakeLists.txt
++++ moveit-core-2.5.10-1/collision_detection_fcl/CMakeLists.txt
 @@ -1,42 +1,44 @@
 -set(MOVEIT_LIB_NAME moveit_collision_detection_fcl)
 -
@@ -722,10 +712,10 @@ Index: moveit-core-2.5.9-1/collision_detection_fcl/CMakeLists.txt
 -  target_link_libraries(test_fcl_collision_detection_panda moveit_test_utils ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_fcl_collision_detection_panda moveit_test_utils moveit_collision_detection_fcl)
  endif()
-Index: moveit-core-2.5.9-1/collision_distance_field/CMakeLists.txt
+Index: moveit-core-2.5.10-1/collision_distance_field/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/collision_distance_field/CMakeLists.txt
-+++ moveit-core-2.5.9-1/collision_distance_field/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/collision_distance_field/CMakeLists.txt
++++ moveit-core-2.5.10-1/collision_distance_field/CMakeLists.txt
 @@ -1,47 +1,45 @@
 -set(MOVEIT_LIB_NAME moveit_collision_distance_field)
 -
@@ -809,10 +799,10 @@ Index: moveit-core-2.5.9-1/collision_distance_field/CMakeLists.txt
 +    srdfdom::srdfdom
 +    resource_retriever::resource_retriever)
  endif()
-Index: moveit-core-2.5.9-1/constraint_samplers/CMakeLists.txt
+Index: moveit-core-2.5.10-1/constraint_samplers/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/constraint_samplers/CMakeLists.txt
-+++ moveit-core-2.5.9-1/constraint_samplers/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/constraint_samplers/CMakeLists.txt
++++ moveit-core-2.5.10-1/constraint_samplers/CMakeLists.txt
 @@ -1,35 +1,34 @@
 -set(MOVEIT_LIB_NAME moveit_constraint_samplers)
 -
@@ -883,10 +873,10 @@ Index: moveit-core-2.5.9-1/constraint_samplers/CMakeLists.txt
 +  target_link_libraries(test_constraint_samplers moveit_test_utils moveit_utils
 +                        moveit_constraint_samplers kdl_parser::kdl_parser)
  endif()
-Index: moveit-core-2.5.9-1/distance_field/CMakeLists.txt
+Index: moveit-core-2.5.10-1/distance_field/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/distance_field/CMakeLists.txt
-+++ moveit-core-2.5.9-1/distance_field/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/distance_field/CMakeLists.txt
++++ moveit-core-2.5.10-1/distance_field/CMakeLists.txt
 @@ -1,31 +1,34 @@
 -set(MOVEIT_LIB_NAME moveit_distance_field)
 +add_library(
@@ -944,10 +934,10 @@ Index: moveit-core-2.5.9-1/distance_field/CMakeLists.txt
 -  target_link_libraries(test_distance_field ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_distance_field moveit_distance_field)
  endif()
-Index: moveit-core-2.5.9-1/dynamics_solver/CMakeLists.txt
+Index: moveit-core-2.5.10-1/dynamics_solver/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/dynamics_solver/CMakeLists.txt
-+++ moveit-core-2.5.9-1/dynamics_solver/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/dynamics_solver/CMakeLists.txt
++++ moveit-core-2.5.10-1/dynamics_solver/CMakeLists.txt
 @@ -1,17 +1,19 @@
 -set(MOVEIT_LIB_NAME moveit_dynamics_solver)
 +add_library(moveit_dynamics_solver SHARED src/dynamics_solver.cpp)
@@ -981,10 +971,10 @@ Index: moveit-core-2.5.9-1/dynamics_solver/CMakeLists.txt
 +
  
  install(DIRECTORY include/ DESTINATION include)
-Index: moveit-core-2.5.9-1/exceptions/CMakeLists.txt
+Index: moveit-core-2.5.10-1/exceptions/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/exceptions/CMakeLists.txt
-+++ moveit-core-2.5.9-1/exceptions/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/exceptions/CMakeLists.txt
++++ moveit-core-2.5.10-1/exceptions/CMakeLists.txt
 @@ -1,12 +1,11 @@
 -set(MOVEIT_LIB_NAME moveit_exceptions)
 +add_library(moveit_exceptions SHARED src/exceptions.cpp)
@@ -1008,10 +998,10 @@ Index: moveit-core-2.5.9-1/exceptions/CMakeLists.txt
 -
 -install(DIRECTORY include/ DESTINATION include)
 +install(DIRECTORY include/ DESTINATION include/moveit_core)
-Index: moveit-core-2.5.9-1/kinematic_constraints/CMakeLists.txt
+Index: moveit-core-2.5.10-1/kinematic_constraints/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/kinematic_constraints/CMakeLists.txt
-+++ moveit-core-2.5.9-1/kinematic_constraints/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/kinematic_constraints/CMakeLists.txt
++++ moveit-core-2.5.10-1/kinematic_constraints/CMakeLists.txt
 @@ -1,37 +1,36 @@
 -set(MOVEIT_LIB_NAME moveit_kinematic_constraints)
 -
@@ -1083,10 +1073,10 @@ Index: moveit-core-2.5.9-1/kinematic_constraints/CMakeLists.txt
 -  target_link_libraries(test_orientation_constraints moveit_test_utils ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_orientation_constraints moveit_test_utils moveit_kinematic_constraints)
  endif()
-Index: moveit-core-2.5.9-1/kinematics_base/CMakeLists.txt
+Index: moveit-core-2.5.10-1/kinematics_base/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/kinematics_base/CMakeLists.txt
-+++ moveit-core-2.5.9-1/kinematics_base/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/kinematics_base/CMakeLists.txt
++++ moveit-core-2.5.10-1/kinematics_base/CMakeLists.txt
 @@ -1,21 +1,25 @@
 -cmake_minimum_required(VERSION 3.22)
 -set(MOVEIT_LIB_NAME moveit_kinematics_base)
@@ -1131,10 +1121,10 @@ Index: moveit-core-2.5.9-1/kinematics_base/CMakeLists.txt
 +install(DIRECTORY include/ DESTINATION include/moveit_core)
 +install(FILES ${CMAKE_CURRENT_BINARY_DIR}/moveit_kinematics_base_export.h
 +        DESTINATION include/moveit_core)
-Index: moveit-core-2.5.9-1/kinematics_metrics/CMakeLists.txt
+Index: moveit-core-2.5.10-1/kinematics_metrics/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/kinematics_metrics/CMakeLists.txt
-+++ moveit-core-2.5.9-1/kinematics_metrics/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/kinematics_metrics/CMakeLists.txt
++++ moveit-core-2.5.10-1/kinematics_metrics/CMakeLists.txt
 @@ -1,16 +1,13 @@
 -set(MOVEIT_LIB_NAME moveit_kinematics_metrics)
 +add_library(moveit_kinematics_metrics SHARED src/kinematics_metrics.cpp)
@@ -1163,10 +1153,10 @@ Index: moveit-core-2.5.9-1/kinematics_metrics/CMakeLists.txt
 -
 -install(DIRECTORY include/ DESTINATION include)
 +install(DIRECTORY include/ DESTINATION include/moveit_core)
-Index: moveit-core-2.5.9-1/online_signal_smoothing/CMakeLists.txt
+Index: moveit-core-2.5.10-1/online_signal_smoothing/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/online_signal_smoothing/CMakeLists.txt
-+++ moveit-core-2.5.9-1/online_signal_smoothing/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/online_signal_smoothing/CMakeLists.txt
++++ moveit-core-2.5.10-1/online_signal_smoothing/CMakeLists.txt
 @@ -1,50 +1,38 @@
  # Base class
 -set(SMOOTHING_BASE_LIB moveit_smoothing_base)
@@ -1255,10 +1245,10 @@ Index: moveit-core-2.5.9-1/online_signal_smoothing/CMakeLists.txt
 +  target_link_libraries(test_butterworth_filter moveit_butterworth_filter)
 +
  endif()
-Index: moveit-core-2.5.9-1/planning_interface/CMakeLists.txt
+Index: moveit-core-2.5.10-1/planning_interface/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/planning_interface/CMakeLists.txt
-+++ moveit-core-2.5.9-1/planning_interface/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/planning_interface/CMakeLists.txt
++++ moveit-core-2.5.10-1/planning_interface/CMakeLists.txt
 @@ -1,19 +1,19 @@
 -set(MOVEIT_LIB_NAME moveit_planning_interface)
 -
@@ -1295,10 +1285,10 @@ Index: moveit-core-2.5.9-1/planning_interface/CMakeLists.txt
  
 -install(DIRECTORY include/ DESTINATION include)
 +install(DIRECTORY include/ DESTINATION include/moveit_core)
-Index: moveit-core-2.5.9-1/planning_scene/CMakeLists.txt
+Index: moveit-core-2.5.10-1/planning_scene/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/planning_scene/CMakeLists.txt
-+++ moveit-core-2.5.9-1/planning_scene/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/planning_scene/CMakeLists.txt
++++ moveit-core-2.5.10-1/planning_scene/CMakeLists.txt
 @@ -1,21 +1,17 @@
 -set(MOVEIT_LIB_NAME moveit_planning_scene)
 -
@@ -1376,10 +1366,10 @@ Index: moveit-core-2.5.9-1/planning_scene/CMakeLists.txt
 -  target_link_libraries(test_multi_threaded moveit_test_utils ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_multi_threaded moveit_test_utils moveit_planning_scene)
  endif()
-Index: moveit-core-2.5.9-1/robot_model/CMakeLists.txt
+Index: moveit-core-2.5.10-1/robot_model/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/robot_model/CMakeLists.txt
-+++ moveit-core-2.5.9-1/robot_model/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/robot_model/CMakeLists.txt
++++ moveit-core-2.5.10-1/robot_model/CMakeLists.txt
 @@ -1,7 +1,4 @@
 -cmake_minimum_required(VERSION 3.22)
 -set(MOVEIT_LIB_NAME moveit_robot_model)
@@ -1454,10 +1444,10 @@ Index: moveit-core-2.5.9-1/robot_model/CMakeLists.txt
  endif()
  
  install(DIRECTORY include/ DESTINATION include)
-Index: moveit-core-2.5.9-1/robot_state/CMakeLists.txt
+Index: moveit-core-2.5.10-1/robot_state/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/robot_state/CMakeLists.txt
-+++ moveit-core-2.5.9-1/robot_state/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/robot_state/CMakeLists.txt
++++ moveit-core-2.5.10-1/robot_state/CMakeLists.txt
 @@ -1,27 +1,24 @@
 -set(MOVEIT_LIB_NAME moveit_robot_state)
 -
@@ -1545,10 +1535,10 @@ Index: moveit-core-2.5.9-1/robot_state/CMakeLists.txt
 +    moveit_robot_state
    )
  endif()
-Index: moveit-core-2.5.9-1/robot_trajectory/CMakeLists.txt
+Index: moveit-core-2.5.10-1/robot_trajectory/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/robot_trajectory/CMakeLists.txt
-+++ moveit-core-2.5.9-1/robot_trajectory/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/robot_trajectory/CMakeLists.txt
++++ moveit-core-2.5.10-1/robot_trajectory/CMakeLists.txt
 @@ -1,21 +1,18 @@
 -set(MOVEIT_LIB_NAME moveit_robot_trajectory)
 +add_library(moveit_robot_trajectory SHARED src/robot_trajectory.cpp)
@@ -1584,10 +1574,10 @@ Index: moveit-core-2.5.9-1/robot_trajectory/CMakeLists.txt
 +  target_link_libraries(test_robot_trajectory moveit_test_utils
 +                        moveit_robot_trajectory)
  endif()
-Index: moveit-core-2.5.9-1/trajectory_processing/CMakeLists.txt
+Index: moveit-core-2.5.10-1/trajectory_processing/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/trajectory_processing/CMakeLists.txt
-+++ moveit-core-2.5.9-1/trajectory_processing/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/trajectory_processing/CMakeLists.txt
++++ moveit-core-2.5.10-1/trajectory_processing/CMakeLists.txt
 @@ -1,30 +1,27 @@
 -set(MOVEIT_LIB_NAME moveit_trajectory_processing)
 -
@@ -1656,10 +1646,10 @@ Index: moveit-core-2.5.9-1/trajectory_processing/CMakeLists.txt
      moveit_test_utils
    )
  endif()
-Index: moveit-core-2.5.9-1/transforms/CMakeLists.txt
+Index: moveit-core-2.5.10-1/transforms/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/transforms/CMakeLists.txt
-+++ moveit-core-2.5.9-1/transforms/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/transforms/CMakeLists.txt
++++ moveit-core-2.5.10-1/transforms/CMakeLists.txt
 @@ -1,22 +1,25 @@
 -set(MOVEIT_LIB_NAME moveit_transforms)
 +add_library(moveit_transforms SHARED src/transforms.cpp)
@@ -1701,10 +1691,10 @@ Index: moveit-core-2.5.9-1/transforms/CMakeLists.txt
 -  target_link_libraries(test_transforms ${MOVEIT_LIB_NAME})
 +  target_link_libraries(test_transforms moveit_transforms)
  endif()
-Index: moveit-core-2.5.9-1/utils/CMakeLists.txt
+Index: moveit-core-2.5.10-1/utils/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/utils/CMakeLists.txt
-+++ moveit-core-2.5.9-1/utils/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/utils/CMakeLists.txt
++++ moveit-core-2.5.10-1/utils/CMakeLists.txt
 @@ -1,27 +1,35 @@
 -set(MOVEIT_LIB_NAME moveit_utils)
 -
@@ -1765,10 +1755,10 @@ Index: moveit-core-2.5.9-1/utils/CMakeLists.txt
 +  fmt::fmt)
 +set_target_properties(moveit_test_utils PROPERTIES VERSION
 +                                                   "${${PROJECT_NAME}_VERSION}")
-Index: moveit-core-2.5.9-1/macros/CMakeLists.txt
+Index: moveit-core-2.5.10-1/macros/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/macros/CMakeLists.txt
-+++ moveit-core-2.5.9-1/macros/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/macros/CMakeLists.txt
++++ moveit-core-2.5.10-1/macros/CMakeLists.txt
 @@ -1 +1,6 @@
 -install(DIRECTORY include/ DESTINATION include)
 +add_library(moveit_macros INTERFACE)
@@ -1777,10 +1767,10 @@ Index: moveit-core-2.5.9-1/macros/CMakeLists.txt
 +                          $<INSTALL_INTERFACE:include/moveit_core>)
 +
 +install(DIRECTORY include/ DESTINATION include/moveit_core)
-Index: moveit-core-2.5.9-1/planning_request_adapter/CMakeLists.txt
+Index: moveit-core-2.5.10-1/planning_request_adapter/CMakeLists.txt
 ===================================================================
---- moveit-core-2.5.9-1.orig/planning_request_adapter/CMakeLists.txt
-+++ moveit-core-2.5.9-1/planning_request_adapter/CMakeLists.txt
+--- moveit-core-2.5.10-1.orig/planning_request_adapter/CMakeLists.txt
++++ moveit-core-2.5.10-1/planning_request_adapter/CMakeLists.txt
 @@ -1,17 +1,18 @@
 -set(MOVEIT_LIB_NAME moveit_planning_request_adapter)
 -
