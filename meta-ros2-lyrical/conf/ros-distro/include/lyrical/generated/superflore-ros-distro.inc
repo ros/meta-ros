@@ -20,13 +20,11 @@ ROS_SUPERFLORE_GENERATION_SKIP_LIST = "\
 "
 
 # Superflore was unable to generate recipes for these packages, eg, because their repositories are not on GitHub.
-ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = "\
-    rclpy \
-"
+ROS_SUPERFLORE_GENERATION_NOT_POSSIBLE = ""
 
 # Number of commits that will be returned by "git log meta-ros2-lyrical/files/lyrical/generated/cache.yaml" when the
 # generated files are committed. This is used for the fourth version field of DISTRO_VERSION.
-ROS_NUM_CACHE_YAML_COMMITS = "3"
+ROS_NUM_CACHE_YAML_COMMITS = "2"
 
 # Iterated values of ROS_DISTRO-cache.distribution_file.release_platforms.<LINUX-DISTRO>.[ <NAME> ... ] .
 ROS_DISTRO_RELEASE_PLATFORMS = "\
@@ -1222,6 +1220,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES = "\
     rclcpp-cascade-lifecycle \
     rclcpp-components \
     rclcpp-lifecycle \
+    rclpy \
     rclpy-cascade-lifecycle \
     rclpy-message-converter \
     rclpy-message-converter-msgs \
@@ -3030,6 +3029,7 @@ ROS_SUPERFLORE_GENERATED_RECIPE_BASENAMES_WITH_COMPONENT = "\
                         cascade-lifecycle/rclcpp-cascade-lifecycle_2.0.6-1 \
                                    rclcpp/rclcpp-components_32.0.3-1 \
                                    rclcpp/rclcpp-lifecycle_32.0.3-1 \
+                                    rclpy/rclpy_10.0.11-1 \
                         cascade-lifecycle/rclpy-cascade-lifecycle_2.0.6-1 \
                   rospy-message-converter/rclpy-message-converter_2.0.2-3 \
                   rospy-message-converter/rclpy-message-converter-msgs_2.0.2-3 \
@@ -4805,6 +4805,7 @@ ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES = "\
     rclcpp-cascade-lifecycle \
     rclcpp-components \
     rclcpp-lifecycle \
+    rclpy \
     rclpy-cascade-lifecycle \
     rclpy-message-converter \
     rcpputils \
@@ -5600,6 +5601,7 @@ ROS_SUPERFLORE_GENERATED_PLATFORM_PACKAGE_DEPENDENCIES = "\
     ${ROS_UNRESOLVED_DEP-python3-marisa} \
     ${ROS_UNRESOLVED_DEP-python3-osrf-pycommon} \
     ${ROS_UNRESOLVED_DEP-python3-pyqt6} \
+    ${ROS_UNRESOLVED_DEP-python3-pytest-asyncio} \
     ${ROS_UNRESOLVED_DEP-python3-qt-bindings} \
     ${ROS_UNRESOLVED_DEP-python3-transforms3d} \
     ${ROS_UNRESOLVED_DEP-python3-zmq} \
@@ -5933,6 +5935,7 @@ ROS_SUPERFLORE_GENERATED_TESTS = "\
     ${ROS_UNRESOLVED_DEP-iwyu} \
     ${ROS_UNRESOLVED_DEP-libgtest-dev} \
     ${ROS_UNRESOLVED_DEP-matio} \
+    ${ROS_UNRESOLVED_DEP-python3-pytest-asyncio} \
     ${ROS_UNRESOLVED_DEP-python3-zmq} \
     ${ROS_UNRESOLVED_DEP-qml-module-qtquick2} \
     ${ROS_UNRESOLVED_DEP-xvfb} \
@@ -6408,6 +6411,7 @@ ROS_SUPERFLORE_GENERATED_RECIPES_FOR_COMPONENTS = "\
     rcl-logging-syslog \
     rclc \
     rclcpp \
+    rclpy \
     rcpputils \
     rcss3d-agent \
     rcss3d-nao \
@@ -6735,6 +6739,7 @@ ROS_UNRESOLVED_DEP-python3-flake8-deprecated = "ROS_UNRESOLVED_DEP-python3-flake
 ROS_UNRESOLVED_DEP-python3-marisa = "ROS_UNRESOLVED_DEP-python3-marisa"
 ROS_UNRESOLVED_DEP-python3-osrf-pycommon = "ROS_UNRESOLVED_DEP-python3-osrf-pycommon"
 ROS_UNRESOLVED_DEP-python3-pyqt6 = "ROS_UNRESOLVED_DEP-python3-pyqt6"
+ROS_UNRESOLVED_DEP-python3-pytest-asyncio = "ROS_UNRESOLVED_DEP-python3-pytest-asyncio"
 ROS_UNRESOLVED_DEP-python3-qt-bindings = "ROS_UNRESOLVED_DEP-python3-qt-bindings"
 ROS_UNRESOLVED_DEP-python3-transforms3d = "ROS_UNRESOLVED_DEP-python3-transforms3d"
 ROS_UNRESOLVED_DEP-python3-zmq = "ROS_UNRESOLVED_DEP-python3-zmq"
