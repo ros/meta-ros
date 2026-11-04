@@ -1,0 +1,26 @@
+Use the GNU deprecated attribute for MemoryStrategy
+
+GCC 11 from the host toolchain, used to build rclcpp-native, can't combine
+the [[deprecated]] attribute with the GNU visibility attribute from
+RCLCPP_PUBLIC in a class declaration, in either order:
+
+memory_strategy.hpp:42:21: error: expected identifier before '[' token
+visibility_control.hpp:47:27: error: expected identifier before '__attribute__'
+
+Upstream-Status: Inappropriate [host compiler workaround]
+
+Assisted-by: Claude:claude-sonnet-5.5
+AI-Generated: Uses Claude (claude-sonnet-5.5)
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/include/rclcpp/memory_strategy.hpp
++++ b/include/rclcpp/memory_strategy.hpp
+@@ -39,7 +39,7 @@
+  * the rmw implementation after the executor waits for work, based on the number of entities that
+  * come through.
+  */
+-class RCLCPP_PUBLIC [[deprecated("The executor does not used this anymore")]] MemoryStrategy
++class RCLCPP_PUBLIC __attribute__((deprecated("The executor does not used this anymore"))) MemoryStrategy
+ {
+ public:
+   RCLCPP_SMART_PTR_DEFINITIONS_NOT_COPYABLE(MemoryStrategy)
