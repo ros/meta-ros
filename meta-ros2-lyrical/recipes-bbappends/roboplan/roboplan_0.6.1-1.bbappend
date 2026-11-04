@@ -16,3 +16,9 @@ DEPENDS += "robin-map"
 # Stub generation imports the compiled aarch64 extension on the build host, which can't work when cross compiling.
 # The .pyi stubs are committed in the source tree, so they are still installed.
 EXTRA_OECMAKE += "-DGENERATE_PYTHON_STUBS=OFF"
+
+# CMake Error at recipe-sysroot/usr/lib/cmake/nanobind/nanobind-config.cmake:158 (add_library):
+#   Cannot find source file: recipe-sysroot/usr/lib/cmake/include/nanobind/eval.h
+# python3-nanobind copies nanobind-config.cmake to ${libdir}/cmake/nanobind, but the file finds the nanobind
+# sources relative to its own location. Use the config in the python package instead.
+EXTRA_OECMAKE += "-Dnanobind_DIR=${STAGING_LIBDIR}/${PYTHON_DIR}/site-packages/nanobind/cmake"
