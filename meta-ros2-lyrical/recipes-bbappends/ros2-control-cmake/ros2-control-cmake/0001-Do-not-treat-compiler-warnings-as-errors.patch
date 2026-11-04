@@ -1,0 +1,41 @@
+Do not treat compiler warnings as errors
+
+set_compiler_options() adds -Werror=... options through add_compile_options(),
+which places them after CXXFLAGS so they can't be turned off with
+-Wno-error=... from the recipe. Keep the warnings, but don't make them fatal.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Assisted-by: Claude:claude-sonnet-5.5
+AI-Generated: Uses Claude (claude-sonnet-5.5)
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+diff --git a/cmake/ros2_control.cmake b/cmake/ros2_control.cmake
+index 4f9f757..8314dff 100644
+--- a/cmake/ros2_control.cmake
++++ b/cmake/ros2_control.cmake
+@@ -37,15 +37,6 @@ macro(set_compiler_options)
+     add_compile_options(
+       -Wall -Wextra -Wpedantic
+       -Wshadow -Wconversion -Wold-style-cast
+-      -Werror=conversion
+-      -Werror=format
+-      -Werror=missing-braces
+-      -Werror=overflow
+-      -Werror=return-type
+-      -Werror=shadow
+-      -Werror=sign-compare
+-      -Werror=unused-but-set-variable
+-      -Werror=unused-variable
+     )
+     message(STATUS "Compiler warnings enabled for ${CMAKE_CXX_COMPILER_ID}")
+ 
+@@ -63,8 +54,6 @@ macro(set_compiler_options)
+     if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+       extract_gcc_version()
+       if(DEFINED GCC_MAJOR_VERSION AND GCC_MAJOR_VERSION GREATER 10)
+-        # GCC 11 introduced -Werror=range-loop-construct
+-        add_compile_options(-Werror=range-loop-construct)
+       endif()
+     endif()
+ 
