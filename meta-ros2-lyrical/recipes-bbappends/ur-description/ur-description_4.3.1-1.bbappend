@@ -5,5 +5,9 @@
 # Superflore replaces it with ""BSD-3-Clause & Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation", but that still doesn't parse well:
 # WARNING: /meta-ros/meta-ros2-rolling/generated-recipes/ur-description/ur-description_2.2.1-1.bb: QA Issue: ur-description: LICENSE value "BSD-3-Clause & Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation" has an invalid separator "Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation" that is not in the valid list of separators (&|() ) [license-format]
 _LICENSE := "${LICENSE}"
-LICENSE = "${@'${_LICENSE}'.replace('BSD-3-Clause & Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation', 'BSD-3-Clause & Universal-Robots-A-S')}"
+LICENSE = "${@'${_LICENSE}'.replace('BSD-3-Clause AND Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation', 'BSD-3-Clause AND Universal-Robots-A-S')}"
 
+
+# ERROR: ur-description: No generic license file exists for: LicenseRef-Universal-Robots-A-S in any provider [license-exists]
+NO_GENERIC_LICENSE[Universal-Robots-A-S] = "meshes/ur20/LICENSE.txt"
+LIC_FILES_CHKSUM += "file://meshes/ur20/LICENSE.txt;md5=eeb3173b670d1ffe6a30ce4d2ad45ee3"
