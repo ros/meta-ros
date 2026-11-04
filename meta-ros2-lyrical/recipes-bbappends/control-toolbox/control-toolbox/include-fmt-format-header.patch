@@ -1,0 +1,26 @@
+Upstream-Status: Backport [https://github.com/ros-controls/control_toolbox/commit/f2d1a85c2cf5a61b17218790d5969eaef171370d]
+
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+From f2d1a85c2cf5a61b17218790d5969eaef171370d Mon Sep 17 00:00:00 2001
+From: Dhruv Patel <dhruvpatel2991998@gmail.com>
+Date: Mon, 17 Aug 2026 13:41:15 +0200
+Subject: [PATCH] Add <fmt/format.h> for fmt 11+ compatibility (#658)
+
+---
+ control_toolbox/include/control_toolbox/filter_traits.hpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/control_toolbox/filter_traits.hpp b/include/control_toolbox/filter_traits.hpp
+index 8e529ff3..a31909cc 100644
+--- a/include/control_toolbox/filter_traits.hpp
++++ b/include/control_toolbox/filter_traits.hpp
+@@ -17,7 +17,7 @@
+ 
+ #define EIGEN_INITIALIZE_MATRICES_BY_NAN
+ 
+-#include <fmt/core.h>
++#include <fmt/format.h>
+ #include <Eigen/Dense>
+ #include <algorithm>
+ #include <cmath>
