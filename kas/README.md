@@ -1,7 +1,7 @@
 # Building meta-ros with kas
 
 Here are simple instructions for getting started building the long-term support
-releases of Yocto (kirkstone) and ROS 2 (humble).  Documentation for kas can be
+releases of Yocto Project Wrynose and ROS 2 Lyrical.  Documentation for kas can be
 found at https://kas.readthedocs.io/en/latest/
 
 ## Installing kas
@@ -28,14 +28,14 @@ Raspberry Pi 4.
 ```
 mkdir $PROJECT_DIR
 KAS_WORK_DIR=$PROJECT_DIR
-kas build meta-ros/kas/oeros-kirkstone-humble-raspberrypi4-64.yml
+kas build meta-ros/kas/oeros-wrynose-lyrical-raspberrypi4-64.yml
 ```
 
 This should complete successfully and produce an image you can write to the
 sdcard.
 
 ```
-build/tmp-glibc/deploy/images/raspberrypi4-64/ros-image-core-humble-raspberrypi4-64.rootfs.wic.bz2
+build/tmp-glibc/deploy/images/raspberrypi4-64/ros-image-core-lyrical-raspberrypi4-64.rootfs.wic.bz2
 ```
 
 ## Writing the image
