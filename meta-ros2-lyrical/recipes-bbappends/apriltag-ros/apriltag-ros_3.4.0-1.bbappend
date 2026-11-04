@@ -3,7 +3,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += "\
-    file://0001-update-tf2-convert-header.patch \
     file://disable-compiler-warnings.patch \
 "
 
