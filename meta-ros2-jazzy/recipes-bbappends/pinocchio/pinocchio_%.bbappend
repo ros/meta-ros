@@ -24,3 +24,6 @@ FILES:${PN}-dev += " \
     ${libdir}/libpinocchio.so \
     ${PYTHON_SITEPACKAGES_DIR}/pinocchio/pinocchio_pywrap.cpython-311-x86_64-linux-gnu.so \
 "
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://add-graph-geometry-operator-equal.patch"
