@@ -5,3 +5,8 @@
 # eigenpy and pinocchio look for python and numpy through the host python3 unless python3native is inherited.
 ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 inherit python3native
+
+# CMake Error at recipe-sysroot/usr/lib/cmake/nanobind/nanobind-config.cmake:307 (find_dependency):
+#   Could not find a package configuration file provided by "tsl-robin-map"
+# nanobind needs robin-map when it is built with nanobind_add_module() but python3-nanobind doesn't depend on it.
+DEPENDS += "robin-map"
