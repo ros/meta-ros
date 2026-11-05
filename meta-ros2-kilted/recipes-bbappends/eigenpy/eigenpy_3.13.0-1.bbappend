@@ -2,10 +2,6 @@
 
 LICENSE = "BSD-2-Clause"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://allow-cxx11-compatibility.patch \
-            file://use-NPY_API_SYMBOL_ATTRIBUTE-for-numpy2.patch"
-
 ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 
 # Disable the unit tests which fail to find scipy
