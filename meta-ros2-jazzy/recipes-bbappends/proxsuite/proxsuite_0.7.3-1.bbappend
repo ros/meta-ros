@@ -21,3 +21,6 @@ FILES:${PN}:prepend = " \
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://do-not-create-install-dir-at-configure.patch"
+
+# ERROR: proxsuite-0.7.3-1-r0 do_package: QA Issue: File '/opt/ros/jazzy/lib/python3.14/site-packages/proxsuite/proxsuite_pywrap.cpython-314-x86_64-linux-gnu.so' from proxsuite was already stripped, this will prevent future debugging! [already-stripped]
+INSANE_SKIP:${PN} += "already-stripped"
