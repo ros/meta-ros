@@ -27,3 +27,12 @@ FILES:${PN}-dev += " \
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://add-graph-geometry-operator-equal.patch"
+
+# roboplan: CMake Error at recipe-sysroot/opt/ros/jazzy/lib/cmake/pinocchio/pinocchioTargets.cmake:144 (message):
+#   The imported target "pinocchio::pinocchio_pywrap_default" references the file
+#     "/opt/ros/jazzy/lib/python3.14/site-packages/pinocchio/pinocchio_pywrap_default.cpython-314-x86_64-linux-gnu.so.4.1.0"
+#   but this file does not exist.
+# The python modules are exported with an absolute path, make it relative to the install prefix.
+do_install:append() {
+    sed -i -e 's#"${ros_prefix}/lib/python#"${_IMPORT_PREFIX}/lib/python#g' ${D}${ros_prefix}/lib/cmake/pinocchio/pinocchioTargets*.cmake
+}
