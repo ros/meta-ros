@@ -7,3 +7,6 @@ LICENSE = "BSD-3-Clause"
 # Use the python3-native and numpy from the sysroot instead of the ones from the host.
 ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 inherit python3native
+
+# ERROR: QA Issue: non -dev/-dbg/nativesdk- package coal contains symlink .so '/opt/ros/jazzy/lib/libcoal.so' [dev-so]
+inherit ros_insane_dev_so
