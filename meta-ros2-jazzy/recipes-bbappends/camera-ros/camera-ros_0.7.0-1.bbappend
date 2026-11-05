@@ -3,3 +3,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://disable-compiler-warnings.patch \
             file://add-libcamera-cmake.patch"
+
+inherit pkgconfig
