@@ -2,5 +2,7 @@
 
 LICENSE = "BSD-3-Clause"
 
+inherit python3targetconfig
+
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package moveit-py contains symlink .so '/usr/lib/libmoveit_py_utils.so' [dev-so]
 FILES:${PN}-dev += "${libdir}/libmoveit_py_utils.so"
