@@ -4,3 +4,5 @@ ROS_BUILDTOOL_DEPENDS = " \
     ament-cmake-native \
     python3-numpy-native \
 "
+
+LICENSE = "BSD-3-Clause"
