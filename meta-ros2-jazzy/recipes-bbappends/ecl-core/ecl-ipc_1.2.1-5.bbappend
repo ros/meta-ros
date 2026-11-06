@@ -4,3 +4,5 @@
 FILES:${PN}-dev += " \
     ${libdir}/libecl_ipc.so \
 "
+
+LICENSE = "BSD-3-Clause"

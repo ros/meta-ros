@@ -20,3 +20,5 @@ ROS_BUILD_DEPENDS:append = " python3-catkin-pkg"
 ROS_BUILD_DEPENDS += " \
     service-msgs \
 "
+
+LICENSE = "BSD-3-Clause"

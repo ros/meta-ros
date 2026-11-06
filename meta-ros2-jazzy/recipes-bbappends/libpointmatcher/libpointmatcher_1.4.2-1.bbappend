@@ -9,3 +9,5 @@ COMPATIBLE_MACHINE:aarch64 = "(.*)"
 COMPATIBLE_MACHINE:x86-64 = "(.*)"
 
 SRC_URI += "file://0001-Make-yaml-cpp-pm-use-cmake-clean.patch"
+
+LICENSE = "BSD-3-Clause"
