@@ -1,0 +1,89 @@
+Add operator== to the graph geometry types
+
+The newer vector_indexing_suite from Boost.Python implements count() with
+std::count(), which requires operator== for the element type. Exposing
+std::vector<pinocchio::graph::Geometry> in the python bindings fails to build:
+
+predefined_ops.h:81:24: error: no match for call to '(__gnu_cxx::__ops::_Comp_with_val<std::equal_to<void>, pinocchio::graph::Geometry, true>::_Fn) (pinocchio::graph::Geometry&, const pinocchio::graph::Geometry&)'
+
+Upstream-Status: Pending
+
+Assisted-by: Claude:claude-sonnet-5.5
+AI-Generated: Uses Claude (claude-sonnet-5.5)
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+
+--- a/include/pinocchio/src/parsers/graph/geometries.hxx
++++ b/include/pinocchio/src/parsers/graph/geometries.hxx
+@@ -25,6 +25,11 @@
+ 
+     struct Mesh
+     {
++      bool operator==(const Mesh & other) const
++      {
++        return path == other.path;
++      }
++
+       std::string path;
+ 
+       Mesh() = default;
+@@ -36,6 +41,11 @@
+ 
+     struct Box
+     {
++      bool operator==(const Box & other) const
++      {
++        return size == other.size;
++      }
++
+       Eigen::Vector3d size = Eigen::Vector3d::Constant(0);
+ 
+       Box() = default;
+@@ -47,6 +57,11 @@
+ 
+     struct Cylinder
+     {
++      bool operator==(const Cylinder & other) const
++      {
++        return size == other.size;
++      }
++
+       Eigen::Vector2d size = Eigen::Vector2d::Constant(0);
+ 
+       Cylinder() = default;
+@@ -58,6 +73,11 @@
+ 
+     struct Capsule
+     {
++      bool operator==(const Capsule & other) const
++      {
++        return size == other.size;
++      }
++
+       Eigen::Vector2d size = Eigen::Vector2d::Constant(0);
+ 
+       Capsule() = default;
+@@ -69,6 +89,11 @@
+ 
+     struct Sphere
+     {
++      bool operator==(const Sphere & other) const
++      {
++        return radius == other.radius;
++      }
++
+       double radius = 0;
+ 
+       Sphere() = default;
+@@ -82,6 +107,12 @@
+ 
+     struct Geometry
+     {
++      bool operator==(const Geometry & other) const
++      {
++        return name == other.name && type == other.type && scale == other.scale
++               && color == other.color && placement == other.placement && geometry == other.geometry;
++      }
++
+       std::string name;
+ 
+       GeomType type = GeomType::BOTH;
