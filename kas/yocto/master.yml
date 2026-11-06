@@ -41,3 +41,9 @@ repos:
 local_conf_header:
   distro: |
     ERROR_QA:remove = "license-format"
+
+bblayers_conf_header:
+  blacksail-compat: |
+    # meta-qt6 6.11 and meta-intel-realsense do not declare blacksail yet
+    LAYERSERIES_COMPAT_qt6-layer:append = " blacksail"
+    LAYERSERIES_COMPAT_intel-realsense:append = " blacksail"
