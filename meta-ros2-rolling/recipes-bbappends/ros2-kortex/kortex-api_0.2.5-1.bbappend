@@ -15,3 +15,5 @@ COMPATIBLE_MACHINE:x86 = "(^$)"
 COMPATIBLE_MACHINE:aarch64 = "(^$)"
 COMPATIBLE_MACHINE:armv7a = "(^$)"
 COMPATIBLE_MACHINE:armv7ve = "(^$)"
+
+LICENSE = "BSD-3-Clause"

@@ -2,3 +2,5 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://boost_replace_deprecated_features.patch"
+
+LICENSE = "BSD-3-Clause"
