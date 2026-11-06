@@ -14,3 +14,5 @@ ROS_BUILD_DEPENDS:remove = " \
     rosidl-typesupport-fastrtps-cpp \
     service-msgs \
 "
+
+LICENSE = "BSD-3-Clause"

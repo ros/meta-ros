@@ -3,3 +3,5 @@
 ROS_BUILD_DEPENDS += "\
     action-msgs \
 "
+
+LICENSE = "BSD-3-Clause"

@@ -3,3 +3,5 @@
 inherit pkgconfig
 
 FILES:${PN}-dev = "${ros_libdir}/libcaer.so"
+
+LICENSE = "Apache-2.0 AND BSD-2-Clause"
