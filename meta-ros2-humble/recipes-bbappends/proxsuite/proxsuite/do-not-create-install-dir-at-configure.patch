@@ -1,0 +1,24 @@
+Do not create the Python install directory at configure time
+
+file(MAKE_DIRECTORY) runs while configuring, so it tries to create the
+install path in the root file system of the build host:
+CMake Error at bindings/python/CMakeLists.txt:305 (file):
+  file failed to create directory:
+    /opt/ros/humble/lib/python3.14/site-packages/proxsuite/torch
+The directory is created when the files are installed.
+
+Upstream-Status: Pending
+Assisted-by: Claude:claude-sonnet-5.5
+AI-Generated: Uses Claude (claude-sonnet-5.5)
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/bindings/python/CMakeLists.txt
++++ b/bindings/python/CMakeLists.txt
+@@ -302,7 +302,6 @@
+ 
+ set(PYTHON_FILES torch/__init__.py torch/qplayer.py torch/utils.py)
+ 
+-file(MAKE_DIRECTORY ${${PYWRAP}_INSTALL_DIR}/torch)
+ 
+ foreach(python ${PYTHON_FILES})
+   PYTHON_BUILD(${PROJECT_NAME} ${python})
