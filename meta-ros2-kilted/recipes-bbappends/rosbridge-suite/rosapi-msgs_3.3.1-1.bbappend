@@ -7,3 +7,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     service-msgs \
 "
+
+LICENSE = "BSD-3-Clause"

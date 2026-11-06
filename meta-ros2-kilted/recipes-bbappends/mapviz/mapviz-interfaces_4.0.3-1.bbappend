@@ -7,3 +7,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS += " \
     service-msgs \
 "
+
+LICENSE = "BSD-3-Clause"

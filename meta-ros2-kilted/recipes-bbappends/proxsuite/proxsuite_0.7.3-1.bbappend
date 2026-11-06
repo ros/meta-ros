@@ -18,3 +18,5 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_PYTHON_
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+
+LICENSE = "BSD-2-Clause"
