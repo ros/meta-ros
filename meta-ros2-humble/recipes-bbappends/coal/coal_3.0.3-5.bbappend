@@ -9,3 +9,12 @@ inherit python3native
 
 # ERROR: QA Issue: non -dev/-dbg/nativesdk- package coal contains symlink .so '/opt/ros/humble/lib/libcoal.so' [dev-so]
 inherit ros_insane_dev_so
+
+# pinocchio: CMake Error at recipe-sysroot/opt/ros/humble/lib/cmake/coal/coalTargets.cmake:92 (message):
+#   The imported target "coal::coal_pywrap" references the file
+#     "/opt/ros/humble/lib/python3.14/site-packages/coal/coal_pywrap.cpython-314-x86_64-linux-gnu.so"
+#   but this file does not exist.
+# The python module is exported with an absolute path, make it relative to the install prefix.
+do_install:append() {
+    sed -i -e 's#"${ros_prefix}/lib/python#"${_IMPORT_PREFIX}/lib/python#g' ${D}${ros_prefix}/lib/cmake/coal/coalTargets-*.cmake
+}
