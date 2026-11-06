@@ -3,3 +3,5 @@
 # ERROR: QA Issue: File '/usr/lib/libVimbaC.so' from avt-vimba-camera was already stripped, this will prevent future debugging! [already-stripped]
 # ERROR: QA Issue: File '/usr/lib/libVimbaCPP.so' from avt-vimba-camera was already stripped, this will prevent future debugging! [already-stripped]
 INSANE_SKIP:${PN} += "already-stripped"
+
+LICENSE = "BSD-4-Clause"

@@ -6,3 +6,5 @@
 #  /usr/share/quatlib/cmake/quatlibConfig.cmake
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 FILES:${PN}-dev += "${datadir}/quatlib/cmake/*.cmake"
+
+LICENSE = "BSD-3-Clause"

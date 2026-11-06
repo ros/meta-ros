@@ -6,3 +6,5 @@ CXXFLAGS += "-Wno-error=deprecated-declarations"
 
 # kobuki-velocity-smoother/0.15.0-2-r0/recipe-sysroot/usr/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_period.hpp:174:32: error: unused parameter 'message_info' [-Werror=unused-parameter]
 CXXFLAGS += "-Wno-error=unused-parameter"
+
+LICENSE = "BSD-3-Clause"

@@ -5,3 +5,5 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-fastrtps-c-native \
 "
+
+LICENSE = "BSD-3-Clause"

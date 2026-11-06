@@ -12,3 +12,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     service-msgs \
 "
+
+LICENSE = "GPL-3.0-only AND LGPL-3.0-only AND BSD-3-Clause"

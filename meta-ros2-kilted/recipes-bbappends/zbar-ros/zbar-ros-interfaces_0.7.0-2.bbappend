@@ -20,3 +20,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 ROS_BUILD_DEPENDS += " \
     rosidl-core-generators \
 "
+
+LICENSE = "BSD-3-Clause"

@@ -6,3 +6,5 @@ ROS_BUILDTOOL_DEPENDS += " \
     ament-cmake-pytest \
     ament-cmake-ros \
 "
+
+LICENSE = "BSD-3-Clause"
