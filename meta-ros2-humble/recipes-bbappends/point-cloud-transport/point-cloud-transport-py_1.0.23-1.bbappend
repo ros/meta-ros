@@ -2,5 +2,7 @@
 
 LICENSE = "BSD-3-Clause AND Apache-2.0"
 
+inherit python3targetconfig
+
 # QA Issue:File was already stripped, this will prevent future debugging! [already-stripped]
 INSANE_SKIP:${PN} += "already-stripped"
