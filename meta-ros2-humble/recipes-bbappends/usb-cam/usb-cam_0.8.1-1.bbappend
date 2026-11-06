@@ -5,3 +5,5 @@
 CXXFLAGS += "-Wno-error=return-type"
 
 inherit pkgconfig
+
+LICENSE = "BSD-3-Clause"

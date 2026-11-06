@@ -3,3 +3,5 @@
 ROS_BUILD_DEPENDS += " \
     eigen3-cmake-module \
 "
+
+LICENSE = "GPL-3.0-only"

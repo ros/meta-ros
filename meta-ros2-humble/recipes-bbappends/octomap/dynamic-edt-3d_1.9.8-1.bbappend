@@ -28,3 +28,5 @@ DEPENDS:append:class-target = " chrpath-replacement-native"
 do_install:append() {
     chrpath --delete ${D}${libdir}/*${SOLIBS}
 }
+
+LICENSE = "BSD-3-Clause"

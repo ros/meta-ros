@@ -16,3 +16,5 @@ FILES:${PN} += "${datadir}/lib/robot_upstart"
 
 # ERROR: robot-upstart-1.0.2-1-r0 do_package_qa: QA Issue: /usr/share/robot_upstart/scripts/mkxacro contained in package robot-upstart requires /bin/bash, but no providers found in RDEPENDS:robot-upstart? [file-rdeps]
 RDEPENDS:${PN} += "bash"
+
+LICENSE = "BSD-3-Clause"

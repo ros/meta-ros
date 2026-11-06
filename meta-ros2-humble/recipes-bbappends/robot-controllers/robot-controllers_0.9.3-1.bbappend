@@ -7,3 +7,5 @@ ROS_EXEC_DEPENDS:remove = "orocos-kdl"
 
 DEPENDS:append = "orocos-kdl-vendor"
 ROS_EXEC_DEPENDS:append = "orocos-kdl-vendor"
+
+LICENSE = "BSD-3-Clause"

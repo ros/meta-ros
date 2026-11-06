@@ -14,3 +14,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-cpp-native \
     rosidl-generator-py-native \
 "
+
+LICENSE = "BSD-3-Clause"

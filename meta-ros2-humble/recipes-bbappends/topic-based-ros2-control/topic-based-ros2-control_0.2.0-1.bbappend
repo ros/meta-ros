@@ -9,3 +9,5 @@ CXXFLAGS += "-Wno-error=deprecated-declarations"
 
 # error: conversion to 'std::streamsize' {aka 'long int'} from 'size_t' {aka 'long unsigned int'} may change the sign of the result [-Werror=sign-conversion]
 CXXFLAGS += "-Wno-error=sign-conversion"
+
+LICENSE = "BSD-3-Clause"

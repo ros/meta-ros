@@ -23,3 +23,5 @@ EXTRA_OECMAKE += "-DRC_PROJECT_VERSION=${RC_PROJECT_VERSION}"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://add-cstdint.patch"
+
+LICENSE = "BSD-3-Clause"

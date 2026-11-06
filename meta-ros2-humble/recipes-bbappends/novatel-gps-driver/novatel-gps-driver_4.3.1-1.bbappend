@@ -2,3 +2,5 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-do-not-install-pcap-files.patch"
+
+LICENSE = "BSD-3-Clause"
