@@ -1,5 +1,8 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://add-bullet-dependency.patch"
+
 LICENSE = "BSD-3-Clause"
 
 # ERROR: moveit-servo-2.1.0-1-r0 do_package_qa: QA Issue:
