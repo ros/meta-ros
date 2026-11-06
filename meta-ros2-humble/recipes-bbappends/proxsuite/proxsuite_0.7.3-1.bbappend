@@ -18,3 +18,6 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DBUILD_PYTHON_
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://do-not-create-install-dir-at-configure.patch"
