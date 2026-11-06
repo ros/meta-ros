@@ -1,5 +1,7 @@
 # Copyright (c) 2023 Wind River Systems, Inc.
 
+LICENSE = "BSD-2-Clause"
+
 ROS_BUILD_DEPENDS += "matio"
 
 ROS_EXEC_DEPENDS:remove = "${ROS_UNRESOLVED_DEP-simde}"
