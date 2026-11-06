@@ -1,0 +1,23 @@
+Disable compiler options
+
+The project adds -Werror options with add_compile_options(), which are placed
+after CXXFLAGS on the compiler command line, so they cannot be turned off with
+-Wno-error=... from the recipe. They break the build with the toolchain GCC:
+qos_parameters.hpp:57:5: error: missing braces around initializer for 'std::__array_traits<rclcpp::QosPolicyKind, 9>::_Type' [-Werror=missing-braces]
+
+Upstream-Status: Inappropriate [oe-specific]
+Assisted-by: Claude:claude-sonnet-5.5
+AI-Generated: Uses Claude (claude-sonnet-5.5)
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -7,8 +7,6 @@
+ endif()
+ 
+ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-  -Werror=return-type -Werror=format -Werror=missing-braces)
+ endif()
+ 
+ # find dependencies
