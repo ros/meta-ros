@@ -1,1 +1,3 @@
 SRCREV = "a71c894f59237ac598fb36b25b1d6c7282fa63fa"
+
+LICENSE = "BSD-3-Clause"

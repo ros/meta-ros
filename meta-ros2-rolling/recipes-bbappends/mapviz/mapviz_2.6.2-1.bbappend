@@ -9,3 +9,5 @@ ROS_BUILDTOOL_DEPENDS += "\
 # CMake Error at CMakeLists.txt:117 (qt5_add_resources):
 #   Unknown CMake command "qt5_add_resources".
 inherit ${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', 'cmake_qt5', '', d)}
+
+LICENSE = "BSD-3-Clause"
