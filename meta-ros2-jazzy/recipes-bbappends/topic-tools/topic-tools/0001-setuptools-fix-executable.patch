@@ -1,3 +1,7 @@
+Explicitly set interpreter for topic_tools wrapper
+
+Upstream-Status: Inappropriate [oe specific]
+
 diff --git a/topic_tools/setup.cfg b/topic_tools/setup.cfg
 index 7c0fef2..90b577f 100644
 --- a/topic_tools/setup.cfg
