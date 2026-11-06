@@ -24,3 +24,5 @@ ROS_BUILD_DEPENDS += "\
     rosidl-default-runtime \
     service-msgs \
 "
+
+LICENSE = "BSD-3-Clause"

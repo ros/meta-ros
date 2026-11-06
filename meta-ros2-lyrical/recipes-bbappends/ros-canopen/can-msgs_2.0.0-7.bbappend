@@ -14,3 +14,8 @@ ROS_BUILD_DEPENDS += "\
     rosidl-typesupport-cpp-native \
     rosidl-generator-py-native \
 "
+
+# package.xml declares "BSD" but the only license text in the upstream
+# repository (ros_canopen) is a root LICENSE with LGPL-3.0, so both are
+# listed.
+LICENSE = "BSD-3-Clause AND LGPL-3.0-only"
