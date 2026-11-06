@@ -16,3 +16,8 @@ inherit python3native
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+
+# QA Issue: File /opt/ros/humble/lib/pkgconfig/eigenpy.pc in package eigenpy-dev contains reference to TMPDIR [buildpaths]
+do_install:append() {
+    sed -i -e "s#-I${RECIPE_SYSROOT_NATIVE}#-I#g" ${D}${ros_prefix}/lib/pkgconfig/eigenpy.pc
+}
