@@ -1,7 +1,5 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
 
-LICENSE = "BSD-2-Clause"
-
 ROS_BUILDTOOL_DEPENDS += "python3-numpy-native"
 
 # Disable the unit tests which fail to find scipy
