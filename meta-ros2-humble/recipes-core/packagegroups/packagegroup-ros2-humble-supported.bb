@@ -8,9 +8,17 @@ PACKAGES = "${PN}"
 
 # These are the packages tested for each Patch Release
 RDEPENDS:${PN} = "\
+        apriltag-ros \
         canopen \
         desktop-full \
+        geometry2 \
+        geometry-tutorials \
+        gps-umd \
         moveit \
         navigation2 \
         ros2-control \
+        ros2-controllers \
+        rosbag2 \
+        ros-gz \
+        ur \
 "
