@@ -1,0 +1,23 @@
+Disable compiler options
+
+The project adds -Werror options with add_compile_options(), which are placed
+after CXXFLAGS on the compiler command line, so they cannot be turned off with
+-Wno-error=... from the recipe. They break the build with the toolchain GCC:
+exceptions.hpp:71:79: error: declaration of 'invalid_index' shadows a member of 'rclcpp::exceptions::InvalidNodeNameError' [-Werror=shadow]
+
+Upstream-Status: Inappropriate [oe-specific]
+Assisted-by: Claude:claude-sonnet-5.5
+AI-Generated: Uses Claude (claude-sonnet-5.5)
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,8 +5,6 @@
+ )
+ 
+ if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+-  add_compile_options(-Wall -Wextra -Wpedantic -Werror=conversion -Werror=unused-but-set-variable
+-                      -Werror=return-type -Werror=shadow -Werror=format)
+ endif()
+ 
+ set(THIS_PACKAGE_INCLUDE_DEPENDS
