@@ -3,3 +3,5 @@
 ROS_BUILD_DEPENDS += " \
     rclcpp-components \
 "
+
+LICENSE = "BSD-3-Clause"

@@ -11,3 +11,5 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-Modify-tbb-pkg-check.patch"
 
 inherit pkgconfig
+
+LICENSE = "BSD-3-Clause"

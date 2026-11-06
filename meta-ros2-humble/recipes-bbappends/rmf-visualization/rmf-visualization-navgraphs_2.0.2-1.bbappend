@@ -13,3 +13,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 
 EXTRA_OECMAKE += " --debug-find "
 inherit pkgconfig
+
+LICENSE = "Apache-2.0"

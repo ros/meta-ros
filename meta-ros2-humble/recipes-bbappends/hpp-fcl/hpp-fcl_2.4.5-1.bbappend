@@ -22,3 +22,5 @@ SRC_URI += " \
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+
+LICENSE = "BSD-3-Clause"

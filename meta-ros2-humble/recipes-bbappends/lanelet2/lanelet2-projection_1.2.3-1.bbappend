@@ -2,3 +2,5 @@
 
 # QA Issue: non -dev/-dbg/nativesdk- package moveit-ros-visualization contains symlink .so
 FILES:${PN}-dev += "${libdir}/liblanelet2_projection.so"
+
+LICENSE = "BSD-3-Clause"

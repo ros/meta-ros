@@ -11,3 +11,5 @@ EXTRA_OECMAKE += " \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.2", "", "-DDISABLE_SSE4_2=ON", d)} \
     ${@bb.utils.contains("TARGET_CC_ARCH", "-msse4.A", "", "-DDISABLE_SSE4_A=ON", d)} \
 "
+
+LICENSE = "BSD-2-Clause"

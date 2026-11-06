@@ -8,3 +8,5 @@ SRC_URI += " \
   file://0001-use-bitbake-fetcher.patch \
   file://0002-install-libraries.patch \
 "
+
+LICENSE = "BSD-3-Clause"

@@ -16,3 +16,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 # ROS2 is python3-only and python2 is blacklisted here
 ROS_BUILD_DEPENDS:remove = "python-catkin-pkg"
 ROS_BUILD_DEPENDS:append = " python3-catkin-pkg"
+
+LICENSE = "BSD-3-Clause"

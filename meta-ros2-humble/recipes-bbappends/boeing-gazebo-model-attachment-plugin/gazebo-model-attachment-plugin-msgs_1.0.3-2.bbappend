@@ -12,3 +12,8 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-introspection-cpp-native \
 "
+
+# package.xml declares "Boeing Proprietary", but there is no proprietary
+# license text; the upstream repository LICENSE and README release the
+# package under Apache-2.0.
+LICENSE = "Apache-2.0"
