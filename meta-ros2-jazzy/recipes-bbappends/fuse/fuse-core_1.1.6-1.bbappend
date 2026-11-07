@@ -4,3 +4,5 @@
 ROS_EXEC_DEPENDS:remove = "ceres-solver"
 
 inherit pkgconfig
+
+LICENSE = "BSD-3-Clause"

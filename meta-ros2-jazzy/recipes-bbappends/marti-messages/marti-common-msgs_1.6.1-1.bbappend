@@ -3,3 +3,5 @@
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-runtime-native \
 "
+
+LICENSE = "BSD-3-Clause"

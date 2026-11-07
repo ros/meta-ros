@@ -7,3 +7,5 @@ FILES:${PN}-dev += " \
 
 # sophus provides headers and does not have a runtime package
 ROS_EXEC_DEPENDS:remove = "sophus"
+
+LICENSE = "BSD-3-Clause"

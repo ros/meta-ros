@@ -10,3 +10,5 @@
 FILES:${PN} += "${datadir}/licenses/COPYING \
                 ${datadir}/licenses/AUTHORS \
                 ${datadir}/licenses/COPYING-PLAIN"
+
+LICENSE = "BSD-3-Clause"
