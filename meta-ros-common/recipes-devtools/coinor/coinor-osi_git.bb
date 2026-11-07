@@ -1,4 +1,4 @@
-LICENSE = "EPL-2.0-or-later"
+LICENSE = "EPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=44f12365016145dc45da7854fe1d6c8e"
 
 SRC_URI = "git://github.com/coin-or/Osi.git;protocol=https;branch=master"
