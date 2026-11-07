@@ -13,8 +13,10 @@
 
 SUMMARY = "Data files for geographiclib."
 SECTION = "devel"
-# TODO: Check license of data files??
-LICENSE = "CLOSED"
+# The data files are published by US federal agencies (NGA for the EGM96 geoid
+# and gravity models, NOAA for the EMM2015 magnetic model), whose works are in
+# the public domain (17 U.S.C. 105).
+LICENSE = "LicenseRef-PD"
 LIC_FILES_CHKSUM = ""
 
 SRC_URI = " \
