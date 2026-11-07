@@ -5,7 +5,7 @@
 # Superflore replaces it with ""BSD-3-Clause & Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation", but that still doesn't parse well:
 # ERROR: ur-description-2.1.1-1-r0: invalid characters in license 'Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation'
 _LICENSE := "${LICENSE}"
-LICENSE = "${@'${_LICENSE}'.replace('BSD-3-Clause AND Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation', 'BSD-3-Clause AND Universal-Robots-A-S')}"
+LICENSE = "${@'${_LICENSE}'.replace('BSD-3-Clause AND Universal-Robots-A-S’-Terms-and-Conditions-for-Use-of-Graphical-Documentation', 'BSD-3-Clause AND LicenseRef-Universal-Robots-A-S')}"
 
 # ERROR: ur-description: No generic license file exists for: LicenseRef-Universal-Robots-A-S in any provider [license-exists]
 NO_GENERIC_LICENSE[Universal-Robots-A-S] = "meshes/ur20/LICENSE.txt"
