@@ -6,3 +6,5 @@ inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'qt5-widgets']
 
 # Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE)
 inherit pkgconfig
+
+LICENSE = "BSD-3-Clause"

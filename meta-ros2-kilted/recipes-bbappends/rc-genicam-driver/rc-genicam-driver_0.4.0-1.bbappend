@@ -19,3 +19,5 @@ COMPATIBLE_MACHINE:armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvent
 RC_PROJECT_VERSION = "${@'${PV}'.split('-')[0]}"
 
 EXTRA_OECMAKE += "-DRC_PROJECT_VERSION=${RC_PROJECT_VERSION}"
+
+LICENSE = "BSD-3-Clause"
