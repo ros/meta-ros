@@ -7,3 +7,5 @@ inherit ${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'pyqt5'], '', 
 ROS_BUILDTOOL_DEPENDS += "\
     ament-cmake-ros-native \
 "
+
+LICENSE = "BSD-2-Clause"
