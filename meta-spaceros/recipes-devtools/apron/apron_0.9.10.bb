@@ -1,4 +1,4 @@
-LICENSE = "GPL-2.0-only & LGPL-2.1-only"
+LICENSE = "GPL-2.0-only AND LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=f56c8623c809daef0ffab105bc94dc3b \
                     file://apron/COPYING;md5=598db4a507695ea6fedf9f0e0561ea44 \
                     file://apronxx/COPYING.GPL;md5=eb723b61539feef013de476e68b5c50a \
