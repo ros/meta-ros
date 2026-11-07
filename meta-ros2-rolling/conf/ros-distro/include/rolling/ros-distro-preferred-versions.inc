@@ -15,7 +15,7 @@ PREFERRED_VERSION_pcl = "1.14.1"
 PREFERRED_VERSION_sdformat = "16.0.1"
 
 # required for python3-scipy
-PREFERRED_VERSION_python3-gast = "0.6.0"
+PREFERRED_VERSION_python3-gast = "0.7.0"
 
 # python-pygraphviz needed a version < 13
 PREFERRED_VERSION_graphviz = "12.2.1"
