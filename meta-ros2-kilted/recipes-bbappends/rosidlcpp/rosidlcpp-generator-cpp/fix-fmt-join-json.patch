@@ -1,0 +1,69 @@
+Join the namespaces without fmt::join()
+
+fmt::join() over a nlohmann::json array is not formattable with fmt 10.2.1.
+
+fmt/core.h:1604:7: error: static assertion failed: Cannot format an argument. To make type T formattable provide a formatter<T> specialization
+rosidlcpp_generator_cpp.cpp:328:27:   required from here
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/src/rosidlcpp_generator_cpp/rosidlcpp_generator_cpp.cpp
++++ b/src/rosidlcpp_generator_cpp/rosidlcpp_generator_cpp.cpp
+@@ -102,6 +102,20 @@
+ // Floating point types for checking
+ const std::vector<std::string> FLOATING_POINT_TYPES = {"float", "double",
+                                                        "long double"};
++
++namespace {
++// fmt 10 cannot format a nlohmann::json array through fmt::join(), so join the strings by hand.
++auto join_namespaces(const nlohmann::json& namespaces, const std::string& separator) -> std::string {
++  std::string result;
++  for (const auto& ns : namespaces) {
++    if (!result.empty()) {
++      result += separator;
++    }
++    result += ns.get<std::string>();
++  }
++  return result;
++}
++}  // namespace
+ 
+ auto default_value_from_type(const nlohmann::json &type) -> nlohmann::json {
+   if (rosidlcpp_core::is_string(type)) {
+@@ -325,7 +339,7 @@
+   if (rosidlcpp_core::is_primitive(main_type) || rosidlcpp_core::is_string(main_type)) {
+     cpp_type = MSG_TYPE_TO_CPP.at(main_type["name"].get<std::string>());
+   } else if (rosidlcpp_core::is_namespaced(main_type)) {
+-    cpp_type = fmt::format("{}::{}_<ContainerAllocator>", fmt::join(main_type["namespaces"], "::"), main_type["name"].get<std::string>());
++    cpp_type = fmt::format("{}::{}_<ContainerAllocator>", join_namespaces(main_type["namespaces"], "::"), main_type["name"].get<std::string>());
+   } else {
+     throw std::invalid_argument("Unknown type encountered: " + type["name"].get<std::string>());
+   }
+@@ -375,7 +389,7 @@
+       if ((message["type"]["namespaces"].back() == "action" ||
+            message["type"]["namespaces"].back() == "srv") &&
+           (type["name"].get<std::string>().ends_with("_Request") || type["name"].get<std::string>().ends_with("_Response"))) {
+-        type_name = fmt::format("{}::{}", fmt::join(type["namespaces"], "::"), strip_end_until_char(type["name"].get<std::string>(), '_'));
++        type_name = fmt::format("{}::{}", join_namespaces(type["namespaces"], "::"), strip_end_until_char(type["name"].get<std::string>(), '_'));
+         std::string current_struct_type = "";
+         for (const auto &ns :
+              message["type"]["namespaces"]) {
+@@ -506,7 +520,7 @@
+     }
+     if (rosidlcpp_core::is_namespaced(type)) {
+       fixed_template_strings.insert(fmt::format(
+-          "has_fixed_size<{}::{}>::value", fmt::join(type["namespaces"], "::"),
++          "has_fixed_size<{}::{}>::value", join_namespaces(type["namespaces"], "::"),
+           type["name"].get<std::string>()));
+     }
+   }
+@@ -533,7 +547,7 @@
+     }
+     if (rosidlcpp_core::is_namespaced(type)) {
+       bounded_template_strings.insert(fmt::format(
+-          "has_bounded_size<{}::{}>::value", fmt::join(type["namespaces"], "::"),
++          "has_bounded_size<{}::{}>::value", join_namespaces(type["namespaces"], "::"),
+           type["name"].get<std::string>()));
+     }
+   }
