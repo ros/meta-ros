@@ -23,3 +23,5 @@ do_configure:prepend() {
 }
 
 FILES:${PN}-dev += "${libdir}/liblanelet2_traffic_rules.so"
+
+LICENSE = "BSD-3-Clause"

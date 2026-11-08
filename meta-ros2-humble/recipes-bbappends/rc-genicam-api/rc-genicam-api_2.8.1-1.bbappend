@@ -85,3 +85,5 @@ INSANE_SKIP:${PN} += " ldflags"
 sysroot_stage_all:append() {
     sysroot_stage_dir ${D}${bindir} ${SYSROOT_DESTDIR}${bindir}
 }
+
+LICENSE = "BSD-3-Clause"

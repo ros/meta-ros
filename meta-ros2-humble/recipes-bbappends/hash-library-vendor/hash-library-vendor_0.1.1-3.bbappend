@@ -17,3 +17,5 @@ SRCREV_release = "e31045b72d50216a20845e9bd76f689bff2f00f0"
 SRCREV_upstream = "70cc93763d49a24c4536c7f0a23248f9b40e30f5"
 
 SRCREV_FORMAT = "release_upstream"
+
+LICENSE = "Apache-2.0 & Zlib"

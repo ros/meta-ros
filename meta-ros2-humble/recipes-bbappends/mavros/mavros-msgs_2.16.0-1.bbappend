@@ -13,3 +13,5 @@ ROS_BUILD_DEPENDS += " \
     rosidl-typesupport-fastrtps-c-native \
     rosidl-typesupport-fastrtps-cpp-native \
 "
+
+LICENSE = "GPL-3.0-only & LGPL-3.0-only & BSD-3-Clause"

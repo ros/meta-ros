@@ -12,3 +12,5 @@ ROS_BUILDTOOL_DEPENDS += " \
 CXXFLAGS += "-Wno-error=pedantic"
 # error: unused parameter 'foobar' [-Werror=unused-parameter]
 CXXFLAGS += "-Wno-error=unused-parameter"
+
+LICENSE = "BSD-3-Clause"

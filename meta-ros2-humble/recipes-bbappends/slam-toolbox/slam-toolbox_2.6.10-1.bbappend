@@ -18,3 +18,5 @@ inherit pkgconfig
 ROS_BUILDTOOL_DEPENDS += " \
     rosidl-default-generators-native \
 "
+
+LICENSE = "LGPL-2.1-only & LGPL-3.0-or-later"

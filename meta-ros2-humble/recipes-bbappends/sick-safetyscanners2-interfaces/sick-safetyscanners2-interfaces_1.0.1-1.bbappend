@@ -12,3 +12,5 @@ ROS_BUILDTOOL_DEPENDS += " \
     rosidl-typesupport-fastrtps-cpp-native \
     rosidl-typesupport-introspection-cpp-native \
 "
+
+LICENSE = "Apache-2.0"

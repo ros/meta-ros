@@ -3,3 +3,4 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://add-string.patch"
 
+LICENSE = "BSD-3-Clause"
