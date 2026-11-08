@@ -1,0 +1,29 @@
+Join the namespaces from a std::vector<std::string>
+
+fmt::join() over a nlohmann::json array is not formattable with fmt 10.2.1:
+
+generator_utils.cpp:278:21:   required from here
+fmt/core.h:2593:45: error: 'fmt::v10::detail::type_is_unformattable_for<fmt::v10::join_view<nlohmann::json_abi_v3_11_3::detail::iter_impl<const nlohmann::json_abi_v3_11_3::basic_json<> >, ...>, char>' ...
+fmt/core.h:1604:7: error: static assertion failed: Cannot format an argument. To make type T formattable provide a formatter<T> specialization
+
+Copy the namespaces into a std::vector<std::string> first, as
+idl_structure_type_to_c_include_prefix() already does.
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/src/rosidlcpp_generator_core/generator_utils.cpp	2026-11-08 12:02:13.708008934 -0800
++++ b/src/rosidlcpp_generator_core/generator_utils.cpp	2026-11-08 12:02:13.752005394 -0800
+@@ -275,7 +275,11 @@
+  */
+ 
+ auto type_to_c_typename(const nlohmann::json& type) -> std::string {
+-  return fmt::format("{}__{}", fmt::join(type["namespaces"], "__"), type["name"].get<std::string>());
++  std::vector<std::string> namespaces;
++  for (const auto& ns : type["namespaces"]) {
++    namespaces.push_back(ns.get<std::string>());
++  }
++  return fmt::format("{}__{}", fmt::join(namespaces, "__"), type["name"].get<std::string>());
+ }
+ 
+ auto basetype_to_c(const nlohmann::json& type) -> std::string {
