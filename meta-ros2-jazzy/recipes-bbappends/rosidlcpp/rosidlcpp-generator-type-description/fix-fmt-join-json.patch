@@ -1,0 +1,47 @@
+Join the namespaces without fmt::join()
+
+fmt::join() over a nlohmann::json array is not formattable with fmt 10.2.1.
+
+fmt/core.h:1604:7: error: static assertion failed: Cannot format an argument. To make type T formattable provide a formatter<T> specialization
+rosidlcpp_generator_type_description.cpp:73:21:   required from here
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/src/rosidlcpp_generator_type_description/rosidlcpp_generator_type_description.cpp
++++ b/src/rosidlcpp_generator_type_description/rosidlcpp_generator_type_description.cpp
+@@ -67,10 +67,24 @@
+   return oss.str();
+ }
+ 
++namespace {
++// fmt 10 cannot format a nlohmann::json array through fmt::join(), so join the strings by hand.
++auto join_namespaces(const nlohmann::json& namespaces, const std::string& separator) -> std::string {
++  std::string result;
++  for (const auto& ns : namespaces) {
++    if (!result.empty()) {
++      result += separator;
++    }
++    result += ns.get<std::string>();
++  }
++  return result;
++}
++}  // namespace
++
+ auto to_type_name(const nlohmann::json &type) -> std::string {
+   assert(type.contains("namespaces") && "Type is missing namespaces");
+ 
+-  return fmt::format("{}/{}", fmt::join(type["namespaces"], "/"), type["name"].get<std::string>());
++  return fmt::format("{}/{}", join_namespaces(type["namespaces"], "/"), type["name"].get<std::string>());
+ }
+ 
+ void add_message(const nlohmann::json &msg, nlohmann::ordered_json &type_description_json) {
+@@ -286,7 +300,7 @@
+   nlohmann::json value_type = ftype.contains("value_type") ? ftype["value_type"] : ftype;
+ 
+   if (value_type.contains("namespaces")) {
+-    return fmt::format("{}/{}", fmt::join(value_type["namespaces"], "/"), value_type["name"].get<std::string>());
++    return fmt::format("{}/{}", join_namespaces(value_type["namespaces"], "/"), value_type["name"].get<std::string>());
+   }
+ 
+   if (false /* Named type ? */) {  // TODO: Figure out what named types are
