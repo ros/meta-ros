@@ -22,3 +22,12 @@ FILES:${PN} += "${datadir}/ament_index/resource_index/packages/pinocchio"
 # non -dev/-dbg/nativesdk- package pinocchio contains symlink .so '/usr/lib/python3.11/site-packages/pinocchio/pinocchio_pywrap.cpython-311-x86_64-linux-gnu.so' [dev-so]
 # ERROR: pinocchio-4.1.0-1-r0 do_package_qa: QA Issue: non -dev/-dbg/nativesdk- package pinocchio contains symlink .so '/opt/ros/jazzy/lib/libpinocchio_python_parser.so'
 inherit ros_insane_dev_so
+
+# kinematics-interface-pinocchio: CMake Error at recipe-sysroot/opt/ros/jazzy/lib/cmake/pinocchio/pinocchioTargets.cmake:145 (message):
+#   The imported target "pinocchio::pinocchio_pywrap_default" references the file
+#     "/opt/ros/jazzy/lib/python3.12/site-packages/pinocchio/pinocchio_pywrap_default.cpython-312-x86_64-linux-gnu.so.4.1.0"
+#   but this file does not exist.
+# The python modules are exported with an absolute path, make it relative to the install prefix.
+do_install:append() {
+    sed -i -e 's#"${ros_prefix}/lib/python#"${_IMPORT_PREFIX}/lib/python#g' ${D}${ros_prefix}/lib/cmake/pinocchio/pinocchioTargets*.cmake
+}
