@@ -1,0 +1,91 @@
+Do not format nlohmann::json values with fmt 10
+
+fmt 10.2.1, the version in scarthgap, cannot format a nlohmann::json value, or a fmt::join() over a
+nlohmann::json array:
+
+rosidlcpp_typesupport_fastrtps_cpp.cpp:132:52:   required from here
+fmt/core.h:2593:45: error: 'fmt::v10::detail::type_is_unformattable_for<nlohmann::json_abi_v3_11_3::basic_json<>, char> _' has incomplete type
+fmt/core.h:1604:7: error: static assertion failed: Cannot format an argument. To make type T formattable provide a formatter<T> specialization
+
+Join the namespaces with a small helper and pass the type names as std::string.
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/src/rosidlcpp_typesupport_fastrtps_cpp/rosidlcpp_typesupport_fastrtps_cpp.cpp
++++ b/src/rosidlcpp_typesupport_fastrtps_cpp/rosidlcpp_typesupport_fastrtps_cpp.cpp
+@@ -37,6 +37,20 @@
+ #include <unordered_map>
+ #include <utility>
+ #include <vector>
++
++namespace {
++// fmt 10 cannot format a nlohmann::json array through fmt::join(), so join the strings by hand.
++auto join_namespaces(const nlohmann::json& namespaces, const std::string& separator) -> std::string {
++  std::string result;
++  for (const auto& ns : namespaces) {
++    if (!result.empty()) {
++      result += separator;
++    }
++    result += ns.get<std::string>();
++  }
++  return result;
++}
++}  // namespace
+ 
+ auto get_includes(const nlohmann::json& message) -> nlohmann::json {
+   nlohmann::json includes_json = nlohmann::json::array();
+@@ -129,7 +143,7 @@
+       } else {
+         strlist.emplace_back("  for (size_t i = 0; i < " + std::to_string(member["type"]["size"].get<size_t>()) + "; i++) {");
+         if (rosidlcpp_core::is_namespaced(member["type"]["value_type"])) {
+-          strlist.emplace_back("    " + fmt::format("{}", fmt::join(member["type"]["value_type"]["namespaces"], "::")) + "::typesupport_fastrtps_cpp::cdr_serialize" + suffix + "(");
++          strlist.emplace_back("    " + fmt::format("{}", join_namespaces(member["type"]["value_type"]["namespaces"], "::")) + "::typesupport_fastrtps_cpp::cdr_serialize" + suffix + "(");
+           strlist.emplace_back("      ros_message." + member["name"].get<std::string>() + "[i],");
+           strlist.emplace_back("      cdr);");
+         } else {
+@@ -165,7 +179,7 @@
+           } else if (!rosidlcpp_core::is_namespaced(member["type"]["value_type"])) {
+             strlist.emplace_back("    cdr << ros_message." + member["name"].get<std::string>() + "[i];");
+           } else {
+-            strlist.emplace_back("    " + fmt::format("{}", fmt::join(member["type"]["value_type"]["namespaces"], "::"), member["type"]["value_type"]["name"]) + "::typesupport_fastrtps_cpp::cdr_serialize" + suffix + "(");
++            strlist.emplace_back("    " + fmt::format("{}", join_namespaces(member["type"]["value_type"]["namespaces"], "::"), member["type"]["value_type"]["name"].get<std::string>()) + "::typesupport_fastrtps_cpp::cdr_serialize" + suffix + "(");
+             strlist.emplace_back("      ros_message." + member["name"].get<std::string>() + "[i],");
+             strlist.emplace_back("      cdr);");
+           }
+@@ -185,7 +199,7 @@
+   } else if (!rosidlcpp_core::is_namespaced(member["type"])) {
+     strlist.emplace_back("cdr << ros_message." + member["name"].get<std::string>() + ";");
+   } else {
+-    strlist.emplace_back(fmt::format("{}", fmt::join(member["type"]["namespaces"], "::"), member["type"]["name"]) + "::typesupport_fastrtps_cpp::cdr_serialize" + suffix + "(");
++    strlist.emplace_back(fmt::format("{}", join_namespaces(member["type"]["namespaces"], "::"), member["type"]["name"].get<std::string>()) + "::typesupport_fastrtps_cpp::cdr_serialize" + suffix + "(");
+     strlist.emplace_back("  ros_message." + member["name"].get<std::string>() + ",");
+     strlist.emplace_back("  cdr);");
+   }
+@@ -226,7 +240,7 @@
+     } else {
+       strlist.emplace_back("  for (size_t index = 0; index < array_size; ++index) {");
+       strlist.emplace_back("    current_alignment +=");
+-      strlist.emplace_back("      " + fmt::format("{}", fmt::join(member["type"]["value_type"]["namespaces"], "::")) + "::typesupport_fastrtps_cpp::get_serialized_size" + suffix + "(");
++      strlist.emplace_back("      " + fmt::format("{}", join_namespaces(member["type"]["value_type"]["namespaces"], "::")) + "::typesupport_fastrtps_cpp::get_serialized_size" + suffix + "(");
+       strlist.emplace_back("      ros_message." + member["name"].get<std::string>() + "[index], current_alignment);");
+       strlist.emplace_back("  }");
+     }
+@@ -247,7 +261,7 @@
+       strlist.emplace_back("}");
+     } else {
+       strlist.emplace_back("current_alignment +=");
+-      strlist.emplace_back("  " + fmt::format("{}", fmt::join(member["type"]["namespaces"], "::"), member["type"]["name"]) + "::typesupport_fastrtps_cpp::get_serialized_size" + suffix + "(");
++      strlist.emplace_back("  " + fmt::format("{}", join_namespaces(member["type"]["namespaces"], "::"), member["type"]["name"].get<std::string>()) + "::typesupport_fastrtps_cpp::get_serialized_size" + suffix + "(");
+       strlist.emplace_back("  ros_message." + member["name"].get<std::string>() + ", current_alignment);");
+     }
+   }
+@@ -326,7 +340,7 @@
+     strlist.emplace_back("    bool inner_full_bounded;");
+     strlist.emplace_back("    bool inner_is_plain;");
+     strlist.emplace_back("    size_t inner_size =");
+-    strlist.emplace_back("      " + fmt::format("{}", fmt::join(type["namespaces"], "::")) + "::typesupport_fastrtps_cpp::max_serialized_size" + suffix + "_" + type["name"].get<std::string>() + "(");
++    strlist.emplace_back("      " + fmt::format("{}", join_namespaces(type["namespaces"], "::")) + "::typesupport_fastrtps_cpp::max_serialized_size" + suffix + "_" + type["name"].get<std::string>() + "(");
+     strlist.emplace_back("      inner_full_bounded, inner_is_plain, current_alignment);");
+     strlist.emplace_back("    last_member_size += inner_size;");
+     strlist.emplace_back("    current_alignment += inner_size;");
