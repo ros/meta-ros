@@ -7,5 +7,4 @@ ROS_BUILDTOOL_DEPENDS += " \
 "
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://disable-compiler-options.patch \
-            file://use-upstream-tl-expected.patch"
+SRC_URI += "file://disable-compiler-options.patch"
