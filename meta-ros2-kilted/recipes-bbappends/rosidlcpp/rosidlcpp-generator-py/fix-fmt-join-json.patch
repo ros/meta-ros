@@ -1,0 +1,60 @@
+Join the Python values without fmt::join()
+
+fmt::join() over a std::vector<nlohmann::json> is not formattable with fmt 10.2.1.
+
+fmt/core.h:1604:7: error: static assertion failed: Cannot format an argument. To make type T formattable provide a formatter<T> specialization
+rosidlcpp_generator_py.cpp:293:25:   required from here
+
+Upstream-Status: Pending
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/src/rosidlcpp_generator_py/rosidlcpp_generator_py.cpp
++++ b/src/rosidlcpp_generator_py/rosidlcpp_generator_py.cpp
+@@ -275,6 +275,21 @@
+   return result;
+ }
+ 
++namespace {
++// fmt 10 cannot format a std::vector<nlohmann::json> through fmt::join(). The elements are the
++// strings returned by primitive_value_to_py(), so join them as strings.
++auto join_values(const std::vector<nlohmann::json>& values, const std::string& separator) -> std::string {
++  std::string result;
++  for (const auto& value : values) {
++    if (!result.empty()) {
++      result += separator;
++    }
++    result += value.get<std::string>();
++  }
++  return result;
++}
++}  // namespace
++
+ auto value_to_py(const nlohmann::json& type, const nlohmann::json& value) -> nlohmann::json {
+   if (!rosidlcpp_core::is_nestedtype(type)) {
+     return primitive_value_to_py(type, value);
+@@ -291,7 +306,7 @@
+       SPECIAL_NESTED_BASIC_TYPES.contains(type["value_type"]["name"])) {
+     if (rosidlcpp_core::is_array(type)) {
+       return fmt::format(
+-          "numpy.array(({}, ), dtype={})", fmt::join(py_values, ", "),
++          "numpy.array(({}, ), dtype={})", join_values(py_values, ", "),
+           SPECIAL_NESTED_BASIC_TYPES.at(type["value_type"]["name"])
+               .dtype);
+     }
+@@ -300,11 +315,11 @@
+           "array.array('{}', ({}, ))",
+           SPECIAL_NESTED_BASIC_TYPES.at(type["value_type"]["name"])
+               .type_code,
+-          fmt::join(py_values, ", "));
+-    }
+-  }
+-
+-  return fmt::format("[{}]", fmt::join(py_values, ", "));
++          join_values(py_values, ", "));
++    }
++  }
++
++  return fmt::format("[{}]", join_values(py_values, ", "));
+ }
+ 
+ auto get_rosidl_parser_type(const nlohmann::json& type) -> nlohmann::json {
