@@ -1,5 +1,6 @@
 # Copyright (c) 2024 Wind River Systems, Inc.
 
+LICENSE = "BSD-3-Clause & Apache-2.0"
 
 inherit python3targetconfig
 
