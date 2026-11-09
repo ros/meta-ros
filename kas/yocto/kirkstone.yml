@@ -47,7 +47,3 @@ repos:
     branch: "master"
     layers:
       meta-python-ai: "disabled"
-
-local_conf_header:
-  distro: |
-    WARN_QA:remove = "license-exists"
