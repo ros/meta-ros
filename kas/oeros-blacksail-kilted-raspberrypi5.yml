@@ -1,0 +1,20 @@
+header:
+  version: 14
+  includes:
+    - kas/yocto/blacksail.yml
+    - kas/ros2/kilted.yml
+    - kas/machine/raspberrypi5.yml
+    - kas/common.yml
+    - kas/layer/qt5.yml
+
+repos:
+  clang:
+    branch: "master"
+  clang-revival:
+    branch: "main"
+  python-ai:
+    branch: "master"
+  raspberrypi:
+    branch: "master"
+  zenoh:
+    branch: "master"
