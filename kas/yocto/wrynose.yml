@@ -9,7 +9,7 @@ defaults:
 repos:
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core.git"
-    commit: "a2cc1f5b86f3cdc9ad3257a2545322c5169da3ca"
+    commit: "0f03c732a0a2d0506b41b1abe60b3f368b2300dc"
     path: "layers/openembedded-core"
     layers:
       meta:
