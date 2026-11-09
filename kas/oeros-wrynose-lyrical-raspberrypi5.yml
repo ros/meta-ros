@@ -6,7 +6,3 @@ header:
     - kas/machine/raspberrypi5.yml
     - kas/common.yml
     - kas/layer/qt6.yml
-
-repos:
-  zenoh:
-    branch: "master"
