@@ -1,0 +1,75 @@
+From 94d1cc067da9fd3cde395129304633777abc9dcd Mon Sep 17 00:00:00 2001
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Date: Sun, 5 Jul 2026 21:03:27 +0200
+Subject: [PATCH 2/2] ptest: /bin/bash is not installed
+
+the /bin/sh points to the busybox shell
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Jan Vermaete <jan.vermaete@gmail.com>
+---
+ test/source/noop-not-installed.rdmanifest | 4 ++--
+ test/test_rosdep_source.py                | 8 ++++----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/test/source/noop-not-installed.rdmanifest b/test/source/noop-not-installed.rdmanifest
+index 8eac4c6..e629909 100644
+--- a/test/source/noop-not-installed.rdmanifest
++++ b/test/source/noop-not-installed.rdmanifest
+@@ -1,10 +1,10 @@
+ uri: 'http://download.ros.org/downloads/yaml-cpp-0.2.5.tar.gz'
+ md5sum: b17dc36055cd2259c88b2602601415d9
+ install-script: |
+-  #!/bin/bash
++  #!/bin/sh
+   echo "noop"
+ check-presence-script: |
+-  #!/bin/bash
++  #!/bin/sh
+   exit 1
+ exec-path: yaml-cpp-0.2.5
+ depends: []
+diff --git a/test/test_rosdep_source.py b/test/test_rosdep_source.py
+index d0a8ae1..6843532 100644
+--- a/test/test_rosdep_source.py
++++ b/test/test_rosdep_source.py
+@@ -141,7 +141,7 @@ def test_SourceInstall():
+ def test_is_installed():
+     from rosdep2.platforms.source import SourceInstaller, SourceInstall
+     resolved = SourceInstall()
+-    resolved.check_presence_command = """#!/bin/bash
++    resolved.check_presence_command = """#!/bin/sh
+ exit 0
+ """
+     installer = SourceInstaller()
+@@ -151,7 +151,7 @@ exit 0
+ def test_source_detect():
+     from rosdep2.platforms.source import source_detect, SourceInstall
+     resolved = SourceInstall()
+-    resolved.check_presence_command = """#!/bin/bash
++    resolved.check_presence_command = """#!/bin/sh
+ exit 0
+ """
+     assert [] == source_detect([])
+@@ -178,7 +178,7 @@ def test_SourceInstaller_get_install_command():
+ 
+     resolved = SourceInstall()
+     resolved.manifest_url = 'http://fake/foo'
+-    resolved.check_presence_command = """#!/bin/bash
++    resolved.check_presence_command = """#!/bin/sh
+ exit 1
+ """
+     commands = installer.get_install_command([resolved])
+@@ -187,7 +187,7 @@ exit 1
+ 
+     resolved = SourceInstall()
+     resolved.manifest_url = 'http://fake/foo'
+-    resolved.check_presence_command = """#!/bin/bash
++    resolved.check_presence_command = """#!/bin/sh
+ exit 0
+ """
+     commands = installer.get_install_command([resolved])
+-- 
+2.47.3
+
