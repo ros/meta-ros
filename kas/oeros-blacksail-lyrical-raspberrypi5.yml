@@ -8,5 +8,13 @@ header:
     - kas/layer/qt6.yml
 
 repos:
+  clang:
+    branch: "master"
+  clang-revival:
+    branch: "main"
+  python-ai:
+    branch: "master"
+  raspberrypi:
+    branch: "master"
   zenoh:
     branch: "master"
