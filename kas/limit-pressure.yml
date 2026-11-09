@@ -4,6 +4,8 @@ header:
 local_conf_header:
   bb_limit_pressure: |
     BB_NICE_LEVEL = "11"
-    BB_PRESSURE_MAX_CPU = "100000"
-    BB_PRESSURE_MAX_IO = "50000"
-    BB_PRESSURE_MAX_MEMORY = "10000"
+    BB_NUMBER_THREADS = "8"
+    PARALLEL_MAKE = "-j 24"
+    BB_PRESSURE_MAX_CPU = "10000"
+    BB_PRESSURE_MAX_IO = "10000"
+    BB_PRESSURE_MAX_MEMORY = "100"
