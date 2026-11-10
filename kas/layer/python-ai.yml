@@ -10,5 +10,5 @@ local_conf_header:
   python-ai: |
     FORTRAN:forcevariable = ",fortran"
     RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
-    HOSTTOOLS += "gfortran"
+    # HOSTTOOLS += "gfortran"
     # TOOLCHAIN_TARGET_TASK:append = " gfortran"
