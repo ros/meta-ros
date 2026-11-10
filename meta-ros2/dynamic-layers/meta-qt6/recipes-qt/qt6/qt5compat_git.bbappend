@@ -1,1 +1,1 @@
-LICENSE = "BSD-2-Clause AND (BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-3.0-only AND LicenseRef-Qt-GPL-exception-1.0 AND (GPL-2.0-only OR GPL-3.0-only OR LGPL-3.0-only) OR LicenseRef-The-Qt-Company-Commercial)"
+LICENSE = "BSD-2-Clause & (BSD-3-Clause & GFDL-1.3-no-invariants-only & GPL-3.0-only & LicenseRef-Qt-GPL-exception-1.0 & (GPL-2.0-only | GPL-3.0-only | LGPL-3.0-only) | LicenseRef-The-Qt-Company-Commercial)"

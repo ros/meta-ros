@@ -9,6 +9,7 @@ SRC_URI = " \
 "
 
 SRCREV_release = "f497d7a93e175c4693592f0b67999a1822666eb7"
+# No tagged release matches this commit upstream; pinned to a specific commit on the main branch
 SRCREV_upstream = "1063c9adbafc25f5a14bae15c3babdb039de86c6"
 SRCREV_FORMAT = "release_upstream"
 
