@@ -17,6 +17,8 @@ builds, see the [advanced usage guide](ADVANCED.md).
 For example, `oeros-wrynose-lyrical-raspberrypi5.yml` builds ROS 2 Lyrical on
 Yocto Wrynose for a Raspberry Pi 5.
 
+For advanced usage of `kas` including ways to customize the configuration files, check out the [advanced usage guide](ADVANCED.md).
+
 ## Config files
 
 Each ready-to-build config only includes smaller fragments, which you can mix
