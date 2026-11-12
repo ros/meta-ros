@@ -1,5 +1,7 @@
 # Copyright (c) 2019 LG Electronics, Inc.
 
+EXTRA_OECMAKE:append = " -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI:append = " \
     file://add-vars.patch \
