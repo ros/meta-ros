@@ -1,56 +1,53 @@
-# Building meta-ros with kas
+# meta-ros kas configuration files
 
-Here are simple instructions for getting started building the long-term support
-releases of Yocto Project Wrynose and ROS 2 Lyrical.  Documentation for kas can be
-found at https://kas.readthedocs.io/en/latest/
+This directory contains the kas configuration files for building an embedded Linux
+image with a Yocto Project release and a ROS 2 distro.
 
-## Installing kas
+New to kas? Start with the [getting started guide](BUILD.md). To customize
+builds, see the [advanced usage guide](ADVANCED.md).
 
-To create a Python virtual environment to install kas run these commands:
-```
-python3 -m venv venv
-source venv/bin/activate
-pip3 install kas
-```
+## Reading a config name
 
-## Clone the meta-ros build branch
-After you have sourced the environment where kas is installed you may get the
-kas configuration by cloning the build branch of meta-ros:
-```
-git clone -b build https://github.com/ros/meta-ros
-```
+`oeros-<yocto>-<ros>-<machine>.yml` picks three things:
 
-## Running kas
-Create a new project directory wherever you want and set the KAS_WORK_DIR 
-environment variable to point to it.  Then run kas with the configuration file
-for Yocto Kirkstone release and ROS 2 Humble distribution for the
-Raspberry Pi 4.
-```
-mkdir $PROJECT_DIR
-KAS_WORK_DIR=$PROJECT_DIR
-kas build meta-ros/kas/oeros-wrynose-lyrical-raspberrypi4-64.yml
-```
+- `<yocto>`: the Yocto release, such as `wrynose`
+- `<ros>`: the ROS distro, such as `lyrical`
+- `<machine>`: the board, such as `raspberrypi5`
 
-This should complete successfully and produce an image you can write to the
-sdcard.
+For example, `oeros-wrynose-lyrical-raspberrypi5.yml` builds ROS 2 Lyrical on
+Yocto Wrynose for a Raspberry Pi 5.
 
-```
-build/tmp-glibc/deploy/images/raspberrypi4-64/ros-image-core-lyrical-raspberrypi4-64.rootfs.wic.bz2
+## Config files
+
+Each ready-to-build config only includes smaller fragments, which you can mix
+yourself (see [ADVANCED.md](ADVANCED.md)):
+
+```yaml
+# kas/oeros-wrynose-lyrical-raspberrypi5.yml
+header:
+  version: 14
+  includes:
+    - kas/yocto/wrynose.yml       # oe-core, bitbake, meta-yocto, meta-openembedded, pinned
+    - kas/ros2/lyrical.yml        # meta-ros layers, DISTRO = ros2, target ros-image-core
+    - kas/machine/raspberrypi5.yml  # MACHINE and meta-raspberrypi
+    - kas/common.yml              # shared settings and layers
+    - kas/layer/qt6.yml           # Qt 6 for this ROS distro
 ```
 
-## Writing the image
+Include paths are relative to the root of the meta-ros `build` checkout.
 
-If using [Balena Etcher](https://etcher.balena.io/), you may provide it with
-this file directly.
-
-If using dd, you must first decompress the bzip2 file.
-
-If using bmaptool, you may follow the instructions here:
-https://docs.yoctoproject.org/dev/dev-manual/bmaptool.html
-
-Since we have already produced the wic file you may use the following example
-with the last 2 arguments replaced with the path to the wic file and to the 
-SD card you wish to write:
-```
-oe-run-native bmaptool-native bmaptool copy <build-directory/tmp/deploy/images/machine/image.wic> </dev/sdX>
-```
+| Directory or file | What it sets |
+| --- | --- |
+| `yocto/<release>.yml` | The default branch for every repo, plus oe-core, bitbake and meta-openembedded pinned to a Yocto point release. `master.yml` is not pinned. |
+| `ros1/`, `ros2/`, `spaceros/` | Which meta-ros layers to enable, the `distro` (`ros1` or `ros2`) and the default target, `ros-image-core`. meta-ros itself follows the branch set by the Yocto file. |
+| `machine/<machine>.yml` | `MACHINE` and its BSP layer: qemux86-64, qemuarm64, raspberrypi0-2w-64, raspberrypi4-64, raspberrypi5, jetson-agx-xavier-devkit, jetson-orin-nano-devkit, polarfire-soc-icicle-kit-es. |
+| `layer/*.yml` | One optional third-party layer each: clang, clang-revival, lts-mixins, python-ai, qt5, qt6, realsense, tasklogger, virtualization, zenoh. |
+| `common.yml` | Layers and `local.conf` settings used by every config: usrmerge, `rm_work`, `report-error`, debug-friendly image features. |
+| `systemd.yml` | Switches init to systemd. |
+| `visualization.yml` | Adds x11, opengl, vulkan and Tk for GUI tools such as RViz. |
+| `world.yml` | Extra `DISTRO_FEATURES` needed to build `ros-image-world`. |
+| `diskmon.yml` | Stops the build cleanly before a disk fills up. |
+| `limit-pressure.yml` | Caps bitbake threads and uses pressure limits so a desktop stays usable. |
+| `buildci.yml` | Turns on buildhistory and buildstats. |
+| `awsci.yml` | The project's own S3 download and sstate mirrors. CI only; it needs credentials you will not have. |
+| `oeros-devel.yml` | master + Rolling + qemux86-64, for working on the next release. |
