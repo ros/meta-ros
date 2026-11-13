@@ -1,0 +1,25 @@
+From: Jan Vermaete <jan.vermaete@gmail.com>
+Subject: [PATCH] CMakeLists.txt: Drop obsolete Boost.System component
+
+Boost.System is header-only in current Boost releases and no longer provides
+a separate CMake package configuration. Do not request it as a component.
+
+Upstream-Status: Pending
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5db0f14..f2b40e8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,7 +9,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+   add_compile_options(-Wall -Wextra -Wpedantic)
+ endif()
+ 
+-find_package(Boost REQUIRED COMPONENTS thread system filesystem)
++find_package(Boost REQUIRED COMPONENTS thread filesystem)
+ 
+ set(CATKIN_DISABLED false CACHE BOOL "Disable the catkin build, useful if catkin is present but a build outside of ros is done")
+ if(NOT CATKIN_DISABLED)
