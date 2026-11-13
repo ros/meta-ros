@@ -5,6 +5,7 @@ LICENSE = "BSD-3-Clause"
 
 EXTRA_OECMAKE:append = " -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
+INSANE_SKIP:${PN}-dev += "buildpaths"
 
 # In new version the dependencies were removed from ROS_EXPORT_DEPENDS
 # and are only in ROS_EXEC_DEPENDS.
