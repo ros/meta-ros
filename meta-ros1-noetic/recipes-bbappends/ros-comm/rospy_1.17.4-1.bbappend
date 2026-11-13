@@ -3,6 +3,9 @@
 
 LICENSE = "BSD-3-Clause"
 
+EXTRA_OECMAKE:append = " -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+
 # In new version the dependencies were removed from ROS_EXPORT_DEPENDS
 # and are only in ROS_EXEC_DEPENDS.
 # https://github.com/ros-gbp/ros_comm-release/compare/release/melodic/rospy/1.14.3-0...release/melodic/rospy/1.14.5-1#diff-34ae68f4adad56c25c5bc05dcb64794eL30
