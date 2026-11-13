@@ -7,3 +7,5 @@ ROS_BUILD_DEPENDS += " \
 LICENSE = "BSD-3-Clause"
 
 EXTRA_OECMAKE:append = " -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+INSANE_SKIP:${PN}-dev += "buildpaths"
