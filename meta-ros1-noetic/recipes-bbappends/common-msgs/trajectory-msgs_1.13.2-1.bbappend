@@ -8,3 +8,5 @@ EXTRA_OECMAKE:append = " -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 ROS_BUILDTOOL_DEPENDS += " \
     ${PYTHON_PN}-pyyaml-native \
 "
+
+INSANE_SKIP:${PN}-dev += "buildpaths"
