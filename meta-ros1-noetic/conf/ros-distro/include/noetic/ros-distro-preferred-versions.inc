@@ -10,3 +10,6 @@
 # This is necessary as with ROS1 many recipes fail to build
 # as documented in https://github.com/ros/meta-ros/pull/936
 PREFERRED_VERSION_pcl = "1.10.1"
+
+# class-loader needed Poco at C++11, so at version < 14
+PREFERRED_VERSION_poco = "1.13.3"
