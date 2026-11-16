@@ -1,0 +1,171 @@
+# Runs the Yocto Project's yocto-check-layer script against each meta-ros
+# sub-layer.
+#
+# yocto-check-layer checks one layer at a time, and the ROS distro layers
+# can't be loaded together, so every sub-layer gets its own matrix job. Each
+# job passes all the other meta-ros layers (plus meta-oe and meta-python) as
+# candidate dependencies; yocto-check-layer only adds the ones the layer under
+# test names in LAYERDEPENDS. Parent layers such as meta-ros2 are therefore
+# checked on their own, without any ROS distro layer.
+#
+# Only the hard LAYERDEPENDS are provided. The optional layers wired up via
+# BBFILES_DYNAMIC (meta-qt5, meta-qt6, meta-zenoh, meta-python-ai) are not,
+# so dynamic-layers/ content is not exercised here.
+#
+# yocto-check-layer only parses recipes and computes task signatures; nothing
+# is fetched or built.
+#
+# When porting this workflow to another branch, update the *_BRANCH values
+# below to the bitbake/oe-core/meta-openembedded branches matching that
+# branch's LAYERSERIES_COMPAT; the first check step fails if they disagree.
+name: yocto-check-layer
+
+# Manual only: dispatch from the Actions tab (or `gh workflow run`), which
+# already requires write access to the repository.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  BITBAKE_BRANCH: master
+  OE_CORE_BRANCH: master
+  META_OE_BRANCH: master
+
+jobs:
+  yocto-check-layer:
+    name: ${{ matrix.layer }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    # Report-only for now: existing violations are expected (e.g. patches
+    # without Upstream-Status, bbappends to oe-core recipes changing
+    # signatures). Remove this once every layer passes so failures block.
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        layer:
+          - meta-ros-common
+          - meta-ros1
+          - meta-ros1-noetic
+          - meta-ros2
+          - meta-ros2-humble
+          - meta-ros2-jazzy
+          - meta-ros2-kilted
+          - meta-ros2-lyrical
+          - meta-ros2-rolling
+          - meta-spaceros
+          - meta-spaceros-jazzy
+    steps:
+      - name: Check out meta-ros
+        uses: actions/checkout@v4
+        with:
+          path: meta-ros
+
+      - name: Install build host packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential chrpath cpio debianutils diffstat file gawk gcc \
+            git iputils-ping libacl1 liblz4-tool locales python3 \
+            python3-git python3-jinja2 python3-pexpect python3-subunit \
+            socat texinfo unzip wget xz-utils zstd
+          sudo locale-gen en_US.UTF-8
+          # BitBake needs unprivileged user namespaces, which Ubuntu 24.04
+          # restricts through AppArmor by default
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Clone bitbake, openembedded-core and meta-openembedded
+        run: |
+          git clone --depth 1 --branch "$BITBAKE_BRANCH" \
+            https://git.openembedded.org/bitbake bitbake
+          git clone --depth 1 --branch "$OE_CORE_BRANCH" \
+            https://git.openembedded.org/openembedded-core openembedded-core
+          git clone --depth 1 --branch "$META_OE_BRANCH" \
+            https://github.com/openembedded/meta-openembedded.git meta-openembedded
+          for repo in bitbake openembedded-core meta-openembedded; do
+            echo "$repo: $(git -C "$repo" log -1 --format='%H %cs %s')"
+          done
+
+      - name: Check oe-core matches LAYERSERIES_COMPAT
+        run: |
+          layer_conf="meta-ros/${{ matrix.layer }}/conf/layer.conf"
+          compat=$(sed -n 's/^LAYERSERIES_COMPAT_[^ ]* *= *"\(.*\)"/\1/p' "$layer_conf")
+          corenames=$(sed -n 's/^LAYERSERIES_CORENAMES *= *"\(.*\)"/\1/p' openembedded-core/meta/conf/layer.conf)
+          for series in $compat; do
+            if grep -qw "$series" <<<"$corenames"; then
+              exit 0
+            fi
+          done
+          echo "::error file=$layer_conf::LAYERSERIES_COMPAT is \"$compat\" but openembedded-core $OE_CORE_BRANCH provides \"$corenames\"; update the *_BRANCH values in this workflow"
+          exit 1
+
+      - name: Run yocto-check-layer
+        env:
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+          LAYER: ${{ matrix.layer }}
+        run: |
+          # Candidate dependencies: meta-oe, meta-python and every meta-ros
+          # sub-layer except the one under test. Passed by exact path with
+          # --no-auto, since auto-detection also picks up recipe directories
+          # that happen to contain conf/.
+          dependencies=(
+            "$GITHUB_WORKSPACE/meta-openembedded/meta-oe"
+            "$GITHUB_WORKSPACE/meta-openembedded/meta-python"
+          )
+          for dir in "$GITHUB_WORKSPACE"/meta-ros/meta-*/; do
+            dir=${dir%/}
+            [[ $(basename "$dir") == "$LAYER" ]] || dependencies+=("$dir")
+          done
+
+          source openembedded-core/oe-init-build-env build "$GITHUB_WORKSPACE/bitbake"
+
+          # yocto-check-layer first runs "bitbake world" without the layer
+          # under test, and that run must succeed before the layer is checked.
+          # Keep every dependency layer out of world so world is oe-core plus
+          # the layer under test: their recipes are still parsed and still
+          # pulled in wherever the layer under test needs them, and the
+          # signature check still catches changes to oe-core recipes. Parent
+          # ROS layers get their own matrix jobs.
+          for layer in "${dependencies[@]}"; do
+            sed -n 's/^BBFILE_COLLECTIONS *+= *" *\([^" ]*\) *"/EXCLUDE_FROM_WORLD:layer-\1 = "1"/p' "$layer/conf/layer.conf"
+          done | tee -a conf/local.conf
+
+          yocto-check-layer \
+            --no-auto \
+            --no-auto-dependency \
+            --output-log "$GITHUB_WORKSPACE/yocto-check-layer.log" \
+            --dependency "${dependencies[@]}" \
+            -- "$GITHUB_WORKSPACE/meta-ros/$LAYER"
+
+      - name: Summarize results
+        if: always()
+        env:
+          LAYER: ${{ matrix.layer }}
+        run: |
+          log=yocto-check-layer.log
+          {
+            echo "## yocto-check-layer: $LAYER"
+            if [[ ! -f $log ]]; then
+              echo "No log produced; see the job output."
+              exit 0
+            fi
+            echo '```'
+            grep -E '^INFO: (FAIL|ERROR): test_|\.\.\. (ok|FAIL|ERROR|skipped)' "$log" || true
+            sed -n '/Summary of results/,$p' "$log"
+            echo '```'
+          } >>"$GITHUB_STEP_SUMMARY"
+
+      - name: Upload log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yocto-check-layer-${{ matrix.layer }}
+          path: yocto-check-layer.log
+          if-no-files-found: ignore

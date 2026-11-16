@@ -117,7 +117,10 @@ anything under `recipes-*` or `generated-recipes`.
   under the given path has an `Upstream-Status:` line and is referenced
   by some recipe. Run this yourself before submitting a PR that adds or
   touches a patch file — it is not currently wired into any active CI
-  check.
+  check. (`yocto-check-layer.yml`'s `test_patches_upstream_status`
+  covers the `Upstream-Status:` half, but that workflow is report-only
+  for now and doesn't check that patches are referenced.)
+
 - `ros-cherrypick.sh` — ports bbappend patches between ROS-distro layers
   within the same Yocto branch (e.g. humble → iron); see its header
   comment for a worked example.
@@ -127,6 +130,19 @@ anything under `recipes-*` or `generated-recipes`.
   distros are due for a `generate_recipes.yml` run. Backs the scheduled
   `check-rosdistro-tags.yml` workflow; safe to run locally/read-only at
   any time to check staleness without dispatching anything.
+
+## CI: `yocto-check-layer.yml`
+
+Runs oe-core's `yocto-check-layer` against each of the 11 sub-layers
+in a matrix. It runs only when dispatched manually (`workflow_dispatch`:
+Actions tab or `gh workflow run yocto-check-layer.yml`), never on push
+or pull request, against shallow clones
+of bitbake/oe-core/meta-openembedded at the branches set in the
+workflow's `env` (keep these in sync with `LAYERSERIES_COMPAT` when
+porting to another branch). Only hard `LAYERDEPENDS` are provided, so
+`dynamic-layers/` content isn't exercised. Jobs are `continue-on-error`
+(report-only) until existing violations are cleared; per-layer results
+are in each job's summary and the uploaded log artifact.
 
 ## Before you touch a recipe
 
