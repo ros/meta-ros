@@ -20,6 +20,7 @@ how to fix a generated recipe.
 - `openembedded-layer` (meta-openembedded)
 - `ros-common-layer` (`meta-ros-common`)
 - `ros2-layer` (`meta-ros2`)
+- `spaceros-layer` (`meta-spaceros`)
 
 ## Compatibility
 
