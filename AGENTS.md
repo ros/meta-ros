@@ -71,14 +71,18 @@ anything under `recipes-*` or `generated-recipes`.
 ## Branch model
 
 - `master` tracks the Yocto Project release series currently under
-  development.
+  development (currently `garburn`; `blacksail` has been released and
+  has its own branch).
 - Branches named after Yocto releases (e.g. `scarthgap`, `wrynose`) track
   that release's support lifecycle; commit history there is linear —
   don't rebase/rewrite it. **Each branch's `conf/layer.conf` sets
   `LAYERSERIES_COMPAT` to that branch's own release only** (e.g. the
-  `scarthgap` branch is `"scarthgap"`, `master`/`wrynose` are
-  `"wrynose"`) — this is deliberate per-branch scoping, not something to
-  "fix" by unioning values across branches.
+  `scarthgap` branch is `"scarthgap"`, `wrynose` is `"wrynose"`,
+  `blacksail` is `"blacksail"`) — this is deliberate per-branch scoping,
+  not something to "fix" by unioning values across branches. `master`
+  instead follows whatever oe-core `master` advertises in
+  `LAYERSERIES_CORENAMES`; that is still `"blacksail"` early in the
+  `garburn` cycle, until oe-core switches to the new codename.
 - `<branch>-next` branches stage commits pending merge into the
   corresponding unsuffixed branch; history there *may* be rewritten, so
   treat it as unstable.
