@@ -28,4 +28,7 @@ inherit cmake python3native pkgconfig
 
 EXTRA_OECMAKE += "-DAPRON_ROOT=${STAGING_DIR_HOST}${libdir}"
 
+# CMake 4 rejects cmake_minimum_required() below 3.5, which ikos still uses.
+EXTRA_OECMAKE += "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 BBCLASSEXTEND = "native nativesdk"
