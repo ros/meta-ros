@@ -13,3 +13,5 @@ AUTOTOOLS_AUTORECONF = "no"
 do_configure() {
     oe_runconf
 }
+
+BBCLASSEXTEND = "native nativesdk"

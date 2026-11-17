@@ -39,9 +39,9 @@ DEPENDS = "gmp mpfr ppl"
 do_configure () {
         cp ${S}/Makefile.config.model ${S}/Makefile.config
         sed -i -e "s,^# APRON_PREFIX = /usr,APRON_PREFIX = ${D}${prefix}," ${S}/Makefile.config
-        sed -i -e "s,^# GMP_PREFIX = /usr,GMP_PREFIX = ${RECIPE_SYSROOT}${prefix}," ${S}/Makefile.config
-        sed -i -e "s,^# PPL_PREFIX = /usr,PPL_PREFIX = ${RECIPE_SYSROOT}${prefix}," ${S}/Makefile.config
-        sed -i -e "s,^# MPFR_PREFIX = /usr,MPFR_PREFIX = ${RECIPE_SYSROOT}${prefix}," ${S}/Makefile.config
+        sed -i -e "s,^# GMP_PREFIX = /usr,GMP_PREFIX = ${STAGING_DIR_HOST}${prefix}," ${S}/Makefile.config
+        sed -i -e "s,^# PPL_PREFIX = /usr,PPL_PREFIX = ${STAGING_DIR_HOST}${prefix}," ${S}/Makefile.config
+        sed -i -e "s,^# MPFR_PREFIX = /usr,MPFR_PREFIX = ${STAGING_DIR_HOST}${prefix}," ${S}/Makefile.config
         sed -i -e "s,\$(PREFIX)/lib,\$(PREFIX)/${baselib},g" ${S}/*/Makefile
 }
 
@@ -70,3 +70,5 @@ do_install () {
 
 FILES:${PN} = "${libdir}/*.mli ${libdir}/*.idl ${libdir}/*.ml ${libdir}/*.so"
 FILES:${PN}-dev = "${includedir}"
+
+BBCLASSEXTEND = "native nativesdk"
