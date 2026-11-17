@@ -3,6 +3,8 @@ From: =?UTF-8?q?St=C3=A9phane=20Caron?= <stephane.caron@normalesup.org>
 Date: Thu, 20 Apr 2023 16:18:57 +0200
 Subject: [PATCH] Add missing boost include
 
+Upstream-Status: Backport [https://github.com/humanoid-path-planner/hpp-fcl/commit/2313893292844742b9e915dbd2373fe236106e89]
+
 ---
  python/broadphase/broadphase_collision_manager.hh | 1 +
  1 file changed, 1 insertion(+)
