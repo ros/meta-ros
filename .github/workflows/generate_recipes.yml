@@ -20,6 +20,9 @@ on:
         required: true
         type: boolean
         default: false
+concurrency:
+  group: generate-bitbake-recipes
+  cancel-in-progress: false
 jobs:
   generate-recipes:
     runs-on: ubuntu-latest
