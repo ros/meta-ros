@@ -3,6 +3,8 @@ From: Roland Stigge <stigge@antcom.de>
 Date: Sun, 17 May 2015 22:23:08 +0200
 Subject: [PATCH] Enabled ppc
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 ---
  Include/Linux-Powerpc/XnPlatformLinux-Powerpc.h | 44 +++++++++++++++++++++++++
  Include/XnOS.h                                  |  2 +-

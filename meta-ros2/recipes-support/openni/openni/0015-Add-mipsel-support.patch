@@ -1,3 +1,5 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 Index: new.openni-1.5.4.0/Include/XnPlatform.h
 ===================================================================
 --- new.openni-1.5.4.0.orig/Include/XnPlatform.h

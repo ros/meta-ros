@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/subpackages/mav_trajectory_generation/cmake_dependencies/nlopt_dependencies.cmake
 ===================================================================
 --- git.orig/subpackages/mav_trajectory_generation/cmake_dependencies/nlopt_dependencies.cmake

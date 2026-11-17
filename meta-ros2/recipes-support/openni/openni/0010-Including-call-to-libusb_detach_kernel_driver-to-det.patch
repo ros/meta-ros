@@ -12,6 +12,8 @@ Subject: =?UTF-8?q?Including=20call=20to=20libusb=5Fdetach=5Fkernel=5Fdriver?=
  Source/OpenNI/Linux/XnUSBLinux.cpp |   38 ++++++++++++++++++++++++++++++++++++
  1 file changed, 38 insertions(+)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Source/OpenNI/Linux/XnUSBLinux.cpp b/Source/OpenNI/Linux/XnUSBLinux.cpp
 index c8529f8..44259e5 100644
 --- a/Source/OpenNI/Linux/XnUSBLinux.cpp

@@ -7,6 +7,8 @@ Subject: Remove wrong compiler flags for arm.
  Platform/Linux/Build/Common/Platform.Arm    | 3 ---
  2 files changed, 6 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Externals/PSCommon/Linux/Build/Platform.Arm b/Externals/PSCommon/Linux/Build/Platform.Arm
 index 2341ed0..7a1f193 100644
 --- a/Externals/PSCommon/Linux/Build/Platform.Arm

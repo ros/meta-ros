@@ -16,6 +16,8 @@ Subject: Add loongarch64 support
  create mode 100644 Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h
  create mode 100644 Platform/Linux/Build/Common/Platform.Loongarch64
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h b/Include/Linux-Loongarch64/XnPlatformLinux-Loongarch64.h
 new file mode 100644
 index 0000000..d51e006
