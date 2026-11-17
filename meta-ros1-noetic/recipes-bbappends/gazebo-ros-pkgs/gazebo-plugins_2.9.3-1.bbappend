@@ -10,3 +10,7 @@ DEPENDS += " \
 "
 
 EXTRA_OECMAKE += " -DPROTOBUF_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc"
+
+# package.xml declares "BSD-&-Apache-2.0", which is not a valid license identifier.
+# Upstream check: source headers are Apache-2.0 and BSD-3-Clause.
+LICENSE = "BSD-3-Clause & Apache-2.0"

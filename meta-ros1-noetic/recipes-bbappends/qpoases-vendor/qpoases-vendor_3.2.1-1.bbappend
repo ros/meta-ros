@@ -14,3 +14,7 @@ SRC_URI += "file://0001-CMakeLists.txt-fetch-qpOASES-with-bitbake-fetcher.patch 
 # No tagged release matches this commit upstream; pinned to a specific commit on the stable/3.2 branch
 SRCREV_qpOASES-upstream = "4799956d98cb9a5ca32e818c6ef79b69103392d8"
 SRCREV_FORMAT = "qpOASES-release_qpOASES-upstream"
+
+# package.xml declares "Apache-2.0 & LGPL", which is not a valid license identifier.
+# Upstream check: package.xml: Apache 2.0 and LGPL; the vendored qpOASES 3.2 headers say LGPL v2.1 or later.
+LICENSE = "Apache-2.0 & LGPL-2.1-or-later"

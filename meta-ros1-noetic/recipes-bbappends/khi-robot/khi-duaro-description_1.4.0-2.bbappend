@@ -5,3 +5,7 @@
 # WARNING: /jenkins/mjansa/build/ros/webos-melodic-hardknott/meta-ros/meta-ros1-melodic/generated-recipes/khi-robot/khi-duaro-description_1.2.0-1.bb: khi-duaro-description: LICENSE value "BSD & KHI-CAD-license-mesh-data,-see-readme-" has an invalid separator "KHI-CAD-license-mesh-data,-see-readme-" that is not in the valid list of separators (&|() )
 _LICENSE := "${LICENSE}"
 LICENSE = "${@'${_LICENSE}'.replace('BSD & KHI-CAD-license-mesh-data,-see-readme-', 'BSD-3-Clause & KHI-CAD-license')}"
+
+# package.xml declares "BSD & KHI-CAD-license-mesh-data,-see-readme-", which is not a valid license identifier.
+# Upstream check: upstream LICENSE is BSD-3-Clause; STL mesh data is under the KHI CAD Data Disclaimer.
+LICENSE = "BSD-3-Clause & Proprietary"
