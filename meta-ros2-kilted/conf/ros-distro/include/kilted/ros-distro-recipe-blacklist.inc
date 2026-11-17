@@ -98,7 +98,8 @@ SKIP_RECIPE[rmw-connextdds-common] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 SKIP_RECIPE[rmw-connext-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'connext: depends on rti-connext-dds which is not available', '', d)}"
 SKIP_RECIPE[rmw-gurumdds-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', 'gurumdds: depends on gurumdds-2.6 which is not available', '', d)}"
 SKIP_RECIPE[rmw-gurumdds-shared-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gurumdds', 'gurumdds: depends on gurumdds-2.6 which is not available', '', d)}"
-SKIP_RECIPE[rmw-zenoh-cpp] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', 'clang', 'rmw-zenoh-cpp: depends on clang which requires meta-clang layer)', '', d)}"
+SKIP_RECIPE[rmw-zenoh-cpp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'rmw-zenoh-cpp: depends on zenoh-cpp-vendor which depends on zenoh-c and zenoh-cpp which require meta-zenoh to be included', '', d)}"
+SKIP_RECIPE[rmw-zenoh-cpp-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'rmw-zenoh-cpp-native: depends on zenoh-cpp-vendor which depends on zenoh-c and zenoh-cpp which require meta-zenoh to be included', '', d)}"
 SKIP_RECIPE[ros2-ouster] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros2-ouster', 'Depends on unavailable ROS_UNRESOLVED_DEP-libtins-dev', '', d)}"
 SKIP_RECIPE[ros2trace-analysis] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'babeltrace-python', 'babeltrace-python: depends on tracetools-analysis which rdepends on tracetools-read which rdepends on ROS_UNRESOLVED_DEP-python3-babeltrace and python bindings in babeltrace are not enabled as shown in log.do_configure - configure: You may configure with --enable-python-bindings if you want Python bindings.', '', d)}"
 SKIP_RECIPE[rosbag2-bag-v2-plugins] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'ros1', 'ros1: since https://github.com/ros2/rosbag2_bag_v2/commit/ef48a3ef8a8753b3005862a7c437ff19d70e1745 requires roscpp ROS1 package to be available during do_configure', '', d)}"
@@ -183,6 +184,9 @@ SKIP_RECIPE[webots-ros2-tutorials] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROU
 SKIP_RECIPE[webots-ros2-universal-robot] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['qt5', 'opengl', 'x11'], 'qt5: rdepends on rviz2 which depends on qtbase; opengl: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on mesa which is not available because of missing opengl or vulkan in DISTRO_FEATURES; x11: rdepends on rviz2 which depends on rviz-rendering which depends on rviz-ogre-vendor which depends on libx11,libxrandr,libxaw which require x11 in DISTRO_FEATURES', '', d)}"
 SKIP_RECIPE[wiimote] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'cwiid', 'Depends on unavailable ROS_UNRESOLVED_DEP-cwiid-dev', '', d)}"
 SKIP_RECIPE[zenoh-bridge-dds] ?= "${@bb.utils.contains_any('ROS_WORLD_SKIP_GROUPS', ['clang', 'cargo'], 'clang: depends on clang which requires meta-clang layer; cargo: depends on cargo which requires meta-rust layer (or oe-core[honister] or newer)', '', d)}"
+SKIP_RECIPE[zenoh-cpp-vendor] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'zenoh-cpp-vendor: depends on zenoh-c and zenoh-cpp which require meta-zenoh to be included', '', d)}"
+SKIP_RECIPE[zenoh-cpp-vendor-native] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'zenoh-cpp-vendor-native: depends on zenoh-c and zenoh-cpp which require meta-zenoh to be included', '', d)}"
+SKIP_RECIPE[zenoh-security-tools] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'zenoh-security-tools: depends on zenoh-c and zenoh-cpp which require meta-zenoh to be included', '', d)}"
 
 # Renamed to fuse-ros in recipes-bbappends/fuse to avoid conflict with
 # meta-filesystems/recipes-support/fuse/fuse_2.9.9.bb
