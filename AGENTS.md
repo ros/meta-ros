@@ -68,6 +68,12 @@ anything under `recipes-*` or `generated-recipes`.
   re-merging the distro layers without accounting for why that was
   changed (see each `conf/layer.conf`'s history comment).
 
+- meta-ros is **distro-agnostic**: no layer ships a `conf/distro/*.conf`
+  (that would make `yocto-check-layer` treat it as a DISTRO layer), and
+  none may set distro policy (`INIT_MANAGER`, connection manager,
+  `DISTRO_*`, `MAINTAINER`). Recipes that need systemd must test the
+  `systemd` DISTRO_FEATURE rather than assume it.
+
 ## Branch model
 
 - `master` tracks the Yocto Project release series currently under
