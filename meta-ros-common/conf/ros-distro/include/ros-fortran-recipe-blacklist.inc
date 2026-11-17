@@ -1,0 +1,21 @@
+# Recipes that need lapack (libgfortran) cannot be built without Fortran support.
+# Enable it with the "ros-common-layer/ros/fortran" configuration fragment, or accept that they are skipped.
+
+SKIP_RECIPE[lapack] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-amd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-camd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-ccolamd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-colamd] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-csparse] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-cxsparse] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-cholmod] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[suitesparse-spqr] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[coinutils] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[coinor-osi] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[coinor-cgl] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[coinor-clp] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[coinor-cbc] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[ipopt] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[pagmo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
+SKIP_RECIPE[dartsim] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', 'fortran: depends on lapack which needs libgfortran; enable the ros-common-layer/ros/fortran configuration fragment', '', d)}"
