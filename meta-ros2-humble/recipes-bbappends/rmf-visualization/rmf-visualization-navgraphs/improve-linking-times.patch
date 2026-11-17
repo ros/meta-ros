@@ -11,6 +11,8 @@ Co-authored-by: Luca Della Vedova <lucadv@intrinsic.ai>
  rmf_visualization_navgraphs/CMakeLists.txt    | 31 +++++---------
  6 files changed, 64 insertions(+), 115 deletions(-)
 
+Upstream-Status: Backport [https://github.com/open-rmf/rmf_visualization/commit/f38aad96ecff0f3c88c6029e49b9764f4baa048d]
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 8148d67..2c95643 100644
 --- a/CMakeLists.txt
