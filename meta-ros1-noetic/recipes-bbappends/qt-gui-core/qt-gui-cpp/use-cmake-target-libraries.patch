@@ -10,7 +10,7 @@ This resulted in pip reporting "error: subprocess-exited-with-error"
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Upstream-status: Pending
+Upstream-Status: Pending
 
 Index: git/src/qt_gui_cpp_sip/CMakeLists.txt
 ===================================================================
