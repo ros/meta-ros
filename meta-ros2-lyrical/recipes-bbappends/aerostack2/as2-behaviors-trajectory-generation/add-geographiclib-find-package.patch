@@ -2,6 +2,8 @@ Add GeographicLib as an explicit dependency.
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
+Upstream-Status: Pending
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
