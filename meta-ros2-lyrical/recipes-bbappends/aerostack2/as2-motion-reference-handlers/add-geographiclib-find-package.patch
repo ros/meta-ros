@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 31277fe..203f603 100644
 --- a/CMakeLists.txt
