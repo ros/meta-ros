@@ -26,6 +26,6 @@ DEPENDS = "\
 
 inherit cmake python3native pkgconfig
 
-EXTRA_OECMAKE += "-DAPRON_ROOT=${RECIPE_SYSROOT}${libdir}"
+EXTRA_OECMAKE += "-DAPRON_ROOT=${STAGING_DIR_HOST}${libdir}"
 
 BBCLASSEXTEND = "native nativesdk"
