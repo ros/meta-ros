@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: sources are fetched by the bitbake fetcher instead of during the build]
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 1f41f7a..6373224 100644
 --- a/CMakeLists.txt
