@@ -3,6 +3,9 @@ Remove unnecessary files that are explicitly duplicated into /usr/share
 # ERROR: QA Issue: slam-toolbox: Files/directories were installed but not shipped in any package:
 #  /usr/share/solver_plugins.xml
 #  /usr/share/rviz_plugins.xml
+
+Upstream-Status: Inappropriate [OE-specific: avoids the installed-vs-shipped QA error]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt

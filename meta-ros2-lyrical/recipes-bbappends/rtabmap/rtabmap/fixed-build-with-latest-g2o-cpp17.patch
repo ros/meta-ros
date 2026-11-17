@@ -3,6 +3,8 @@ From: matlabbe <matlabbe@gmail.com>
 Date: Wed, 22 Mar 2023 20:42:33 -0700
 Subject: [PATCH] fixed build with latest g2o c++17 (#999)
 
+Upstream-Status: Backport [https://github.com/introlab/rtabmap/commit/85cc6fe3c742855ad16c8442895e12dbb10b6e8b]
+
 ---
  CMakeLists.txt                         | 130 ++++++++++++-------------
  corelib/src/optimizer/OptimizerG2O.cpp |  31 +++---
