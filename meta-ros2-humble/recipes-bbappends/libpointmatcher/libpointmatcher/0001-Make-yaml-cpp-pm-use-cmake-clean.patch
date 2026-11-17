@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 diff --git a/contrib/yaml-cpp-pm/CMakeLists.txt b/contrib/yaml-cpp-pm/CMakeLists.txt
 index 2689856..9274e14 100644
 --- a/contrib/yaml-cpp-pm/CMakeLists.txt

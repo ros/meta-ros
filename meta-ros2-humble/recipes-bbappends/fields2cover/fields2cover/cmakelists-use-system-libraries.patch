@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: build against the system library instead of a downloaded or vendored copy]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt

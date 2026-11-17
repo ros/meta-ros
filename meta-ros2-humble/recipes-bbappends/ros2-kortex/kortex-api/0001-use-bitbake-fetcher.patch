@@ -2,6 +2,8 @@ Disable CMake FetchContent and use Bitbake fetcher instead.
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
+Upstream-Status: Inappropriate [OE-specific: sources are fetched by the bitbake fetcher instead of during the build]
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index ddf42b7..7eeb8a1 100644
 --- a/CMakeLists.txt

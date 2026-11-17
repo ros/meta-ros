@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/src/common/node_util.cpp
 ===================================================================
 --- git.orig/src/common/node_util.cpp
