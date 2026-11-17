@@ -34,6 +34,10 @@ S = "${UNPACKDIR}/${BPN}-dist-${PV}/apron"
 # box_representation.c:273:11: error: format not a string literal and no format arguments [-Werror=format-security]
 CFLAGS += "-Wno-error=format-security -fPIC"
 
+# apron 0.9.10 is old C code; GCC 14+ makes these diagnostics errors by default
+# (e.g. pk_meetjoin.c: incompatible pointer type).
+CFLAGS += "-Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=int-conversion"
+
 # fix-makefile-config.patch comments out the Makefile's CFLAGS_DEBUG as well,
 # so the *_debug objects also need -fPIC to link into libapron_debug.so.
 EXTRA_OEMAKE += 'CFLAGS_DEBUG="${CFLAGS} -g -O0 -UNDEBUG"'
