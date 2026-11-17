@@ -1,6 +1,7 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
 
 ROS_BUILD_DEPENDS:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'connext', 'rmw-connext-cpp rmw-connextdds', '', d)}"
+ROS_BUILD_DEPENDS:remove = "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'zenoh', 'rmw-zenoh-cpp', '', d)}"
 
 ROS_BUILDTOOL_DEPENDS:append = " \
     rosidl-adapter-native \
