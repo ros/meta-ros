@@ -1,0 +1,28 @@
+Boost 1.89 removed the compiled boost_system library; boost::system is
+header-only and no longer a find_package() component. Drop it from the
+required components.
+
+Upstream-Status: Pending
+
+--- a/analyzer/CMakeLists.txt
++++ b/analyzer/CMakeLists.txt
+@@ -89,7 +89,7 @@
+ endif()
+ 
+ find_package(Boost 1.55.0 REQUIRED
+-             COMPONENTS filesystem system thread)
++             COMPONENTS filesystem thread)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+ 
+ find_package(PkgConfig REQUIRED)
+--- a/frontend/llvm/CMakeLists.txt
++++ b/frontend/llvm/CMakeLists.txt
+@@ -87,7 +87,7 @@
+ endif()
+ 
+ find_package(Boost 1.55.0 REQUIRED
+-             COMPONENTS filesystem system)
++             COMPONENTS filesystem)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+ 
+ find_package(PkgConfig REQUIRED)
