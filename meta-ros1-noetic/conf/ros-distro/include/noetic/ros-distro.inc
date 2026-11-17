@@ -240,3 +240,23 @@ ROS_UNRESOLVED_DEP-libcurl = "curl"
 ROS_UNRESOLVED_DEP-libcurl-dev = "curl"
 
 ROS_UNRESOLVED_DEP-python3-opengl = "python3-opengl"
+
+# Superflore wrote LICENSE = "BSD" (the license string from package.xml) for
+# ~1,370 Noetic recipes. "BSD" is not an SPDX id, and oe-core now turns it into
+# LicenseRef-BSD, which has no generic license file and fails the parse
+# (license-format). In ROS, "BSD" means the three-clause license; the existing
+# per-recipe bbappends that set LICENSE use BSD-3-Clause for it. Noetic is EOL
+# and will not be regenerated, so map the id here. Recipes that really carry
+# another BSD variant set LICENSE in their bbappend.
+SPDXLICENSEMAP[BSD] = "BSD-3-Clause"
+
+# Unambiguous aliases used by a handful of package.xml files, same reasoning.
+SPDXLICENSEMAP[Apache] = "Apache-2.0"
+SPDXLICENSEMAP[ALv2] = "Apache-2.0"
+SPDXLICENSEMAP[BSDv3] = "BSD-3-Clause"
+SPDXLICENSEMAP[BSD-3-Clause-License] = "BSD-3-Clause"
+SPDXLICENSEMAP[3-Clause-BSD-License] = "BSD-3-Clause"
+SPDXLICENSEMAP[BSD-2] = "BSD-2-Clause"
+SPDXLICENSEMAP[BSD-2-clause] = "BSD-2-Clause"
+SPDXLICENSEMAP[EPL] = "EPL-1.0"
+SPDXLICENSEMAP[Eclipse-Public-License-v-1.0] = "EPL-1.0"
