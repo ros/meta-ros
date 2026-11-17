@@ -116,6 +116,9 @@ Signed-off-by: methylDragon <methylDragon@gmail.com>
 Signed-off-by: methylDragon <methylDragon@gmail.com>
 
 Co-authored-by: Louise Poubel <louise@openrobotics.org>
+
+Upstream-Status: Backport [https://github.com/gazebosim/gz-rendering/pull/629]
+
 ---
  CMakeLists.txt                                |  10 +-
  CONTRIBUTING.md                               |   2 +-
