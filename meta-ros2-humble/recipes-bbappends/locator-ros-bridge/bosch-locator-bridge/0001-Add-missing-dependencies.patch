@@ -4,6 +4,9 @@ Date: Wed, 18 May 2022 10:30:07 +0200
 Subject: [PATCH] Add missing dependencies
 
 Signed-off-by: Koenig Fabian (DC/PAR) <fabian.koenig@boschrexroth.de>
+
+Upstream-Status: Backport [https://github.com/boschglobal/locator_ros_bridge/commit/d6d79f31319ff828f517d21ac54c548a0f4b36a3]
+
 ---
  bosch_locator_bridge/CMakeLists.txt | 6 ++++++
  bosch_locator_bridge/package.xml    | 1 +

@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/src/data.cpp
 ===================================================================
 --- git.orig/src/data.cpp
