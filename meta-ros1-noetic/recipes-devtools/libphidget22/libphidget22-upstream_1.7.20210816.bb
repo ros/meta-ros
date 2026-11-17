@@ -4,7 +4,7 @@ DESCRIPTION = "This package wraps the libphidget22 to use it as a ROS dependency
 AUTHOR = "Martin Günther <martin.guenther@dfki.de>"
 HOMEPAGE = "https://www.phidgets.com/"
 SECTION = "devel"
-LICENSE = "LGPL-3.0+"
+LICENSE = "LGPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
     file://COPYING.LESSER;md5=e6a600fd5e1d9cbde2d983680233ad02 \
 "
