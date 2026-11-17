@@ -172,3 +172,8 @@ ROS_WORLD_SKIP_GROUPS += "connext"
 # ROS-Gazebo stack (ros-gz, gz-sim-vendor, gz-plugin-vendor, simulation, ...),
 # which this layer does not provide.
 ROS_WORLD_SKIP_GROUPS += "gazebo-sim"
+
+# IKOS 3.5 supports only LLVM 14; it fails to build against the LLVM provided by
+# oe-core (LLVM 23 headers need a newer C++ standard than IKOS compiles with).
+# Skip ikos and the ament_ikos wrappers until upstream supports a newer LLVM.
+ROS_WORLD_SKIP_GROUPS += "ikos"
