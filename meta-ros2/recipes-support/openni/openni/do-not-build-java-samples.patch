@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: java samples are not built]
+
 Index: git/Platform/Linux/Build/Makefile
 ===================================================================
 --- git.orig/Platform/Linux/Build/Makefile

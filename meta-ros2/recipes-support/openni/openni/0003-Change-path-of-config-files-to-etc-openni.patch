@@ -17,6 +17,8 @@ Subject: Change path of config files to /etc/openni
  Samples/NiViewer/NiViewer.cpp                       |    2 +-
  12 files changed, 13 insertions(+), 13 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Samples/NiAudioSample/NiAudioSample.cpp b/Samples/NiAudioSample/NiAudioSample.cpp
 index a7acdf3..b57463b 100644
 --- a/Samples/NiAudioSample/NiAudioSample.cpp

@@ -6,6 +6,8 @@ Subject: Switch to __i386__ as i386 is not defined in -std=c++14
  Include/XnPlatform.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Include/XnPlatform.h b/Include/XnPlatform.h
 index 7179d1c..f6e519e 100644
 --- a/Include/XnPlatform.h

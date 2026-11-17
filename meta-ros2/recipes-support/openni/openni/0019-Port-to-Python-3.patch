@@ -8,6 +8,8 @@ Subject: Port to Python 3
  Platform/Linux/CreateRedist/Redist_OpenNi.py    | 85 +++++++++++++------------
  3 files changed, 45 insertions(+), 44 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs b/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs
 index f904386..3f2b672 100644
 --- a/Platform/Linux/Build/Res/AssemblyInfo-OpenNI.cs

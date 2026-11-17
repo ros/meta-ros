@@ -6,6 +6,8 @@ Subject: Use system wide libjpeg
  Platform/Linux/Build/Modules/nimCodecs/Makefile |   13 +++++++++----
  1 file changed, 9 insertions(+), 4 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/Build/Modules/nimCodecs/Makefile b/Platform/Linux/Build/Modules/nimCodecs/Makefile
 index 1089d96..9d69531 100644
 --- a/Platform/Linux/Build/Modules/nimCodecs/Makefile
