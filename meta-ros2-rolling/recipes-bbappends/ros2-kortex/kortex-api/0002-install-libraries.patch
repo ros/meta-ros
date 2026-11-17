@@ -2,6 +2,8 @@ Install the Kortex API static libraries for use by other kortex recipes.
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
+Upstream-Status: Inappropriate [OE-specific: installs libraries used by other recipes]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
