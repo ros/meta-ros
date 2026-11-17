@@ -1,7 +1,7 @@
 # Copyright (c) 2019-2021 LG Electronics, Inc.
 # Copyright (c) 2019-2022 Wind River Systems, Inc.
 
-DEPENDS += "libyaml"
+DEPENDS += "libyaml libyaml-cmake-config"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists.txt-fetch-libyaml-with-bitbake-fetcher.patch \
