@@ -28,3 +28,7 @@ inherit ros_insane_dev_so
 
 # mesa is recipe name, shouldn't be used in runtime dependencies
 ROS_EXEC_DEPENDS:remove = "mesa"
+
+# package.xml declares "GPL", which is not a valid license identifier.
+# Upstream check: upstream COPYING is GPL v2 (or later per AUTHORS); bundled astar example is MIT.
+LICENSE = "GPL-2.0-or-later & MIT"
