@@ -19,3 +19,17 @@ index cef8fd1..76af5a9 100644
  # Add path to llvm cmake modules
  list(APPEND CMAKE_MODULE_PATH ${LLVM_CMAKE_DIR})
  
+diff --git a/analyzer/CMakeLists.txt b/analyzer/CMakeLists.txt
+--- a/analyzer/CMakeLists.txt
++++ b/analyzer/CMakeLists.txt
+@@ -123,10 +123,6 @@ include_directories(${FRONTEND_LLVM_INCLUDE_DIR})
+ find_package(LLVM REQUIRED)
+ include_directories(SYSTEM ${LLVM_INCLUDE_DIR})
+ 
+-if ((LLVM_VERSION VERSION_LESS "14") OR (NOT (LLVM_VERSION VERSION_LESS "15")))
+-  message(FATAL_ERROR "LLVM 14 is required.")
+-endif()
+-
+ # Add path to llvm cmake modules
+ list(APPEND CMAKE_MODULE_PATH ${LLVM_CMAKE_DIR})
+ 
