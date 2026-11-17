@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: use the OE toolchain flags]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
