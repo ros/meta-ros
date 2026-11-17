@@ -4,6 +4,8 @@ Date: Mon, 13 Mar 2023 22:10:24 -0700
 Subject: [PATCH] Fixed g2o version not correctly used, D400: set default to
  IR+Depth
 
+Upstream-Status: Backport [https://github.com/introlab/rtabmap/commit/6fe5e6375f3f18dd9715b1f98c2617b3599547ad]
+
 ---
  corelib/src/optimizer/OptimizerG2O.cpp | 6 +++---
  guilib/src/PreferencesDialog.cpp       | 6 +++++-

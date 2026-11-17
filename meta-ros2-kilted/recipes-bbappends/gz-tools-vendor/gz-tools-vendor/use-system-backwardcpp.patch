@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: build against the system library instead of a downloaded or vendored copy]
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index b30781b..f872685 100644
 --- a/CMakeLists.txt
