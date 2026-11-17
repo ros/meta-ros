@@ -3,6 +3,8 @@ libraries and include files for dynamic_trajectory_generator instead.
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
+Upstream-Status: Pending
+
 Index: git/generate_polynomial_trajectory_behavior/CMakeLists.txt
 ===================================================================
 --- git.orig/generate_polynomial_trajectory_behavior/CMakeLists.txt
