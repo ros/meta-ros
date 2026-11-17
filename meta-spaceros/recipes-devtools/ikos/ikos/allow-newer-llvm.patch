@@ -1,6 +1,6 @@
 Allow newer LLVM versions
 
-Upstream Status: Inappropriate
+Upstream-Status: Inappropriate [configuration]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
