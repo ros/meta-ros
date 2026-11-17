@@ -7,3 +7,7 @@
 # syntax errors if we try to use string replacement like with the ROS 2
 # ur-description recipe.
 LICENSE = "BSD-3-Clause & Universal-Robots-A-S"
+
+# package.xml declares "BSD & Universal-Robots-A-S'-Terms-and-Conditions-for-Use-of-Graphical-Documentation & Universal-Robots-A-S'-Terms-and-Conditions-for-Use-of-Graphical-Documentation & Universal-Robots-A-S'-Terms-and-Conditions-for-Use-of-Graphical-Documentation", which is not a valid license identifier.
+# Upstream check: package.xml: BSD plus Universal Robots Terms and Conditions for graphical documentation.
+LICENSE = "BSD-3-Clause & Proprietary"

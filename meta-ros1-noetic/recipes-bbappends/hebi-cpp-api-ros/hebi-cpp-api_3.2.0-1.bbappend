@@ -17,3 +17,7 @@ EXTRA_OECMAKE:append:aarch64 = "-DLIBHEBI_TARGET_ARCHITECTURE=aarch64"
 # Please set FILES such that these items are packaged. Alternatively if they are unneeded, avoid installing them or delete them within do_install.
 # hebi-cpp-api: 3 installed and not shipped files. [installed-vs-shipped]
 inherit ros_insane_dev_so
+
+# package.xml declares "HEBI-C-Software-License-https-www.hebirobotics.com-softwarelicense-", which is not a valid license identifier.
+# Upstream check: package.xml references the HEBI C Software License; upstream branch not inspectable.
+LICENSE = "Proprietary"
