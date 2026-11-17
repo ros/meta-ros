@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: pkg-config prefix is relocated by OE]
+
 Index: git/tinyspline/src/pkg/tinysplinecxx.pc.in
 ===================================================================
 --- git.orig/tinyspline/src/pkg/tinysplinecxx.pc.in
