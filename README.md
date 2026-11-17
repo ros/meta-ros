@@ -86,6 +86,11 @@ required against the generated recipes, the bbappend files are created in
 `recipes-bbappends`. See [`docs/recipe-overrides.md`](docs/recipe-overrides.md)
 for a full walkthrough of this convention.
 
+meta-ros does not define a distribution (`DISTRO`). The ROS layers are
+distro-agnostic and may be used with poky, nodistro or any other distribution.
+They do not choose the init system or a connection manager; if your image needs
+systemd or connman, configure that in your distro or `local.conf`.
+
 ## Optional / Dynamic Layers
 
 Some ROS packages are only useful, or only buildable, when another optional
