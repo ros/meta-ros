@@ -28,7 +28,7 @@ SRC_URI = "http://deb.debian.org/debian/pool/main/a/apron/apron_0.9.10.orig.tar.
            "
 SRC_URI[sha256sum] = "f3fb6efff04948fa8277b16b9ae371c0fe5ea1460f4056117b32f813bf1a0b94"
 
-S = "${WORKDIR}/${BPN}-dist-${PV}/apron"
+S = "${UNPACKDIR}/${BPN}-dist-${PV}/apron"
 
 # box_representation.c: In function 'box_fprintdiff':
 # box_representation.c:273:11: error: format not a string literal and no format arguments [-Werror=format-security]
