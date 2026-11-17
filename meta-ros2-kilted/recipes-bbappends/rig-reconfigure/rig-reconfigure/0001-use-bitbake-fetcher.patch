@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: sources are fetched by the bitbake fetcher instead of during the build]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt

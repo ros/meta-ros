@@ -21,6 +21,8 @@ rmf-fleet-adapter/2.6.0-1/recipe-sysroot/usr/include/c++/14.1.0/bits/exception_p
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
+Upstream-Status: Backport [open-rmf/rmf_ros2 main already contains this change]
+
 diff --git a/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp b/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp
 index 20e0c694..3f13619b 100644
 --- a/rmf_rxcpp/RxCpp-4.1.0/Rx/v2/src/rxcpp/rx-notification.hpp

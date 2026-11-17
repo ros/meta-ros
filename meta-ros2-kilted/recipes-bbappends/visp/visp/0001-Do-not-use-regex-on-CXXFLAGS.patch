@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: keeps the -march/-mtune flags set by OE]
+
 diff --git a/3rdparty/simdlib/CMakeLists.txt b/3rdparty/simdlib/CMakeLists.txt
 index b390770d..0ca5df24 100644
 --- a/3rdparty/simdlib/CMakeLists.txt
