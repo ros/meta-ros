@@ -29,6 +29,8 @@ Subject: [PATCH] Adding SIP 5 integration.
  3 files changed, 113 insertions(+), 21 deletions(-)
  create mode 100644 cmake/pyproject.toml.in
 
+Upstream-Status: Backport [ros-o fork, merged: https://github.com/ros-o/python_qt_binding/pull/1]
+
 Index: git/CMakeLists.txt
 ===================================================================
 --- git.orig/CMakeLists.txt
