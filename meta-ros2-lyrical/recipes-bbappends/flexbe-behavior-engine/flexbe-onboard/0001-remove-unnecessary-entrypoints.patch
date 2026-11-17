@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/setup.py
 ===================================================================
 --- git.orig/setup.py

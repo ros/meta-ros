@@ -1,3 +1,5 @@
+Upstream-Status: Backport [https://github.com/swri-robotics/marti_common/commit/871b3a9a9badf52d7ed3def4d41e96fb688bd847]
+
 Index: git/src/georeference.cpp
 ===================================================================
 --- git.orig/src/georeference.cpp
