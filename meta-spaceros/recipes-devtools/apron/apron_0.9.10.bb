@@ -32,7 +32,7 @@ S = "${UNPACKDIR}/${BPN}-dist-${PV}/apron"
 
 # box_representation.c: In function 'box_fprintdiff':
 # box_representation.c:273:11: error: format not a string literal and no format arguments [-Werror=format-security]
-CFLAGS += "-Wno-error=format-security"
+CFLAGS += "-Wno-error=format-security -fPIC"
 
 DEPENDS = "gmp mpfr ppl"
 
