@@ -2,7 +2,9 @@
 
 # Remove suitesparse-metis
 PACKAGECONFIG[suitesparse] = "-DSUITESPARSE=ON,-DSUITESPARSE=OFF,suitesparse-config suitesparse-amd suitesparse-camd suitesparse-colamd suitesparse-ccolamd suitesparse-cholmod suitesparse-spqr"
-PACKAGECONFIG ??= "suitesparse cxsparse lapack"
+# suitesparse and lapack need Fortran support (ros-common-layer/ros/fortran fragment); without it
+# ceres-solver builds with Eigen only.
+PACKAGECONFIG ??= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'fortran', '', 'suitesparse cxsparse lapack', d)}"
 
 # Temporarily disable using Eigen Metis in ceres-solver
 # https://github.com/ceres-solver/ceres-solver/issues/828
