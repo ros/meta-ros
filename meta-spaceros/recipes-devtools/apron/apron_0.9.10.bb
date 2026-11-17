@@ -34,6 +34,10 @@ S = "${UNPACKDIR}/${BPN}-dist-${PV}/apron"
 # box_representation.c:273:11: error: format not a string literal and no format arguments [-Werror=format-security]
 CFLAGS += "-Wno-error=format-security -fPIC"
 
+# fix-makefile-config.patch comments out the Makefile's CFLAGS_DEBUG as well,
+# so the *_debug objects also need -fPIC to link into libapron_debug.so.
+EXTRA_OEMAKE += 'CFLAGS_DEBUG="${CFLAGS} -g -O0 -UNDEBUG"'
+
 DEPENDS = "gmp mpfr ppl"
 
 do_configure () {
