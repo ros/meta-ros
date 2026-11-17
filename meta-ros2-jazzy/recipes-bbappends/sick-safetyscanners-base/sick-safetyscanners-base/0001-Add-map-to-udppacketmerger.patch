@@ -6,6 +6,8 @@ sick-safetyscanners-base/1.0.2-1-r0/temp/log.do_compile:/ala-lpggp31/rwoolley/me
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
+Upstream-Status: Backport [https://github.com/SICKAG/sick_safetyscanners_base/commit/f319c3b2dd0579eb0eba219f6f43535ef53ba963]
+
 diff --git a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h b/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h
 index b14d925..6d50a6e 100644
 --- a/include/sick_safetyscanners_base/data_processing/UDPPacketMerger.h

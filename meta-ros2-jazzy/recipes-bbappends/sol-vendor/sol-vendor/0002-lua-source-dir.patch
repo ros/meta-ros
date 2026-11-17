@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: lua sources are fetched by the bitbake fetcher]
+
 diff --git a/cmake/Packages/FindLuaBuild/LuaVanilla.cmake b/cmake/Packages/FindLuaBuild/LuaVanilla.cmake
 index b95e5a67..8247b8ba 100644
 --- a/cmake/Packages/FindLuaBuild/LuaVanilla.cmake
