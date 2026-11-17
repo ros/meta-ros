@@ -6,6 +6,8 @@ Subject: do-not-build-mono-samples
  Platform/Linux/Build/Makefile |   14 +++++++-------
  1 file changed, 7 insertions(+), 7 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/Build/Makefile b/Platform/Linux/Build/Makefile
 index 51dc234..8da2f11 100644
 --- a/Platform/Linux/Build/Makefile

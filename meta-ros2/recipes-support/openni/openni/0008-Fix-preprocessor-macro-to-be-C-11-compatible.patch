@@ -8,6 +8,8 @@ obsolete.
  Include/XnPlatform.h |    4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Include/XnPlatform.h b/Include/XnPlatform.h
 index b40497b..3af7ef5 100644
 --- a/Include/XnPlatform.h

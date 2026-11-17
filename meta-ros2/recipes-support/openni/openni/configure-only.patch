@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: the recipe builds, the upstream script only configures]
+
 Index: git/Platform/Linux/CreateRedist/Redist_OpenNi.py
 ===================================================================
 --- git.orig/Platform/Linux/CreateRedist/Redist_OpenNi.py

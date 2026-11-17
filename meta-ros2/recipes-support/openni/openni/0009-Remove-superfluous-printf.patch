@@ -8,6 +8,8 @@ https://github.com/rbrusu/OpenNI/commit/d80f5dcd7ef2f320af0346fa12537c0af22b4977
  Source/OpenNI/Linux/XnUSBLinux.cpp |    1 -
  1 file changed, 1 deletion(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Source/OpenNI/Linux/XnUSBLinux.cpp b/Source/OpenNI/Linux/XnUSBLinux.cpp
 index bc04061..c8529f8 100644
 --- a/Source/OpenNI/Linux/XnUSBLinux.cpp
