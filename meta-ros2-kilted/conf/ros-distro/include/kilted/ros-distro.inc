@@ -179,6 +179,9 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-laye
 # recipes depending on cargo which could be provided by cargo@meta-rust or oe-core[honister] and newer release (where it was imported from meta-rust)
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'rust-layer', '', 'cargo', d)}"
 
+# recipes depending on zenoh-c and zenoh-cpp which are provided by meta-zenoh
+ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'zenoh-layer', '', 'zenoh', d)}"
+
 # recipes depending on scipy which could be provided by python3-scipy@meta-python-ai
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'meta-python-ai', '', 'scipy', d)}"
 
