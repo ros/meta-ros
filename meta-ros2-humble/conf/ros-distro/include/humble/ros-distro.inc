@@ -164,11 +164,11 @@ ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'ros1-layer
 # recipes depending on something from meta-qt5 layer
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'qt5-layer', '', 'qt5', d)}"
 
-# recipes depending on libomp which could be provided by openmp@meta-clang
-ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'libomp', d)}"
-
-# recipes depending on clang which could be provided by clang@meta-clang
-ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', '', 'clang', d)}"
+# The 'clang' and 'libomp' groups (recipes depending on clang/openmp) are no
+# longer activated here: oe-core now provides clang, openmp, compiler-rt, lld
+# and libcxx, so meta-clang is not needed. The SKIP_RECIPE entries gated on
+# them remain in ros-distro-recipe-blacklist.inc; add the groups to
+# ROS_WORLD_SKIP_GROUPS from local.conf if your oe-core lacks these recipes.
 
 # recipes depending on cargo which could be provided by cargo@meta-rust or oe-core[honister] and newer release (where it was imported from meta-rust)
 ROS_WORLD_SKIP_GROUPS += "${@bb.utils.contains('BBFILE_COLLECTIONS', 'rust-layer', '', 'cargo', d)}"
