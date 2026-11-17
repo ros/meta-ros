@@ -6,6 +6,8 @@ Subject: Disable mono build
  Platform/Linux/CreateRedist/Redist_OpenNi.py | 6 ------
  1 file changed, 6 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
 index 8dede7a..f188745 100755
 --- a/Platform/Linux/CreateRedist/Redist_OpenNi.py

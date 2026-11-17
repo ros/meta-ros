@@ -3,6 +3,8 @@ From: Joe Burmeister <joe@SuaveAirApps.co.uk>
 Date: Wed, 22 Oct 2014 17:43:03 +0100
 Subject: [PATCH] Quick changes to support armhf.
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 ---
  Externals/PSCommon/Linux/Build/Platform.Arm  | 2 +-
  Platform/Linux/Build/Common/Platform.Arm     | 8 +++++++-
