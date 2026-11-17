@@ -104,6 +104,12 @@ ROS_SUPERFLORE_GENERATED_BUILDTOOLS += " \
 # this needs google-benchmark-vendor-native but we probably don't need native version
 ROS_SUPERFLORE_GENERATED_BUILDTOOLS:remove = "ament-cmake-google-benchmark-native"
 
+# rclcpp-components-native (and through it class-loader-native, which has no
+# native variant) is only in the generated list because lgdx-rplidar-c1 wrongly
+# declares rclcpp_components as a buildtool_depend upstream; see the
+# lgdx-rplidar-c1 bbappend. rclcpp-native stays: it is also listed above.
+ROS_SUPERFLORE_GENERATED_BUILDTOOLS:remove = "rclcpp-components-native"
+
 # alternative not yet supported implementation for fastrtps
 ROS_WORLD_SKIP_GROUPS += "connext"
 # alternative not yet supported implementation for fastrtps
