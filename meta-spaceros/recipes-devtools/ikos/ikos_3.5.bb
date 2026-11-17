@@ -4,7 +4,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8e59a2e7eca93bf552009706554bb526"
 SRC_URI = "git://github.com/NASA-SW-VnV/ikos.git;protocol=https;branch=master \
            file://use-pkgconfig.patch \
            file://allow-newer-llvm.patch \
-           file://hardcode-ppl-version.patch"
+           file://hardcode-ppl-version.patch \
+           file://boost-no-system-component.patch"
 
 PV = "3.5"
 SRCREV = "1d98c65d282554ffb6997dba67b0f8e41e22e169"
