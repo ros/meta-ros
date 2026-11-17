@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: setuptools script executable for cross builds]
+
 diff --git a/topic_tools/setup.cfg b/topic_tools/setup.cfg
 index 7c0fef2..90b577f 100644
 --- a/topic_tools/setup.cfg
