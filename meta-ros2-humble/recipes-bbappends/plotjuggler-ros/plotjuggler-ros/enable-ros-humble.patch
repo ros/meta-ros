@@ -1,3 +1,5 @@
+Upstream-Status: Inappropriate [OE-specific: the ROS distro is detected from AMENT_PREFIX_PATH, which does not match an OE install]
+
 Index: git/src/CMakeLists.txt
 ===================================================================
 --- git.orig/src/CMakeLists.txt

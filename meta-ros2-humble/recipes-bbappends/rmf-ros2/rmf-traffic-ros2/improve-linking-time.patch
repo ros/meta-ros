@@ -11,6 +11,8 @@ Co-authored-by: Luca Della Vedova <lucadv@intrinsic.ai>
  rmf_traffic_ros2/CMakeLists.txt  |  9 ++++-
  3 files changed, 43 insertions(+), 35 deletions(-)
 
+Upstream-Status: Backport [https://github.com/open-rmf/rmf_ros2/commit/3c20723b45c18754bed22c5a136ab1922ad77eab]
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 0eca56b9..28692d7a 100644
 --- a/CMakeLists.txt

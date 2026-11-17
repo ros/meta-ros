@@ -1,3 +1,5 @@
+Upstream-Status: Pending
+
 Index: git/rc_genicam_api/buffer.cc
 ===================================================================
 --- git.orig/rc_genicam_api/buffer.cc
