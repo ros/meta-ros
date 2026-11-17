@@ -212,3 +212,11 @@ BBMASK += "generated-recipes/librealsense2/librealsense2_.*.bb"
 
 # meta-ros provides a recipe for tl-expected to use instead of the generated one
 BBMASK += "generated-recipes-moveit2/tl-expected/tl-expected_.*.bb"
+SKIP_RECIPE[canadarm-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on ros-gz and gz-ros2-control which are not available', '', d)}"
+SKIP_RECIPE[curiosity-gazebo] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on ros-gz and gz-ros2-control which are not available', '', d)}"
+SKIP_RECIPE[lunar-pole-exploration-rover] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on simulation, ros-ign-gazebo and ign-ros2-control which are not available', '', d)}"
+SKIP_RECIPE[lunar-sun-gz-plugin] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on gz-sim-vendor and gz-plugin-vendor which are not available', '', d)}"
+SKIP_RECIPE[lunar-terrain-gz-bringup] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on ros-gz, ros-gz-sim, ros-gz-bridge, ros-gz-image and lunar-terrain-gz-plugins which are not available', '', d)}"
+SKIP_RECIPE[lunar-terrain-gz-worlds] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on ros-gz which are not available', '', d)}"
+SKIP_RECIPE[canadarm-moveit-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on simulation which are not available', '', d)}"
+SKIP_RECIPE[trick-canadarm-moveit-config] ?= "${@bb.utils.contains('ROS_WORLD_SKIP_GROUPS', 'gazebo-sim', 'gazebo-sim: depends on simulation which are not available', '', d)}"

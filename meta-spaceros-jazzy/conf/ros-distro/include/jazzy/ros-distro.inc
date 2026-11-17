@@ -167,3 +167,8 @@ MASH_GENERATED_BUILDTOOLS = "\
 "
 
 ROS_WORLD_SKIP_GROUPS += "connext"
+
+# Gazebo demos from Space ROS (generated with ros-mash from PyPI) depend on the
+# ROS-Gazebo stack (ros-gz, gz-sim-vendor, gz-plugin-vendor, simulation, ...),
+# which this layer does not provide.
+ROS_WORLD_SKIP_GROUPS += "gazebo-sim"
