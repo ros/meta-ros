@@ -22,3 +22,7 @@ EXTRA_OECMAKE += "-DPVAPILIB=${S}/lib/${GIGE_ARCH}/libPvAPI.so"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 SRC_URI += "file://0001-CMakeLists-debug-searching-PvAPI-library-search-and-.patch"
+
+# package.xml declares "Commercial", which is not a valid license identifier.
+# Upstream check: package.xml: Commercial.
+LICENSE = "Proprietary"
