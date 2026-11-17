@@ -7,6 +7,8 @@ Forwarded: not-needed
 Reviewed-By: Hans-Christoph Steiner <hans@eds.org>
 Last-Update: <2013-10-01>
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Source/DoxyGen/Doxyfile b/Source/DoxyGen/Doxyfile
 index 373e5ce..8597e41 100644
 --- a/Source/DoxyGen/Doxyfile

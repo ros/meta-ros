@@ -1,3 +1,5 @@
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 Index: git/Platform/Linux/Build/Modules/nimCodecs/Makefile
 ===================================================================
 --- git.orig/Platform/Linux/Build/Modules/nimCodecs/Makefile

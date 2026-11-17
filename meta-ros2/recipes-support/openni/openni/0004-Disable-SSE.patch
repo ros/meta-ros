@@ -6,6 +6,8 @@ Subject: Disable SSE
  Platform/Linux/Build/Common/Platform.x86 |    4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/Build/Common/Platform.x86 b/Platform/Linux/Build/Common/Platform.x86
 index 04dd480..0dcf3c9 100644
 --- a/Platform/Linux/Build/Common/Platform.x86

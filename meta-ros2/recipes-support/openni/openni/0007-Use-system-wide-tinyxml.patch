@@ -6,6 +6,8 @@ Subject: Use system wide tinyxml
  Platform/Linux/Build/OpenNI/Makefile |   13 +++++++++----
  1 file changed, 9 insertions(+), 4 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/Build/OpenNI/Makefile b/Platform/Linux/Build/OpenNI/Makefile
 index c4645f5..8c0a74d 100644
 --- a/Platform/Linux/Build/OpenNI/Makefile

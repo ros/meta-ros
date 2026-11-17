@@ -6,6 +6,8 @@ Subject: Remove -j from make flags (fixes bug on arm)
  Platform/Linux/CreateRedist/Redist_OpenNi.py | 2 --
  1 file changed, 2 deletions(-)
 
+Upstream-Status: Inactive-Upstream [lastrelease: Unstable-1.5.8.5 (2013-11-12), lastcommit: 2013-11-12]
+
 diff --git a/Platform/Linux/CreateRedist/Redist_OpenNi.py b/Platform/Linux/CreateRedist/Redist_OpenNi.py
 index 0d667cf..060e7a5 100755
 --- a/Platform/Linux/CreateRedist/Redist_OpenNi.py
