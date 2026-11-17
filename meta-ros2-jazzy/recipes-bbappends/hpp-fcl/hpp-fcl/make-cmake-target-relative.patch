@@ -22,6 +22,8 @@ CMake Error at TOPDIR/tmp-glibc/work/core2-64-oe-linux/pinocchio/2.6.17-1-r0/rec
 
   but not all the files it references.
 
+Upstream-Status: Pending
+
 Index: git/src/CMakeLists.txt
 ===================================================================
 --- git.orig/src/CMakeLists.txt
