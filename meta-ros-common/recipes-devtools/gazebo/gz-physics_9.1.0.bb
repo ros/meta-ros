@@ -12,7 +12,7 @@ S = "${WORKDIR}/git"
 DEPENDS += " \
     gz-cmake \
     gz-common \
-    gz-dartsim-vendor \
+    dartsim \
     gz-math \
     gz-plugin \
     gz-utils \
@@ -21,7 +21,7 @@ DEPENDS += " \
     libeigen \
     bullet \
     cppcheck-native \
-    google-benchmark-vendor \
+    google-benchmark \
 "
 
 EXTRA_OECMAKE += " -DBUILD_TESTING=OFF"

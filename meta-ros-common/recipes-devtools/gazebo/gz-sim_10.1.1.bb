@@ -17,7 +17,7 @@ inherit cmake
 DEPENDS += " \
     gz-cmake \
     gz-common \
-    gz-dartsim-vendor \
+    dartsim \
     gz-fuel-tools \
     gz-gui \
     gz-math \
@@ -32,7 +32,7 @@ DEPENDS += " \
     gz-utils \
     libwebsockets \
     protobuf \
-    pybind11-vendor \
+    python3-pybind11 \
     qtdeclarative \
     qtdeclarative-native \
     sdformat \
