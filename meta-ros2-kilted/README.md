@@ -14,6 +14,7 @@ how to fix a generated recipe.
 
 - `core` (openembedded-core)
 - `meta-python` (meta-openembedded)
+- `multimedia-layer` (meta-multimedia, from meta-openembedded)
 - `openembedded-layer` (meta-openembedded)
 - `ros-common-layer` (`meta-ros-common`)
 - `ros2-layer` (`meta-ros2`)
