@@ -11,7 +11,7 @@ SRCREV = "7fa86b6fe080e2771151a486eae7f9b33ba22dd2"
 DEPENDS += " \
     gz-cmake4 \
     gz-common6 \
-    gz-dartsim-vendor \
+    dartsim \
     gz-math8 \
     gz-plugin3 \
     gz-utils3 \
@@ -20,7 +20,7 @@ DEPENDS += " \
     libeigen \
     bullet \
     cppcheck-native \
-    google-benchmark-vendor \
+    google-benchmark \
 "
 
 EXTRA_OECMAKE += " -DBUILD_TESTING=OFF"
