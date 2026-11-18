@@ -16,3 +16,11 @@ inherit python3native
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
 "
+
+LICENSE = "BSD-3-Clause"
+
+# Boost 1.89 made Boost.System header-only and removed the compiled library
+# and its CMake component, so find_package(Boost COMPONENTS system) fails
+# with "Could NOT find Boost (missing: system)".
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+SRC_URI += "file://remove-boost-system.patch"
