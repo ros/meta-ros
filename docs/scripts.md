@@ -51,7 +51,9 @@ meta-ros has two scripts for this. They solve different problems and use differe
   would give.
 - **Maintenance:** empty the `.inc` before dumping, then regenerate it after every recipe
   regeneration. The procedure is in the script's header. It is not part of
-  `generate_recipes.yml` yet.
+  `generate_recipes.yml`: it needs a bitbake environment (oe-core, bitbake, meta-openembedded
+  and the optional layers), so it belongs with the CI build test. That test is run by hand for now
+  and is to be automated later; the regeneration step goes in it.
 
 | | `generate-skip-groups.py` | `generate-world-skips.py` |
 |---|---|---|
