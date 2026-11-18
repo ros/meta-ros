@@ -2,6 +2,7 @@ DESCRIPTION = "All supported packages from ROS 2 Lyrical"
 LICENSE = "MIT"
 
 inherit packagegroup
+inherit ros_world_skip
 inherit ros_distro_${ROS_DISTRO}
 
 PACKAGES = "${PN}"
