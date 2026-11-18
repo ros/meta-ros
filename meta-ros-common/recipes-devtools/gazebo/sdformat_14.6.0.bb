@@ -10,15 +10,14 @@ SRCREV = "993d04fb95a6b9cee44121ac6294a2da2493847d"
 inherit cmake pkgconfig python3targetconfig
 
 DEPENDS = " \
-    gz-cmake-vendor \
-    gz-math-vendor \
-    gz-tools-vendor \
-    gz-utils-vendor \
+    gz-cmake3 \
+    gz-math7 \
+    gz-tools2 \
+    gz-utils2 \
     libtinyxml2 \
     python3-pybind11 \
     python3-psutil-native \
     ruby-native \
-    urdfdom \
 "
 PACKAGES =+ "python3-${PN}"
 
@@ -31,3 +30,7 @@ FILES:${PN} += " \
 FILES:python3-${PN} += " \
     ${libdir}/python \
 "
+
+# urdfdom is only provided by the ROS distro layers; use the copy bundled with sdformat so
+# that meta-ros-common does not depend on them.
+EXTRA_OECMAKE += "-DUSE_INTERNAL_URDF=ON"
