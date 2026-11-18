@@ -127,6 +127,13 @@ anything under `recipes-*` or `generated-recipes`.
   covers the `Upstream-Status:` half, but that workflow is report-only
   for now and doesn't check that patches are referenced.)
 
+- `generate-world-skips.py` — computes the SKIP_RECIPE entries for recipes that
+  cannot be built because something they (transitively) depend on isn't
+  available, from two bitbake configurations (only the always-present layers, and
+  every optional layer too). Its output is a distro's
+  `conf/ros-distro/include/<distro>/generated/ros-distro-recipe-unavailable.inc`; empty that file before dumping, and
+  regenerate it after each recipe regeneration. See the script's header.
+
 - `ros-cherrypick.sh` — ports bbappend patches between ROS-distro layers
   within the same Yocto branch (e.g. humble → iron); see its header
   comment for a worked example.
