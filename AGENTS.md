@@ -161,6 +161,8 @@ are in each job's summary and the uploaded log artifact.
    distros? Common fixes belong in `meta-ros-common`; distro-specific
    ones in that distro's sub-layer.
 3. If adding a dependency on a layer that isn't `core`/`meta-python`/
-   `openembedded-layer`/`ros-common-layer` (the current hard
-   `LAYERDEPENDS` set), it should almost certainly be a `dynamic-layers`
+   `openembedded-layer`/`ros-common-layer` (the base hard `LAYERDEPENDS`
+   set; `multimedia-layer` and `networking-layer` from meta-openembedded
+   are also hard dependencies of the layers whose recipes need libcamera,
+   libdc1394, aravis, openal-soft or chrony), it should almost certainly be a `dynamic-layers`
    optional dependency instead of a hard one — check first.
