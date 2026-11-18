@@ -15,7 +15,7 @@ inherit cmake
 DEPENDS += " \
     gz-cmake4 \
     gz-common6 \
-    gz-dartsim-vendor \
+    dartsim \
     gz-fuel-tools10 \
     gz-gui9 \
     gz-math8 \
@@ -29,7 +29,7 @@ DEPENDS += " \
     gz-tools2 \
     gz-utils3 \
     protobuf \
-    pybind11-vendor \
+    python3-pybind11 \
     sdformat \
 "
 
