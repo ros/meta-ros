@@ -1,4 +1,25 @@
 #!/usr/bin/env python3
+#
+# Usage: cd meta-ros
+#        scripts/generate-skip-groups.py COOKER_LOG_FILE > skip-groups.txt
+#            then
+#        scripts/update-skip-groups.py meta-ros2-<distro>/recipes-core/packagegroups/packagegroup-ros-world-<distro>.bb skip-groups.txt
+#
+# Reads the log of a failed "bitbake world" parse (the lines starting with
+# "Missing or unbuildable dependency chain was:") and prints, for every missing
+# recipe, the pair that goes in a packagegroup-ros-world-<distro>.bb:
+#
+#   - a ROS_SUPERFLORE_GENERATED_WORLD_PACKAGES_DEPENDING_ON_<NAME> list of the world
+#     packages that depend on it, and
+#   - an RDEPENDS:${PN}:remove line that drops that list when the skip group <name>
+#     is in ROS_WORLD_SKIP_GROUPS.
+#
+# Chains that start or end in a "-dev" package are ignored. If the log names ROS packages
+# that could not be resolved at all (ROS_UNRESOLVED_DEP-), it lists them and exits with an error.
+#
+# This works per missing recipe, from a log, and only for the world packagegroup. To skip
+# every recipe that cannot be built, with whatever optional layers are present, see
+# generate-world-skips.py, and docs/scripts.md for how the two differ.
 
 import sys
 import ast
