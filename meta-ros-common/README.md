@@ -31,6 +31,7 @@ layer stack.
 
 - `core` (openembedded-core)
 - `meta-python` (meta-openembedded)
+- `multimedia-layer` (meta-multimedia, from meta-openembedded)
 - `openembedded-layer` (meta-openembedded)
 
 ## Compatibility
