@@ -111,6 +111,9 @@ anything under `recipes-*` or `generated-recipes`.
 
 ## `scripts/` — what's here and when to use it
 
+Every script is described in [`docs/scripts.md`](docs/scripts.md), including how
+`generate-skip-groups.py` differs from `generate-world-skips.py`.
+
 - `ros-generate-cache.sh`, `ros-generate-recipes.sh` — the superflore
   regeneration pipeline invoked by `generate_recipes.yml`; run locally
   only to reproduce/debug that workflow.
