@@ -1,0 +1,34 @@
+Remove the Boost "system" component requirement
+
+Boost 1.89 made Boost.System header-only and dropped the compiled
+library and its CMake component, so find_package(Boost COMPONENTS system)
+and Boost::system fail with newer Boost releases. Nothing needs the
+compiled library any more.
+
+Upstream-Status: Pending
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -118,10 +118,6 @@
+ ELSE(WIN32)
+   ADD_PROJECT_DEPENDENCY(Boost REQUIRED chrono serialization filesystem)
+ ENDIF(WIN32)
+-if(BUILD_PYTHON_INTERFACE)
+-  find_package(Boost REQUIRED COMPONENTS system)
+-endif(BUILD_PYTHON_INTERFACE)
+-
+ if(Boost_VERSION_STRING VERSION_LESS 1.81)
+   # Default C++ version should be C++11
+   CHECK_MINIMAL_CXX_STANDARD(11 ENFORCE)
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -132,8 +132,7 @@
+ TARGET_LINK_BOOST_PYTHON(${LIBRARY_NAME} PUBLIC)
+ TARGET_LINK_LIBRARIES(${LIBRARY_NAME} PUBLIC
+   ${PROJECT_NAME}
+-  eigenpy::eigenpy
+-  Boost::system)
++  eigenpy::eigenpy)
+ 
+ SET_TARGET_PROPERTIES(${LIBRARY_NAME} PROPERTIES
+   PREFIX ""
