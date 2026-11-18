@@ -16,15 +16,20 @@
 #
 #  2. generate: combine the two dumps and print the include file for a distro layer:
 #
-#       generate-world-skips.py generate MINIMAL.json FULL.json > ros-distro-recipe-unavailable.inc
+#       generate-world-skips.py generate MINIMAL.json FULL.json \
+#           > meta-ros2-jazzy/conf/ros-distro/include/jazzy/generated/ros-distro-recipe-unavailable.inc
+#
+# The output is a generated file, so it belongs in the distro's include/<distro>/generated/ directory
+# (ros-distro.inc requires it from there). Empty that file before the dumps are made.
 #
 # A recipe that is unbuildable in both configurations is skipped unconditionally (through the
 # "unavailable" group, which is in ROS_WORLD_SKIP_GROUPS unless the user removes it). A recipe
 # that is only unbuildable in the minimal configuration is skipped when one of the optional layers
 # that provides what it is missing is not in BBFILE_COLLECTIONS.
 #
-# Recipes that already have a SKIP_RECIPE entry are parsed as skipped, so they are not in the
-# dump and don't get a second entry.
+# The entries are appended (.=) to any existing SKIP_RECIPE entry, so include the generated file after
+# the hand-written ros-distro-recipe-blacklist.inc. Recipes that are already skipped when the dump is
+# made are not in the dump and get no entry.
 
 import json
 import os
@@ -52,7 +57,10 @@ def dump(out):
             return best[1]
 
         data = {}
+        skipped = set(getattr(rc, 'skiplist', {}))
         for fn, pn in rc.pkg_fn.items():
+            if fn in skipped:
+                continue  # skipped recipes (SKIP_RECIPE, license flags, ...) provide nothing
             if pn.endswith('-native') or pn.endswith('-nativesdk') or pn.startswith('nativesdk-'):
                 pass
             rundeps = set()
@@ -95,11 +103,17 @@ def resolve(dump_data):
         # (list of providers, True if the dependency is provided by something outside the recipes)
         return dep in assume or any(d.match(dep) for d in dynamic)
 
+    # The ROS packagegroups inherit ros_world_skip, which drops skipped recipes from their dependencies,
+    # so they are never unbuildable because of them.
+    groups = {fn for fn, r in recipes.items() if r['pn'].startswith(('packagegroup-ros', 'packagegroup-spaceros'))}
+
     bad = {}  # fn -> set(root causes)
     changed = True
     while changed:
         changed = False
         for fn, r in recipes.items():
+            if fn in groups:
+                continue
             causes = set()
             for dep in r['depends']:
                 fns = providers.get(dep, set())
@@ -107,7 +121,8 @@ def resolve(dump_data):
                 if not good and not satisfied(dep, fns):
                     causes |= {dep} if not fns else set().union(*(bad[f] for f in fns))
             for dep in r['rundeps']:
-                fns = rproviders.get(dep, set()) | providers.get(dep, set())
+                # runtime dependencies are only provided by packages and RPROVIDES, not by PROVIDES
+                fns = rproviders.get(dep, set())
                 good = [f for f in fns if f not in bad]
                 if not good and not satisfied(dep, fns):
                     causes |= {dep} if not fns else set().union(*(bad[f] for f in fns))
@@ -142,23 +157,44 @@ def generate(minimal_json, full_json):
         pn = rec_min[fn]['pn']
         if pn.endswith('-native') or pn.endswith('-nativesdk') or pn.startswith('nativesdk-'):
             continue
+        if not re.match(r'(ros|spaceros)', rec_min[fn]['layer'] or ''):
+            continue  # only skip ROS recipes, never recipes from oe-core or other layers
         if pn in bad_full_pn or any(c not in prov_layer for c in causes):
             # not buildable even with every optional layer: nothing provides something it needs
             missing = sorted(c for c in causes if c not in prov_layer) or sorted(causes)
             entries[pn] = (None, 'depends on %s' % ', '.join(missing[:3]))
             continue
         layers = sorted({l for c in causes for l in prov_layer[c] if l})
-        pns = sorted({p for c in causes for p in prov_pn[c]})
+        pns = sorted({p for c in causes for p in prov_pn[c]} - {pn})
         entries[pn] = ((layers, pns), 'depends on %s' % ', '.join(sorted(causes)[:3]))
+    # Names the ROS packagegroups list that no recipe provides here (for example a recipe in an optional
+    # layer): ros_world_skip drops names that have a SKIP_RECIPE flag, so give them one.
+    assume = set(minimal.get('assume_provided', []))
+    min_provided = set()
+    for r in rec_min.values():
+        min_provided.update(r['provides'] + r['packages'] + r['rprovides'])
+    for fn, r in rec_min.items():
+        if r['pn'].startswith(('packagegroup-ros', 'packagegroup-spaceros')):
+            for dep in r['depends'] + r['rundeps']:
+                if dep in min_provided or dep in assume or dep in entries:
+                    continue
+                if dep in prov_layer:
+                    absent = sorted(l for l in prov_layer[dep] if l and l not in minimal['layers'])
+                    if absent and set(absent) == {l for l in prov_layer[dep] if l}:
+                        # only provided by an optional layer that isn't there
+                        entries[dep] = ((absent, []), 'depends on %s' % dep)
+                    # else: provided by a recipe that is skipped by a SKIP_RECIPE entry of its own
+                else:
+                    entries[dep] = (None, 'depends on %s' % dep)
     for pn, (cond, reason) in sorted(entries.items()):
         reason = reason.replace("'", '').replace('"', '')
         if cond is None:
-            out.append('SKIP_RECIPE[%s] ?= "${@bb.utils.contains(\'ROS_WORLD_SKIP_GROUPS\', \'unavailable\', \'%s\', \'\', d)}"' % (pn, reason))
+            out.append('SKIP_RECIPE[%s] .= "${@bb.utils.contains(\'ROS_WORLD_SKIP_GROUPS\', \'unavailable\', \'%s\', \'\', d)}"' % (pn, reason))
         else:
             layers, pns = cond
             ls = ', '.join("'%s'" % l for l in layers)
             ps = ', '.join("'%s'" % p for p in pns)
-            out.append('SKIP_RECIPE[%s] ?= "${@\'%s\' if (any(l not in d.getVar(\'BBFILE_COLLECTIONS\').split() for l in [%s]) or any(d.getVarFlag(\'SKIP_RECIPE\', p) for p in [%s])) else \'\'}"' % (pn, reason, ls, ps))
+            out.append('SKIP_RECIPE[%s] .= "${@\'%s\' if (any(l not in d.getVar(\'BBFILE_COLLECTIONS\').split() for l in [%s]) or any(d.getVarFlag(\'SKIP_RECIPE\', p) for p in [%s])) else \'\'}"' % (pn, reason, ls, ps))
     print('\n'.join(out))
 
 
