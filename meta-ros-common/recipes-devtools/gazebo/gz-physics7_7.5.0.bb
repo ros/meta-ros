@@ -11,13 +11,13 @@ SRCREV = "966563e1a403e90bf9a9cbf642dd0f58809f4a36"
 DEPENDS = " \
     gz-cmake3 \
     gz-common5 \
-    gz-dartsim-vendor \
+    dartsim \
     gz-math7 \
     gz-plugin2 \
     gz-utils2 \
     sdformat \
     bullet \
-    google-benchmark-vendor \
+    google-benchmark \
 "
 
 EXTRA_OECMAKE += " -DBUILD_TESTING=OFF"
