@@ -13,15 +13,14 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2a461be67a1edf991251f85f3aadd1d0"
 
 DEPENDS = " \
-    gz-cmake-vendor \
-    gz-math-vendor \
-    gz-tools-vendor \
-    gz-utils-vendor \
+    gz-cmake4 \
+    gz-math8 \
+    gz-tools2 \
+    gz-utils3 \
     libtinyxml2 \
     python3-psutil-native \
     python3-pybind11 \
     ruby-native \
-    urdfdom \
 "
 
 SRC_URI = "git://github.com/gazebosim/sdformat.git;protocol=https;branch=sdf15"
@@ -43,3 +42,7 @@ FILES:${PN} += "\
 FILES:python3-${PN} += "\
     ${libdir}/python \
 "
+
+# urdfdom is only provided by the ROS distro layers; use the copy bundled with sdformat so
+# that meta-ros-common does not depend on them.
+EXTRA_OECMAKE += "-DUSE_INTERNAL_URDF=ON"

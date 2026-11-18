@@ -16,7 +16,6 @@ DEPENDS = " \
     ignition-tools1 \
     ignition-utils1 \
     libtinyxml2 \
-    urdfdom \
     python3-psutil-native \
     ruby-native \
 "
@@ -27,3 +26,7 @@ FILES:${PN} += " \
     ${datadir}/sdformat12/* \
     ${datadir}/gz/gz1.completion.d/sdf12.bash_completion.sh \
 "
+
+# urdfdom is only provided by the ROS distro layers; use the copy bundled with sdformat so
+# that meta-ros-common does not depend on them.
+EXTRA_OECMAKE += "-DUSE_INTERNAL_URDF=ON"
