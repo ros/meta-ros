@@ -4,6 +4,7 @@ DESCRIPTION = "Core packages from Space ROS"
 LICENSE = "MIT"
 
 inherit packagegroup
+inherit ros_world_skip
 inherit ros_distro_jazzy
 
 PACKAGES = "${PN}"
