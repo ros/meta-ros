@@ -1,6 +1,6 @@
 Use Bitbake to fetch the hash-library git repository
 
-Upstream-Status: Not applicable
+Upstream-Status: Inappropriate [OE-specific]
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
