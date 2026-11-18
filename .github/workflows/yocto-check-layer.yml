@@ -111,13 +111,15 @@ jobs:
           LC_ALL: en_US.UTF-8
           LAYER: ${{ matrix.layer }}
         run: |
-          # Candidate dependencies: meta-oe, meta-python and every meta-ros
-          # sub-layer except the one under test. Passed by exact path with
-          # --no-auto, since auto-detection also picks up recipe directories
-          # that happen to contain conf/.
+          # Candidate dependencies: meta-oe, meta-python, meta-multimedia,
+          # meta-networking and every meta-ros sub-layer except the one under
+          # test. Passed by exact path with --no-auto, since auto-detection
+          # also picks up recipe directories that happen to contain conf/.
           dependencies=(
             "$GITHUB_WORKSPACE/meta-openembedded/meta-oe"
             "$GITHUB_WORKSPACE/meta-openembedded/meta-python"
+            "$GITHUB_WORKSPACE/meta-openembedded/meta-multimedia"
+            "$GITHUB_WORKSPACE/meta-openembedded/meta-networking"
           )
           for dir in "$GITHUB_WORKSPACE"/meta-ros/meta-*/; do
             dir=${dir%/}
