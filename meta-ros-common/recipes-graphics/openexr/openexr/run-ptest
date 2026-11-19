@@ -1,0 +1,5 @@
+#!/bin/sh
+cd "$(dirname "$0")"
+for t in OpenEXRCoreTest OpenEXRTest OpenEXRUtilTest; do
+    if ./$t; then echo "PASS: $t"; else echo "FAIL: $t"; fi
+done
