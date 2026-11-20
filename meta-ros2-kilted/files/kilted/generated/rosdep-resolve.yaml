@@ -78,6 +78,7 @@ flex:
 - flex@openembedded-core
 fmt:
 - fmt@openembedded-core
+g++-static: []
 geographiclib:
 - geographiclib@meta-ros-common
 geographiclib-tools:
@@ -117,7 +118,7 @@ gurumdds-3.2:
 hdf5-tools:
 - hdf5@meta-oe
 iwyu:
-- ${ROS_UNRESOLVED_DEP-iwyu}
+- include-what-you-use@meta-oe
 jupyter-nbconvert:
 - ${ROS_UNRESOLVED_DEP-jupyter-nbconvert}
 jupyter-notebook:
@@ -188,6 +189,8 @@ libcap-dev:
 - libcap@openembedded-core
 libccd-dev:
 - libccd@meta-ros-common
+libcereal-dev:
+- libcereal@meta-oe
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
@@ -230,14 +233,14 @@ libfreetype6:
 - freetype@openembedded-core
 libftdi1-dev:
 - libftdi@meta-oe
-libfyaml-dev:
-- libfyaml@meta-ros2
 libgdal-dev:
 - gdal@meta-ros-common
 libgeos++-dev:
 - geos@meta-oe
 libgflags-dev:
 - gflags@meta-oe
+libgles-dev:
+- ${ROS_UNRESOLVED_DEP-libgles-dev}
 libglew-dev:
 - glew@openembedded-core
 libglfw3-dev:
@@ -286,10 +289,6 @@ libncurses-dev:
 - ncurses@openembedded-core
 libnlopt-cxx-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev}
-libnlopt-dev:
-- ${ROS_UNRESOLVED_DEP-libnlopt-dev}
-libnlopt0:
-- ${ROS_UNRESOLVED_DEP-libnlopt0}
 liboctomap-dev:
 - ${ROS_UNRESOLVED_DEP-liboctomap-dev}
 libogg:
@@ -402,8 +401,6 @@ libserial-dev:
 - ${ROS_UNRESOLVED_DEP-libserial-dev}
 libshaderc-dev:
 - shaderc@openembedded-core
-libsimpleini-dev:
-- ${ROS_UNRESOLVED_DEP-libsimpleini-dev}
 libspnav-dev:
 - ${ROS_UNRESOLVED_DEP-libspnav-dev}
 libsqlite3-dev:
@@ -438,6 +435,8 @@ libv4l-dev:
 - v4l-utils@meta-oe
 libvulkan-dev:
 - vulkan-headers@openembedded-core
+libwebp-dev:
+- libwebp@openembedded-core
 libwebsocketpp-dev:
 - websocketpp@meta-oe
 libwebsockets-dev:
@@ -496,6 +495,8 @@ meson:
 - ${ROS_UNRESOLVED_DEP-meson}
 nanobind-dev:
 - python3-nanobind@meta-python
+nanoflann:
+- ${ROS_UNRESOLVED_DEP-nanoflann}
 nlohmann-json-dev:
 - nlohmann-json@meta-oe
 nodl_python:
@@ -514,6 +515,8 @@ patchelf:
 - patchelf@openembedded-core
 pkg-config:
 - pkgconfig@openembedded-core
+procps:
+- procps@openembedded-core
 proj:
 - proj@meta-oe
 protobuf:
@@ -556,8 +559,10 @@ python3-click:
 - python3-click@openembedded-core
 python3-collada:
 - ${ROS_UNRESOLVED_DEP-python3-collada}
+python3-colorama:
+- python3-colorama@openembedded-core
 python3-construct:
-- python3-construct@meta-ros2
+- python3-construct@meta-python
 python3-coverage:
 - python3-coverage@meta-python
 python3-cryptography:
@@ -598,16 +603,28 @@ python3-flake8-quotes:
 - python3-flake8-quotes@meta-ros-common
 python3-flask-socketio:
 - python3-flask-socketio@meta-python
+python3-freezegun:
+- ${ROS_UNRESOLVED_DEP-python3-freezegun}
 python3-future:
 - python3-future@meta-python
+python3-gdown-pip:
+- ${ROS_UNRESOLVED_DEP-python3-gdown-pip}
 python3-gi:
 - python3-pygobject@openembedded-core
 python3-git:
 - python3-git@openembedded-core
+python3-github:
+- ${ROS_UNRESOLVED_DEP-python3-github}
 python3-graphviz:
 - python3-graphviz@meta-python
+python3-grpc-tools:
+- python3-grpcio-tools@meta-python
+python3-grpcio:
+- python3-grpcio@meta-python
 python3-httpx:
 - python3-httpx@meta-python
+python3-imageio:
+- python3-imageio@meta-python
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -638,6 +655,8 @@ python3-mypy:
 - python3-mypy@meta-ros-common
 python3-natsort:
 - python3-natsort@meta-python
+python3-nose:
+- python3-nose@meta-ros-common
 python3-ntplib:
 - python3-ntplib@meta-python
 python3-numpy:
@@ -652,6 +671,8 @@ python3-paho-mqtt:
 - python3-paho-mqtt@meta-python
 python3-pandas:
 - python3-pandas@meta-python
+python3-paramiko:
+- python3-paramiko@meta-ros-common
 python3-pil:
 - python3-pillow@meta-python
 python3-pip:
@@ -662,6 +683,8 @@ python3-ply:
 - python3-ply@openembedded-core
 python3-pre-commit:
 - python3-pre-commit@meta-python
+python3-progressbar:
+- ${ROS_UNRESOLVED_DEP-python3-progressbar}
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
@@ -672,6 +695,8 @@ python3-pydantic:
 - python3-pydantic@meta-python
 python3-pydot:
 - python3-pydot@meta-ros-common
+python3-pygments:
+- python3-pygments@openembedded-core
 python3-pygraphviz:
 - python3-pygraphviz@meta-ros-common
 python3-pykdl:
@@ -698,6 +723,8 @@ python3-requests:
 - python3-requests@openembedded-core
 python3-rich:
 - python3-rich@meta-python
+python3-rosdep:
+- ${ROS_UNRESOLVED_DEP-python3-rosdep}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -726,8 +753,12 @@ python3-smbus2:
 - python3-smbus2@meta-python
 python3-sphinx:
 - python3-sphinx@openembedded-core
+python3-tabulate:
+- python3-tabulate@meta-python
 python3-termcolor:
 - python3-termcolor@meta-python
+python3-texttable:
+- python3-texttable@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
