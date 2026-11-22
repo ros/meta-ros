@@ -33,14 +33,14 @@ Upstream-Status: Pending
 
 Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
 
-Index: types_pyyaml-6.0.12.20250822/pyproject.toml
+Index: types_pyyaml-6.0.12.20261113/pyproject.toml
 ===================================================================
---- types_pyyaml-6.0.12.20250822.orig/pyproject.toml
-+++ types_pyyaml-6.0.12.20250822/pyproject.toml
-@@ -5,8 +5,7 @@ requires = ["setuptools>=77.0.3"]
+--- types_pyyaml-6.0.12.20261113.orig/pyproject.toml
++++ types_pyyaml-6.0.12.20261113/pyproject.toml
+@@ -5,8 +5,7 @@ requires = ["setuptools>=82.0.1"]
  [project]
  name = "types-PyYAML"
- version = "6.0.12.20250822"
+ version = "6.0.12.20261113"
 -license = "Apache-2.0"
 -license-files = ["LICENSE"]
 +license = { text = "Apache-2.0" }
