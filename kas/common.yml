@@ -8,6 +8,8 @@ header:
     - kas/layer/virtualization.yml
     - kas/layer/zenoh.yml
 
+distro: "poky"
+
 local_conf_header:
   common: |
     DISTRO_FEATURES += "usrmerge"
