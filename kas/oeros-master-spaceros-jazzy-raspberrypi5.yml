@@ -8,8 +8,6 @@ header:
     - kas/layer/qt5.yml
 
 repos:
-  realsense:
-    branch: "wrynose"
   spaceros:
     branch: "master-next"
 
