@@ -6,7 +6,7 @@ SECTION = "devel/python"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ba5edf8d60cf416b5588b1e6f152fcef"
 
-PYPI_PACKAGE_SDIST = "lark"
+PYPI_PACKAGE = "lark"
 
 SRC_URI[sha256sum] = "b426a7a6d6d53189d318f2b6236ab5d6429eaf09259f1ca33eb716eed10d2905"
 
