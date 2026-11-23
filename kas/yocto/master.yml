@@ -33,6 +33,13 @@ repos:
       meta-webserver:
       meta-xfce:
 
+  meta-yocto:
+    url: "https://git.yoctoproject.org/meta-yocto"
+    path: "layers/meta-yocto"
+    layers:
+      meta-poky:
+      meta-yocto-bsp:
+
   clang-revival:
     branch: "main"
     layers:
