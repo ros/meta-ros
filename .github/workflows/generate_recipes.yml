@@ -1,4 +1,7 @@
 name: Generate Bitbake Recipes
+# The trailing "(<distro>)" is matched by check-rosdistro-tags.yml to avoid
+# dispatching a distro that already has a queued or running run. Keep it.
+run-name: Generate Bitbake Recipes (${{ inputs.ros_distro }})
 on:    
   # Allow for manually running
   workflow_dispatch:
@@ -23,6 +26,10 @@ on:
 concurrency:
   group: generate-bitbake-recipes
   cancel-in-progress: false
+  # By default only one run may wait in the group and a newer one replaces
+  # it. Let up to 100 wait, in FIFO order, so every dispatch from
+  # check-rosdistro-tags.yml (all branches x all distros) gets its turn.
+  queue: max
 jobs:
   generate-recipes:
     runs-on: ubuntu-latest
