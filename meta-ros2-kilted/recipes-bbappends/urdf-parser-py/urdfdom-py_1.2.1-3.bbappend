@@ -1,5 +1,6 @@
 # Copyright (c) 2021 LG Electronics, Inc.
 # Copyright (c) 2022 Wind River Systems, Inc.
+LICENSE = "BSD-3-Clause"
 
 FILES:${PN}:prepend = " \
     ${datadir}/ament_index \
