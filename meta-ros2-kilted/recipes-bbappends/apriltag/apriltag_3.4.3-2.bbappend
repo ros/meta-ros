@@ -1,4 +1,5 @@
 # Copyright (c) 2020-2021 LG Electronics, Inc.
+LICENSE = "BSD-2-Clause"
 
 inherit ros_insane_dev_so python3targetconfig
 
