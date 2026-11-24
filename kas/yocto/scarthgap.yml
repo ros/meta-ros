@@ -24,6 +24,14 @@ repos:
     layers:
       bitbake: "disabled"
 
+  meta-yocto:
+    url: "https://git.yoctoproject.org/meta-yocto"
+    commit: "961c2399d06fbdb04ee27d06079e186d2c4a14ad"
+    path: "layers/meta-yocto"
+    layers:
+      meta-poky:
+      meta-yocto-bsp:
+
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
     commit: "b5874ea07d69919d9b40d59f2c2f0bbd24bc3259"
