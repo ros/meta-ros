@@ -1,0 +1,22 @@
+From: Rob Woolley <rob.woolley@windriver.com>
+Subject: [PATCH] pyproject.toml: Relax build requirements
+
+Lower the setuptools and setuptools-scm minimum versions to match the
+versions provided by Scarthgap (setuptools 69.1.1, setuptools-scm 8.0.4).
+The version is read from lark.__version__ (dynamic attr) and there is no
+tool.setuptools_scm section, so the newer versions are not needed.
+
+Assisted-by: Claude:claude-sonnet-5-5
+AI-Generated: Uses Claude (claude-sonnet-5-5)
+Upstream-Status: Inappropriate [OE-specific]
+Signed-off-by: Rob Woolley <rob.woolley@windriver.com>
+---
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools>=80", "setuptools-scm>=9.2.2"]
++requires = ["setuptools>=69.1.1", "setuptools-scm>=8.0.4"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]

@@ -12,6 +12,8 @@ SRC_URI[sha256sum] = "b426a7a6d6d53189d318f2b6236ab5d6429eaf09259f1ca33eb716eed1
 
 inherit pypi python_setuptools_build_meta
 
+SRC_URI += "file://0001-pyproject.toml-Relax-build-requirements.patch"
+
 DEPENDS += "python3-setuptools-scm-native"
 
 BBCLASSEXTEND = "native nativesdk"
