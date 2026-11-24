@@ -10,4 +10,7 @@ RDEPENDS:${PN} += "python3-core"
 
 PYPI_PACKAGE = "types_pyyaml"
 
-SRC_URI += "file://remove-license-files.patch"
+SRC_URI += " \
+    file://remove-license-files.patch \
+    file://0001-pyproject.toml-Relax-build-requirements.patch \
+"
