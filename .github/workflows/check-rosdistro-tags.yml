@@ -7,13 +7,23 @@ name: Check rosdistro Tags
 # and docs/meta-ros-audit-remediation-spec.md (task M1-4) for the design
 # rationale and open questions this implementation makes a call on.
 #
-# This workflow only manages the branch it runs on: it reads that
-# branch's own recorded generated/cache.yaml state and dispatches
-# generate_recipes.yml against that same branch (github.ref_name). It
-# does not fan out across other Yocto-release branches -- if this
-# protection is wanted on wrynose/scarthgap/etc. too, this file needs to
-# be added to each of those branches independently, same as any other
-# repo-wide file (see AGENTS.md).
+# GitHub only fires `schedule` triggers from the copy of this file on the
+# default branch (master), so this one copy covers every branch listed in
+# the matrix below. For each branch it:
+#   - checks that branch out and reads its own generated/cache.yaml state
+#     (the recorded release dates can differ between branches),
+#   - runs this ref's copy of scripts/check-rosdistro-tags.sh against that
+#     checkout, so the script only has to be maintained in one place, and
+#   - dispatches generate_recipes.yml with --ref <branch>, which runs the
+#     copy of generate_recipes.yml that lives on that branch. That file
+#     must therefore exist on every listed branch (see AGENTS.md).
+#
+# Copies of this file on the other branches are inert: their `schedule`
+# trigger never fires, but they can be used for a manual
+# workflow_dispatch run from that branch's own state.
+#
+# To add or retire a Yocto release branch, edit BOTH the `branch` input
+# options and the matrix fallback list below.
 
 on:
   schedule:
@@ -21,6 +31,17 @@ on:
     - cron: '17 6 * * *'
   workflow_dispatch:
     inputs:
+      branch:
+        description: 'Branch to check, or "all"'
+        required: true
+        type: choice
+        default: all
+        options:
+          - all
+          - master
+          - scarthgap
+          - wrynose
+          - blacksail
       days:
         description: 'Only consider tags at most this many days old'
         required: false
@@ -38,21 +59,51 @@ permissions:
 
 jobs:
   check-and-dispatch:
+    name: check-and-dispatch (${{ matrix.branch }})
     runs-on: ubuntu-latest
+    strategy:
+      # One branch failing (e.g. a network blip) must not stop the others.
+      fail-fast: false
+      # Run one branch at a time, in list order. generate_recipes.yml runs
+      # share a single concurrency group, so this also makes them queue in
+      # a predictable order (master first).
+      max-parallel: 1
+      matrix:
+        branch: ${{ (github.event_name == 'workflow_dispatch' && inputs.branch != 'all') && fromJSON(format('["{0}"]', inputs.branch)) || fromJSON('["master","scarthgap","wrynose","blacksail"]') }}
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      BRANCH: ${{ matrix.branch }}
     steps:
-      - name: Check out repository code
+      # This ref's copy of the check script (the workflow's own ref, i.e.
+      # master for scheduled runs).
+      - name: Check out check script
         uses: actions/checkout@v6
+        with:
+          path: tools
+          sparse-checkout: scripts/check-rosdistro-tags.sh
+          sparse-checkout-cone-mode: false
+
+      # The branch being checked: its layers and generated/cache.yaml are
+      # what the script compares against rosdistro's tags.
+      - name: Check out ${{ matrix.branch }}
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ matrix.branch }}
+          path: branch
 
       - name: Check rosdistro tags
         id: check
+        working-directory: branch
+        env:
+          DAYS: ${{ inputs.days || '30' }}
         run: |
-          bash scripts/check-rosdistro-tags.sh -d "${{ inputs.days || '30' }}"
+          bash ../tools/scripts/check-rosdistro-tags.sh -d "$DAYS"
 
       - name: Dispatch generate_recipes.yml for due distros
         if: steps.check.outputs.due_distros != '[]' && steps.check.outputs.due_distros != ''
         env:
+          DUE_DISTROS: ${{ steps.check.outputs.due_distros }}
           # workflow_dispatch runs respect the dry_run input (which
           # itself defaults to true -- see the input schema above, safe
           # for manual testing); scheduled runs have no `inputs` context
@@ -60,25 +111,43 @@ jobs:
           # is the point of this workflow.
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
         run: |
-          for distro in $(echo '${{ steps.check.outputs.due_distros }}' | jq -r '.[]'); do
+          for distro in $(echo "$DUE_DISTROS" | jq -r '.[]'); do
             # Don't pile up a second regeneration branch/PR while a prior
             # one for this distro is still open and awaiting review.
             open_count=$(gh pr list --state open \
-              --search "head:superflore/${{ github.ref_name }}/${distro}/" \
+              --search "head:superflore/${BRANCH}/${distro}/" \
               --json number --jq 'length')
             if [ "$open_count" -gt 0 ]; then
-              echo "SKIP $distro: an open superflore PR already exists for it"
+              echo "SKIP $BRANCH/$distro: an open superflore PR already exists for it"
+              continue
+            fi
+
+            # generate_recipes.yml runs share one concurrency group, so a
+            # dispatched run can sit queued for a long time. Don't
+            # dispatch the same branch/distro again while one is waiting
+            # or running. generate_recipes.yml's run-name ends in
+            # "(<distro>)", which is what is matched here.
+            active_count=0
+            for status in queued in_progress waiting pending requested; do
+              n=$(gh run list --workflow generate_recipes.yml \
+                --branch "$BRANCH" --status "$status" \
+                --json displayTitle \
+                --jq "[.[] | select(.displayTitle | endswith(\"(${distro})\"))] | length")
+              active_count=$((active_count + n))
+            done
+            if [ "$active_count" -gt 0 ]; then
+              echo "SKIP $BRANCH/$distro: a generate_recipes.yml run is already queued or in progress"
               continue
             fi
 
             if [ "$DRY_RUN" = "true" ]; then
-              echo "DRY RUN: would dispatch generate_recipes.yml for $distro on ${{ github.ref_name }}"
+              echo "DRY RUN: would dispatch generate_recipes.yml for $distro on $BRANCH"
               continue
             fi
 
-            echo "Dispatching generate_recipes.yml for $distro on ${{ github.ref_name }}"
+            echo "Dispatching generate_recipes.yml for $distro on $BRANCH"
             gh workflow run generate_recipes.yml \
-              --ref "${{ github.ref_name }}" \
+              --ref "$BRANCH" \
               -f ros_distro="$distro" \
               -f dry_run=false
           done
