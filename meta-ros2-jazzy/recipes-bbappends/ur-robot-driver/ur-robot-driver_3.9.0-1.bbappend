@@ -2,3 +2,6 @@
 
 # ERROR: QA Issue: /usr/lib/ur_robot_driver/start_ursim.sh contained in package ur-robot-driver requires /bin/bash, but no providers found in RDEPENDS:ur-robot-driver? [file-rdeps]
 RDEPENDS:${PN} += "bash"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
+SRC_URI += "file://0001-urscript_interface-Use-a-format-string-to-log-excepti.patch"
