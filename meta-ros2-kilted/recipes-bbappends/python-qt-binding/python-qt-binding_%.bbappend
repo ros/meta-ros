@@ -1,4 +1,5 @@
 # Copyright (c) 2023-2024 Wind River Systems, Inc.
+LICENSE = "BSD-3-Clause"
 
 SRC_URI += "file://adding-sip5-integration.patch"
 
