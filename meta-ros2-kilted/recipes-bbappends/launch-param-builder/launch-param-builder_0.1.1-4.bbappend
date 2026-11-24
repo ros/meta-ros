@@ -1,4 +1,5 @@
 # Copyright (c) 2022 Wind River Systems, Inc.
+LICENSE = "BSD-3-Clause"
 
 # ERROR: QA Issue: launch-param-builder: Files/directories were installed but not shipped in any package:
 #   /usr/share/lib
