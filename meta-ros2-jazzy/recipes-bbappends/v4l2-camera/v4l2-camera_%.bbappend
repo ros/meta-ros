@@ -1,8 +1,5 @@
 # Copyright (C) 2023 Avnet, Inc.  All rights reserved.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
-SRC_URI += "file://fix_warning.patch"
-
 # | CMake Error in CMakeLists.txt:
 # |   Imported target "rclcpp::rclcpp" includes non-existent path
 # |
@@ -49,3 +46,6 @@ ROS_BUILDTOOL_DEPENDS += " \
 
 # v4l2-camera/0.7.0-1-r0/recipe-sysroot/usr/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_period.hpp:174:32: error: unused parameter 'message_info' [-Werror=unused-parameter]
 CXXFLAGS += "-Wno-error=unused-parameter"
+
+# v4l2-camera/0.7.1-1/recipe-sysroot/opt/ros/jazzy/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp:132:8: error: 'template<class _Codecvt, class _Elem, class _Wide_alloc, class _Byte_alloc> class std::__cxx11::wstring_convert' is deprecated [-Werror=deprecated-declarations]
+CXXFLAGS += "-Wno-error=deprecated-declarations"
