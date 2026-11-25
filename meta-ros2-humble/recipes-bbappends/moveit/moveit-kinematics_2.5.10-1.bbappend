@@ -1,4 +1,5 @@
 # Copyright (c) 2021 LG Electronics, Inc.
+LICENSE = "BSD-3-Clause"
 
 # moveit-ros-planning is in ROS_TEST_DEPENDS but CMake checks for that even
 # when building with tests disabled
