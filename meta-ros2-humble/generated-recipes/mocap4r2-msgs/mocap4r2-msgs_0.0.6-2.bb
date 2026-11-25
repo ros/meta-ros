@@ -61,9 +61,9 @@ DEPENDS += "${ROS_EXPORT_DEPENDS} ${ROS_BUILDTOOL_EXPORT_DEPENDS}"
 
 RDEPENDS:${PN} += "${ROS_EXEC_DEPENDS}"
 
-# matches with: https://github.com/MOCAP4ROS2-Project/mocap4r2_msgs-release/archive/release/humble/mocap4r2_msgs/0.0.6-2.tar.gz
+# matches with: https://github.com/MOCAP4ROS2-Project/mocap4r2_interfaces-release/archive/release/humble/mocap4r2_msgs/0.0.6-2.tar.gz
 ROS_BRANCH ?= "branch=release/humble/mocap4r2_msgs"
-SRC_URI = "git://github.com/MOCAP4ROS2-Project/mocap4r2_msgs-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/MOCAP4ROS2-Project/mocap4r2_interfaces-release;${ROS_BRANCH};protocol=https"
 SRCREV = "7343391c7233a5d16978816e91167a307d262b21"
 S = "${WORKDIR}/git"
 
