@@ -155,7 +155,7 @@ ignition-transport11:
 iproute2:
 - iproute2@openembedded-core
 iwyu:
-- ${ROS_UNRESOLVED_DEP-iwyu}
+- include-what-you-use@meta-oe
 jupyter-nbconvert:
 - ${ROS_UNRESOLVED_DEP-jupyter-nbconvert}
 jupyter-notebook:
@@ -234,6 +234,8 @@ libcap-dev:
 - libcap@openembedded-core
 libccd-dev:
 - libccd@meta-ros-common
+libcereal-dev:
+- libcereal@meta-oe
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
@@ -260,6 +262,8 @@ libfcl:
 - fcl@meta-ros-common
 libfcl-dev:
 - fcl@meta-ros-common
+libfl-dev:
+- ${ROS_UNRESOLVED_DEP-libfl-dev}
 libflann-dev:
 - libflann@meta-ros-common
 libflatbuffers-dev:
@@ -392,8 +396,6 @@ libpcl-segmentation:
 - pcl@meta-ros-common
 libpcl-surface:
 - pcl@meta-ros-common
-libpng++-dev:
-- ${ROS_UNRESOLVED_DEP-libpng++-dev}
 libpng-dev:
 - libpng@openembedded-core
 libpoco-dev:
@@ -611,7 +613,7 @@ python3-colorama:
 python3-colorcet:
 - ${ROS_UNRESOLVED_DEP-python3-colorcet}
 python3-construct:
-- python3-construct@meta-ros2
+- python3-construct@meta-python
 python3-coverage:
 - python3-coverage@meta-python
 python3-cryptography:
@@ -728,6 +730,8 @@ python3-pydantic:
 - python3-pydantic@meta-python
 python3-pydot:
 - python3-pydot@meta-ros-common
+python3-pygments:
+- python3-pygments@openembedded-core
 python3-pygraphviz:
 - python3-pygraphviz@meta-ros-common
 python3-pykdl:
@@ -872,6 +876,8 @@ robin-map-dev:
 - ${ROS_UNRESOLVED_DEP-robin-map-dev}
 rti-connext-dds-6.0.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1}
+rustc:
+- ${ROS_UNRESOLVED_DEP-rustc}
 sdformat12:
 - ${ROS_UNRESOLVED_DEP-sdformat12}
 sdl2:
