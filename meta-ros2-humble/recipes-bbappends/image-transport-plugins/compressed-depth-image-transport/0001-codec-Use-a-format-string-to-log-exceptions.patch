@@ -1,0 +1,58 @@
+From: Rob Woolley <rob.woolley@windriver.com>
+Subject: [PATCH] codec: Use a format string to log exceptions
+
+Passing e.what() or e.msg.c_str() as the format argument of RCLCPP_ERROR
+fails to compile with -Werror=format-security:
+  error: format not a string literal and no format arguments
+Pass them as arguments to a literal "%s" instead. Rolling already does
+this, but the humble branch still has the bug.
+
+Upstream-Status: Pending
+---
+--- a/src/codec.cpp
++++ b/src/codec.cpp
+@@ -99,7 +99,7 @@
+       }
+       catch (cv::Exception& e)
+       {
+-        RCLCPP_ERROR(logger, e.what());
++        RCLCPP_ERROR(logger, "%s", e.what());
+         return sensor_msgs::msg::Image::SharedPtr();
+       }
+ 
+@@ -142,7 +142,7 @@
+       }
+       catch (cv::Exception& e)
+       {
+-        RCLCPP_ERROR(logger, e.what());
++        RCLCPP_ERROR(logger, "%s", e.what());
+         return sensor_msgs::msg::Image::SharedPtr();
+       }
+ 
+@@ -206,7 +206,7 @@
+     }
+     catch (cv_bridge::Exception& e)
+     {
+-      RCLCPP_ERROR(logger, e.what());
++      RCLCPP_ERROR(logger, "%s", e.what());
+       return sensor_msgs::msg::CompressedImage::SharedPtr();
+     }
+ 
+@@ -265,7 +265,7 @@
+       }
+       catch (cv::Exception& e)
+       {
+-        RCLCPP_ERROR(logger, e.msg.c_str());
++        RCLCPP_ERROR(logger, "%s", e.msg.c_str());
+         return sensor_msgs::msg::CompressedImage::SharedPtr();
+       }
+     }
+@@ -281,7 +281,7 @@
+     }
+     catch (Exception& e)
+     {
+-      RCLCPP_ERROR(logger, e.msg.c_str());
++      RCLCPP_ERROR(logger, "%s", e.msg.c_str());
+       return sensor_msgs::msg::CompressedImage::SharedPtr();
+     }
+ 
