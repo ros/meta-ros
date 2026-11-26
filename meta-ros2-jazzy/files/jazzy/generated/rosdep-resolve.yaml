@@ -139,7 +139,7 @@ hdf5-tools:
 iproute2:
 - iproute2@openembedded-core
 iwyu:
-- ${ROS_UNRESOLVED_DEP-iwyu}
+- include-what-you-use@meta-oe
 jupyter-nbconvert:
 - ${ROS_UNRESOLVED_DEP-jupyter-nbconvert}
 jupyter-notebook:
@@ -218,6 +218,8 @@ libcap-dev:
 - libcap@openembedded-core
 libccd-dev:
 - libccd@meta-ros-common
+libcereal-dev:
+- libcereal@meta-oe
 libceres-dev:
 - ceres-solver@meta-oe
 libclang-dev:
@@ -338,8 +340,6 @@ libnlopt-cxx-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-cxx-dev}
 libnlopt-dev:
 - ${ROS_UNRESOLVED_DEP-libnlopt-dev}
-libnlopt0:
-- ${ROS_UNRESOLVED_DEP-libnlopt0}
 liboctomap-dev:
 - ${ROS_UNRESOLVED_DEP-liboctomap-dev}
 libogg:
@@ -504,6 +504,8 @@ libv4l-dev:
 - v4l-utils@meta-oe
 libvulkan-dev:
 - vulkan-headers@openembedded-core
+libwebp-dev:
+- libwebp@openembedded-core
 libwebsocketpp-dev:
 - websocketpp@meta-oe
 libwebsockets-dev:
@@ -566,6 +568,8 @@ muparser:
 - muparser@meta-qt5-extra
 nanobind-dev:
 - python3-nanobind@meta-python
+nanoflann:
+- ${ROS_UNRESOLVED_DEP-nanoflann}
 network-manager:
 - ${ROS_UNRESOLVED_DEP-network-manager}
 nlohmann-json-dev:
@@ -642,8 +646,10 @@ python3-colcon-common-extensions:
 - ${ROS_UNRESOLVED_DEP-python3-colcon-common-extensions}
 python3-collada:
 - ${ROS_UNRESOLVED_DEP-python3-collada}
+python3-colorama:
+- python3-colorama@openembedded-core
 python3-construct:
-- python3-construct@meta-ros2
+- python3-construct@meta-python
 python3-coverage:
 - python3-coverage@meta-python
 python3-cryptography:
@@ -682,20 +688,32 @@ python3-flask:
 - python3-flask@meta-python
 python3-flask-socketio:
 - python3-flask-socketio@meta-python
+python3-freezegun:
+- ${ROS_UNRESOLVED_DEP-python3-freezegun}
 python3-ftdi:
 - ${ROS_UNRESOLVED_DEP-python3-ftdi}
 python3-future:
 - python3-future@meta-python
+python3-gdown-pip:
+- ${ROS_UNRESOLVED_DEP-python3-gdown-pip}
 python3-gi:
 - python3-pygobject@openembedded-core
 python3-gi-cairo:
 - ${ROS_UNRESOLVED_DEP-python3-gi-cairo}
 python3-git:
 - python3-git@openembedded-core
+python3-github:
+- ${ROS_UNRESOLVED_DEP-python3-github}
 python3-graphviz:
 - python3-graphviz@meta-python
+python3-grpc-tools:
+- python3-grpcio-tools@meta-python
+python3-grpcio:
+- python3-grpcio@meta-python
 python3-httpx:
 - python3-httpx@meta-python
+python3-imageio:
+- python3-imageio@meta-python
 python3-img2pdf:
 - python3-img2pdf@meta-ros-common
 python3-importlib-metadata:
@@ -734,6 +752,8 @@ python3-natsort:
 - python3-natsort@meta-python
 python3-networkx:
 - ${ROS_UNRESOLVED_DEP-python3-networkx}
+python3-nose:
+- python3-nose@meta-ros-common
 python3-ntplib:
 - python3-ntplib@meta-python
 python3-numpy:
@@ -764,6 +784,8 @@ python3-ply:
 - python3-ply@openembedded-core
 python3-pre-commit:
 - python3-pre-commit@meta-python
+python3-progressbar:
+- ${ROS_UNRESOLVED_DEP-python3-progressbar}
 python3-protobuf:
 - python3-protobuf@meta-python
 python3-psutil:
@@ -774,6 +796,8 @@ python3-pydantic:
 - python3-pydantic@meta-python
 python3-pydot:
 - python3-pydot@meta-ros-common
+python3-pygments:
+- python3-pygments@openembedded-core
 python3-pygraphviz:
 - python3-pygraphviz@meta-ros-common
 python3-pykdl:
@@ -802,6 +826,8 @@ python3-requests:
 - python3-requests@openembedded-core
 python3-rich:
 - python3-rich@meta-python
+python3-rosdep:
+- ${ROS_UNRESOLVED_DEP-python3-rosdep}
 python3-rosdistro-modules:
 - python3-rosdistro@meta-ros-common
 python3-rospkg:
@@ -838,6 +864,8 @@ python3-tabulate:
 - python3-tabulate@meta-python
 python3-termcolor:
 - python3-termcolor@meta-python
+python3-texttable:
+- python3-texttable@meta-python
 python3-tk:
 - python3-tkinter@openembedded-core
 python3-toml:
@@ -978,6 +1006,8 @@ rti-connext-dds-6.0.1:
 - ${ROS_UNRESOLVED_DEP-rti-connext-dds-6.0.1}
 ruby:
 - ${ROS_UNRESOLVED_DEP-ruby}
+rustc:
+- ${ROS_UNRESOLVED_DEP-rustc}
 sdl2:
 - libsdl2@openembedded-core
 simde:
